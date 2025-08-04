@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Calculadora de IMC Infantil - Crianças e Adolescentes | Calcule Sua Saúde</title>
+<meta content="Calcule o IMC de crianças e adolescentes com interpretação baseada em percentis. Avalie o crescimento e desenvolvimento infantil adequadamente." name="description"/>
+<meta content="IMC infantil, IMC criança, percentil IMC, crescimento infantil, peso ideal criança, desenvolvimento infantil" name="keywords"/>
+<!-- Open Graph -->
+<meta content="Calculadora de IMC Infantil - Crianças e Adolescentes" property="og:title"/>
+<meta content="Calcule o IMC de crianças e adolescentes com interpretação baseada em percentis adequados para cada idade." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://calculesuasaude.com.br/ferramentas/imc_infantil.html" property="og:url"/>
+<!-- Favicon -->
+<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- CSS -->
+<link href="../css/estilo.css" rel="stylesheet"/>
+<link href="../css/estilo-adicional.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Cabeçalho -->
+<header class="header-fixo">
+<nav class="navbar">
+<div class="container">
+<div class="logo">
+<h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
+</div>
+<ul class="menu">
+<li><a href="../index.html">Início</a></li>
+<li><a href="../index.html#ferramentas">Ferramentas</a></li>
+<li><a href="../index.html#artigos">Artigos</a></li>
+<li><a href="../sobre.html">Sobre</a></li>
+<li><a href="../contato.html">Contato</a></li>
+<li><button class="btn-modo" id="modo-noturno">🌙</button></li>
+</ul>
+</div>
+</nav>
+</header>
+<!-- Breadcrumbs -->
+<section class="breadcrumbs">
+<div class="container">
+<a href="../index.html">Início</a> &gt; <a href="../index.html#ferramentas">Ferramentas</a> &gt; <span>Calculadora de IMC Infantil</span>
+</div>
+</section>
+<!-- Conteúdo Principal -->
+<main>
+<section class="ferramenta-content">
+<div class="container">
+<div class="ferramenta-header">
+<div class="ferramenta-icon">👶</div>
+<h1>Calculadora de IMC Infantil</h1>
+<p class="ferramenta-subtitle">Avalie o crescimento de crianças e adolescentes com base em percentis adequados para cada idade</p>
+</div>
+<div class="ferramenta-grid">
+<div class="calculadora-section">
+<div class="calculadora-card">
+<h2>Calcule o IMC da criança</h2>
+<form id="imc-infantil-form">
+<div class="form-group">
+<label for="sexo">Sexo</label>
+<select id="sexo" required="">
+<option value="">Selecione</option>
+<option value="masculino">Masculino</option>
+<option value="feminino">Feminino</option>
+</select>
+</div>
+<div class="form-group">
+<label for="idade-anos">Idade (anos)</label>
+<input id="idade-anos" max="19" min="2" placeholder="Ex: 8" required="" type="number"/>
+</div>
+<div class="form-group">
+<label for="idade-meses">Meses adicionais</label>
+<select id="idade-meses">
+<option value="0">0 meses</option>
+<option value="1">1 mês</option>
+<option value="2">2 meses</option>
+<option value="3">3 meses</option>
+<option value="4">4 meses</option>
+<option value="5">5 meses</option>
+<option value="6">6 meses</option>
+<option value="7">7 meses</option>
+<option value="8">8 meses</option>
+<option value="9">9 meses</option>
+<option value="10">10 meses</option>
+<option value="11">11 meses</option>
+</select>
+</div>
+<div class="form-group">
+<label for="peso">Peso (kg)</label>
+<input id="peso" max="150" min="5" placeholder="Ex: 25.5" required="" step="0.1" type="number"/>
+</div>
+<div class="form-group">
+<label for="altura">Altura (cm)</label>
+<input id="altura" max="200" min="60" placeholder="Ex: 125" required="" step="0.1" type="number"/>
+</div>
+<button class="btn-primary" type="submit">Calcular IMC Infantil</button>
+</form>
+<div class="resultado" id="resultado-imc-infantil" style="display: none;">
+<h3>Resultado do IMC Infantil</h3>
+<div class="resultado-imc-infantil-grid">
+<div class="resultado-item">
+<div class="resultado-label">IMC</div>
+<div class="resultado-valor" id="valor-imc-infantil"></div>
+<div class="resultado-unidade">kg/m²</div>
+</div>
+<div class="resultado-item">
+<div class="resultado-label">Percentil</div>
+<div class="resultado-valor" id="valor-percentil"></div>
+<div class="resultado-unidade">%</div>
+</div>
+</div>
+<div class="classificacao-infantil" id="classificacao-infantil"></div>
+<div class="resultado-interpretacao" id="interpretacao-imc-infantil"></div>
+</div>
+</div>
+</div>
+<div class="info-section">
+<div class="info-card">
+<h3>IMC Infantil vs Adulto</h3>
+<p>O IMC infantil é interpretado diferentemente do adulto, usando percentis que consideram idade e sexo, pois crianças estão em constante crescimento e desenvolvimento.</p>
+</div>
+<div class="info-card">
+<h3>O que são Percentis?</h3>
+<p>Percentis comparam a criança com outras da mesma idade e sexo. Por exemplo, percentil 75 significa que a criança tem IMC maior que 75% das crianças da mesma idade.</p>
+</div>
+<div class="info-card">
+<h3>Classificação por Percentis</h3>
+<div class="percentis-info">
+<div class="percentil-item">
+<span class="percentil-nome baixo-peso">Baixo Peso</span>
+<span class="percentil-valor">&lt; P5</span>
+</div>
+<div class="percentil-item">
+<span class="percentil-nome peso-normal">Peso Normal</span>
+<span class="percentil-valor">P5 - P85</span>
+</div>
+<div class="percentil-item">
+<span class="percentil-nome sobrepeso">Sobrepeso</span>
+<span class="percentil-valor">P85 - P97</span>
+</div>
+<div class="percentil-item">
+<span class="percentil-nome obesidade">Obesidade</span>
+<span class="percentil-valor">≥ P97</span>
+</div>
+</div>
+</div>
+<div class="info-card">
+<h3>⚠️ Importante</h3>
+<ul>
+<li>Válido para idades de 2 a 19 anos</li>
+<li>Baseado nas curvas da OMS e CDC</li>
+<li>Considera crescimento e desenvolvimento</li>
+<li>Sempre consulte um pediatra</li>
+<li>Avalie junto com outros indicadores</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="conteudo-educativo">
+<h2>Crescimento saudável na infância</h2>
+<div class="educativo-grid">
+<div class="educativo-card">
+<h3>📈 Acompanhamento Regular</h3>
+<p>O crescimento infantil deve ser acompanhado regularmente pelo pediatra. O IMC é apenas um dos indicadores, junto com altura, desenvolvimento e hábitos alimentares.</p>
+</div>
+<div class="educativo-card">
+<h3>🍎 Alimentação Equilibrada</h3>
+<p>Priorize alimentos naturais, frutas, vegetais e grãos integrais. Limite açúcares, refrigerantes e alimentos ultraprocessados para um crescimento saudável.</p>
+</div>
+<div class="educativo-card">
+<h3>🏃‍♂️ Atividade Física</h3>
+<p>Crianças precisam de pelo menos 60 minutos de atividade física diária. Brincadeiras ativas, esportes e exercícios são fundamentais para o desenvolvimento.</p>
+</div>
+<div class="educativo-card">
+<h3>😴 Sono Adequado</h3>
+<p>O sono é crucial para o crescimento. Crianças precisam de 9-11 horas de sono por noite para produção adequada do hormônio do crescimento.</p>
+</div>
+<div class="educativo-card">
+<h3>📱 Limite de Telas</h3>
+<p>Limite o tempo de tela e incentive atividades ao ar livre. O sedentarismo na infância pode levar a problemas de peso e desenvolvimento.</p>
+</div>
+<div class="educativo-card">
+<h3>👨‍⚕️ Acompanhamento Médico</h3>
+<p>Consultas regulares com pediatra são essenciais. Profissionais podem identificar precocemente problemas de crescimento e orientar adequadamente.</p>
+</div>
+</div>
+</div>
+<div class="leia-tambem">
+<h3>Leia também</h3>
+<div class="artigos-relacionados"><a class="artigo-link" href="../artigos/nutricao-esportiva.html"><span class_="artigo-titulo">Nutrição Esportiva: Guia Completo para Performance e Recuperação</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/colesterol-controle-prevencao.html"><span class_="artigo-titulo">Colesterol: Controle, Prevenção e Tratamento Completo</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/saude-digestiva-intestino.html"><span class_="artigo-titulo">Saúde Digestiva: Cuidados com o Intestino</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Rodapé -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h3>Calcule Sua Saúde</h3>
+<p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+</div>
+<div class="footer-section">
+<h4>Links Úteis</h4>
+<ul>
+<li><a href="../sobre.html">Sobre</a></li>
+<li><a href="../contato.html">Contato</a></li>
+<li><a href="../politica.html">Política de Privacidade</a></li>
+<li><a href="../termos.html">Termos de Uso</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Outras Ferramentas</h4>
+<ul>
+<li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
+<li><a href="tmb.html">Taxa Metabólica Basal</a></li>
+<li><a href="agua.html">Água por Dia</a></li>
+<li><a href="frequencia_cardiaca.html">Frequência Cardíaca</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+<p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
+</div>
+</div>
+</footer>
+<!-- JavaScript -->
+<script src="../js/modo-noturno.js"></script>
+<script src="../js/imc_infantil.js"></script>
+</body>
+</html>

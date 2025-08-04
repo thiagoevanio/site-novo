@@ -1,0 +1,22 @@
+{
+  "name": "Calcule Sua Saúde",
+  "short_name": "CalcSaude",
+  "description": "Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "icon192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ]
+}
+

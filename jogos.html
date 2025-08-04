@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos Saudáveis - Calcule Sua Saúde</title>
+    <meta name="description" content="Divirta-se e aprenda com nossos jogos interativos sobre saúde e nutrição.">
+    <meta name="keywords" content="jogos, saúde, nutrição, interativo, divertido">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="quiz_styles.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="header-fixo">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>Calcule Sua Saúde</h1>
+                </div>
+                <ul class="menu">
+                    <li><a href="index.html">🏠 Início</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">🩺 Saúde Interativa</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#ferramentas">🧮 Calculadoras</a></li>
+                            <li><a href="desafios.html">📅 Desafios Diários</a></li>
+                            <li><a href="todos_quizzes.html">🧩 Quizzes</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">📚 Conteúdo</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="artigos.html">📄 Artigos</a></li>
+                            <li><a href="jogos.html">🎮 Jogos</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">ℹ️ Sobre</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="sobre.html">🏢 Sobre o Calcule Sua Saúde</a></li>
+                            <li><a href="politica.html">🔒 Política de Privacidade</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contato.html">📞 Contato</a></li>
+                    <li><button id="modo-noturno" class="btn-modo">🌙</button></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Jogos Saudáveis</h2>
+                    <p>Divirta-se e aprenda sobre saúde e nutrição com nossos jogos interativos!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="jogos-list">
+            <div class="container">
+                <h2>Nossos Jogos</h2>
+                <div class="cards-grid">
+                    <!-- Game 1: Jogo da Alimentação Saudável -->
+                    <div class="card">
+                        <div class="card-icon">🍎</div>
+                        <h3>Jogo da Alimentação Saudável</h3>
+                        <p>Arraste e solte alimentos saudáveis para o prato e evite os ruins.</p>
+                        <a href="jogos/alimentacao_saudavel.html" class="btn-card">Jogar</a>
+                    </div>
+
+                    <!-- Game 2: Adivinhe a Caloria -->
+                    <div class="card">
+                        <div class="card-icon">🔥</div>
+                        <h3>Adivinhe a Caloria</h3>
+                        <p>Adivinhe a quantidade de calorias de diferentes alimentos.</p>
+                        <a href="jogos/adivinhe_caloria.html" class="btn-card">Jogar</a>
+                    </div>
+
+                    <!-- Game 3: Monte sua Rotina Saudável -->
+                    <div class="card">
+                        <div class="card-icon">⏰</div>
+                        <h3>Monte sua Rotina Saudável</h3>
+                        <p>Crie uma rotina diária equilibrada com sono, exercício e alimentação.</p>
+                        <a href="jogos/rotina_saudavel.html" class="btn-card">Jogar</a>
+                    </div>
+
+                    <!-- Game 4: Memória da Saúde -->
+                    <div class="card">
+                        <div class="card-icon">🧠</div>
+                        <h3>Memória da Saúde</h3>
+                        <p>Combine cartas de alimentos com seus benefícios para a saúde.</p>
+                        <a href="jogos/memoria_saude.html" class="btn-card">Jogar</a>
+                    </div>
+
+                    <!-- Game 5: Monte sua Rotina Saudável (assuming it's a distinct game or a different version) -->
+                    <div class="card">
+                        <div class="card-icon">🧘</div>
+                        <h3>Desafio da Rotina Saudável</h3>
+                        <p>Um novo desafio para montar sua rotina e alcançar o bem-estar.</p>
+                        <a href="jogos/desafio_rotina.html" class="btn-card">Jogar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Calcule Sua Saúde</h3>
+                    <p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                        <li><a href="politica.html">Política de Privacidade</a></li>
+                        <li><a href="termos.html">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Ferramentas</h4>
+                    <ul>
+                        <li><a href="ferramentas/imc.html">Calculadora de IMC</a></li>
+                        <li><a href="ferramentas/tmb.html">Taxa Metabólica Basal</a></li>
+                        <li><a href="ferramentas/agua.html">Água por Dia</a></li>
+                        <li><a href="ferramentas/calorias.html">Gasto Calórico</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+                <p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/modo-noturno.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinhe a Caloria - Calcule Sua Saúde</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <style>
+        .game-container {
+            max-width: 800px;
+            margin: 100px auto 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .game-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .difficulty-selector {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .difficulty-btn {
+            background: #FF9800;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .difficulty-btn.active {
+            background: #F57C00;
+        }
+        
+        .score-board {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF9800;
+        }
+        
+        .question-area {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #fff3e0;
+            border-radius: 10px;
+        }
+        
+        .food-image {
+            font-size: 80px;
+            margin: 20px 0;
+        }
+        
+        .food-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .food-portion {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        
+        .option-btn {
+            background: #fff;
+            border: 2px solid #FF9800;
+            color: #FF9800;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .option-btn:hover {
+            background: #FF9800;
+            color: white;
+        }
+        
+        .option-btn.correct {
+            background: #4CAF50;
+            border-color: #4CAF50;
+            color: white;
+        }
+        
+        .option-btn.incorrect {
+            background: #f44336;
+            border-color: #f44336;
+            color: white;
+        }
+        
+        .option-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        
+        .feedback {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .feedback.correct {
+            background: #e8f5e8;
+            color: #2e7d32;
+            border: 2px solid #4CAF50;
+        }
+        
+        .feedback.incorrect {
+            background: #ffebee;
+            color: #c62828;
+            border: 2px solid #f44336;
+        }
+        
+        .game-controls {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .btn {
+            background: #FF9800;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        
+        .btn:hover {
+            background: #F57C00;
+        }
+        
+        .btn.secondary {
+            background: #2196F3;
+        }
+        
+        .btn.secondary:hover {
+            background: #1976D2;
+        }
+        
+        .nutrition-tip {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+        
+        .share-buttons {
+            margin-top: 20px;
+        }
+        
+        .share-btn {
+            background: #1877f2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .share-btn.twitter {
+            background: #1da1f2;
+        }
+        
+        .share-btn.whatsapp {
+            background: #25d366;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-fixo">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1><a href="../index.html" style="color: inherit; text-decoration: none;">Calcule Sua Saúde</a></h1>
+                </div>
+                <ul class="menu">
+                    <li><a href="../index.html">🏠 Início</a></li>
+                    <li><a href="../jogos.html">🎮 Jogos</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="game-container">
+        <div class="game-header">
+            <h1>🔥 Adivinhe a Caloria</h1>
+            <p>Teste seus conhecimentos sobre o valor calórico dos alimentos!</p>
+        </div>
+
+        <div class="difficulty-selector">
+            <h3>Escolha a dificuldade:</h3>
+            <button class="difficulty-btn active" data-level="easy">Fácil</button>
+            <button class="difficulty-btn" data-level="medium">Médio</button>
+            <button class="difficulty-btn" data-level="hard">Difícil</button>
+        </div>
+
+        <div class="score-board">
+            <div class="score">Pontuação: <span id="score">0</span></div>
+            <div>Pergunta: <span id="current-question">0</span> / <span id="total-questions">10</span></div>
+        </div>
+
+        <div class="question-area" id="question-area" style="display: none;">
+            <div class="food-image" id="food-image">🍎</div>
+            <div class="food-name" id="food-name">Maçã</div>
+            <div class="food-portion" id="food-portion">1 unidade média (150g)</div>
+            
+            <div class="options-grid" id="options-grid">
+                <!-- Opções serão inseridas aqui -->
+            </div>
+            
+            <div id="feedback" class="feedback" style="display: none;"></div>
+            
+            <div class="nutrition-tip" id="nutrition-tip" style="display: none;">
+                <h4>💡 Dica Nutricional:</h4>
+                <p id="tip-text"></p>
+            </div>
+        </div>
+
+        <div class="game-controls">
+            <button class="btn" id="start-btn">Iniciar Jogo</button>
+            <button class="btn secondary" id="next-btn" style="display: none;">Próxima Pergunta</button>
+            <button class="btn secondary" id="reset-btn">Reiniciar</button>
+        </div>
+    </div>
+
+    <!-- Modal de Resultado -->
+    <div id="result-modal" class="modal">
+        <div class="modal-content">
+            <h2>🎉 Jogo Finalizado!</h2>
+            <p>Sua pontuação: <span id="final-score">0</span> / <span id="max-score">100</span></p>
+            <p id="performance-message"></p>
+            <div class="share-buttons">
+                <h3>Compartilhe sua pontuação:</h3>
+                <button class="share-btn" onclick="shareOnFacebook()">Facebook</button>
+                <button class="share-btn twitter" onclick="shareOnTwitter()">Twitter</button>
+                <button class="share-btn whatsapp" onclick="shareOnWhatsApp()">WhatsApp</button>
+            </div>
+            <button class="btn" onclick="closeModal()">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        class CalorieGame {
+            constructor() {
+                this.score = 0;
+                this.currentQuestion = 0;
+                this.totalQuestions = 10;
+                this.difficulty = 'easy';
+                this.gameActive = false;
+                
+                this.foods = [
+                    { name: 'Maçã', emoji: '🍎', portion: '1 unidade média (150g)', calories: 78, tip: 'Maçãs são ricas em fibras e vitamina C, ótimas para a digestão!' },
+                    { name: 'Banana', emoji: '🍌', portion: '1 unidade média (120g)', calories: 105, tip: 'Bananas são excelentes fontes de potássio, importante para o coração!' },
+                    { name: 'Hambúrguer', emoji: '🍔', portion: '1 unidade (150g)', calories: 540, tip: 'Hambúrguers são ricos em calorias. Prefira versões caseiras com ingredientes frescos!' },
+                    { name: 'Pizza', emoji: '🍕', portion: '1 fatia média (100g)', calories: 266, tip: 'Pizza pode ser mais saudável com massa integral e vegetais!' },
+                    { name: 'Salada', emoji: '🥗', portion: '1 prato (200g)', calories: 33, tip: 'Saladas são baixas em calorias e ricas em nutrientes essenciais!' },
+                    { name: 'Batata Frita', emoji: '🍟', portion: '1 porção média (100g)', calories: 365, tip: 'Batatas fritas são ricas em gordura. Prefira batatas assadas!' },
+                    { name: 'Brócolis', emoji: '🥦', portion: '1 xícara (90g)', calories: 25, tip: 'Brócolis é rico em vitamina K e antioxidantes!' },
+                    { name: 'Chocolate', emoji: '🍫', portion: '1 barra pequena (40g)', calories: 208, tip: 'Chocolate amargo com moderação pode ter benefícios antioxidantes!' },
+                    { name: 'Arroz', emoji: '🍚', portion: '1 xícara cozido (150g)', calories: 205, tip: 'Arroz integral é mais nutritivo que o branco!' },
+                    { name: 'Peixe Grelhado', emoji: '🐟', portion: '1 filé (120g)', calories: 206, tip: 'Peixes são excelentes fontes de proteína e ômega-3!' },
+                    { name: 'Refrigerante', emoji: '🥤', portion: '1 lata (350ml)', calories: 139, tip: 'Refrigerantes são ricos em açúcar. Prefira água ou sucos naturais!' },
+                    { name: 'Abacate', emoji: '🥑', portion: '1/2 unidade (100g)', calories: 160, tip: 'Abacates são ricos em gorduras boas e vitamina E!' },
+                    { name: 'Cenoura', emoji: '🥕', portion: '1 unidade média (60g)', calories: 25, tip: 'Cenouras são ricas em betacaroteno, importante para a visão!' },
+                    { name: 'Bolo', emoji: '🍰', portion: '1 fatia (80g)', calories: 257, tip: 'Bolos são ricos em açúcar. Experimente versões com frutas!' },
+                    { name: 'Iogurte', emoji: '🥛', portion: '1 pote (170g)', calories: 100, tip: 'Iogurtes naturais são ricos em probióticos, bons para a digestão!' }
+                ];
+                
+                this.init();
+            }
+            
+            init() {
+                this.setupEventListeners();
+            }
+            
+            setupEventListeners() {
+                document.getElementById('start-btn').addEventListener('click', () => this.startGame());
+                document.getElementById('next-btn').addEventListener('click', () => this.nextQuestion());
+                document.getElementById('reset-btn').addEventListener('click', () => this.resetGame());
+                
+                document.querySelectorAll('.difficulty-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => this.setDifficulty(e.target.dataset.level));
+                });
+            }
+            
+            setDifficulty(level) {
+                this.difficulty = level;
+                document.querySelectorAll('.difficulty-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelector(`[data-level="${level}"]`).classList.add('active');
+                
+                // Ajustar número de perguntas baseado na dificuldade
+                switch(level) {
+                    case 'easy':
+                        this.totalQuestions = 8;
+                        break;
+                    case 'medium':
+                        this.totalQuestions = 10;
+                        break;
+                    case 'hard':
+                        this.totalQuestions = 12;
+                        break;
+                }
+                
+                document.getElementById('total-questions').textContent = this.totalQuestions;
+            }
+            
+            startGame() {
+                this.gameActive = true;
+                this.score = 0;
+                this.currentQuestion = 0;
+                
+                document.getElementById('start-btn').style.display = 'none';
+                document.getElementById('question-area').style.display = 'block';
+                
+                this.updateScore();
+                this.nextQuestion();
+            }
+            
+            nextQuestion() {
+                if (this.currentQuestion >= this.totalQuestions) {
+                    this.endGame();
+                    return;
+                }
+                
+                this.currentQuestion++;
+                document.getElementById('current-question').textContent = this.currentQuestion;
+                
+                // Esconder elementos da pergunta anterior
+                document.getElementById('feedback').style.display = 'none';
+                document.getElementById('nutrition-tip').style.display = 'none';
+                document.getElementById('next-btn').style.display = 'none';
+                
+                // Selecionar alimento aleatório
+                const food = this.foods[Math.floor(Math.random() * this.foods.length)];
+                
+                // Mostrar informações do alimento
+                document.getElementById('food-image').textContent = food.emoji;
+                document.getElementById('food-name').textContent = food.name;
+                document.getElementById('food-portion').textContent = food.portion;
+                
+                // Gerar opções
+                this.generateOptions(food);
+            }
+            
+            generateOptions(correctFood) {
+                const optionsGrid = document.getElementById('options-grid');
+                optionsGrid.innerHTML = '';
+                
+                const correctCalories = correctFood.calories;
+                const options = [correctCalories];
+                
+                // Gerar opções incorretas baseadas na dificuldade
+                let variance;
+                switch(this.difficulty) {
+                    case 'easy':
+                        variance = 0.5; // 50% de diferença
+                        break;
+                    case 'medium':
+                        variance = 0.3; // 30% de diferença
+                        break;
+                    case 'hard':
+                        variance = 0.2; // 20% de diferença
+                        break;
+                }
+                
+                while (options.length < 4) {
+                    const variation = (Math.random() - 0.5) * 2 * variance;
+                    const newOption = Math.round(correctCalories * (1 + variation));
+                    
+                    if (newOption > 0 && !options.includes(newOption)) {
+                        options.push(newOption);
+                    }
+                }
+                
+                // Embaralhar opções
+                options.sort(() => Math.random() - 0.5);
+                
+                // Criar botões de opção
+                options.forEach(calories => {
+                    const button = document.createElement('button');
+                    button.className = 'option-btn';
+                    button.textContent = `${calories} cal`;
+                    button.addEventListener('click', () => this.selectOption(calories, correctFood));
+                    optionsGrid.appendChild(button);
+                });
+            }
+            
+            selectOption(selectedCalories, correctFood) {
+                const buttons = document.querySelectorAll('.option-btn');
+                buttons.forEach(btn => btn.disabled = true);
+                
+                const isCorrect = selectedCalories === correctFood.calories;
+                
+                // Marcar resposta correta e incorreta
+                buttons.forEach(btn => {
+                    const calories = parseInt(btn.textContent);
+                    if (calories === correctFood.calories) {
+                        btn.classList.add('correct');
+                    } else if (calories === selectedCalories && !isCorrect) {
+                        btn.classList.add('incorrect');
+                    }
+                });
+                
+                // Mostrar feedback
+                const feedback = document.getElementById('feedback');
+                feedback.style.display = 'block';
+                
+                if (isCorrect) {
+                    feedback.className = 'feedback correct';
+                    feedback.textContent = '🎉 Correto! Você acertou!';
+                    this.score += 10;
+                } else {
+                    feedback.className = 'feedback incorrect';
+                    feedback.textContent = `❌ Incorreto! A resposta correta é ${correctFood.calories} calorias.`;
+                }
+                
+                // Mostrar dica nutricional
+                document.getElementById('tip-text').textContent = correctFood.tip;
+                document.getElementById('nutrition-tip').style.display = 'block';
+                
+                this.updateScore();
+                
+                // Mostrar botão próxima pergunta
+                setTimeout(() => {
+                    document.getElementById('next-btn').style.display = 'inline-block';
+                }, 1500);
+            }
+            
+            updateScore() {
+                document.getElementById('score').textContent = this.score;
+            }
+            
+            endGame() {
+                this.gameActive = false;
+                document.getElementById('question-area').style.display = 'none';
+                document.getElementById('start-btn').style.display = 'inline-block';
+                
+                this.showResults();
+            }
+            
+            showResults() {
+                const maxScore = this.totalQuestions * 10;
+                document.getElementById('final-score').textContent = this.score;
+                document.getElementById('max-score').textContent = maxScore;
+                
+                const percentage = (this.score / maxScore) * 100;
+                let message = '';
+                
+                if (percentage >= 80) {
+                    message = '🌟 Excelente! Você tem ótimos conhecimentos sobre calorias!';
+                } else if (percentage >= 60) {
+                    message = '👍 Muito bom! Continue aprendendo sobre nutrição!';
+                } else if (percentage >= 40) {
+                    message = '📚 Bom começo! Que tal ler nossos artigos sobre alimentação?';
+                } else {
+                    message = '💪 Continue praticando! O conhecimento sobre calorias é importante para uma vida saudável!';
+                }
+                
+                document.getElementById('performance-message').textContent = message;
+                document.getElementById('result-modal').style.display = 'block';
+            }
+            
+            resetGame() {
+                this.gameActive = false;
+                this.score = 0;
+                this.currentQuestion = 0;
+                
+                document.getElementById('score').textContent = '0';
+                document.getElementById('current-question').textContent = '0';
+                document.getElementById('start-btn').style.display = 'inline-block';
+                document.getElementById('question-area').style.display = 'none';
+                document.getElementById('next-btn').style.display = 'none';
+            }
+        }
+        
+        function closeModal() {
+            document.getElementById('result-modal').style.display = 'none';
+        }
+        
+        function shareOnFacebook() {
+            const score = document.getElementById('final-score').textContent;
+            const maxScore = document.getElementById('max-score').textContent;
+            const text = `Acabei de fazer ${score}/${maxScore} pontos no jogo Adivinhe a Caloria! 🔥 Teste seus conhecimentos sobre nutrição no Calcule Sua Saúde!`;
+            const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+        
+        function shareOnTwitter() {
+            const score = document.getElementById('final-score').textContent;
+            const maxScore = document.getElementById('max-score').textContent;
+            const text = `Acabei de fazer ${score}/${maxScore} pontos no jogo Adivinhe a Caloria! 🔥 #Nutrição #Calorias`;
+            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`;
+            window.open(url, '_blank');
+        }
+        
+        function shareOnWhatsApp() {
+            const score = document.getElementById('final-score').textContent;
+            const maxScore = document.getElementById('max-score').textContent;
+            const text = `Acabei de fazer ${score}/${maxScore} pontos no jogo Adivinhe a Caloria! 🔥 Teste seus conhecimentos: ${window.location.href}`;
+            const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+        
+        // Inicializar o jogo
+        const game = new CalorieGame();
+    </script>
+</body>
+</html>
+

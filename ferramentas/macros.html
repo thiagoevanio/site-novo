@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Calculadora de Macronutrientes - Distribuição Ideal | Calcule Sua Saúde</title>
+<meta content="Calcule a distribuição ideal de proteínas, carboidratos e gorduras para sua dieta. Personalize seus macronutrientes para seus objetivos de saúde e fitness." name="description"/>
+<meta content="calculadora macronutrientes, distribuição macros, proteínas, carboidratos, gorduras, dieta, nutrição, fitness" name="keywords"/>
+<!-- Open Graph -->
+<meta content="Calculadora de Macronutrientes - Distribuição Ideal" property="og:title"/>
+<meta content="Calcule a distribuição ideal de proteínas, carboidratos e gorduras para sua dieta." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://calculesuasaude.com.br/ferramentas/macros.html" property="og:url"/>
+<!-- Favicon -->
+<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- CSS -->
+<link href="../css/estilo.css" rel="stylesheet"/>
+<link href="../css/estilo-adicional.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Cabeçalho -->
+<header class="header-fixo">
+<nav class="navbar">
+<div class="container">
+<div class="logo">
+<h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
+</div>
+<ul class="menu">
+<li><a href="../index.html">Início</a></li>
+<li><a href="../index.html#ferramentas">Ferramentas</a></li>
+<li><a href="../index.html#artigos">Artigos</a></li>
+<li><a href="../sobre.html">Sobre</a></li>
+<li><a href="../contato.html">Contato</a></li>
+<li><button class="btn-modo" id="modo-noturno">🌙</button></li>
+</ul>
+</div>
+</nav>
+</header>
+<!-- Breadcrumbs -->
+<section class="breadcrumbs">
+<div class="container">
+<a href="../index.html">Início</a> &gt; <a href="../index.html#ferramentas">Ferramentas</a> &gt; <span>Calculadora de Macronutrientes</span>
+</div>
+</section>
+<!-- Conteúdo Principal -->
+<main>
+<section class="ferramenta-content">
+<div class="container">
+<div class="ferramenta-header">
+<div class="ferramenta-icon">🍎</div>
+<h1>Calculadora de Macronutrientes</h1>
+<p class="ferramenta-subtitle">Distribua corretamente proteínas, carboidratos e gorduras na sua dieta</p>
+</div>
+<div class="ferramenta-grid">
+<div class="calculadora-section">
+<div class="calculadora-card">
+<h2>Calcule seus macronutrientes</h2>
+<form id="macros-form">
+<div class="form-group">
+<label for="sexo">Sexo</label>
+<select id="sexo" required="">
+<option value="">Selecione</option>
+<option value="masculino">Masculino</option>
+<option value="feminino">Feminino</option>
+</select>
+</div>
+<div class="form-group">
+<label for="idade">Idade (anos)</label>
+<input id="idade" max="80" min="18" placeholder="Ex: 30" required="" type="number"/>
+</div>
+<div class="form-group">
+<label for="peso">Peso (kg)</label>
+<input id="peso" max="200" min="30" placeholder="Ex: 70.5" required="" step="0.1" type="number"/>
+</div>
+<div class="form-group">
+<label for="altura">Altura (cm)</label>
+<input id="altura" max="220" min="140" placeholder="Ex: 175" required="" step="0.1" type="number"/>
+</div>
+<div class="form-group">
+<label for="nivel-atividade">Nível de Atividade Física</label>
+<select id="nivel-atividade" required="">
+<option value="">Selecione</option>
+<option value="sedentario">Sedentário (pouco ou nenhum exercício)</option>
+<option value="leve">Levemente Ativo (exercício leve 1-3 dias/semana)</option>
+<option value="moderado">Moderadamente Ativo (exercício moderado 3-5 dias/semana)</option>
+<option value="ativo">Ativo (exercício intenso 6-7 dias/semana)</option>
+<option value="muito-ativo">Muito Ativo (exercício muito intenso, 2x ao dia)</option>
+</select>
+</div>
+<div class="form-group">
+<label for="objetivo">Objetivo</label>
+<select id="objetivo" required="">
+<option value="">Selecione</option>
+<option value="perder-peso">Perder Peso</option>
+<option value="manter-peso">Manter Peso</option>
+<option value="ganhar-peso">Ganhar Peso</option>
+</select>
+</div>
+<div class="form-group">
+<label for="tipo-dieta">Tipo de Dieta</label>
+<select id="tipo-dieta" required="">
+<option value="">Selecione</option>
+<option value="equilibrada">Equilibrada</option>
+<option value="low-carb">Low Carb</option>
+<option value="alta-proteina">Alta Proteína</option>
+<option value="cetogenica">Cetogênica</option>
+</select>
+</div>
+<button class="btn-primary" type="submit">Calcular Macronutrientes</button>
+</form>
+<div class="resultado" id="resultado-macros" style="display: none;">
+<h3>Seus Resultados</h3>
+<div class="resultado-macros-grid">
+<div class="resultado-item">
+<div class="resultado-label">Calorias Totais</div>
+<div class="resultado-valor" id="valor-calorias"></div>
+<div class="resultado-unidade">kcal</div>
+</div>
+<div class="resultado-item">
+<div class="resultado-label">Proteínas</div>
+<div class="resultado-valor" id="valor-proteinas"></div>
+<div class="resultado-unidade">g</div>
+</div>
+<div class="resultado-item">
+<div class="resultado-label">Carboidratos</div>
+<div class="resultado-valor" id="valor-carboidratos"></div>
+<div class="resultado-unidade">g</div>
+</div>
+<div class="resultado-item">
+<div class="resultado-label">Gorduras</div>
+<div class="resultado-valor" id="valor-gorduras"></div>
+<div class="resultado-unidade">g</div>
+</div>
+</div>
+<div class="resultado-interpretacao" id="interpretacao-macros"></div>
+</div>
+</div>
+</div>
+<div class="info-section">
+<div class="info-card">
+<h3>O que são macronutrientes?</h3>
+<p>Macronutrientes são os nutrientes que o corpo precisa em grandes quantidades para energia e funções vitais: proteínas, carboidratos e gorduras.</p>
+</div>
+<div class="info-card">
+<h3>Calorias por grama</h3>
+<ul>
+<li>Proteínas: 4 cal/g</li>
+<li>Carboidratos: 4 cal/g</li>
+<li>Gorduras: 9 cal/g</li>
+</ul>
+</div>
+<div class="info-card">
+<h3>Funções dos Macronutrientes</h3>
+<ul>
+<li><strong>Proteínas:</strong> Construção e reparo muscular, enzimas, hormônios</li>
+<li><strong>Carboidratos:</strong> Energia rápida, combustível para cérebro e músculos</li>
+<li><strong>Gorduras:</strong> Energia de longa duração, hormônios, absorção de vitaminas</li>
+</ul>
+</div>
+<div class="info-card">
+<h3>Tipos de Dieta</h3>
+<ul>
+<li><strong>Equilibrada:</strong> 20% proteína, 50% carbo, 30% gordura</li>
+<li><strong>Low Carb:</strong> 25% proteína, 25% carbo, 50% gordura</li>
+<li><strong>Alta Proteína:</strong> 30% proteína, 40% carbo, 30% gordura</li>
+<li><strong>Cetogênica:</strong> 20% proteína, 5% carbo, 75% gordura</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="conteudo-educativo">
+<h2>Guia dos Macronutrientes</h2>
+<div class="educativo-grid">
+<div class="educativo-card">
+<h3>🥩 Proteínas</h3>
+<p>Essenciais para construção muscular, saciedade e metabolismo. Fontes: carnes, ovos, leguminosas, laticínios. Recomendação: 0,8-2,2g por kg de peso.</p>
+</div>
+<div class="educativo-card">
+<h3>🍞 Carboidratos</h3>
+<p>Principal fonte de energia. Prefira complexos (integrais) aos simples (açúcares). Fontes: cereais, frutas, vegetais. Timing: antes e após treinos.</p>
+</div>
+<div class="educativo-card">
+<h3>🥑 Gorduras</h3>
+<p>Importantes para hormônios e saciedade. Prefira insaturadas. Fontes: azeite, abacate, nozes, peixes. Evite trans e limite saturadas.</p>
+</div>
+<div class="educativo-card">
+<h3>⚖️ Equilíbrio</h3>
+<p>A distribuição ideal varia conforme objetivo, atividade física e preferências. Ajuste gradualmente e monitore resultados e bem-estar.</p>
+</div>
+</div>
+</div>
+<div class="leia-tambem">
+<h3>Leia também</h3>
+<div class="artigos-relacionados"><a class="artigo-link" href="../artigos/menopausa-cuidados-sintomas.html"><span class_="artigo-titulo">Menopausa: Sintomas, Cuidados e Tratamentos</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/colesterol-controle-prevencao.html"><span class_="artigo-titulo">Colesterol: Controle, Prevenção e Tratamento Completo</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/saude-infantil-cuidados.html"><span class_="artigo-titulo">Saúde Infantil: Cuidados Essenciais para o Desenvolvimento</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Rodapé -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h3>Calcule Sua Saúde</h3>
+<p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+</div>
+<div class="footer-section">
+<h4>Links Úteis</h4>
+<ul>
+<li><a href="../sobre.html">Sobre</a></li>
+<li><a href="../contato.html">Contato</a></li>
+<li><a href="../politica.html">Política de Privacidade</a></li>
+<li><a href="../termos.html">Termos de Uso</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Outras Ferramentas</h4>
+<ul>
+<li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
+<li><a href="tmb.html">Taxa Metabólica Basal</a></li>
+<li><a href="agua.html">Água por Dia</a></li>
+<li><a href="frequencia_cardiaca.html">Frequência Cardíaca</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+<p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
+</div>
+</div>
+</footer>
+<!-- JavaScript -->
+<script src="../js/modo-noturno.js"></script>
+<script src="../js/macros.js"></script>
+</body>
+</html>

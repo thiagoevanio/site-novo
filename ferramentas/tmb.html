@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Calculadora de TMB - Taxa Metabólica Basal | Calcule Sua Saúde</title>
+<meta content="Calcule sua Taxa Metabólica Basal (TMB) gratuitamente. Descubra quantas calorias seu corpo queima em repouso durante um dia." name="description"/>
+<meta content="calculadora TMB, taxa metabólica basal, calorias repouso, metabolismo basal, gasto energético" name="keywords"/>
+<!-- Open Graph -->
+<meta content="Calculadora de TMB - Taxa Metabólica Basal" property="og:title"/>
+<meta content="Calcule sua Taxa Metabólica Basal e descubra quantas calorias seu corpo queima em repouso." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://calculesuasaude.com.br/ferramentas/tmb.html" property="og:url"/>
+<!-- Favicon -->
+<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- CSS -->
+<link href="../css/estilo.css" rel="stylesheet"/>
+<link href="../css/estilo-adicional.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Cabeçalho -->
+<header class="header-fixo">
+<nav class="navbar">
+<div class="container">
+<div class="logo">
+<h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
+</div>
+<ul class="menu">
+<li><a href="../index.html">Início</a></li>
+<li><a href="../index.html#ferramentas">Ferramentas</a></li>
+<li><a href="../index.html#artigos">Artigos</a></li>
+<li><a href="../sobre.html">Sobre</a></li>
+<li><a href="../contato.html">Contato</a></li>
+<li><button class="btn-modo" id="modo-noturno">🌙</button></li>
+</ul>
+</div>
+</nav>
+</header>
+<!-- Breadcrumbs -->
+<section class="breadcrumbs">
+<div class="container">
+<a href="../index.html">Início</a> &gt; <a href="../index.html#ferramentas">Ferramentas</a> &gt; <span>Calculadora de TMB</span>
+</div>
+</section>
+<!-- Conteúdo Principal -->
+<main>
+<section class="ferramenta-content">
+<div class="container">
+<div class="ferramenta-header">
+<div class="ferramenta-icon">🔥</div>
+<h1>Calculadora de TMB</h1>
+<p class="ferramenta-subtitle">Calcule sua Taxa Metabólica Basal e descubra quantas calorias seu corpo queima em repouso</p>
+</div>
+<div class="ferramenta-grid">
+<div class="calculadora-section">
+<div class="calculadora-card">
+<h2>Calcule sua TMB</h2>
+<form id="tmb-form">
+<div class="form-group">
+<label for="sexo">Sexo</label>
+<select id="sexo" required="">
+<option value="">Selecione</option>
+<option value="masculino">Masculino</option>
+<option value="feminino">Feminino</option>
+</select>
+</div>
+<div class="form-group">
+<label for="idade">Idade (anos)</label>
+<input id="idade" max="120" min="10" placeholder="Ex: 30" required="" type="number"/>
+</div>
+<div class="form-group">
+<label for="peso">Peso (kg)</label>
+<input id="peso" max="300" min="1" placeholder="Ex: 70.5" required="" step="0.1" type="number"/>
+</div>
+<div class="form-group">
+<label for="altura">Altura (cm)</label>
+<input id="altura" max="250" min="50" placeholder="Ex: 175" required="" step="0.1" type="number"/>
+</div>
+<div class="form-group">
+<label for="atividade">Nível de Atividade Física</label>
+<select id="atividade" required="">
+<option value="">Selecione</option>
+<option value="1.2">Sedentário (pouco ou nenhum exercício)</option>
+<option value="1.375">Levemente ativo (exercício leve 1-3 dias/semana)</option>
+<option value="1.55">Moderadamente ativo (exercício moderado 3-5 dias/semana)</option>
+<option value="1.725">Muito ativo (exercício intenso 6-7 dias/semana)</option>
+<option value="1.9">Extremamente ativo (exercício muito intenso, trabalho físico)</option>
+</select>
+</div>
+<button class="btn-primary" type="submit">Calcular TMB</button>
+</form>
+<div class="resultado" id="resultado-tmb" style="display: none;">
+<h3>Seus Resultados</h3>
+<div class="resultado-tmb-grid">
+<div class="resultado-item">
+<div class="resultado-label">TMB (Repouso)</div>
+<div class="resultado-valor" id="valor-tmb"></div>
+<div class="resultado-unidade">calorias/dia</div>
+</div>
+<div class="resultado-item">
+<div class="resultado-label">GET (Total)</div>
+<div class="resultado-valor" id="valor-get"></div>
+<div class="resultado-unidade">calorias/dia</div>
+</div>
+</div>
+<div class="resultado-interpretacao" id="interpretacao-tmb"></div>
+</div>
+</div>
+</div>
+<div class="info-section">
+<div class="info-card">
+<h3>O que é a TMB?</h3>
+<p>A Taxa Metabólica Basal (TMB) é a quantidade mínima de energia que seu corpo precisa para manter as funções vitais em repouso, como respiração, circulação sanguínea e funcionamento dos órgãos.</p>
+</div>
+<div class="info-card">
+<h3>Como é calculada?</h3>
+<p>Utilizamos a equação de Harris-Benedict revisada, que considera sexo, idade, peso e altura:</p>
+<div class="formula">
+<strong>Homens:</strong> TMB = 88,362 + (13,397 × peso) + (4,799 × altura) - (5,677 × idade)<br/>
+<strong>Mulheres:</strong> TMB = 447,593 + (9,247 × peso) + (3,098 × altura) - (4,330 × idade)
+                            </div>
+</div>
+<div class="info-card">
+<h3>TMB vs GET</h3>
+<ul>
+<li><strong>TMB:</strong> Energia gasta em repouso absoluto</li>
+<li><strong>GET:</strong> Gasto Energético Total (TMB × fator de atividade)</li>
+<li>O GET inclui atividades físicas e termogênese</li>
+<li>Representa suas necessidades calóricas reais</li>
+</ul>
+</div>
+<div class="info-card">
+<h3>Fatores que Influenciam</h3>
+<ul>
+<li>Idade (diminui com o tempo)</li>
+<li>Sexo (homens têm TMB maior)</li>
+<li>Massa muscular</li>
+<li>Genética</li>
+<li>Hormônios (tireoide, etc.)</li>
+<li>Temperatura corporal</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="conteudo-educativo">
+<h2>Entenda melhor a TMB</h2>
+<div class="educativo-grid">
+<div class="educativo-card">
+<h3>🎯 Para que serve?</h3>
+<p>A TMB ajuda a determinar suas necessidades calóricas diárias, sendo fundamental para planos de emagrecimento, ganho de peso ou manutenção do peso atual.</p>
+</div>
+<div class="educativo-card">
+<h3>📊 Componentes do Gasto Energético</h3>
+<p>TMB representa 60-75% do gasto total. O restante inclui atividade física (15-30%), termogênese dos alimentos (8-15%) e atividades espontâneas.</p>
+</div>
+<div class="educativo-card">
+<h3>💪 Como Aumentar a TMB?</h3>
+<p>Exercícios de força aumentam massa muscular, elevando a TMB. Proteínas também têm maior efeito termogênico que carboidratos e gorduras.</p>
+</div>
+<div class="educativo-card">
+<h3>⚠️ Limitações</h3>
+<p>A fórmula é uma estimativa. Fatores como composição corporal, genética e condições médicas podem influenciar o resultado real.</p>
+</div>
+</div>
+</div>
+<div class="leia-tambem">
+<h3>Leia também</h3>
+<div class="artigos-relacionados"><a class="artigo-link" href="../artigos/nutricao-esportiva.html"><span class_="artigo-titulo">Nutrição Esportiva: Guia Completo para Performance e Recuperação</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/saude-mulher-cuidados.html"><span class_="artigo-titulo">Saúde da Mulher: Guia Completo de Cuidados Específicos</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/perda-peso-estrategias.html"><span class_="artigo-titulo">Perda de Peso: Estratégias Científicas e Sustentáveis para Emagrecer</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Rodapé -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h3>Calcule Sua Saúde</h3>
+<p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+</div>
+<div class="footer-section">
+<h4>Links Úteis</h4>
+<ul>
+<li><a href="../sobre.html">Sobre</a></li>
+<li><a href="../contato.html">Contato</a></li>
+<li><a href="../politica.html">Política de Privacidade</a></li>
+<li><a href="../termos.html">Termos de Uso</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Outras Ferramentas</h4>
+<ul>
+<li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
+<li><a href="agua.html">Água por Dia</a></li>
+<li><a href="gordura.html">Gordura Corporal</a></li>
+<li><a href="macros.html">Macronutrientes</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+<p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
+</div>
+</div>
+</footer>
+<!-- JavaScript -->
+<script src="../js/modo-noturno.js"></script>
+<script src="../js/tmb.js"></script>
+</body>
+</html>

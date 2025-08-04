@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memória da Saúde - Calcule Sua Saúde</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <style>
+        .game-container {
+            max-width: 900px;
+            margin: 100px auto 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .game-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .difficulty-selector {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .difficulty-btn {
+            background: #E91E63;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .difficulty-btn.active {
+            background: #C2185B;
+        }
+        
+        .score-board {
+            text-align: center;
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .score-item {
+            margin: 10px;
+        }
+        
+        .score {
+            font-size: 20px;
+            font-weight: bold;
+            color: #E91E63;
+        }
+        
+        .memory-grid {
+            display: grid;
+            gap: 10px;
+            margin: 30px auto;
+            max-width: 600px;
+            justify-content: center;
+        }
+        
+        .memory-card {
+            width: 100px;
+            height: 100px;
+            background: #f0f0f0;
+            border: 3px solid #E91E63;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            font-size: 12px;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        .memory-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .memory-card.flipped {
+            background: #fff;
+            transform: rotateY(180deg);
+        }
+        
+        .memory-card.flipped .card-content {
+            transform: rotateY(180deg);
+        }
+        
+        .memory-card.matched {
+            background: #c8e6c9;
+            border-color: #4CAF50;
+            cursor: default;
+        }
+        
+        .memory-card.wrong {
+            background: #ffcdd2;
+            border-color: #f44336;
+        }
+        
+        .card-content {
+            display: none;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.2;
+        }
+        
+        .memory-card.flipped .card-content,
+        .memory-card.matched .card-content {
+            display: block;
+        }
+        
+        .card-back {
+            font-size: 30px;
+        }
+        
+        .memory-card.flipped .card-back,
+        .memory-card.matched .card-back {
+            display: none;
+        }
+        
+        .game-controls {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .btn {
+            background: #E91E63;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        
+        .btn:hover {
+            background: #C2185B;
+        }
+        
+        .btn.secondary {
+            background: #2196F3;
+        }
+        
+        .btn.secondary:hover {
+            background: #1976D2;
+        }
+        
+        .tips {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+        
+        .share-buttons {
+            margin-top: 20px;
+        }
+        
+        .share-btn {
+            background: #1877f2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .share-btn.twitter {
+            background: #1da1f2;
+        }
+        
+        .share-btn.whatsapp {
+            background: #25d366;
+        }
+        
+        @media (max-width: 768px) {
+            .memory-card {
+                width: 80px;
+                height: 80px;
+                font-size: 10px;
+            }
+            
+            .card-content {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-fixo">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1><a href="../index.html" style="color: inherit; text-decoration: none;">Calcule Sua Saúde</a></h1>
+                </div>
+                <ul class="menu">
+                    <li><a href="../index.html">🏠 Início</a></li>
+                    <li><a href="../jogos.html">🎮 Jogos</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="game-container">
+        <div class="game-header">
+            <h1>🧠 Memória da Saúde</h1>
+            <p>Combine cartas de alimentos com seus benefícios para a saúde!</p>
+        </div>
+
+        <div class="difficulty-selector">
+            <h3>Escolha a dificuldade:</h3>
+            <button class="difficulty-btn active" data-level="easy">Fácil</button>
+            <button class="difficulty-btn" data-level="medium">Médio</button>
+            <button class="difficulty-btn" data-level="hard">Difícil</button>
+        </div>
+
+        <div class="score-board">
+            <div class="score-item">
+                <div class="score">Pontuação: <span id="score">0</span></div>
+            </div>
+            <div class="score-item">
+                <div class="score">Tentativas: <span id="attempts">0</span></div>
+            </div>
+            <div class="score-item">
+                <div class="score">Pares: <span id="matches">0</span> / <span id="total-pairs">6</span></div>
+            </div>
+            <div class="score-item">
+                <div class="score">Tempo: <span id="timer">0</span>s</div>
+            </div>
+        </div>
+
+        <div class="memory-grid" id="memory-grid">
+            <!-- Cartas serão inseridas aqui -->
+        </div>
+
+        <div class="game-controls">
+            <button class="btn" id="start-btn">Iniciar Jogo</button>
+            <button class="btn secondary" id="reset-btn">Reiniciar</button>
+        </div>
+
+        <div class="tips">
+            <h3>💡 Como Jogar:</h3>
+            <ul>
+                <li>Clique em duas cartas para virá-las</li>
+                <li>Combine alimentos com seus benefícios para a saúde</li>
+                <li>Encontre todos os pares no menor tempo possível</li>
+                <li>Menos tentativas = mais pontos!</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal de Resultado -->
+    <div id="result-modal" class="modal">
+        <div class="modal-content">
+            <h2>🎉 Parabéns!</h2>
+            <p>Você completou o jogo!</p>
+            <p>Pontuação final: <span id="final-score">0</span></p>
+            <p>Tempo: <span id="final-time">0</span> segundos</p>
+            <p>Tentativas: <span id="final-attempts">0</span></p>
+            <p id="performance-message"></p>
+            <div class="share-buttons">
+                <h3>Compartilhe sua pontuação:</h3>
+                <button class="share-btn" onclick="shareOnFacebook()">Facebook</button>
+                <button class="share-btn twitter" onclick="shareOnTwitter()">Twitter</button>
+                <button class="share-btn whatsapp" onclick="shareOnWhatsApp()">WhatsApp</button>
+            </div>
+            <button class="btn" onclick="closeModal()">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        class MemoryGame {
+            constructor() {
+                this.difficulty = 'easy';
+                this.gameActive = false;
+                this.flippedCards = [];
+                this.matchedPairs = 0;
+                this.attempts = 0;
+                this.score = 0;
+                this.startTime = 0;
+                this.timer = null;
+                
+                this.cardPairs = [
+                    { food: '🍎\nMaçã', benefit: 'Rico em\nFibras' },
+                    { food: '🥕\nCenoura', benefit: 'Vitamina A\nVisão' },
+                    { food: '🥦\nBrócolis', benefit: 'Vitamina K\nOssos' },
+                    { food: '🍌\nBanana', benefit: 'Potássio\nCoração' },
+                    { food: '🐟\nPeixe', benefit: 'Ômega-3\nCérebro' },
+                    { food: '🥑\nAbacate', benefit: 'Gorduras\nBoas' },
+                    { food: '🍇\nUvas', benefit: 'Antioxidantes\nAnti-idade' },
+                    { food: '🥬\nEspinafre', benefit: 'Ferro\nEnergia' },
+                    { food: '🍊\nLaranja', benefit: 'Vitamina C\nImunidade' },
+                    { food: '🥒\nPepino', benefit: 'Hidratação\nPele' },
+                    { food: '🍓\nMorango', benefit: 'Antioxidantes\nMemória' },
+                    { food: '🥜\nCastanhas', benefit: 'Vitamina E\nCélulas' }
+                ];
+                
+                this.init();
+            }
+            
+            init() {
+                this.setupEventListeners();
+            }
+            
+            setupEventListeners() {
+                document.getElementById('start-btn').addEventListener('click', () => this.startGame());
+                document.getElementById('reset-btn').addEventListener('click', () => this.resetGame());
+                
+                document.querySelectorAll('.difficulty-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => this.setDifficulty(e.target.dataset.level));
+                });
+            }
+            
+            setDifficulty(level) {
+                this.difficulty = level;
+                document.querySelectorAll('.difficulty-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelector(`[data-level="${level}"]`).classList.add('active');
+            }
+            
+            startGame() {
+                this.gameActive = true;
+                this.flippedCards = [];
+                this.matchedPairs = 0;
+                this.attempts = 0;
+                this.score = 0;
+                this.startTime = Date.now();
+                
+                document.getElementById('start-btn').disabled = true;
+                
+                this.generateCards();
+                this.startTimer();
+                this.updateScore();
+            }
+            
+            generateCards() {
+                const grid = document.getElementById('memory-grid');
+                grid.innerHTML = '';
+                
+                let pairCount;
+                let gridCols;
+                
+                switch(this.difficulty) {
+                    case 'easy':
+                        pairCount = 6;
+                        gridCols = 4;
+                        break;
+                    case 'medium':
+                        pairCount = 8;
+                        gridCols = 4;
+                        break;
+                    case 'hard':
+                        pairCount = 10;
+                        gridCols = 5;
+                        break;
+                }
+                
+                grid.style.gridTemplateColumns = `repeat(${gridCols}, 1fr)`;
+                document.getElementById('total-pairs').textContent = pairCount;
+                
+                // Selecionar pares aleatórios
+                const selectedPairs = this.cardPairs.slice(0, pairCount);
+                
+                // Criar array de cartas
+                const cards = [];
+                selectedPairs.forEach((pair, index) => {
+                    cards.push({ type: 'food', content: pair.food, pairId: index });
+                    cards.push({ type: 'benefit', content: pair.benefit, pairId: index });
+                });
+                
+                // Embaralhar cartas
+                cards.sort(() => Math.random() - 0.5);
+                
+                // Criar elementos das cartas
+                cards.forEach((card, index) => {
+                    const cardElement = document.createElement('div');
+                    cardElement.className = 'memory-card';
+                    cardElement.dataset.cardId = index;
+                    cardElement.dataset.pairId = card.pairId;
+                    cardElement.dataset.type = card.type;
+                    
+                    cardElement.innerHTML = `
+                        <div class="card-back">🧠</div>
+                        <div class="card-content">${card.content}</div>
+                    `;
+                    
+                    cardElement.addEventListener('click', () => this.flipCard(cardElement));
+                    grid.appendChild(cardElement);
+                });
+            }
+            
+            flipCard(cardElement) {
+                if (!this.gameActive || 
+                    cardElement.classList.contains('flipped') || 
+                    cardElement.classList.contains('matched') ||
+                    this.flippedCards.length >= 2) {
+                    return;
+                }
+                
+                cardElement.classList.add('flipped');
+                this.flippedCards.push(cardElement);
+                
+                if (this.flippedCards.length === 2) {
+                    this.attempts++;
+                    document.getElementById('attempts').textContent = this.attempts;
+                    
+                    setTimeout(() => this.checkMatch(), 1000);
+                }
+            }
+            
+            checkMatch() {
+                const [card1, card2] = this.flippedCards;
+                const pairId1 = card1.dataset.pairId;
+                const pairId2 = card2.dataset.pairId;
+                
+                if (pairId1 === pairId2) {
+                    // Match!
+                    card1.classList.add('matched');
+                    card2.classList.add('matched');
+                    card1.classList.remove('flipped');
+                    card2.classList.remove('flipped');
+                    
+                    this.matchedPairs++;
+                    this.score += this.calculatePoints();
+                    
+                    document.getElementById('matches').textContent = this.matchedPairs;
+                    this.updateScore();
+                    
+                    // Verificar se o jogo terminou
+                    const totalPairs = parseInt(document.getElementById('total-pairs').textContent);
+                    if (this.matchedPairs === totalPairs) {
+                        this.endGame();
+                    }
+                } else {
+                    // No match
+                    card1.classList.add('wrong');
+                    card2.classList.add('wrong');
+                    
+                    setTimeout(() => {
+                        card1.classList.remove('flipped', 'wrong');
+                        card2.classList.remove('flipped', 'wrong');
+                    }, 500);
+                }
+                
+                this.flippedCards = [];
+            }
+            
+            calculatePoints() {
+                let basePoints = 100;
+                
+                // Bonus por dificuldade
+                switch(this.difficulty) {
+                    case 'medium':
+                        basePoints = 150;
+                        break;
+                    case 'hard':
+                        basePoints = 200;
+                        break;
+                }
+                
+                // Penalty por tentativas
+                const penalty = Math.max(0, (this.attempts - 1) * 10);
+                
+                return Math.max(10, basePoints - penalty);
+            }
+            
+            startTimer() {
+                this.timer = setInterval(() => {
+                    const elapsed = Math.floor((Date.now() - this.startTime) / 1000);
+                    document.getElementById('timer').textContent = elapsed;
+                }, 1000);
+            }
+            
+            updateScore() {
+                document.getElementById('score').textContent = this.score;
+            }
+            
+            endGame() {
+                this.gameActive = false;
+                clearInterval(this.timer);
+                document.getElementById('start-btn').disabled = false;
+                
+                const finalTime = Math.floor((Date.now() - this.startTime) / 1000);
+                
+                // Bonus por tempo
+                const timeBonus = Math.max(0, 300 - finalTime);
+                this.score += timeBonus;
+                this.updateScore();
+                
+                this.showResults(finalTime);
+            }
+            
+            showResults(finalTime) {
+                document.getElementById('final-score').textContent = this.score;
+                document.getElementById('final-time').textContent = finalTime;
+                document.getElementById('final-attempts').textContent = this.attempts;
+                
+                let message = '';
+                const efficiency = this.matchedPairs / this.attempts;
+                
+                if (efficiency >= 0.8 && finalTime <= 60) {
+                    message = '🌟 Incrível! Memória excepcional e conhecimento sobre saúde!';
+                } else if (efficiency >= 0.6 && finalTime <= 90) {
+                    message = '👍 Muito bom! Você tem bons conhecimentos sobre nutrição!';
+                } else if (efficiency >= 0.4) {
+                    message = '📚 Bom trabalho! Continue aprendendo sobre os benefícios dos alimentos!';
+                } else {
+                    message = '💪 Continue praticando! A memória e o conhecimento melhoram com o treino!';
+                }
+                
+                document.getElementById('performance-message').textContent = message;
+                document.getElementById('result-modal').style.display = 'block';
+            }
+            
+            resetGame() {
+                this.gameActive = false;
+                clearInterval(this.timer);
+                this.flippedCards = [];
+                this.matchedPairs = 0;
+                this.attempts = 0;
+                this.score = 0;
+                
+                document.getElementById('score').textContent = '0';
+                document.getElementById('attempts').textContent = '0';
+                document.getElementById('matches').textContent = '0';
+                document.getElementById('timer').textContent = '0';
+                document.getElementById('start-btn').disabled = false;
+                
+                document.getElementById('memory-grid').innerHTML = '';
+            }
+        }
+        
+        function closeModal() {
+            document.getElementById('result-modal').style.display = 'none';
+        }
+        
+        function shareOnFacebook() {
+            const score = document.getElementById('final-score').textContent;
+            const time = document.getElementById('final-time').textContent;
+            const text = `Acabei de fazer ${score} pontos no jogo Memória da Saúde em ${time} segundos! 🧠 Teste sua memória e conhecimento sobre nutrição!`;
+            const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+        
+        function shareOnTwitter() {
+            const score = document.getElementById('final-score').textContent;
+            const time = document.getElementById('final-time').textContent;
+            const text = `Fiz ${score} pontos no Memória da Saúde em ${time}s! 🧠 #MemóriadasSaúde #Nutrição`;
+            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`;
+            window.open(url, '_blank');
+        }
+        
+        function shareOnWhatsApp() {
+            const score = document.getElementById('final-score').textContent;
+            const time = document.getElementById('final-time').textContent;
+            const text = `Acabei de fazer ${score} pontos no jogo Memória da Saúde em ${time} segundos! 🧠 Teste sua memória: ${window.location.href}`;
+            const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+        
+        // Inicializar o jogo
+        const game = new MemoryGame();
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio da Rotina Saudável - Calcule Sua Saúde</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <style>
+        .game-container {
+            max-width: 900px;
+            margin: 100px auto 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .game-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .difficulty-selector {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .difficulty-btn {
+            background: #00BCD4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .difficulty-btn.active {
+            background: #0097A7;
+        }
+        
+        .challenge-area {
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .challenge-question {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .challenge-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .option-card {
+            background: white;
+            border: 2px solid #00BCD4;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .option-card:hover {
+            background: #e0f7fa;
+            transform: translateY(-2px);
+        }
+        
+        .option-card.selected {
+            background: #00BCD4;
+            color: white;
+        }
+        
+        .option-card.correct {
+            background: #4CAF50;
+            border-color: #4CAF50;
+            color: white;
+        }
+        
+        .option-card.incorrect {
+            background: #f44336;
+            border-color: #f44336;
+            color: white;
+        }
+        
+        .option-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .option-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .option-description {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .option-card.selected .option-description,
+        .option-card.correct .option-description,
+        .option-card.incorrect .option-description {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .score-board {
+            display: flex;
+            justify-content: space-around;
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .score-item {
+            text-align: center;
+            margin: 5px;
+        }
+        
+        .score-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00BCD4;
+        }
+        
+        .score-label {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .feedback {
+            background: #fff3e0;
+            border-left: 4px solid #FF9800;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .feedback.show {
+            display: block;
+        }
+        
+        .feedback h4 {
+            margin-top: 0;
+            color: #FF9800;
+        }
+        
+        .game-controls {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .btn {
+            background: #00BCD4;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        
+        .btn:hover {
+            background: #0097A7;
+        }
+        
+        .btn.secondary {
+            background: #2196F3;
+        }
+        
+        .btn.secondary:hover {
+            background: #1976D2;
+        }
+        
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #00BCD4;
+            transition: width 0.3s;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+        
+        .share-buttons {
+            margin-top: 20px;
+        }
+        
+        .share-btn {
+            background: #1877f2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .share-btn.twitter {
+            background: #1da1f2;
+        }
+        
+        .share-btn.whatsapp {
+            background: #25d366;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-fixo">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1><a href="../index.html" style="color: inherit; text-decoration: none;">Calcule Sua Saúde</a></h1>
+                </div>
+                <ul class="menu">
+                    <li><a href="../index.html">🏠 Início</a></li>
+                    <li><a href="../jogos.html">🎮 Jogos</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="game-container">
+        <div class="game-header">
+            <h1>🧘 Desafio da Rotina Saudável</h1>
+            <p>Teste seus conhecimentos sobre hábitos saudáveis e construa a rotina perfeita!</p>
+        </div>
+
+        <div class="difficulty-selector">
+            <h3>Escolha a dificuldade:</h3>
+            <button class="difficulty-btn active" data-level="easy">Fácil</button>
+            <button class="difficulty-btn" data-level="medium">Médio</button>
+            <button class="difficulty-btn" data-level="hard">Difícil</button>
+        </div>
+
+        <div class="score-board">
+            <div class="score-item">
+                <div class="score-value" id="score">0</div>
+                <div class="score-label">Pontuação</div>
+            </div>
+            <div class="score-item">
+                <div class="score-value" id="current-question">0</div>
+                <div class="score-label">Pergunta</div>
+            </div>
+            <div class="score-item">
+                <div class="score-value" id="total-questions">10</div>
+                <div class="score-label">Total</div>
+            </div>
+            <div class="score-item">
+                <div class="score-value" id="streak">0</div>
+                <div class="score-label">Sequência</div>
+            </div>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill" style="width: 0%;"></div>
+        </div>
+
+        <div class="challenge-area" id="challenge-area" style="display: none;">
+            <div class="challenge-question" id="question-text"></div>
+            <div class="challenge-options" id="options-container"></div>
+            
+            <div class="feedback" id="feedback">
+                <h4 id="feedback-title"></h4>
+                <p id="feedback-text"></p>
+            </div>
+        </div>
+
+        <div class="game-controls">
+            <button class="btn" id="start-btn">Iniciar Desafio</button>
+            <button class="btn secondary" id="next-btn" style="display: none;">Próxima Pergunta</button>
+            <button class="btn secondary" id="reset-btn">Reiniciar</button>
+        </div>
+    </div>
+
+    <!-- Modal de Resultado -->
+    <div id="result-modal" class="modal">
+        <div class="modal-content">
+            <h2>🎉 Desafio Concluído!</h2>
+            <p>Pontuação final: <span id="final-score">0</span></p>
+            <p>Acertos: <span id="correct-answers">0</span> / <span id="total-answers">10</span></p>
+            <p>Maior sequência: <span id="best-streak">0</span></p>
+            <p id="performance-message"></p>
+            <div class="share-buttons">
+                <h3>Compartilhe seu resultado:</h3>
+                <button class="share-btn" onclick="shareOnFacebook()">Facebook</button>
+                <button class="share-btn twitter" onclick="shareOnTwitter()">Twitter</button>
+                <button class="share-btn whatsapp" onclick="shareOnWhatsApp()">WhatsApp</button>
+            </div>
+            <button class="btn" onclick="closeModal()">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        class RoutineChallengeGame {
+            constructor() {
+                this.difficulty = 'easy';
+                this.currentQuestion = 0;
+                this.totalQuestions = 10;
+                this.score = 0;
+                this.streak = 0;
+                this.bestStreak = 0;
+                this.correctAnswers = 0;
+                this.gameActive = false;
+                
+                this.questions = [
+                    {
+                        question: "Qual é o melhor horário para fazer exercícios?",
+                        options: [
+                            { icon: "🌅", title: "Manhã", description: "Logo após acordar", correct: true, explanation: "Exercícios matinais aceleram o metabolismo e dão energia para o dia!" },
+                            { icon: "🌞", title: "Meio-dia", description: "Durante o almoço", correct: false, explanation: "Exercitar-se logo após comer pode causar desconforto digestivo." },
+                            { icon: "🌙", title: "Noite", description: "Antes de dormir", correct: false, explanation: "Exercícios noturnos podem atrapalhar o sono." },
+                            { icon: "🤷", title: "Qualquer hora", description: "Não importa", correct: false, explanation: "O horário faz diferença para otimizar os benefícios." }
+                        ]
+                    },
+                    {
+                        question: "Quantas horas de sono um adulto precisa por noite?",
+                        options: [
+                            { icon: "😴", title: "5-6 horas", description: "Sono curto", correct: false, explanation: "Muito pouco sono prejudica a saúde física e mental." },
+                            { icon: "😊", title: "7-9 horas", description: "Sono adequado", correct: true, explanation: "Esta é a quantidade ideal para recuperação e bem-estar!" },
+                            { icon: "😪", title: "10-12 horas", description: "Sono longo", correct: false, explanation: "Dormir demais pode causar sonolência durante o dia." },
+                            { icon: "🤔", title: "Varia muito", description: "Depende da pessoa", correct: false, explanation: "Embora varie um pouco, 7-9h é o padrão recomendado." }
+                        ]
+                    },
+                    {
+                        question: "Qual a melhor forma de se hidratar durante o dia?",
+                        options: [
+                            { icon: "💧", title: "Água pura", description: "2L ao longo do dia", correct: true, explanation: "Água é a melhor opção para hidratação constante!" },
+                            { icon: "🥤", title: "Refrigerantes", description: "Várias vezes ao dia", correct: false, explanation: "Refrigerantes têm muito açúcar e não hidratam adequadamente." },
+                            { icon: "☕", title: "Café", description: "Várias xícaras", correct: false, explanation: "Café em excesso pode desidratar e causar ansiedade." },
+                            { icon: "🧃", title: "Sucos", description: "Industrializados", correct: false, explanation: "Sucos industrializados têm muito açúcar adicionado." }
+                        ]
+                    },
+                    {
+                        question: "Com que frequência devemos comer frutas e vegetais?",
+                        options: [
+                            { icon: "📅", title: "1x por semana", description: "Ocasionalmente", correct: false, explanation: "Muito pouco para obter os benefícios nutricionais." },
+                            { icon: "🗓️", title: "3x por semana", description: "Algumas vezes", correct: false, explanation: "Ainda insuficiente para uma dieta equilibrada." },
+                            { icon: "📆", title: "Todos os dias", description: "5 porções diárias", correct: true, explanation: "O ideal são 5 porções de frutas e vegetais por dia!" },
+                            { icon: "🤷", title: "Quando lembrar", description: "Sem regularidade", correct: false, explanation: "A regularidade é importante para manter os nutrientes." }
+                        ]
+                    },
+                    {
+                        question: "Qual é a melhor estratégia para gerenciar o estresse?",
+                        options: [
+                            { icon: "📱", title: "Redes sociais", description: "Navegar no celular", correct: false, explanation: "Redes sociais podem aumentar o estresse e ansiedade." },
+                            { icon: "🧘", title: "Meditação", description: "5-10 min diários", correct: true, explanation: "Meditação reduz cortisol e melhora o bem-estar mental!" },
+                            { icon: "🍫", title: "Comer doces", description: "Para se sentir melhor", correct: false, explanation: "Comer por estresse pode criar dependência e problemas de saúde." },
+                            { icon: "😴", title: "Dormir mais", description: "Escapar dos problemas", correct: false, explanation: "Dormir demais pode ser sinal de depressão." }
+                        ]
+                    },
+                    {
+                        question: "Qual a importância do café da manhã?",
+                        options: [
+                            { icon: "⏰", title: "Acelera metabolismo", description: "Inicia o dia com energia", correct: true, explanation: "Um bom café da manhã ativa o metabolismo e melhora o foco!" },
+                            { icon: "⚖️", title: "Ajuda a emagrecer", description: "Pulando refeições", correct: false, explanation: "Pular o café da manhã pode levar a excessos nas outras refeições." },
+                            { icon: "🤷", title: "Não é importante", description: "Posso pular", correct: false, explanation: "O café da manhã é fundamental para energia e concentração." },
+                            { icon: "☕", title: "Só café basta", description: "Líquidos apenas", correct: false, explanation: "Só café não fornece os nutrientes necessários." }
+                        ]
+                    },
+                    {
+                        question: "Como devemos nos exercitar durante a semana?",
+                        options: [
+                            { icon: "🏃", title: "Todo dia intenso", description: "Sem descanso", correct: false, explanation: "Exercitar-se intensamente todo dia pode causar lesões." },
+                            { icon: "📅", title: "3-5x por semana", description: "Com descanso", correct: true, explanation: "Esta frequência permite recuperação e progressão segura!" },
+                            { icon: "🛋️", title: "Só fins de semana", description: "Guerreiro de fim de semana", correct: false, explanation: "Exercitar-se só no fim de semana aumenta risco de lesões." },
+                            { icon: "🤔", title: "Quando der vontade", description: "Sem planejamento", correct: false, explanation: "Consistência é fundamental para obter benefícios." }
+                        ]
+                    },
+                    {
+                        question: "Qual a melhor forma de lidar com a fome entre refeições?",
+                        options: [
+                            { icon: "🍎", title: "Frutas ou nuts", description: "Lanches saudáveis", correct: true, explanation: "Lanches nutritivos mantêm energia e saciedade!" },
+                            { icon: "🍪", title: "Biscoitos", description: "Qualquer coisa doce", correct: false, explanation: "Doces causam picos de açúcar e fome rebote." },
+                            { icon: "💧", title: "Só água", description: "Ignorar a fome", correct: false, explanation: "Ignorar a fome pode levar a excessos na próxima refeição." },
+                            { icon: "☕", title: "Café", description: "Para cortar a fome", correct: false, explanation: "Café não fornece nutrientes e pode causar ansiedade." }
+                        ]
+                    },
+                    {
+                        question: "Como melhorar a qualidade do sono?",
+                        options: [
+                            { icon: "📱", title: "Ver TV na cama", description: "Para relaxar", correct: false, explanation: "Telas antes de dormir prejudicam a produção de melatonina." },
+                            { icon: "🌙", title: "Rotina noturna", description: "Horários regulares", correct: true, explanation: "Rotina noturna prepara o corpo para um sono reparador!" },
+                            { icon: "☕", title: "Café à noite", description: "Para ficar acordado", correct: false, explanation: "Cafeína à noite atrapalha o sono profundo." },
+                            { icon: "🍷", title: "Álcool", description: "Para relaxar", correct: false, explanation: "Álcool prejudica a qualidade do sono REM." }
+                        ]
+                    },
+                    {
+                        question: "Qual a importância da postura no trabalho?",
+                        options: [
+                            { icon: "💺", title: "Ergonomia adequada", description: "Previne dores", correct: true, explanation: "Boa postura previne dores nas costas e pescoço!" },
+                            { icon: "🛋️", title: "Qualquer posição", description: "Conforto é o que importa", correct: false, explanation: "Posições inadequadas causam problemas musculares." },
+                            { icon: "🏃", title: "Ficar em pé", description: "O tempo todo", correct: false, explanation: "Ficar muito tempo em pé também pode causar problemas." },
+                            { icon: "🤷", title: "Não importa", description: "Só por algumas horas", correct: false, explanation: "Mesmo poucas horas em má postura podem causar danos." }
+                        ]
+                    }
+                ];
+                
+                this.init();
+            }
+            
+            init() {
+                this.setupEventListeners();
+            }
+            
+            setupEventListeners() {
+                document.getElementById('start-btn').addEventListener('click', () => this.startGame());
+                document.getElementById('next-btn').addEventListener('click', () => this.nextQuestion());
+                document.getElementById('reset-btn').addEventListener('click', () => this.resetGame());
+                
+                document.querySelectorAll('.difficulty-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => this.setDifficulty(e.target.dataset.level));
+                });
+            }
+            
+            setDifficulty(level) {
+                this.difficulty = level;
+                document.querySelectorAll('.difficulty-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelector(`[data-level="${level}"]`).classList.add('active');
+                
+                switch(level) {
+                    case 'easy':
+                        this.totalQuestions = 8;
+                        break;
+                    case 'medium':
+                        this.totalQuestions = 10;
+                        break;
+                    case 'hard':
+                        this.totalQuestions = 12;
+                        break;
+                }
+                
+                document.getElementById('total-questions').textContent = this.totalQuestions;
+            }
+            
+            startGame() {
+                this.gameActive = true;
+                this.currentQuestion = 0;
+                this.score = 0;
+                this.streak = 0;
+                this.bestStreak = 0;
+                this.correctAnswers = 0;
+                
+                document.getElementById('start-btn').style.display = 'none';
+                document.getElementById('challenge-area').style.display = 'block';
+                
+                this.updateScore();
+                this.nextQuestion();
+            }
+            
+            nextQuestion() {
+                if (this.currentQuestion >= this.totalQuestions) {
+                    this.endGame();
+                    return;
+                }
+                
+                this.currentQuestion++;
+                document.getElementById('current-question').textContent = this.currentQuestion;
+                
+                // Atualizar barra de progresso
+                const progress = (this.currentQuestion / this.totalQuestions) * 100;
+                document.getElementById('progress-fill').style.width = progress + '%';
+                
+                // Esconder feedback e botão próxima
+                document.getElementById('feedback').classList.remove('show');
+                document.getElementById('next-btn').style.display = 'none';
+                
+                // Selecionar pergunta aleatória
+                const questionIndex = Math.floor(Math.random() * this.questions.length);
+                const question = this.questions[questionIndex];
+                
+                this.currentQuestionData = question;
+                this.displayQuestion(question);
+            }
+            
+            displayQuestion(question) {
+                document.getElementById('question-text').textContent = question.question;
+                
+                const container = document.getElementById('options-container');
+                container.innerHTML = '';
+                
+                question.options.forEach((option, index) => {
+                    const optionCard = document.createElement('div');
+                    optionCard.className = 'option-card';
+                    optionCard.dataset.index = index;
+                    
+                    optionCard.innerHTML = `
+                        <div class="option-icon">${option.icon}</div>
+                        <div class="option-title">${option.title}</div>
+                        <div class="option-description">${option.description}</div>
+                    `;
+                    
+                    optionCard.addEventListener('click', () => this.selectOption(index));
+                    container.appendChild(optionCard);
+                });
+            }
+            
+            selectOption(selectedIndex) {
+                if (!this.gameActive) return;
+                
+                const options = document.querySelectorAll('.option-card');
+                options.forEach(option => option.style.pointerEvents = 'none');
+                
+                const selectedOption = this.currentQuestionData.options[selectedIndex];
+                const isCorrect = selectedOption.correct;
+                
+                // Marcar respostas
+                options.forEach((option, index) => {
+                    if (this.currentQuestionData.options[index].correct) {
+                        option.classList.add('correct');
+                    } else if (index === selectedIndex && !isCorrect) {
+                        option.classList.add('incorrect');
+                    }
+                });
+                
+                // Atualizar pontuação
+                if (isCorrect) {
+                    this.correctAnswers++;
+                    this.streak++;
+                    this.bestStreak = Math.max(this.bestStreak, this.streak);
+                    
+                    let points = 100;
+                    if (this.difficulty === 'medium') points = 150;
+                    if (this.difficulty === 'hard') points = 200;
+                    
+                    // Bonus por sequência
+                    points += this.streak * 10;
+                    
+                    this.score += points;
+                } else {
+                    this.streak = 0;
+                }
+                
+                this.updateScore();
+                this.showFeedback(selectedOption, isCorrect);
+                
+                // Mostrar botão próxima pergunta
+                setTimeout(() => {
+                    document.getElementById('next-btn').style.display = 'inline-block';
+                    options.forEach(option => option.style.pointerEvents = 'auto');
+                }, 2000);
+            }
+            
+            showFeedback(selectedOption, isCorrect) {
+                const feedback = document.getElementById('feedback');
+                const title = document.getElementById('feedback-title');
+                const text = document.getElementById('feedback-text');
+                
+                if (isCorrect) {
+                    title.textContent = '🎉 Correto!';
+                    title.style.color = '#4CAF50';
+                } else {
+                    title.textContent = '❌ Incorreto!';
+                    title.style.color = '#f44336';
+                }
+                
+                text.textContent = selectedOption.explanation;
+                feedback.classList.add('show');
+            }
+            
+            updateScore() {
+                document.getElementById('score').textContent = this.score;
+                document.getElementById('streak').textContent = this.streak;
+            }
+            
+            endGame() {
+                this.gameActive = false;
+                document.getElementById('challenge-area').style.display = 'none';
+                document.getElementById('start-btn').style.display = 'inline-block';
+                
+                this.showResults();
+            }
+            
+            showResults() {
+                document.getElementById('final-score').textContent = this.score;
+                document.getElementById('correct-answers').textContent = this.correctAnswers;
+                document.getElementById('total-answers').textContent = this.totalQuestions;
+                document.getElementById('best-streak').textContent = this.bestStreak;
+                
+                const percentage = (this.correctAnswers / this.totalQuestions) * 100;
+                let message = '';
+                
+                if (percentage >= 90) {
+                    message = '🌟 Incrível! Você é um expert em hábitos saudáveis!';
+                } else if (percentage >= 70) {
+                    message = '👍 Muito bom! Você tem ótimos conhecimentos sobre saúde!';
+                } else if (percentage >= 50) {
+                    message = '📚 Bom trabalho! Continue aprendendo sobre vida saudável!';
+                } else {
+                    message = '💪 Continue estudando! Cada passo conta para uma vida mais saudável!';
+                }
+                
+                document.getElementById('performance-message').textContent = message;
+                document.getElementById('result-modal').style.display = 'block';
+            }
+            
+            resetGame() {
+                this.gameActive = false;
+                this.currentQuestion = 0;
+                this.score = 0;
+                this.streak = 0;
+                this.bestStreak = 0;
+                this.correctAnswers = 0;
+                
+                document.getElementById('score').textContent = '0';
+                document.getElementById('current-question').textContent = '0';
+                document.getElementById('streak').textContent = '0';
+                document.getElementById('progress-fill').style.width = '0%';
+                
+                document.getElementById('start-btn').style.display = 'inline-block';
+                document.getElementById('challenge-area').style.display = 'none';
+                document.getElementById('next-btn').style.display = 'none';
+            }
+        }
+        
+        function closeModal() {
+            document.getElementById('result-modal').style.display = 'none';
+        }
+        
+        function shareOnFacebook() {
+            const score = document.getElementById('final-score').textContent;
+            const correct = document.getElementById('correct-answers').textContent;
+            const total = document.getElementById('total-answers').textContent;
+            const text = `Acabei de fazer ${score} pontos no Desafio da Rotina Saudável! Acertei ${correct}/${total} perguntas! 🧘 Teste seus conhecimentos sobre hábitos saudáveis!`;
+            const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+        
+        function shareOnTwitter() {
+            const score = document.getElementById('final-score').textContent;
+            const correct = document.getElementById('correct-answers').textContent;
+            const total = document.getElementById('total-answers').textContent;
+            const text = `Fiz ${score} pontos no Desafio da Rotina Saudável! ${correct}/${total} acertos! 🧘 #RotinaSaudável #BemEstar`;
+            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`;
+            window.open(url, '_blank');
+        }
+        
+        function shareOnWhatsApp() {
+            const score = document.getElementById('final-score').textContent;
+            const correct = document.getElementById('correct-answers').textContent;
+            const total = document.getElementById('total-answers').textContent;
+            const text = `Acabei de fazer ${score} pontos no Desafio da Rotina Saudável! Acertei ${correct}/${total} perguntas! 🧘 Teste você também: ${window.location.href}`;
+            const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+        
+        // Inicializar o jogo
+        const game = new RoutineChallengeGame();
+    </script>
+</body>
+</html>
+

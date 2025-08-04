@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artigos de Saúde - Calcule Sua Saúde</title>
+    <meta name="description" content="Artigos informativos sobre saúde, nutrição, bem-estar e qualidade de vida. Conteúdo baseado em evidências científicas.">
+    <meta name="keywords" content="artigos saúde, nutrição, bem-estar, qualidade de vida, medicina preventiva">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Artigos de Saúde - Calcule Sua Saúde">
+    <meta property="og:description" content="Artigos informativos sobre saúde, nutrição, bem-estar e qualidade de vida. Conteúdo baseado em evidências científicas.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculesuasaude.com.br/artigos.html">
+    <meta property="og:image" content="https://calculesuasaude.com.br/icon192.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilo.css">
+
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="header-fixo">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1><a href="index.html" style="color: inherit; text-decoration: none;">Calcule Sua Saúde</a></h1>
+                </div>
+                <ul class="menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#ferramentas">Ferramentas</a></li>
+                    <li><a href="artigos.html" class="ativo">Artigos</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><button id="modo-noturno" class="btn-modo">🌙</button></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="artigos-page">
+        <div class="container">
+            <!-- Cabeçalho da Página -->
+            <div class="artigos-header">
+                <h1>Artigos de Saúde</h1>
+                <p>Conteúdo informativo baseado em evidências científicas para ajudar você a cuidar melhor da sua saúde e bem-estar.</p>
+            </div>
+
+            <!-- Filtros -->
+            <div class="filtros-artigos">
+                <button class="filtro-btn ativo" data-categoria="todos">Todos os Artigos</button>
+                <button class="filtro-btn" data-categoria="nutricao">Nutrição</button>
+                <button class="filtro-btn" data-categoria="exercicios">Exercícios</button>
+                <button class="filtro-btn" data-categoria="saude-mental">Saúde Mental</button>
+                <button class="filtro-btn" data-categoria="prevencao">Prevenção</button>
+                <button class="filtro-btn" data-categoria="bem-estar">Bem-estar</button>
+            </div>
+
+            <!-- Busca -->
+            <div class="busca-artigos">
+                <input type="text" class="busca-input" placeholder="Buscar artigos..." id="busca-input">
+            </div>
+
+            <!-- Grid de Artigos -->
+            <div class="artigos-grid" id="artigos-grid">
+                <!-- Os artigos serão inseridos aqui via JavaScript -->
+            </div>
+
+            <!-- Mensagem quando não há resultados -->
+            <div class="sem-resultados" id="sem-resultados" style="display: none;">
+                <h3>Nenhum artigo encontrado</h3>
+                <p>Tente ajustar os filtros ou termos de busca.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Calcule Sua Saúde</h3>
+                    <p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                        <li><a href="politica.html">Política de Privacidade</a></li>
+                        <li><a href="termos.html">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Ferramentas</h4>
+                    <ul>
+                        <li><a href="ferramentas/imc.html">Calculadora de IMC</a></li>
+                        <li><a href="ferramentas/tmb.html">Taxa Metabólica Basal</a></li>
+                        <li><a href="ferramentas/agua.html">Água por Dia</a></li>
+                        <li><a href="ferramentas/calorias.html">Gasto Calórico</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+                <p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/modo-noturno.js"></script>
+    <script>
+        // Dados dos artigos
+        const artigos = [
+            {
+                titulo: "IMC: Como Calcular e Interpretar o Índice de Massa Corporal",
+                descricao: "Aprenda como calcular e interpretar o IMC (Índice de Massa Corporal). Entenda as faixas de peso, limitações e importância para a saúde.",
+                categoria: "nutricao",
+                arquivo: "artigos/imc-calculo-interpretacao.html",
+                imagem: "img/artigos/imc.jpg"
+            },
+            {
+                titulo: "Obesidade: Causas, Consequências e Tratamento Completo",
+                descricao: "Guia completo sobre obesidade: principais causas, consequências para a saúde e opções de tratamento. Aprenda como prevenir e tratar a obesidade.",
+                categoria: "prevencao",
+                arquivo: "artigos/obesidade-causas-tratamento.html",
+                imagem: "img/artigos/obesidade.jpg"
+            },
+            {
+                titulo: "Diabetes: Prevenção, Tratamento e Controle da Glicemia",
+                descricao: "Guia completo sobre diabetes: tipos, sintomas, prevenção e tratamento. Aprenda a controlar a glicemia e viver bem com diabetes.",
+                categoria: "prevencao",
+                arquivo: "artigos/diabetes-prevencao-tratamento.html",
+                imagem: "img/artigos/diabetes.jpg"
+            },
+            {
+                titulo: "Como Acelerar o Metabolismo: Estratégias Científicas para Queimar Mais Calorias",
+                descricao: "Descubra estratégias comprovadas para acelerar o metabolismo naturalmente. Aprenda sobre TMB, exercícios, alimentação e hábitos que aumentam o gasto calórico.",
+                categoria: "nutricao",
+                arquivo: "artigos/metabolismo-como-acelerar.html",
+                imagem: "img/artigos/metabolismo.jpg"
+            },
+            {
+                titulo: "Guia Completo de Alimentação Saudável: Princípios e Práticas",
+                descricao: "Aprenda os fundamentos da alimentação saudável: macronutrientes, micronutrientes, planejamento de refeições e dicas práticas para uma dieta equilibrada.",
+                categoria: "nutricao",
+                arquivo: "artigos/alimentacao-saudavel-guia.html",
+                imagem: "img/artigos/alimentacao_saudavel.jpg"
+            },
+            {
+                titulo: "Melhores Exercícios para Queimar Calorias: Guia Completo",
+                descricao: "Descubra os exercícios mais eficazes para queimar calorias. Guia completo com HIIT, musculação, cardio e estratégias para maximizar o gasto energético.",
+                categoria: "exercicios",
+                arquivo: "artigos/exercicios-queimar-calorias.html",
+                imagem: "img/artigos/exercicios_queimar_calorias.jpg"
+            },
+            {
+                titulo: "Hidratação: A Importância da Água para a Saúde e Performance",
+                descricao: "Descubra a importância da hidratação adequada para a saúde, performance física e mental. Aprenda quanto beber, sinais de desidratação e dicas práticas.",
+                categoria: "bem-estar",
+                arquivo: "artigos/hidratacao-importancia-saude.html",
+                imagem: "img/artigos/hidratacao.jpg"
+            },
+            {
+                titulo: "Macronutrientes: Guia Completo sobre Carboidratos, Proteínas e Gorduras",
+                descricao: "Guia completo sobre macronutrientes: funções, fontes, quantidades ideais e como equilibrar carboidratos, proteínas e gorduras na sua dieta.",
+                categoria: "nutricao",
+                arquivo: "artigos/macronutrientes-guia-completo.html",
+                imagem: "img/artigos/macronutrientes.jpg"
+            },
+            {
+                titulo: "Sono e Saúde: A Importância do Descanso para o Bem-Estar",
+                descricao: "Descubra como o sono afeta sua saúde física e mental. Guia completo sobre higiene do sono, distúrbios e estratégias para melhorar a qualidade do descanso.",
+                categoria: "bem-estar",
+                arquivo: "artigos/sono-qualidade-saude.html",
+                imagem: "img/artigos/sono.jpg"
+            },
+            {
+                titulo: "Estresse: Como Gerenciar e Reduzir o Impacto na Saúde",
+                descricao: "Guia completo sobre estresse: causas, sintomas, impactos na saúde e estratégias eficazes para gerenciamento e redução do estresse no dia a dia.",
+                categoria: "saude-mental",
+                arquivo: "artigos/estresse-gerenciamento-saude.html",
+                imagem: "img/artigos/estresse.jpg"
+            },
+            {
+                titulo: "Vitaminas e Minerais Essenciais: Guia Completo para a Saúde",
+                descricao: "Guia completo sobre vitaminas e minerais essenciais: funções, fontes alimentares, deficiências, suplementação e como garantir uma nutrição adequada.",
+                categoria: "nutricao",
+                arquivo: "artigos/vitaminas-minerais-essenciais.html",
+                imagem: "img/artigos/vitaminas_minerais.jpg"
+            },
+            {
+                titulo: "Suplementos: Quando Usar, Como Escolher e Cuidados Essenciais",
+                descricao: "Guia completo sobre suplementação: quando é necessária, como escolher produtos de qualidade, dosagens adequadas e cuidados importantes para sua segurança.",
+                categoria: "nutricao",
+                arquivo: "artigos/suplementos-quando-usar.html",
+                imagem: "img/artigos/suplementos.jpg"
+            },
+            {
+                titulo: "Doenças Cardiovasculares: Prevenção, Fatores de Risco e Tratamento",
+                descricao: "Guia completo sobre doenças cardiovasculares: tipos, fatores de risco, prevenção, diagnóstico e tratamento. Proteja seu coração com informações baseadas em evidências.",
+                categoria: "prevencao",
+                arquivo: "artigos/doencas-cardiovasculares-prevencao.html",
+                imagem: "img/artigos/doencas_cardiovasculares.jpg"
+            },
+            {
+                titulo: "Perda de Peso: Estratégias Científicas e Sustentáveis para Emagrecer",
+                descricao: "Guia completo sobre perda de peso: estratégias baseadas em ciência, dietas eficazes, exercícios, mudanças comportamentais e como manter o peso perdido.",
+                categoria: "nutricao",
+                arquivo: "artigos/perda-peso-estrategias.html",
+                imagem: "img/artigos/perda_peso.jpg"
+            },
+            {
+                titulo: "Ganho de Massa Muscular: Guia Completo para Hipertrofia",
+                descricao: "Guia científico sobre ganho de massa muscular: treinamento, nutrição, descanso e suplementação para maximizar a hipertrofia de forma eficiente e saudável.",
+                categoria: "exercicios",
+                arquivo: "artigos/ganho-massa-muscular.html",
+                imagem: "img/artigos/ganho_massa_muscular.jpg"
+            },
+            {
+                titulo: "Hipertensão: Controle, Prevenção e Tratamento da Pressão Alta",
+                descricao: "Guia completo sobre hipertensão arterial: causas, sintomas, prevenção, tratamento natural e medicamentoso para controlar a pressão alta de forma eficaz.",
+                categoria: "prevencao",
+                arquivo: "artigos/hipertensao-controle-prevencao.html",
+                imagem: "img/artigos/hipertensao.jpeg"
+            },
+            {
+                titulo: "Colesterol: Controle, Prevenção e Tratamento Completo",
+                descricao: "Guia completo sobre colesterol: tipos, causas, prevenção, tratamento natural e medicamentoso para controlar o colesterol alto de forma eficaz.",
+                categoria: "prevencao",
+                arquivo: "artigos/colesterol-controle-prevencao.html",
+                imagem: "img/artigos/colesterol.jpg"
+            },
+            {
+                titulo: "Ansiedade e Depressão: Guia Completo de Saúde Mental",
+                descricao: "Guia completo sobre ansiedade e depressão: sintomas, causas, tratamento e estratégias para cuidar da saúde mental de forma eficaz.",
+                categoria: "saude-mental",
+                arquivo: "artigos/ansiedade-depressao-saude-mental.html",
+                imagem: "img/artigos/ansiedade_depressao.jpg"
+            },
+            {
+                titulo: "Envelhecimento Saudável: Guia Completo para Longevidade",
+                descricao: "Guia completo sobre envelhecimento saudável: estratégias para longevidade, prevenção de doenças e manutenção da qualidade de vida na terceira idade.",
+                categoria: "bem-estar",
+                arquivo: "artigos/envelhecimento-saudavel.html",
+                imagem: "img/artigos/envelhecimento_saudavel.jpg"
+            },
+            {
+                titulo: "Saúde da Mulher: Guia Completo de Cuidados Específicos",
+                descricao: "Guia completo sobre saúde da mulher: cuidados específicos em cada fase da vida, prevenção, exames e bem-estar feminino.",
+                categoria: "prevencao",
+                arquivo: "artigos/saude-mulher-cuidados.html",
+                imagem: "img/artigos/saude_mulher.jpg"
+            },
+            {
+                titulo: "Saúde do Homem: Guia Completo de Cuidados Específicos",
+                descricao: "Guia completo sobre saúde masculina: cuidados específicos, prevenção, exames e bem-estar do homem em todas as fases da vida.",
+                categoria: "prevencao",
+                arquivo: "artigos/saude-homem-cuidados.html",
+                imagem: "img/artigos/saude_homem.jpg"
+            },
+            {
+                titulo: "Atividade Física: Benefícios Comprovados para a Saúde",
+                descricao: "Descubra os benefícios comprovados da atividade física para a saúde física e mental. Guia completo com tipos de exercícios e recomendações.",
+                categoria: "exercicios",
+                arquivo: "artigos/atividade-fisica-beneficios.html",
+                imagem: "img/artigos/atividade_fisica.jpg"
+            },
+            {
+                titulo: "Nutrição Esportiva: Guia Completo para Performance e Recuperação",
+                descricao: "Guia completo de nutrição esportiva com estratégias para melhorar performance, acelerar recuperação e otimizar resultados no esporte.",
+                categoria: "nutricao",
+                arquivo: "artigos/nutricao-esportiva-guia.html",
+                imagem: "img/artigos/nutricao_esportiva.jpg"
+            },
+            {
+                titulo: "Lesões Esportivas: Prevenção e Tratamento",
+                descricao: "Guia completo sobre prevenção e tratamento de lesões esportivas. Aprenda a se proteger e acelerar a recuperação.",
+                categoria: "exercicios",
+                arquivo: "artigos/lesoes-esportivas-prevencao.html",
+                imagem: "img/artigos/lesoes_esportivas.jpg"
+            },
+            {
+                titulo: "Saúde Infantil: Cuidados Essenciais para o Desenvolvimento",
+                descricao: "Guia completo sobre saúde infantil com cuidados essenciais para o desenvolvimento saudável das crianças.",
+                categoria: "prevencao",
+                arquivo: "artigos/saude-infantil-cuidados.html",
+                imagem: "img/artigos/saude_infantil.jpg"
+            },
+            {
+                titulo: "Menopausa: Sintomas, Cuidados e Tratamentos",
+                descricao: "Guia completo sobre menopausa com sintomas, cuidados e tratamentos para uma transição saudável.",
+                categoria: "bem-estar",
+                arquivo: "artigos/menopausa-cuidados-sintomas.html",
+                imagem: "img/artigos/menopausa.jpg"
+            },
+            {
+                titulo: "Câncer: Prevenção e Detecção Precoce",
+                descricao: "Guia completo sobre prevenção do câncer e importância da detecção precoce para melhores resultados no tratamento.",
+                categoria: "prevencao",
+                arquivo: "artigos/cancer-prevencao-deteccao.html",
+                imagem: "img/artigos/cancer.jpg"
+            },
+            {
+                titulo: "Como Fortalecer a Imunidade: Estratégias Naturais",
+                descricao: "Guia completo sobre como fortalecer o sistema imunológico naturalmente através de alimentação, exercícios e hábitos saudáveis.",
+                categoria: "bem-estar",
+                arquivo: "artigos/imunidade-fortalecimento.html",
+                imagem: "img/artigos/imunidade.jpg"
+            },
+            {
+                titulo: "Saúde Digestiva: Cuidados com o Intestino",
+                descricao: "Guia completo sobre saúde digestiva e cuidados com o intestino para melhorar digestão e bem-estar geral.",
+                categoria: "bem-estar",
+                arquivo: "artigos/saude-digestiva-intestino.html",
+                imagem: "img/artigos/saude_digestiva.jpg"
+            },
+            {
+                titulo: "Saúde Mental e Bem-Estar Emocional",
+                descricao: "Guia completo sobre saúde mental e estratégias para promover bem-estar emocional e qualidade de vida.",
+                categoria: "saude-mental",
+                arquivo: "artigos/saude-mental-bem-estar.html",
+                imagem: "img/artigos/saude_mental.jpg"
+            }
+        ];
+
+        // Função para obter nome da categoria
+        function getNomeCategoria(categoria) {
+            const nomes = {
+                'nutricao': 'Nutrição',
+                'exercicios': 'Exercícios',
+                'saude-mental': 'Saúde Mental',
+                'prevencao': 'Prevenção',
+                'bem-estar': 'Bem-estar'
+            };
+            return nomes[categoria] || 'Geral';
+        }
+
+        // Função para renderizar artigos
+        function renderizarArtigos(artigosParaRenderizar) {
+            const grid = document.getElementById('artigos-grid');
+            const semResultados = document.getElementById('sem-resultados');
+            
+            if (artigosParaRenderizar.length === 0) {
+                grid.style.display = 'none';
+                semResultados.style.display = 'block';
+                return;
+            }
+            
+            grid.style.display = 'grid';
+            semResultados.style.display = 'none';
+            
+            grid.innerHTML = artigosParaRenderizar.map(artigo => `
+                <article class="artigo-item">
+                    <img src="${artigo.imagem}" alt="${artigo.titulo}" class="artigo-imagem">
+                    <div class="artigo-conteudo">
+                        <span class="artigo-categoria">${artigo.categoria}</span>
+                        <h3 class="artigo-titulo">${artigo.titulo}</h3>
+                        <p class="artigo-descricao">${artigo.descricao}</p>
+                        <a href="${artigo.arquivo}" class="artigo-link">Ler artigo completo</a>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // Função para filtrar artigos
+        function filtrarArtigos() {
+            const categoriaAtiva = document.querySelector('.filtro-btn.ativo').dataset.categoria;
+            const termoBusca = document.getElementById('busca-input').value.toLowerCase();
+            
+            let artigosFiltrados = artigos;
+            
+            // Filtrar por categoria
+            if (categoriaAtiva !== 'todos') {
+                artigosFiltrados = artigosFiltrados.filter(artigo => artigo.categoria === categoriaAtiva);
+            }
+            
+            // Filtrar por busca
+            if (termoBusca) {
+                artigosFiltrados = artigosFiltrados.filter(artigo => 
+                    artigo.titulo.toLowerCase().includes(termoBusca) ||
+                    artigo.descricao.toLowerCase().includes(termoBusca)
+                );
+            }
+            
+            renderizarArtigos(artigosFiltrados);
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Renderizar todos os artigos inicialmente
+            renderizarArtigos(artigos);
+            
+            // Filtros de categoria
+            document.querySelectorAll('.filtro-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
+                    this.classList.add('ativo');
+                    filtrarArtigos();
+                });
+            });
+            
+            // Busca
+            document.getElementById('busca-input').addEventListener('input', filtrarArtigos);
+        });
+    </script>
+</body>
+</html>
+

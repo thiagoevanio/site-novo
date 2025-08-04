@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcule Sua Saúde - Ferramentas Gratuitas para Cuidar da Sua Saúde</title>
+    <meta name="description" content="Calculadoras gratuitas de saúde: IMC, TMB, água diária, gordura corporal e muito mais. Artigos informativos sobre nutrição e bem-estar.">
+    <meta name="keywords" content="calculadora IMC, taxa metabólica basal, água por dia, saúde, nutrição, bem-estar">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Calcule Sua Saúde - Ferramentas Gratuitas para Cuidar da Sua Saúde">
+    <meta property="og:description" content="Calculadoras gratuitas de saúde: IMC, TMB, água diária, gordura corporal e muito mais. Artigos informativos sobre nutrição e bem-estar.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculesuasaude.com.br">
+    <meta property="og:image" content="https://calculesuasaude.com.br/icon192.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="quiz_styles.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="header-fixo">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>Calcule Sua Saúde</h1>
+                </div>
+                <ul class="menu">
+                    <li><a href="index.html">🏠 Início</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">🩺 Saúde Interativa</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#ferramentas">🧮 Calculadoras</a></li>
+                            <li><a href="desafios.html">📅 Desafios Diários</a></li>
+                            <li><a href="todos_quizzes.html">🧩 Quizzes</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">📚 Conteúdo</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="artigos.html">📄 Artigos</a></li>
+                            <li><a href="jogos.html">🎮 Jogos</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">ℹ️ Sobre</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="sobre.html">🏢 Sobre o Calcule Sua Saúde</a></li>
+                            <li><a href="politica.html">🔒 Política de Privacidade</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contato.html">📞 Contato</a></li>
+                    <li><button id="modo-noturno" class="btn-modo">🌙</button></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Seção Principal -->
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Cuide da sua saúde com ferramentas gratuitas e confiáveis</h2>
+                    <p>Calculadoras de saúde baseadas em evidências científicas para ajudar você a monitorar e melhorar seu bem-estar. Sem complicação, sem cadastro.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Destaque dos Desafios -->
+        <section class="desafios-destaque">
+            <div class="container">
+                <div>
+                    <h2>📆 Desafios Saudáveis Diários</h2>
+                    <p>
+                        Transforme sua rotina com pequenos hábitos saudáveis! Participe dos nossos desafios diários e acompanhe seu progresso.
+                    </p>
+                    <div class="desafio-card">
+                        <h3>Desafio de Hoje</h3>
+                        <p id="desafio-hoje">Beba 2L de água hoje</p>
+                    </div>
+                    <a href="desafios.html" class="btn-card" style="display: inline-block; background-color: #4CAF50; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                        Ver Calendário Completo
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ferramentas -->
+        <section id="ferramentas" class="ferramentas">
+            <div class="container">
+                <h2>Nossas Ferramentas</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">📊</div>
+                        <h3>Calculadora de IMC</h3>
+                        <p>Descubra seu Índice de Massa Corporal e entenda se está dentro do peso ideal.</p>
+                        <a href="ferramentas/imc.html" class="btn-card">Calcular IMC</a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">🔥</div>
+                        <h3>Taxa Metabólica Basal</h3>
+                        <p>Calcule quantas calorias seu corpo queima em repouso durante um dia.</p>
+                        <a href="ferramentas/tmb.html" class="btn-card">Calcular TMB</a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">💧</div>
+                        <h3>Água por Dia</h3>
+                        <p>Descubra a quantidade ideal de água que você deve beber diariamente.</p>
+                        <a href="ferramentas/agua.html" class="btn-card">Calcular Água</a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">⚖️</div>
+                        <h3>Gordura Corporal</h3>
+                        <p>Estime seu percentual de gordura corporal com base em medidas corporais.</p>
+                        <a href="ferramentas/gordura.html" class="btn-card">Calcular Gordura</a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">🍎</div>
+                        <h3>Macronutrientes</h3>
+                        <p>Distribua corretamente proteínas, carboidratos e gorduras na sua dieta.</p>
+                        <a href="ferramentas/macros.html" class="btn-card">Calcular Macros</a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">🩸</div>
+                        <h3>Controle Glicêmico</h3>
+                        <p>Monitore e entenda melhor seus níveis de glicose no sangue.</p>
+                        <a href="ferramentas/glicemia.html" class="btn-card">Verificar Glicemia</a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">🏃</div>
+                        <h3>Gasto Calórico</h3>
+                        <p>Calcule quantas calorias você gasta por dia incluindo atividades físicas.</p>
+                        <a href="ferramentas/calorias.html" class="btn-card">Calcular Calorias</a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">👶</div>
+                        <h3>IMC Infantil</h3>
+                        <p>Calculadora especial de IMC para crianças e adolescentes.</p>
+                        <a href="ferramentas/imc_infantil.html" class="btn-card">IMC Infantil</a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">❤️</div>
+                        <h3>Frequência Cardíaca</h3>
+                        <p>Encontre sua zona de treino cardíaco ideal para exercícios.</p>
+                        <a href="ferramentas/frequencia_cardiaca.html" class="btn-card">Calcular FC</a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">💦</div>
+                        <h3>Água Corporal</h3>
+                        <p>Estime o percentual de água presente no seu corpo.</p>
+                        <a href="ferramentas/agua_corporal.html" class="btn-card">Calcular Água Corporal</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quizzes Interativos -->
+        <section id="quizzes" class="quizzes">
+            <div class="container">
+                <h2>Quizzes Interativos</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">🧠</div>
+                        <h3>Quiz de Conhecimentos de Saúde</h3>
+                        <p>Teste seus conhecimentos sobre hábitos saudáveis, nutrição e bem-estar geral.</p>
+                        <a href="quiz.html" class="btn-card">Fazer Quiz</a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">🏋️</div>
+                        <h3>Qual Tipo de Treino é Ideal para Você?</h3>
+                        <p>Descubra qual modalidade de exercício combina mais com seus objetivos e estilo de vida.</p>
+                        <a href="quiz_treino.html" class="btn-card">Descobrir Treino</a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">🥗</div>
+                        <h3>Você Sabe o que é uma Alimentação Balanceada?</h3>
+                        <p>Teste seus conhecimentos sobre nutrição e descubra o quanto você sabe sobre alimentação saudável.</p>
+                        <a href="quiz_alimentacao.html" class="btn-card">Testar Conhecimentos</a>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="todos_quizzes.html" class="btn-card">Ver Todos os Quizzes</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Artigos em Destaque -->
+        <section id="artigos" class="artigos-destaque">
+            <div class="container">
+                <h2>Artigos em Destaque</h2>
+                <div class="artigos-grid">
+                    <article class="artigo-card">
+                        <div class="artigo-imagem">
+                            <img src="img/artigos/metabolismo.jpg" alt="Como acelerar o metabolismo naturalmente" loading="lazy">
+                        </div>
+                        <div class="artigo-conteudo">
+                            <h3>Como acelerar o metabolismo naturalmente</h3>
+                            <p>Descubra estratégias comprovadas para acelerar o metabolismo naturalmente. Aprenda sobre TMB, exercícios, alimentação e hábitos que aumentam o gasto calórico.</p>
+                            <a href="artigos/metabolismo-como-acelerar.html" class="btn-artigo">Ler artigo</a>
+                        </div>
+                    </article>
+                    
+                    <article class="artigo-card">
+                        <div class="artigo-imagem">
+                            <img src="img/artigos/hidratacao.jpg" alt="Hidratação: A importância da água para a saúde" loading="lazy">
+                        </div>
+                        <div class="artigo-conteudo">
+                            <h3>Hidratação: A importância da água para a saúde</h3>
+                            <p>Descubra a importância da hidratação adequada para a saúde, performance física e mental. Aprenda quanto beber, sinais de desidratação e dicas práticas.</p>
+                            <a href="artigos/hidratacao-importancia-saude.html" class="btn-artigo">Ler artigo</a>
+                        </div>
+                    </article>
+                    
+                    <article class="artigo-card">
+                        <div class="artigo-imagem">
+                            <img src="img/artigos/imc.jpg" alt="IMC: Como calcular e interpretar corretamente" loading="lazy">
+                        </div>
+                        <div class="artigo-conteudo">
+                            <h3>IMC: Como calcular e interpretar corretamente</h3>
+                            <p>Aprenda como calcular e interpretar o IMC (Índice de Massa Corporal). Entenda as faixas de peso, limitações e importância para a saúde.</p>
+                            <a href="artigos/imc-calculo-interpretacao.html" class="btn-artigo">Ler artigo</a>
+                        </div>
+                    </article>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="artigos.html" class="btn-card">Ver Todos os Artigos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre o Projeto -->
+        <section class="sobre-projeto">
+            <div class="container">
+                <h2>Sobre o Projeto</h2>
+                <p>O Calcule Sua Saúde é um projeto educativo que oferece ferramentas gratuitas e informações baseadas em evidências científicas para ajudar você a cuidar melhor da sua saúde. Todas as nossas calculadoras seguem metodologias reconhecidas pela comunidade médica e científica.</p>
+                <p>Nosso objetivo é democratizar o acesso a informações de qualidade sobre saúde e bem-estar, sempre lembrando que nossas ferramentas são informativas e não substituem a orientação de profissionais de saúde.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Calcule Sua Saúde</h3>
+                    <p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                        <li><a href="politica.html">Política de Privacidade</a></li>
+                        <li><a href="termos.html">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Ferramentas</h4>
+                    <ul>
+                        <li><a href="ferramentas/imc.html">Calculadora de IMC</a></li>
+                        <li><a href="ferramentas/tmb.html">Taxa Metabólica Basal</a></li>
+                        <li><a href="ferramentas/agua.html">Água por Dia</a></li>
+                        <li><a href="ferramentas/calorias.html">Gasto Calórico</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+                <p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
+            </div>
+        </div>
+    </footer>
+
+      <!-- JavaScript -->
+    <script src="js/modo-noturno.js"></script>
+    <script src="js/quiz.js"></script>
+    <script>
+        // Desafios saudáveis (mesmo array do desafios.js)
+        const desafiosSaudaveis = [
+            "Beba 2L de água hoje",
+            "Caminhe por 20 minutos",
+            "Coma 5 porções de frutas/vegetais",
+            "Durma 8 horas",
+            "Faça 10 minutos de alongamento",
+            "Evite açúcar refinado hoje",
+            "Pratique 5 minutos de meditação",
+            "Suba escadas ao invés do elevador",
+            "Coma um café da manhã nutritivo",
+            "Faça uma pausa de 5 min a cada hora",
+            "Beba um copo de água ao acordar",
+            "Caminhe durante o almoço",
+            "Coma uma salada no almoço",
+            "Pratique respiração profunda",
+            "Evite bebidas açucaradas",
+            "Faça 20 polichinelos",
+            "Leia por 15 minutos",
+            "Coma uma fruta como lanche",
+            "Desconecte-se das telas 1h antes de dormir",
+            "Faça uma atividade ao ar livre",
+            "Beba chá verde",
+            "Pratique gratidão - liste 3 coisas boas",
+            "Coma peixe ou proteína magra",
+            "Faça 15 minutos de exercício",
+            "Evite comida processada",
+            "Tome sol por 15 minutos",
+            "Faça uma refeição sem pressa",
+            "Pratique uma nova receita saudável",
+            "Durma e acorde no mesmo horário",
+            "Celebre suas conquistas do mês",
+            "Planeje metas saudáveis para o próximo mês"
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mostrar desafio do dia atual
+            const hoje = new Date();
+            const diaDoMes = hoje.getDate();
+            const challengeIndex = (diaDoMes - 1) % desafiosSaudaveis.length;
+            const desafioHoje = desafiosSaudaveis[challengeIndex];
+            
+            const elementoDesafioHoje = document.getElementById('desafio-hoje');
+            if (elementoDesafioHoje) {
+                elementoDesafioHoje.textContent = desafioHoje;
+            }
+
+            const quizLink = document.querySelector('a[href="todos_quizzes.html"]');
+            if (quizLink) {
+                quizLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.location.href = this.href;
+                });
+            }
+
+            const verTodosQuizzesBtn = document.querySelector('a[href="todos_quizzes.html"].btn-card');
+            if (verTodosQuizzesBtn) {
+                verTodosQuizzesBtn.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.location.href = this.href;
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+    <script>
+        if (
+'serviceWorker' in navigator) {
+            window.addEventListener(
+'load', () => {
+                navigator.serviceWorker.register(
+'/service-worker.js')
+                    .then(registration => {
+                        console.log(
+'ServiceWorker registered: ', registration);
+                    })
+                    .catch(error => {
+                        console.log(
+'ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
+    </script>
+
+

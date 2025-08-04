@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Calculadora de Frequência Cardíaca - Zonas de Treino | Calcule Sua Saúde</title>
+<meta content="Calcule sua frequência cardíaca máxima e zonas de treino ideais. Otimize seus exercícios com base na sua frequência cardíaca alvo." name="description"/>
+<meta content="calculadora frequência cardíaca, FC máxima, zonas treino, frequência cardíaca alvo, exercício cardio" name="keywords"/>
+<!-- Open Graph -->
+<meta content="Calculadora de Frequência Cardíaca - Zonas de Treino" property="og:title"/>
+<meta content="Calcule sua frequência cardíaca máxima e descubra as zonas ideais de treino." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://calculesuasaude.com.br/ferramentas/frequencia.html" property="og:url"/>
+<!-- Favicon -->
+<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- CSS -->
+<link href="../css/estilo.css" rel="stylesheet"/>
+<link href="../css/estilo-adicional.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Cabeçalho -->
+<header class="header-fixo">
+<nav class="navbar">
+<div class="container">
+<div class="logo">
+<h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
+</div>
+<ul class="menu">
+<li><a href="../index.html">Início</a></li>
+<li><a href="../index.html#ferramentas">Ferramentas</a></li>
+<li><a href="../index.html#artigos">Artigos</a></li>
+<li><a href="../sobre.html">Sobre</a></li>
+<li><a href="../contato.html">Contato</a></li>
+<li><button class="btn-modo" id="modo-noturno">🌙</button></li>
+</ul>
+</div>
+</nav>
+</header>
+<!-- Breadcrumbs -->
+<section class="breadcrumbs">
+<div class="container">
+<a href="../index.html">Início</a> &gt; <a href="../index.html#ferramentas">Ferramentas</a> &gt; <span>Calculadora de Frequência Cardíaca</span>
+</div>
+</section>
+<!-- Conteúdo Principal -->
+<main>
+<section class="ferramenta-content">
+<div class="container">
+<div class="ferramenta-header">
+<div class="ferramenta-icon">❤️</div>
+<h1>Calculadora de Frequência Cardíaca</h1>
+<p class="ferramenta-subtitle">Descubra sua frequência cardíaca máxima e as zonas ideais de treino para otimizar seus exercícios</p>
+</div>
+<div class="ferramenta-grid">
+<div class="calculadora-section">
+<div class="calculadora-card">
+<h2>Calcule suas zonas de treino</h2>
+<form id="frequencia-form">
+<div class="form-group">
+<label for="idade">Idade (anos)</label>
+<input id="idade" max="100" min="10" placeholder="Ex: 30" required="" type="number"/>
+</div>
+<div class="form-group">
+<label for="fc-repouso">Frequência Cardíaca de Repouso (bpm)</label>
+<input id="fc-repouso" max="120" min="40" placeholder="Ex: 65" type="number"/>
+<small>Opcional - melhora a precisão. Meça ao acordar, ainda deitado</small>
+</div>
+<div class="form-group">
+<label for="nivel-fitness">Nível de Condicionamento</label>
+<select id="nivel-fitness" required="">
+<option value="">Selecione</option>
+<option value="iniciante">Iniciante (sedentário)</option>
+<option value="intermediario">Intermediário (ativo ocasionalmente)</option>
+<option value="avancado">Avançado (treina regularmente)</option>
+<option value="atleta">Atleta (treina intensamente)</option>
+</select>
+</div>
+<div class="form-group">
+<label for="objetivo">Objetivo do Treino</label>
+<select id="objetivo" required="">
+<option value="">Selecione</option>
+<option value="recuperacao">Recuperação Ativa</option>
+<option value="queima-gordura">Queima de Gordura</option>
+<option value="aerobico">Condicionamento Aeróbico</option>
+<option value="anaerobico">Treino Anaeróbico</option>
+<option value="vo2max">Melhoria do VO2 Max</option>
+</select>
+</div>
+<button class="btn-primary" type="submit">Calcular Frequência Cardíaca</button>
+</form>
+<div class="resultado" id="resultado-frequencia" style="display: none;">
+<h3>Suas Zonas de Frequência Cardíaca</h3>
+<div class="fc-maxima">
+<div class="fc-label">FC Máxima Estimada</div>
+<div class="fc-valor" id="valor-fc-maxima"></div>
+<div class="fc-unidade">bpm</div>
+</div>
+<div class="zonas-treino" id="zonas-treino"></div>
+<div class="resultado-interpretacao" id="interpretacao-frequencia"></div>
+</div>
+</div>
+</div>
+<div class="info-section">
+<div class="info-card">
+<h3>O que é Frequência Cardíaca?</h3>
+<p>A frequência cardíaca é o número de batimentos do coração por minuto. Ela varia conforme a intensidade do exercício e é um excelente indicador para otimizar treinos.</p>
+</div>
+<div class="info-card">
+<h3>Como medimos?</h3>
+<p>Utilizamos a fórmula de Karvonen para maior precisão, que considera a FC de repouso:</p>
+<div class="formula">FC Alvo = ((FC Máx - FC Repouso) × %Intensidade) + FC Repouso</div>
+</div>
+<div class="info-card">
+<h3>Zonas de Treino</h3>
+<div class="zonas-info">
+<div class="zona-info">
+<span class="zona-nome zona-1">Zona 1 - Recuperação</span>
+<span class="zona-percentual">50-60%</span>
+</div>
+<div class="zona-info">
+<span class="zona-nome zona-2">Zona 2 - Queima Gordura</span>
+<span class="zona-percentual">60-70%</span>
+</div>
+<div class="zona-info">
+<span class="zona-nome zona-3">Zona 3 - Aeróbico</span>
+<span class="zona-percentual">70-80%</span>
+</div>
+<div class="zona-info">
+<span class="zona-nome zona-4">Zona 4 - Anaeróbico</span>
+<span class="zona-percentual">80-90%</span>
+</div>
+<div class="zona-info">
+<span class="zona-nome zona-5">Zona 5 - VO2 Max</span>
+<span class="zona-percentual">90-100%</span>
+</div>
+</div>
+</div>
+<div class="info-card">
+<h3>Como medir FC durante exercício?</h3>
+<ul>
+<li>Monitor cardíaco (mais preciso)</li>
+<li>Smartwatch ou pulseira fitness</li>
+<li>Método manual (pulso por 15s × 4)</li>
+<li>Apps de smartphone com sensor</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="conteudo-educativo">
+<h2>Treine na zona certa</h2>
+<div class="educativo-grid">
+<div class="educativo-card">
+<h3>🟢 Zona 1 - Recuperação (50-60%)</h3>
+<p>Ideal para recuperação ativa, aquecimento e volta à calma. Melhora a circulação e acelera a recuperação entre treinos intensos.</p>
+</div>
+<div class="educativo-card">
+<h3>🟡 Zona 2 - Queima de Gordura (60-70%)</h3>
+<p>Zona aeróbica onde o corpo utiliza principalmente gordura como combustível. Ideal para emagrecimento e melhoria da resistência básica.</p>
+</div>
+<div class="educativo-card">
+<h3>🟠 Zona 3 - Aeróbico (70-80%)</h3>
+<p>Melhora a capacidade cardiovascular e a eficiência do coração. Zona ideal para a maioria dos exercícios aeróbicos moderados.</p>
+</div>
+<div class="educativo-card">
+<h3>🔴 Zona 4 - Anaeróbico (80-90%)</h3>
+<p>Treino de alta intensidade que melhora a potência e velocidade. Usado em intervalos curtos devido à alta demanda metabólica.</p>
+</div>
+<div class="educativo-card">
+<h3>🟣 Zona 5 - VO2 Max (90-100%)</h3>
+<p>Intensidade máxima que melhora a capacidade máxima de consumo de oxigênio. Usado apenas em treinos específicos e por pouco tempo.</p>
+</div>
+<div class="educativo-card">
+<h3>📊 Periodização</h3>
+<p>Varie as zonas ao longo da semana: 80% do tempo nas zonas 1-2 (base aeróbica) e 20% nas zonas 3-5 (intensidade).</p>
+</div>
+</div>
+</div>
+<div class="leia-tambem">
+<h3>Leia também</h3>
+<div class="artigos-relacionados"><a class="artigo-link" href="../artigos/saude-mental-bem-estar.html"><span class_="artigo-titulo">Saúde Mental e Bem-Estar Emocional</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/estresse-gerenciamento-saude.html"><span class_="artigo-titulo">Estresse: Como Gerenciar e Reduzir o Impacto na Saúde</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/doencas-cardiovasculares-prevencao.html"><span class_="artigo-titulo">Doenças Cardiovasculares: Prevenção, Fatores de Risco e Tratamento</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Rodapé -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h3>Calcule Sua Saúde</h3>
+<p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+</div>
+<div class="footer-section">
+<h4>Links Úteis</h4>
+<ul>
+<li><a href="../sobre.html">Sobre</a></li>
+<li><a href="../contato.html">Contato</a></li>
+<li><a href="../politica.html">Política de Privacidade</a></li>
+<li><a href="../termos.html">Termos de Uso</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Outras Ferramentas</h4>
+<ul>
+<li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
+<li><a href="../ferramentas/tmb.html">Taxa Metabólica Basal</a></li>
+<li><a href="../ferramentas/agua.html">Água por Dia</a></li>
+<li><a href="../ferramentas/calorias.html">Gasto Calórico</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+<p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
+</div>
+</div>
+</footer>
+<!-- JavaScript -->
+<script src="../js/modo-noturno.js"></script>
+<script src="../js/frequencia.js"></script>
+</body>
+</html>

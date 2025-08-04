@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Alimentação Saudável - Calcule Sua Saúde</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <style>
+        .game-container {
+            max-width: 800px;
+            margin: 100px auto 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .game-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .difficulty-selector {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .difficulty-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .difficulty-btn.active {
+            background: #2E7D32;
+        }
+        
+        .game-area {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            min-height: 400px;
+        }
+        
+        .food-items {
+            width: 45%;
+            border: 2px dashed #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f9f9f9;
+        }
+        
+        .plate-area {
+            width: 45%;
+            border: 2px dashed #4CAF50;
+            padding: 20px;
+            border-radius: 10px;
+            background: #e8f5e8;
+            min-height: 300px;
+        }
+        
+        .food-item {
+            display: inline-block;
+            background: #fff;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 5px;
+            cursor: grab;
+            transition: transform 0.2s;
+            user-select: none;
+        }
+        
+        .food-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .food-item.dragging {
+            opacity: 0.5;
+        }
+        
+
+        
+        .score-board {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        
+        .game-controls {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        
+        .btn:hover {
+            background: #45a049;
+        }
+        
+        .btn.secondary {
+            background: #2196F3;
+        }
+        
+        .btn.secondary:hover {
+            background: #1976D2;
+        }
+        
+        .tips {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+        
+        .share-buttons {
+            margin-top: 20px;
+        }
+        
+        .share-btn {
+            background: #1877f2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .share-btn.twitter {
+            background: #1da1f2;
+        }
+        
+        .share-btn.whatsapp {
+            background: #25d366;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-fixo">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1><a href="../index.html" style="color: inherit; text-decoration: none;">Calcule Sua Saúde</a></h1>
+                </div>
+                <ul class="menu">
+                    <li><a href="../index.html">🏠 Início</a></li>
+                    <li><a href="../jogos.html">🎮 Jogos</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="game-container">
+        <div class="game-header">
+            <h1>🍎 Jogo da Alimentação Saudável</h1>
+            <p>Arraste os alimentos saudáveis para o prato e evite os ruins!</p>
+        </div>
+
+        <div class="difficulty-selector">
+            <h3>Escolha a dificuldade:</h3>
+            <button class="difficulty-btn active" data-level="easy">Fácil</button>
+            <button class="difficulty-btn" data-level="medium">Médio</button>
+            <button class="difficulty-btn" data-level="hard">Difícil</button>
+        </div>
+
+        <div class="score-board">
+            <div class="score">Pontuação: <span id="score">0</span></div>
+            <div>Tempo: <span id="timer">60</span>s</div>
+        </div>
+
+        <div class="game-area">
+            <div class="food-items">
+                <h3>Alimentos Disponíveis</h3>
+                <div id="food-container"></div>
+            </div>
+            
+            <div class="plate-area" id="plate">
+                <h3>Seu Prato Saudável</h3>
+                <p>Arraste os alimentos saudáveis aqui!</p>
+            </div>
+        </div>
+
+        <div class="game-controls">
+            <button class="btn" id="start-btn">Iniciar Jogo</button>
+            <button class="btn secondary" id="reset-btn">Reiniciar</button>
+        </div>
+
+        <div class="tips">
+            <h3>💡 Dicas:</h3>
+            <ul>
+                <li>Frutas e vegetais são sempre boas escolhas</li>
+                <li>Evite alimentos processados e com muito açúcar</li>
+                <li>Proteínas magras são importantes para uma dieta equilibrada</li>
+                <li>Grãos integrais são melhores que refinados</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal de Resultado -->
+    <div id="result-modal" class="modal">
+        <div class="modal-content">
+            <h2>🎉 Jogo Finalizado!</h2>
+            <p>Sua pontuação: <span id="final-score">0</span></p>
+            <p id="performance-message"></p>
+            <div class="share-buttons">
+                <h3>Compartilhe sua pontuação:</h3>
+                <button class="share-btn" onclick="shareOnFacebook()">Facebook</button>
+                <button class="share-btn twitter" onclick="shareOnTwitter()">Twitter</button>
+                <button class="share-btn whatsapp" onclick="shareOnWhatsApp()">WhatsApp</button>
+            </div>
+            <button class="btn" onclick="closeModal()">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        class FoodGame {
+            constructor() {
+                this.score = 0;
+                this.timeLeft = 60;
+                this.gameActive = false;
+                this.difficulty = 'easy';
+                this.timer = null;
+                
+                this.foods = {
+                    healthy: [
+                        { name: '🍎 Maçã', points: 10 },
+                        { name: '🥕 Cenoura', points: 10 },
+                        { name: '🥬 Alface', points: 10 },
+                        { name: '🍌 Banana', points: 10 },
+                        { name: '🥦 Brócolis', points: 15 },
+                        { name: '🐟 Peixe', points: 20 },
+                        { name: '🥑 Abacate', points: 15 },
+                        { name: '🍇 Uvas', points: 10 },
+                        { name: '🥒 Pepino', points: 10 },
+                        { name: '🍊 Laranja', points: 10 },
+                        { name: '🥚 Ovo Cozido', points: 12 },
+                        { name: '🍚 Arroz Integral', points: 8 },
+                        { name: '🌰 Castanhas', points: 10 },
+                        { name: '🥛 Leite', points: 7 },
+                        { name: '🍗 Frango Grelhado', points: 18 }
+                    ],
+                    unhealthy: [
+                        { name: '🍟 Batata Frita', points: -15 },
+                        { name: '🍔 Hambúrguer', points: -20 },
+                        { name: '🍕 Pizza', points: -15 },
+                        { name: '🍰 Bolo', points: -20 },
+                        { name: '🍭 Doce', points: -10 },
+                        { name: '🥤 Refrigerante', points: -15 },
+                        { name: '🍪 Biscoito', points: -10 },
+                        { name: '🌭 Hot Dog', points: -15 },
+                        { name: '🧁 Cupcake', points: -15 },
+                        { name: '🍩 Rosquinha', points: -20 },
+                        { name: '🍫 Chocolate', points: -12 },
+                        { name: '🍬 Bala', points: -8 },
+                        { name: '🥨 Salgadinho', points: -10 },
+                        { name: '🍦 Sorvete', points: -18 },
+                        { name: '🥐 Croissant', points: -14 }
+                    ]
+                };
+                
+                this.init();
+            }
+            
+            init() {
+                this.setupEventListeners();
+                this.generateFoodItems();
+            }
+            
+            setupEventListeners() {
+                document.getElementById('start-btn').addEventListener('click', () => this.startGame());
+                document.getElementById('reset-btn').addEventListener('click', () => this.resetGame());
+                
+                document.querySelectorAll('.difficulty-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => this.setDifficulty(e.target.dataset.level));
+                });
+            }
+            
+            setDifficulty(level) {
+                this.difficulty = level;
+                document.querySelectorAll('.difficulty-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelector(`[data-level="${level}"]`).classList.add('active');
+                
+                // Ajustar tempo baseado na dificuldade
+                switch(level) {
+                    case 'easy':
+                        this.timeLeft = 90;
+                        break;
+                    case 'medium':
+                        this.timeLeft = 60;
+                        break;
+                    case 'hard':
+                        this.timeLeft = 45;
+                        break;
+                }
+                
+                document.getElementById('timer').textContent = this.timeLeft;
+                this.generateFoodItems();
+            }
+            
+            generateFoodItems() {
+                const container = document.getElementById('food-container');
+                container.innerHTML = '';
+                
+                let healthyCount, unhealthyCount;
+                
+                switch(this.difficulty) {
+                    case 'easy':
+                        healthyCount = 6;
+                        unhealthyCount = 3;
+                        break;
+                    case 'medium':
+                        healthyCount = 5;
+                        unhealthyCount = 5;
+                        break;
+                    case 'hard':
+                        healthyCount = 4;
+                        unhealthyCount = 6;
+                        break;
+                }
+                
+                const selectedFoods = [
+                    ...this.getRandomItems(this.foods.healthy, healthyCount),
+                    ...this.getRandomItems(this.foods.unhealthy, unhealthyCount)
+                ];
+                
+                // Embaralhar
+                selectedFoods.sort(() => Math.random() - 0.5);
+                
+                selectedFoods.forEach(food => {
+                    const foodElement = document.createElement('div');
+                    foodElement.className = `food-item ${food.points > 0 ? 'healthy' : 'unhealthy'}`;
+                    foodElement.textContent = food.name;
+                    foodElement.draggable = true;
+                    foodElement.dataset.points = food.points;
+                    
+                    foodElement.addEventListener('dragstart', this.handleDragStart);
+                    foodElement.addEventListener('dragend', this.handleDragEnd);
+                    
+                    container.appendChild(foodElement);
+                });
+                
+                this.setupDropZone();
+            }
+            
+            getRandomItems(array, count) {
+                const shuffled = [...array].sort(() => Math.random() - 0.5);
+                return shuffled.slice(0, count);
+            }
+            
+            setupDropZone() {
+                const plate = document.getElementById('plate');
+                
+                plate.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    plate.style.backgroundColor = '#c8e6c9';
+                });
+                
+                plate.addEventListener('dragleave', () => {
+                    plate.style.backgroundColor = '#e8f5e8';
+                });
+                
+                plate.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    plate.style.backgroundColor = '#e8f5e8';
+                    
+                    if (!this.gameActive) return;
+                    
+                    const draggedElement = document.querySelector('.dragging');
+                    if (draggedElement) {
+                        const points = parseInt(draggedElement.dataset.points);
+                        this.updateScore(points);
+                        
+                        // Adicionar ao prato
+                        const plateItem = draggedElement.cloneNode(true);
+                        plateItem.classList.remove('dragging');
+                        plateItem.draggable = false;
+                        plate.appendChild(plateItem);
+                        
+                        // Remover do container original
+                        draggedElement.remove();
+                        
+                        // Verificar se acabaram os alimentos
+                        if (document.getElementById('food-container').children.length === 0) {
+                            this.endGame();
+                        }
+                    }
+                });
+            }
+            
+            handleDragStart(e) {
+                e.target.classList.add('dragging');
+            }
+            
+            handleDragEnd(e) {
+                e.target.classList.remove('dragging');
+            }
+            
+            startGame() {
+                this.gameActive = true;
+                this.score = 0;
+                this.updateScore(0);
+                
+                document.getElementById('start-btn').disabled = true;
+                
+                // Limpar prato
+                const plate = document.getElementById('plate');
+                plate.innerHTML = '<h3>Seu Prato Saudável</h3><p>Arraste os alimentos saudáveis aqui!</p>';
+                
+                this.generateFoodItems();
+                this.startTimer();
+            }
+            
+            startTimer() {
+                this.timer = setInterval(() => {
+                    this.timeLeft--;
+                    document.getElementById('timer').textContent = this.timeLeft;
+                    
+                    if (this.timeLeft <= 0) {
+                        this.endGame();
+                    }
+                }, 1000);
+            }
+            
+            updateScore(points) {
+                this.score += points;
+                document.getElementById('score').textContent = this.score;
+            }
+            
+            endGame() {
+                this.gameActive = false;
+                clearInterval(this.timer);
+                document.getElementById('start-btn').disabled = false;
+                
+                this.showResults();
+            }
+            
+            showResults() {
+                document.getElementById('final-score').textContent = this.score;
+                
+                let message = '';
+                if (this.score >= 100) {
+                    message = '🌟 Excelente! Você tem ótimos conhecimentos sobre alimentação saudável!';
+                } else if (this.score >= 50) {
+                    message = '👍 Muito bom! Continue aprendendo sobre nutrição!';
+                } else if (this.score >= 0) {
+                    message = '📚 Bom começo! Que tal ler nossos artigos sobre alimentação saudável?';
+                } else {
+                    message = '💪 Não desista! A prática leva à perfeição. Tente novamente!';
+                }
+                
+                document.getElementById('performance-message').textContent = message;
+                document.getElementById('result-modal').style.display = 'block';
+            }
+            
+            resetGame() {
+                this.gameActive = false;
+                clearInterval(this.timer);
+                this.score = 0;
+                this.timeLeft = this.difficulty === 'easy' ? 90 : this.difficulty === 'medium' ? 60 : 45;
+                
+                document.getElementById('score').textContent = '0';
+                document.getElementById('timer').textContent = this.timeLeft;
+                document.getElementById('start-btn').disabled = false;
+                
+                // Limpar prato
+                const plate = document.getElementById('plate');
+                plate.innerHTML = '<h3>Seu Prato Saudável</h3><p>Arraste os alimentos saudáveis aqui!</p>';
+                
+                this.generateFoodItems();
+            }
+        }
+        
+        function closeModal() {
+            document.getElementById('result-modal').style.display = 'none';
+        }
+        
+        function shareOnFacebook() {
+            const score = document.getElementById('final-score').textContent;
+            const text = `Acabei de fazer ${score} pontos no Jogo da Alimentação Saudável! 🍎 Teste seus conhecimentos sobre nutrição no Calcule Sua Saúde!`;
+            const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+        
+        function shareOnTwitter() {
+            const score = document.getElementById('final-score').textContent;
+            const text = `Acabei de fazer ${score} pontos no Jogo da Alimentação Saudável! 🍎 #AlimentaçãoSaudável #Nutrição`;
+            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`;
+            window.open(url, '_blank');
+        }
+        
+        function shareOnWhatsApp() {
+            const score = document.getElementById('final-score').textContent;
+            const text = `Acabei de fazer ${score} pontos no Jogo da Alimentação Saudável! 🍎 Teste seus conhecimentos sobre nutrição: ${window.location.href}`;
+            const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+        
+        // Inicializar o jogo
+        const game = new FoodGame();
+    </script>
+</body>
+</html>
+

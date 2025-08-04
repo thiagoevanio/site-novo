@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Calculadora de Gordura Corporal - Percentual de Gordura | Calcule Sua Saúde</title>
+<meta content="Calcule seu percentual de gordura corporal gratuitamente. Estime sua composição corporal com base em medidas antropométricas." name="description"/>
+<meta content="calculadora gordura corporal, percentual gordura, composição corporal, bioimpedância, dobras cutâneas" name="keywords"/>
+<!-- Open Graph -->
+<meta content="Calculadora de Gordura Corporal - Percentual de Gordura" property="og:title"/>
+<meta content="Calcule seu percentual de gordura corporal e entenda sua composição corporal." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://calculesuasaude.com.br/ferramentas/gordura.html" property="og:url"/>
+<!-- Favicon -->
+<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- CSS -->
+<link href="../css/estilo.css" rel="stylesheet"/>
+<link href="../css/estilo-adicional.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Cabeçalho -->
+<header class="header-fixo">
+<nav class="navbar">
+<div class="container">
+<div class="logo">
+<h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
+</div>
+<ul class="menu">
+<li><a href="../index.html">Início</a></li>
+<li><a href="../index.html#ferramentas">Ferramentas</a></li>
+<li><a href="../index.html#artigos">Artigos</a></li>
+<li><a href="../sobre.html">Sobre</a></li>
+<li><a href="../contato.html">Contato</a></li>
+<li><button class="btn-modo" id="modo-noturno">🌙</button></li>
+</ul>
+</div>
+</nav>
+</header>
+<!-- Breadcrumbs -->
+<section class="breadcrumbs">
+<div class="container">
+<a href="../index.html">Início</a> &gt; <a href="../index.html#ferramentas">Ferramentas</a> &gt; <span>Calculadora de Gordura Corporal</span>
+</div>
+</section>
+<!-- Conteúdo Principal -->
+<main>
+<section class="ferramenta-content">
+<div class="container">
+<div class="ferramenta-header">
+<div class="ferramenta-icon">⚖️</div>
+<h1>Calculadora de Gordura Corporal</h1>
+<p class="ferramenta-subtitle">Estime seu percentual de gordura corporal com base em medidas antropométricas</p>
+</div>
+<div class="ferramenta-grid">
+<div class="calculadora-section">
+<div class="calculadora-card">
+<h2>Calcule seu percentual de gordura</h2>
+<form id="gordura-form">
+<div class="form-group">
+<label for="sexo">Sexo</label>
+<select id="sexo" required="">
+<option value="">Selecione</option>
+<option value="masculino">Masculino</option>
+<option value="feminino">Feminino</option>
+</select>
+</div>
+<div class="form-group">
+<label for="idade">Idade (anos)</label>
+<input id="idade" max="80" min="18" placeholder="Ex: 30" required="" type="number"/>
+</div>
+<div class="form-group">
+<label for="peso">Peso (kg)</label>
+<input id="peso" max="200" min="30" placeholder="Ex: 70.5" required="" step="0.1" type="number"/>
+</div>
+<div class="form-group">
+<label for="altura">Altura (cm)</label>
+<input id="altura" max="220" min="140" placeholder="Ex: 175" required="" step="0.1" type="number"/>
+</div>
+<div class="form-group">
+<label for="cintura">Circunferência da Cintura (cm)</label>
+<input id="cintura" max="150" min="50" placeholder="Ex: 85" required="" step="0.1" type="number"/>
+<small>Meça na parte mais estreita do abdômen</small>
+</div>
+<div class="form-group">
+<label for="pescoco">Circunferência do Pescoço (cm)</label>
+<input id="pescoco" max="60" min="25" placeholder="Ex: 38" required="" step="0.1" type="number"/>
+<small>Meça logo abaixo da laringe</small>
+</div>
+<div class="form-group" id="quadril-group" style="display: none;">
+<label for="quadril">Circunferência do Quadril (cm)</label>
+<input id="quadril" max="150" min="60" placeholder="Ex: 95" step="0.1" type="number"/>
+<small>Meça na parte mais larga do quadril</small>
+</div>
+<button class="btn-primary" type="submit">Calcular Gordura Corporal</button>
+</form>
+<div class="resultado" id="resultado-gordura" style="display: none;">
+<h3>Seus Resultados</h3>
+<div class="resultado-gordura-grid">
+<div class="resultado-item">
+<div class="resultado-label">Gordura Corporal</div>
+<div class="resultado-valor" id="valor-gordura"></div>
+<div class="resultado-unidade">%</div>
+</div>
+<div class="resultado-item">
+<div class="resultado-label">Massa Magra</div>
+<div class="resultado-valor" id="valor-magra"></div>
+<div class="resultado-unidade">kg</div>
+</div>
+</div>
+<div class="resultado-interpretacao" id="interpretacao-gordura"></div>
+</div>
+</div>
+</div>
+<div class="info-section">
+<div class="info-card">
+<h3>O que é gordura corporal?</h3>
+<p>A gordura corporal é o percentual do peso total do corpo composto por tecido adiposo. É um indicador importante da composição corporal e saúde geral.</p>
+</div>
+<div class="info-card">
+<h3>Como calculamos?</h3>
+<p>Utilizamos a fórmula da Marinha Americana (US Navy), que estima o percentual de gordura baseado em circunferências corporais:</p>
+<div class="formula">Baseado em medidas de cintura, pescoço e quadril (mulheres)</div>
+</div>
+<div class="info-card">
+<h3>Faixas de Gordura Corporal</h3>
+<div class="tabela-gordura">
+<h4>Homens:</h4>
+<div class="tabela-row">
+<span class="categoria">Atleta</span>
+<span class="valor">6-13%</span>
+</div>
+<div class="tabela-row">
+<span class="categoria">Fitness</span>
+<span class="valor">14-17%</span>
+</div>
+<div class="tabela-row">
+<span class="categoria">Aceitável</span>
+<span class="valor">18-24%</span>
+</div>
+<div class="tabela-row">
+<span class="categoria">Obesidade</span>
+<span class="valor">25%+</span>
+</div>
+<h4 style="margin-top: 1rem;">Mulheres:</h4>
+<div class="tabela-row">
+<span class="categoria">Atleta</span>
+<span class="valor">16-20%</span>
+</div>
+<div class="tabela-row">
+<span class="categoria">Fitness</span>
+<span class="valor">21-24%</span>
+</div>
+<div class="tabela-row">
+<span class="categoria">Aceitável</span>
+<span class="valor">25-31%</span>
+</div>
+<div class="tabela-row">
+<span class="categoria">Obesidade</span>
+<span class="valor">32%+</span>
+</div>
+</div>
+</div>
+<div class="info-card">
+<h3>Dicas de Medição</h3>
+<ul>
+<li>Meça sempre no mesmo horário</li>
+<li>Use uma fita métrica flexível</li>
+<li>Não comprima a pele</li>
+<li>Mantenha postura ereta</li>
+<li>Respire normalmente</li>
+<li>Faça 2-3 medições para precisão</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="conteudo-educativo">
+<h2>Entenda a composição corporal</h2>
+<div class="educativo-grid">
+<div class="educativo-card">
+<h3>🎯 Por que medir?</h3>
+<p>O percentual de gordura é mais preciso que o IMC para avaliar a saúde, pois distingue entre massa magra e gordura, especialmente importante para atletas.</p>
+</div>
+<div class="educativo-card">
+<h3>⚖️ Gordura vs Peso</h3>
+<p>É possível manter o mesmo peso e melhorar a composição corporal, reduzindo gordura e aumentando massa muscular através de exercícios e dieta adequada.</p>
+</div>
+<div class="educativo-card">
+<h3>🏃‍♀️ Como reduzir gordura?</h3>
+<p>Combine exercícios aeróbicos com musculação, mantenha déficit calórico moderado e consuma proteína adequada para preservar massa muscular.</p>
+</div>
+<div class="educativo-card">
+<h3>⚠️ Limitações do método</h3>
+<p>Esta é uma estimativa. Métodos como DEXA, bioimpedância profissional ou hidrostática são mais precisos para medições exatas.</p>
+</div>
+</div>
+</div>
+<div class="leia-tambem">
+<h3>Leia também</h3>
+<div class="artigos-relacionados"><a class="artigo-link" href="../artigos/obesidade-causas-tratamento.html"><span class_="artigo-titulo">Obesidade: Causas, Consequências e Tratamento Completo</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/exercicios-queimar-calorias.html"><span class_="artigo-titulo">Melhores Exercícios para Queimar Calorias: Guia Completo</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/imc-calculo-interpretacao.html"><span class_="artigo-titulo">IMC: Como Calcular e Interpretar o Índice de Massa Corporal</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Rodapé -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h3>Calcule Sua Saúde</h3>
+<p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+</div>
+<div class="footer-section">
+<h4>Links Úteis</h4>
+<ul>
+<li><a href="../sobre.html">Sobre</a></li>
+<li><a href="../contato.html">Contato</a></li>
+<li><a href="../politica.html">Política de Privacidade</a></li>
+<li><a href="../termos.html">Termos de Uso</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Outras Ferramentas</h4>
+<ul>
+<li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
+<li><a href="../ferramentas/tmb.html">Taxa Metabólica Basal</a></li>
+<li><a href="../ferramentas/agua.html">Água por Dia</a></li>
+<li><a href="../ferramentas/macros.html">Macronutrientes</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+<p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
+</div>
+</div>
+</footer>
+<!-- JavaScript -->
+<script src="../js/modo-noturno.js"></script>
+<script src="../js/gordura.js"></script>
+</body>
+</html>

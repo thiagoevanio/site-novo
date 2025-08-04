@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Calculadora de IMC - Índice de Massa Corporal | Calcule Sua Saúde</title>
+<meta content="Calcule seu IMC (Índice de Massa Corporal) gratuitamente. Descubra se está no peso ideal e entenda os resultados com interpretação detalhada." name="description"/>
+<meta content="calculadora IMC, índice massa corporal, peso ideal, calcular IMC, IMC online" name="keywords"/>
+<!-- Open Graph -->
+<meta content="Calculadora de IMC - Índice de Massa Corporal" property="og:title"/>
+<meta content="Calcule seu IMC gratuitamente e descubra se está no peso ideal. Interpretação detalhada dos resultados." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://calculesuasaude.com.br/ferramentas/imc.html" property="og:url"/>
+<!-- Favicon -->
+<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- CSS -->
+<link href="../css/estilo.css" rel="stylesheet"/>
+<link href="../css/estilo-adicional.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Cabeçalho -->
+<header class="header-fixo">
+<nav class="navbar">
+<div class="container">
+<div class="logo">
+<h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
+</div>
+<ul class="menu">
+<li><a href="../index.html">Início</a></li>
+<li><a href="../index.html#ferramentas">Ferramentas</a></li>
+<li><a href="../index.html#artigos">Artigos</a></li>
+<li><a href="../sobre.html">Sobre</a></li>
+<li><a href="../contato.html">Contato</a></li>
+<li><button class="btn-modo" id="modo-noturno">🌙</button></li>
+</ul>
+</div>
+</nav>
+</header>
+<!-- Breadcrumbs -->
+<section class="breadcrumbs">
+<div class="container">
+<a href="../index.html">Início</a> &gt; <a href="../index.html#ferramentas">Ferramentas</a> &gt; <span>Calculadora de IMC</span>
+</div>
+</section>
+<!-- Conteúdo Principal -->
+<main>
+<section class="ferramenta-content">
+<div class="container">
+<div class="ferramenta-header">
+<div class="ferramenta-icon">📊</div>
+<h1>Calculadora de IMC</h1>
+<p class="ferramenta-subtitle">Calcule seu Índice de Massa Corporal e descubra se está dentro do peso ideal</p>
+</div>
+<div class="ferramenta-grid">
+<div class="calculadora-section">
+<div class="calculadora-card">
+<h2>Calcule seu IMC</h2>
+<form id="imc-form">
+<div class="form-group">
+<label for="peso">Peso (kg)</label>
+<input id="peso" max="300" min="1" placeholder="Ex: 70.5" required="" step="0.1" type="number"/>
+</div>
+<div class="form-group">
+<label for="altura">Altura (cm)</label>
+<input id="altura" max="250" min="50" placeholder="Ex: 175" required="" step="0.1" type="number"/>
+</div>
+<button class="btn-primary" type="submit">Calcular IMC</button>
+</form>
+<div class="resultado" id="resultado-imc" style="display: none;">
+<h3>Seu Resultado</h3>
+<div class="resultado-valor" id="valor-imc"></div>
+<div class="resultado-categoria" id="categoria-imc"></div>
+<div class="resultado-interpretacao" id="interpretacao-imc"></div>
+</div>
+</div>
+</div>
+<div class="info-section">
+<div class="info-card">
+<h3>O que é o IMC?</h3>
+<p>O Índice de Massa Corporal (IMC) é uma medida que relaciona peso e altura para avaliar se uma pessoa está dentro do peso considerado saudável. É amplamente utilizado por profissionais de saúde como uma ferramenta de triagem inicial.</p>
+</div>
+<div class="info-card">
+<h3>Como é calculado?</h3>
+<p>O IMC é calculado dividindo o peso (em quilogramas) pela altura (em metros) ao quadrado:</p>
+<div class="formula">IMC = Peso ÷ (Altura × Altura)</div>
+</div>
+<div class="info-card">
+<h3>Classificação do IMC</h3>
+<div class="tabela-imc">
+<div class="tabela-row">
+<span class="categoria">Abaixo do peso</span>
+<span class="valor">Menor que 18,5</span>
+</div>
+<div class="tabela-row">
+<span class="categoria">Peso normal</span>
+<span class="valor">18,5 - 24,9</span>
+</div>
+<div class="tabela-row">
+<span class="categoria">Sobrepeso</span>
+<span class="valor">25,0 - 29,9</span>
+</div>
+<div class="tabela-row">
+<span class="categoria">Obesidade Grau I</span>
+<span class="valor">30,0 - 34,9</span>
+</div>
+<div class="tabela-row">
+<span class="categoria">Obesidade Grau II</span>
+<span class="valor">35,0 - 39,9</span>
+</div>
+<div class="tabela-row">
+<span class="categoria">Obesidade Grau III</span>
+<span class="valor">40,0 ou mais</span>
+</div>
+</div>
+</div>
+<div class="info-card">
+<h3>⚠️ Limitações do IMC</h3>
+<ul>
+<li>Não distingue entre massa muscular e gordura</li>
+<li>Pode não ser adequado para atletas</li>
+<li>Não considera distribuição de gordura</li>
+<li>Pode variar entre diferentes etnias</li>
+<li>Não é adequado para crianças e idosos</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="conteudo-educativo">
+<h2>Entenda melhor o IMC</h2>
+<div class="educativo-grid">
+<div class="educativo-card">
+<h3>🎯 Para que serve?</h3>
+<p>O IMC é uma ferramenta de triagem que ajuda a identificar possíveis riscos à saúde relacionados ao peso. É usado por médicos como ponto de partida para avaliações mais detalhadas.</p>
+</div>
+<div class="educativo-card">
+<h3>📈 Histórico e Desenvolvimento</h3>
+<p>Desenvolvido pelo matemático belga Adolphe Quetelet no século XIX, o IMC tornou-se padrão mundial para classificação de peso pela Organização Mundial da Saúde.</p>
+</div>
+<div class="educativo-card">
+<h3>🔍 Quando usar outras medidas?</h3>
+<p>Para uma avaliação mais completa, considere também a circunferência da cintura, percentual de gordura corporal e composição corporal geral.</p>
+</div>
+<div class="educativo-card">
+<h3>👨‍⚕️ Consulte um profissional</h3>
+<p>O IMC é apenas uma ferramenta inicial. Para uma avaliação completa da sua saúde, sempre consulte um médico ou nutricionista.</p>
+</div>
+</div>
+</div>
+<div class="leia-tambem">
+<h3>Leia também</h3>
+<div class="artigos-relacionados"><a class="artigo-link" href="../artigos/estresse-gerenciamento-saude.html"><span class_="artigo-titulo">Estresse: Como Gerenciar e Reduzir o Impacto na Saúde</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/atividade-fisica-beneficios.html"><span class_="artigo-titulo">Atividade Física: Benefícios Comprovados para a Saúde</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/diabetes-prevencao-tratamento.html"><span class_="artigo-titulo">Diabetes: Prevenção, Tratamento e Controle da Glicemia</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Rodapé -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h3>Calcule Sua Saúde</h3>
+<p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+</div>
+<div class="footer-section">
+<h4>Links Úteis</h4>
+<ul>
+<li><a href="../sobre.html">Sobre</a></li>
+<li><a href="../contato.html">Contato</a></li>
+<li><a href="../politica.html">Política de Privacidade</a></li>
+<li><a href="../termos.html">Termos de Uso</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Outras Ferramentas</h4>
+<ul>
+<li><a href="tmb.html">Taxa Metabólica Basal</a></li>
+<li><a href="agua.html">Água por Dia</a></li>
+<li><a href="../ferramentas/gordura.html">Gordura Corporal</a></li>
+<li><a href="calorias.html">Gasto Calórico</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+<p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
+</div>
+</div>
+</footer>
+<!-- JavaScript -->
+<script src="../js/modo-noturno.js"></script>
+<script src="../js/imc.js"></script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário de Desafios Saudáveis - Calcule Sua Saúde</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="quiz_styles.css">
+    <style>
+        /* Estilos específicos para o calendário */
+        .calendar-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .calendar-header button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .calendar-header h2 {
+            margin: 0;
+            color: #333;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+        .calendar-day {
+            padding: 15px 5px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
+            color: #555;
+            position: relative;
+            min-height: 80px; /* Garante altura mínima para o conteúdo */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .calendar-day.completed {
+            background-color: #e6ffe6;
+            border-color: #4CAF50;
+        }
+        .calendar-day:hover {
+            background-color: #e0e0e0;
+        }
+        .calendar-day.completed:hover {
+            background-color: #c6f6c6;
+        }
+        .day-number {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .day-challenge {
+            font-size: 0.9em;
+            color: #666;
+            text-align: center;
+        }
+        .day-status {
+            font-size: 0.8em;
+            color: #4CAF50;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #777;
+        }
+        .weekday-name {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+        .empty-day {
+            background-color: #f0f0f0;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            cursor: default;
+        }
+        
+        /* Estilos para o modo escuro */
+        [data-theme="dark"] .calendar-container {
+            background-color: var(--bg-card);
+            color: var(--text-primary);
+        }
+        
+        [data-theme="dark"] .calendar-header h2 {
+            color: var(--text-primary);
+        }
+        
+        [data-theme="dark"] .calendar-day {
+            background-color: var(--bg-secondary);
+            border-color: var(--border-color);
+            color: var(--text-secondary);
+        }
+        
+        [data-theme="dark"] .calendar-day.completed {
+            background-color: var(--bg-secondary);
+            border-color: var(--accent-secondary);
+        }
+        
+        [data-theme="dark"] .calendar-day.completed .day-status {
+            color: var(--accent-secondary);
+        }
+        
+        [data-theme="dark"] .calendar-day:hover {
+            background-color: var(--bg-card);
+        }
+        
+        [data-theme="dark"] .calendar-day.completed:hover {
+            background-color: var(--bg-card);
+        }
+        
+        [data-theme="dark"] .day-number {
+            color: var(--text-primary);
+        }
+        
+        [data-theme="dark"] .day-challenge {
+            color: var(--text-secondary);
+        }
+        
+        [data-theme="dark"] .weekday-name {
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+        
+        [data-theme="dark"] .empty-day {
+            background-color: var(--bg-secondary);
+            border-color: var(--border-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="header-fixo">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>Calcule Sua Saúde</h1>
+                </div>
+                <ul class="menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="desafios.html">Desafios</a></li>
+                    <li><a href="todos_quizzes.html">Quizzes</a></li>
+                    <li><a href="#ferramentas">Ferramentas</a></li>
+                    <li><a href="artigos.html">Artigos</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><button id="modo-noturno" class="btn-modo">🌙</button></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="calendar-container">
+            <h1>Calendário de Desafios Saudáveis</h1>
+            <p>Participe dos nossos desafios diários para melhorar sua saúde e bem-estar. Marque os dias que você completar!</p>
+            
+            <div class="calendar-header">
+                <button id="prevMonth">Mês Anterior</button>
+                <h2 id="currentMonthYear"></h2>
+                <button id="nextMonth">Próximo Mês</button>
+            </div>
+            
+            <div class="weekdays">
+                <div class="weekday-name">Dom</div>
+                <div class="weekday-name">Seg</div>
+                <div class="weekday-name">Ter</div>
+                <div class="weekday-name">Qua</div>
+                <div class="weekday-name">Qui</div>
+                <div class="weekday-name">Sex</div>
+                <div class="weekday-name">Sáb</div>
+            </div>
+            
+            <div class="calendar-grid" id="calendarGrid"></div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Calcule Sua Saúde</h3>
+                    <p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                        <li><a href="politica.html">Política de Privacidade</a></li>
+                        <li><a href="termos.html">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Ferramentas</h4>
+                    <ul>
+                        <li><a href="ferramentas/imc.html">Calculadora de IMC</a></li>
+                        <li><a href="ferramentas/tmb.html">Taxa Metabólica Basal</a></li>
+                        <li><a href="ferramentas/agua.html">Água por Dia</a></li>
+                        <li><a href="ferramentas/calorias.html">Gasto Calórico</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+                <p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/modo-noturno.js"></script>
+    <script src="js/desafios.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Calculadora de Glicemia - Interpretação de Glicose no Sangue | Calcule Sua Saúde</title>
+<meta content="Interprete seus valores de glicemia e glicose no sangue. Entenda se está normal, pré-diabetes ou diabetes com base nos valores de referência." name="description"/>
+<meta content="calculadora glicemia, glicose sangue, diabetes, pré-diabetes, valores glicemia, hemoglobina glicada" name="keywords"/>
+<!-- Open Graph -->
+<meta content="Calculadora de Glicemia - Interpretação de Glicose no Sangue" property="og:title"/>
+<meta content="Interprete seus valores de glicemia e entenda se está normal, pré-diabetes ou diabetes." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://calculesuasaude.com.br/ferramentas/glicemia.html" property="og:url"/>
+<!-- Favicon -->
+<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- CSS -->
+<link href="../css/estilo.css" rel="stylesheet"/>
+<link href="../css/estilo-adicional.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Cabeçalho -->
+<header class="header-fixo">
+<nav class="navbar">
+<div class="container">
+<div class="logo">
+<h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
+</div>
+<ul class="menu">
+<li><a href="../index.html">Início</a></li>
+<li><a href="../index.html#ferramentas">Ferramentas</a></li>
+<li><a href="../index.html#artigos">Artigos</a></li>
+<li><a href="../sobre.html">Sobre</a></li>
+<li><a href="../contato.html">Contato</a></li>
+<li><button class="btn-modo" id="modo-noturno">🌙</button></li>
+</ul>
+</div>
+</nav>
+</header>
+<!-- Breadcrumbs -->
+<section class="breadcrumbs">
+<div class="container">
+<a href="../index.html">Início</a> &gt; <a href="../index.html#ferramentas">Ferramentas</a> &gt; <span>Calculadora de Glicemia</span>
+</div>
+</section>
+<!-- Conteúdo Principal -->
+<main>
+<section class="ferramenta-content">
+<div class="container">
+<div class="ferramenta-header">
+<div class="ferramenta-icon">🩸</div>
+<h1>Calculadora de Glicemia</h1>
+<p class="ferramenta-subtitle">Interprete seus valores de glicose no sangue e entenda os resultados dos seus exames</p>
+</div>
+<div class="ferramenta-grid">
+<div class="calculadora-section">
+<div class="calculadora-card">
+<h2>Interprete sua glicemia</h2>
+<form id="glicemia-form">
+<div class="form-group">
+<label for="tipo-exame">Tipo de Exame</label>
+<select id="tipo-exame" required="">
+<option value="">Selecione</option>
+<option value="jejum">Glicemia de Jejum</option>
+<option value="casual">Glicemia Casual (qualquer hora)</option>
+<option value="pos-prandial">Pós-Prandial (2h após refeição)</option>
+<option value="totg">TOTG - 2h (Teste Oral de Tolerância à Glicose)</option>
+<option value="hba1c">HbA1c (Hemoglobina Glicada)</option>
+</select>
+</div>
+<div class="form-group" id="grupo-valor-glicose">
+<label for="valor-glicose">Valor da Glicose (mg/dL)</label>
+<input id="valor-glicose" max="600" min="30" placeholder="Ex: 95" required="" type="number"/>
+<small>Valor conforme resultado do seu exame</small>
+</div>
+<div class="form-group" id="grupo-valor-hba1c" style="display: none;">
+<label for="valor-hba1c">Valor da HbA1c (%)</label>
+<input id="valor-hba1c" max="20" min="3" placeholder="Ex: 5.7" step="0.1" type="number"/>
+<small>Valor da hemoglobina glicada em percentual</small>
+</div>
+<div class="form-group">
+<label for="idade">Idade (anos)</label>
+<input id="idade" max="100" min="18" placeholder="Ex: 45" required="" type="number"/>
+</div>
+<div class="form-group">
+<label for="historico">Histórico Familiar</label>
+<select id="historico" required="">
+<option value="">Selecione</option>
+<option value="sem-historico">Sem histórico de diabetes</option>
+<option value="historico-familiar">Histórico familiar de diabetes</option>
+<option value="pre-diabetes">Já tive pré-diabetes</option>
+<option value="diabetes-gestacional">Diabetes gestacional (mulheres)</option>
+</select>
+</div>
+<div class="form-group">
+<label for="sintomas">Sintomas Relacionados</label>
+<select id="sintomas" required="">
+<option value="">Selecione</option>
+<option value="sem-sintomas">Sem sintomas</option>
+<option value="sede-excessiva">Sede excessiva</option>
+<option value="urinacao-frequente">Urinação frequente</option>
+<option value="fadiga">Fadiga e cansaço</option>
+<option value="multiplos-sintomas">Múltiplos sintomas</option>
+</select>
+</div>
+<button class="btn-primary" type="submit">Interpretar Glicemia</button>
+</form>
+<div class="resultado" id="resultado-glicemia" style="display: none;">
+<h3>Interpretação da Sua Glicemia</h3>
+<div class="resultado-glicemia-principal">
+<div class="valor-exame">
+<div class="valor-label" id="label-exame"></div>
+<div class="valor-resultado" id="valor-resultado"></div>
+<div class="valor-unidade" id="unidade-resultado"></div>
+</div>
+</div>
+<div class="classificacao-glicemia" id="classificacao-glicemia"></div>
+<div class="resultado-interpretacao" id="interpretacao-glicemia"></div>
+</div>
+</div>
+</div>
+<div class="info-section">
+<div class="info-card">
+<h3>Valores de Referência</h3>
+<div class="valores-referencia">
+<h4>Glicemia de Jejum:</h4>
+<div class="ref-item normal">Normal: &lt; 100 mg/dL</div>
+<div class="ref-item pre-diabetes">Pré-diabetes: 100-125 mg/dL</div>
+<div class="ref-item diabetes">Diabetes: ≥ 126 mg/dL</div>
+<h4>Pós-Prandial (2h):</h4>
+<div class="ref-item normal">Normal: &lt; 140 mg/dL</div>
+<div class="ref-item pre-diabetes">Pré-diabetes: 140-199 mg/dL</div>
+<div class="ref-item diabetes">Diabetes: ≥ 200 mg/dL</div>
+<h4>HbA1c:</h4>
+<div class="ref-item normal">Normal: &lt; 5,7%</div>
+<div class="ref-item pre-diabetes">Pré-diabetes: 5,7-6,4%</div>
+<div class="ref-item diabetes">Diabetes: ≥ 6,5%</div>
+</div>
+</div>
+<div class="info-card">
+<h3>Tipos de Exames</h3>
+<ul>
+<li><strong>Jejum:</strong> 8-12h sem comer</li>
+<li><strong>Casual:</strong> Qualquer horário</li>
+<li><strong>Pós-prandial:</strong> 2h após refeição</li>
+<li><strong>TOTG:</strong> Teste com sobrecarga de glicose</li>
+<li><strong>HbA1c:</strong> Média dos últimos 2-3 meses</li>
+</ul>
+</div>
+<div class="info-card">
+<h3>⚠️ Importante</h3>
+<ul>
+<li>Esta ferramenta é apenas informativa</li>
+<li>Não substitui avaliação médica</li>
+<li>Valores alterados requerem confirmação</li>
+<li>Procure um endocrinologista</li>
+<li>Mantenha acompanhamento regular</li>
+</ul>
+</div>
+<div class="info-card">
+<h3>Fatores de Risco</h3>
+<ul>
+<li>Idade acima de 45 anos</li>
+<li>Sobrepeso ou obesidade</li>
+<li>Histórico familiar</li>
+<li>Sedentarismo</li>
+<li>Hipertensão arterial</li>
+<li>Colesterol alterado</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="conteudo-educativo">
+<h2>Entenda a diabetes e pré-diabetes</h2>
+<div class="educativo-grid">
+<div class="educativo-card">
+<h3>🩸 O que é Glicemia?</h3>
+<p>Glicemia é a concentração de glicose (açúcar) no sangue. É a principal fonte de energia para as células e deve ser mantida em níveis adequados.</p>
+</div>
+<div class="educativo-card">
+<h3>⚖️ Pré-diabetes</h3>
+<p>Condição onde a glicose está elevada, mas não o suficiente para diabetes. É reversível com mudanças no estilo de vida e acompanhamento médico.</p>
+</div>
+<div class="educativo-card">
+<h3>🔴 Diabetes Tipo 2</h3>
+<p>Doença crônica onde o corpo não produz insulina suficiente ou não a utiliza adequadamente. Requer tratamento médico e mudanças no estilo de vida.</p>
+</div>
+<div class="educativo-card">
+<h3>📊 HbA1c</h3>
+<p>Hemoglobina glicada mostra a média da glicose nos últimos 2-3 meses. É o melhor exame para acompanhar o controle glicêmico a longo prazo.</p>
+</div>
+<div class="educativo-card">
+<h3>🍎 Prevenção</h3>
+<p>Alimentação equilibrada, exercícios regulares, manutenção do peso adequado e acompanhamento médico são fundamentais para prevenir diabetes.</p>
+</div>
+<div class="educativo-card">
+<h3>💊 Tratamento</h3>
+<p>Inclui medicamentos quando necessário, monitoramento da glicose, dieta adequada, exercícios e educação sobre a doença.</p>
+</div>
+</div>
+</div>
+<div class="leia-tambem">
+<h3>Leia também</h3>
+<div class="artigos-relacionados"><a class="artigo-link" href="../artigos/cancer-prevencao-deteccao.html"><span class_="artigo-titulo">Câncer: Prevenção e Detecção Precoce</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/saude-mulher-cuidados.html"><span class_="artigo-titulo">Saúde da Mulher: Guia Completo de Cuidados Específicos</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/sono-qualidade-saude.html"><span class_="artigo-titulo">Sono e Saúde: A Importância do Descanso para o Bem-Estar</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Rodapé -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h3>Calcule Sua Saúde</h3>
+<p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+</div>
+<div class="footer-section">
+<h4>Links Úteis</h4>
+<ul>
+<li><a href="../sobre.html">Sobre</a></li>
+<li><a href="../contato.html">Contato</a></li>
+<li><a href="../politica.html">Política de Privacidade</a></li>
+<li><a href="../termos.html">Termos de Uso</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Outras Ferramentas</h4>
+<ul>
+<li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
+<li><a href="../ferramentas/tmb.html">Taxa Metabólica Basal</a></li>
+<li><a href="../ferramentas/macros.html">Macronutrientes</a></li>
+<li><a href="../ferramentas/frequencia_cardiaca.html">Frequência Cardíaca</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+<p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
+</div>
+</div>
+</footer>
+<!-- JavaScript -->
+<script src="../js/modo-noturno.js"></script>
+<script src="../js/glicemia.js"></script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Calculadora de Água Corporal - Percentual de Água no Corpo | Calcule Sua Saúde</title>
+<meta content="Calcule o percentual de água no seu corpo. Descubra se está adequadamente hidratado com base na sua composição corporal." name="description"/>
+<meta content="calculadora água corporal, percentual água corpo, hidratação corporal, composição corporal água" name="keywords"/>
+<!-- Open Graph -->
+<meta content="Calculadora de Água Corporal - Percentual de Água no Corpo" property="og:title"/>
+<meta content="Calcule o percentual de água no seu corpo e avalie seu estado de hidratação." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://calculesuasaude.com.br/ferramentas/agua_corporal.html" property="og:url"/>
+<!-- Favicon -->
+<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- CSS -->
+<link href="../css/estilo.css" rel="stylesheet"/>
+<link href="../css/estilo-adicional.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Cabeçalho -->
+<header class="header-fixo">
+<nav class="navbar">
+<div class="container">
+<div class="logo">
+<h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
+</div>
+<ul class="menu">
+<li><a href="../index.html">Início</a></li>
+<li><a href="../index.html#ferramentas">Ferramentas</a></li>
+<li><a href="../index.html#artigos">Artigos</a></li>
+<li><a href="../sobre.html">Sobre</a></li>
+<li><a href="../contato.html">Contato</a></li>
+<li><button class="btn-modo" id="modo-noturno">🌙</button></li>
+</ul>
+</div>
+</nav>
+</header>
+<!-- Breadcrumbs -->
+<section class="breadcrumbs">
+<div class="container">
+<a href="../index.html">Início</a> &gt; <a href="../index.html#ferramentas">Ferramentas</a> &gt; <span>Calculadora de Água Corporal</span>
+</div>
+</section>
+<!-- Conteúdo Principal -->
+<main>
+<section class="ferramenta-content">
+<div class="container">
+<div class="ferramenta-header">
+<div class="ferramenta-icon">💧</div>
+<h1>Calculadora de Água Corporal</h1>
+<p class="ferramenta-subtitle">Descubra o percentual de água no seu corpo e avalie seu estado de hidratação</p>
+</div>
+<div class="ferramenta-grid">
+<div class="calculadora-section">
+<div class="calculadora-card">
+<h2>Calcule sua água corporal</h2>
+<form id="agua-corporal-form">
+<div class="form-group">
+<label for="sexo">Sexo</label>
+<select id="sexo" required="">
+<option value="">Selecione</option>
+<option value="masculino">Masculino</option>
+<option value="feminino">Feminino</option>
+</select>
+</div>
+<div class="form-group">
+<label for="idade">Idade (anos)</label>
+<input id="idade" max="100" min="18" placeholder="Ex: 30" required="" type="number"/>
+</div>
+<div class="form-group">
+<label for="peso">Peso (kg)</label>
+<input id="peso" max="200" min="30" placeholder="Ex: 70.5" required="" step="0.1" type="number"/>
+</div>
+<div class="form-group">
+<label for="altura">Altura (cm)</label>
+<input id="altura" max="220" min="140" placeholder="Ex: 175" required="" step="0.1" type="number"/>
+</div>
+<div class="form-group">
+<label for="nivel-atividade">Nível de Atividade Física</label>
+<select id="nivel-atividade" required="">
+<option value="">Selecione</option>
+<option value="sedentario">Sedentário</option>
+<option value="leve">Levemente ativo</option>
+<option value="moderado">Moderadamente ativo</option>
+<option value="intenso">Muito ativo</option>
+<option value="atleta">Atleta</option>
+</select>
+</div>
+<div class="form-group">
+<label for="composicao">Composição Corporal Estimada</label>
+<select id="composicao" required="">
+<option value="">Selecione</option>
+<option value="magro">Magro (baixo % gordura)</option>
+<option value="normal">Normal (% gordura médio)</option>
+<option value="sobrepeso">Sobrepeso (alto % gordura)</option>
+<option value="obeso">Obeso (muito alto % gordura)</option>
+</select>
+</div>
+<button class="btn-primary" type="submit">Calcular Água Corporal</button>
+</form>
+<div class="resultado" id="resultado-agua-corporal" style="display: none;">
+<h3>Sua Composição de Água Corporal</h3>
+<div class="resultado-agua-corporal-grid">
+<div class="resultado-item">
+<div class="resultado-label">Água Corporal</div>
+<div class="resultado-valor" id="valor-percentual-agua"></div>
+<div class="resultado-unidade">%</div>
+</div>
+<div class="resultado-item">
+<div class="resultado-label">Litros de Água</div>
+<div class="resultado-valor" id="valor-litros-agua"></div>
+<div class="resultado-unidade">L</div>
+</div>
+</div>
+<div class="hidratacao-status" id="hidratacao-status"></div>
+<div class="resultado-interpretacao" id="interpretacao-agua-corporal"></div>
+</div>
+</div>
+</div>
+<div class="info-section">
+<div class="info-card">
+<h3>Água no Corpo Humano</h3>
+<p>A água representa 50-70% do peso corporal total em adultos saudáveis. É essencial para todas as funções celulares, transporte de nutrientes e regulação da temperatura.</p>
+</div>
+<div class="info-card">
+<h3>Como calculamos?</h3>
+<p>Utilizamos fórmulas baseadas em idade, sexo, peso, altura e composição corporal para estimar o percentual de água corporal total.</p>
+<div class="formula">Baseado em equações de Watson e Hume-Weyers</div>
+</div>
+<div class="info-card">
+<h3>Faixas Normais de Água Corporal</h3>
+<div class="faixas-agua">
+<h4>Homens:</h4>
+<div class="faixa-item">
+<span class="faixa-idade">18-39 anos:</span>
+<span class="faixa-valor">63-73%</span>
+</div>
+<div class="faixa-item">
+<span class="faixa-idade">40-59 anos:</span>
+<span class="faixa-valor">55-65%</span>
+</div>
+<div class="faixa-item">
+<span class="faixa-idade">60+ anos:</span>
+<span class="faixa-valor">47-57%</span>
+</div>
+<h4 style="margin-top: 1rem;">Mulheres:</h4>
+<div class="faixa-item">
+<span class="faixa-idade">18-39 anos:</span>
+<span class="faixa-valor">55-65%</span>
+</div>
+<div class="faixa-item">
+<span class="faixa-idade">40-59 anos:</span>
+<span class="faixa-valor">47-57%</span>
+</div>
+<div class="faixa-item">
+<span class="faixa-idade">60+ anos:</span>
+<span class="faixa-valor">39-49%</span>
+</div>
+</div>
+</div>
+<div class="info-card">
+<h3>Fatores que Influenciam</h3>
+<ul>
+<li>Idade (diminui com o tempo)</li>
+<li>Sexo (homens têm mais água)</li>
+<li>Composição corporal (músculos têm mais água)</li>
+<li>Nível de hidratação</li>
+<li>Estado de saúde</li>
+<li>Medicamentos</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="conteudo-educativo">
+<h2>Importância da água corporal</h2>
+<div class="educativo-grid">
+<div class="educativo-card">
+<h3>🧬 Funções Celulares</h3>
+<p>A água é o meio onde ocorrem todas as reações químicas do corpo. Participa do metabolismo, transporte de nutrientes e eliminação de toxinas.</p>
+</div>
+<div class="educativo-card">
+<h3>🌡️ Regulação Térmica</h3>
+<p>Através da transpiração e respiração, a água ajuda a manter a temperatura corporal estável, essencial para o funcionamento adequado dos órgãos.</p>
+</div>
+<div class="educativo-card">
+<h3>🩸 Sistema Circulatório</h3>
+<p>O sangue é composto por 90% de água. Mantém a pressão arterial adequada e facilita o transporte de oxigênio e nutrientes para todas as células.</p>
+</div>
+<div class="educativo-card">
+<h3>🦴 Articulações e Músculos</h3>
+<p>A água lubrifica articulações e é essencial para a contração muscular. Músculos bem hidratados funcionam melhor e se recuperam mais rapidamente.</p>
+</div>
+<div class="educativo-card">
+<h3>🧠 Função Cerebral</h3>
+<p>O cérebro é 75% água. Mesmo uma desidratação leve pode afetar concentração, memória e humor. Hidratação adequada é crucial para performance mental.</p>
+</div>
+<div class="educativo-card">
+<h3>💊 Eliminação de Toxinas</h3>
+<p>Os rins filtram o sangue e eliminam resíduos através da urina. Água suficiente é essencial para função renal adequada e prevenção de cálculos.</p>
+</div>
+</div>
+</div>
+<div class="leia-tambem">
+<h3>Leia também</h3>
+<div class="artigos-relacionados"><a class="artigo-link" href="../artigos/vitaminas-minerais-essenciais.html"><span class_="artigo-titulo">Vitaminas e Minerais Essenciais: Guia Completo para a Saúde</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/atividade-fisica-beneficios.html"><span class_="artigo-titulo">Atividade Física: Benefícios Comprovados para a Saúde</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/colesterol-controle-prevencao.html"><span class_="artigo-titulo">Colesterol: Controle, Prevenção e Tratamento Completo</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Rodapé -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h3>Calcule Sua Saúde</h3>
+<p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+</div>
+<div class="footer-section">
+<h4>Links Úteis</h4>
+<ul>
+<li><a href="../sobre.html">Sobre</a></li>
+<li><a href="../contato.html">Contato</a></li>
+<li><a href="../politica.html">Política de Privacidade</a></li>
+<li><a href="../termos.html">Termos de Uso</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Outras Ferramentas</h4>
+<ul>
+<li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
+<li><a href="../ferramentas/agua.html">Água por Dia</a></li>
+<li><a href="../ferramentas/gordura.html">Gordura Corporal</a></li>
+<li><a href="../ferramentas/frequencia_cardiaca.html">Frequência Cardíaca</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+<p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
+</div>
+</div>
+</footer>
+<!-- JavaScript -->
+<script src="../js/modo-noturno.js"></script>
+<script src="../js/agua_corporal.js"></script>
+</body>
+</html>

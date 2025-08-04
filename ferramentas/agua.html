@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Calculadora de Água por Dia - Hidratação Ideal | Calcule Sua Saúde</title>
+<meta content="Calcule a quantidade ideal de água que você deve beber por dia. Descubra suas necessidades de hidratação baseadas em evidências científicas." name="description"/>
+<meta content="calculadora água, hidratação diária, quantidade água dia, necessidade hídrica, beber água" name="keywords"/>
+<!-- Open Graph -->
+<meta content="Calculadora de Água por Dia - Hidratação Ideal" property="og:title"/>
+<meta content="Calcule a quantidade ideal de água que você deve beber por dia para manter-se hidratado." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://calculesuasaude.com.br/ferramentas/agua.html" property="og:url"/>
+<!-- Favicon -->
+<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- CSS -->
+<link href="../css/estilo.css" rel="stylesheet"/>
+<link href="../css/estilo-adicional.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Cabeçalho -->
+<header class="header-fixo">
+<nav class="navbar">
+<div class="container">
+<div class="logo">
+<h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
+</div>
+<ul class="menu">
+<li><a href="../index.html">Início</a></li>
+<li><a href="../index.html#ferramentas">Ferramentas</a></li>
+<li><a href="../index.html#artigos">Artigos</a></li>
+<li><a href="../sobre.html">Sobre</a></li>
+<li><a href="../contato.html">Contato</a></li>
+<li><button class="btn-modo" id="modo-noturno">🌙</button></li>
+</ul>
+</div>
+</nav>
+</header>
+<!-- Breadcrumbs -->
+<section class="breadcrumbs">
+<div class="container">
+<a href="../index.html">Início</a> &gt; <a href="../index.html#ferramentas">Ferramentas</a> &gt; <span>Calculadora de Água</span>
+</div>
+</section>
+<!-- Conteúdo Principal -->
+<main>
+<section class="ferramenta-content">
+<div class="container">
+<div class="ferramenta-header">
+<div class="ferramenta-icon">💧</div>
+<h1>Calculadora de Água por Dia</h1>
+<p class="ferramenta-subtitle">Descubra a quantidade ideal de água que você deve beber diariamente para manter-se hidratado</p>
+</div>
+<div class="ferramenta-grid">
+<div class="calculadora-section">
+<div class="calculadora-card">
+<h2>Calcule sua necessidade de água</h2>
+<form id="agua-form">
+<div class="form-group">
+<label for="peso">Peso (kg)</label>
+<input id="peso" max="300" min="1" placeholder="Ex: 70.5" required="" step="0.1" type="number"/>
+</div>
+<div class="form-group">
+<label for="idade">Idade (anos)</label>
+<input id="idade" max="120" min="1" placeholder="Ex: 30" required="" type="number"/>
+</div>
+<div class="form-group">
+<label for="atividade">Nível de Atividade Física</label>
+<select id="atividade" required="">
+<option value="">Selecione</option>
+<option value="baixo">Baixo (sedentário)</option>
+<option value="moderado">Moderado (exercício leve)</option>
+<option value="alto">Alto (exercício intenso)</option>
+<option value="muito_alto">Muito Alto (atleta/trabalho físico)</option>
+</select>
+</div>
+<div class="form-group">
+<label for="clima">Clima/Temperatura</label>
+<select id="clima" required="">
+<option value="">Selecione</option>
+<option value="frio">Frio (abaixo de 15°C)</option>
+<option value="ameno">Ameno (15-25°C)</option>
+<option value="quente">Quente (25-35°C)</option>
+<option value="muito_quente">Muito Quente (acima de 35°C)</option>
+</select>
+</div>
+<div class="form-group">
+<label for="condicoes">Condições Especiais</label>
+<select id="condicoes">
+<option value="normal">Normal</option>
+<option value="gravidez">Gravidez</option>
+<option value="amamentacao">Amamentação</option>
+<option value="febre">Febre/Doença</option>
+<option value="altitude">Alta Altitude</option>
+</select>
+</div>
+<button class="btn-primary" type="submit">Calcular Necessidade de Água</button>
+</form>
+<div class="resultado" id="resultado-agua" style="display: none;">
+<h3>Sua Necessidade de Hidratação</h3>
+<div class="resultado-agua-grid">
+<div class="resultado-item">
+<div class="resultado-label">Água Total</div>
+<div class="resultado-valor" id="valor-agua-total"></div>
+<div class="resultado-unidade">litros/dia</div>
+</div>
+<div class="resultado-item">
+<div class="resultado-label">Água Pura</div>
+<div class="resultado-valor" id="valor-agua-pura"></div>
+<div class="resultado-unidade">litros/dia</div>
+</div>
+</div>
+<div class="resultado-interpretacao" id="interpretacao-agua"></div>
+</div>
+</div>
+</div>
+<div class="info-section">
+<div class="info-card">
+<h3>Por que a água é importante?</h3>
+<p>A água representa 60-70% do peso corporal e é essencial para todas as funções vitais: transporte de nutrientes, regulação da temperatura, eliminação de toxinas e lubrificação das articulações.</p>
+</div>
+<div class="info-card">
+<h3>Como calculamos?</h3>
+<p>Utilizamos a recomendação base de 35ml por kg de peso corporal, ajustada por fatores como idade, atividade física, clima e condições especiais.</p>
+<div class="formula">Base: 35ml × peso (kg) + ajustes</div>
+</div>
+<div class="info-card">
+<h3>Sinais de Desidratação</h3>
+<ul>
+<li>Sede excessiva</li>
+<li>Urina escura ou pouca</li>
+<li>Boca seca</li>
+<li>Fadiga e tontura</li>
+<li>Dor de cabeça</li>
+<li>Pele ressecada</li>
+</ul>
+</div>
+<div class="info-card">
+<h3>Fontes de Hidratação</h3>
+<ul>
+<li>Água pura (principal fonte)</li>
+<li>Chás e infusões</li>
+<li>Frutas ricas em água</li>
+<li>Vegetais (pepino, alface)</li>
+<li>Sopas e caldos</li>
+<li>Leite e derivados</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="conteudo-educativo">
+<h2>Dicas para manter-se hidratado</h2>
+<div class="educativo-grid">
+<div class="educativo-card">
+<h3>🕐 Distribua ao longo do dia</h3>
+<p>Beba pequenas quantidades regularmente em vez de grandes volumes de uma só vez. Isso melhora a absorção e evita sobrecarga renal.</p>
+</div>
+<div class="educativo-card">
+<h3>🌅 Comece o dia hidratado</h3>
+<p>Beba 1-2 copos de água ao acordar para repor a perda noturna e ativar o metabolismo. Adicione limão para potencializar os benefícios.</p>
+</div>
+<div class="educativo-card">
+<h3>🏃‍♂️ Hidrate-se durante exercícios</h3>
+<p>Beba 150-250ml a cada 15-20 minutos durante atividades físicas. Em exercícios longos, considere bebidas isotônicas.</p>
+</div>
+<div class="educativo-card">
+<h3>🌡️ Ajuste conforme o clima</h3>
+<p>Em dias quentes ou secos, aumente o consumo. Ar condicionado e aquecimento também podem aumentar a necessidade de hidratação.</p>
+</div>
+<div class="educativo-card">
+<h3>🍎 Inclua alimentos hidratantes</h3>
+<p>Melancia, pepino, laranja e outros alimentos ricos em água contribuem para a hidratação total. Cerca de 20% vem dos alimentos.</p>
+</div>
+<div class="educativo-card">
+<h3>📱 Use lembretes</h3>
+<p>Configure alarmes ou use aplicativos para lembrar de beber água. Tenha sempre uma garrafa por perto como lembrete visual.</p>
+</div>
+</div>
+</div>
+<div class="leia-tambem">
+<h3>Leia também</h3>
+<div class="artigos-relacionados"><a class="artigo-link" href="../artigos/metabolismo-como-acelerar.html"><span class_="artigo-titulo">Como Acelerar o Metabolismo: Estratégias Científicas para Queimar Mais Calorias</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/cancer-prevencao-deteccao.html"><span class_="artigo-titulo">Câncer: Prevenção e Detecção Precoce</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/imunidade-fortalecimento.html"><span class_="artigo-titulo">Como Fortalecer a Imunidade: Estratégias Naturais</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Rodapé -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h3>Calcule Sua Saúde</h3>
+<p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+</div>
+<div class="footer-section">
+<h4>Links Úteis</h4>
+<ul>
+<li><a href="../sobre.html">Sobre</a></li>
+<li><a href="../contato.html">Contato</a></li>
+<li><a href="../politica.html">Política de Privacidade</a></li>
+<li><a href="../termos.html">Termos de Uso</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Outras Ferramentas</h4>
+<ul>
+<li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
+<li><a href="../ferramentas/tmb.html">Taxa Metabólica Basal</a></li>
+<li><a href="../ferramentas/gordura.html">Gordura Corporal</a></li>
+<li><a href="../ferramentas/calorias.html">Gasto Calórico</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+<p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
+</div>
+</div>
+</footer>
+<!-- JavaScript -->
+<script src="../js/modo-noturno.js"></script>
+<script src="../js/agua.js"></script>
+</body>
+</html>

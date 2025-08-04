@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página não encontrada - Calcule Sua Saúde</title>
+    <meta name="description" content="Página não encontrada. Talvez você esteja procurando uma de nossas calculadoras de saúde ou artigos informativos.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="header-fixo">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1><a href="index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
+                </div>
+                <ul class="menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#ferramentas">Ferramentas</a></li>
+                    <li><a href="index.html#artigos">Artigos</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><button id="modo-noturno" class="btn-modo">🌙</button></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <section class="erro-404">
+            <div class="container">
+                <div class="erro-content">
+                    <div class="erro-numero">404</div>
+                    <h1>Página não encontrada</h1>
+                    <p>Ops! A página que você está procurando não existe ou foi movida.</p>
+                    <p>Talvez você esteja procurando uma de nossas calculadoras de saúde ou artigos informativos.</p>
+                    
+                    <div class="erro-acoes">
+                        <a href="index.html" class="btn-primary">Voltar ao Início</a>
+                        <a href="index.html#ferramentas" class="btn-secondary">Ver Ferramentas</a>
+                    </div>
+                </div>
+                
+                <div class="sugestoes">
+                    <h2>Páginas Populares</h2>
+                    <div class="sugestoes-grid">
+                        <div class="sugestao-card">
+                            <div class="sugestao-icon">📊</div>
+                            <h3>Calculadora de IMC</h3>
+                            <p>Descubra seu Índice de Massa Corporal</p>
+                            <a href="ferramentas/imc.html">Acessar</a>
+                        </div>
+                        
+                        <div class="sugestao-card">
+                            <div class="sugestao-icon">🔥</div>
+                            <h3>Taxa Metabólica Basal</h3>
+                            <p>Calcule seu gasto calórico em repouso</p>
+                            <a href="ferramentas/tmb.html">Acessar</a>
+                        </div>
+                        
+                        <div class="sugestao-card">
+                            <div class="sugestao-icon">💧</div>
+                            <h3>Água por Dia</h3>
+                            <p>Quantidade ideal de água diária</p>
+                            <a href="ferramentas/agua.html">Acessar</a>
+                        </div>
+                        
+                        <div class="sugestao-card">
+                            <div class="sugestao-icon">🏃</div>
+                            <h3>Gasto Calórico</h3>
+                            <p>Calcule suas calorias diárias</p>
+                            <a href="ferramentas/calorias.html">Acessar</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="busca-alternativa">
+                    <h3>Não encontrou o que procurava?</h3>
+                    <p>Entre em <a href="contato.html">contato conosco</a> e nos informe sobre o que você estava buscando. Isso nos ajuda a melhorar nosso site!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Calcule Sua Saúde</h3>
+                    <p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                        <li><a href="politica.html">Política de Privacidade</a></li>
+                        <li><a href="termos.html">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Ferramentas</h4>
+                    <ul>
+                        <li><a href="ferramentas/imc.html">Calculadora de IMC</a></li>
+                        <li><a href="ferramentas/tmb.html">Taxa Metabólica Basal</a></li>
+                        <li><a href="ferramentas/agua.html">Água por Dia</a></li>
+                        <li><a href="ferramentas/calorias.html">Gasto Calórico</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+                <p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/modo-noturno.js"></script>
+    
+    <style>
+        .erro-404 {
+            padding: var(--spacing-xl) 0;
+            min-height: 60vh;
+        }
+        
+        .erro-content {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .erro-numero {
+            font-size: 8rem;
+            font-weight: 900;
+            color: var(--accent-primary);
+            line-height: 1;
+            margin-bottom: var(--spacing-md);
+            text-shadow: 2px 2px 4px var(--shadow);
+        }
+        
+        .erro-content h1 {
+            font-size: var(--font-size-h1);
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .erro-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-sm);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .erro-acoes {
+            margin-top: var(--spacing-lg);
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent-primary);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border: 2px solid var(--accent-primary);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--accent-primary);
+            color: white;
+        }
+        
+        .sugestoes {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .sugestoes h2 {
+            text-align: center;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .sugestoes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .sugestao-card {
+            background-color: var(--bg-card);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+        
+        .sugestao-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+        
+        .sugestao-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .sugestao-card h3 {
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.1rem;
+        }
+        
+        .sugestao-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .sugestao-card a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .sugestao-card a:hover {
+            color: var(--accent-secondary);
+        }
+        
+        .busca-alternativa {
+            text-align: center;
+            background-color: var(--bg-secondary);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+        }
+        
+        .busca-alternativa h3 {
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .busca-alternativa p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        .busca-alternativa a {
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
+        
+        .busca-alternativa a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .erro-numero {
+                font-size: 6rem;
+            }
+            
+            .erro-acoes {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .sugestoes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .erro-numero {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</body>
+</html>
+
