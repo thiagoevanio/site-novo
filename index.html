@@ -11,7 +11,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag( ){dataLayer.push(arguments);}
+  function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-EVCQQZV60N');
@@ -40,40 +40,33 @@
                 <div class="logo">
                     <h1>Calcule Sua Saúde</h1>
                 </div>
-                <button class="menu-toggle" aria-label="Abrir menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <div class="menu-wrapper">
-                    <ul class="menu">
-                        <li><a href="index.html">🏠 Início</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle">🩺 Saúde Interativa</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#ferramentas">🧮 Calculadoras</a></li>
-                                <li><a href="desafios.html">📅 Desafios Diários</a></li>
-                                <li><a href="todos_quizzes.html">🧩 Quizzes</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle">📚 Conteúdo</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="artigos.html">📄 Artigos</a></li>
-                                <li><a href="jogos.html">🎮 Jogos</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle">ℹ️ Sobre</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="sobre.html">🏢 Sobre o Calcule Sua Saúde</a></li>
-                                <li><a href="politica.html">🔒 Política de Privacidade</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="contato.html">📞 Contato</a></li>
-                        <li><button id="modo-noturno" class="btn-modo">🌙</button></li>
-                    </ul>
-                </div>
+                <ul class="menu">
+                    <li><a href="index.html">🏠 Início</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">🩺 Saúde Interativa</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#ferramentas">🧮 Calculadoras</a></li>
+                            <li><a href="desafios.html">📅 Desafios Diários</a></li>
+                            <li><a href="todos_quizzes.html">🧩 Quizzes</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">📚 Conteúdo</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="artigos.html">📄 Artigos</a></li>
+                            <li><a href="jogos.html">🎮 Jogos</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">ℹ️ Sobre</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="sobre.html">🏢 Sobre o Calcule Sua Saúde</a></li>
+                            <li><a href="politica.html">🔒 Política de Privacidade</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contato.html">📞 Contato</a></li>
+                    <li><button id="modo-noturno" class="btn-modo">🌙</button></li>
+                </ul>
             </div>
         </nav>
     </header>
@@ -252,7 +245,7 @@
                         </div>
                         <div class="artigo-conteudo">
                             <h3>IMC: Como calcular e interpretar corretamente</h3>
-                            <p>Aprenda como calcular e interpretar o IMC (Índice de Massa Corporal ). Entenda as faixas de peso, limitações e importância para a saúde.</p>
+                            <p>Aprenda como calcular e interpretar o IMC (Índice de Massa Corporal). Entenda as faixas de peso, limitações e importância para a saúde.</p>
                             <a href="artigos/imc-calculo-interpretacao.html" class="btn-artigo">Ler artigo</a>
                         </div>
                     </article>
@@ -377,14 +370,27 @@
                     window.location.href = this.href;
                 });
             }
-
-            // Lógica do menu hambúrguer
-            const menuToggle = document.querySelector('.menu-toggle');
-            const menuWrapper = document.querySelector('.menu-wrapper');
-            menuToggle.addEventListener('click', function() {
-                menuWrapper.classList.toggle('active');
-            });
         });
     </script>
 </body>
 </html>
+
+
+    <script>
+        if (
+'serviceWorker' in navigator) {
+            window.addEventListener(
+'load', () => {
+                navigator.serviceWorker.register(
+'/service-worker.js')
+                    .then(registration => {
+                        console.log(
+'ServiceWorker registered: ', registration);
+                    })
+                    .catch(error => {
+                        console.log(
+'ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
+    </script>
