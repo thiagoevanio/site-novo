@@ -7,15 +7,15 @@
     <meta name="description" content="Calculadoras gratuitas de saúde: IMC, TMB, água diária, gordura corporal e muito mais. Artigos informativos sobre nutrição e bem-estar.">
     <meta name="keywords" content="calculadora IMC, taxa metabólica basal, água por dia, saúde, nutrição, bem-estar">
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+      <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-EVCQQZV60N');
-</script>
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
     
     <!-- Open Graph -->
     <meta property="og:title" content="Calcule Sua Saúde - Ferramentas Gratuitas para Cuidar da Sua Saúde">
@@ -40,7 +40,14 @@
                 <div class="logo">
                     <h1>Calcule Sua Saúde</h1>
                 </div>
-                <ul class="menu">
+                
+                <button class="menu-toggle" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="menu" id="menu">
                     <li><a href="index.html">🏠 Início</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle">🩺 Saúde Interativa</a>
@@ -307,6 +314,7 @@
       <!-- JavaScript -->
     <script src="js/modo-noturno.js"></script>
     <script src="js/quiz.js"></script>
+    <script src="js/menu-mobile.js"></script>
     <script>
         // Desafios saudáveis (mesmo array do desafios.js)
         const desafiosSaudaveis = [
