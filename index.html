@@ -7,16 +7,6 @@
     <title>Calcule Sua Saúde - Ferramentas Gratuitas para Cuidar da Sua Saúde</title>
     <meta name="description" content="Calculadoras gratuitas de saúde: IMC, TMB, água diária, gordura corporal e muito mais. Artigos informativos sobre nutrição e bem-estar.">
     <meta name="keywords" content="calculadora IMC, taxa metabólica basal, água por dia, saúde, nutrição, bem-estar">
-
-      <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-EVCQQZV60N');
-    </script>
     
     <!-- Open Graph -->
     <meta property="og:title" content="Calcule Sua Saúde - Ferramentas Gratuitas para Cuidar da Sua Saúde">
@@ -24,6 +14,16 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://calculesuasaude.com.br">
     <meta property="og:image" content="https://calculesuasaude.com.br/icon192.png">
+
+    <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+      <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -386,20 +386,38 @@
 
 
     <script>
-        if (
-'serviceWorker' in navigator) {
-            window.addEventListener(
-'load', () => {
-                navigator.serviceWorker.register(
-'/service-worker.js')
+          // Registra o Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
                     .then(registration => {
-                        console.log(
-'ServiceWorker registered: ', registration);
+                        console.log('SW registered: ', registration);
+                        
+                        // Verifica atualizações
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // Nova versão disponível
+                                    if (confirm('Nova versão disponível! Deseja atualizar?')) {
+                                        window.location.reload();
+                                    }
+                                }
+                            });
+                        });
                     })
                     .catch(error => {
-                        console.log(
-'ServiceWorker registration failed: ', error);
+                        console.log('SW registration failed: ', error);
                     });
+            });
+        }
+        
+        // Background Sync (se suportado)
+        if ('serviceWorker' in navigator && 'sync' in window.ServiceWorkerRegistration.prototype) {
+            navigator.serviceWorker.ready.then(registration => {
+                return registration.sync.register('background-sync');
+            }).catch(error => {
+                console.log('Background sync not supported:', error);
             });
         }
     </script>
