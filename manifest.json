@@ -56,5 +56,8 @@
   ],
   "launch_handler": {
     "client_mode": ["navigate-existing", "focus-existing", "auto"]
-  }
+  },
+  "iarc_rating_id": "e84b072d-71de-4e28-a95a-3dc3bc3c4582",
+  "prefer_related_applications": false
 }
+
