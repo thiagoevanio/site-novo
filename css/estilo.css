@@ -779,7 +779,7 @@ main {
 /* Responsividade */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: flex;
+        display: flex !important;
     }
     
     .menu {
