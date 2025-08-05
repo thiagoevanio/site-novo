@@ -155,6 +155,130 @@
             background-color: var(--bg-secondary);
             border-color: var(--border-color);
         }
+        
+        /* Media Queries para Mobile */
+        @media (max-width: 768px) {
+            .calendar-container {
+                margin: 20px auto;
+                padding: 15px;
+                max-width: 100%;
+            }
+            
+            .calendar-header {
+                flex-direction: column;
+                gap: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .calendar-header button {
+                padding: 8px 12px;
+                font-size: 14px;
+                min-width: 120px;
+            }
+            
+            .calendar-header h2 {
+                font-size: 1.5rem;
+                order: -1;
+            }
+            
+            .calendar-grid {
+                gap: 5px;
+            }
+            
+            .calendar-day {
+                padding: 8px 4px;
+                min-height: 60px;
+                font-size: 12px;
+            }
+            
+            .day-number {
+                font-size: 1rem;
+                margin-bottom: 3px;
+            }
+            
+            .day-challenge {
+                font-size: 0.7rem;
+                line-height: 1.2;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+            
+            .day-status {
+                font-size: 0.7rem;
+                margin-top: 3px;
+            }
+            
+            .weekdays {
+                gap: 5px;
+                margin-bottom: 8px;
+            }
+            
+            .weekday-name {
+                padding: 8px 0;
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .calendar-container {
+                margin: 10px;
+                padding: 10px;
+            }
+            
+            .calendar-container h1 {
+                font-size: 1.3rem;
+                margin-bottom: 10px;
+            }
+            
+            .calendar-container p {
+                font-size: 0.9rem;
+                margin-bottom: 15px;
+            }
+            
+            .calendar-header h2 {
+                font-size: 1.3rem;
+            }
+            
+            .calendar-header button {
+                padding: 6px 10px;
+                font-size: 12px;
+                min-width: 100px;
+            }
+            
+            .calendar-grid {
+                gap: 3px;
+            }
+            
+            .calendar-day {
+                padding: 6px 2px;
+                min-height: 50px;
+                font-size: 11px;
+            }
+            
+            .day-number {
+                font-size: 0.9rem;
+                margin-bottom: 2px;
+            }
+            
+            .day-challenge {
+                font-size: 0.65rem;
+                line-height: 1.1;
+                -webkit-line-clamp: 2;
+            }
+            
+            .day-status {
+                font-size: 0.6rem;
+                margin-top: 2px;
+            }
+            
+            .weekday-name {
+                padding: 6px 0;
+                font-size: 0.7rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -165,7 +289,14 @@
                 <div class="logo">
                     <h1>Calcule Sua Saúde</h1>
                 </div>
-                <ul class="menu">
+                
+                <button class="menu-toggle" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="menu" id="menu">
                     <li><a href="index.html">Início</a></li>
                     <li><a href="desafios.html">Desafios</a></li>
                     <li><a href="todos_quizzes.html">Quizzes</a></li>
@@ -242,8 +373,7 @@
     </footer>
 
     <script src="js/modo-noturno.js"></script>
+    <script src="js/menu-mobile.js"></script>
     <script src="js/desafios.js"></script>
 </body>
 </html>
-
-
