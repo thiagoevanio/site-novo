@@ -1,22 +1,60 @@
 {
   "name": "Calcule Sua Saúde",
-  "short_name": "CalcSaude",
-  "description": "Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas",
-  "start_url": "/",
+  "short_name": "Saúde",
+  "description": "Ferramentas gratuitas e confiáveis para cuidar da sua saúde. Calculadoras de IMC, TMB, água diária e muito mais. Artigos informativos sobre nutrição e bem-estar.",
+  "start_url": "/index.html",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#2563eb",
+  "theme_color": "#3b82f6",
   "icons": [
     {
       "src": "icon192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "favicon.ico",
-      "sizes": "32x32",
-      "type": "image/x-icon"
+      "src": "icon512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "maskable_icon_x192.png",
+      "sizes": "192x199",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "maskable_icon_x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
-  ]
+  ],
+  "id": "calcule-sua-saude",
+  "orientation": "portrait",
+  "lang": "pt-BR",
+  "categories": ["health", "fitness", "education"],
+  "dir": "ltr",
+  "screenshots": [
+    {
+      "src": "screenshot1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Página inicial do Calcule Sua Saúde"
+    },
+    {
+      "src": "screenshot2.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Menu mobile do Calcule Sua Saúde"
+    }
+  ],
+  "launch_handler": {
+    "client_mode": ["navigate-existing", "focus-existing", "auto"]
+  }
 }
-
