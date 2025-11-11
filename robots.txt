@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://calculesuasaude.com.br/sitemap.xml
-
-# Permitir que o Google rastreie o arquivo app-ads.txt
-User-agent: Google-adstxt
-Disallow:
