@@ -1,366 +1,302 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
     <title>Contato - Calcule Sua Saúde</title>
-    <meta name="description" content="Entre em contato conosco para dúvidas, sugestões ou correções sobre nossas ferramentas de saúde e artigos informativos.">
     
-    <!-- Open Graph -->
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Entre em contato conosco para dúvidas, sugestões ou correções sobre nossas ferramentas de saúde e artigos informativos.">
     <meta property="og:title" content="Contato - Calcule Sua Saúde">
     <meta property="og:description" content="Entre em contato conosco para dúvidas, sugestões ou correções.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://calculesuasaude.com.br/contato.html">
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
 
-  gtag('config', 'G-EVCQQZV60N');
-</script>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="css/mobile-fix.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .dark .glass-effect {
+            background: rgba(17, 24, 39, 0.95);
+        }
+    </style>
 </head>
-<body>
-    <!-- Cabeçalho -->
-    <header class="header-fixo">
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1><a href="index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
                 </div>
-                <ul class="menu">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="index.html#ferramentas">Ferramentas</a></li>
-                    <li><a href="index.html#artigos">Artigos</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="contato.html" class="active">Contato</a></li>
-                    <li><button id="modo-noturno" class="btn-modo">🌙</button></li>
-                </ul>
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-brand-600">Saúde</span>
+                </h1>
+            </a>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
+                <a href="sobre.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Sobre</a>
+                <a href="contato.html" class="text-sm font-bold text-brand-600">Contato</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="artigos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
+                <a href="sobre.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Sobre</a>
+                <a href="contato.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Contato</a>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <!-- Breadcrumbs -->
-    <section class="breadcrumbs">
-        <div class="container">
-            <a href="index.html">Início</a> > <span>Contato</span>
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+        
+        <!-- Breadcrumbs -->
+        <div class="container mx-auto px-4 mb-8">
+            <nav class="flex text-sm text-gray-500 dark:text-gray-400">
+                <a href="index.html" class="hover:text-brand-600 transition-colors">Início</a>
+                <span class="mx-2">/</span>
+                <span class="font-medium text-gray-900 dark:text-white">Contato</span>
+            </nav>
         </div>
-    </section>
 
-    <!-- Conteúdo Principal -->
-    <main>
-        <section class="contato-content">
-            <div class="container">
-                <h1>Entre em Contato</h1>
+        <!-- Header da Página -->
+        <div class="container mx-auto px-4 mb-12 text-center max-w-3xl">
+            <span class="inline-block p-3 rounded-full bg-blue-100 dark:bg-blue-900/30 text-brand-600 dark:text-brand-400 mb-4">
+                <i data-lucide="mail" class="w-8 h-8"></i>
+            </span>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Fale Conosco</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-300">Tem alguma dúvida, sugestão ou encontrou algum erro? Estamos aqui para ouvir você.</p>
+        </div>
+
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-start">
                 
-                <div class="contato-grid">
-                    <div class="contato-info">
-                        <h2>Como nos encontrar</h2>
-                        <p>Estamos sempre abertos a receber suas dúvidas, sugestões ou correções sobre nosso conteúdo. Sua opinião é muito importante para melhorarmos continuamente nossos serviços.</p>
-                        
-                        <div class="contato-item">
-                            <div class="contato-icon">📧</div>
-                            <div class="contato-details">
-                                <h3>E-mail</h3>
-                                <p><a href="mailto:contatocalculesuasaude@gmail.com">contatocalculesuasaude@gmail.com</a></p>
-                                <small>Respondemos em até 48 horas</small>
-                            </div>
-                        </div>
-                        
-                        <div class="contato-item">
-                            <div class="contato-icon">⏰</div>
-                            <div class="contato-details">
-                                <h3>Tempo de Resposta</h3>
-                                <p>Segunda a Sexta: até 48 horas</p>
-                                <small>Fins de semana podem ter resposta mais demorada</small>
-                            </div>
-                        </div>
-                        
-                        <div class="contato-item">
-                            <div class="contato-icon">💬</div>
-                            <div class="contato-details">
-                                <h3>Tipos de Contato</h3>
-                                <ul>
-                                    <li>Dúvidas sobre calculadoras</li>
-                                    <li>Sugestões de melhorias</li>
-                                    <li>Correções de conteúdo</li>
-                                    <li>Parcerias educativas</li>
-                                    <li>Feedback geral</li>
-                                </ul>
-                            </div>
-                        </div>
+                <!-- Coluna Esquerda: Ação de E-mail -->
+                <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg border border-gray-100 dark:border-gray-700 text-center">
+                    <div class="w-24 h-24 bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-400 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
+                        <i data-lucide="mail-open" class="w-12 h-12"></i>
                     </div>
                     
-                    <div class="contato-form-info">
-                        <div class="card-destaque">
-                            <h3>🤝 Estamos aqui para ajudar</h3>
-                            <p>Nossa equipe está comprometida em fornecer informações precisas e úteis sobre saúde. Se você encontrou algum erro ou tem sugestões, não hesite em nos contatar.</p>
-                        </div>
-                        
-                        <div class="card-destaque">
-                            <h3>🔒 Privacidade</h3>
-                            <p>Respeitamos sua privacidade. Não compartilhamos informações de contato com terceiros e utilizamos seus dados apenas para responder suas mensagens.</p>
-                        </div>
-                        
-                        <div class="card-destaque">
-                            <h3>📋 Antes de entrar em contato</h3>
-                            <p>Verifique nossa seção <a href="sobre.html">Sobre</a> e os artigos relacionados. Muitas dúvidas comuns já estão respondidas em nosso conteúdo.</p>
-                        </div>
-                        
-                        <div class="card-destaque">
-                            <h3>⚠️ Importante</h3>
-                            <p>Não fornecemos consultas médicas ou diagnósticos. Para questões de saúde específicas, consulte sempre um profissional qualificado.</p>
-                        </div>
-                        
-                        <div class="card-destaque">
-                            <h3>🚀 Sugestões bem-vindas</h3>
-                            <p>Tem ideias para novas calculadoras ou artigos? Adoramos receber sugestões da nossa comunidade para melhorar nossos serviços.</p>
-                        </div>
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                        Envie um E-mail
+                    </h2>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed max-w-md mx-auto">
+                        Para garantir que sua mensagem chegue até nós e seja respondida com carinho, clique no botão abaixo para abrir seu aplicativo de e-mail favorito.
+                    </p>
+                    
+                    <a href="mailto:contatocalculesuasaude@gmail.com" class="inline-flex items-center justify-center gap-3 w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 px-10 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 text-lg mb-8">
+                        <i data-lucide="send" class="w-5 h-5"></i>
+                        Enviar Mensagem Agora
+                    </a>
+                    
+                    <div class="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-xl border border-gray-200 dark:border-gray-600 inline-block w-full max-w-md">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Ou copie nosso endereço:</p>
+                        <p class="font-mono text-lg font-bold text-brand-700 dark:text-brand-400 select-all break-all">
+                            contatocalculesuasaude@gmail.com
+                        </p>
                     </div>
                 </div>
-                
-                <div class="faq-section">
-                    <h2>Perguntas Frequentes</h2>
-                    <div class="faq-grid">
-                        <div class="faq-item">
-                            <h3>As calculadoras são precisas?</h3>
-                            <p>Nossas calculadoras utilizam fórmulas cientificamente validadas, mas são apenas estimativas. Para avaliações precisas, consulte um profissional de saúde.</p>
+
+                <!-- Coluna Direita: Informações e FAQ -->
+                <div class="space-y-8">
+                    
+                    <!-- Info Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-brand-300 transition-colors">
+                            <i data-lucide="clock" class="w-8 h-8 text-green-500 mb-4"></i>
+                            <h3 class="font-bold text-gray-900 dark:text-white mb-2">Tempo de Resposta</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                                Geralmente respondemos em até 48 horas úteis.
+                            </p>
                         </div>
-                        
-                        <div class="faq-item">
-                            <h3>Posso usar os resultados para diagnóstico?</h3>
-                            <p>Não. Nossos resultados são apenas informativos e educativos. Nunca substitua a orientação médica profissional.</p>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <h3>Como vocês garantem a qualidade do conteúdo?</h3>
-                            <p>Baseamos nosso conteúdo em fontes científicas confiáveis como OMS, Ministério da Saúde e estudos revisados por pares.</p>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <h3>O site é gratuito?</h3>
-                            <p>Sim! Todas as nossas ferramentas e conteúdos são completamente gratuitos e sempre serão.</p>
+
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-brand-300 transition-colors">
+                            <i data-lucide="thumbs-up" class="w-8 h-8 text-blue-500 mb-4"></i>
+                            <h3 class="font-bold text-gray-900 dark:text-white mb-2">Feedback</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                                Sugestões de novas calculadoras são sempre bem-vindas!
+                            </p>
                         </div>
                     </div>
+
+                    <!-- Avisos Importantes -->
+                    <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 p-6 rounded-r-xl">
+                        <div class="flex items-start gap-4">
+                            <i data-lucide="alert-circle" class="w-6 h-6 text-yellow-600 dark:text-yellow-500 shrink-0 mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-yellow-800 dark:text-yellow-400 mb-1">Não realizamos consultas</h3>
+                                <p class="text-yellow-700 dark:text-yellow-300 text-sm leading-relaxed">
+                                    O Calcule Sua Saúde é um portal informativo. Não fornecemos diagnósticos médicos, prescrições ou consultas personalizadas por e-mail. Para esses casos, procure um médico.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Rápido -->
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Perguntas Frequentes</h3>
+                        <div class="space-y-3">
+                            <div class="p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                                <h4 class="font-bold text-gray-800 dark:text-white text-sm mb-1 flex items-center gap-2">
+                                    <i data-lucide="help-circle" class="w-4 h-4 text-brand-500"></i> O site é gratuito?
+                                </h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 pl-6">
+                                    Sim! Todas as calculadoras, quizzes e artigos são 100% gratuitos.
+                                </p>
+                            </div>
+                            
+                            <div class="p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                                <h4 class="font-bold text-gray-800 dark:text-white text-sm mb-1 flex items-center gap-2">
+                                    <i data-lucide="help-circle" class="w-4 h-4 text-brand-500"></i> As calculadoras são precisas?
+                                </h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 pl-6">
+                                    Usamos fórmulas científicas reconhecidas, mas os resultados são estimativas. Avaliações precisas requerem exames presenciais.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </section>
+        </div>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Calcule Sua Saúde</h3>
-                    <p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Links Úteis</h4>
-                    <ul>
-                        <li><a href="sobre.html">Sobre</a></li>
-                        <li><a href="contato.html">Contato</a></li>
-                        <li><a href="politica.html">Política de Privacidade</a></li>
-                        <li><a href="termos.html">Termos de Uso</a></li>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h4>Ferramentas</h4>
-                    <ul>
-                        <li><a href="ferramentas/imc.html">Calculadora de IMC</a></li>
-                        <li><a href="ferramentas/tmb.html">Taxa Metabólica Basal</a></li>
-                        <li><a href="ferramentas/agua.html">Água por Dia</a></li>
-                        <li><a href="ferramentas/calorias.html">Gasto Calórico</a></li>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="ferramentas/tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
+                        <li><a href="ferramentas/agua.html" class="hover:text-brand-400 transition-colors">Água Diária</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="footer-bottom">
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
                 <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
-                <p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="js/modo-noturno.js"></script>
-    
-    <style>
-        .contato-content {
-            padding: var(--spacing-xl) 0;
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones Lucide
+        lucide.createIcons();
+
+        // Lógica do Dark Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
         }
-        
-        .contato-content h1 {
-            text-align: center;
-            margin-bottom: var(--spacing-xl);
-            color: var(--accent-primary);
-            font-size: var(--font-size-h1);
-        }
-        
-        .contato-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: var(--spacing-xl);
-            margin-bottom: var(--spacing-xl);
-        }
-        
-        .contato-info h2 {
-            color: var(--text-primary);
-            margin-bottom: var(--spacing-md);
-        }
-        
-        .contato-info > p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: var(--spacing-lg);
-        }
-        
-        .contato-item {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-lg);
-            padding: var(--spacing-md);
-            background-color: var(--bg-card);
-            border-radius: var(--border-radius-lg);
-            border: 1px solid var(--border-color);
-        }
-        
-        .contato-icon {
-            font-size: 2rem;
-            flex-shrink: 0;
-        }
-        
-        .contato-details h3 {
-            color: var(--text-primary);
-            margin-bottom: var(--spacing-xs);
-            font-size: 1.2rem;
-        }
-        
-        .contato-details p {
-            color: var(--text-secondary);
-            margin-bottom: var(--spacing-xs);
-        }
-        
-        .contato-details a {
-            color: var(--accent-primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .contato-details a:hover {
-            text-decoration: underline;
-        }
-        
-        .contato-details small {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-        
-        .contato-details ul {
-            margin: 0;
-            padding-left: var(--spacing-md);
-        }
-        
-        .contato-details li {
-            color: var(--text-secondary);
-            margin-bottom: var(--spacing-xs);
-        }
-        
-        .card-destaque {
-            background-color: var(--bg-card);
-            padding: var(--spacing-md);
-            border-radius: var(--border-radius-lg);
-            border: 1px solid var(--border-color);
-            margin-bottom: var(--spacing-md);
-            box-shadow: 0 4px 20px var(--shadow);
-        }
-        
-        .card-destaque h3 {
-            color: var(--accent-primary);
-            margin-bottom: var(--spacing-sm);
-            font-size: 1.1rem;
-        }
-        
-        .card-destaque p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin: 0;
-        }
-        
-        .card-destaque a {
-            color: var(--accent-primary);
-            text-decoration: none;
-        }
-        
-        .card-destaque a:hover {
-            text-decoration: underline;
-        }
-        
-        .faq-section {
-            margin-top: var(--spacing-xl);
-        }
-        
-        .faq-section h2 {
-            text-align: center;
-            color: var(--text-primary);
-            margin-bottom: var(--spacing-lg);
-        }
-        
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-md);
-        }
-        
-        .faq-item {
-            background-color: var(--bg-card);
-            padding: var(--spacing-md);
-            border-radius: var(--border-radius-lg);
-            border: 1px solid var(--border-color);
-            box-shadow: 0 2px 10px var(--shadow);
-        }
-        
-        .faq-item h3 {
-            color: var(--accent-primary);
-            margin-bottom: var(--spacing-sm);
-            font-size: 1.1rem;
-        }
-        
-        .faq-item p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin: 0;
-        }
-        
-        .active {
-            color: var(--accent-primary) !important;
-            background-color: var(--bg-secondary) !important;
-        }
-        
-        @media (max-width: 768px) {
-            .contato-grid {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-lg);
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
             }
-            
-            .faq-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+        });
+
+        // Menu Mobile
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
-
