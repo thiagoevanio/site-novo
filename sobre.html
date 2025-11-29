@@ -1,255 +1,328 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
     <title>Sobre - Calcule Sua Saúde</title>
-    <meta name="description" content="Conheça a missão do Calcule Sua Saúde: democratizar o acesso a informações de qualidade sobre saúde e bem-estar com ferramentas baseadas em evidências científicas.">
     
-    <!-- Open Graph -->
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Conheça a missão do Calcule Sua Saúde: democratizar o acesso a informações de qualidade sobre saúde e bem-estar com ferramentas baseadas em evidências científicas.">
     <meta property="og:title" content="Sobre - Calcule Sua Saúde">
     <meta property="og:description" content="Conheça a missão do Calcule Sua Saúde: democratizar o acesso a informações de qualidade sobre saúde e bem-estar.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://calculesuasaude.com.br/sobre.html">
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
 
-  gtag('config', 'G-EVCQQZV60N');
-</script>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="css/mobile-fix.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .dark .glass-effect {
+            background: rgba(17, 24, 39, 0.95);
+        }
+    </style>
 </head>
-<body>
-    <!-- Cabeçalho -->
-    <header class="header-fixo">
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1><a href="index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
                 </div>
-                <ul class="menu">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="index.html#ferramentas">Ferramentas</a></li>
-                    <li><a href="index.html#artigos">Artigos</a></li>
-                    <li><a href="sobre.html" class="active">Sobre</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                    <li><button id="modo-noturno" class="btn-modo">🌙</button></li>
-                </ul>
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-brand-600">Saúde</span>
+                </h1>
+            </a>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="index.html#artigos" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
+                <a href="sobre.html" class="text-sm font-bold text-brand-600">Sobre</a>
+                
+                <!-- Botão Dark Mode -->
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <!-- Menu Mobile Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="index.html#artigos" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
+                <a href="sobre.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Sobre</a>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <!-- Breadcrumbs -->
-    <section class="breadcrumbs">
-        <div class="container">
-            <a href="index.html">Início</a> > <span>Sobre</span>
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+        
+        <!-- Breadcrumbs -->
+        <div class="container mx-auto px-4 mb-8">
+            <nav class="flex text-sm text-gray-500 dark:text-gray-400">
+                <a href="index.html" class="hover:text-brand-600 transition-colors">Início</a>
+                <span class="mx-2">/</span>
+                <span class="font-medium text-gray-900 dark:text-white">Sobre</span>
+            </nav>
         </div>
-    </section>
 
-    <!-- Conteúdo Principal -->
-    <main>
-        <section class="sobre-content">
-            <div class="container">
-                <h1>Sobre o Calcule Sua Saúde</h1>
+        <!-- Header da Página -->
+        <div class="container mx-auto px-4 mb-12 text-center max-w-3xl">
+            <span class="inline-block p-3 rounded-full bg-brand-100 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 mb-4">
+                <i data-lucide="info" class="w-8 h-8"></i>
+            </span>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Sobre o Calcule Sua Saúde</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-300">Conheça nossa missão, valores e o compromisso com a ciência por trás de cada ferramenta.</p>
+        </div>
+
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
                 
-                <div class="sobre-grid">
-                    <div class="sobre-text">
-                        <h2>Nossa Missão</h2>
-                        <p>O Calcule Sua Saúde é um projeto educativo dedicado a democratizar o acesso a informações de qualidade sobre saúde e bem-estar. Nossa missão é fornecer ferramentas interativas e conteúdo baseado em evidências científicas para ajudar pessoas a cuidarem melhor de sua saúde.</p>
-                        
-                        <h2>Nossos Valores</h2>
-                        <ul>
-                            <li><strong>Confiabilidade:</strong> Todas as nossas calculadoras e informações são baseadas em metodologias reconhecidas pela comunidade médica e científica.</li>
-                            <li><strong>Transparência:</strong> Explicamos claramente como funcionam nossos cálculos e suas limitações.</li>
-                            <li><strong>Acessibilidade:</strong> Oferecemos ferramentas gratuitas e de fácil uso para todos.</li>
-                            <li><strong>Educação:</strong> Priorizamos o conhecimento e a conscientização sobre saúde.</li>
-                        </ul>
-                        
-                        <h2>Fontes Científicas</h2>
-                        <p>Nosso conteúdo é baseado em diretrizes e recomendações de organizações respeitadas como:</p>
-                        <ul>
-                            <li>Organização Mundial da Saúde (OMS)</li>
-                            <li>Ministério da Saúde do Brasil</li>
-                            <li>Sociedade Brasileira de Endocrinologia e Metabologia</li>
-                            <li>American Heart Association</li>
-                            <li>Estudos científicos revisados por pares</li>
-                        </ul>
-                        
-                        <h2>Importante</h2>
-                        <div class="aviso-importante">
-                            <p><strong>⚠️ Aviso Médico:</strong> Este site é apenas informativo e educativo. As calculadoras e informações fornecidas não substituem a orientação de profissionais de saúde qualificados. Sempre consulte um médico ou nutricionista para avaliação personalizada de sua saúde.</p>
-                        </div>
-                        
-                        <h2>Nosso Compromisso</h2>
-                        <p>Estamos comprometidos em manter nosso conteúdo atualizado com as mais recentes descobertas científicas e diretrizes de saúde. Revisamos regularmente nossas ferramentas e artigos para garantir precisão e relevância.</p>
-                        
-                        <p>O Calcule Sua Saúde é um projeto sem fins comerciais diretos, focado exclusivamente em educação e promoção da saúde. Acreditamos que o conhecimento sobre saúde deve ser acessível a todos.</p>
-                    </div>
+                <!-- Coluna Principal (Texto) -->
+                <div class="lg:col-span-2 space-y-12">
                     
-                    <div class="sobre-sidebar">
-                        <div class="card-destaque">
-                            <h3>🎯 Nosso Objetivo</h3>
-                            <p>Empoderar pessoas com conhecimento e ferramentas para tomarem decisões mais informadas sobre sua saúde e bem-estar.</p>
+                    <!-- Missão -->
+                    <section>
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="target" class="text-brand-600"></i> Nossa Missão
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                            O Calcule Sua Saúde é um projeto educativo dedicado a democratizar o acesso a informações de qualidade sobre saúde e bem-estar. Nossa missão é fornecer ferramentas interativas e conteúdo baseado em evidências científicas para ajudar pessoas a cuidarem melhor de sua saúde.
+                        </p>
+                    </section>
+
+                    <!-- Valores -->
+                    <section>
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+                            <i data-lucide="star" class="text-brand-600"></i> Nossos Valores
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                                <h3 class="font-bold text-gray-900 dark:text-white mb-2">Confiabilidade</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Fórmulas baseadas em metodologias reconhecidas pela comunidade médica.</p>
+                            </div>
+                            <div class="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                                <h3 class="font-bold text-gray-900 dark:text-white mb-2">Transparência</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Explicamos claramente como funcionam nossos cálculos e limitações.</p>
+                            </div>
+                            <div class="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                                <h3 class="font-bold text-gray-900 dark:text-white mb-2">Acessibilidade</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Ferramentas 100% gratuitas, rápidas e fáceis de usar para todos.</p>
+                            </div>
+                            <div class="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                                <h3 class="font-bold text-gray-900 dark:text-white mb-2">Educação</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Priorizamos o conhecimento e a conscientização sobre saúde.</p>
+                            </div>
                         </div>
-                        
-                        <div class="card-destaque">
-                            <h3>📊 Nossas Ferramentas</h3>
-                            <p>Oferecemos 10 calculadoras diferentes, desde IMC até análise de composição corporal, todas com interpretações detalhadas.</p>
-                        </div>
-                        
-                        <div class="card-destaque">
-                            <h3>📚 Conteúdo Educativo</h3>
-                            <p>Mais de 35 artigos sobre nutrição, exercícios, metabolismo e prevenção de doenças.</p>
-                        </div>
-                        
-                        <div class="card-destaque">
-                            <h3>🔬 Base Científica</h3>
-                            <p>Todo nosso conteúdo é fundamentado em pesquisas científicas e diretrizes de organizações de saúde reconhecidas.</p>
+                    </section>
+
+                    <!-- Fontes -->
+                    <section>
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="book-open-check" class="text-brand-600"></i> Fontes Científicas
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Nosso conteúdo é baseado em diretrizes e recomendações de organizações respeitadas como:</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500"></i> Organização Mundial da Saúde (OMS)
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500"></i> Ministério da Saúde do Brasil
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500"></i> Sociedade Brasileira de Endocrinologia
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500"></i> American Heart Association
+                            </li>
+                        </ul>
+                    </section>
+
+                    <!-- Aviso Importante -->
+                    <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 p-6 rounded-r-lg">
+                        <div class="flex items-start gap-4">
+                            <i data-lucide="alert-triangle" class="w-6 h-6 text-yellow-600 dark:text-yellow-500 shrink-0 mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-yellow-800 dark:text-yellow-500 mb-1">Aviso Médico Importante</h3>
+                                <p class="text-yellow-700 dark:text-yellow-600 text-sm leading-relaxed">
+                                    Este site é apenas informativo e educativo. As calculadoras e informações fornecidas não substituem a orientação de profissionais de saúde qualificados. Sempre consulte um médico ou nutricionista para avaliação personalizada de sua saúde.
+                                </p>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Compromisso -->
+                    <section>
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Nosso Compromisso</h2>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                            Estamos comprometidos em manter nosso conteúdo atualizado com as mais recentes descobertas científicas e diretrizes de saúde. Revisamos regularmente nossas ferramentas e artigos para garantir precisão e relevância.
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            O Calcule Sua Saúde é um projeto sem fins comerciais diretos, focado exclusivamente em educação e promoção da saúde. Acreditamos que o conhecimento sobre saúde deve ser acessível a todos.
+                        </p>
+                    </section>
                 </div>
+
+                <!-- Sidebar (Cards Destaque) -->
+                <aside class="space-y-6 sticky top-24">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-lg">
+                        <div class="bg-blue-100 dark:bg-blue-900/30 w-12 h-12 rounded-lg flex items-center justify-center text-brand-600 mb-4">
+                            <i data-lucide="crosshair" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Nosso Objetivo</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Empoderar pessoas com conhecimento e ferramentas para tomarem decisões mais informadas sobre sua saúde e bem-estar.</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-lg">
+                        <div class="bg-green-100 dark:bg-green-900/30 w-12 h-12 rounded-lg flex items-center justify-center text-green-600 mb-4">
+                            <i data-lucide="calculator" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Ferramentas</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Oferecemos diversas calculadoras diferentes, desde IMC até análise de composição corporal.</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-lg">
+                        <div class="bg-purple-100 dark:bg-purple-900/30 w-12 h-12 rounded-lg flex items-center justify-center text-purple-600 mb-4">
+                            <i data-lucide="book" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Conteúdo Educativo</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Artigos completos sobre nutrição, exercícios, metabolismo e prevenção de doenças.</p>
+                    </div>
+                </aside>
+
             </div>
-        </section>
+        </div>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Calcule Sua Saúde</h3>
-                    <p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+    <!-- Footer (Igual à Home) -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Links Úteis</h4>
-                    <ul>
-                        <li><a href="sobre.html">Sobre</a></li>
-                        <li><a href="contato.html">Contato</a></li>
-                        <li><a href="politica.html">Política de Privacidade</a></li>
-                        <li><a href="termos.html">Termos de Uso</a></li>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h4>Ferramentas</h4>
-                    <ul>
-                        <li><a href="ferramentas/imc.html">Calculadora de IMC</a></li>
-                        <li><a href="ferramentas/tmb.html">Taxa Metabólica Basal</a></li>
-                        <li><a href="ferramentas/agua.html">Água por Dia</a></li>
-                        <li><a href="ferramentas/calorias.html">Gasto Calórico</a></li>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="ferramentas/tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
+                        <li><a href="ferramentas/agua.html" class="hover:text-brand-400 transition-colors">Água Diária</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="footer-bottom">
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
                 <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
-                <p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="js/modo-noturno.js"></script>
-    
-    <style>
-        .sobre-content {
-            padding: var(--spacing-xl) 0;
+    <!-- Scripts Logic (Dark Mode + Mobile Menu) -->
+    <script>
+        // Inicializa ícones Lucide
+        lucide.createIcons();
+
+        // Lógica do Dark Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
         }
-        
-        .sobre-content h1 {
-            text-align: center;
-            margin-bottom: var(--spacing-xl);
-            color: var(--accent-primary);
-            font-size: var(--font-size-h1);
-        }
-        
-        .sobre-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: var(--spacing-xl);
-            align-items: start;
-        }
-        
-        .sobre-text h2 {
-            color: var(--text-primary);
-            margin-bottom: var(--spacing-md);
-            margin-top: var(--spacing-lg);
-        }
-        
-        .sobre-text p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: var(--spacing-md);
-        }
-        
-        .sobre-text ul {
-            margin-bottom: var(--spacing-md);
-            padding-left: var(--spacing-lg);
-        }
-        
-        .sobre-text li {
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: var(--spacing-xs);
-        }
-        
-        .aviso-importante {
-            background-color: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: var(--border-radius);
-            padding: var(--spacing-md);
-            margin: var(--spacing-lg) 0;
-        }
-        
-        [data-theme="dark"] .aviso-importante {
-            background-color: #3d3d00;
-            border-color: #666600;
-        }
-        
-        .card-destaque {
-            background-color: var(--bg-card);
-            padding: var(--spacing-md);
-            border-radius: var(--border-radius-lg);
-            border: 1px solid var(--border-color);
-            margin-bottom: var(--spacing-md);
-            box-shadow: 0 4px 20px var(--shadow);
-        }
-        
-        .card-destaque h3 {
-            color: var(--accent-primary);
-            margin-bottom: var(--spacing-sm);
-            font-size: 1.1rem;
-        }
-        
-        .card-destaque p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin: 0;
-        }
-        
-        .active {
-            color: var(--accent-primary) !important;
-            background-color: var(--bg-secondary) !important;
-        }
-        
-        @media (max-width: 768px) {
-            .sobre-grid {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-lg);
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
             }
-        }
-    </style>
+        });
+
+        // Menu Mobile
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
