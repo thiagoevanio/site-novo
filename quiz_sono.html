@@ -1,142 +1,500 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcule Sua Saúde - Você Dorme o Suficiente? Faça o Teste</title>
-    <meta name="description" content="Descubra se você está dormindo o suficiente e com qualidade através deste teste rápido.">
-    <meta name="keywords" content="quiz sono, qualidade do sono, insônia, hábitos de sono, saúde do sono">
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
-     crossorigin="anonymous"></script>
-
-                <!-- Google tag (gtag.js) -->
+    <meta name="theme-color" content="#3b82f6">
+    <title>Quiz: Qualidade do Sono - Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Avalie a qualidade do seu sono com nosso teste rápido. Descubra se você está descansando o suficiente e receba dicas para dormir melhor.">
+    <meta property="og:title" content="Quiz: Qualidade do Sono - Calcule Sua Saúde">
+    <meta property="og:description" content="Avalie a qualidade do seu sono com nosso teste rápido. Descubra se você está descansando o suficiente.">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-      <script>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-EVCQQZV60N');
     </script>
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Calcule Sua Saúde - Você Dorme o Suficiente? Faça o Teste">
-    <meta property="og:description" content="Descubra se você está dormindo o suficiente e com qualidade através deste teste rápido.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://calculesuasaude.com.br/quiz_sono.html">
-    <meta property="og:image" content="https://calculesuasaude.com.br/icon192.png">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="manifest" href="manifest.json">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="quiz_styles.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .dark .glass-effect {
+            background: rgba(17, 24, 39, 0.95);
+        }
+        
+        .quiz-option {
+            transition: all 0.2s ease;
+        }
+        .quiz-option:hover {
+            transform: translateY(-2px);
+            border-color: #6366f1; /* Indigo para tema de sono */
+        }
+        .quiz-option.selected {
+            border-color: #6366f1;
+            background-color: #e0e7ff;
+            color: #3730a3;
+        }
+        .dark .quiz-option.selected {
+            background-color: rgba(99, 102, 241, 0.2);
+            border-color: #6366f1;
+            color: #a5b4fc;
+        }
+    </style>
 </head>
-<body>
-    <!-- Cabeçalho -->
-    <header class="header-fixo">
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1>Calcule Sua Saúde</h1>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
                 </div>
-                <ul class="menu">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="todos_quizzes.html">Quizzes</a></li>
-                    <li><a href="#ferramentas">Ferramentas</a></li>
-                    <li><a href="artigos.html">Artigos</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                    <li><button id="modo-noturno" class="btn-modo">🌙</button></li>
-                </ul>
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-brand-600">Saúde</span>
+                </h1>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="todos_quizzes.html" class="text-sm font-bold text-brand-600">Quizzes</a>
+                <a href="index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
+                <a href="sobre.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Sobre</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="todos_quizzes.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Quizzes</a>
+                <a href="index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="artigos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
+                <a href="sobre.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Sobre</a>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <main>
-        <!-- Quiz de Sono -->
-        <section class="mini-quiz-section">
-            <div class="container">
-                <h2>😴 Você Dorme o Suficiente? Faça o Teste</h2>
-                <p class="quiz-subtitle">Responda às perguntas e descubra se seus hábitos de sono estão adequados para sua saúde!</p>
-                
-                <div class="quiz-card">
-                    <div id="quiz-questions">
-                        <!-- Perguntas serão carregadas aqui pelo JavaScript -->
-                    </div>
-                    <div id="quiz-navigation">
-                        <button id="prev-question" class="btn-secondary" style="display: none;">Anterior</button>
-                        <button id="next-question" class="btn-primary">Próxima</button>
-                        <button id="submit-quiz" class="btn-primary" style="display: none;">Ver Resultado</button>
-                    </div>
-                    <div id="quiz-result" style="display: none;">
-                        <h3>Seu Resultado</h3>
-                        <p id="quiz-score"></p>
-                        <p id="quiz-feedback"></p>
-                        <button id="restart-quiz" class="btn-secondary">Tentar Novamente</button>
-                    </div>
-                </div>
-                
-                <!-- Informações Adicionais -->
-                <div class="quiz-info" style="margin-top: 2rem;">
-                    <h3>💡 Dicas para um Sono Melhor</h3>
-                    <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
-                        <li>Mantenha horários regulares para dormir e acordar, mesmo nos fins de semana</li>
-                        <li>Crie um ambiente escuro, silencioso e fresco no quarto</li>
-                        <li>Evite cafeína, álcool e refeições pesadas antes de dormir</li>
-                        <li>Desligue eletrônicos pelo menos 1 hora antes de deitar</li>
-                        <li>Pratique atividades relaxantes antes de dormir, como leitura ou meditação</li>
-                        <li>Se não conseguir dormir em 20 minutos, levante-se e faça uma atividade calma até sentir sono</li>
-                    </ul>
-                </div>
+    <!-- Main Content -->
+    <main class="pt-28 pb-20 min-h-screen">
+        <div class="container mx-auto px-4 max-w-3xl">
+            
+            <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="index.html" class="hover:text-brand-600">Início</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <a href="todos_quizzes.html" class="hover:text-brand-600">Quizzes</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <span class="text-gray-900 dark:text-white font-medium">Qualidade do Sono</span>
             </div>
-        </section>
+
+            <!-- Quiz Container -->
+            <div id="quiz-container" class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden animate-fade-in relative">
+                
+                <div class="w-full h-2 bg-gray-100 dark:bg-gray-700">
+                    <div id="progress-bar" class="h-full bg-indigo-500 transition-all duration-500 ease-out" style="width: 0%"></div>
+                </div>
+
+                <!-- Tela Inicial -->
+                <div id="quiz-start" class="p-8 md:p-12 text-center">
+                    <div class="w-24 h-24 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="moon" class="w-12 h-12"></i>
+                    </div>
+                    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Você dorme bem de verdade?</h1>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg mb-8 leading-relaxed">
+                        Acordar cansado é comum, mas não é normal. Responda a 7 perguntas rápidas sobre seus hábitos noturnos e descubra a qualidade real do seu sono.
+                    </p>
+                    <button onclick="startQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 transform">
+                        Iniciar Avaliação
+                    </button>
+                </div>
+
+                <!-- Tela de Pergunta -->
+                <div id="quiz-question-screen" class="hidden p-8 md:p-12">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-sm font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wide">Pergunta <span id="current-question-num">1</span> de <span id="total-questions">7</span></span>
+                    </div>
+
+                    <h2 id="question-text" class="text-2xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
+                        <!-- Texto da pergunta -->
+                    </h2>
+
+                    <div id="options-container" class="grid grid-cols-1 gap-4">
+                        <!-- Opções geradas via JS -->
+                    </div>
+                </div>
+
+                <!-- Tela de Resultado -->
+                <div id="quiz-result-screen" class="hidden p-8 md:p-12 text-center animate-fade-in">
+                    <div id="result-icon-container" class="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 text-5xl bg-gradient-to-br from-indigo-400 to-purple-500 text-white shadow-lg">
+                        <!-- Emoji/Icone via JS -->
+                    </div>
+                    
+                    <span class="text-sm font-bold tracking-wider text-indigo-600 dark:text-indigo-400 uppercase mb-2 block">Diagnóstico do Sono</span>
+                    <h2 id="result-title" class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
+                        <!-- Título do Resultado -->
+                    </h2>
+                    
+                    <div class="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-2xl mb-8 border border-gray-100 dark:border-gray-700 text-left">
+                        <p id="result-description" class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6"></p>
+                        
+                        <div class="mt-4">
+                            <h4 class="font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+                                <i data-lucide="zap" class="w-5 h-5 text-yellow-500"></i> Como melhorar seu descanso:
+                            </h4>
+                            <ul id="result-tips" class="text-sm text-gray-500 dark:text-gray-400 space-y-2 ml-7 list-disc marker:text-indigo-500">
+                                <!-- Dicas via JS -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="restartQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-xl transition-colors shadow-md">
+                            Refazer Teste
+                        </button>
+                        <a href="todos_quizzes.html" class="bg-white dark:bg-gray-700 text-gray-700 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600 border border-gray-200 dark:border-gray-600 font-bold py-3 px-8 rounded-xl transition-colors">
+                            Outros Quizzes
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-8 text-center">
+                <p class="text-xs text-gray-400 dark:text-gray-500 max-w-lg mx-auto">
+                    * Este teste não substitui uma polissonografia ou consulta médica. Se você tem problemas crônicos de sono, procure um especialista.
+                </p>
+            </div>
+        </div>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Calcule Sua Saúde</h3>
-                    <p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Links Úteis</h4>
-                    <ul>
-                        <li><a href="sobre.html">Sobre</a></li>
-                        <li><a href="contato.html">Contato</a></li>
-                        <li><a href="politica.html">Política de Privacidade</a></li>
-                        <li><a href="termos.html">Termos de Uso</a></li>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h4>Ferramentas</h4>
-                    <ul>
-                        <li><a href="ferramentas/imc.html">Calculadora de IMC</a></li>
-                        <li><a href="ferramentas/tmb.html">Taxa Metabólica Basal</a></li>
-                        <li><a href="ferramentas/agua.html">Água por Dia</a></li>
-                        <li><a href="ferramentas/calorias.html">Gasto Calórico</a></li>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="ferramentas/tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
+                        <li><a href="ferramentas/agua.html" class="hover:text-brand-400 transition-colors">Água Diária</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="footer-bottom">
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
                 <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
-                <p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="js/modo-noturno.js"></script>
-    <script src="js/quiz_sono.js"></script>
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones Lucide
+        lucide.createIcons();
+
+        // 1. Dark Mode e Mobile Menu
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+
+        // 2. Lógica do Quiz (Qualidade do Sono)
+        const questions = [
+            {
+                question: "Quanto tempo você leva para pegar no sono depois de deitar?",
+                options: [
+                    { text: "Menos de 15 minutos (apago rápido)", score: 3 },
+                    { text: "Entre 15 e 30 minutos", score: 2 },
+                    { text: "Entre 30 minutos e 1 hora", score: 1 },
+                    { text: "Mais de 1 hora rolando na cama", score: 0 }
+                ]
+            },
+            {
+                question: "Quantas horas você dorme por noite, em média?",
+                options: [
+                    { text: "Entre 7 e 9 horas", score: 3 },
+                    { text: "Entre 6 e 7 horas", score: 2 },
+                    { text: "Menos de 5 horas", score: 0 },
+                    { text: "Mais de 10 horas (excesso)", score: 1 }
+                ]
+            },
+            {
+                question: "Você costuma acordar durante a noite?",
+                options: [
+                    { text: "Raramente ou nunca", score: 3 },
+                    { text: "Uma vez, mas volto a dormir logo", score: 2 },
+                    { text: "Várias vezes e demoro a voltar a dormir", score: 0 },
+                    { text: "Acordo muito cedo e não durmo mais", score: 1 }
+                ]
+            },
+            {
+                question: "Como você se sente ao acordar de manhã?",
+                options: [
+                    { text: "Renovado e com energia", score: 3 },
+                    { text: "Um pouco sonolento, mas passa logo", score: 2 },
+                    { text: "Cansado, preciso de café urgente", score: 1 },
+                    { text: "Exausto, parece que nem dormi", score: 0 }
+                ]
+            },
+            {
+                question: "Você usa celular ou telas na cama antes de dormir?",
+                options: [
+                    { text: "Não, evito telas 1h antes", score: 3 },
+                    { text: "Sim, mas com filtro de luz azul", score: 2 },
+                    { text: "Sim, até o momento de fechar os olhos", score: 0 },
+                    { text: "Às vezes, depende do dia", score: 1 }
+                ]
+            },
+            {
+                question: "Você consome cafeína (café, chá preto, refri) após as 16h?",
+                options: [
+                    { text: "Nunca", score: 3 },
+                    { text: "Raramente", score: 2 },
+                    { text: "Às vezes", score: 1 },
+                    { text: "Sempre/Diariamente", score: 0 }
+                ]
+            },
+            {
+                question: "Seu quarto é escuro e silencioso?",
+                options: [
+                    { text: "Sim, breu total e silêncio", score: 3 },
+                    { text: "Tem um pouco de luz/barulho, mas ok", score: 2 },
+                    { text: "Durmo com TV ligada ou luz acesa", score: 0 },
+                    { text: "É barulhento ou claro, me incomoda", score: 1 }
+                ]
+            }
+        ];
+
+        let totalScore = 0;
+        let currentQuestionIndex = 0;
+
+        // Elementos DOM
+        const startScreen = document.getElementById('quiz-start');
+        const questionScreen = document.getElementById('quiz-question-screen');
+        const resultScreen = document.getElementById('quiz-result-screen');
+        
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const currentQuestionNum = document.getElementById('current-question-num');
+        const totalQuestions = document.getElementById('total-questions');
+        const progressBar = document.getElementById('progress-bar');
+
+        function startQuiz() {
+            startScreen.classList.add('hidden');
+            questionScreen.classList.remove('hidden');
+            totalQuestions.textContent = questions.length;
+            currentQuestionIndex = 0;
+            totalScore = 0;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const q = questions[currentQuestionIndex];
+            
+            questionText.textContent = q.question;
+            currentQuestionNum.textContent = currentQuestionIndex + 1;
+            optionsContainer.innerHTML = '';
+            
+            const progress = ((currentQuestionIndex) / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            q.options.forEach((option) => {
+                const btn = document.createElement('button');
+                btn.className = "quiz-option w-full text-left p-5 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-medium transition-all flex items-center justify-between group shadow-sm";
+                btn.innerHTML = `<span>${option.text}</span> <i data-lucide="chevron-right" class="w-5 h-5 text-gray-300 group-hover:text-indigo-400"></i>`;
+                
+                btn.onclick = () => selectOption(option.score);
+                optionsContainer.appendChild(btn);
+            });
+            
+            lucide.createIcons();
+        }
+
+        function selectOption(score) {
+            totalScore += score;
+            nextQuestion();
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                setTimeout(showQuestion, 200);
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            questionScreen.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
+            progressBar.style.width = '100%';
+
+            // Pontuação máxima possível: 7 * 3 = 21
+            // 17-21: Excelente
+            // 10-16: Regular
+            // 0-9: Ruim
+
+            const resultTitle = document.getElementById('result-title');
+            const resultDesc = document.getElementById('result-description');
+            const resultTips = document.getElementById('result-tips');
+            const iconContainer = document.getElementById('result-icon-container');
+
+            let data = {};
+
+            if (totalScore >= 17) {
+                data = {
+                    title: "Sono de Ouro! 🏆",
+                    desc: "Parabéns! Seus hábitos de sono são excelentes. Você provavelmente acorda disposto e tem boa energia durante o dia. Continue priorizando seu descanso.",
+                    tips: [
+                        "Mantenha a consistência nos horários.",
+                        "Continue evitando telas antes de dormir.",
+                        "Seu corpo agradece o cuidado!"
+                    ],
+                    icon: "👑"
+                };
+            } else if (totalScore >= 10) {
+                data = {
+                    title: "Sono Regular 😐",
+                    desc: "Seu sono não é ruim, mas tem espaço para melhorias. Pequenos ajustes na rotina podem transformar suas noites e aumentar sua produtividade.",
+                    tips: [
+                        "Tente criar uma rotina de relaxamento antes de deitar.",
+                        "Evite celular na cama (a luz azul atrapalha).",
+                        "Reduza a cafeína após o almoço.",
+                        "Deixe o quarto o mais escuro possível."
+                    ],
+                    icon: "🛌"
+                };
+            } else {
+                data = {
+                    title: "Sinal de Alerta! ⚠️",
+                    desc: "Seus hábitos indicam que seu sono pode estar comprometido. Isso afeta seu humor, imunidade e peso. É hora de fazer uma 'higiene do sono' urgente.",
+                    tips: [
+                        "Estabeleça um horário fixo para dormir.",
+                        "Corte telas 1 hora antes de ir para a cama.",
+                        "Não tome café ou estimulantes à tarde/noite.",
+                        "Considere práticas de meditação ou leitura para desacelerar."
+                    ],
+                    icon: "😫"
+                };
+            }
+
+            resultTitle.textContent = data.title;
+            resultDesc.textContent = data.desc;
+            iconContainer.innerHTML = data.icon;
+            
+            resultTips.innerHTML = data.tips.map(t => `<li>${t}</li>`).join('');
+        }
+
+        function restartQuiz() {
+            resultScreen.classList.add('hidden');
+            startScreen.classList.remove('hidden');
+            progressBar.style.width = '0%';
+        }
+    </script>
 </body>
 </html>
-
