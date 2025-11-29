@@ -1,261 +1,438 @@
 <!DOCTYPE html>
-
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-<meta charset="utf-8"/>
-<meta name="google-adsense-account" content="ca-pub-5825554897787593">  
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Calculadora de Gasto Calórico - Calorias Queimadas | Calcule Sua Saúde</title>
-<meta content="Calcule quantas calorias você queima em diferentes atividades físicas. Descubra seu gasto calórico por exercício e atividade diária." name="description"/>
-<meta content="calculadora calorias queimadas, gasto calórico exercício, calorias atividade física, queimar calorias" name="keywords"/>
-<!-- Open Graph -->
-<meta content="Calculadora de Gasto Calórico - Calorias Queimadas" property="og:title"/>
-<meta content="Calcule quantas calorias você queima em diferentes atividades físicas e exercícios." property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="https://calculesuasaude.com.br/ferramentas/calorias.html" property="og:url"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Calculadora de Gasto Calórico - Calorias Queimadas | Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Calcule quantas calorias você queima em diferentes atividades físicas. Descubra seu gasto calórico por exercício e atividade diária.">
+    <meta property="og:title" content="Calculadora de Gasto Calórico - Calcule Sua Saúde">
+    <meta property="og:description" content="Calcule quantas calorias você queima em diferentes atividades físicas e exercícios.">
+    <meta property="og:type" content="website">
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
-     crossorigin="anonymous"></script>
-  
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
 
-  gtag('config', 'G-EVCQQZV60N');
-</script>
-<!-- Favicon -->
-<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
-<!-- CSS -->
-<link href="../css/estilo.css" rel="stylesheet"/>
-<link href="../css/estilo-adicional.css" rel="stylesheet"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .dark .glass-effect {
+            background: rgba(17, 24, 39, 0.95);
+        }
+    </style>
 </head>
-<body>
-<!-- Cabeçalho -->
-<header class="header-fixo">
-<nav class="navbar">
-<div class="container">
-<div class="logo">
-<h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
-</div>
-<ul class="menu">
-<li><a href="../index.html">Início</a></li>
-<li><a href="../index.html#ferramentas">Ferramentas</a></li>
-<li><a href="../index.html#artigos">Artigos</a></li>
-<li><a href="../sobre.html">Sobre</a></li>
-<li><a href="../contato.html">Contato</a></li>
-<li><button class="btn-modo" id="modo-noturno">🌙</button></li>
-</ul>
-</div>
-</nav>
-</header>
-<!-- Breadcrumbs -->
-<section class="breadcrumbs">
-<div class="container">
-<a href="../index.html">Início</a> &gt; <a href="../index.html#ferramentas">Ferramentas</a> &gt; <span>Calculadora de Gasto Calórico</span>
-</div>
-</section>
-<!-- Conteúdo Principal -->
-<main>
-<section class="ferramenta-content">
-<div class="container">
-<div class="ferramenta-header">
-<div class="ferramenta-icon">🔥</div>
-<h1>Calculadora de Gasto Calórico</h1>
-<p class="ferramenta-subtitle">Descubra quantas calorias você queima em diferentes atividades físicas e exercícios</p>
-</div>
-<div class="ferramenta-grid">
-<div class="calculadora-section">
-<div class="calculadora-card">
-<h2>Calcule seu gasto calórico</h2>
-<form id="calorias-form">
-<div class="form-group">
-<label for="peso">Peso (kg)</label>
-<input id="peso" max="200" min="30" placeholder="Ex: 70.5" required="" step="0.1" type="number"/>
-</div>
-<div class="form-group">
-<label for="atividade">Tipo de Atividade</label>
-<select id="atividade" required="">
-<option value="">Selecione uma atividade</option>
-<optgroup label="Exercícios Aeróbicos">
-<option value="caminhada_lenta">Caminhada Lenta (3-4 km/h)</option>
-<option value="caminhada_moderada">Caminhada Moderada (5-6 km/h)</option>
-<option value="caminhada_rapida">Caminhada Rápida (6-7 km/h)</option>
-<option value="corrida_lenta">Corrida Lenta (8 km/h)</option>
-<option value="corrida_moderada">Corrida Moderada (10 km/h)</option>
-<option value="corrida_rapida">Corrida Rápida (12 km/h)</option>
-<option value="ciclismo_lento">Ciclismo Lento (16 km/h)</option>
-<option value="ciclismo_moderado">Ciclismo Moderado (20 km/h)</option>
-<option value="ciclismo_rapido">Ciclismo Rápido (25 km/h)</option>
-<option value="natacao_lenta">Natação Lenta</option>
-<option value="natacao_moderada">Natação Moderada</option>
-<option value="natacao_rapida">Natação Rápida</option>
-</optgroup>
-<optgroup label="Exercícios de Força">
-<option value="musculacao_leve">Musculação Leve</option>
-<option value="musculacao_moderada">Musculação Moderada</option>
-<option value="musculacao_intensa">Musculação Intensa</option>
-<option value="crossfit">CrossFit</option>
-<option value="calistenia">Calistenia</option>
-</optgroup>
-<optgroup label="Esportes">
-<option value="futebol">Futebol</option>
-<option value="basquete">Basquete</option>
-<option value="volei">Vôlei</option>
-<option value="tenis">Tênis</option>
-<option value="ping_pong">Ping Pong</option>
-</optgroup>
-<optgroup label="Atividades Recreativas">
-<option value="danca">Dança</option>
-<option value="yoga">Yoga</option>
-<option value="pilates">Pilates</option>
-<option value="alongamento">Alongamento</option>
-</optgroup>
-<optgroup label="Atividades Domésticas">
-<option value="limpeza_casa">Limpeza de Casa</option>
-<option value="jardinagem">Jardinagem</option>
-<option value="cozinhar">Cozinhar</option>
-<option value="subir_escadas">Subir Escadas</option>
-</optgroup>
-</select>
-</div>
-<div class="form-group">
-<label for="duracao">Duração (minutos)</label>
-<input id="duracao" max="480" min="1" placeholder="Ex: 30" required="" type="number"/>
-</div>
-<button class="btn-primary" type="submit">Calcular Gasto Calórico</button>
-</form>
-<div class="resultado" id="resultado-calorias" style="display: none;">
-<h3>Seu Gasto Calórico</h3>
-<div class="resultado-calorias-grid">
-<div class="resultado-item">
-<div class="resultado-label">Calorias Queimadas</div>
-<div class="resultado-valor" id="valor-calorias-queimadas"></div>
-<div class="resultado-unidade">kcal</div>
-</div>
-<div class="resultado-item">
-<div class="resultado-label">Por Hora</div>
-<div class="resultado-valor" id="valor-calorias-hora"></div>
-<div class="resultado-unidade">kcal/h</div>
-</div>
-</div>
-<div class="resultado-interpretacao" id="interpretacao-calorias"></div>
-</div>
-</div>
-</div>
-<div class="info-section">
-<div class="info-card">
-<h3>Como calculamos?</h3>
-<p>Utilizamos valores de MET (Equivalente Metabólico) para cada atividade. O cálculo é: Calorias = MET × Peso (kg) × Tempo (horas).</p>
-<div class="formula">Calorias = MET × Peso × Tempo</div>
-</div>
-<div class="info-card">
-<h3>O que é MET?</h3>
-<p>MET (Metabolic Equivalent of Task) é uma unidade que expressa o custo energético de atividades físicas. 1 MET = gasto energético em repouso.</p>
-</div>
-<div class="info-card">
-<h3>Atividades que Mais Queimam</h3>
-<div class="atividades-ranking">
-<div class="ranking-item">
-<span class="atividade">Corrida Rápida</span>
-<span class="met">12 METs</span>
-</div>
-<div class="ranking-item">
-<span class="atividade">CrossFit</span>
-<span class="met">10 METs</span>
-</div>
-<div class="ranking-item">
-<span class="atividade">Natação Rápida</span>
-<span class="met">10 METs</span>
-</div>
-<div class="ranking-item">
-<span class="atividade">Ciclismo Rápido</span>
-<span class="met">8 METs</span>
-</div>
-<div class="ranking-item">
-<span class="atividade">Futebol</span>
-<span class="met">7 METs</span>
-</div>
-</div>
-</div>
-<div class="info-card">
-<h3>Fatores que Influenciam</h3>
-<ul>
-<li>Peso corporal (maior peso = mais calorias)</li>
-<li>Intensidade do exercício</li>
-<li>Duração da atividade</li>
-<li>Composição corporal</li>
-<li>Condicionamento físico</li>
-<li>Idade e sexo</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="conteudo-educativo">
-<h2>Maximize seu gasto calórico</h2>
-<div class="educativo-grid">
-<div class="educativo-card">
-<h3>🏃‍♂️ Exercícios Aeróbicos</h3>
-<p>Atividades como corrida, ciclismo e natação são excelentes para queimar calorias e melhorar a capacidade cardiovascular. Varie a intensidade para melhores resultados.</p>
-</div>
-<div class="educativo-card">
-<h3>💪 Treinamento de Força</h3>
-<p>Musculação não só queima calorias durante o exercício, mas também aumenta o metabolismo por horas após o treino (efeito EPOC).</p>
-</div>
-<div class="educativo-card">
-<h3>🔄 Treino Intervalado</h3>
-<p>HIIT (High Intensity Interval Training) é uma das formas mais eficientes de queimar calorias em pouco tempo, alternando alta e baixa intensidade.</p>
-</div>
-<div class="educativo-card">
-<h3>📈 Progressão</h3>
-<p>Aumente gradualmente a intensidade, duração ou frequência dos exercícios. Seu corpo se adapta, então é importante desafiar-se constantemente.</p>
-</div>
-</div>
-</div>
-<div class="leia-tambem">
-<h3>Leia também</h3>
-<div class="artigos-relacionados"><a class="artigo-link" href="../artigos/sono-qualidade-saude.html"><span class_="artigo-titulo">Sono e Saúde: A Importância do Descanso para o Bem-Estar</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/metabolismo-como-acelerar.html"><span class_="artigo-titulo">Como Acelerar o Metabolismo: Estratégias Científicas para Queimar Mais Calorias</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/diabetes-prevencao-tratamento.html"><span class_="artigo-titulo">Diabetes: Prevenção, Tratamento e Controle da Glicemia</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a></div>
-</div>
-</div>
-</section>
-</main>
-<!-- Rodapé -->
-<footer class="footer">
-<div class="container">
-<div class="footer-content">
-<div class="footer-section">
-<h3>Calcule Sua Saúde</h3>
-<p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
-</div>
-<div class="footer-section">
-<h4>Links Úteis</h4>
-<ul>
-<li><a href="../sobre.html">Sobre</a></li>
-<li><a href="../contato.html">Contato</a></li>
-<li><a href="../politica.html">Política de Privacidade</a></li>
-<li><a href="../termos.html">Termos de Uso</a></li>
-</ul>
-</div>
-<div class="footer-section">
-<h4>Outras Ferramentas</h4>
-<ul>
-<li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
-<li><a href="../ferramentas/tmb.html">Taxa Metabólica Basal</a></li>
-<li><a href="../ferramentas/agua.html">Água por Dia</a></li>
-<li><a href="../ferramentas/macros.html">Macronutrientes</a></li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom">
-<p>© 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
-<p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
-</div>
-</div>
-</footer>
-<!-- JavaScript -->
-<script src="../js/modo-noturno.js"></script>
-<script src="../js/calorias.js"></script>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                </div>
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-brand-600">Saúde</span>
+                </h1>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="../index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="../todos_quizzes.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Quizzes</a>
+                <a href="../index.html#ferramentas" class="text-sm font-bold text-brand-600">Calculadoras</a>
+                <a href="../artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
+                <a href="../sobre.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Sobre</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../artigos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            
+            <!-- Breadcrumbs -->
+            <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="../index.html" class="hover:text-brand-600">Início</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <a href="../index.html#ferramentas" class="hover:text-brand-600">Ferramentas</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <span class="text-gray-900 dark:text-white font-medium">Gasto Calórico</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Coluna Esquerda: Calculadora -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden p-8">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="bg-purple-100 dark:bg-purple-900/30 p-3 rounded-xl text-purple-600 dark:text-purple-400">
+                                <i data-lucide="flame" class="w-6 h-6"></i>
+                            </div>
+                            <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Calculadora de Calorias</h1>
+                        </div>
+
+                        <form id="calorias-form" class="space-y-6">
+                            <div>
+                                <label for="peso" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Peso (kg)</label>
+                                <div class="relative">
+                                    <input type="number" id="peso" step="0.1" placeholder="Ex: 70.5" required
+                                        class="block w-full pl-4 pr-12 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all">
+                                    <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                                        <span class="text-gray-500 dark:text-gray-400 font-medium">kg</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="atividade" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Tipo de Atividade</label>
+                                <div class="relative">
+                                    <select id="atividade" required
+                                        class="block w-full pl-4 pr-10 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all appearance-none">
+                                        <option value="">Selecione uma atividade</option>
+                                        <optgroup label="Exercícios Aeróbicos">
+                                            <option value="3.5">Caminhada Lenta (3-4 km/h)</option>
+                                            <option value="4.3">Caminhada Moderada (5-6 km/h)</option>
+                                            <option value="5.0">Caminhada Rápida (6-7 km/h)</option>
+                                            <option value="8.3">Corrida Lenta (8 km/h)</option>
+                                            <option value="9.8">Corrida Moderada (10 km/h)</option>
+                                            <option value="11.8">Corrida Rápida (12 km/h)</option>
+                                            <option value="4.0">Ciclismo Lento (< 16 km/h)</option>
+                                            <option value="8.0">Ciclismo Moderado (20 km/h)</option>
+                                            <option value="10.0">Ciclismo Rápido (> 25 km/h)</option>
+                                            <option value="6.0">Natação Lenta</option>
+                                            <option value="8.0">Natação Moderada</option>
+                                            <option value="10.0">Natação Rápida</option>
+                                        </optgroup>
+                                        <optgroup label="Exercícios de Força">
+                                            <option value="3.0">Musculação Leve</option>
+                                            <option value="5.0">Musculação Moderada</option>
+                                            <option value="6.0">Musculação Intensa</option>
+                                            <option value="8.0">CrossFit</option>
+                                            <option value="4.5">Calistenia</option>
+                                        </optgroup>
+                                        <optgroup label="Esportes">
+                                            <option value="7.0">Futebol</option>
+                                            <option value="6.5">Basquete</option>
+                                            <option value="4.0">Vôlei</option>
+                                            <option value="7.3">Tênis</option>
+                                            <option value="4.0">Ping Pong</option>
+                                        </optgroup>
+                                        <optgroup label="Atividades Recreativas">
+                                            <option value="4.5">Dança</option>
+                                            <option value="3.0">Yoga</option>
+                                            <option value="3.0">Pilates</option>
+                                            <option value="2.5">Alongamento</option>
+                                        </optgroup>
+                                        <optgroup label="Atividades Domésticas">
+                                            <option value="3.3">Limpeza de Casa</option>
+                                            <option value="4.0">Jardinagem</option>
+                                            <option value="2.5">Cozinhar</option>
+                                            <option value="8.0">Subir Escadas</option>
+                                        </optgroup>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="duracao" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Duração</label>
+                                <div class="relative">
+                                    <input type="number" id="duracao" min="1" max="480" placeholder="Ex: 30" required
+                                        class="block w-full pl-4 pr-12 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all">
+                                    <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                                        <span class="text-gray-500 dark:text-gray-400 font-medium">min</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                                Calcular Gasto Calórico
+                            </button>
+                        </form>
+
+                        <!-- Resultado -->
+                        <div id="resultado-container" class="hidden mt-8 pt-8 border-t border-gray-100 dark:border-gray-700 animate-fade-in">
+                            <h3 class="text-center font-bold text-gray-900 dark:text-white mb-6">Resultado Estimado</h3>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-xl text-center border border-orange-100 dark:border-orange-800">
+                                    <span class="block text-xs text-orange-600 dark:text-orange-400 uppercase font-bold tracking-wider mb-1">Total</span>
+                                    <div class="flex items-end justify-center gap-1">
+                                        <span id="resultado-total" class="text-3xl font-extrabold text-orange-700 dark:text-orange-300">--</span>
+                                        <span class="text-sm font-medium text-orange-600 dark:text-orange-400 mb-1">kcal</span>
+                                    </div>
+                                </div>
+
+                                <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl text-center border border-blue-100 dark:border-blue-800">
+                                    <span class="block text-xs text-blue-600 dark:text-blue-400 uppercase font-bold tracking-wider mb-1">Por Hora</span>
+                                    <div class="flex items-end justify-center gap-1">
+                                        <span id="resultado-hora" class="text-3xl font-extrabold text-blue-700 dark:text-blue-300">--</span>
+                                        <span class="text-sm font-medium text-blue-600 dark:text-blue-400 mb-1">kcal/h</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p class="mt-4 text-xs text-center text-gray-400 dark:text-gray-500">
+                                * Estimativa baseada em valores MET (Metabolic Equivalent of Task). O gasto real pode variar conforme intensidade e metabolismo individual.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Conteúdo Educativo -->
+                <div class="lg:col-span-7 space-y-8">
+                    
+                    <!-- O que é MET -->
+                    <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-brand-100 dark:bg-brand-900/30 rounded-full text-brand-600 hidden sm:block">
+                                <i data-lucide="book-open" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Como o cálculo funciona?</h2>
+                                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                    Utilizamos o conceito de <strong>MET</strong> (Equivalente Metabólico da Tarefa). É uma unidade que estima a quantidade de energia gasta em uma atividade física, comparada ao gasto em repouso.
+                                </p>
+                                <div class="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-xl border border-gray-200 dark:border-gray-600">
+                                    <p class="font-mono text-sm text-gray-700 dark:text-gray-300">
+                                        <strong>Fórmula:</strong> Calorias = MET × Peso (kg) × Tempo (h)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ranking de Atividades -->
+                    <section class="bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+                            <i data-lucide="trending-up" class="text-green-500"></i> Queima Calórica por Atividade
+                        </h2>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700/30 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-2xl">🏃‍♂️</span>
+                                    <span class="font-medium text-gray-800 dark:text-white">Corrida Rápida</span>
+                                </div>
+                                <span class="font-bold text-brand-600 bg-brand-100 dark:bg-brand-900/50 px-3 py-1 rounded-full text-sm">~12 METs</span>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700/30 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-2xl">🏊</span>
+                                    <span class="font-medium text-gray-800 dark:text-white">Natação Intensa</span>
+                                </div>
+                                <span class="font-bold text-brand-600 bg-brand-100 dark:bg-brand-900/50 px-3 py-1 rounded-full text-sm">~10 METs</span>
+                            </div>
+
+                            <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700/30 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-2xl">🚴</span>
+                                    <span class="font-medium text-gray-800 dark:text-white">Ciclismo Moderado</span>
+                                </div>
+                                <span class="font-bold text-brand-600 bg-brand-100 dark:bg-brand-900/50 px-3 py-1 rounded-full text-sm">~8 METs</span>
+                            </div>
+
+                            <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700/30 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-2xl">🏋️</span>
+                                    <span class="font-medium text-gray-800 dark:text-white">Musculação</span>
+                                </div>
+                                <span class="font-bold text-brand-600 bg-brand-100 dark:bg-brand-900/50 px-3 py-1 rounded-full text-sm">~5 METs</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Dicas para Maximizar -->
+                    <section class="bg-gradient-to-r from-brand-600 to-purple-600 rounded-3xl p-8 text-white shadow-lg">
+                        <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i data-lucide="zap" class="w-6 h-6"></i> Dicas para Maximizar a Queima
+                        </h2>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="check-circle" class="w-5 h-5 mt-0.5 text-brand-200"></i>
+                                <span><strong>Intensidade:</strong> Aumentar a intensidade (como no HIIT) queima mais calorias em menos tempo.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="check-circle" class="w-5 h-5 mt-0.5 text-brand-200"></i>
+                                <span><strong>Massa Muscular:</strong> Músculos consomem mais energia. Treine força para aumentar seu metabolismo basal.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="check-circle" class="w-5 h-5 mt-0.5 text-brand-200"></i>
+                                <span><strong>Constância:</strong> A regularidade é mais importante que um único treino exaustivo.</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="../sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="../contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="../termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Outras Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
+                        <li><a href="agua.html" class="hover:text-brand-400 transition-colors">Água Diária</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones Lucide
+        lucide.createIcons();
+
+        // 1. Dark Mode e Mobile Menu
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+
+        // 2. Lógica da Calculadora de Calorias
+        document.getElementById('calorias-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const peso = parseFloat(document.getElementById('peso').value);
+            const met = parseFloat(document.getElementById('atividade').value);
+            const duracaoMinutos = parseFloat(document.getElementById('duracao').value);
+            const resultadoContainer = document.getElementById('resultado-container');
+
+            if (isNaN(peso) || isNaN(met) || isNaN(duracaoMinutos) || peso <= 0 || duracaoMinutos <= 0) {
+                alert("Por favor, preencha todos os campos corretamente.");
+                return;
+            }
+
+            // Cálculo: Calorias = MET * Peso * (Tempo em horas)
+            const duracaoHoras = duracaoMinutos / 60;
+            const caloriasTotal = met * peso * duracaoHoras;
+            
+            // Cálculo por hora (para referência)
+            const caloriasPorHora = met * peso;
+
+            // Exibir Resultado
+            document.getElementById('resultado-total').textContent = Math.round(caloriasTotal);
+            document.getElementById('resultado-hora').textContent = Math.round(caloriasPorHora);
+            
+            resultadoContainer.classList.remove('hidden');
+            
+            // Scroll suave até o resultado
+            resultadoContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    </script>
 </body>
 </html>
