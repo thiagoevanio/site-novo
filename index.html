@@ -47,6 +47,15 @@
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pop-up': 'popUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        popUp: {
+                            '0%': { opacity: 0, transform: 'scale(0.9) translateY(20px)' },
+                            '100%': { opacity: 1, transform: 'scale(1) translateY(0)' },
+                        }
                     }
                 }
             }
@@ -75,6 +84,10 @@
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
+        }
+        /* Modal Backdrop */
+        #ad-modal-backdrop {
+            transition: opacity 0.3s ease;
         }
     </style>
 </head>
@@ -188,14 +201,7 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Onda Divisória REMOVIDA -->
-    </section>
-
-    <!-- ============================================== -->
-    <!-- NOVO: Seção de Destaque Personal Trainer Rafael -->
-            </svg>
-        </div>
+        <!-- Onda Divisória REMOVIDA para encaixe perfeito com o banner -->
     </section>
 
     <!-- Seção de Destaque Personal Trainer Rafael -->
@@ -203,8 +209,10 @@
         <div class="container mx-auto px-4">
             <div class="bg-gray-900 dark:bg-gray-800 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden border border-gray-800 flex flex-col lg:flex-row items-center gap-10">
                 
+                <!-- Imagem Circular/Destaque -->
                 <div class="relative shrink-0">
                     <div class="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-orange-500 shadow-[0_0_30px_rgba(249,115,22,0.3)] overflow-hidden">
+                        <!-- Imagem Personal: personal.jpg -->
                         <img src="personal.jpg" onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" alt="Rafael Aquino Personal" class="w-full h-full object-cover">
                     </div>
                     <div class="absolute bottom-2 right-2 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
@@ -212,6 +220,7 @@
                     </div>
                 </div>
 
+                <!-- Texto de Chamada -->
                 <div class="text-center lg:text-left flex-1">
                     <span class="text-orange-400 font-bold tracking-wider uppercase text-sm mb-2 block">Consultoria Especializada</span>
                     <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
@@ -511,6 +520,7 @@
                     <h4 class="text-white font-semibold mb-4">Navegação</h4>
                     <ul class="space-y-2 text-sm">
                         <li><a href="#inicio" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="personal.html" class="hover:text-brand-400 transition-colors text-orange-400">Personal Trainer</a></li>
                         <li><a href="sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
                         <li><a href="contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
                     </ul>
@@ -539,6 +549,55 @@
             </div>
         </div>
     </footer>
+
+    <!-- ============================================== -->
+    <!-- MODAL DE PROPAGANDA (APP) -->
+    <!-- ============================================== -->
+    <div id="ad-modal-backdrop" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
+        <div id="ad-modal-content" class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-sm w-full relative overflow-hidden animate-pop-up border border-gray-200 dark:border-gray-700">
+            
+            <!-- Botão Fechar -->
+            <button onclick="closeAd()" class="absolute top-3 right-3 z-10 p-2 bg-black/20 hover:bg-black/40 rounded-full text-white transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- Imagem / Banner do App -->
+            <div class="h-40 bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
+                <!-- Icone do App -->
+                <img src="finsafe.png" alt="Ícone FinSafe" class="w-20 h-20 rounded-2xl shadow-lg transform rotate-6 hover:rotate-0 transition-transform duration-300 z-10">
+            </div>
+
+            <!-- Conteúdo do Modal -->
+            <div class="p-6 text-center">
+                <div class="mb-3">
+                    <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Gratuito & Offline</span>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                    FinSafe: Controle Financeiro
+                </h3>
+                
+                <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
+                    FinSafe é um app gratuito e offline que ajuda você a controlar gastos, organizar suas finanças e economizar de forma simples e prática, onde quer que esteja.
+                </p>
+
+                <!-- Botão de Download -->
+                <a href="https://play.google.com/store/apps/details?id=com.thiagoevanio.finsafe&hl=pt_BR" target="_blank" class="flex items-center justify-center gap-2 w-full py-3.5 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 mb-3">
+                    <i data-lucide="download" class="w-5 h-5"></i>
+                    Baixar na Play Store
+                </a>
+                
+                <p class="text-[10px] text-gray-400 dark:text-gray-500 leading-tight mb-4">
+                    *Todos os valores inseridos são fictícios para simulação e controle de gastos pessoais. Não é possível depositar ou sacar dinheiro.
+                </p>
+                
+                <button onclick="closeAd()" class="text-sm text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 underline">
+                    Agora não, obrigado
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts Logic -->
     <script>
@@ -600,12 +659,17 @@
         document.getElementById('quick-imc-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const peso = parseFloat(document.getElementById('quick-weight').value);
-            const altura = parseFloat(document.getElementById('quick-height').value);
+            let altura = parseFloat(document.getElementById('quick-height').value);
             const resultBox = document.getElementById('quick-result');
             const imcValue = document.getElementById('imc-value');
             const imcStatus = document.getElementById('imc-status');
 
             if (peso > 0 && altura > 0) {
+                // Correção automática: se digitou em cm (ex: 175), converte para metros (1.75)
+                if (altura > 3) {
+                    altura = altura / 100;
+                }
+
                 const imc = peso / (altura * altura);
                 imcValue.textContent = imc.toFixed(1);
                 resultBox.classList.remove('hidden');
@@ -631,6 +695,29 @@
                 navigator.serviceWorker.register('/sw.js').catch(error => console.log('SW falhou: ', error));
             });
         }
+
+        // LÓGICA DO MODAL DE PROPAGANDA
+        function showAd() {
+            // Verifica se já foi fechado
+            if (!localStorage.getItem('appAdClosed')) {
+                const modal = document.getElementById('ad-modal-backdrop');
+                modal.classList.remove('hidden');
+                modal.classList.add('flex'); // Garante que use flex para centralizar
+            }
+        }
+
+        function closeAd() {
+            const modal = document.getElementById('ad-modal-backdrop');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            // Salva no navegador que o usuário fechou
+            localStorage.setItem('appAdClosed', 'true');
+        }
+
+        // Ativa o modal após 2 segundos (apenas se não tiver sido fechado antes)
+        window.addEventListener('load', () => {
+            setTimeout(showAd, 2000);
+        });
     </script>
 </body>
 </html>
