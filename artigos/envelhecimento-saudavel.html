@@ -1,1576 +1,480 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
     <title>Envelhecimento Saudável: Guia Completo para Longevidade | Calcule Sua Saúde</title>
-    <meta name="description" content="Guia completo sobre envelhecimento saudável: estratégias para longevidade, prevenção de doenças e manutenção da qualidade de vida na terceira idade.">
-    <meta name="keywords" content="envelhecimento saudável, longevidade, terceira idade, idosos, qualidade de vida, prevenção">
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="Envelhecimento Saudável: Guia Completo para Longevidade">
-    <meta property="og:description" content="Estratégias baseadas em evidências para um envelhecimento saudável e com qualidade de vida.">
+    <!-- Meta Tags SEO Avançadas -->
+    <meta name="description" content="Descubra os segredos da longevidade saudável. Guia completo sobre prevenção de doenças, nutrição para idosos, atividade física e saúde mental na terceira idade.">
+    <meta name="keywords" content="envelhecimento saudável, longevidade, terceira idade, sarcopenia, prevenção demência, qualidade de vida idoso, saúde sênior">
+    <meta name="author" content="Equipe Calcule Sua Saúde">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
+    <meta property="og:title" content="Envelhecimento Saudável: Guia Completo para Longevidade">
+    <meta property="og:description" content="Estratégias baseadas em evidências para viver mais e melhor. O guia definitivo da longevidade.">
     <meta property="og:url" content="https://calculesuasaude.com.br/artigos/envelhecimento-saudavel.html">
+    <meta property="og:image" content="../img/artigos/envelhecimento_saudavel.jpg">
+    <meta property="article:published_time" content="2024-03-01">
+    <meta property="article:section" content="Geriatria e Gerontologia">
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
-     crossorigin="anonymous"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Dados Estruturados (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Envelhecimento Saudável: Guia Completo para Longevidade",
+      "image": "https://calculesuasaude.com.br/img/artigos/envelhecimento_saudavel.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://calculesuasaude.com.br/icon192.png"
+        }
+      },
+      "datePublished": "2024-03-01",
+      "description": "Um guia abrangente sobre como manter a saúde, autonomia e qualidade de vida durante o processo de envelhecimento."
+    }
+    </script>
 
-  gtag('config', 'G-EVCQQZV60N');
-</script>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/estilo.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    typography: (theme) => ({
+                        DEFAULT: {
+                            css: {
+                                color: theme('colors.gray.700'),
+                                h2: { color: theme('colors.gray.900'), fontWeight: '800' },
+                                h3: { color: theme('colors.gray.800'), fontWeight: '700' },
+                                strong: { color: theme('colors.gray.900') },
+                            },
+                        },
+                        dark: {
+                            css: {
+                                color: theme('colors.gray.300'),
+                                h2: { color: theme('colors.white') },
+                                h3: { color: theme('colors.gray.100') },
+                                strong: { color: theme('colors.white') },
+                            },
+                        },
+                    }),
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .prose h2 { margin-top: 2em; margin-bottom: 1em; line-height: 1.3; }
+        .prose h3 { margin-top: 1.5em; margin-bottom: 0.8em; }
+        .prose p { margin-bottom: 1.25em; line-height: 1.75; }
+        .prose ul { list-style-type: disc; padding-left: 1.5em; margin-bottom: 1.25em; }
+        .prose li { margin-bottom: 0.5em; }
+    </style>
 </head>
-<body>
-    <!-- Cabeçalho -->
-    <header class="header-fixo">
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
                 </div>
-                <ul class="menu">
-                    <li><a href="../index.html">Início</a></li>
-                    <li><a href="../index.html#ferramentas">Ferramentas</a></li>
-                    <li><a href="../artigos.html">Artigos</a></li>
-                    <li><a href="../sobre.html">Sobre</a></li>
-                    <li><a href="../contato.html">Contato</a></li>
-                    <li><button id="modo-noturno" class="btn-modo">🌙</button></li>
-                </ul>
+                <span class="font-bold text-gray-800 dark:text-white text-lg hidden sm:block">Calcule Sua Saúde</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="../index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="../index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="../artigos.html" class="text-sm font-bold text-brand-600">Artigos</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../artigos.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Artigos</a>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <!-- Breadcrumbs -->
-    <section class="breadcrumbs">
-        <div class="container">
-            <a href="../index.html">Início</a> > <a href="../artigos.html">Artigos</a> > <span>Envelhecimento Saudável</span>
-        </div>
-    </section>
+    <!-- Barra de Progresso de Leitura -->
+    <div class="fixed top-[60px] left-0 h-1 bg-teal-500 z-40 w-0 transition-all duration-100" id="reading-progress"></div>
 
-    <!-- Conteúdo Principal -->
-    <main>
-        <article class="artigo-content">
-            <div class="container">
-                <header class="artigo-header">
-                    <h1>Envelhecimento Saudável: Guia Completo para Longevidade</h1>
-                    <div class="artigo-meta">
-                        <span class="data-publicacao">Publicado em 30 de Janeiro de 2024</span>
-                        <span class="tempo-leitura">Tempo de leitura: 32 minutos</span>
-                    </div>
-                    <p class="artigo-resumo">O envelhecimento saudável é um processo que pode ser otimizado através de estratégias baseadas em evidências científicas. Este guia abrangente apresenta as melhores práticas para promover longevidade, manter a qualidade de vida e prevenir doenças relacionadas à idade.</p>
-                </header>
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            
+            <!-- Breadcrumbs -->
+            <nav class="flex text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="../index.html" class="hover:text-brand-600 transition-colors">Início</a>
+                <span class="mx-2">/</span>
+                <a href="../artigos.html" class="hover:text-brand-600 transition-colors">Artigos</a>
+                <span class="mx-2">/</span>
+                <span class="font-medium text-gray-900 dark:text-white truncate">Envelhecimento Saudável</span>
+            </nav>
 
-                <div class="artigo-corpo">
-                    <h2>Introdução ao Envelhecimento Saudável</h2>
-                    <p>O envelhecimento é um processo natural e inevitável da vida, mas a forma como envelhecemos pode ser significativamente influenciada por nossas escolhas e comportamentos. O conceito de envelhecimento saudável vai além da ausência de doenças, englobando a manutenção da capacidade funcional, bem-estar mental, autonomia e qualidade de vida.</p>
-                    
-                    <p>Com o aumento da expectativa de vida mundial, compreender e implementar estratégias para um envelhecimento bem-sucedido tornou-se uma prioridade de saúde pública. A Organização Mundial da Saúde define envelhecimento saudável como "o processo de desenvolvimento e manutenção da capacidade funcional que permite o bem-estar na idade avançada".</p>
-
-                    <h3>Demografia do Envelhecimento</h3>
-                    <div class="demografia-envelhecimento">
-                        <div class="dados-mundiais">
-                            <h4>🌍 Cenário Mundial</h4>
-                            <p><strong>Projeções demográficas:</strong></p>
-                            <ul>
-                                <li>2050: 2,1 bilhões de pessoas com 60+ anos</li>
-                                <li>2100: 3,1 bilhões de pessoas com 60+ anos</li>
-                                <li>Crescimento de 80+ anos: 3x mais rápido</li>
-                                <li>Países desenvolvidos: 30% da população idosa</li>
-                                <li>Países em desenvolvimento: transição acelerada</li>
-                            </ul>
-                            
-                            <p><strong>Expectativa de vida:</strong></p>
-                            <ul>
-                                <li>Global: 73 anos (2019)</li>
-                                <li>Japão: 84,6 anos (maior do mundo)</li>
-                                <li>Diferença entre sexos: mulheres vivem 5 anos mais</li>
-                                <li>Aumento de 6 anos desde 2000</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="dados-brasil">
-                            <h4>🇧🇷 Cenário Brasileiro</h4>
-                            <p><strong>Demografia atual:</strong></p>
-                            <ul>
-                                <li>32 milhões de idosos (15% da população)</li>
-                                <li>Expectativa de vida: 76,6 anos</li>
-                                <li>2050: 30% da população será idosa</li>
-                                <li>Crescimento de 4% ao ano</li>
-                                <li>Feminização do envelhecimento</li>
-                            </ul>
-                            
-                            <p><strong>Desafios:</strong></p>
-                            <ul>
-                                <li>Transição epidemiológica</li>
-                                <li>Doenças crônicas não transmissíveis</li>
-                                <li>Sistema de saúde sobrecarregado</li>
-                                <li>Desigualdades sociais</li>
-                                <li>Previdência social</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="impactos-sociais">
-                            <h4>🏛️ Impactos Sociais</h4>
-                            <p><strong>Econômicos:</strong></p>
-                            <ul>
-                                <li>Aumento dos gastos em saúde</li>
-                                <li>Pressão previdenciária</li>
-                                <li>Mudanças no mercado de trabalho</li>
-                                <li>Economia prateada (silver economy)</li>
-                                <li>Necessidade de cuidadores</li>
-                            </ul>
-                            
-                            <p><strong>Sociais:</strong></p>
-                            <ul>
-                                <li>Mudanças na estrutura familiar</li>
-                                <li>Isolamento social</li>
-                                <li>Ageísmo (discriminação etária)</li>
-                                <li>Necessidade de adaptações urbanas</li>
-                                <li>Intergeracionalidade</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Teorias do Envelhecimento</h3>
-                    <div class="teorias-envelhecimento">
-                        <div class="teoria-categoria">
-                            <h4>🧬 Teorias Biológicas</h4>
-                            <div class="teoria">
-                                <h5>Teoria dos Radicais Livres</h5>
-                                <p><strong>Conceito:</strong> Danos cumulativos causados por espécies reativas de oxigênio</p>
-                                <p><strong>Mecanismo:</strong></p>
-                                <ul>
-                                    <li>Produção excessiva de radicais livres</li>
-                                    <li>Deficiência antioxidante</li>
-                                    <li>Danos ao DNA, proteínas e lipídios</li>
-                                    <li>Disfunção mitocondrial</li>
-                                </ul>
-                                
-                                <p><strong>Implicações:</strong> Importância de antioxidantes na dieta</p>
-                            </div>
-                            
-                            <div class="teoria">
-                                <h5>Teoria do Encurtamento dos Telômeros</h5>
-                                <p><strong>Conceito:</strong> Telômeros encurtam a cada divisão celular</p>
-                                <p><strong>Mecanismo:</strong></p>
-                                <ul>
-                                    <li>Limite de Hayflick (50-70 divisões)</li>
-                                    <li>Senescência celular</li>
-                                    <li>Redução da capacidade regenerativa</li>
-                                    <li>Atividade da telomerase</li>
-                                </ul>
-                                
-                                <p><strong>Fatores que aceleram:</strong> Estresse, tabagismo, sedentarismo</p>
-                            </div>
-                            
-                            <div class="teoria">
-                                <h5>Teoria da Inflamação Crônica (Inflammaging)</h5>
-                                <p><strong>Conceito:</strong> Inflamação de baixo grau persistente</p>
-                                <p><strong>Características:</strong></p>
-                                <ul>
-                                    <li>Aumento de citocinas pró-inflamatórias</li>
-                                    <li>Disfunção imunológica</li>
-                                    <li>Contribuição para doenças crônicas</li>
-                                    <li>Senescência celular</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="teoria">
-                                <h5>Teoria da Glicação</h5>
-                                <p><strong>Conceito:</strong> Ligação não enzimática de açúcares às proteínas</p>
-                                <p><strong>Consequências:</strong></p>
-                                <ul>
-                                    <li>Formação de AGEs (Advanced Glycation End-products)</li>
-                                    <li>Rigidez vascular</li>
-                                    <li>Disfunção proteica</li>
-                                    <li>Aceleração do envelhecimento</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="teoria-categoria">
-                            <h4>🧠 Teorias Psicossociais</h4>
-                            <div class="teoria">
-                                <h5>Teoria da Atividade</h5>
-                                <p><strong>Conceito:</strong> Manter atividade promove envelhecimento bem-sucedido</p>
-                                <p><strong>Princípios:</strong></p>
-                                <ul>
-                                    <li>Substituição de papéis perdidos</li>
-                                    <li>Manutenção do engajamento social</li>
-                                    <li>Atividade física e mental</li>
-                                    <li>Senso de propósito</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="teoria">
-                                <h5>Teoria da Seletividade Socioemocional</h5>
-                                <p><strong>Conceito:</strong> Priorização de relacionamentos significativos</p>
-                                <p><strong>Características:</strong></p>
-                                <ul>
-                                    <li>Redução da rede social</li>
-                                    <li>Qualidade vs quantidade</li>
-                                    <li>Regulação emocional melhorada</li>
-                                    <li>Foco no presente</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="teoria">
-                                <h5>Teoria da Continuidade</h5>
-                                <p><strong>Conceito:</strong> Manutenção de padrões de personalidade</p>
-                                <p><strong>Aspectos:</strong></p>
-                                <ul>
-                                    <li>Continuidade interna (personalidade)</li>
-                                    <li>Continuidade externa (atividades)</li>
-                                    <li>Adaptação às mudanças</li>
-                                    <li>Identidade preservada</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="ferramentas-relacionadas">
-                        <h3>📊 Monitore sua saúde</h3>
-                        <p>Acompanhe indicadores importantes para o envelhecimento saudável:</p>
-                        <a href="../ferramentas/imc.html" class="btn-secondary">Calcular IMC</a>
-                    </div>
-
-                    <h2>Mudanças Relacionadas ao Envelhecimento</h2>
-                    <p>O processo de envelhecimento envolve mudanças graduais em múltiplos sistemas corporais. Compreender essas alterações é fundamental para desenvolver estratégias eficazes de prevenção e intervenção:</p>
-
-                    <h3>Alterações Físicas</h3>
-                    <div class="alteracoes-fisicas">
-                        <div class="sistema-corporal">
-                            <h4>🦴 Sistema Musculoesquelético</h4>
-                            <p><strong>Sarcopenia:</strong></p>
-                            <ul>
-                                <li>Perda de 3-8% da massa muscular por década após os 30</li>
-                                <li>Aceleração após os 60 anos</li>
-                                <li>Redução da força e potência</li>
-                                <li>Alteração na composição das fibras</li>
-                                <li>Diminuição da síntese proteica</li>
-                            </ul>
-                            
-                            <p><strong>Alterações ósseas:</strong></p>
-                            <ul>
-                                <li>Perda de densidade mineral óssea</li>
-                                <li>Risco aumentado de osteoporose</li>
-                                <li>Fraturas por fragilidade</li>
-                                <li>Alterações na microarquitetura</li>
-                                <li>Redução da formação óssea</li>
-                            </ul>
-                            
-                            <p><strong>Articulações:</strong></p>
-                            <ul>
-                                <li>Degeneração da cartilagem</li>
-                                <li>Rigidez articular</li>
-                                <li>Redução da amplitude de movimento</li>
-                                <li>Osteoartrite</li>
-                                <li>Inflamação sinovial</li>
-                            </ul>
-                            
-                            <p><strong>Consequências funcionais:</strong></p>
-                            <ul>
-                                <li>Redução da mobilidade</li>
-                                <li>Risco de quedas</li>
-                                <li>Perda de independência</li>
-                                <li>Fragilidade</li>
-                                <li>Incapacidade funcional</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="sistema-corporal">
-                            <h4>❤️ Sistema Cardiovascular</h4>
-                            <p><strong>Alterações estruturais:</strong></p>
-                            <ul>
-                                <li>Rigidez arterial aumentada</li>
-                                <li>Espessamento da parede ventricular</li>
-                                <li>Dilatação atrial</li>
-                                <li>Calcificação valvar</li>
-                                <li>Aterosclerose</li>
-                            </ul>
-                            
-                            <p><strong>Alterações funcionais:</strong></p>
-                            <ul>
-                                <li>Redução da frequência cardíaca máxima</li>
-                                <li>Diminuição do débito cardíaco</li>
-                                <li>Aumento da pressão arterial sistólica</li>
-                                <li>Redução da variabilidade da FC</li>
-                                <li>Menor resposta aos barorreceptores</li>
-                            </ul>
-                            
-                            <p><strong>Impactos clínicos:</strong></p>
-                            <ul>
-                                <li>Hipertensão sistólica isolada</li>
-                                <li>Insuficiência cardíaca diastólica</li>
-                                <li>Arritmias</li>
-                                <li>Doença arterial coronariana</li>
-                                <li>Hipotensão ortostática</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="sistema-corporal">
-                            <h4>🫁 Sistema Respiratório</h4>
-                            <p><strong>Alterações estruturais:</strong></p>
-                            <ul>
-                                <li>Perda de elasticidade pulmonar</li>
-                                <li>Rigidez da caixa torácica</li>
-                                <li>Alargamento dos alvéolos</li>
-                                <li>Redução da superfície de troca gasosa</li>
-                                <li>Enfraquecimento dos músculos respiratórios</li>
-                            </ul>
-                            
-                            <p><strong>Alterações funcionais:</strong></p>
-                            <ul>
-                                <li>Redução da capacidade vital</li>
-                                <li>Aumento do volume residual</li>
-                                <li>Diminuição da PaO2</li>
-                                <li>Redução da resposta ventilatória</li>
-                                <li>Menor eficiência da tosse</li>
-                            </ul>
-                            
-                            <p><strong>Consequências:</strong></p>
-                            <ul>
-                                <li>Maior suscetibilidade a infecções</li>
-                                <li>Redução da tolerância ao exercício</li>
-                                <li>Dispneia aos esforços</li>
-                                <li>DPOC mais prevalente</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="sistema-corporal">
-                            <h4>🧠 Sistema Nervoso</h4>
-                            <p><strong>Alterações estruturais:</strong></p>
-                            <ul>
-                                <li>Perda neuronal (0,5-1% ao ano)</li>
-                                <li>Redução do volume cerebral</li>
-                                <li>Atrofia cortical</li>
-                                <li>Redução da substância branca</li>
-                                <li>Acúmulo de placas senis</li>
-                            </ul>
-                            
-                            <p><strong>Alterações funcionais:</strong></p>
-                            <ul>
-                                <li>Redução da velocidade de processamento</li>
-                                <li>Declínio da memória de trabalho</li>
-                                <li>Alterações na memória episódica</li>
-                                <li>Preservação da memória semântica</li>
-                                <li>Mudanças na função executiva</li>
-                            </ul>
-                            
-                            <p><strong>Neurotransmissores:</strong></p>
-                            <ul>
-                                <li>Redução da dopamina</li>
-                                <li>Alterações na acetilcolina</li>
-                                <li>Mudanças na serotonina</li>
-                                <li>Declínio do GABA</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="sistema-corporal">
-                            <h4>👁️ Órgãos dos Sentidos</h4>
-                            <p><strong>Visão:</strong></p>
-                            <ul>
-                                <li>Presbiopia (dificuldade para perto)</li>
-                                <li>Redução da acuidade visual</li>
-                                <li>Diminuição da adaptação ao escuro</li>
-                                <li>Catarata</li>
-                                <li>Degeneração macular</li>
-                                <li>Glaucoma</li>
-                            </ul>
-                            
-                            <p><strong>Audição:</strong></p>
-                            <ul>
-                                <li>Presbiacusia (perda auditiva)</li>
-                                <li>Dificuldade com frequências altas</li>
-                                <li>Problemas de discriminação</li>
-                                <li>Zumbido no ouvido</li>
-                                <li>Problemas de equilíbrio</li>
-                            </ul>
-                            
-                            <p><strong>Outros sentidos:</strong></p>
-                            <ul>
-                                <li>Redução do paladar e olfato</li>
-                                <li>Diminuição da sensibilidade tátil</li>
-                                <li>Alterações proprioceptivas</li>
-                                <li>Redução da sensibilidade à dor</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Alterações Cognitivas</h3>
-                    <div class="alteracoes-cognitivas">
-                        <div class="dominio-cognitivo">
-                            <h4>🧠 Envelhecimento Cognitivo Normal</h4>
-                            <p><strong>Funções que declínam:</strong></p>
-                            <ul>
-                                <li><strong>Velocidade de processamento:</strong> Lentificação geral</li>
-                                <li><strong>Memória de trabalho:</strong> Menor capacidade</li>
-                                <li><strong>Memória episódica:</strong> Dificuldade para eventos recentes</li>
-                                <li><strong>Atenção dividida:</strong> Multitarefas prejudicadas</li>
-                                <li><strong>Função executiva:</strong> Planejamento e flexibilidade</li>
-                                <li><strong>Fluência verbal:</strong> Encontrar palavras</li>
-                            </ul>
-                            
-                            <p><strong>Funções preservadas:</strong></p>
-                            <ul>
-                                <li><strong>Memória semântica:</strong> Conhecimento geral</li>
-                                <li><strong>Memória procedural:</strong> Habilidades motoras</li>
-                                <li><strong>Vocabulário:</strong> Pode até melhorar</li>
-                                <li><strong>Sabedoria:</strong> Julgamento e experiência</li>
-                                <li><strong>Regulação emocional:</strong> Melhora com idade</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="dominio-cognitivo">
-                            <h4>🔍 Comprometimento Cognitivo Leve (CCL)</h4>
-                            <p><strong>Características:</strong></p>
-                            <ul>
-                                <li>Declínio cognitivo além do esperado</li>
-                                <li>Funcionalidade preservada</li>
-                                <li>Não preenche critérios para demência</li>
-                                <li>Risco aumentado para demência</li>
-                            </ul>
-                            
-                            <p><strong>Tipos:</strong></p>
-                            <ul>
-                                <li><strong>Amnéstico:</strong> Principalmente memória</li>
-                                <li><strong>Não-amnéstico:</strong> Outras funções</li>
-                                <li><strong>Domínio único:</strong> Uma função afetada</li>
-                                <li><strong>Múltiplos domínios:</strong> Várias funções</li>
-                            </ul>
-                            
-                            <p><strong>Prognóstico:</strong></p>
-                            <ul>
-                                <li>10-15% progridem para demência/ano</li>
-                                <li>Alguns permanecem estáveis</li>
-                                <li>Alguns revertem ao normal</li>
-                                <li>Fatores modificáveis influenciam</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="dominio-cognitivo">
-                            <h4>🧩 Reserva Cognitiva</h4>
-                            <p><strong>Conceito:</strong></p>
-                            <ul>
-                                <li>Capacidade de resistir a danos cerebrais</li>
-                                <li>Uso eficiente de redes neurais</li>
-                                <li>Compensação de perdas</li>
-                                <li>Proteção contra declínio</li>
-                            </ul>
-                            
-                            <p><strong>Fatores que aumentam:</strong></p>
-                            <ul>
-                                <li>Educação formal</li>
-                                <li>Atividades cognitivamente estimulantes</li>
-                                <li>Bilinguismo</li>
-                                <li>Atividade física</li>
-                                <li>Interação social</li>
-                                <li>Trabalho complexo</li>
-                            </ul>
-                            
-                            <p><strong>Benefícios:</strong></p>
-                            <ul>
-                                <li>Início tardio da demência</li>
-                                <li>Melhor funcionamento cognitivo</li>
-                                <li>Maior resistência ao estresse</li>
-                                <li>Recuperação mais rápida</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="ferramentas-relacionadas">
-                        <h3>💪 Mantenha-se forte</h3>
-                        <p>A manutenção da massa muscular é crucial no envelhecimento:</p>
-                        <a href="../artigos/ganho-massa-muscular.html" class="btn-secondary">Leia sobre Hipertrofia</a>
-                    </div>
-
-                    <h2>Estratégias para Envelhecimento Saudável</h2>
-                    <p>O envelhecimento saudável pode ser promovido através de estratégias baseadas em evidências que abordam múltiplos aspectos da saúde e bem-estar:</p>
-
-                    <h3>Atividade Física e Exercício</h3>
-                    <div class="atividade-fisica-idosos">
-                        <div class="beneficios-exercicio">
-                            <h4>🏃‍♂️ Benefícios do Exercício no Envelhecimento</h4>
-                            <p><strong>Benefícios físicos:</strong></p>
-                            <ul>
-                                <li>Prevenção da sarcopenia</li>
-                                <li>Manutenção da densidade óssea</li>
-                                <li>Melhora da capacidade cardiovascular</li>
-                                <li>Aumento da flexibilidade e mobilidade</li>
-                                <li>Melhora do equilíbrio e coordenação</li>
-                                <li>Redução do risco de quedas</li>
-                                <li>Controle do peso corporal</li>
-                                <li>Melhora da função imunológica</li>
-                            </ul>
-                            
-                            <p><strong>Benefícios cognitivos:</strong></p>
-                            <ul>
-                                <li>Melhora da função executiva</li>
-                                <li>Aumento da neuroplasticidade</li>
-                                <li>Proteção contra demência</li>
-                                <li>Melhora da memória</li>
-                                <li>Aumento do BDNF</li>
-                                <li>Neurogênese hipocampal</li>
-                            </ul>
-                            
-                            <p><strong>Benefícios psicossociais:</strong></p>
-                            <ul>
-                                <li>Redução da depressão e ansiedade</li>
-                                <li>Melhora da autoestima</li>
-                                <li>Aumento da socialização</li>
-                                <li>Senso de conquista</li>
-                                <li>Melhora da qualidade do sono</li>
-                                <li>Maior independência funcional</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="tipos-exercicio">
-                            <h4>🏋️‍♀️ Tipos de Exercício Recomendados</h4>
-                            <div class="exercicio-categoria">
-                                <h5>Exercício Aeróbico</h5>
-                                <p><strong>Recomendações:</strong></p>
-                                <ul>
-                                    <li>150 min/semana intensidade moderada</li>
-                                    <li>75 min/semana intensidade vigorosa</li>
-                                    <li>Ou combinação equivalente</li>
-                                    <li>Sessões de pelo menos 10 minutos</li>
-                                </ul>
-                                
-                                <p><strong>Atividades sugeridas:</strong></p>
-                                <ul>
-                                    <li>Caminhada rápida</li>
-                                    <li>Natação</li>
-                                    <li>Ciclismo</li>
-                                    <li>Dança</li>
-                                    <li>Hidroginástica</li>
-                                    <li>Jardinagem</li>
-                                </ul>
-                                
-                                <p><strong>Benefícios específicos:</strong></p>
-                                <ul>
-                                    <li>Saúde cardiovascular</li>
-                                    <li>Controle glicêmico</li>
-                                    <li>Saúde mental</li>
-                                    <li>Longevidade</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="exercicio-categoria">
-                                <h5>Treinamento de Força</h5>
-                                <p><strong>Recomendações:</strong></p>
-                                <ul>
-                                    <li>2-3 sessões por semana</li>
-                                    <li>8-12 repetições</li>
-                                    <li>2-3 séries</li>
-                                    <li>Grandes grupos musculares</li>
-                                    <li>Progressão gradual</li>
-                                </ul>
-                                
-                                <p><strong>Modalidades:</strong></p>
-                                <ul>
-                                    <li>Pesos livres</li>
-                                    <li>Máquinas</li>
-                                    <li>Elásticos</li>
-                                    <li>Peso corporal</li>
-                                    <li>Exercícios funcionais</li>
-                                </ul>
-                                
-                                <p><strong>Benefícios específicos:</strong></p>
-                                <ul>
-                                    <li>Prevenção da sarcopenia</li>
-                                    <li>Aumento da força</li>
-                                    <li>Melhora da densidade óssea</li>
-                                    <li>Metabolismo aumentado</li>
-                                    <li>Independência funcional</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="exercicio-categoria">
-                                <h5>Exercícios de Equilíbrio</h5>
-                                <p><strong>Importância:</strong></p>
-                                <ul>
-                                    <li>Prevenção de quedas</li>
-                                    <li>Manutenção da mobilidade</li>
-                                    <li>Confiança nos movimentos</li>
-                                    <li>Independência funcional</li>
-                                </ul>
-                                
-                                <p><strong>Atividades:</strong></p>
-                                <ul>
-                                    <li>Tai Chi</li>
-                                    <li>Yoga</li>
-                                    <li>Exercícios proprioceptivos</li>
-                                    <li>Caminhada em linha</li>
-                                    <li>Apoio unipodal</li>
-                                    <li>Exercícios com olhos fechados</li>
-                                </ul>
-                                
-                                <p><strong>Progressão:</strong></p>
-                                <ul>
-                                    <li>Superfícies estáveis → instáveis</li>
-                                    <li>Olhos abertos → fechados</li>
-                                    <li>Apoio bilateral → unilateral</li>
-                                    <li>Estático → dinâmico</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="exercicio-categoria">
-                                <h5>Flexibilidade e Mobilidade</h5>
-                                <p><strong>Benefícios:</strong></p>
-                                <ul>
-                                    <li>Manutenção da amplitude de movimento</li>
-                                    <li>Redução da rigidez</li>
-                                    <li>Melhora da postura</li>
-                                    <li>Alívio de tensões</li>
-                                    <li>Relaxamento</li>
-                                </ul>
-                                
-                                <p><strong>Modalidades:</strong></p>
-                                <ul>
-                                    <li>Alongamento estático</li>
-                                    <li>Alongamento dinâmico</li>
-                                    <li>Yoga</li>
-                                    <li>Pilates</li>
-                                    <li>Mobilização articular</li>
-                                </ul>
-                                
-                                <p><strong>Recomendações:</strong></p>
-                                <ul>
-                                    <li>Diariamente ou pelo menos 3x/semana</li>
-                                    <li>10-30 segundos por posição</li>
-                                    <li>2-4 repetições</li>
-                                    <li>Principais grupos musculares</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="consideracoes-especiais">
-                            <h4>⚠️ Considerações Especiais para Idosos</h4>
-                            <p><strong>Avaliação pré-exercício:</strong></p>
-                            <ul>
-                                <li>Avaliação médica</li>
-                                <li>Teste de esforço (se indicado)</li>
-                                <li>Avaliação funcional</li>
-                                <li>Histórico de quedas</li>
-                                <li>Medicações em uso</li>
-                            </ul>
-                            
-                            <p><strong>Princípios de prescrição:</strong></p>
-                            <ul>
-                                <li>Início gradual e progressivo</li>
-                                <li>Individualização</li>
-                                <li>Supervisão adequada</li>
-                                <li>Ambiente seguro</li>
-                                <li>Adaptações necessárias</li>
-                            </ul>
-                            
-                            <p><strong>Contraindicações relativas:</strong></p>
-                            <ul>
-                                <li>Angina instável</li>
-                                <li>Hipertensão não controlada</li>
-                                <li>Arritmias graves</li>
-                                <li>Estenose aórtica grave</li>
-                                <li>Infecções agudas</li>
-                            </ul>
-                            
-                            <p><strong>Sinais de alerta durante exercício:</strong></p>
-                            <ul>
-                                <li>Dor torácica</li>
-                                <li>Dispneia excessiva</li>
-                                <li>Tontura ou vertigem</li>
-                                <li>Palpitações</li>
-                                <li>Fadiga extrema</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Nutrição no Envelhecimento</h3>
-                    <div class="nutricao-idosos">
-                        <div class="necessidades-nutricionais">
-                            <h4>🍽️ Necessidades Nutricionais Específicas</h4>
-                            <p><strong>Alterações metabólicas:</strong></p>
-                            <ul>
-                                <li>Redução do metabolismo basal</li>
-                                <li>Menor massa muscular</li>
-                                <li>Alterações na composição corporal</li>
-                                <li>Redução da absorção de nutrientes</li>
-                                <li>Mudanças na função renal</li>
-                            </ul>
-                            
-                            <p><strong>Energia:</strong></p>
-                            <ul>
-                                <li>Redução de 10-25% após os 70 anos</li>
-                                <li>Homens: 2000-2200 kcal/dia</li>
-                                <li>Mulheres: 1600-1800 kcal/dia</li>
-                                <li>Ajustar conforme atividade física</li>
-                                <li>Evitar restrição excessiva</li>
-                            </ul>
-                            
-                            <p><strong>Proteínas:</strong></p>
-                            <ul>
-                                <li>Necessidade aumentada: 1,2-1,6 g/kg/dia</li>
-                                <li>Distribuição ao longo do dia</li>
-                                <li>20-30g por refeição</li>
-                                <li>Proteínas de alto valor biológico</li>
-                                <li>Leucina para síntese muscular</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="micronutrientes-importantes">
-                            <h4>💊 Micronutrientes Críticos</h4>
-                            <div class="nutriente">
-                                <h5>Vitamina D</h5>
-                                <p><strong>Importância:</strong></p>
-                                <ul>
-                                    <li>Saúde óssea</li>
-                                    <li>Função muscular</li>
-                                    <li>Sistema imunológico</li>
-                                    <li>Prevenção de quedas</li>
-                                </ul>
-                                
-                                <p><strong>Recomendação:</strong> 800-1000 UI/dia</p>
-                                <p><strong>Fontes:</strong> Sol, peixes gordos, suplementos</p>
-                            </div>
-                            
-                            <div class="nutriente">
-                                <h5>Vitamina B12</h5>
-                                <p><strong>Problemas:</strong></p>
-                                <ul>
-                                    <li>Redução da absorção</li>
-                                    <li>Gastrite atrófica</li>
-                                    <li>Uso de medicamentos</li>
-                                </ul>
-                                
-                                <p><strong>Consequências da deficiência:</strong></p>
-                                <ul>
-                                    <li>Anemia megaloblástica</li>
-                                    <li>Neuropatia</li>
-                                    <li>Declínio cognitivo</li>
-                                </ul>
-                                
-                                <p><strong>Recomendação:</strong> 2,4 μg/dia</p>
-                            </div>
-                            
-                            <div class="nutriente">
-                                <h5>Cálcio</h5>
-                                <p><strong>Importância:</strong> Saúde óssea e muscular</p>
-                                <p><strong>Recomendação:</strong> 1200 mg/dia</p>
-                                <p><strong>Fontes:</strong> Laticínios, vegetais verdes, peixes</p>
-                            </div>
-                            
-                            <div class="nutriente">
-                                <h5>Ferro</h5>
-                                <p><strong>Considerações:</strong></p>
-                                <ul>
-                                    <li>Anemia comum em idosos</li>
-                                    <li>Múltiplas causas</li>
-                                    <li>Investigação necessária</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="nutriente">
-                                <h5>Ômega-3</h5>
-                                <p><strong>Benefícios:</strong></p>
-                                <ul>
-                                    <li>Saúde cardiovascular</li>
-                                    <li>Função cognitiva</li>
-                                    <li>Anti-inflamatório</li>
-                                    <li>Saúde ocular</li>
-                                </ul>
-                                
-                                <p><strong>Fontes:</strong> Peixes gordos, nozes, linhaça</p>
-                            </div>
-                        </div>
-                        
-                        <div class="desafios-nutricionais">
-                            <h4>🍴 Desafios Nutricionais Comuns</h4>
-                            <p><strong>Problemas de deglutição:</strong></p>
-                            <ul>
-                                <li>Disfagia</li>
-                                <li>Modificação de texturas</li>
-                                <li>Espessantes</li>
-                                <li>Supervisão durante refeições</li>
-                                <li>Avaliação fonoaudiológica</li>
-                            </ul>
-                            
-                            <p><strong>Perda de apetite:</strong></p>
-                            <ul>
-                                <li>Redução do paladar e olfato</li>
-                                <li>Medicamentos</li>
-                                <li>Depressão</li>
-                                <li>Isolamento social</li>
-                                <li>Problemas dentários</li>
-                            </ul>
-                            
-                            <p><strong>Estratégias para melhorar:</strong></p>
-                            <ul>
-                                <li>Temperos e ervas</li>
-                                <li>Apresentação atrativa</li>
-                                <li>Refeições sociais</li>
-                                <li>Pequenas porções frequentes</li>
-                                <li>Ambiente agradável</li>
-                            </ul>
-                            
-                            <p><strong>Desnutrição:</strong></p>
-                            <ul>
-                                <li>Prevalência: 15-50% em idosos</li>
-                                <li>Múltiplas causas</li>
-                                <li>Consequências graves</li>
-                                <li>Triagem nutricional</li>
-                                <li>Intervenção precoce</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="padroes-alimentares">
-                            <h4>🥗 Padrões Alimentares Saudáveis</h4>
-                            <p><strong>Dieta Mediterrânea:</strong></p>
-                            <ul>
-                                <li>Rica em frutas e vegetais</li>
-                                <li>Azeite de oliva</li>
-                                <li>Peixes e frutos do mar</li>
-                                <li>Nozes e sementes</li>
-                                <li>Grãos integrais</li>
-                                <li>Consumo moderado de vinho</li>
-                            </ul>
-                            
-                            <p><strong>Benefícios comprovados:</strong></p>
-                            <ul>
-                                <li>Redução da mortalidade</li>
-                                <li>Proteção cardiovascular</li>
-                                <li>Prevenção de demência</li>
-                                <li>Redução da inflamação</li>
-                                <li>Melhora da função cognitiva</li>
-                            </ul>
-                            
-                            <p><strong>Dieta DASH:</strong></p>
-                            <ul>
-                                <li>Rica em frutas e vegetais</li>
-                                <li>Laticínios com baixo teor de gordura</li>
-                                <li>Grãos integrais</li>
-                                <li>Proteínas magras</li>
-                                <li>Redução do sódio</li>
-                            </ul>
-                            
-                            <p><strong>Dieta MIND:</strong></p>
-                            <ul>
-                                <li>Combinação Mediterrânea + DASH</li>
-                                <li>Foco na saúde cerebral</li>
-                                <li>Vegetais folhosos</li>
-                                <li>Frutas vermelhas</li>
-                                <li>Nozes e peixes</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="ferramentas-relacionadas">
-                        <h3>🥗 Planeje sua alimentação</h3>
-                        <p>Uma nutrição adequada é fundamental para o envelhecimento saudável:</p>
-                        <a href="../ferramentas/macros.html" class="btn-secondary">Calcular Macronutrientes</a>
-                    </div>
-
-                    <h2>Prevenção de Doenças Relacionadas à Idade</h2>
-                    <p>A prevenção é a estratégia mais eficaz para promover o envelhecimento saudável. Focar na prevenção primária e secundária pode reduzir significativamente o risco de doenças crônicas:</p>
-
-                    <h3>Doenças Cardiovasculares</h3>
-                    <div class="prevencao-cardiovascular">
-                        <div class="fatores-risco">
-                            <h4>⚠️ Fatores de Risco</h4>
-                            <p><strong>Não modificáveis:</strong></p>
-                            <ul>
-                                <li>Idade</li>
-                                <li>Sexo masculino</li>
-                                <li>História familiar</li>
-                                <li>Etnia</li>
-                            </ul>
-                            
-                            <p><strong>Modificáveis:</strong></p>
-                            <ul>
-                                <li>Hipertensão arterial</li>
-                                <li>Dislipidemia</li>
-                                <li>Diabetes mellitus</li>
-                                <li>Tabagismo</li>
-                                <li>Sedentarismo</li>
-                                <li>Obesidade</li>
-                                <li>Estresse crônico</li>
-                                <li>Dieta inadequada</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="estrategias-prevencao">
-                            <h4>🛡️ Estratégias de Prevenção</h4>
-                            <p><strong>Controle da pressão arterial:</strong></p>
-                            <ul>
-                                <li>Meta: &lt;140/90 mmHg (geral)</li>
-                                <li>Meta: &lt;130/80 mmHg (risco alto)</li>
-                                <li>Monitorização domiciliar</li>
-                                <li>Redução do sódio (&lt;2g/dia)</li>
-                                <li>Exercício regular</li>
-                                <li>Controle do peso</li>
-                                <li>Medicação quando indicada</li>
-                            </ul>
-                            
-                            <p><strong>Controle lipídico:</strong></p>
-                            <ul>
-                                <li>LDL &lt;100 mg/dL (risco moderado)</li>
-                                <li>LDL &lt;70 mg/dL (risco alto)</li>
-                                <li>HDL &gt;40 mg/dL (homens), &gt;50 mg/dL (mulheres)</li>
-                                <li>Triglicerídeos &lt;150 mg/dL</li>
-                                <li>Dieta com baixo teor de gordura saturada</li>
-                                <li>Estatinas quando indicadas</li>
-                            </ul>
-                            
-                            <p><strong>Controle glicêmico:</strong></p>
-                            <ul>
-                                <li>Glicemia de jejum &lt;100 mg/dL</li>
-                                <li>HbA1c &lt;7% (diabéticos)</li>
-                                <li>Prevenção do diabetes tipo 2</li>
-                                <li>Dieta equilibrada</li>
-                                <li>Exercício regular</li>
-                                <li>Controle do peso</li>
-                            </ul>
-                            
-                            <p><strong>Cessação do tabagismo:</strong></p>
-                            <ul>
-                                <li>Benefício em qualquer idade</li>
-                                <li>Redução rápida do risco</li>
-                                <li>Terapia de reposição nicotínica</li>
-                                <li>Medicamentos (bupropiona, vareniclina)</li>
-                                <li>Apoio psicológico</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Osteoporose e Fraturas</h3>
-                    <div class="prevencao-osteoporose">
-                        <div class="fatores-risco-osseo">
-                            <h4>🦴 Fatores de Risco</h4>
-                            <p><strong>Não modificáveis:</strong></p>
-                            <ul>
-                                <li>Idade avançada</li>
-                                <li>Sexo feminino</li>
-                                <li>Etnia (caucasiana, asiática)</li>
-                                <li>História familiar</li>
-                                <li>Menopausa precoce</li>
-                                <li>Baixo peso corporal</li>
-                            </ul>
-                            
-                            <p><strong>Modificáveis:</strong></p>
-                            <ul>
-                                <li>Deficiência de cálcio e vitamina D</li>
-                                <li>Sedentarismo</li>
-                                <li>Tabagismo</li>
-                                <li>Consumo excessivo de álcool</li>
-                                <li>Uso de corticosteroides</li>
-                                <li>Baixo peso corporal</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="prevencao-ossea">
-                            <h4>🛡️ Estratégias de Prevenção</h4>
-                            <p><strong>Nutrição adequada:</strong></p>
-                            <ul>
-                                <li>Cálcio: 1200 mg/dia</li>
-                                <li>Vitamina D: 800-1000 UI/dia</li>
-                                <li>Proteínas adequadas</li>
-                                <li>Magnésio e vitamina K</li>
-                                <li>Redução de cafeína e sódio</li>
-                            </ul>
-                            
-                            <p><strong>Exercício físico:</strong></p>
-                            <ul>
-                                <li>Exercícios com peso</li>
-                                <li>Treinamento de resistência</li>
-                                <li>Exercícios de impacto</li>
-                                <li>Exercícios de equilíbrio</li>
-                                <li>Tai Chi e yoga</li>
-                            </ul>
-                            
-                            <p><strong>Prevenção de quedas:</strong></p>
-                            <ul>
-                                <li>Avaliação do risco</li>
-                                <li>Modificações ambientais</li>
-                                <li>Revisão de medicamentos</li>
-                                <li>Correção de déficits visuais</li>
-                                <li>Calçados adequados</li>
-                                <li>Exercícios de equilíbrio</li>
-                            </ul>
-                            
-                            <p><strong>Rastreamento:</strong></p>
-                            <ul>
-                                <li>Densitometria óssea</li>
-                                <li>Mulheres ≥65 anos</li>
-                                <li>Homens ≥70 anos</li>
-                                <li>Fatores de risco presentes</li>
-                                <li>Repetir a cada 2 anos</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Demência e Declínio Cognitivo</h3>
-                    <div class="prevencao-demencia">
-                        <div class="fatores-risco-cognitivo">
-                            <h4>🧠 Fatores de Risco</h4>
-                            <p><strong>Modificáveis:</strong></p>
-                            <ul>
-                                <li>Baixa escolaridade</li>
-                                <li>Hipertensão</li>
-                                <li>Diabetes</li>
-                                <li>Obesidade</li>
-                                <li>Tabagismo</li>
-                                <li>Sedentarismo</li>
-                                <li>Isolamento social</li>
-                                <li>Depressão</li>
-                                <li>Perda auditiva</li>
-                                <li>Traumatismo craniano</li>
-                                <li>Consumo excessivo de álcool</li>
-                            </ul>
-                            
-                            <p><strong>Não modificáveis:</strong></p>
-                            <ul>
-                                <li>Idade</li>
-                                <li>Genética (APOE ε4)</li>
-                                <li>História familiar</li>
-                                <li>Sexo feminino (Alzheimer)</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="prevencao-cognitiva">
-                            <h4>🛡️ Estratégias de Prevenção</h4>
-                            <p><strong>Atividade cognitiva:</strong></p>
-                            <ul>
-                                <li>Educação continuada</li>
-                                <li>Leitura regular</li>
-                                <li>Jogos mentais</li>
-                                <li>Aprender novas habilidades</li>
-                                <li>Bilinguismo</li>
-                                <li>Atividades criativas</li>
-                                <li>Trabalho intelectualmente estimulante</li>
-                            </ul>
-                            
-                            <p><strong>Atividade física:</strong></p>
-                            <ul>
-                                <li>Exercício aeróbico regular</li>
-                                <li>150 min/semana intensidade moderada</li>
-                                <li>Benefícios neuroprotetores</li>
-                                <li>Melhora da circulação cerebral</li>
-                                <li>Aumento do BDNF</li>
-                                <li>Neurogênese</li>
-                            </ul>
-                            
-                            <p><strong>Interação social:</strong></p>
-                            <ul>
-                                <li>Manter relacionamentos</li>
-                                <li>Atividades em grupo</li>
-                                <li>Voluntariado</li>
-                                <li>Participação comunitária</li>
-                                <li>Evitar isolamento</li>
-                            </ul>
-                            
-                            <p><strong>Controle de fatores vasculares:</strong></p>
-                            <ul>
-                                <li>Hipertensão</li>
-                                <li>Diabetes</li>
-                                <li>Dislipidemia</li>
-                                <li>Obesidade</li>
-                                <li>Tabagismo</li>
-                            </ul>
-                            
-                            <p><strong>Dieta saudável:</strong></p>
-                            <ul>
-                                <li>Dieta mediterrânea</li>
-                                <li>Dieta MIND</li>
-                                <li>Ômega-3</li>
-                                <li>Antioxidantes</li>
-                                <li>Redução de açúcar</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="ferramentas-relacionadas">
-                        <h3>🩺 Monitore sua pressão</h3>
-                        <p>O controle da pressão arterial é crucial para prevenir doenças cardiovasculares:</p>
-                        <a href="../artigos/hipertensao-controle-prevencao.html" class="btn-secondary">Leia sobre Hipertensão</a>
-                    </div>
-
-                    <h2>Saúde Mental no Envelhecimento</h2>
-                    <p>A saúde mental é um componente fundamental do envelhecimento saudável, influenciando diretamente a qualidade de vida, funcionamento social e bem-estar geral:</p>
-
-                    <h3>Desafios Psicológicos do Envelhecimento</h3>
-                    <div class="desafios-psicologicos">
-                        <div class="transicoes-vida">
-                            <h4>🔄 Transições e Perdas</h4>
-                            <p><strong>Aposentadoria:</strong></p>
-                            <ul>
-                                <li>Perda de identidade profissional</li>
-                                <li>Redução da renda</li>
-                                <li>Mudança na rotina</li>
-                                <li>Perda de contatos sociais</li>
-                                <li>Necessidade de ressignificação</li>
-                            </ul>
-                            
-                            <p><strong>Perdas relacionais:</strong></p>
-                            <ul>
-                                <li>Morte do cônjuge</li>
-                                <li>Perda de amigos</li>
-                                <li>Distanciamento dos filhos</li>
-                                <li>Isolamento social</li>
-                                <li>Solidão</li>
-                            </ul>
-                            
-                            <p><strong>Perdas funcionais:</strong></p>
-                            <ul>
-                                <li>Declínio físico</li>
-                                <li>Limitações sensoriais</li>
-                                <li>Redução da mobilidade</li>
-                                <li>Dependência funcional</li>
-                                <li>Perda de autonomia</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="transtornos-mentais">
-                            <h4>🧠 Transtornos Mentais Comuns</h4>
-                            <p><strong>Depressão:</strong></p>
-                            <ul>
-                                <li>Prevalência: 15-20% em idosos</li>
-                                <li>Subdiagnóstico frequente</li>
-                                <li>Apresentação atípica</li>
-                                <li>Sintomas somáticos</li>
-                                <li>Risco de suicídio aumentado</li>
-                            </ul>
-                            
-                            <p><strong>Ansiedade:</strong></p>
-                            <ul>
-                                <li>Prevalência: 10-15% em idosos</li>
-                                <li>Frequentemente comórbida com depressão</li>
-                                <li>Ansiedade generalizada mais comum</li>
-                                <li>Preocupações com saúde</li>
-                                <li>Medo de quedas</li>
-                            </ul>
-                            
-                            <p><strong>Transtornos do sono:</strong></p>
-                            <ul>
-                                <li>Insônia (50% dos idosos)</li>
-                                <li>Apneia do sono</li>
-                                <li>Síndrome das pernas inquietas</li>
-                                <li>Alterações circadianas</li>
-                                <li>Fragmentação do sono</li>
-                            </ul>
-                            
-                            <p><strong>Abuso de substâncias:</strong></p>
-                            <ul>
-                                <li>Álcool (problema crescente)</li>
-                                <li>Medicamentos prescritos</li>
-                                <li>Benzodiazepínicos</li>
-                                <li>Analgésicos opioides</li>
-                                <li>Polifarmácia</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Estratégias para Bem-estar Mental</h3>
-                    <div class="bem-estar-mental">
-                        <div class="resiliencia">
-                            <h4>💪 Construindo Resiliência</h4>
-                            <p><strong>Características da resiliência:</strong></p>
-                            <ul>
-                                <li>Adaptação às adversidades</li>
-                                <li>Capacidade de recuperação</li>
-                                <li>Flexibilidade cognitiva</li>
-                                <li>Otimismo realista</li>
-                                <li>Senso de propósito</li>
-                            </ul>
-                            
-                            <p><strong>Estratégias para desenvolver:</strong></p>
-                            <ul>
-                                <li>Aceitar mudanças como parte da vida</li>
-                                <li>Focar no que pode ser controlado</li>
-                                <li>Estabelecer metas realistas</li>
-                                <li>Manter perspectiva positiva</li>
-                                <li>Aprender com experiências</li>
-                                <li>Cuidar de si mesmo</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="proposito-significado">
-                            <h4>🎯 Propósito e Significado</h4>
-                            <p><strong>Importância:</strong></p>
-                            <ul>
-                                <li>Maior longevidade</li>
-                                <li>Melhor saúde mental</li>
-                                <li>Maior satisfação com a vida</li>
-                                <li>Proteção contra demência</li>
-                                <li>Melhor função física</li>
-                            </ul>
-                            
-                            <p><strong>Como encontrar propósito:</strong></p>
-                            <ul>
-                                <li>Voluntariado</li>
-                                <li>Mentoria para jovens</li>
-                                <li>Atividades criativas</li>
-                                <li>Cuidado com netos</li>
-                                <li>Participação comunitária</li>
-                                <li>Espiritualidade</li>
-                                <li>Aprendizado contínuo</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="conexoes-sociais">
-                            <h4>👥 Conexões Sociais</h4>
-                            <p><strong>Benefícios:</strong></p>
-                            <ul>
-                                <li>Redução da mortalidade</li>
-                                <li>Menor risco de depressão</li>
-                                <li>Proteção cognitiva</li>
-                                <li>Melhor função imunológica</li>
-                                <li>Maior qualidade de vida</li>
-                            </ul>
-                            
-                            <p><strong>Estratégias para manter:</strong></p>
-                            <ul>
-                                <li>Participar de grupos</li>
-                                <li>Manter contato com família</li>
-                                <li>Fazer novos amigos</li>
-                                <li>Atividades comunitárias</li>
-                                <li>Tecnologia para comunicação</li>
-                                <li>Animais de estimação</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="espiritualidade">
-                            <h4>🙏 Espiritualidade e Religiosidade</h4>
-                            <p><strong>Benefícios:</strong></p>
-                            <ul>
-                                <li>Senso de propósito</li>
-                                <li>Suporte social</li>
-                                <li>Estratégias de enfrentamento</li>
-                                <li>Esperança e otimismo</li>
-                                <li>Aceitação da mortalidade</li>
-                            </ul>
-                            
-                            <p><strong>Práticas:</strong></p>
-                            <ul>
-                                <li>Oração e meditação</li>
-                                <li>Participação religiosa</li>
-                                <li>Estudo espiritual</li>
-                                <li>Serviço aos outros</li>
-                                <li>Conexão com a natureza</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="ferramentas-relacionadas">
-                        <h3>🧘‍♀️ Cuide da mente</h3>
-                        <p>A saúde mental é fundamental para o envelhecimento saudável:</p>
-                        <a href="../artigos/ansiedade-depressao-saude-mental.html" class="btn-secondary">Leia sobre Saúde Mental</a>
-                    </div>
-
-                    <h2>Tecnologia e Envelhecimento</h2>
-                    <p>A tecnologia pode ser uma ferramenta poderosa para promover o envelhecimento saudável, melhorando a qualidade de vida, mantendo conexões sociais e apoiando a independência:</p>
-
-                    <h3>Tecnologias Assistivas</h3>
-                    <div class="tecnologias-assistivas">
-                        <div class="categoria-tecnologia">
-                            <h4>📱 Saúde Digital</h4>
-                            <p><strong>Monitoramento de saúde:</strong></p>
-                            <ul>
-                                <li>Aplicativos de pressão arterial</li>
-                                <li>Monitores de glicemia</li>
-                                <li>Oxímetros portáteis</li>
-                                <li>Balanças inteligentes</li>
-                                <li>Monitores de atividade</li>
-                            </ul>
-                            
-                            <p><strong>Telemedicina:</strong></p>
-                            <ul>
-                                <li>Consultas virtuais</li>
-                                <li>Monitoramento remoto</li>
-                                <li>Prescrições eletrônicas</li>
-                                <li>Acesso a especialistas</li>
-                                <li>Redução de deslocamentos</li>
-                            </ul>
-                            
-                            <p><strong>Lembretes de medicação:</strong></p>
-                            <ul>
-                                <li>Aplicativos de medicação</li>
-                                <li>Dispensadores automáticos</li>
-                                <li>Alarmes personalizados</li>
-                                <li>Monitoramento de adesão</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="categoria-tecnologia">
-                            <h4>🏠 Casa Inteligente</h4>
-                            <p><strong>Segurança:</strong></p>
-                            <ul>
-                                <li>Sistemas de detecção de quedas</li>
-                                <li>Câmeras de monitoramento</li>
-                                <li>Sensores de movimento</li>
-                                <li>Alarmes de emergência</li>
-                                <li>Fechaduras inteligentes</li>
-                            </ul>
-                            
-                            <p><strong>Conforto e conveniência:</strong></p>
-                            <ul>
-                                <li>Controle de temperatura</li>
-                                <li>Iluminação automática</li>
-                                <li>Assistentes virtuais</li>
-                                <li>Eletrodomésticos inteligentes</li>
-                                <li>Controle por voz</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="categoria-tecnologia">
-                            <h4>🚗 Mobilidade</h4>
-                            <p><strong>Transporte:</strong></p>
-                            <ul>
-                                <li>Aplicativos de transporte</li>
-                                <li>GPS com instruções de voz</li>
-                                <li>Carros com assistência</li>
-                                <li>Transporte público inteligente</li>
-                            </ul>
-                            
-                            <p><strong>Auxílios para locomoção:</strong></p>
-                            <ul>
-                                <li>Andadores inteligentes</li>
-                                <li>Cadeiras de rodas elétricas</li>
-                                <li>Bengalas com GPS</li>
-                                <li>Calçados com sensores</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Inclusão Digital</h3>
-                    <div class="inclusao-digital">
-                        <div class="barreiras">
-                            <h4>🚧 Barreiras Comuns</h4>
-                            <p><strong>Físicas:</strong></p>
-                            <ul>
-                                <li>Declínio visual</li>
-                                <li>Problemas de destreza</li>
-                                <li>Tremores</li>
-                                <li>Perda auditiva</li>
-                            </ul>
-                            
-                            <p><strong>Cognitivas:</strong></p>
-                            <ul>
-                                <li>Dificuldade de aprendizado</li>
-                                <li>Medo da tecnologia</li>
-                                <li>Baixa autoeficácia</li>
-                                <li>Resistência à mudança</li>
-                            </ul>
-                            
-                            <p><strong>Socioeconômicas:</strong></p>
-                            <ul>
-                                <li>Custo dos dispositivos</li>
-                                <li>Acesso à internet</li>
-                                <li>Falta de suporte</li>
-                                <li>Baixa escolaridade</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="estrategias-inclusao">
-                            <h4>🎯 Estratégias de Inclusão</h4>
-                            <p><strong>Design acessível:</strong></p>
-                            <ul>
-                                <li>Interfaces simples</li>
-                                <li>Texto grande</li>
-                                <li>Alto contraste</li>
-                                <li>Comandos por voz</li>
-                                <li>Feedback tátil</li>
-                            </ul>
-                            
-                            <p><strong>Educação e treinamento:</strong></p>
-                            <ul>
-                                <li>Cursos específicos para idosos</li>
-                                <li>Aprendizado gradual</li>
-                                <li>Suporte personalizado</li>
-                                <li>Materiais didáticos adaptados</li>
-                                <li>Prática supervisionada</li>
-                            </ul>
-                            
-                            <p><strong>Suporte social:</strong></p>
-                            <ul>
-                                <li>Ajuda de familiares</li>
-                                <li>Grupos de apoio</li>
-                                <li>Voluntários</li>
-                                <li>Programas comunitários</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h2>Políticas Públicas e Envelhecimento</h2>
-                    <p>O envelhecimento populacional requer políticas públicas abrangentes que promovam um ambiente favorável ao envelhecimento saudável:</p>
-
-                    <h3>Iniciativas Globais</h3>
-                    <div class="iniciativas-globais">
-                        <div class="oms-iniciativas">
-                            <h4>🌍 Organização Mundial da Saúde</h4>
-                            <p><strong>Década do Envelhecimento Saudável (2021-2030):</strong></p>
-                            <ul>
-                                <li>Mudança de atitudes sobre idade</li>
-                                <li>Desenvolvimento de capacidades funcionais</li>
-                                <li>Prestação de cuidados integrados</li>
-                                <li>Acesso a cuidados de longa duração</li>
-                            </ul>
-                            
-                            <p><strong>Cidades Amigas do Idoso:</strong></p>
-                            <ul>
-                                <li>Espaços ao ar livre e edifícios</li>
-                                <li>Transporte</li>
-                                <li>Habitação</li>
-                                <li>Participação social</li>
-                                <li>Respeito e inclusão social</li>
-                                <li>Participação cívica e emprego</li>
-                                <li>Comunicação e informação</li>
-                                <li>Apoio comunitário e serviços de saúde</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="onu-iniciativas">
-                            <h4>🏛️ Nações Unidas</h4>
-                            <p><strong>Plano de Ação Internacional sobre Envelhecimento:</strong></p>
-                            <ul>
-                                <li>Pessoas idosas e desenvolvimento</li>
-                                <li>Promoção da saúde e bem-estar</li>
-                                <li>Criação de ambientes propícios</li>
-                            </ul>
-                            
-                            <p><strong>Objetivos de Desenvolvimento Sustentável:</strong></p>
-                            <ul>
-                                <li>Saúde e bem-estar (ODS 3)</li>
-                                <li>Redução das desigualdades (ODS 10)</li>
-                                <li>Cidades sustentáveis (ODS 11)</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Políticas no Brasil</h3>
-                    <div class="politicas-brasil">
-                        <div class="legislacao">
-                            <h4>📜 Marco Legal</h4>
-                            <p><strong>Estatuto do Idoso (Lei 10.741/2003):</strong></p>
-                            <ul>
-                                <li>Direitos fundamentais</li>
-                                <li>Proteção integral</li>
-                                <li>Prioridade no atendimento</li>
-                                <li>Criminalização da violência</li>
-                            </ul>
-                            
-                            <p><strong>Política Nacional do Idoso (Lei 8.842/1994):</strong></p>
-                            <ul>
-                                <li>Promoção do envelhecimento saudável</li>
-                                <li>Manutenção da capacidade funcional</li>
-                                <li>Assistência às necessidades</li>
-                                <li>Estímulo à participação social</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="programas-publicos">
-                            <h4>🏥 Programas e Serviços</h4>
-                            <p><strong>Sistema Único de Saúde (SUS):</strong></p>
-                            <ul>
-                                <li>Política Nacional de Saúde da Pessoa Idosa</li>
-                                <li>Caderneta de Saúde da Pessoa Idosa</li>
-                                <li>Centros de Referência</li>
-                                <li>Atenção domiciliar</li>
-                            </ul>
-                            
-                            <p><strong>Sistema Único de Assistência Social (SUAS):</strong></p>
-                            <ul>
-                                <li>Centros de Convivência</li>
-                                <li>Serviços de proteção social</li>
-                                <li>Benefício de Prestação Continuada</li>
-                                <li>Instituições de Longa Permanência</li>
-                            </ul>
-                            
-                            <p><strong>Previdência Social:</strong></p>
-                            <ul>
-                                <li>Aposentadoria por idade</li>
-                                <li>Aposentadoria por tempo de contribuição</li>
-                                <li>Pensões</li>
-                                <li>Auxílios</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h2>Conclusão</h2>
-                    <p>O envelhecimento saudável é um processo multifacetado que pode ser significativamente influenciado por nossas escolhas e comportamentos ao longo da vida. As evidências científicas demonstram claramente que nunca é tarde demais para adotar práticas que promovam a longevidade e a qualidade de vida.</p>
-                    
-                    <p>As estratégias mais eficazes incluem a manutenção de atividade física regular, alimentação equilibrada, engajamento social, estimulação cognitiva e cuidados preventivos de saúde. A prevenção de doenças crônicas através do controle de fatores de risco modificáveis é fundamental para um envelhecimento bem-sucedido.</p>
-                    
-                    <p>A saúde mental merece atenção especial, pois influencia diretamente todos os outros aspectos do bem-estar. Manter um senso de propósito, conexões sociais significativas e resiliência diante das mudanças são elementos cruciais para a satisfação na vida adulta avançada.</p>
-                    
-                    <p>O papel da tecnologia e das políticas públicas é crescente, criando ambientes mais favoráveis ao envelhecimento saudável. A sociedade como um todo deve trabalhar para combater o ageísmo e promover uma visão positiva do envelhecimento.</p>
-                    
-                    <p>Lembre-se: envelhecer com saúde e dignidade é um direito e uma possibilidade real quando adotamos uma abordagem proativa e baseada em evidências para cuidar de nossa saúde física, mental e social.</p>
-
-                    <div class="cta-final">
-                        <h3>🌟 Invista no seu futuro</h3>
-                        <p>Comece hoje a construir as bases para um envelhecimento saudável:</p>
-                        <div class="cta-buttons">
-                            <a href="../ferramentas/imc.html" class="btn-primary">Avaliar Saúde</a>
-                            <a href="../artigos/exercicios-queimar-calorias.html" class="btn-secondary">Exercitar-se</a>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 
+                <!-- Sidebar (Índice) - Desktop -->
+                <aside class="hidden lg:block lg:col-span-3 relative">
+                    <div class="sticky top-32 p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <h4 class="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="list" class="w-4 h-4"></i> Neste artigo
+                        </h4>
+                        <nav class="space-y-2 text-sm border-l-2 border-gray-100 dark:border-gray-700 ml-1">
+                            <a href="#conceito" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-teal-600 hover:border-l-2 hover:border-teal-600 -ml-[2px] transition-all">O Novo Envelhecer</a>
+                            <a href="#pilares" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-teal-600 hover:border-l-2 hover:border-teal-600 -ml-[2px] transition-all">4 Pilares da Longevidade</a>
+                            <a href="#sarcopenia" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-teal-600 hover:border-l-2 hover:border-teal-600 -ml-[2px] transition-all">Combatendo a Sarcopenia</a>
+                            <a href="#cerebro" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-teal-600 hover:border-l-2 hover:border-teal-600 -ml-[2px] transition-all">Saúde Cerebral</a>
+                            <a href="#nutricao" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-teal-600 hover:border-l-2 hover:border-teal-600 -ml-[2px] transition-all">Nutrição na 3ª Idade</a>
+                            <a href="#prevencao" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-teal-600 hover:border-l-2 hover:border-teal-600 -ml-[2px] transition-all">Prevenção de Quedas</a>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Conteúdo do Artigo -->
+                <article class="lg:col-span-9 prose dark:prose-invert max-w-none">
+                    
+                    <!-- Header do Artigo -->
+                    <header class="not-prose mb-10 text-center lg:text-left">
+                        <span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-teal-700 uppercase bg-teal-100 rounded-full dark:bg-teal-900/30 dark:text-teal-400">
+                            Longevidade
+                        </span>
+                        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
+                            Envelhecimento Saudável: O Guia Completo para Viver Mais e Melhor
+                        </h1>
+                        
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-800 pb-8">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                                    <i data-lucide="glasses" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <span class="block font-bold text-gray-900 dark:text-white">Revisão Gerontológica</span>
+                                    <span class="text-xs">Baseado em diretrizes da OMS</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                30 de Janeiro, 2024
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                                32 min de leitura
+                            </div>
+                        </div>
+                    </header>
+
+                    <!-- Destaque Inicial -->
+                    <div class="bg-teal-50 dark:bg-teal-900/20 p-6 rounded-2xl border-l-4 border-teal-500 mb-8 not-prose">
+                        <h3 class="font-bold text-teal-800 dark:text-teal-300 mb-2">A Revolução da Longevidade</h3>
+                        <p class="text-lg text-gray-700 dark:text-gray-300">
+                            Envelhecer não é sinônimo de doença. Hoje, sabemos que a genética influencia apenas cerca de 25% da nossa longevidade. Os outros 75% dependem do nosso estilo de vida e do ambiente em que vivemos. Você tem mais controle sobre seu envelhecimento do que imagina.
+                        </p>
+                    </div>
+
+                    <section id="conceito">
+                        <h2>O Novo Conceito de Envelhecimento</h2>
+                        <p>A Organização Mundial da Saúde (OMS) define envelhecimento saudável não apenas como a ausência de doenças, mas como "o processo de desenvolvimento e manutenção da capacidade funcional que permite o bem-estar na idade avançada".</p>
+                        <p>Isso significa que o objetivo não é apenas viver muitos anos, mas viver com <strong>autonomia e independência</strong>. É ser capaz de fazer as coisas que você valoriza pelo maior tempo possível.</p>
+                    </section>
+
+                    <section id="pilares">
+                        <h2>Os 4 Pilares da Longevidade Ativa</h2>
+                        <p>Para construir um futuro saudável, precisamos focar em quatro áreas fundamentais:</p>
+
+                        <div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 flex gap-4">
+                                <div class="shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-blue-600">
+                                    <i data-lucide="activity" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Saúde Física</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Controle de doenças crônicas, manutenção da massa muscular e mobilidade.</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 flex gap-4">
+                                <div class="shrink-0 w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center text-purple-600">
+                                    <i data-lucide="brain" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Saúde Cognitiva</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Estímulo mental contínuo, aprendizado e preservação da memória.</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 flex gap-4">
+                                <div class="shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-600">
+                                    <i data-lucide="users" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Engajamento Social</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Manutenção de laços afetivos, participação comunitária e combate ao isolamento.</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 flex gap-4">
+                                <div class="shrink-0 w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center text-orange-600">
+                                    <i data-lucide="smile" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Propósito de Vida</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Ter motivos para levantar da cama, seja voluntariado, hobbies ou família.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="sarcopenia">
+                        <h2>Combatendo a Sarcopenia (Perda de Músculos)</h2>
+                        <p>A sarcopenia é a perda progressiva de massa e força muscular associada ao envelhecimento. Ela é a principal causa de fragilidade e perda de independência em idosos. A boa notícia é que ela é reversível.</p>
+
+                        <div class="my-8 not-prose">
+                            <!-- Card CTA -->
+                            <div class="bg-gradient-to-r from-teal-600 to-emerald-600 rounded-2xl p-8 text-white text-center relative overflow-hidden">
+                                <div class="absolute top-0 right-0 opacity-10"><i data-lucide="dumbbell" class="w-32 h-32"></i></div>
+                                <h3 class="text-2xl font-bold mb-2 relative z-10">Fortaleça seus músculos</h3>
+                                <p class="mb-6 opacity-90 relative z-10">Descubra como o ganho de massa muscular pode transformar sua qualidade de vida.</p>
+                                <a href="../artigos/ganho-massa-muscular.html" class="relative z-10 inline-flex items-center bg-white text-teal-700 font-bold py-3 px-6 rounded-full hover:bg-gray-100 transition-colors shadow-lg">
+                                    <i data-lucide="biceps-flexed" class="w-5 h-5 mr-2"></i> Guia de Hipertrofia
+                                </a>
+                            </div>
+                        </div>
+
+                        <h3>Estratégias Anti-Sarcopenia</h3>
+                        <ul>
+                            <li><strong>Treino de Força:</strong> Musculação ou exercícios com peso do corpo são essenciais, pelo menos 2 vezes na semana.</li>
+                            <li><strong>Proteína Adequada:</strong> Idosos precisam de mais proteína que jovens para manter os músculos. Tente consumir proteína em todas as refeições.</li>
+                            <li><strong>Vitamina D:</strong> Níveis baixos estão associados a fraqueza muscular. Tome sol ou suplemente conforme orientação médica.</li>
+                        </ul>
+                    </section>
+
+                    <section id="cerebro">
+                        <h2>Saúde Cerebral: Use ou Perca</h2>
+                        <p>O cérebro é como um músculo: precisa ser exercitado. A reserva cognitiva construída ao longo da vida protege contra demências.</p>
+                        
+                        <div class="overflow-x-auto not-prose my-6">
+                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <tr>
+                                        <th class="px-6 py-3">Hábito</th>
+                                        <th class="px-6 py-3">Benefício Cerebral</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4 font-bold text-blue-600">Aprender algo novo</td>
+                                        <td class="px-6 py-4">Cria novas conexões neurais (neuroplasticidade). Ex: idiomas, instrumentos.</td>
+                                    </tr>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4 font-bold text-green-600">Exercício Aeróbico</td>
+                                        <td class="px-6 py-4">Aumenta o fluxo sanguíneo cerebral e estimula o crescimento de neurônios no hipocampo (memória).</td>
+                                    </tr>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4 font-bold text-purple-600">Sono de Qualidade</td>
+                                        <td class="px-6 py-4">Durante o sono, o cérebro "limpa" toxinas associadas ao Alzheimer (sistema glinfático).</td>
+                                    </tr>
+                                    <tr class="bg-white dark:bg-gray-800">
+                                        <td class="px-6 py-4 font-bold text-orange-600">Socialização</td>
+                                        <td class="px-6 py-4">Conversar e interagir é um exercício cognitivo complexo que protege contra o declínio mental.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section id="nutricao">
+                        <h2>Nutrição na Terceira Idade</h2>
+                        <p>Com o envelhecimento, o metabolismo desacelera e a absorção de nutrientes pode diminuir. A qualidade do que se come torna-se mais importante que a quantidade.</p>
+
+                        <h3>Pontos de Atenção</h3>
+                        <ul>
+                            <li><strong>Cálcio e Vitamina D:</strong> Cruciais para prevenir osteoporose. Fontes: laticínios, folhas verdes escuras, sol.</li>
+                            <li><strong>Fibras e Água:</strong> O funcionamento intestinal pode ficar mais lento. Aumente a ingestão de fibras e não espere ter sede para beber água.</li>
+                            <li><strong>Vitamina B12:</strong> A absorção diminui com a idade, afetando a memória e energia. Considere dosar e suplementar se necessário.</li>
+                            <li><strong>Redução de Sódio:</strong> Importante para controlar a pressão arterial. Use ervas e especiarias para dar sabor.</li>
+                        </ul>
+
+                        <div class="not-prose bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 my-6 flex items-center gap-6">
+                            <div class="flex-1">
+                                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Hidratação é chave</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Idosos sentem menos sede, o que aumenta o risco de desidratação. Calcule sua meta diária.</p>
+                                <a href="../ferramentas/agua.html" class="inline-flex items-center text-sm font-bold text-brand-600 hover:text-brand-700">
+                                    Calculadora de Água <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                                </a>
+                            </div>
+                            <div class="hidden sm:block">
+                                <i data-lucide="droplets" class="w-16 h-16 text-blue-300"></i>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="prevencao">
+                        <h2>Segurança e Prevenção de Quedas</h2>
+                        <p>Quedas são a principal causa de acidentes em idosos, mas podem ser prevenidas com medidas simples:</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 not-prose mb-8">
+                            <div class="p-4 rounded-lg bg-yellow-50 dark:bg-yellow-900/10 border border-yellow-100 dark:border-yellow-900">
+                                <strong class="block text-yellow-700 dark:text-yellow-400 mb-1">Ambiente Seguro</strong>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Remova tapetes soltos, melhore a iluminação e instale barras de apoio no banheiro.</span>
+                            </div>
+                            <div class="p-4 rounded-lg bg-green-50 dark:bg-green-900/10 border border-green-100 dark:border-green-900">
+                                <strong class="block text-green-700 dark:text-green-400 mb-1">Equilíbrio</strong>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Pratique Tai Chi, Yoga ou exercícios de equilíbrio regularmente.</span>
+                            </div>
+                            <div class="p-4 rounded-lg bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900">
+                                <strong class="block text-blue-700 dark:text-blue-400 mb-1">Visão e Audição</strong>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Faça check-ups anuais. Ver bem e ouvir bem é fundamental para o equilíbrio.</span>
+                            </div>
+                            <div class="p-4 rounded-lg bg-purple-50 dark:bg-purple-900/10 border border-purple-100 dark:border-purple-900">
+                                <strong class="block text-purple-700 dark:text-purple-400 mb-1">Calçados</strong>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Use sapatos fechados, com solado antiderrapante e bem ajustados.</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="not-prose mt-12 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Referências Bibliográficas</h3>
+                        <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                            <li>1. Organização Mundial da Saúde (OMS). <em>Relatório Mundial de Envelhecimento e Saúde</em>.</li>
+                            <li>2. Sociedade Brasileira de Geriatria e Gerontologia (SBGG). <em>Diretrizes para o Envelhecimento Ativo</em>.</li>
+                            <li>3. National Institute on Aging (NIA). <em>Exercise and Physical Activity for Healthy Aging</em>.</li>
+                        </ul>
+                    </div>
+
+                </article>
             </div>
-        </article>
+        </div>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Calcule Sua Saúde</h3>
-                    <p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Links Úteis</h4>
-                    <ul>
-                        <li><a href="../sobre.html">Sobre</a></li>
-                        <li><a href="../contato.html">Contato</a></li>
-                        <li><a href="../politica.html">Política de Privacidade</a></li>
-                        <li><a href="../termos.html">Termos de Uso</a></li>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="../sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="../contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h4>Ferramentas</h4>
-                    <ul>
-                        <li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
-                        <li><a href="../ferramentas/agua.html">Calculadora de Água</a></li>
-                        <li><a href="../ferramentas/calorias.html">Gasto Calórico</a></li>
-                        <li><a href="../ferramentas/macros.html">Macronutrientes</a></li>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="../termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="../ferramentas/tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
+                        <li><a href="../ferramentas/calorias.html" class="hover:text-brand-400 transition-colors">Gasto Calórico</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="footer-bottom">
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
                 <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
-                <p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="../js/modo-noturno.js"></script>
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones
+        lucide.createIcons();
+
+        // Barra de Progresso de Leitura
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("reading-progress").style.width = scrolled + "%";
+        };
+
+        // Dark Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        // Mobile Menu
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
-
