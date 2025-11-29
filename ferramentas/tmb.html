@@ -1,225 +1,422 @@
 <!DOCTYPE html>
-
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-<meta charset="utf-8"/>
-<meta name="google-adsense-account" content="ca-pub-5825554897787593">  
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Calculadora de TMB - Taxa Metabólica Basal | Calcule Sua Saúde</title>
-<meta content="Calcule sua Taxa Metabólica Basal (TMB) gratuitamente. Descubra quantas calorias seu corpo queima em repouso durante um dia." name="description"/>
-<meta content="calculadora TMB, taxa metabólica basal, calorias repouso, metabolismo basal, gasto energético" name="keywords"/>
-<!-- Open Graph -->
-<meta content="Calculadora de TMB - Taxa Metabólica Basal" property="og:title"/>
-<meta content="Calcule sua Taxa Metabólica Basal e descubra quantas calorias seu corpo queima em repouso." property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="https://calculesuasaude.com.br/ferramentas/tmb.html" property="og:url"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Calculadora de TMB - Taxa Metabólica Basal | Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Calcule sua Taxa Metabólica Basal (TMB) gratuitamente. Descubra quantas calorias seu corpo queima em repouso durante um dia.">
+    <meta property="og:title" content="Calculadora de TMB - Calcule Sua Saúde">
+    <meta property="og:description" content="Calcule sua Taxa Metabólica Basal e descubra quantas calorias seu corpo queima em repouso.">
+    <meta property="og:type" content="website">
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
-     crossorigin="anonymous"></script>
-  
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
 
-  gtag('config', 'G-EVCQQZV60N');
-</script>
-<!-- Favicon -->
-<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
-<!-- CSS -->
-<link href="../css/estilo.css" rel="stylesheet"/>
-<link href="../css/estilo-adicional.css" rel="stylesheet"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .dark .glass-effect {
+            background: rgba(17, 24, 39, 0.95);
+        }
+    </style>
 </head>
-<body>
-<!-- Cabeçalho -->
-<header class="header-fixo">
-<nav class="navbar">
-<div class="container">
-<div class="logo">
-<h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
-</div>
-<ul class="menu">
-<li><a href="../index.html">Início</a></li>
-<li><a href="../index.html#ferramentas">Ferramentas</a></li>
-<li><a href="../index.html#artigos">Artigos</a></li>
-<li><a href="../sobre.html">Sobre</a></li>
-<li><a href="../contato.html">Contato</a></li>
-<li><button class="btn-modo" id="modo-noturno">🌙</button></li>
-</ul>
-</div>
-</nav>
-</header>
-<!-- Breadcrumbs -->
-<section class="breadcrumbs">
-<div class="container">
-<a href="../index.html">Início</a> &gt; <a href="../index.html#ferramentas">Ferramentas</a> &gt; <span>Calculadora de TMB</span>
-</div>
-</section>
-<!-- Conteúdo Principal -->
-<main>
-<section class="ferramenta-content">
-<div class="container">
-<div class="ferramenta-header">
-<div class="ferramenta-icon">🔥</div>
-<h1>Calculadora de TMB</h1>
-<p class="ferramenta-subtitle">Calcule sua Taxa Metabólica Basal e descubra quantas calorias seu corpo queima em repouso</p>
-</div>
-<div class="ferramenta-grid">
-<div class="calculadora-section">
-<div class="calculadora-card">
-<h2>Calcule sua TMB</h2>
-<form id="tmb-form">
-<div class="form-group">
-<label for="sexo">Sexo</label>
-<select id="sexo" required="">
-<option value="">Selecione</option>
-<option value="masculino">Masculino</option>
-<option value="feminino">Feminino</option>
-</select>
-</div>
-<div class="form-group">
-<label for="idade">Idade (anos)</label>
-<input id="idade" max="120" min="10" placeholder="Ex: 30" required="" type="number"/>
-</div>
-<div class="form-group">
-<label for="peso">Peso (kg)</label>
-<input id="peso" max="300" min="1" placeholder="Ex: 70.5" required="" step="0.1" type="number"/>
-</div>
-<div class="form-group">
-<label for="altura">Altura (cm)</label>
-<input id="altura" max="250" min="50" placeholder="Ex: 175" required="" step="0.1" type="number"/>
-</div>
-<div class="form-group">
-<label for="atividade">Nível de Atividade Física</label>
-<select id="atividade" required="">
-<option value="">Selecione</option>
-<option value="1.2">Sedentário (pouco ou nenhum exercício)</option>
-<option value="1.375">Levemente ativo (exercício leve 1-3 dias/semana)</option>
-<option value="1.55">Moderadamente ativo (exercício moderado 3-5 dias/semana)</option>
-<option value="1.725">Muito ativo (exercício intenso 6-7 dias/semana)</option>
-<option value="1.9">Extremamente ativo (exercício muito intenso, trabalho físico)</option>
-</select>
-</div>
-<button class="btn-primary" type="submit">Calcular TMB</button>
-</form>
-<div class="resultado" id="resultado-tmb" style="display: none;">
-<h3>Seus Resultados</h3>
-<div class="resultado-tmb-grid">
-<div class="resultado-item">
-<div class="resultado-label">TMB (Repouso)</div>
-<div class="resultado-valor" id="valor-tmb"></div>
-<div class="resultado-unidade">calorias/dia</div>
-</div>
-<div class="resultado-item">
-<div class="resultado-label">GET (Total)</div>
-<div class="resultado-valor" id="valor-get"></div>
-<div class="resultado-unidade">calorias/dia</div>
-</div>
-</div>
-<div class="resultado-interpretacao" id="interpretacao-tmb"></div>
-</div>
-</div>
-</div>
-<div class="info-section">
-<div class="info-card">
-<h3>O que é a TMB?</h3>
-<p>A Taxa Metabólica Basal (TMB) é a quantidade mínima de energia que seu corpo precisa para manter as funções vitais em repouso, como respiração, circulação sanguínea e funcionamento dos órgãos.</p>
-</div>
-<div class="info-card">
-<h3>Como é calculada?</h3>
-<p>Utilizamos a equação de Harris-Benedict revisada, que considera sexo, idade, peso e altura:</p>
-<div class="formula">
-<strong>Homens:</strong> TMB = 88,362 + (13,397 × peso) + (4,799 × altura) - (5,677 × idade)<br/>
-<strong>Mulheres:</strong> TMB = 447,593 + (9,247 × peso) + (3,098 × altura) - (4,330 × idade)
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                </div>
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-brand-600">Saúde</span>
+                </h1>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="../index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="../todos_quizzes.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Quizzes</a>
+                <a href="../index.html#ferramentas" class="text-sm font-bold text-brand-600">Calculadoras</a>
+                <a href="../artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
+                <a href="../sobre.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Sobre</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../artigos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            
+            <!-- Breadcrumbs -->
+            <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="../index.html" class="hover:text-brand-600">Início</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <a href="../index.html#ferramentas" class="hover:text-brand-600">Ferramentas</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <span class="text-gray-900 dark:text-white font-medium">Calculadora TMB</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Coluna Esquerda: Calculadora -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden p-8">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-xl text-orange-600 dark:text-orange-400">
+                                <i data-lucide="flame" class="w-6 h-6"></i>
                             </div>
-</div>
-<div class="info-card">
-<h3>TMB vs GET</h3>
-<ul>
-<li><strong>TMB:</strong> Energia gasta em repouso absoluto</li>
-<li><strong>GET:</strong> Gasto Energético Total (TMB × fator de atividade)</li>
-<li>O GET inclui atividades físicas e termogênese</li>
-<li>Representa suas necessidades calóricas reais</li>
-</ul>
-</div>
-<div class="info-card">
-<h3>Fatores que Influenciam</h3>
-<ul>
-<li>Idade (diminui com o tempo)</li>
-<li>Sexo (homens têm TMB maior)</li>
-<li>Massa muscular</li>
-<li>Genética</li>
-<li>Hormônios (tireoide, etc.)</li>
-<li>Temperatura corporal</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="conteudo-educativo">
-<h2>Entenda melhor a TMB</h2>
-<div class="educativo-grid">
-<div class="educativo-card">
-<h3>🎯 Para que serve?</h3>
-<p>A TMB ajuda a determinar suas necessidades calóricas diárias, sendo fundamental para planos de emagrecimento, ganho de peso ou manutenção do peso atual.</p>
-</div>
-<div class="educativo-card">
-<h3>📊 Componentes do Gasto Energético</h3>
-<p>TMB representa 60-75% do gasto total. O restante inclui atividade física (15-30%), termogênese dos alimentos (8-15%) e atividades espontâneas.</p>
-</div>
-<div class="educativo-card">
-<h3>💪 Como Aumentar a TMB?</h3>
-<p>Exercícios de força aumentam massa muscular, elevando a TMB. Proteínas também têm maior efeito termogênico que carboidratos e gorduras.</p>
-</div>
-<div class="educativo-card">
-<h3>⚠️ Limitações</h3>
-<p>A fórmula é uma estimativa. Fatores como composição corporal, genética e condições médicas podem influenciar o resultado real.</p>
-</div>
-</div>
-</div>
-<div class="leia-tambem">
-<h3>Leia também</h3>
-<div class="artigos-relacionados"><a class="artigo-link" href="../artigos/nutricao-esportiva.html"><span class_="artigo-titulo">Nutrição Esportiva: Guia Completo para Performance e Recuperação</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/saude-mulher-cuidados.html"><span class_="artigo-titulo">Saúde da Mulher: Guia Completo de Cuidados Específicos</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/perda-peso-estrategias.html"><span class_="artigo-titulo">Perda de Peso: Estratégias Científicas e Sustentáveis para Emagrecer</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a></div>
-</div>
-</div>
-</section>
-</main>
-<!-- Rodapé -->
-<footer class="footer">
-<div class="container">
-<div class="footer-content">
-<div class="footer-section">
-<h3>Calcule Sua Saúde</h3>
-<p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
-</div>
-<div class="footer-section">
-<h4>Links Úteis</h4>
-<ul>
-<li><a href="../sobre.html">Sobre</a></li>
-<li><a href="../contato.html">Contato</a></li>
-<li><a href="../politica.html">Política de Privacidade</a></li>
-<li><a href="../termos.html">Termos de Uso</a></li>
-</ul>
-</div>
-<div class="footer-section">
-<h4>Outras Ferramentas</h4>
-<ul>
-<li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
-<li><a href="agua.html">Água por Dia</a></li>
-<li><a href="gordura.html">Gordura Corporal</a></li>
-<li><a href="macros.html">Macronutrientes</a></li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom">
-<p>© 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
-<p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
-</div>
-</div>
-</footer>
-<!-- JavaScript -->
-<script src="../js/modo-noturno.js"></script>
-<script src="../js/tmb.js"></script>
+                            <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Calculadora de TMB</h1>
+                        </div>
+
+                        <form id="tmb-form" class="space-y-5">
+                            
+                            <!-- Sexo -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Sexo</label>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="sexo" value="masculino" class="peer sr-only" checked>
+                                        <div class="p-3 rounded-xl border border-gray-200 dark:border-gray-600 text-center peer-checked:bg-brand-50 dark:peer-checked:bg-brand-900/20 peer-checked:border-brand-500 peer-checked:text-brand-600 transition-all hover:bg-gray-50 dark:hover:bg-gray-700">
+                                            Masculino
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="sexo" value="feminino" class="peer sr-only">
+                                        <div class="p-3 rounded-xl border border-gray-200 dark:border-gray-600 text-center peer-checked:bg-brand-50 dark:peer-checked:bg-brand-900/20 peer-checked:border-brand-500 peer-checked:text-brand-600 transition-all hover:bg-gray-50 dark:hover:bg-gray-700">
+                                            Feminino
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label for="idade" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Idade</label>
+                                    <input type="number" id="idade" min="10" max="120" placeholder="Ex: 30" required
+                                        class="block w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label for="peso" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Peso (kg)</label>
+                                    <input type="number" id="peso" step="0.1" placeholder="Ex: 70" required
+                                        class="block w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="altura" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Altura (cm)</label>
+                                <input type="number" id="altura" placeholder="Ex: 175" required
+                                    class="block w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                            </div>
+
+                            <div>
+                                <label for="atividade" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Nível de Atividade</label>
+                                <div class="relative">
+                                    <select id="atividade" required
+                                        class="block w-full pl-4 pr-10 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all appearance-none">
+                                        <option value="1.2">Sedentário (pouco ou nenhum exercício)</option>
+                                        <option value="1.375">Levemente ativo (exercício 1-3 dias/sem)</option>
+                                        <option value="1.55">Moderadamente ativo (exercício 3-5 dias/sem)</option>
+                                        <option value="1.725">Muito ativo (exercício 6-7 dias/sem)</option>
+                                        <option value="1.9">Extremamente ativo (exercício intenso diário)</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                                Calcular Metabolismo
+                            </button>
+                        </form>
+
+                        <!-- Resultado -->
+                        <div id="resultado-container" class="hidden mt-8 pt-8 border-t border-gray-100 dark:border-gray-700 animate-fade-in">
+                            <h3 class="text-center font-bold text-gray-900 dark:text-white mb-6">Seus Resultados</h3>
+                            
+                            <div class="space-y-4">
+                                <!-- TMB -->
+                                <div class="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-2xl border border-gray-200 dark:border-gray-600 relative overflow-hidden group">
+                                    <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+                                        <i data-lucide="battery" class="w-12 h-12"></i>
+                                    </div>
+                                    <span class="block text-xs text-gray-500 dark:text-gray-400 uppercase font-bold tracking-wider mb-1">TMB (Repouso Absoluto)</span>
+                                    <div class="flex items-end gap-1">
+                                        <span id="resultado-tmb" class="text-3xl font-extrabold text-gray-900 dark:text-white">--</span>
+                                        <span class="text-sm font-medium text-gray-500 mb-1">kcal/dia</span>
+                                    </div>
+                                    <p class="text-xs text-gray-400 dark:text-gray-500 mt-2">O mínimo que seu corpo precisa para sobreviver.</p>
+                                </div>
+
+                                <!-- GET -->
+                                <div class="bg-gradient-to-r from-orange-500 to-red-500 p-5 rounded-2xl text-white shadow-lg relative overflow-hidden">
+                                    <div class="absolute top-0 right-0 p-3 opacity-20">
+                                        <i data-lucide="activity" class="w-12 h-12"></i>
+                                    </div>
+                                    <span class="block text-xs text-orange-100 uppercase font-bold tracking-wider mb-1">Gasto Total Diário (GET)</span>
+                                    <div class="flex items-end gap-1">
+                                        <span id="resultado-get" class="text-4xl font-extrabold">--</span>
+                                        <span class="text-sm font-medium text-orange-100 mb-1">kcal/dia</span>
+                                    </div>
+                                    <p class="text-xs text-orange-100 mt-2">Sua queima calórica real considerando sua rotina.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Conteúdo Educativo -->
+                <div class="lg:col-span-7 space-y-8">
+                    
+                    <!-- Explicação TMB vs GET -->
+                    <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-brand-100 dark:bg-brand-900/30 rounded-full text-brand-600 hidden sm:block">
+                                <i data-lucide="book-open" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Qual a diferença entre TMB e Gasto Total?</h2>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h3 class="font-bold text-gray-800 dark:text-gray-200 flex items-center gap-2">
+                                            <i data-lucide="battery-low" class="w-4 h-4 text-gray-400"></i> Taxa Metabólica Basal (TMB)
+                                        </h3>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                                            É a energia que seu corpo gasta apenas para manter as funções vitais (respirar, bombear sangue, atividade cerebral) se você ficasse 24h deitado sem se mexer. Representa cerca de 60-70% do seu gasto total.
+                                        </p>
+                                    </div>
+                                    <div class="border-t border-gray-100 dark:border-gray-700 pt-4">
+                                        <h3 class="font-bold text-gray-800 dark:text-gray-200 flex items-center gap-2">
+                                            <i data-lucide="battery-charging" class="w-4 h-4 text-green-500"></i> Gasto Energético Total (GET)
+                                        </h3>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                                            É o valor real que você queima no dia a dia. Ele soma a TMB + as calorias gastas com exercícios, trabalho, caminhadas e até a digestão dos alimentos. <strong>Este é o número que você deve usar para montar sua dieta.</strong>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fatores que Influenciam -->
+                    <section class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-brand-300 transition-colors">
+                            <i data-lucide="users" class="w-8 h-8 text-brand-500 mb-3"></i>
+                            <h3 class="font-bold text-gray-900 dark:text-white mb-2">Idade e Sexo</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                                O metabolismo tende a desacelerar com a idade. Homens geralmente possuem TMB mais alta devido à maior massa muscular natural.
+                            </p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-brand-300 transition-colors">
+                            <i data-lucide="dumbbell" class="w-8 h-8 text-orange-500 mb-3"></i>
+                            <h3 class="font-bold text-gray-900 dark:text-white mb-2">Massa Muscular</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                                Músculos queimam mais calorias que gordura, mesmo em repouso. Aumentar a massa magra é a melhor forma de acelerar a TMB.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Artigos Relacionados -->
+                    <section>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Aprenda mais sobre metabolismo</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <a href="../artigos/metabolismo-como-acelerar.html" class="block p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-brand-500 transition-colors group">
+                                <h4 class="font-bold text-gray-900 dark:text-white group-hover:text-brand-600 mb-1">Como Acelerar o Metabolismo</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">Estratégias naturais.</p>
+                            </a>
+                            <a href="../artigos/perda-peso-estrategias.html" class="block p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-brand-500 transition-colors group">
+                                <h4 class="font-bold text-gray-900 dark:text-white group-hover:text-brand-600 mb-1">Estratégias para Perda de Peso</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">Emagrecimento saudável.</p>
+                            </a>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="../sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="../contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="../termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Outras Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="agua.html" class="hover:text-brand-400 transition-colors">Água Diária</a></li>
+                        <li><a href="calorias.html" class="hover:text-brand-400 transition-colors">Gasto Calórico</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones Lucide
+        lucide.createIcons();
+
+        // 1. Dark Mode e Mobile Menu
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+
+        // 2. Lógica da Calculadora de TMB
+        document.getElementById('tmb-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const sexo = document.querySelector('input[name="sexo"]:checked').value;
+            const idade = parseInt(document.getElementById('idade').value);
+            const peso = parseFloat(document.getElementById('peso').value);
+            let altura = parseFloat(document.getElementById('altura').value);
+            const fatorAtividade = parseFloat(document.getElementById('atividade').value);
+            
+            const resultadoContainer = document.getElementById('resultado-container');
+
+            if (isNaN(idade) || isNaN(peso) || isNaN(altura) || idade <= 0 || peso <= 0 || altura <= 0) {
+                alert("Por favor, preencha todos os campos corretamente.");
+                return;
+            }
+
+            // Converter altura para CM se o usuário digitar em metros (ex: 1.75)
+            // Se for menor que 3, assume-se que é metros.
+            if (altura < 3) {
+                altura = altura * 100;
+                document.getElementById('altura').value = altura; // Atualiza o campo para feedback visual
+            }
+
+            // Fórmula de Harris-Benedict Revisada
+            let tmb = 0;
+
+            if (sexo === 'masculino') {
+                // Homens: TMB = 88.362 + (13.397 x peso em kg) + (4.799 x altura em cm) - (5.677 x idade em anos)
+                tmb = 88.362 + (13.397 * peso) + (4.799 * altura) - (5.677 * idade);
+            } else {
+                // Mulheres: TMB = 447.593 + (9.247 x peso em kg) + (3.098 x altura em cm) - (4.330 x idade em anos)
+                tmb = 447.593 + (9.247 * peso) + (3.098 * altura) - (4.330 * idade);
+            }
+
+            const get = tmb * fatorAtividade;
+
+            // Exibir Resultados
+            document.getElementById('resultado-tmb').textContent = Math.round(tmb);
+            document.getElementById('resultado-get').textContent = Math.round(get);
+            
+            resultadoContainer.classList.remove('hidden');
+            
+            // Scroll suave até o resultado
+            resultadoContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    </script>
 </body>
 </html>
