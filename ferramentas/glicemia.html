@@ -1,261 +1,503 @@
 <!DOCTYPE html>
-
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-<meta charset="utf-8"/>
-<meta name="google-adsense-account" content="ca-pub-5825554897787593">
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Calculadora de Glicemia - Interpretação de Glicose no Sangue | Calcule Sua Saúde</title>
-<meta content="Interprete seus valores de glicemia e glicose no sangue. Entenda se está normal, pré-diabetes ou diabetes com base nos valores de referência." name="description"/>
-<meta content="calculadora glicemia, glicose sangue, diabetes, pré-diabetes, valores glicemia, hemoglobina glicada" name="keywords"/>
-<!-- Open Graph -->
-<meta content="Calculadora de Glicemia - Interpretação de Glicose no Sangue" property="og:title"/>
-<meta content="Interprete seus valores de glicemia e entenda se está normal, pré-diabetes ou diabetes." property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="https://calculesuasaude.com.br/ferramentas/glicemia.html" property="og:url"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Calculadora de Glicemia - Interpretação de Glicose | Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Interprete seus valores de glicemia e glicose no sangue. Entenda se está normal, pré-diabetes ou diabetes com base nos valores de referência.">
+    <meta property="og:title" content="Calculadora de Glicemia - Calcule Sua Saúde">
+    <meta property="og:description" content="Interprete seus exames de glicose e entenda os resultados.">
+    <meta property="og:type" content="website">
 
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
-     crossorigin="anonymous"></script>  
-  
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
-  gtag('config', 'G-EVCQQZV60N');
-</script>
-<!-- Favicon -->
-<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
-<!-- CSS -->
-<link href="../css/estilo.css" rel="stylesheet"/>
-<link href="../css/estilo-adicional.css" rel="stylesheet"/>
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .dark .glass-effect {
+            background: rgba(17, 24, 39, 0.95);
+        }
+    </style>
 </head>
-<body>
-<!-- Cabeçalho -->
-<header class="header-fixo">
-<nav class="navbar">
-<div class="container">
-<div class="logo">
-<h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
-</div>
-<ul class="menu">
-<li><a href="../index.html">Início</a></li>
-<li><a href="../index.html#ferramentas">Ferramentas</a></li>
-<li><a href="../index.html#artigos">Artigos</a></li>
-<li><a href="../sobre.html">Sobre</a></li>
-<li><a href="../contato.html">Contato</a></li>
-<li><button class="btn-modo" id="modo-noturno">🌙</button></li>
-</ul>
-</div>
-</nav>
-</header>
-<!-- Breadcrumbs -->
-<section class="breadcrumbs">
-<div class="container">
-<a href="../index.html">Início</a> &gt; <a href="../index.html#ferramentas">Ferramentas</a> &gt; <span>Calculadora de Glicemia</span>
-</div>
-</section>
-<!-- Conteúdo Principal -->
-<main>
-<section class="ferramenta-content">
-<div class="container">
-<div class="ferramenta-header">
-<div class="ferramenta-icon">🩸</div>
-<h1>Calculadora de Glicemia</h1>
-<p class="ferramenta-subtitle">Interprete seus valores de glicose no sangue e entenda os resultados dos seus exames</p>
-</div>
-<div class="ferramenta-grid">
-<div class="calculadora-section">
-<div class="calculadora-card">
-<h2>Interprete sua glicemia</h2>
-<form id="glicemia-form">
-<div class="form-group">
-<label for="tipo-exame">Tipo de Exame</label>
-<select id="tipo-exame" required="">
-<option value="">Selecione</option>
-<option value="jejum">Glicemia de Jejum</option>
-<option value="casual">Glicemia Casual (qualquer hora)</option>
-<option value="pos-prandial">Pós-Prandial (2h após refeição)</option>
-<option value="totg">TOTG - 2h (Teste Oral de Tolerância à Glicose)</option>
-<option value="hba1c">HbA1c (Hemoglobina Glicada)</option>
-</select>
-</div>
-<div class="form-group" id="grupo-valor-glicose">
-<label for="valor-glicose">Valor da Glicose (mg/dL)</label>
-<input id="valor-glicose" max="600" min="30" placeholder="Ex: 95" required="" type="number"/>
-<small>Valor conforme resultado do seu exame</small>
-</div>
-<div class="form-group" id="grupo-valor-hba1c" style="display: none;">
-<label for="valor-hba1c">Valor da HbA1c (%)</label>
-<input id="valor-hba1c" max="20" min="3" placeholder="Ex: 5.7" step="0.1" type="number"/>
-<small>Valor da hemoglobina glicada em percentual</small>
-</div>
-<div class="form-group">
-<label for="idade">Idade (anos)</label>
-<input id="idade" max="100" min="18" placeholder="Ex: 45" required="" type="number"/>
-</div>
-<div class="form-group">
-<label for="historico">Histórico Familiar</label>
-<select id="historico" required="">
-<option value="">Selecione</option>
-<option value="sem-historico">Sem histórico de diabetes</option>
-<option value="historico-familiar">Histórico familiar de diabetes</option>
-<option value="pre-diabetes">Já tive pré-diabetes</option>
-<option value="diabetes-gestacional">Diabetes gestacional (mulheres)</option>
-</select>
-</div>
-<div class="form-group">
-<label for="sintomas">Sintomas Relacionados</label>
-<select id="sintomas" required="">
-<option value="">Selecione</option>
-<option value="sem-sintomas">Sem sintomas</option>
-<option value="sede-excessiva">Sede excessiva</option>
-<option value="urinacao-frequente">Urinação frequente</option>
-<option value="fadiga">Fadiga e cansaço</option>
-<option value="multiplos-sintomas">Múltiplos sintomas</option>
-</select>
-</div>
-<button class="btn-primary" type="submit">Interpretar Glicemia</button>
-</form>
-<div class="resultado" id="resultado-glicemia" style="display: none;">
-<h3>Interpretação da Sua Glicemia</h3>
-<div class="resultado-glicemia-principal">
-<div class="valor-exame">
-<div class="valor-label" id="label-exame"></div>
-<div class="valor-resultado" id="valor-resultado"></div>
-<div class="valor-unidade" id="unidade-resultado"></div>
-</div>
-</div>
-<div class="classificacao-glicemia" id="classificacao-glicemia"></div>
-<div class="resultado-interpretacao" id="interpretacao-glicemia"></div>
-</div>
-</div>
-</div>
-<div class="info-section">
-<div class="info-card">
-<h3>Valores de Referência</h3>
-<div class="valores-referencia">
-<h4>Glicemia de Jejum:</h4>
-<div class="ref-item normal">Normal: &lt; 100 mg/dL</div>
-<div class="ref-item pre-diabetes">Pré-diabetes: 100-125 mg/dL</div>
-<div class="ref-item diabetes">Diabetes: ≥ 126 mg/dL</div>
-<h4>Pós-Prandial (2h):</h4>
-<div class="ref-item normal">Normal: &lt; 140 mg/dL</div>
-<div class="ref-item pre-diabetes">Pré-diabetes: 140-199 mg/dL</div>
-<div class="ref-item diabetes">Diabetes: ≥ 200 mg/dL</div>
-<h4>HbA1c:</h4>
-<div class="ref-item normal">Normal: &lt; 5,7%</div>
-<div class="ref-item pre-diabetes">Pré-diabetes: 5,7-6,4%</div>
-<div class="ref-item diabetes">Diabetes: ≥ 6,5%</div>
-</div>
-</div>
-<div class="info-card">
-<h3>Tipos de Exames</h3>
-<ul>
-<li><strong>Jejum:</strong> 8-12h sem comer</li>
-<li><strong>Casual:</strong> Qualquer horário</li>
-<li><strong>Pós-prandial:</strong> 2h após refeição</li>
-<li><strong>TOTG:</strong> Teste com sobrecarga de glicose</li>
-<li><strong>HbA1c:</strong> Média dos últimos 2-3 meses</li>
-</ul>
-</div>
-<div class="info-card">
-<h3>⚠️ Importante</h3>
-<ul>
-<li>Esta ferramenta é apenas informativa</li>
-<li>Não substitui avaliação médica</li>
-<li>Valores alterados requerem confirmação</li>
-<li>Procure um endocrinologista</li>
-<li>Mantenha acompanhamento regular</li>
-</ul>
-</div>
-<div class="info-card">
-<h3>Fatores de Risco</h3>
-<ul>
-<li>Idade acima de 45 anos</li>
-<li>Sobrepeso ou obesidade</li>
-<li>Histórico familiar</li>
-<li>Sedentarismo</li>
-<li>Hipertensão arterial</li>
-<li>Colesterol alterado</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="conteudo-educativo">
-<h2>Entenda a diabetes e pré-diabetes</h2>
-<div class="educativo-grid">
-<div class="educativo-card">
-<h3>🩸 O que é Glicemia?</h3>
-<p>Glicemia é a concentração de glicose (açúcar) no sangue. É a principal fonte de energia para as células e deve ser mantida em níveis adequados.</p>
-</div>
-<div class="educativo-card">
-<h3>⚖️ Pré-diabetes</h3>
-<p>Condição onde a glicose está elevada, mas não o suficiente para diabetes. É reversível com mudanças no estilo de vida e acompanhamento médico.</p>
-</div>
-<div class="educativo-card">
-<h3>🔴 Diabetes Tipo 2</h3>
-<p>Doença crônica onde o corpo não produz insulina suficiente ou não a utiliza adequadamente. Requer tratamento médico e mudanças no estilo de vida.</p>
-</div>
-<div class="educativo-card">
-<h3>📊 HbA1c</h3>
-<p>Hemoglobina glicada mostra a média da glicose nos últimos 2-3 meses. É o melhor exame para acompanhar o controle glicêmico a longo prazo.</p>
-</div>
-<div class="educativo-card">
-<h3>🍎 Prevenção</h3>
-<p>Alimentação equilibrada, exercícios regulares, manutenção do peso adequado e acompanhamento médico são fundamentais para prevenir diabetes.</p>
-</div>
-<div class="educativo-card">
-<h3>💊 Tratamento</h3>
-<p>Inclui medicamentos quando necessário, monitoramento da glicose, dieta adequada, exercícios e educação sobre a doença.</p>
-</div>
-</div>
-</div>
-<div class="leia-tambem">
-<h3>Leia também</h3>
-<div class="artigos-relacionados"><a class="artigo-link" href="../artigos/cancer-prevencao-deteccao.html"><span class_="artigo-titulo">Câncer: Prevenção e Detecção Precoce</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/saude-mulher-cuidados.html"><span class_="artigo-titulo">Saúde da Mulher: Guia Completo de Cuidados Específicos</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/sono-qualidade-saude.html"><span class_="artigo-titulo">Sono e Saúde: A Importância do Descanso para o Bem-Estar</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a></div>
-</div>
-</div>
-</section>
-</main>
-<!-- Rodapé -->
-<footer class="footer">
-<div class="container">
-<div class="footer-content">
-<div class="footer-section">
-<h3>Calcule Sua Saúde</h3>
-<p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
-</div>
-<div class="footer-section">
-<h4>Links Úteis</h4>
-<ul>
-<li><a href="../sobre.html">Sobre</a></li>
-<li><a href="../contato.html">Contato</a></li>
-<li><a href="../politica.html">Política de Privacidade</a></li>
-<li><a href="../termos.html">Termos de Uso</a></li>
-</ul>
-</div>
-<div class="footer-section">
-<h4>Outras Ferramentas</h4>
-<ul>
-<li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
-<li><a href="../ferramentas/tmb.html">Taxa Metabólica Basal</a></li>
-<li><a href="../ferramentas/macros.html">Macronutrientes</a></li>
-<li><a href="../ferramentas/frequencia_cardiaca.html">Frequência Cardíaca</a></li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom">
-<p>© 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
-<p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
-</div>
-</div>
-</footer>
-<!-- JavaScript -->
-<script src="../js/modo-noturno.js"></script>
-<script src="../js/glicemia.js"></script>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                </div>
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-brand-600">Saúde</span>
+                </h1>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="../index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="../todos_quizzes.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Quizzes</a>
+                <a href="../index.html#ferramentas" class="text-sm font-bold text-brand-600">Calculadoras</a>
+                <a href="../artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
+                <a href="../sobre.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Sobre</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../artigos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            
+            <!-- Breadcrumbs -->
+            <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="../index.html" class="hover:text-brand-600">Início</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <a href="../index.html#ferramentas" class="hover:text-brand-600">Ferramentas</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <span class="text-gray-900 dark:text-white font-medium">Glicemia</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Coluna Esquerda: Calculadora -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden p-8">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="bg-red-100 dark:bg-red-900/30 p-3 rounded-xl text-red-600 dark:text-red-400">
+                                <i data-lucide="activity" class="w-6 h-6"></i>
+                            </div>
+                            <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Interpretação de Glicemia</h1>
+                        </div>
+
+                        <form id="glicemia-form" class="space-y-6">
+                            
+                            <!-- Tipo de Exame -->
+                            <div>
+                                <label for="tipo-exame" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Tipo de Exame</label>
+                                <div class="relative">
+                                    <select id="tipo-exame" required onchange="toggleInputType()"
+                                        class="block w-full pl-4 pr-10 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-red-500 outline-none transition-all appearance-none">
+                                        <option value="jejum">Glicemia de Jejum</option>
+                                        <option value="casual">Glicemia Casual (Qualquer hora)</option>
+                                        <option value="pos-prandial">Pós-Prandial (2h após refeição)</option>
+                                        <option value="totg">TOTG - 2h (Teste Oral de Tolerância)</option>
+                                        <option value="hba1c">HbA1c (Hemoglobina Glicada)</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Valor Glicose (mg/dL) -->
+                            <div id="grupo-valor-glicose">
+                                <label for="valor-glicose" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Valor da Glicose (mg/dL)</label>
+                                <input type="number" id="valor-glicose" min="20" max="600" placeholder="Ex: 95"
+                                    class="block w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-red-500 outline-none transition-all">
+                            </div>
+
+                            <!-- Valor HbA1c (%) -->
+                            <div id="grupo-valor-hba1c" class="hidden">
+                                <label for="valor-hba1c" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Valor da HbA1c (%)</label>
+                                <input type="number" id="valor-hba1c" min="3" max="20" step="0.1" placeholder="Ex: 5.7"
+                                    class="block w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-red-500 outline-none transition-all">
+                            </div>
+
+                            <!-- Informações Adicionais -->
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label for="idade" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Idade</label>
+                                    <input type="number" id="idade" min="1" max="120" placeholder="Ex: 45" required
+                                        class="block w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-red-500 outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label for="historico" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Histórico</label>
+                                    <div class="relative">
+                                        <select id="historico" required
+                                            class="block w-full pl-4 pr-8 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-red-500 outline-none transition-all appearance-none text-sm">
+                                            <option value="nenhum">Nenhum</option>
+                                            <option value="familiar">Familiar</option>
+                                            <option value="pre-diabetes">Já tive Pré</option>
+                                            <option value="gestacional">Gestacional</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                                Analisar Resultado
+                            </button>
+                        </form>
+
+                        <!-- Resultado -->
+                        <div id="resultado-container" class="hidden mt-8 pt-8 border-t border-gray-100 dark:border-gray-700 animate-fade-in">
+                            <h3 class="text-center font-bold text-gray-900 dark:text-white mb-6">Interpretação</h3>
+                            
+                            <div class="text-center">
+                                <div id="resultado-badge" class="inline-block px-6 py-2 rounded-full font-bold text-lg mb-4 bg-gray-100 text-gray-800">
+                                    --
+                                </div>
+                                <div class="flex items-center justify-center gap-2 mb-4">
+                                    <span id="resultado-valor-final" class="text-4xl font-extrabold text-gray-900 dark:text-white">--</span>
+                                    <span id="resultado-unidade" class="text-sm font-medium text-gray-500">mg/dL</span>
+                                </div>
+                                <p id="resultado-texto" class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed border-l-4 pl-4 border-gray-300 text-left">
+                                    --
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Conteúdo Educativo -->
+                <div class="lg:col-span-7 space-y-8">
+                    
+                    <!-- Valores de Referência -->
+                    <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <div class="flex items-center gap-3 mb-6">
+                            <i data-lucide="clipboard-list" class="w-6 h-6 text-red-600 dark:text-red-400"></i>
+                            <h2 class="text-xl font-bold text-gray-900 dark:text-white">Valores de Referência</h2>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- Jejum -->
+                            <div>
+                                <h3 class="font-bold text-gray-800 dark:text-gray-200 mb-2 text-sm uppercase tracking-wide">Glicemia de Jejum (8h sem comer)</h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
+                                    <div class="p-3 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-100 dark:border-green-800">
+                                        <span class="block font-bold text-green-700 dark:text-green-400">Normal</span>
+                                        <span class="text-green-600 dark:text-green-300">&lt; 100 mg/dL</span>
+                                    </div>
+                                    <div class="p-3 rounded-lg bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-100 dark:border-yellow-800">
+                                        <span class="block font-bold text-yellow-700 dark:text-yellow-400">Pré-Diabetes</span>
+                                        <span class="text-yellow-600 dark:text-yellow-300">100 - 125 mg/dL</span>
+                                    </div>
+                                    <div class="p-3 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800">
+                                        <span class="block font-bold text-red-700 dark:text-red-400">Diabetes</span>
+                                        <span class="text-red-600 dark:text-red-300">≥ 126 mg/dL</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pós-Prandial / Casual -->
+                            <div>
+                                <h3 class="font-bold text-gray-800 dark:text-gray-200 mb-2 text-sm uppercase tracking-wide">Pós-Prandial / Casual</h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
+                                    <div class="p-3 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-100 dark:border-green-800">
+                                        <span class="block font-bold text-green-700 dark:text-green-400">Normal</span>
+                                        <span class="text-green-600 dark:text-green-300">&lt; 140 mg/dL</span>
+                                    </div>
+                                    <div class="p-3 rounded-lg bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-100 dark:border-yellow-800">
+                                        <span class="block font-bold text-yellow-700 dark:text-yellow-400">Pré-Diabetes</span>
+                                        <span class="text-yellow-600 dark:text-yellow-300">140 - 199 mg/dL</span>
+                                    </div>
+                                    <div class="p-3 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800">
+                                        <span class="block font-bold text-red-700 dark:text-red-400">Diabetes</span>
+                                        <span class="text-red-600 dark:text-red-300">≥ 200 mg/dL</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- HbA1c -->
+                            <div>
+                                <h3 class="font-bold text-gray-800 dark:text-gray-200 mb-2 text-sm uppercase tracking-wide">Hemoglobina Glicada (HbA1c)</h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
+                                    <div class="p-3 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-100 dark:border-green-800">
+                                        <span class="block font-bold text-green-700 dark:text-green-400">Normal</span>
+                                        <span class="text-green-600 dark:text-green-300">&lt; 5,7%</span>
+                                    </div>
+                                    <div class="p-3 rounded-lg bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-100 dark:border-yellow-800">
+                                        <span class="block font-bold text-yellow-700 dark:text-yellow-400">Pré-Diabetes</span>
+                                        <span class="text-yellow-600 dark:text-yellow-300">5,7% - 6,4%</span>
+                                    </div>
+                                    <div class="p-3 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800">
+                                        <span class="block font-bold text-red-700 dark:text-red-400">Diabetes</span>
+                                        <span class="text-red-600 dark:text-red-300">≥ 6,5%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aviso Importante -->
+                    <div class="bg-orange-50 dark:bg-orange-900/20 border-l-4 border-orange-500 p-6 rounded-r-xl">
+                        <div class="flex items-start gap-4">
+                            <i data-lucide="alert-triangle" class="w-6 h-6 text-orange-600 dark:text-orange-500 shrink-0 mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-orange-800 dark:text-orange-400 mb-1">Atenção</h3>
+                                <p class="text-orange-700 dark:text-orange-300 text-sm leading-relaxed">
+                                    Esta ferramenta é apenas informativa e não substitui uma consulta médica. Um diagnóstico de diabetes requer confirmação com novos exames solicitados por um profissional de saúde.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Artigos Relacionados -->
+                    <section>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Saiba mais sobre Diabetes</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <a href="../artigos/diabetes-prevencao-tratamento.html" class="block p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-red-500 transition-colors group">
+                                <h4 class="font-bold text-gray-900 dark:text-white group-hover:text-red-600 mb-1">Prevenção e Tratamento</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">Guia completo sobre diabetes.</p>
+                            </a>
+                            <a href="../artigos/alimentacao-saudavel-guia.html" class="block p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-red-500 transition-colors group">
+                                <h4 class="font-bold text-gray-900 dark:text-white group-hover:text-red-600 mb-1">Alimentação Saudável</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">Como comer bem para controlar a glicose.</p>
+                            </a>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="../sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="../contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="../termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Outras Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
+                        <li><a href="macros.html" class="hover:text-brand-400 transition-colors">Macronutrientes</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones Lucide
+        lucide.createIcons();
+
+        // 1. Dark Mode e Mobile Menu
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+
+        // 2. Lógica da Calculadora de Glicemia
+        function toggleInputType() {
+            const tipo = document.getElementById('tipo-exame').value;
+            const grupoGlicose = document.getElementById('grupo-valor-glicose');
+            const grupoHba1c = document.getElementById('grupo-valor-hba1c');
+            const inputGlicose = document.getElementById('valor-glicose');
+            const inputHba1c = document.getElementById('valor-hba1c');
+
+            if (tipo === 'hba1c') {
+                grupoGlicose.classList.add('hidden');
+                grupoHba1c.classList.remove('hidden');
+                inputGlicose.required = false;
+                inputGlicose.value = '';
+                inputHba1c.required = true;
+            } else {
+                grupoGlicose.classList.remove('hidden');
+                grupoHba1c.classList.add('hidden');
+                inputGlicose.required = true;
+                inputHba1c.required = false;
+                inputHba1c.value = '';
+            }
+        }
+
+        document.getElementById('glicemia-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const tipo = document.getElementById('tipo-exame').value;
+            const valorGlicose = parseFloat(document.getElementById('valor-glicose').value);
+            const valorHba1c = parseFloat(document.getElementById('valor-hba1c').value);
+            const idade = parseInt(document.getElementById('idade').value);
+            const historico = document.getElementById('historico').value;
+            
+            const resultadoContainer = document.getElementById('resultado-container');
+            const badge = document.getElementById('resultado-badge');
+            const valorFinal = document.getElementById('resultado-valor-final');
+            const unidade = document.getElementById('resultado-unidade');
+            const texto = document.getElementById('resultado-texto');
+
+            let classificacao = '';
+            let corClasse = '';
+            let mensagem = '';
+            let valorExibido = '';
+
+            // Lógica de Classificação (Diretrizes SBD/ADA)
+            if (tipo === 'jejum') {
+                valorExibido = valorGlicose;
+                unidade.textContent = 'mg/dL';
+                if (valorGlicose < 70) {
+                    classificacao = 'Hipoglicemia';
+                    corClasse = 'bg-yellow-100 text-yellow-800 border-yellow-300';
+                    mensagem = 'Seu nível de açúcar está baixo. Isso pode causar tontura e fraqueza. Consuma algo com açúcar rápido se tiver sintomas.';
+                } else if (valorGlicose < 100) {
+                    classificacao = 'Normoglicemia (Normal)';
+                    corClasse = 'bg-green-100 text-green-800 border-green-300';
+                    mensagem = 'Seus níveis estão dentro da faixa saudável.';
+                } else if (valorGlicose <= 125) {
+                    classificacao = 'Pré-Diabetes';
+                    corClasse = 'bg-orange-100 text-orange-800 border-orange-300';
+                    mensagem = 'Atenção: Seus níveis estão elevados. Mudanças no estilo de vida são essenciais agora para prevenir o diabetes.';
+                } else {
+                    classificacao = 'Diabetes Mellitus';
+                    corClasse = 'bg-red-100 text-red-800 border-red-300';
+                    mensagem = 'Seus níveis indicam diabetes. É fundamental consultar um médico para confirmação e tratamento.';
+                }
+            } else if (tipo === 'casual' || tipo === 'pos-prandial' || tipo === 'totg') {
+                valorExibido = valorGlicose;
+                unidade.textContent = 'mg/dL';
+                if (valorGlicose < 140) {
+                    classificacao = 'Normal';
+                    corClasse = 'bg-green-100 text-green-800 border-green-300';
+                    mensagem = 'Sua resposta glicêmica está adequada.';
+                } else if (valorGlicose < 200) {
+                    classificacao = 'Pré-Diabetes (Intolerância à Glicose)';
+                    corClasse = 'bg-orange-100 text-orange-800 border-orange-300';
+                    mensagem = 'Seu corpo está tendo dificuldade em processar o açúcar. Consulte um médico.';
+                } else {
+                    classificacao = 'Diabetes Mellitus';
+                    corClasse = 'bg-red-100 text-red-800 border-red-300';
+                    mensagem = 'Resultado sugestivo de diabetes. Procure orientação médica.';
+                }
+            } else if (tipo === 'hba1c') {
+                valorExibido = valorHba1c;
+                unidade.textContent = '%';
+                if (valorHba1c < 5.7) {
+                    classificacao = 'Normal';
+                    corClasse = 'bg-green-100 text-green-800 border-green-300';
+                    mensagem = 'Sua média de glicose nos últimos meses está excelente.';
+                } else if (valorHba1c <= 6.4) {
+                    classificacao = 'Pré-Diabetes';
+                    corClasse = 'bg-orange-100 text-orange-800 border-orange-300';
+                    mensagem = 'Risco elevado de desenvolver diabetes. Adote hábitos saudáveis.';
+                } else {
+                    classificacao = 'Diabetes';
+                    corClasse = 'bg-red-100 text-red-800 border-red-300';
+                    mensagem = 'Controle glicêmico indicativo de diabetes. Necessário acompanhamento médico.';
+                }
+            }
+
+            // Alerta adicional se tiver histórico ou idade avançada, mesmo se "Normal"
+            if ((historico !== 'nenhum' || idade > 45) && classificacao.includes('Normal')) {
+                mensagem += " <br><br><strong>Nota:</strong> Devido à sua idade ou histórico, mantenha o monitoramento anual preventivo.";
+            }
+
+            // Atualiza UI
+            badge.textContent = classificacao;
+            badge.className = `inline-block px-6 py-2 rounded-full font-bold text-lg mb-4 border ${corClasse}`;
+            valorFinal.textContent = valorExibido;
+            texto.innerHTML = mensagem;
+
+            resultadoContainer.classList.remove('hidden');
+            resultadoContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    </script>
 </body>
 </html>
