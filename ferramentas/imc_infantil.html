@@ -1,247 +1,495 @@
 <!DOCTYPE html>
-
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-<meta charset="utf-8"/>
-<meta name="google-adsense-account" content="ca-pub-5825554897787593">  
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Calculadora de IMC Infantil - Crianças e Adolescentes | Calcule Sua Saúde</title>
-<meta content="Calcule o IMC de crianças e adolescentes com interpretação baseada em percentis. Avalie o crescimento e desenvolvimento infantil adequadamente." name="description"/>
-<meta content="IMC infantil, IMC criança, percentil IMC, crescimento infantil, peso ideal criança, desenvolvimento infantil" name="keywords"/>
-<!-- Open Graph -->
-<meta content="Calculadora de IMC Infantil - Crianças e Adolescentes" property="og:title"/>
-<meta content="Calcule o IMC de crianças e adolescentes com interpretação baseada em percentis adequados para cada idade." property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="https://calculesuasaude.com.br/ferramentas/imc_infantil.html" property="og:url"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Calculadora de IMC Infantil - Crianças e Adolescentes | Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Calcule o IMC de crianças e adolescentes com interpretação baseada em percentis (curvas de crescimento). Avalie o desenvolvimento saudável.">
+    <meta property="og:title" content="Calculadora de IMC Infantil - Calcule Sua Saúde">
+    <meta property="og:description" content="Calcule o IMC de crianças e adolescentes com interpretação baseada em percentis.">
+    <meta property="og:type" content="website">
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
-     crossorigin="anonymous"></script>
-  
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
 
-  gtag('config', 'G-EVCQQZV60N');
-</script>
-<!-- Favicon -->
-<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
-<!-- CSS -->
-<link href="../css/estilo.css" rel="stylesheet"/>
-<link href="../css/estilo-adicional.css" rel="stylesheet"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .dark .glass-effect {
+            background: rgba(17, 24, 39, 0.95);
+        }
+    </style>
 </head>
-<body>
-<!-- Cabeçalho -->
-<header class="header-fixo">
-<nav class="navbar">
-<div class="container">
-<div class="logo">
-<h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
-</div>
-<ul class="menu">
-<li><a href="../index.html">Início</a></li>
-<li><a href="../index.html#ferramentas">Ferramentas</a></li>
-<li><a href="../index.html#artigos">Artigos</a></li>
-<li><a href="../sobre.html">Sobre</a></li>
-<li><a href="../contato.html">Contato</a></li>
-<li><button class="btn-modo" id="modo-noturno">🌙</button></li>
-</ul>
-</div>
-</nav>
-</header>
-<!-- Breadcrumbs -->
-<section class="breadcrumbs">
-<div class="container">
-<a href="../index.html">Início</a> &gt; <a href="../index.html#ferramentas">Ferramentas</a> &gt; <span>Calculadora de IMC Infantil</span>
-</div>
-</section>
-<!-- Conteúdo Principal -->
-<main>
-<section class="ferramenta-content">
-<div class="container">
-<div class="ferramenta-header">
-<div class="ferramenta-icon">👶</div>
-<h1>Calculadora de IMC Infantil</h1>
-<p class="ferramenta-subtitle">Avalie o crescimento de crianças e adolescentes com base em percentis adequados para cada idade</p>
-</div>
-<div class="ferramenta-grid">
-<div class="calculadora-section">
-<div class="calculadora-card">
-<h2>Calcule o IMC da criança</h2>
-<form id="imc-infantil-form">
-<div class="form-group">
-<label for="sexo">Sexo</label>
-<select id="sexo" required="">
-<option value="">Selecione</option>
-<option value="masculino">Masculino</option>
-<option value="feminino">Feminino</option>
-</select>
-</div>
-<div class="form-group">
-<label for="idade-anos">Idade (anos)</label>
-<input id="idade-anos" max="19" min="2" placeholder="Ex: 8" required="" type="number"/>
-</div>
-<div class="form-group">
-<label for="idade-meses">Meses adicionais</label>
-<select id="idade-meses">
-<option value="0">0 meses</option>
-<option value="1">1 mês</option>
-<option value="2">2 meses</option>
-<option value="3">3 meses</option>
-<option value="4">4 meses</option>
-<option value="5">5 meses</option>
-<option value="6">6 meses</option>
-<option value="7">7 meses</option>
-<option value="8">8 meses</option>
-<option value="9">9 meses</option>
-<option value="10">10 meses</option>
-<option value="11">11 meses</option>
-</select>
-</div>
-<div class="form-group">
-<label for="peso">Peso (kg)</label>
-<input id="peso" max="150" min="5" placeholder="Ex: 25.5" required="" step="0.1" type="number"/>
-</div>
-<div class="form-group">
-<label for="altura">Altura (cm)</label>
-<input id="altura" max="200" min="60" placeholder="Ex: 125" required="" step="0.1" type="number"/>
-</div>
-<button class="btn-primary" type="submit">Calcular IMC Infantil</button>
-</form>
-<div class="resultado" id="resultado-imc-infantil" style="display: none;">
-<h3>Resultado do IMC Infantil</h3>
-<div class="resultado-imc-infantil-grid">
-<div class="resultado-item">
-<div class="resultado-label">IMC</div>
-<div class="resultado-valor" id="valor-imc-infantil"></div>
-<div class="resultado-unidade">kg/m²</div>
-</div>
-<div class="resultado-item">
-<div class="resultado-label">Percentil</div>
-<div class="resultado-valor" id="valor-percentil"></div>
-<div class="resultado-unidade">%</div>
-</div>
-</div>
-<div class="classificacao-infantil" id="classificacao-infantil"></div>
-<div class="resultado-interpretacao" id="interpretacao-imc-infantil"></div>
-</div>
-</div>
-</div>
-<div class="info-section">
-<div class="info-card">
-<h3>IMC Infantil vs Adulto</h3>
-<p>O IMC infantil é interpretado diferentemente do adulto, usando percentis que consideram idade e sexo, pois crianças estão em constante crescimento e desenvolvimento.</p>
-</div>
-<div class="info-card">
-<h3>O que são Percentis?</h3>
-<p>Percentis comparam a criança com outras da mesma idade e sexo. Por exemplo, percentil 75 significa que a criança tem IMC maior que 75% das crianças da mesma idade.</p>
-</div>
-<div class="info-card">
-<h3>Classificação por Percentis</h3>
-<div class="percentis-info">
-<div class="percentil-item">
-<span class="percentil-nome baixo-peso">Baixo Peso</span>
-<span class="percentil-valor">&lt; P5</span>
-</div>
-<div class="percentil-item">
-<span class="percentil-nome peso-normal">Peso Normal</span>
-<span class="percentil-valor">P5 - P85</span>
-</div>
-<div class="percentil-item">
-<span class="percentil-nome sobrepeso">Sobrepeso</span>
-<span class="percentil-valor">P85 - P97</span>
-</div>
-<div class="percentil-item">
-<span class="percentil-nome obesidade">Obesidade</span>
-<span class="percentil-valor">≥ P97</span>
-</div>
-</div>
-</div>
-<div class="info-card">
-<h3>⚠️ Importante</h3>
-<ul>
-<li>Válido para idades de 2 a 19 anos</li>
-<li>Baseado nas curvas da OMS e CDC</li>
-<li>Considera crescimento e desenvolvimento</li>
-<li>Sempre consulte um pediatra</li>
-<li>Avalie junto com outros indicadores</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="conteudo-educativo">
-<h2>Crescimento saudável na infância</h2>
-<div class="educativo-grid">
-<div class="educativo-card">
-<h3>📈 Acompanhamento Regular</h3>
-<p>O crescimento infantil deve ser acompanhado regularmente pelo pediatra. O IMC é apenas um dos indicadores, junto com altura, desenvolvimento e hábitos alimentares.</p>
-</div>
-<div class="educativo-card">
-<h3>🍎 Alimentação Equilibrada</h3>
-<p>Priorize alimentos naturais, frutas, vegetais e grãos integrais. Limite açúcares, refrigerantes e alimentos ultraprocessados para um crescimento saudável.</p>
-</div>
-<div class="educativo-card">
-<h3>🏃‍♂️ Atividade Física</h3>
-<p>Crianças precisam de pelo menos 60 minutos de atividade física diária. Brincadeiras ativas, esportes e exercícios são fundamentais para o desenvolvimento.</p>
-</div>
-<div class="educativo-card">
-<h3>😴 Sono Adequado</h3>
-<p>O sono é crucial para o crescimento. Crianças precisam de 9-11 horas de sono por noite para produção adequada do hormônio do crescimento.</p>
-</div>
-<div class="educativo-card">
-<h3>📱 Limite de Telas</h3>
-<p>Limite o tempo de tela e incentive atividades ao ar livre. O sedentarismo na infância pode levar a problemas de peso e desenvolvimento.</p>
-</div>
-<div class="educativo-card">
-<h3>👨‍⚕️ Acompanhamento Médico</h3>
-<p>Consultas regulares com pediatra são essenciais. Profissionais podem identificar precocemente problemas de crescimento e orientar adequadamente.</p>
-</div>
-</div>
-</div>
-<div class="leia-tambem">
-<h3>Leia também</h3>
-<div class="artigos-relacionados"><a class="artigo-link" href="../artigos/nutricao-esportiva.html"><span class_="artigo-titulo">Nutrição Esportiva: Guia Completo para Performance e Recuperação</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/colesterol-controle-prevencao.html"><span class_="artigo-titulo">Colesterol: Controle, Prevenção e Tratamento Completo</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/saude-digestiva-intestino.html"><span class_="artigo-titulo">Saúde Digestiva: Cuidados com o Intestino</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a></div>
-</div>
-</div>
-</section>
-</main>
-<!-- Rodapé -->
-<footer class="footer">
-<div class="container">
-<div class="footer-content">
-<div class="footer-section">
-<h3>Calcule Sua Saúde</h3>
-<p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
-</div>
-<div class="footer-section">
-<h4>Links Úteis</h4>
-<ul>
-<li><a href="../sobre.html">Sobre</a></li>
-<li><a href="../contato.html">Contato</a></li>
-<li><a href="../politica.html">Política de Privacidade</a></li>
-<li><a href="../termos.html">Termos de Uso</a></li>
-</ul>
-</div>
-<div class="footer-section">
-<h4>Outras Ferramentas</h4>
-<ul>
-<li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
-<li><a href="tmb.html">Taxa Metabólica Basal</a></li>
-<li><a href="agua.html">Água por Dia</a></li>
-<li><a href="frequencia_cardiaca.html">Frequência Cardíaca</a></li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom">
-<p>© 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
-<p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
-</div>
-</div>
-</footer>
-<!-- JavaScript -->
-<script src="../js/modo-noturno.js"></script>
-<script src="../js/imc_infantil.js"></script>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                </div>
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-brand-600">Saúde</span>
+                </h1>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="../index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="../todos_quizzes.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Quizzes</a>
+                <a href="../index.html#ferramentas" class="text-sm font-bold text-brand-600">Calculadoras</a>
+                <a href="../artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
+                <a href="../sobre.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Sobre</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../artigos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            
+            <!-- Breadcrumbs -->
+            <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="../index.html" class="hover:text-brand-600">Início</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <a href="../index.html#ferramentas" class="hover:text-brand-600">Ferramentas</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <span class="text-gray-900 dark:text-white font-medium">IMC Infantil</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Coluna Esquerda: Calculadora -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden p-8">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="bg-pink-100 dark:bg-pink-900/30 p-3 rounded-xl text-pink-600 dark:text-pink-400">
+                                <i data-lucide="baby" class="w-6 h-6"></i>
+                            </div>
+                            <h1 class="text-2xl font-bold text-gray-900 dark:text-white">IMC Infantil</h1>
+                        </div>
+
+                        <form id="imc-infantil-form" class="space-y-6">
+                            
+                            <!-- Sexo -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Sexo da Criança</label>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="sexo" value="menino" class="peer sr-only" checked>
+                                        <div class="p-3 rounded-xl border border-gray-200 dark:border-gray-600 text-center peer-checked:bg-blue-50 dark:peer-checked:bg-blue-900/20 peer-checked:border-blue-500 peer-checked:text-blue-600 transition-all hover:bg-gray-50 dark:hover:bg-gray-700">
+                                            <div class="flex items-center justify-center gap-2">
+                                                <span class="text-xl">👦</span> Menino
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="sexo" value="menina" class="peer sr-only">
+                                        <div class="p-3 rounded-xl border border-gray-200 dark:border-gray-600 text-center peer-checked:bg-pink-50 dark:peer-checked:bg-pink-900/20 peer-checked:border-pink-500 peer-checked:text-pink-600 transition-all hover:bg-gray-50 dark:hover:bg-gray-700">
+                                            <div class="flex items-center justify-center gap-2">
+                                                <span class="text-xl">👧</span> Menina
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Idade Completa -->
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label for="idade-anos" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Idade (anos)</label>
+                                    <input type="number" id="idade-anos" min="2" max="19" placeholder="Ex: 8" required
+                                        class="block w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label for="idade-meses" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Meses</label>
+                                    <div class="relative">
+                                        <select id="idade-meses"
+                                            class="block w-full pl-4 pr-8 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all appearance-none">
+                                            <option value="0">0 meses</option>
+                                            <option value="1">1 mês</option>
+                                            <option value="2">2 meses</option>
+                                            <option value="3">3 meses</option>
+                                            <option value="4">4 meses</option>
+                                            <option value="5">5 meses</option>
+                                            <option value="6">6 meses</option>
+                                            <option value="7">7 meses</option>
+                                            <option value="8">8 meses</option>
+                                            <option value="9">9 meses</option>
+                                            <option value="10">10 meses</option>
+                                            <option value="11">11 meses</option>
+                                        </select>
+                                        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                            <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Medidas -->
+                            <div>
+                                <label for="peso" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Peso (kg)</label>
+                                <input type="number" id="peso" step="0.1" placeholder="Ex: 25.5" required
+                                    class="block w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                            </div>
+
+                            <div>
+                                <label for="altura" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Altura (cm)</label>
+                                <input type="number" id="altura" placeholder="Ex: 125" required
+                                    class="block w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                                Calcular Percentil
+                            </button>
+                        </form>
+
+                        <!-- Resultado -->
+                        <div id="resultado-container" class="hidden mt-8 pt-8 border-t border-gray-100 dark:border-gray-700 animate-fade-in">
+                            <h3 class="text-center font-bold text-gray-900 dark:text-white mb-6">Resultado do Desenvolvimento</h3>
+                            
+                            <div class="text-center space-y-4">
+                                <!-- Badge de Status -->
+                                <div id="resultado-badge" class="inline-flex items-center gap-2 px-6 py-2 rounded-full font-bold text-lg bg-gray-100 text-gray-800">
+                                    --
+                                </div>
+
+                                <!-- Grid de Dados -->
+                                <div class="grid grid-cols-2 gap-4 mt-4">
+                                    <div class="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-xl text-center border border-gray-200 dark:border-gray-600">
+                                        <span class="block text-xs text-gray-500 dark:text-gray-400 uppercase font-bold tracking-wider mb-1">IMC</span>
+                                        <span id="resultado-imc" class="text-2xl font-extrabold text-gray-900 dark:text-white">--</span>
+                                        <span class="text-xs text-gray-400">kg/m²</span>
+                                    </div>
+                                    <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl text-center border border-blue-100 dark:border-blue-800">
+                                        <span class="block text-xs text-blue-600 dark:text-blue-400 uppercase font-bold tracking-wider mb-1">Percentil</span>
+                                        <span id="resultado-percentil" class="text-2xl font-extrabold text-blue-700 dark:text-blue-300">--</span>
+                                        <span class="text-xs text-blue-500">%</span>
+                                    </div>
+                                </div>
+
+                                <p id="resultado-texto" class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed border-l-4 pl-4 border-gray-300 text-left mt-4">
+                                    --
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Conteúdo Educativo -->
+                <div class="lg:col-span-7 space-y-8">
+                    
+                    <!-- Explicação Percentis -->
+                    <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-brand-100 dark:bg-brand-900/30 rounded-full text-brand-600 hidden sm:block">
+                                <i data-lucide="book-open" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Por que o cálculo é diferente?</h2>
+                                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                    Crianças e adolescentes estão em constante crescimento. A gordura corporal muda com a idade e difere entre meninos e meninas. Por isso, usamos <strong>percentis</strong> em vez de valores fixos.
+                                </p>
+                                <div class="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-xl border border-gray-200 dark:border-gray-600">
+                                    <p class="font-mono text-sm text-gray-700 dark:text-gray-300">
+                                        <strong>Exemplo:</strong> Estar no percentil 75 significa que o IMC da criança é maior que o de 75% das crianças da mesma idade e sexo.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tabela de Classificação -->
+                    <section class="bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+                            <i data-lucide="bar-chart-2" class="text-brand-600"></i> Classificação por Percentis (CDC)
+                        </h2>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-100 dark:border-yellow-800">
+                                <span class="font-bold text-yellow-700 dark:text-yellow-400">Baixo Peso</span>
+                                <span class="text-yellow-600 dark:text-yellow-300 font-mono text-sm">Menor que percentil 5</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-100 dark:border-green-800">
+                                <span class="font-bold text-green-700 dark:text-green-400">Peso Saudável</span>
+                                <span class="text-green-600 dark:text-green-300 font-mono text-sm">Percentil 5 até 85</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-orange-50 dark:bg-orange-900/20 border border-orange-100 dark:border-orange-800">
+                                <span class="font-bold text-orange-700 dark:text-orange-400">Sobrepeso</span>
+                                <span class="text-orange-600 dark:text-orange-300 font-mono text-sm">Percentil 85 até 95</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800">
+                                <span class="font-bold text-red-700 dark:text-red-400">Obesidade</span>
+                                <span class="text-red-600 dark:text-red-300 font-mono text-sm">Maior ou igual a percentil 95</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Aviso Importante -->
+                    <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-6 rounded-r-xl">
+                        <div class="flex items-start gap-4">
+                            <i data-lucide="stethoscope" class="w-6 h-6 text-blue-600 dark:text-blue-500 shrink-0 mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-blue-800 dark:text-blue-400 mb-1">Acompanhamento Pediátrico</h3>
+                                <p class="text-blue-700 dark:text-blue-300 text-sm leading-relaxed">
+                                    O IMC é apenas um indicador. O crescimento saudável envolve muitos fatores. Consulte sempre o pediatra para uma avaliação completa do desenvolvimento.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Artigos Relacionados -->
+                    <section>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Saúde da Família</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <a href="../artigos/saude-infantil-cuidados.html" class="block p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-brand-500 transition-colors group">
+                                <h4 class="font-bold text-gray-900 dark:text-white group-hover:text-brand-600 mb-1">Saúde Infantil</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">Cuidados essenciais.</p>
+                            </a>
+                            <a href="../artigos/alimentacao-saudavel-guia.html" class="block p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-brand-500 transition-colors group">
+                                <h4 class="font-bold text-gray-900 dark:text-white group-hover:text-brand-600 mb-1">Alimentação Saudável</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">Guia para toda a família.</p>
+                            </a>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="../sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="../contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="../termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Outras Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC Adulto</a></li>
+                        <li><a href="agua.html" class="hover:text-brand-400 transition-colors">Água Diária</a></li>
+                        <li><a href="calorias.html" class="hover:text-brand-400 transition-colors">Gasto Calórico</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones Lucide
+        lucide.createIcons();
+
+        // 1. Dark Mode e Mobile Menu
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+
+        // 2. Lógica da Calculadora IMC Infantil
+        // Dados simplificados de corte de IMC para percentis 5, 85 e 95 (Baseado no CDC)
+        // Estrutura: [idade]: { boy: [p5, p85, p95], girl: [p5, p85, p95] }
+        const bmiData = {
+            2: { boy: [14.7, 18.2, 19.3], girl: [14.4, 18.0, 19.1] },
+            3: { boy: [14.3, 17.4, 18.3], girl: [14.0, 17.2, 18.3] },
+            4: { boy: [14.0, 16.9, 17.8], girl: [13.7, 16.8, 18.0] },
+            5: { boy: [13.8, 16.8, 17.9], girl: [13.5, 16.8, 18.2] },
+            6: { boy: [13.7, 17.0, 18.4], girl: [13.4, 17.1, 18.8] },
+            7: { boy: [13.7, 17.4, 19.2], girl: [13.4, 17.6, 19.6] },
+            8: { boy: [13.8, 17.9, 20.0], girl: [13.5, 18.3, 20.6] },
+            9: { boy: [14.0, 18.6, 21.0], girl: [13.7, 19.1, 21.8] },
+            10: { boy: [14.2, 19.4, 22.1], girl: [14.0, 19.9, 23.0] },
+            11: { boy: [14.6, 20.2, 23.2], girl: [14.4, 20.8, 24.1] },
+            12: { boy: [15.0, 21.0, 24.2], girl: [14.8, 21.7, 25.2] },
+            13: { boy: [15.5, 21.8, 25.2], girl: [15.3, 22.5, 26.3] },
+            14: { boy: [16.0, 22.6, 26.0], girl: [15.8, 23.3, 27.3] },
+            15: { boy: [16.6, 23.4, 26.8], girl: [16.3, 24.0, 28.1] },
+            16: { boy: [17.1, 24.2, 27.6], girl: [16.8, 24.7, 28.9] },
+            17: { boy: [17.7, 24.9, 28.3], girl: [17.2, 25.2, 29.6] },
+            18: { boy: [18.2, 25.6, 29.0], girl: [17.6, 25.7, 30.3] },
+            19: { boy: [18.7, 26.3, 29.7], girl: [17.8, 26.1, 31.0] }
+        };
+
+        document.getElementById('imc-infantil-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const sexo = document.querySelector('input[name="sexo"]:checked').value;
+            const idade = parseInt(document.getElementById('idade-anos').value);
+            const peso = parseFloat(document.getElementById('peso').value);
+            let altura = parseFloat(document.getElementById('altura').value);
+            
+            const resultadoContainer = document.getElementById('resultado-container');
+            const resultadoImc = document.getElementById('resultado-imc');
+            const resultadoPercentil = document.getElementById('resultado-percentil');
+            const resultadoBadge = document.getElementById('resultado-badge');
+            const resultadoTexto = document.getElementById('resultado-texto');
+
+            if (isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
+                alert("Por favor, preencha os dados corretamente.");
+                return;
+            }
+
+            // Converter altura para Metros se necessário
+            if (altura > 3) altura = altura / 100;
+
+            // Calcular IMC
+            const imc = peso / (altura * altura);
+            
+            // Obter dados de referência
+            // Usamos a idade em anos para simplificar a busca na tabela (aproximação)
+            const ref = bmiData[idade] ? bmiData[idade][sexo] : null;
+
+            if (!ref) {
+                alert("Idade fora da faixa suportada (2-19 anos).");
+                return;
+            }
+
+            const [p5, p85, p95] = ref;
+            let classificacao = '';
+            let percentilEstimado = '';
+            let corClasse = '';
+            let texto = '';
+
+            if (imc < p5) {
+                classificacao = "Baixo Peso";
+                percentilEstimado = "< 5";
+                corClasse = "bg-yellow-100 text-yellow-800 border-yellow-200";
+                texto = "O IMC indica que a criança está abaixo do peso esperado para a idade. É importante consultar um pediatra para avaliar a nutrição.";
+            } else if (imc < p85) {
+                classificacao = "Peso Saudável";
+                percentilEstimado = "5 - 85";
+                corClasse = "bg-green-100 text-green-800 border-green-200";
+                texto = "Ótimo! O desenvolvimento está dentro da faixa considerada saudável para a idade e sexo.";
+            } else if (imc < p95) {
+                classificacao = "Sobrepeso";
+                percentilEstimado = "85 - 95";
+                corClasse = "bg-orange-100 text-orange-800 border-orange-200";
+                texto = "O IMC indica sobrepeso. Pequenos ajustes na alimentação e aumento da atividade física podem ajudar a retornar à faixa saudável.";
+            } else {
+                classificacao = "Obesidade";
+                percentilEstimado = "> 95";
+                corClasse = "bg-red-100 text-red-800 border-red-200";
+                texto = "O IMC está acima do percentil 95. Recomendamos fortemente o acompanhamento com um pediatra ou nutricionista infantil.";
+            }
+
+            // Exibir
+            resultadoImc.textContent = imc.toFixed(1);
+            resultadoPercentil.textContent = percentilEstimado;
+            
+            resultadoBadge.textContent = classificacao;
+            resultadoBadge.className = `inline-flex items-center gap-2 px-6 py-2 rounded-full font-bold text-lg border ${corClasse}`;
+            
+            resultadoTexto.textContent = texto;
+
+            resultadoContainer.classList.remove('hidden');
+            resultadoContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    </script>
 </body>
 </html>
