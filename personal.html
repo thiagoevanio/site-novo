@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Rafael Aquino - Personal Trainer | Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Consultoria esportiva com Rafael Aquino. Personal Trainer especialista em Hipertrofia, Emagrecimento e Alta Performance.">
+    <meta property="og:title" content="Rafael Aquino - Personal Trainer">
+    <meta property="og:image" content="personal.jpg">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 900: '#1e3a8a' },
+                        ra: { 500: '#ff4d00', 600: '#cc3d00' } /* Cor destaque do Personal (Laranja) */
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .dark .glass-effect { background: rgba(17, 24, 39, 0.95); }
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg"><i data-lucide="arrow-left" class="w-6 h-6"></i></div>
+                <span class="font-bold text-gray-800 dark:text-white">Voltar ao Início</span>
+            </a>
+            <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Profile -->
+        <section class="relative pt-10 pb-20 bg-pattern">
+            <div class="container mx-auto px-4">
+                <div class="bg-white dark:bg-gray-800 rounded-[2.5rem] shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-2">
+                        
+                        <!-- Coluna da Imagem -->
+                        <div class="relative h-96 lg:h-auto min-h-[500px] bg-gray-200">
+                            <!-- IMAGEM DO PERSONAL -->
+                            <img src="personal.jpg" 
+                                 onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" 
+                                 alt="Rafael Aquino Personal Trainer" 
+                                 class="absolute inset-0 w-full h-full object-cover object-top">
+                            
+                            <!-- Overlay Gradiente -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-black/10"></div>
+                            
+                            <!-- Nome Mobile (Aparece sobre a foto em telas pequenas) -->
+                            <div class="absolute bottom-0 left-0 p-8 lg:hidden text-white">
+                                <h1 class="text-4xl font-black tracking-tight mb-1">Rafael Aquino</h1>
+                                <p class="text-ra-500 font-bold uppercase tracking-widest text-sm">Personal Trainer</p>
+                                <p class="text-gray-300 text-xs mt-1 opacity-80">CREF: 42.897-G/MG</p>
+                            </div>
+                        </div>
+
+                        <!-- Coluna de Informações -->
+                        <div class="p-8 lg:p-12 flex flex-col justify-center">
+                            <div class="hidden lg:block mb-6">
+                                <span class="inline-block py-1 px-3 rounded-full bg-ra-500/10 text-ra-600 dark:text-ra-500 text-xs font-bold tracking-wider uppercase mb-2">
+                                    Alta Performance
+                                </span>
+                                <h1 class="text-5xl font-black text-gray-900 dark:text-white mb-2">Rafael Aquino</h1>
+                                <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400">
+                                    <i data-lucide="badge-check" class="w-5 h-5 text-blue-500"></i>
+                                    <span class="font-mono text-sm">CREF: 42.897-G/MG</span>
+                                </div>
+                            </div>
+
+                            <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+                                Transforme seu corpo e sua mente com um acompanhamento profissional de elite. 
+                                Metodologia focada em resultados reais, respeitando sua individualidade biológica e rotina.
+                            </p>
+
+                            <!-- Especialidades Grid -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                                <div class="flex items-start gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50">
+                                    <div class="bg-blue-100 dark:bg-blue-900/30 p-2 rounded-lg text-blue-600"><i data-lucide="dumbbell" class="w-5 h-5"></i></div>
+                                    <div>
+                                        <h3 class="font-bold text-sm dark:text-white">Hipertrofia</h3>
+                                        <p class="text-xs text-gray-500 dark:text-gray-400">Ganho de massa</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50">
+                                    <div class="bg-green-100 dark:bg-green-900/30 p-2 rounded-lg text-green-600"><i data-lucide="flame" class="w-5 h-5"></i></div>
+                                    <div>
+                                        <h3 class="font-bold text-sm dark:text-white">Emagrecimento</h3>
+                                        <p class="text-xs text-gray-500 dark:text-gray-400">Queima de gordura</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50">
+                                    <div class="bg-purple-100 dark:bg-purple-900/30 p-2 rounded-lg text-purple-600"><i data-lucide="activity" class="w-5 h-5"></i></div>
+                                    <div>
+                                        <h3 class="font-bold text-sm dark:text-white">Funcional</h3>
+                                        <p class="text-xs text-gray-500 dark:text-gray-400">Mobilidade e força</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50">
+                                    <div class="bg-orange-100 dark:bg-orange-900/30 p-2 rounded-lg text-orange-600"><i data-lucide="timer" class="w-5 h-5"></i></div>
+                                    <div>
+                                        <h3 class="font-bold text-sm dark:text-white">TAF - Concursos</h3>
+                                        <p class="text-xs text-gray-500 dark:text-gray-400">Preparação física</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Lista Detalhada -->
+                            <div class="space-y-2 mb-10 text-sm text-gray-600 dark:text-gray-300">
+                                <p class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-ra-500"></i> Atendimento Presencial e Online</p>
+                                <p class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-ra-500"></i> Reabilitação Física</p>
+                                <p class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-ra-500"></i> Grupos Especiais</p>
+                                <p class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-ra-500"></i> Alta Performance</p>
+                            </div>
+
+                            <!-- Botões de Ação -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <!-- WhatsApp -->
+                                <a href="https://wa.me/message/X5XSBKPUOUJDM1" target="_blank" 
+                                   class="group relative w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:shadow-green-500/30 transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden">
+                                    <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                                    <i data-lucide="message-circle" class="w-6 h-6 fill-white"></i>
+                                    <div class="text-left">
+                                        <span class="block text-[10px] font-medium text-green-100 uppercase tracking-wider">Fale agora</span>
+                                        <span class="block text-lg leading-none">WhatsApp</span>
+                                    </div>
+                                </a>
+
+                                <!-- Instagram -->
+                                <a href="https://www.instagram.com/raphaquinopersonal?igsh=M3ExeDNpaWJmeHNx" target="_blank" 
+                                   class="group relative w-full bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:opacity-90 text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:shadow-pink-500/30 transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden">
+                                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                                    <div class="text-left">
+                                        <span class="block text-[10px] font-medium text-white/80 uppercase tracking-wider">Siga no</span>
+                                        <span class="block text-lg leading-none">Instagram</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        lucide.createIcons();
+        
+        // Dark Mode Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else { htmlElement.classList.remove('dark'); }
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) { localStorage.theme = 'dark'; } else { localStorage.theme = 'light'; }
+        });
+    </script>
+</body>
+</html>
