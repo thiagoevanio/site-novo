@@ -1,1291 +1,496 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doenças Cardiovasculares: Prevenção, Fatores de Risco e Tratamento | Calcule Sua Saúde</title>
-    <meta name="description" content="Guia completo sobre doenças cardiovasculares: tipos, fatores de risco, prevenção, diagnóstico e tratamento. Proteja seu coração com informações baseadas em evidências.">
-    <meta name="keywords" content="doenças cardiovasculares, infarto, AVC, hipertensão, colesterol, prevenção cardíaca, saúde do coração">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Doenças Cardiovasculares: Guia Completo de Prevenção e Tratamento | Calcule Sua Saúde</title>
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="Doenças Cardiovasculares: Prevenção, Fatores de Risco e Tratamento">
-    <meta property="og:description" content="Tudo sobre doenças do coração: prevenção, fatores de risco e como proteger sua saúde cardiovascular.">
+    <!-- Meta Tags SEO Avançadas -->
+    <meta name="description" content="Guia definitivo sobre saúde do coração. Aprenda a prevenir infarto, AVC e hipertensão com estratégias baseadas em evidências. Identifique sintomas e fatores de risco.">
+    <meta name="keywords" content="doenças cardiovasculares, infarto miocárdio, AVC, hipertensão arterial, colesterol alto, dieta DASH, saúde cardíaca, prevenção coração">
+    <meta name="author" content="Equipe Calcule Sua Saúde">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
+    <meta property="og:title" content="Doenças Cardiovasculares: Guia Completo de Prevenção">
+    <meta property="og:description" content="Proteja seu coração com conhecimento. Um guia profundo sobre as doenças que mais matam no mundo e como evitá-las.">
     <meta property="og:url" content="https://calculesuasaude.com.br/artigos/doencas-cardiovasculares-prevencao.html">
+    <meta property="og:image" content="../img/artigos/doencas_cardiovasculares.jpg">
+    <meta property="article:published_time" content="2024-02-25">
+    <meta property="article:section" content="Cardiologia">
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
-     crossorigin="anonymous"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Dados Estruturados (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "headline": "Doenças Cardiovasculares: Prevenção, Fatores de Risco e Tratamento",
+      "image": "https://calculesuasaude.com.br/img/artigos/doencas_cardiovasculares.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://calculesuasaude.com.br/icon192.png"
+        }
+      },
+      "datePublished": "2024-02-25",
+      "about": [
+        { "@type": "MedicalCondition", "name": "Cardiovascular Disease" },
+        { "@type": "MedicalCondition", "name": "Hypertension" },
+        { "@type": "MedicalCondition", "name": "Stroke" }
+      ]
+    }
+    </script>
 
-  gtag('config', 'G-EVCQQZV60N');
-</script>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/estilo.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    typography: (theme) => ({
+                        DEFAULT: {
+                            css: {
+                                color: theme('colors.gray.700'),
+                                h2: { color: theme('colors.gray.900'), fontWeight: '800' },
+                                h3: { color: theme('colors.gray.800'), fontWeight: '700' },
+                                strong: { color: theme('colors.gray.900') },
+                            },
+                        },
+                        dark: {
+                            css: {
+                                color: theme('colors.gray.300'),
+                                h2: { color: theme('colors.white') },
+                                h3: { color: theme('colors.gray.100') },
+                                strong: { color: theme('colors.white') },
+                            },
+                        },
+                    }),
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .prose h2 { margin-top: 2em; margin-bottom: 1em; line-height: 1.3; }
+        .prose h3 { margin-top: 1.5em; margin-bottom: 0.8em; }
+        .prose p { margin-bottom: 1.25em; line-height: 1.75; }
+        .prose ul { list-style-type: disc; padding-left: 1.5em; margin-bottom: 1.25em; }
+        .prose li { margin-bottom: 0.5em; }
+    </style>
 </head>
-<body>
-    <!-- Cabeçalho -->
-    <header class="header-fixo">
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
                 </div>
-                <ul class="menu">
-                    <li><a href="../index.html">Início</a></li>
-                    <li><a href="../index.html#ferramentas">Ferramentas</a></li>
-                    <li><a href="../artigos.html">Artigos</a></li>
-                    <li><a href="../sobre.html">Sobre</a></li>
-                    <li><a href="../contato.html">Contato</a></li>
-                    <li><button id="modo-noturno" class="btn-modo">🌙</button></li>
-                </ul>
+                <span class="font-bold text-gray-800 dark:text-white text-lg hidden sm:block">Calcule Sua Saúde</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="../index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="../index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="../artigos.html" class="text-sm font-bold text-brand-600">Artigos</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../artigos.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Artigos</a>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <!-- Breadcrumbs -->
-    <section class="breadcrumbs">
-        <div class="container">
-            <a href="../index.html">Início</a> > <a href="../artigos.html">Artigos</a> > <span>Doenças Cardiovasculares</span>
-        </div>
-    </section>
+    <!-- Barra de Progresso de Leitura -->
+    <div class="fixed top-[60px] left-0 h-1 bg-red-500 z-40 w-0 transition-all duration-100" id="reading-progress"></div>
 
-    <!-- Conteúdo Principal -->
-    <main>
-        <article class="artigo-content">
-            <div class="container">
-                <header class="artigo-header">
-                    <h1>Doenças Cardiovasculares: Prevenção, Fatores de Risco e Tratamento</h1>
-                    <div class="artigo-meta">
-                        <span class="data-publicacao">Publicado em 27 de Janeiro de 2024</span>
-                        <span class="tempo-leitura">Tempo de leitura: 20 minutos</span>
-                    </div>
-                    <p class="artigo-resumo">As doenças cardiovasculares são a principal causa de morte no mundo, mas a maioria pode ser prevenida através de mudanças no estilo de vida e controle adequado dos fatores de risco. Entender essas condições é fundamental para proteger a saúde do coração.</p>
-                </header>
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            
+            <!-- Breadcrumbs -->
+            <nav class="flex text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="../index.html" class="hover:text-brand-600 transition-colors">Início</a>
+                <span class="mx-2">/</span>
+                <a href="../artigos.html" class="hover:text-brand-600 transition-colors">Artigos</a>
+                <span class="mx-2">/</span>
+                <span class="font-medium text-gray-900 dark:text-white truncate">Saúde Cardíaca</span>
+            </nav>
 
-                <div class="artigo-corpo">
-                    <h2>O que são Doenças Cardiovasculares?</h2>
-                    <p>Doenças cardiovasculares (DCV) são um grupo de condições que afetam o coração e os vasos sanguíneos. Elas incluem desde problemas nas artérias coronárias até defeitos congênitos do coração, passando por distúrbios do ritmo cardíaco e doenças dos vasos sanguíneos cerebrais.</p>
-                    
-                    <p>O sistema cardiovascular é responsável por transportar sangue, oxigênio e nutrientes para todos os órgãos do corpo. Quando esse sistema é comprometido, pode resultar em consequências graves, incluindo infarto do miocárdio, acidente vascular cerebral (AVC) e até morte súbita.</p>
-
-                    <h3>Epidemiologia Global</h3>
-                    <div class="estatisticas-cardiovasculares">
-                        <div class="stat-card">
-                            <div class="stat-numero">17,9M</div>
-                            <p>mortes anuais por DCV no mundo</p>
-                        </div>
-                        
-                        <div class="stat-card">
-                            <div class="stat-numero">31%</div>
-                            <p>de todas as mortes globais</p>
-                        </div>
-                        
-                        <div class="stat-card">
-                            <div class="stat-numero">85%</div>
-                            <p>das mortes por infarto e AVC</p>
-                        </div>
-                        
-                        <div class="stat-card">
-                            <div class="stat-numero">80%</div>
-                            <p>das DCV prematuras são preveníveis</p>
-                        </div>
-                    </div>
-
-                    <h3>Situação no Brasil</h3>
-                    <ul>
-                        <li><strong>Principal causa de morte:</strong> Responsável por 30% dos óbitos</li>
-                        <li><strong>Custo econômico:</strong> R$ 56 bilhões anuais para o SUS</li>
-                        <li><strong>Internações:</strong> Mais de 1 milhão por ano</li>
-                        <li><strong>Mortalidade prematura:</strong> 27% das mortes em pessoas com menos de 70 anos</li>
-                        <li><strong>Tendência:</strong> Aumento nas regiões Norte e Nordeste</li>
-                    </ul>
-
-                    <h2>Principais Tipos de Doenças Cardiovasculares</h2>
-                    <p>As DCV abrangem diversas condições, cada uma com características específicas:</p>
-
-                    <h3>Doença Arterial Coronariana (DAC)</h3>
-                    <div class="doenca-detalhada">
-                        <h4>🫀 Características</h4>
-                        <p>Estreitamento ou bloqueio das artérias coronárias que fornecem sangue ao músculo cardíaco.</p>
-                        
-                        <h4>Causas</h4>
-                        <ul>
-                            <li><strong>Aterosclerose:</strong> Acúmulo de placas de gordura nas artérias</li>
-                            <li><strong>Inflamação:</strong> Processo inflamatório crônico</li>
-                            <li><strong>Espasmo coronário:</strong> Contração súbita da artéria</li>
-                            <li><strong>Trombose:</strong> Formação de coágulos</li>
-                        </ul>
-                        
-                        <h4>Manifestações</h4>
-                        <ul>
-                            <li><strong>Angina estável:</strong> Dor no peito durante esforço</li>
-                            <li><strong>Angina instável:</strong> Dor em repouso ou com esforço mínimo</li>
-                            <li><strong>Infarto agudo do miocárdio:</strong> Morte do músculo cardíaco</li>
-                            <li><strong>Morte súbita:</strong> Parada cardíaca inesperada</li>
-                        </ul>
-                        
-                        <h4>Fatores de Risco</h4>
-                        <ul>
-                            <li>Hipertensão arterial</li>
-                            <li>Diabetes mellitus</li>
-                            <li>Dislipidemia (colesterol alto)</li>
-                            <li>Tabagismo</li>
-                            <li>Obesidade</li>
-                            <li>Sedentarismo</li>
-                            <li>Estresse crônico</li>
-                            <li>Histórico familiar</li>
-                        </ul>
-                    </div>
-
-                    <h3>Acidente Vascular Cerebral (AVC)</h3>
-                    <div class="doenca-detalhada">
-                        <h4>🧠 Tipos</h4>
-                        <div class="tipos-avc">
-                            <div class="tipo-avc">
-                                <h5>AVC Isquêmico (85%)</h5>
-                                <p><strong>Causa:</strong> Bloqueio de artéria cerebral</p>
-                                <p><strong>Mecanismos:</strong></p>
-                                <ul>
-                                    <li>Trombose: Coágulo local</li>
-                                    <li>Embolia: Coágulo de outro local</li>
-                                    <li>Hipoperfusão: Redução do fluxo sanguíneo</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="tipo-avc">
-                                <h5>AVC Hemorrágico (15%)</h5>
-                                <p><strong>Causa:</strong> Ruptura de vaso sanguíneo</p>
-                                <p><strong>Tipos:</strong></p>
-                                <ul>
-                                    <li>Hemorragia intracerebral</li>
-                                    <li>Hemorragia subaracnóidea</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <h4>Sinais de Alerta (SAMU)</h4>
-                        <ul>
-                            <li><strong>S</strong>orriso: Assimetria facial</li>
-                            <li><strong>A</strong>braço: Fraqueza em membros</li>
-                            <li><strong>M</strong>ensagem: Dificuldade para falar</li>
-                            <li><strong>U</strong>rgente: Chamar emergência imediatamente</li>
-                        </ul>
-                        
-                        <h4>Outros Sintomas</h4>
-                        <ul>
-                            <li>Dor de cabeça súbita e intensa</li>
-                            <li>Perda súbita de visão</li>
-                            <li>Tontura e perda de equilíbrio</li>
-                            <li>Confusão mental</li>
-                            <li>Náusea e vômitos</li>
-                        </ul>
-                    </div>
-
-                    <h3>Hipertensão Arterial</h3>
-                    <div class="doenca-detalhada">
-                        <h4>📊 Classificação (mmHg)</h4>
-                        <div class="classificacao-pressao">
-                            <div class="pressao-categoria">
-                                <h5>✅ Normal</h5>
-                                <p>Sistólica: &lt;120 e Diastólica: &lt;80</p>
-                            </div>
-                            
-                            <div class="pressao-categoria">
-                                <h5>⚠️ Elevada</h5>
-                                <p>Sistólica: 120-129 e Diastólica: &lt;80</p>
-                            </div>
-                            
-                            <div class="pressao-categoria">
-                                <h5>🟡 Estágio 1</h5>
-                                <p>Sistólica: 130-139 ou Diastólica: 80-89</p>
-                            </div>
-                            
-                            <div class="pressao-categoria">
-                                <h5>🔴 Estágio 2</h5>
-                                <p>Sistólica: ≥140 ou Diastólica: ≥90</p>
-                            </div>
-                            
-                            <div class="pressao-categoria">
-                                <h5>🚨 Crise</h5>
-                                <p>Sistólica: &gt;180 e/ou Diastólica: &gt;120</p>
-                            </div>
-                        </div>
-                        
-                        <h4>Tipos</h4>
-                        <ul>
-                            <li><strong>Primária (95%):</strong> Causa desconhecida, multifatorial</li>
-                            <li><strong>Secundária (5%):</strong> Causa identificável (renal, endócrina, vascular)</li>
-                        </ul>
-                        
-                        <h4>Complicações</h4>
-                        <ul>
-                            <li>Doença arterial coronariana</li>
-                            <li>Acidente vascular cerebral</li>
-                            <li>Insuficiência cardíaca</li>
-                            <li>Doença renal crônica</li>
-                            <li>Retinopatia hipertensiva</li>
-                            <li>Aneurismas</li>
-                        </ul>
-                    </div>
-
-                    <h3>Insuficiência Cardíaca</h3>
-                    <div class="doenca-detalhada">
-                        <h4>💔 Definição</h4>
-                        <p>Incapacidade do coração de bombear sangue adequadamente para atender às necessidades do organismo.</p>
-                        
-                        <h4>Classificação Funcional (NYHA)</h4>
-                        <ul>
-                            <li><strong>Classe I:</strong> Sem limitação de atividade física</li>
-                            <li><strong>Classe II:</strong> Limitação leve da atividade física</li>
-                            <li><strong>Classe III:</strong> Limitação acentuada da atividade física</li>
-                            <li><strong>Classe IV:</strong> Incapacidade para qualquer atividade física</li>
-                        </ul>
-                        
-                        <h4>Tipos</h4>
-                        <ul>
-                            <li><strong>Fração de ejeção reduzida:</strong> &lt;40% (sistólica)</li>
-                            <li><strong>Fração de ejeção preservada:</strong> ≥50% (diastólica)</li>
-                            <li><strong>Fração de ejeção intermediária:</strong> 40-49%</li>
-                        </ul>
-                        
-                        <h4>Sintomas</h4>
-                        <ul>
-                            <li>Dispneia (falta de ar)</li>
-                            <li>Fadiga e fraqueza</li>
-                            <li>Edema (inchaço) em pernas e pés</li>
-                            <li>Tosse persistente</li>
-                            <li>Ganho de peso rápido</li>
-                            <li>Palpitações</li>
-                        </ul>
-                    </div>
-
-                    <h3>Arritmias Cardíacas</h3>
-                    <div class="doenca-detalhada">
-                        <h4>⚡ Tipos Principais</h4>
-                        <div class="tipos-arritmias">
-                            <div class="arritmia-tipo">
-                                <h5>Bradiarritmias</h5>
-                                <p><strong>Frequência:</strong> &lt;60 bpm</p>
-                                <p><strong>Exemplos:</strong></p>
-                                <ul>
-                                    <li>Bradicardia sinusal</li>
-                                    <li>Bloqueios atrioventriculares</li>
-                                    <li>Síndrome do nó sinusal</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="arritmia-tipo">
-                                <h5>Taquiarritmias</h5>
-                                <p><strong>Frequência:</strong> &gt;100 bpm</p>
-                                <p><strong>Exemplos:</strong></p>
-                                <ul>
-                                    <li>Fibrilação atrial</li>
-                                    <li>Taquicardia ventricular</li>
-                                    <li>Fibrilação ventricular</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <h4>Sintomas</h4>
-                        <ul>
-                            <li>Palpitações</li>
-                            <li>Tontura ou desmaio</li>
-                            <li>Falta de ar</li>
-                            <li>Dor no peito</li>
-                            <li>Fadiga</li>
-                        </ul>
-                    </div>
-
-                    <div class="ferramentas-relacionadas">
-                        <h3>💪 Monitore sua saúde</h3>
-                        <p>Acompanhe indicadores importantes:</p>
-                        <a href="../ferramentas/imc.html" class="btn-secondary">Calcular IMC</a>
-                    </div>
-
-                    <h2>Fatores de Risco</h2>
-                    <p>Os fatores de risco para DCV são divididos em modificáveis e não modificáveis:</p>
-
-                    <h3>Fatores de Risco Não Modificáveis</h3>
-                    <div class="fatores-nao-modificaveis">
-                        <div class="fator-card">
-                            <h4>👴 Idade</h4>
-                            <ul>
-                                <li><strong>Homens:</strong> Risco aumenta após 45 anos</li>
-                                <li><strong>Mulheres:</strong> Risco aumenta após 55 anos ou menopausa</li>
-                                <li><strong>Mecanismo:</strong> Envelhecimento vascular, rigidez arterial</li>
-                                <li><strong>Impacto:</strong> Risco dobra a cada década após os 40 anos</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="fator-card">
-                            <h4>👨👩 Sexo</h4>
-                            <ul>
-                                <li><strong>Homens:</strong> Maior risco em idades mais jovens</li>
-                                <li><strong>Mulheres:</strong> Proteção estrogênica até a menopausa</li>
-                                <li><strong>Pós-menopausa:</strong> Risco feminino se iguala ao masculino</li>
-                                <li><strong>Diferenças:</strong> Apresentação clínica pode variar</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="fator-card">
-                            <h4>🧬 Genética</h4>
-                            <ul>
-                                <li><strong>Histórico familiar:</strong> Parentes de 1º grau com DCV precoce</li>
-                                <li><strong>Definição precoce:</strong> &lt;55 anos (homens), &lt;65 anos (mulheres)</li>
-                                <li><strong>Risco relativo:</strong> Aumenta 2-3 vezes</li>
-                                <li><strong>Genes envolvidos:</strong> Múltiplos polimorfismos</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="fator-card">
-                            <h4>🏃‍♂️ Etnia</h4>
-                            <ul>
-                                <li><strong>Afrodescendentes:</strong> Maior risco de hipertensão e AVC</li>
-                                <li><strong>Asiáticos:</strong> Maior risco de AVC hemorrágico</li>
-                                <li><strong>Hispânicos:</strong> Maior prevalência de diabetes</li>
-                                <li><strong>Fatores:</strong> Genéticos, socioeconômicos, culturais</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Fatores de Risco Modificáveis</h3>
-                    <div class="fatores-modificaveis">
-                        <div class="fator-modificavel">
-                            <h4>🚬 Tabagismo</h4>
-                            <p><strong>Impacto:</strong> Aumenta risco de DCV em 2-4 vezes</p>
-                            <p><strong>Mecanismos:</strong></p>
-                            <ul>
-                                <li>Disfunção endotelial</li>
-                                <li>Aumento da coagulação</li>
-                                <li>Inflamação vascular</li>
-                                <li>Redução do HDL</li>
-                                <li>Vasoconstrição</li>
-                            </ul>
-                            <p><strong>Benefício da cessação:</strong> Risco reduz 50% em 1 ano</p>
-                        </div>
-                        
-                        <div class="fator-modificavel">
-                            <h4>🍔 Dislipidemia</h4>
-                            <p><strong>Alvos terapêuticos (mg/dL):</strong></p>
-                            <ul>
-                                <li><strong>LDL:</strong> &lt;100 (alto risco), &lt;70 (muito alto risco)</li>
-                                <li><strong>HDL:</strong> &gt;40 (homens), &gt;50 (mulheres)</li>
-                                <li><strong>Triglicerídeos:</strong> &lt;150</li>
-                                <li><strong>Colesterol total:</strong> &lt;200</li>
-                            </ul>
-                            <p><strong>Redução de 1% no LDL = 1% redução no risco de DCV</strong></p>
-                        </div>
-                        
-                        <div class="fator-modificavel">
-                            <h4>🩸 Hipertensão</h4>
-                            <p><strong>Impacto:</strong> Cada 20/10 mmHg dobra o risco de DCV</p>
-                            <p><strong>Alvos terapêuticos:</strong></p>
-                            <ul>
-                                <li><strong>Geral:</strong> &lt;140/90 mmHg</li>
-                                <li><strong>Diabetes/DRC:</strong> &lt;130/80 mmHg</li>
-                                <li><strong>Idosos:</strong> &lt;150/90 mmHg (se tolerado)</li>
-                            </ul>
-                            <p><strong>Redução de 10 mmHg sistólica = 20% redução no risco de DCV</strong></p>
-                        </div>
-                        
-                        <div class="fator-modificavel">
-                            <h4>🍯 Diabetes Mellitus</h4>
-                            <p><strong>Impacto:</strong> Aumenta risco de DCV em 2-4 vezes</p>
-                            <p><strong>Alvos terapêuticos:</strong></p>
-                            <ul>
-                                <li><strong>HbA1c:</strong> &lt;7% (individualizar)</li>
-                                <li><strong>Glicemia jejum:</strong> 80-130 mg/dL</li>
-                                <li><strong>Glicemia pós-prandial:</strong> &lt;180 mg/dL</li>
-                            </ul>
-                            <p><strong>Controle intensivo reduz complicações microvasculares</strong></p>
-                        </div>
-                        
-                        <div class="fator-modificavel">
-                            <h4>⚖️ Obesidade</h4>
-                            <p><strong>Classificação IMC (kg/m²):</strong></p>
-                            <ul>
-                                <li><strong>Sobrepeso:</strong> 25-29,9</li>
-                                <li><strong>Obesidade I:</strong> 30-34,9</li>
-                                <li><strong>Obesidade II:</strong> 35-39,9</li>
-                                <li><strong>Obesidade III:</strong> ≥40</li>
-                            </ul>
-                            <p><strong>Circunferência abdominal:</strong> &gt;102 cm (homens), &gt;88 cm (mulheres)</p>
-                        </div>
-                        
-                        <div class="fator-modificavel">
-                            <h4>🛋️ Sedentarismo</h4>
-                            <p><strong>Impacto:</strong> Aumenta risco de DCV em 30-50%</p>
-                            <p><strong>Recomendações:</strong></p>
-                            <ul>
-                                <li><strong>Aeróbico:</strong> 150 min/semana moderado ou 75 min/semana vigoroso</li>
-                                <li><strong>Resistência:</strong> 2x/semana, grandes grupos musculares</li>
-                                <li><strong>Flexibilidade:</strong> 2-3x/semana</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Fatores de Risco Emergentes</h3>
-                    <ul>
-                        <li><strong>Proteína C reativa (PCR):</strong> Marcador inflamatório</li>
-                        <li><strong>Homocisteína:</strong> Aminoácido relacionado à aterosclerose</li>
-                        <li><strong>Lipoproteína(a):</strong> Partícula aterogênica</li>
-                        <li><strong>Fibrinogênio:</strong> Fator de coagulação</li>
-                        <li><strong>Microalbuminúria:</strong> Disfunção endotelial</li>
-                        <li><strong>Escore de cálcio coronário:</strong> Aterosclerose subclínica</li>
-                        <li><strong>Apneia do sono:</strong> Hipóxia intermitente</li>
-                        <li><strong>Poluição do ar:</strong> Partículas finas (PM2.5)</li>
-                    </ul>
-
-                    <h2>Estratificação de Risco</h2>
-                    <p>A avaliação do risco cardiovascular orienta as decisões terapêuticas:</p>
-
-                    <h3>Escores de Risco</h3>
-                    <div class="escores-risco">
-                        <div class="escore-card">
-                            <h4>📊 Escore de Framingham</h4>
-                            <p><strong>Variáveis:</strong> Idade, sexo, colesterol total, HDL, pressão arterial, diabetes, tabagismo</p>
-                            <p><strong>Prediz:</strong> Risco de DCV em 10 anos</p>
-                            <p><strong>Limitações:</strong> Subestima risco em jovens, superestima em idosos</p>
-                        </div>
-                        
-                        <div class="escore-card">
-                            <h4>🌍 SCORE (Europa)</h4>
-                            <p><strong>Variáveis:</strong> Idade, sexo, tabagismo, pressão arterial, colesterol total</p>
-                            <p><strong>Prediz:</strong> Risco de morte cardiovascular em 10 anos</p>
-                            <p><strong>Vantagem:</strong> Específico para populações europeias</p>
-                        </div>
-                        
-                        <div class="escore-card">
-                            <h4>🇺🇸 ACC/AHA (2013)</h4>
-                            <p><strong>Variáveis:</strong> Idade, sexo, raça, colesterol total, HDL, pressão arterial, diabetes, tabagismo</p>
-                            <p><strong>Prediz:</strong> Risco de infarto e AVC em 10 anos</p>
-                            <p><strong>Inovação:</strong> Inclui AVC na predição</p>
-                        </div>
-                        
-                        <div class="escore-card">
-                            <h4>🇧🇷 Escore de Risco Global (ERG)</h4>
-                            <p><strong>Desenvolvido:</strong> Para população brasileira</p>
-                            <p><strong>Variáveis:</strong> Similares ao Framingham, adaptado</p>
-                            <p><strong>Vantagem:</strong> Mais adequado para nossa população</p>
-                        </div>
-                    </div>
-
-                    <h3>Classificação de Risco</h3>
-                    <div class="classificacao-risco">
-                        <div class="risco-categoria">
-                            <h4>🟢 Baixo Risco</h4>
-                            <p><strong>Definição:</strong> &lt;5% em 10 anos</p>
-                            <p><strong>Conduta:</strong> Mudanças no estilo de vida</p>
-                        </div>
-                        
-                        <div class="risco-categoria">
-                            <h4>🟡 Risco Intermediário</h4>
-                            <p><strong>Definição:</strong> 5-20% em 10 anos</p>
-                            <p><strong>Conduta:</strong> Estilo de vida + considerar medicamentos</p>
-                        </div>
-                        
-                        <div class="risco-categoria">
-                            <h4>🔴 Alto Risco</h4>
-                            <p><strong>Definição:</strong> &gt;20% em 10 anos</p>
-                            <p><strong>Conduta:</strong> Tratamento medicamentoso intensivo</p>
-                        </div>
-                        
-                        <div class="risco-categoria">
-                            <h4>🚨 Muito Alto Risco</h4>
-                            <p><strong>Definição:</strong> DCV estabelecida ou equivalente</p>
-                            <p><strong>Conduta:</strong> Prevenção secundária intensiva</p>
-                        </div>
-                    </div>
-
-                    <h2>Prevenção Primária</h2>
-                    <p>Estratégias para prevenir o primeiro evento cardiovascular:</p>
-
-                    <h3>Mudanças no Estilo de Vida</h3>
-                    <div class="mudancas-estilo-vida">
-                        <div class="mudanca-categoria">
-                            <h4>🥗 Alimentação Saudável</h4>
-                            <p><strong>Padrões recomendados:</strong></p>
-                            <ul>
-                                <li><strong>Dieta Mediterrânea:</strong> Rica em azeite, peixes, frutas, vegetais</li>
-                                <li><strong>DASH:</strong> Enfatiza frutas, vegetais, grãos integrais, baixo sódio</li>
-                                <li><strong>Padrão Nórdico:</strong> Peixes, frutas vermelhas, grãos integrais</li>
-                            </ul>
-                            
-                            <p><strong>Componentes-chave:</strong></p>
-                            <ul>
-                                <li>Frutas e vegetais: 5-9 porções/dia</li>
-                                <li>Grãos integrais: 3+ porções/dia</li>
-                                <li>Peixes: 2x/semana (especialmente gordos)</li>
-                                <li>Nozes: 30g/dia</li>
-                                <li>Azeite de oliva: fonte principal de gordura</li>
-                                <li>Sódio: &lt;2300 mg/dia (ideal &lt;1500 mg/dia)</li>
-                            </ul>
-                            
-                            <p><strong>Alimentos a limitar:</strong></p>
-                            <ul>
-                                <li>Carnes vermelhas processadas</li>
-                                <li>Bebidas açucaradas</li>
-                                <li>Alimentos ultraprocessados</li>
-                                <li>Gorduras trans</li>
-                                <li>Excesso de gorduras saturadas</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="mudanca-categoria">
-                            <h4>🏃‍♂️ Atividade Física</h4>
-                            <p><strong>Recomendações para adultos:</strong></p>
-                            <ul>
-                                <li><strong>Aeróbico moderado:</strong> 150-300 min/semana</li>
-                                <li><strong>Aeróbico vigoroso:</strong> 75-150 min/semana</li>
-                                <li><strong>Resistência:</strong> 2+ dias/semana</li>
-                                <li><strong>Flexibilidade:</strong> 2-3 dias/semana</li>
-                            </ul>
-                            
-                            <p><strong>Benefícios cardiovasculares:</strong></p>
-                            <ul>
-                                <li>Redução da pressão arterial (5-7 mmHg)</li>
-                                <li>Melhora do perfil lipídico</li>
-                                <li>Controle glicêmico</li>
-                                <li>Redução do peso corporal</li>
-                                <li>Melhora da função endotelial</li>
-                                <li>Redução da inflamação</li>
-                            </ul>
-                            
-                            <p><strong>Progressão segura:</strong></p>
-                            <ul>
-                                <li>Início gradual (10% aumento semanal)</li>
-                                <li>Aquecimento e resfriamento</li>
-                                <li>Hidratação adequada</li>
-                                <li>Roupas apropriadas</li>
-                                <li>Avaliação médica se necessário</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="mudanca-categoria">
-                            <h4>🚭 Cessação do Tabagismo</h4>
-                            <p><strong>Estratégias eficazes:</strong></p>
-                            <ul>
-                                <li><strong>Aconselhamento:</strong> Breve ou intensivo</li>
-                                <li><strong>Terapia de reposição nicotínica:</strong> Adesivos, gomas, pastilhas</li>
-                                <li><strong>Medicamentos:</strong> Bupropiona, vareniclina</li>
-                                <li><strong>Terapias comportamentais:</strong> Individual ou em grupo</li>
-                                <li><strong>Aplicativos:</strong> Suporte digital</li>
-                            </ul>
-                            
-                            <p><strong>Benefícios temporais:</strong></p>
-                            <ul>
-                                <li><strong>20 minutos:</strong> Frequência cardíaca e pressão normalizam</li>
-                                <li><strong>12 horas:</strong> Níveis de CO normalizam</li>
-                                <li><strong>2-12 semanas:</strong> Circulação melhora</li>
-                                <li><strong>1-9 meses:</strong> Tosse e falta de ar diminuem</li>
-                                <li><strong>1 ano:</strong> Risco de DCV reduz 50%</li>
-                                <li><strong>5 anos:</strong> Risco de AVC igual ao não fumante</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="mudanca-categoria">
-                            <h4>😴 Sono Adequado</h4>
-                            <p><strong>Recomendações:</strong></p>
-                            <ul>
-                                <li><strong>Duração:</strong> 7-9 horas/noite para adultos</li>
-                                <li><strong>Qualidade:</strong> Sono reparador e contínuo</li>
-                                <li><strong>Regularidade:</strong> Horários consistentes</li>
-                                <li><strong>Ambiente:</strong> Escuro, silencioso, fresco</li>
-                            </ul>
-                            
-                            <p><strong>Impacto cardiovascular:</strong></p>
-                            <ul>
-                                <li>Sono &lt;6h: Aumento de 48% no risco de DCV</li>
-                                <li>Sono &gt;9h: Aumento de 38% no risco de DCV</li>
-                                <li>Apneia do sono: Risco 2-3x maior de hipertensão</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="mudanca-categoria">
-                            <h4>🧘‍♀️ Gerenciamento do Estresse</h4>
-                            <p><strong>Técnicas eficazes:</strong></p>
-                            <ul>
-                                <li><strong>Meditação:</strong> Mindfulness, transcendental</li>
-                                <li><strong>Exercícios de respiração:</strong> Técnicas de relaxamento</li>
-                                <li><strong>Yoga:</strong> Combina movimento e meditação</li>
-                                <li><strong>Tai Chi:</strong> "Meditação em movimento"</li>
-                                <li><strong>Terapia:</strong> Cognitivo-comportamental</li>
-                                <li><strong>Suporte social:</strong> Família, amigos, grupos</li>
-                            </ul>
-                            
-                            <p><strong>Benefícios:</strong></p>
-                            <ul>
-                                <li>Redução da pressão arterial</li>
-                                <li>Melhora da variabilidade da frequência cardíaca</li>
-                                <li>Redução de marcadores inflamatórios</li>
-                                <li>Melhora da qualidade de vida</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="ferramentas-relacionadas">
-                        <h3>🔥 Monitore sua atividade</h3>
-                        <p>Calcule seu gasto calórico durante exercícios:</p>
-                        <a href="../ferramentas/calorias.html" class="btn-secondary">Calcular Gasto Calórico</a>
-                    </div>
-
-                    <h3>Prevenção Medicamentosa</h3>
-                    <p>Para indivíduos com risco elevado, medicamentos podem ser indicados:</p>
-
-                    <h4>Estatinas</h4>
-                    <ul>
-                        <li><strong>Indicações:</strong> LDL ≥190 mg/dL, diabetes 40-75 anos, risco ≥7,5% em 10 anos</li>
-                        <li><strong>Benefícios:</strong> Redução de 25-35% nos eventos cardiovasculares</li>
-                        <li><strong>Mecanismo:</strong> Inibição da HMG-CoA redutase</li>
-                        <li><strong>Efeitos pleiotrópicos:</strong> Anti-inflamatório, estabilização de placa</li>
-                    </ul>
-
-                    <h4>Anti-hipertensivos</h4>
-                    <ul>
-                        <li><strong>Primeira linha:</strong> IECA/BRA, diuréticos tiazídicos, bloqueadores de cálcio</li>
-                        <li><strong>Meta:</strong> &lt;140/90 mmHg (geral), &lt;130/80 mmHg (alto risco)</li>
-                        <li><strong>Benefícios:</strong> Redução de 20-25% nos eventos cardiovasculares</li>
-                    </ul>
-
-                    <h4>Antidiabéticos</h4>
-                    <ul>
-                        <li><strong>Metformina:</strong> Primeira linha, benefício cardiovascular</li>
-                        <li><strong>SGLT2i:</strong> Redução de hospitalização por IC</li>
-                        <li><strong>GLP-1 RA:</strong> Redução de eventos cardiovasculares</li>
-                        <li><strong>Meta HbA1c:</strong> &lt;7% (individualizar)</li>
-                    </ul>
-
-                    <h4>Aspirina</h4>
-                    <ul>
-                        <li><strong>Dose:</strong> 75-100 mg/dia</li>
-                        <li><strong>Indicação:</strong> Risco ≥10% em 10 anos, baixo risco de sangramento</li>
-                        <li><strong>Idade:</strong> 40-70 anos (avaliar risco-benefício)</li>
-                        <li><strong>Contraindicações:</strong> Alto risco de sangramento, úlcera ativa</li>
-                    </ul>
-
-                    <h2>Prevenção Secundária</h2>
-                    <p>Estratégias para prevenir eventos recorrentes em pacientes com DCV estabelecida:</p>
-
-                    <h3>Terapia Medicamentosa Otimizada</h3>
-                    <div class="terapia-secundaria">
-                        <div class="medicamento-categoria">
-                            <h4>💊 Antiagregantes Plaquetários</h4>
-                            <p><strong>Aspirina:</strong></p>
-                            <ul>
-                                <li>Dose: 75-100 mg/dia</li>
-                                <li>Duração: Indefinida (se tolerada)</li>
-                                <li>Redução: 20-25% nos eventos recorrentes</li>
-                            </ul>
-                            
-                            <p><strong>Dupla antiagregação:</strong></p>
-                            <ul>
-                                <li>Aspirina + clopidogrel/ticagrelor</li>
-                                <li>Duração: 12 meses pós-síndrome coronariana aguda</li>
-                                <li>Considerar extensão em casos selecionados</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="medicamento-categoria">
-                            <h4>🧬 Estatinas de Alta Intensidade</h4>
-                            <p><strong>Objetivos:</strong></p>
-                            <ul>
-                                <li>LDL &lt;70 mg/dL (ou redução ≥50%)</li>
-                                <li>LDL &lt;55 mg/dL (muito alto risco)</li>
-                                <li>Considerar &lt;40 mg/dL em casos extremos</li>
-                            </ul>
-                            
-                            <p><strong>Opções:</strong></p>
-                            <ul>
-                                <li>Atorvastatina 40-80 mg</li>
-                                <li>Rosuvastatina 20-40 mg</li>
-                                <li>Sinvastatina 40 mg (máximo)</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="medicamento-categoria">
-                            <h4>🫀 Betabloqueadores</h4>
-                            <p><strong>Indicações:</strong></p>
-                            <ul>
-                                <li>Pós-infarto do miocárdio</li>
-                                <li>Insuficiência cardíaca com FE reduzida</li>
-                                <li>Hipertensão (se outras indicações)</li>
-                            </ul>
-                            
-                            <p><strong>Benefícios:</strong></p>
-                            <ul>
-                                <li>Redução da mortalidade pós-infarto</li>
-                                <li>Melhora da função ventricular</li>
-                                <li>Redução de arritmias</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="medicamento-categoria">
-                            <h4>🩸 IECA/BRA</h4>
-                            <p><strong>Indicações:</strong></p>
-                            <ul>
-                                <li>Disfunção ventricular esquerda</li>
-                                <li>Hipertensão</li>
-                                <li>Diabetes</li>
-                                <li>Doença renal crônica</li>
-                            </ul>
-                            
-                            <p><strong>Benefícios:</strong></p>
-                            <ul>
-                                <li>Redução da mortalidade</li>
-                                <li>Prevenção de remodelamento ventricular</li>
-                                <li>Proteção renal</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Metas Terapêuticas Intensivas</h3>
-                    <div class="metas-intensivas">
-                        <div class="meta-card">
-                            <h4>📊 Lipídios</h4>
-                            <ul>
-                                <li><strong>LDL:</strong> &lt;70 mg/dL (ou &lt;55 mg/dL se muito alto risco)</li>
-                                <li><strong>HDL:</strong> &gt;40 mg/dL (homens), &gt;50 mg/dL (mulheres)</li>
-                                <li><strong>Triglicerídeos:</strong> &lt;150 mg/dL</li>
-                                <li><strong>Não-HDL:</strong> &lt;100 mg/dL</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="meta-card">
-                            <h4>🩸 Pressão Arterial</h4>
-                            <ul>
-                                <li><strong>Geral:</strong> &lt;140/90 mmHg</li>
-                                <li><strong>Diabetes/DRC:</strong> &lt;130/80 mmHg</li>
-                                <li><strong>Idosos:</strong> Individualizar (130-140 mmHg sistólica)</li>
-                                <li><strong>Pós-AVC:</strong> &lt;140/90 mmHg</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="meta-card">
-                            <h4>🍯 Glicemia (se diabético)</h4>
-                            <ul>
-                                <li><strong>HbA1c:</strong> &lt;7% (individualizar 6,5-8%)</li>
-                                <li><strong>Glicemia jejum:</strong> 80-130 mg/dL</li>
-                                <li><strong>Glicemia pós-prandial:</strong> &lt;180 mg/dL</li>
-                                <li><strong>Hipoglicemia:</strong> Evitar episódios graves</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="meta-card">
-                            <h4>⚖️ Peso</h4>
-                            <ul>
-                                <li><strong>IMC:</strong> 18,5-24,9 kg/m²</li>
-                                <li><strong>Circunferência abdominal:</strong> &lt;102 cm (homens), &lt;88 cm (mulheres)</li>
-                                <li><strong>Perda de peso:</strong> 5-10% se sobrepeso/obesidade</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h2>Diagnóstico e Exames</h2>
-                    <p>O diagnóstico precoce das DCV é fundamental para o tratamento adequado:</p>
-
-                    <h3>Avaliação Clínica Inicial</h3>
-                    <div class="avaliacao-clinica">
-                        <div class="avaliacao-componente">
-                            <h4>📋 História Clínica</h4>
-                            <ul>
-                                <li><strong>Sintomas:</strong> Dor torácica, dispneia, palpitações, síncope</li>
-                                <li><strong>Fatores de risco:</strong> Tradicionais e emergentes</li>
-                                <li><strong>História familiar:</strong> DCV prematura em parentes de 1º grau</li>
-                                <li><strong>Medicamentos:</strong> Atuais e prévios</li>
-                                <li><strong>Estilo de vida:</strong> Dieta, exercício, tabagismo, álcool</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="avaliacao-componente">
-                            <h4>🔍 Exame Físico</h4>
-                            <ul>
-                                <li><strong>Sinais vitais:</strong> PA, FC, temperatura, saturação</li>
-                                <li><strong>Cardiovascular:</strong> Ausculta cardíaca, pulsos, edema</li>
-                                <li><strong>Respiratório:</strong> Ausculta pulmonar, dispneia</li>
-                                <li><strong>Vascular:</strong> Sopros carotídeos, pulsos periféricos</li>
-                                <li><strong>Geral:</strong> IMC, circunferência abdominal</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Exames Laboratoriais</h3>
-                    <div class="exames-laboratoriais">
-                        <div class="exame-categoria">
-                            <h4>🧪 Perfil Lipídico</h4>
-                            <p><strong>Componentes:</strong></p>
-                            <ul>
-                                <li>Colesterol total</li>
-                                <li>LDL colesterol</li>
-                                <li>HDL colesterol</li>
-                                <li>Triglicerídeos</li>
-                                <li>Não-HDL colesterol</li>
-                            </ul>
-                            <p><strong>Jejum:</strong> 12 horas (triglicerídeos)</p>
-                            <p><strong>Frequência:</strong> A cada 5 anos (baixo risco), anual (alto risco)</p>
-                        </div>
-                        
-                        <div class="exame-categoria">
-                            <h4>🍯 Glicemia e Diabetes</h4>
-                            <p><strong>Exames:</strong></p>
-                            <ul>
-                                <li>Glicemia de jejum</li>
-                                <li>HbA1c</li>
-                                <li>Teste oral de tolerância à glicose (se indicado)</li>
-                            </ul>
-                            <p><strong>Critérios diagnósticos:</strong></p>
-                            <ul>
-                                <li>Jejum ≥126 mg/dL</li>
-                                <li>HbA1c ≥6,5%</li>
-                                <li>TOTG 2h ≥200 mg/dL</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="exame-categoria">
-                            <h4>🔬 Marcadores Adicionais</h4>
-                            <p><strong>Inflamatórios:</strong></p>
-                            <ul>
-                                <li>Proteína C reativa ultrassensível</li>
-                                <li>Velocidade de hemossedimentação</li>
-                            </ul>
-                            
-                            <p><strong>Função renal:</strong></p>
-                            <ul>
-                                <li>Creatinina e taxa de filtração glomerular</li>
-                                <li>Microalbuminúria</li>
-                            </ul>
-                            
-                            <p><strong>Outros:</strong></p>
-                            <ul>
-                                <li>Homocisteína</li>
-                                <li>Lipoproteína(a)</li>
-                                <li>Troponinas (se suspeita de síndrome coronariana aguda)</li>
-                                <li>BNP/NT-proBNP (se suspeita de insuficiência cardíaca)</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Exames de Imagem</h3>
-                    <div class="exames-imagem">
-                        <div class="imagem-exame">
-                            <h4>📱 Eletrocardiograma (ECG)</h4>
-                            <p><strong>Indicações:</strong></p>
-                            <ul>
-                                <li>Avaliação inicial de todos os pacientes</li>
-                                <li>Suspeita de arritmia ou isquemia</li>
-                                <li>Acompanhamento de cardiopatias</li>
-                            </ul>
-                            <p><strong>Limitações:</strong> Normal não exclui doença coronariana</p>
-                        </div>
-                        
-                        <div class="imagem-exame">
-                            <h4>🫀 Ecocardiograma</h4>
-                            <p><strong>Indicações:</strong></p>
-                            <ul>
-                                <li>Avaliação da função ventricular</li>
-                                <li>Suspeita de valvopatia</li>
-                                <li>Investigação de sopros</li>
-                                <li>Acompanhamento de cardiopatias</li>
-                            </ul>
-                            <p><strong>Informações:</strong> Função sistólica/diastólica, valvas, pericárdio</p>
-                        </div>
-                        
-                        <div class="imagem-exame">
-                            <h4>🏃‍♂️ Teste Ergométrico</h4>
-                            <p><strong>Indicações:</strong></p>
-                            <ul>
-                                <li>Investigação de doença coronariana</li>
-                                <li>Avaliação da capacidade funcional</li>
-                                <li>Prescrição de exercícios</li>
-                                <li>Prognóstico</li>
-                            </ul>
-                            <p><strong>Contraindicações:</strong> Síndrome coronariana aguda, arritmias graves</p>
-                        </div>
-                        
-                        <div class="imagem-exame">
-                            <h4>💻 Tomografia Coronariana</h4>
-                            <p><strong>Indicações:</strong></p>
-                            <ul>
-                                <li>Escore de cálcio (estratificação de risco)</li>
-                                <li>Angiotomografia (anatomia coronariana)</li>
-                                <li>Risco intermediário com teste ergométrico inconclusivo</li>
-                            </ul>
-                            <p><strong>Vantagens:</strong> Não invasiva, alta resolução</p>
-                            <p><strong>Limitações:</strong> Radiação, contraste, calcificação extensa</p>
-                        </div>
-                        
-                        <div class="imagem-exame">
-                            <h4>🔬 Cateterismo Cardíaco</h4>
-                            <p><strong>Indicações:</strong></p>
-                            <ul>
-                                <li>Síndrome coronariana aguda</li>
-                                <li>Angina refratária</li>
-                                <li>Teste não invasivo positivo</li>
-                                <li>Avaliação pré-operatória</li>
-                            </ul>
-                            <p><strong>Padrão-ouro:</strong> Anatomia coronariana</p>
-                            <p><strong>Riscos:</strong> Invasivo, contraste, radiação</p>
-                        </div>
-                    </div>
-
-                    <div class="ferramentas-relacionadas">
-                        <h3>💧 Monitore sua hidratação</h3>
-                        <p>A hidratação adequada é importante para a saúde cardiovascular:</p>
-                        <a href="../ferramentas/agua.html" class="btn-secondary">Calcular Água por Dia</a>
-                    </div>
-
-                    <h2>Tratamento das Doenças Cardiovasculares</h2>
-                    <p>O tratamento das DCV é multifacetado e individualizado:</p>
-
-                    <h3>Síndrome Coronariana Aguda</h3>
-                    <div class="tratamento-sca">
-                        <div class="sca-tipo">
-                            <h4>🚨 Infarto com Supradesnível de ST (IAMCSST)</h4>
-                            <p><strong>Tratamento de reperfusão:</strong></p>
-                            <ul>
-                                <li><strong>Angioplastia primária:</strong> Padrão-ouro se disponível &lt;120 min</li>
-                                <li><strong>Fibrinólise:</strong> Se angioplastia não disponível &lt;12h</li>
-                                <li><strong>Tempo é músculo:</strong> Cada minuto conta</li>
-                            </ul>
-                            
-                            <p><strong>Medicações adjuvantes:</strong></p>
-                            <ul>
-                                <li>Dupla antiagregação (aspirina + P2Y12)</li>
-                                <li>Anticoagulação (heparina)</li>
-                                <li>Betabloqueador</li>
-                                <li>IECA/BRA</li>
-                                <li>Estatina de alta intensidade</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="sca-tipo">
-                            <h4>⚠️ Síndrome Coronariana Aguda sem Supradesnível de ST</h4>
-                            <p><strong>Estratificação de risco:</strong></p>
-                            <ul>
-                                <li><strong>Alto risco:</strong> Cateterismo em 24h</li>
-                                <li><strong>Risco intermediário:</strong> Cateterismo em 72h</li>
-                                <li><strong>Baixo risco:</strong> Tratamento conservador inicial</li>
-                            </ul>
-                            
-                            <p><strong>Escores de risco:</strong></p>
-                            <ul>
-                                <li>TIMI (0-7 pontos)</li>
-                                <li>GRACE (probabilística)</li>
-                                <li>CRUSADE (risco de sangramento)</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Insuficiência Cardíaca</h3>
-                    <div class="tratamento-ic">
-                        <div class="ic-medicamentos">
-                            <h4>💊 Medicamentos Comprovados</h4>
-                            <p><strong>IC com FE reduzida:</strong></p>
-                            <ul>
-                                <li><strong>IECA/BRA:</strong> Reduzem mortalidade</li>
-                                <li><strong>Betabloqueadores:</strong> Carvedilol, metoprolol, bisoprolol</li>
-                                <li><strong>Antagonistas mineralocorticoides:</strong> Espironolactona, eplerenona</li>
-                                <li><strong>ARNI:</strong> Sacubitril/valsartana (se tolerado)</li>
-                                <li><strong>SGLT2i:</strong> Dapagliflozina, empagliflozina</li>
-                            </ul>
-                            
-                            <p><strong>IC com FE preservada:</strong></p>
-                            <ul>
-                                <li>Controle de fatores de risco</li>
-                                <li>Diuréticos para congestão</li>
-                                <li>SGLT2i (evidência emergente)</li>
-                                <li>Tratamento de comorbidades</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="ic-dispositivos">
-                            <h4>🔋 Dispositivos</h4>
-                            <p><strong>Indicações:</strong></p>
-                            <ul>
-                                <li><strong>CDI:</strong> FE ≤35% apesar de tratamento otimizado</li>
-                                <li><strong>TRC:</strong> FE ≤35%, QRS ≥150 ms, BRE</li>
-                                <li><strong>Marca-passo:</strong> Bradiarritmias sintomáticas</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="ic-cirurgia">
-                            <h4>🏥 Tratamento Cirúrgico</h4>
-                            <ul>
-                                <li><strong>Revascularização:</strong> Se isquemia viável</li>
-                                <li><strong>Correção valvar:</strong> Regurgitação mitral/aórtica</li>
-                                <li><strong>Transplante:</strong> IC refratária, candidatos selecionados</li>
-                                <li><strong>Dispositivos de assistência:</strong> Ponte para transplante</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Hipertensão Arterial</h3>
-                    <div class="tratamento-hipertensao">
-                        <div class="ha-medicamentos">
-                            <h4>💊 Classes de Anti-hipertensivos</h4>
-                            <div class="medicamento-classe">
-                                <h5>IECA/BRA</h5>
-                                <p><strong>Mecanismo:</strong> Bloqueio do sistema renina-angiotensina</p>
-                                <p><strong>Indicações preferenciais:</strong> Diabetes, IC, DRC</p>
-                                <p><strong>Efeitos adversos:</strong> Tosse (IECA), hipercalemia</p>
-                            </div>
-                            
-                            <div class="medicamento-classe">
-                                <h5>Diuréticos Tiazídicos</h5>
-                                <p><strong>Mecanismo:</strong> Redução do volume intravascular</p>
-                                <p><strong>Vantagens:</strong> Baixo custo, evidência robusta</p>
-                                <p><strong>Efeitos adversos:</strong> Hipocalemia, hiperuricemia</p>
-                            </div>
-                            
-                            <div class="medicamento-classe">
-                                <h5>Bloqueadores de Cálcio</h5>
-                                <p><strong>Tipos:</strong> Di-hidropiridínicos, não di-hidropiridínicos</p>
-                                <p><strong>Indicações:</strong> Idosos, hipertensão sistólica isolada</p>
-                                <p><strong>Efeitos adversos:</strong> Edema, constipação</p>
-                            </div>
-                            
-                            <div class="medicamento-classe">
-                                <h5>Betabloqueadores</h5>
-                                <p><strong>Indicações preferenciais:</strong> Pós-infarto, IC, arritmias</p>
-                                <p><strong>Contraindicações:</strong> Asma, DPOC grave, BAV</p>
-                                <p><strong>Efeitos adversos:</strong> Bradicardia, broncoespasmo</p>
-                            </div>
-                        </div>
-                        
-                        <div class="ha-estrategia">
-                            <h4>📋 Estratégia Terapêutica</h4>
-                            <p><strong>Monoterapia inicial:</strong></p>
-                            <ul>
-                                <li>PA 130-139/80-89 mmHg</li>
-                                <li>Baixo risco cardiovascular</li>
-                                <li>Preferir IECA/BRA ou diurético tiazídico</li>
-                            </ul>
-                            
-                            <p><strong>Terapia combinada inicial:</strong></p>
-                            <ul>
-                                <li>PA ≥140/90 mmHg</li>
-                                <li>Alto risco cardiovascular</li>
-                                <li>Combinação fixa preferível</li>
-                            </ul>
-                            
-                            <p><strong>Combinações preferenciais:</strong></p>
-                            <ul>
-                                <li>IECA/BRA + diurético tiazídico</li>
-                                <li>IECA/BRA + bloqueador de cálcio</li>
-                                <li>Bloqueador de cálcio + diurético tiazídico</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h2>Reabilitação Cardiovascular</h2>
-                    <p>Programa estruturado para otimizar a recuperação e prevenir eventos futuros:</p>
-
-                    <h3>Componentes da Reabilitação</h3>
-                    <div class="componentes-reabilitacao">
-                        <div class="componente-reab">
-                            <h4>🏃‍♂️ Exercício Supervisionado</h4>
-                            <p><strong>Fases:</strong></p>
-                            <ul>
-                                <li><strong>Fase I:</strong> Hospitalar, mobilização precoce</li>
-                                <li><strong>Fase II:</strong> Ambulatorial supervisionado (12 semanas)</li>
-                                <li><strong>Fase III:</strong> Manutenção comunitária</li>
-                            </ul>
-                            
-                            <p><strong>Prescrição:</strong></p>
-                            <ul>
-                                <li>Frequência: 3x/semana</li>
-                                <li>Intensidade: 40-80% da FC de reserva</li>
-                                <li>Duração: 30-60 minutos</li>
-                                <li>Modalidade: Aeróbico + resistência</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="componente-reab">
-                            <h4>📚 Educação</h4>
-                            <ul>
-                                <li>Fisiopatologia da doença</li>
-                                <li>Fatores de risco</li>
-                                <li>Medicamentos</li>
-                                <li>Sinais de alerta</li>
-                                <li>Retorno às atividades</li>
-                                <li>Suporte psicossocial</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="componente-reab">
-                            <h4>🧠 Suporte Psicológico</h4>
-                            <ul>
-                                <li>Avaliação de depressão/ansiedade</li>
-                                <li>Técnicas de enfrentamento</li>
-                                <li>Gerenciamento do estresse</li>
-                                <li>Suporte familiar</li>
-                                <li>Grupos de apoio</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="componente-reab">
-                            <h4>🥗 Orientação Nutricional</h4>
-                            <ul>
-                                <li>Dieta cardioprotetora</li>
-                                <li>Controle de peso</li>
-                                <li>Redução de sódio</li>
-                                <li>Aumento de fibras</li>
-                                <li>Planejamento de refeições</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Benefícios da Reabilitação</h3>
-                    <ul>
-                        <li><strong>Mortalidade:</strong> Redução de 15-25%</li>
-                        <li><strong>Reinternações:</strong> Redução de 20-30%</li>
-                        <li><strong>Capacidade funcional:</strong> Melhora de 15-25%</li>
-                        <li><strong>Qualidade de vida:</strong> Melhora significativa</li>
-                        <li><strong>Fatores de risco:</strong> Melhor controle</li>
-                        <li><strong>Depressão:</strong> Redução dos sintomas</li>
-                        <li><strong>Retorno ao trabalho:</strong> Mais precoce</li>
-                    </ul>
-
-                    <h2>Prognóstico e Seguimento</h2>
-                    <p>O acompanhamento adequado é fundamental para otimizar resultados:</p>
-
-                    <h3>Estratificação Prognóstica</h3>
-                    <div class="estratificacao-prognostica">
-                        <div class="prognostico-fator">
-                            <h4>📊 Função Ventricular</h4>
-                            <ul>
-                                <li><strong>FE &gt;50%:</strong> Prognóstico favorável</li>
-                                <li><strong>FE 40-50%:</strong> Prognóstico intermediário</li>
-                                <li><strong>FE &lt;40%:</strong> Prognóstico reservado</li>
-                                <li><strong>FE &lt;30%:</strong> Alto risco de morte súbita</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="prognostico-fator">
-                            <h4>🏃‍♂️ Capacidade Funcional</h4>
-                            <ul>
-                                <li><strong>&gt;10 METs:</strong> Baixo risco</li>
-                                <li><strong>7-10 METs:</strong> Risco intermediário</li>
-                                <li><strong>5-7 METs:</strong> Risco moderado</li>
-                                <li><strong>&lt;5 METs:</strong> Alto risco</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="prognostico-fator">
-                            <h4>🔬 Biomarcadores</h4>
-                            <ul>
-                                <li><strong>BNP/NT-proBNP:</strong> Prognóstico em IC</li>
-                                <li><strong>Troponinas:</strong> Estratificação em SCA</li>
-                                <li><strong>PCR:</strong> Risco inflamatório</li>
-                                <li><strong>Creatinina:</strong> Função renal</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Cronograma de Seguimento</h3>
-                    <div class="cronograma-seguimento">
-                        <div class="periodo-seguimento">
-                            <h4>📅 Primeiros 30 dias</h4>
-                            <ul>
-                                <li>Consulta em 7-14 dias</li>
-                                <li>Ajuste de medicações</li>
-                                <li>Avaliação de complicações</li>
-                                <li>Início da reabilitação</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="periodo-seguimento">
-                            <h4>📅 1-6 meses</h4>
-                            <ul>
-                                <li>Consultas mensais</li>
-                                <li>Otimização terapêutica</li>
-                                <li>Exames de controle</li>
-                                <li>Avaliação funcional</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="periodo-seguimento">
-                            <h4>📅 Longo prazo</h4>
-                            <ul>
-                                <li>Consultas a cada 3-6 meses</li>
-                                <li>Exames anuais</li>
-                                <li>Reforço educacional</li>
-                                <li>Ajustes conforme evolução</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h2>Conclusão</h2>
-                    <p>As doenças cardiovasculares representam um desafio global de saúde pública, mas a maioria pode ser prevenida através de estratégias baseadas em evidências. A abordagem deve ser multifacetada, incluindo modificações no estilo de vida, controle adequado dos fatores de risco e, quando necessário, intervenções medicamentosas e procedimentos.</p>
-                    
-                    <p>A prevenção primária, focada em indivíduos sem doença estabelecida, é a estratégia mais custo-efetiva. Para aqueles com DCV estabelecida, a prevenção secundária intensiva pode reduzir significativamente o risco de eventos recorrentes e melhorar a qualidade de vida.</p>
-                    
-                    <p>O sucesso no manejo das DCV requer uma abordagem colaborativa entre profissionais de saúde, pacientes e familiares, com foco na educação, adesão ao tratamento e mudanças sustentáveis no estilo de vida. Investir na saúde cardiovascular é investir em longevidade e qualidade de vida.</p>
-
-                    <div class="cta-final">
-                        <h3>💪 Cuide da sua saúde cardiovascular</h3>
-                        <p>Monitore indicadores importantes para seu coração:</p>
-                        <div class="cta-buttons">
-                            <a href="../ferramentas/imc.html" class="btn-primary">Calcular IMC</a>
-                            <a href="../ferramentas/calorias.html" class="btn-secondary">Gasto Calórico</a>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 
+                <!-- Sidebar (Índice) - Desktop -->
+                <aside class="hidden lg:block lg:col-span-3 relative">
+                    <div class="sticky top-32 p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <h4 class="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="list" class="w-4 h-4"></i> Neste artigo
+                        </h4>
+                        <nav class="space-y-2 text-sm border-l-2 border-gray-100 dark:border-gray-700 ml-1">
+                            <a href="#o-que-sao" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-red-600 hover:border-l-2 hover:border-red-600 -ml-[2px] transition-all">O que são DCV?</a>
+                            <a href="#tipos-principais" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-red-600 hover:border-l-2 hover:border-red-600 -ml-[2px] transition-all">Principais Doenças</a>
+                            <a href="#fatores-risco" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-red-600 hover:border-l-2 hover:border-red-600 -ml-[2px] transition-all">Fatores de Risco</a>
+                            <a href="#sinais-alerta" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-red-600 hover:border-l-2 hover:border-red-600 -ml-[2px] transition-all">Sinais de Emergência</a>
+                            <a href="#prevencao" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-red-600 hover:border-l-2 hover:border-red-600 -ml-[2px] transition-all">Prevenção e Dieta</a>
+                            <a href="#diagnostico" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-red-600 hover:border-l-2 hover:border-red-600 -ml-[2px] transition-all">Diagnóstico</a>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Conteúdo do Artigo -->
+                <article class="lg:col-span-9 prose dark:prose-invert max-w-none">
+                    
+                    <!-- Header do Artigo -->
+                    <header class="not-prose mb-10 text-center lg:text-left">
+                        <span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-red-700 uppercase bg-red-100 rounded-full dark:bg-red-900/30 dark:text-red-400">
+                            Cardiologia
+                        </span>
+                        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
+                            Doenças Cardiovasculares: O Guia Definitivo de Prevenção e Cuidado
+                        </h1>
+                        
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-800 pb-8">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                                    <i data-lucide="stethoscope" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <span class="block font-bold text-gray-900 dark:text-white">Revisão Clínica</span>
+                                    <span class="text-xs">Diretrizes SBC/AHA</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                25 de Fevereiro, 2024
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                                20 min de leitura
+                            </div>
+                        </div>
+                    </header>
+
+                    <!-- Destaque Inicial -->
+                    <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-2xl border-l-4 border-red-500 mb-8 not-prose">
+                        <div class="flex items-start gap-4">
+                            <i data-lucide="activity" class="w-6 h-6 text-red-600 dark:text-red-400 shrink-0 mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-red-800 dark:text-red-300 mb-2">A Realidade em Números</h3>
+                                <p class="text-lg text-gray-700 dark:text-gray-300">
+                                    As doenças cardiovasculares são a <strong>principal causa de morte no mundo</strong>, superando qualquer tipo de câncer. No Brasil, cerca de 400 mil pessoas morrem anualmente por doenças do coração. A boa notícia? Estima-se que <strong>80% desses casos poderiam ser evitados</strong> com controle de fatores de risco.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <section id="o-que-sao">
+                        <h2>O que são Doenças Cardiovasculares?</h2>
+                        <p>Doenças cardiovasculares (DCV) são um grupo de distúrbios que afetam o coração e os vasos sanguíneos. O sistema cardiovascular é responsável por transportar oxigênio e nutrientes para todas as células do corpo. Quando esse sistema falha, órgãos vitais como o cérebro, rins e o próprio coração sofrem danos irreversíveis.</p>
+                        <p>A base da maioria dessas doenças é a <strong>aterosclerose</strong>: um processo inflamatório crônico onde placas de gordura, colesterol e outras substâncias se acumulam nas paredes das artérias, endurecendo-as e estreitando o fluxo sanguíneo.</p>
+                    </section>
+
+                    <section id="tipos-principais">
+                        <h2>Principais Tipos de Doenças</h2>
+                        <p>Entender as diferenças é o primeiro passo para a prevenção:</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose my-8">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                                <div class="w-10 h-10 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center text-red-600 mb-4">
+                                    <i data-lucide="heart-crack" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Infarto do Miocárdio</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">Ocorre quando o fluxo de sangue para uma parte do coração é bloqueado (geralmente por um coágulo), causando a morte do músculo cardíaco.</p>
+                            </div>
+
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                                <div class="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center text-purple-600 mb-4">
+                                    <i data-lucide="brain" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">AVC (Derrame)</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">Interrupção do fluxo sanguíneo para o cérebro (Isquêmico) ou ruptura de um vaso cerebral (Hemorrágico). É a maior causa de incapacidade no Brasil.</p>
+                            </div>
+
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                                <div class="w-10 h-10 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center text-orange-600 mb-4">
+                                    <i data-lucide="gauge" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Hipertensão Arterial</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">Conhecida como "assassina silenciosa", a pressão alta força o coração a trabalhar mais, danificando artérias e órgãos ao longo do tempo.</p>
+                            </div>
+
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                                <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-600 mb-4">
+                                    <i data-lucide="zap-off" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Insuficiência Cardíaca</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">Condição crônica onde o coração torna-se fraco ou rígido demais para bombear sangue de forma eficiente para o corpo.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="fatores-risco">
+                        <h2>Fatores de Risco: Conheça seu Inimigo</h2>
+                        <p>Os fatores de risco são divididos em dois grupos: aqueles que você não pode mudar e aqueles que dependem do seu estilo de vida.</p>
+
+                        <h3>Não Modificáveis</h3>
+                        <ul>
+                            <li><strong>Idade:</strong> O risco aumenta significativamente após os 55 anos.</li>
+                            <li><strong>Genética:</strong> Histórico familiar de doença cardíaca precoce.</li>
+                            <li><strong>Sexo:</strong> Homens têm risco maior mais cedo; mulheres igualam o risco após a menopausa.</li>
+                        </ul>
+
+                        <h3>Modificáveis (Sua Zona de Controle)</h3>
+                        <p>Aqui é onde você pode atuar para mudar seu destino:</p>
+                        <ul>
+                            <li><strong>Tabagismo:</strong> O fator isolado mais nocivo. Danifica o endotélio (parede dos vasos).</li>
+                            <li><strong>Colesterol Alto:</strong> O excesso de LDL entope as artérias. <a href="../artigos/colesterol-controle-prevencao.html" class="text-blue-600 hover:underline">Saiba mais aqui.</a></li>
+                            <li><strong>Hipertensão:</strong> Pressão acima de 140/90 mmHg constante.</li>
+                            <li><strong>Diabetes:</strong> O açúcar alto no sangue corrói os vasos sanguíneos.</li>
+                            <li><strong>Obesidade:</strong> Especialmente a gordura visceral (abdominal). <a href="../ferramentas/imc.html" class="text-blue-600 hover:underline">Calcule seu IMC.</a></li>
+                            <li><strong>Sedentarismo:</strong> O coração é um músculo e precisa ser exercitado.</li>
+                        </ul>
+                    </section>
+
+                    <section id="sinais-alerta">
+                        <h2>Sinais de Emergência: Quando Correr para o Hospital</h2>
+                        <p>Tempo é músculo (no coração) e tempo é cérebro (no AVC). Reconhecer os sinais e agir rápido salva vidas.</p>
+
+                        <div class="not-prose my-8">
+                            <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl border-l-4 border-red-600 mb-6">
+                                <h3 class="text-lg font-bold text-red-800 dark:text-red-300 mb-3 flex items-center gap-2">
+                                    <i data-lucide="alert-circle" class="w-5 h-5"></i> Sinais de Infarto
+                                </h3>
+                                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-gray-700 dark:text-gray-300">
+                                    <li>• Dor ou pressão no centro do peito (pode irradiar).</li>
+                                    <li>• Dor no braço esquerdo, pescoço ou mandíbula.</li>
+                                    <li>• Falta de ar súbita.</li>
+                                    <li>• Suor frio, náusea ou tontura.</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl border-l-4 border-purple-600">
+                                <h3 class="text-lg font-bold text-purple-800 dark:text-purple-300 mb-3 flex items-center gap-2">
+                                    <i data-lucide="alert-triangle" class="w-5 h-5"></i> Sinais de AVC (Teste SAMU)
+                                </h3>
+                                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-gray-700 dark:text-gray-300">
+                                    <li>• <strong>S</strong>orriso: Boca torta ao sorrir?</li>
+                                    <li>• <strong>A</strong>braço: Perda de força em um braço?</li>
+                                    <li>• <strong>M</strong>ensagem: Dificuldade para falar?</li>
+                                    <li>• <strong>U</strong>rgente: Chame o 192 imediatamente.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="prevencao">
+                        <h2>O Pilar da Prevenção: Estilo de Vida</h2>
+                        <p>A prevenção cardiovascular não é apenas evitar a morte, é sobre viver com energia e vitalidade.</p>
+
+                        <h3>1. A Dieta do Coração (DASH e Mediterrânea)</h3>
+                        <p>Estudos comprovam que dietas ricas em vegetais, grãos integrais, peixes e azeite reduzem drasticamente o risco cardíaco.</p>
+                        <ul>
+                            <li><strong>Reduza o Sódio:</strong> O excesso de sal eleva a pressão. Evite embutidos, enlatados e temperos prontos.</li>
+                            <li><strong>Gorduras:</strong> Troque as saturadas (carne gorda, manteiga) por insaturadas (azeite, abacate, castanhas).</li>
+                            <li><strong>Fibras:</strong> Aveia e leguminosas ajudam a "varrer" o colesterol.</li>
+                        </ul>
+
+                        <div class="not-prose my-8">
+                            <!-- Card CTA -->
+                            <div class="bg-gradient-to-r from-green-600 to-teal-600 rounded-2xl p-8 text-white text-center relative overflow-hidden">
+                                <div class="absolute top-0 right-0 opacity-10"><i data-lucide="apple" class="w-32 h-32"></i></div>
+                                <h3 class="text-2xl font-bold mb-2 relative z-10">Coma para o seu coração</h3>
+                                <p class="mb-6 opacity-90 relative z-10">Descubra a quantidade ideal de nutrientes para proteger sua saúde.</p>
+                                <a href="../ferramentas/macros.html" class="relative z-10 inline-flex items-center bg-white text-green-700 font-bold py-3 px-6 rounded-full hover:bg-gray-100 transition-colors shadow-lg">
+                                    <i data-lucide="utensils" class="w-5 h-5 mr-2"></i> Planejar Minha Dieta
+                                </a>
+                            </div>
+                        </div>
+
+                        <h3>2. Movimento é Remédio</h3>
+                        <p>O coração precisa ser desafiado para ficar forte. A recomendação é de 150 minutos de atividade moderada por semana.</p>
+                        <p>
+                            <a href="../artigos/atividade-fisica-beneficios.html" class="text-blue-600 font-bold hover:underline">Leia nosso guia completo sobre exercícios e saúde.</a>
+                        </p>
+
+                        <h3>3. Gerenciamento do Estresse</h3>
+                        <p>O estresse crônico libera cortisol e adrenalina, que aumentam a pressão arterial e danificam as artérias. Técnicas de respiração, meditação e hobbies são essenciais.</p>
+                    </section>
+
+                    <section id="diagnostico">
+                        <h2>Diagnóstico: Check-up Cardiológico</h2>
+                        <p>Não espere ter sintomas. Um check-up anual a partir dos 35 anos (ou antes, se houver histórico familiar) é crucial. Os exames básicos incluem:</p>
+                        
+                        <div class="overflow-x-auto not-prose my-6">
+                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3">Exame</th>
+                                        <th scope="col" class="px-6 py-3">O que avalia</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4 font-bold text-blue-600">Eletrocardiograma (ECG)</td>
+                                        <td class="px-6 py-4">Ritmo cardíaco e sinais de infartos prévios.</td>
+                                    </tr>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4 font-bold text-green-600">Teste Ergométrico</td>
+                                        <td class="px-6 py-4">Comportamento do coração sob esforço físico.</td>
+                                    </tr>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4 font-bold text-purple-600">Ecocardiograma</td>
+                                        <td class="px-6 py-4">Estrutura, válvulas e força de bombeamento do coração.</td>
+                                    </tr>
+                                    <tr class="bg-white dark:bg-gray-800">
+                                        <td class="px-6 py-4 font-bold text-red-600">Perfil Lipídico</td>
+                                        <td class="px-6 py-4">Níveis de colesterol total, HDL, LDL e triglicerídeos.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <div class="not-prose mt-12 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Referências Bibliográficas</h3>
+                        <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                            <li>1. Sociedade Brasileira de Cardiologia (SBC). <em>Diretrizes Brasileiras de Prevenção Cardiovascular</em>.</li>
+                            <li>2. World Health Organization (WHO). <em>Cardiovascular diseases (CVDs) fact sheet</em>.</li>
+                            <li>3. American Heart Association (AHA). <em>Lifestyle Changes for Heart Attack Prevention</em>.</li>
+                        </ul>
+                    </div>
+
+                </article>
             </div>
-        </article>
+        </div>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Calcule Sua Saúde</h3>
-                    <p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Links Úteis</h4>
-                    <ul>
-                        <li><a href="../sobre.html">Sobre</a></li>
-                        <li><a href="../contato.html">Contato</a></li>
-                        <li><a href="../politica.html">Política de Privacidade</a></li>
-                        <li><a href="../termos.html">Termos de Uso</a></li>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="../sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="../contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h4>Ferramentas</h4>
-                    <ul>
-                        <li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
-                        <li><a href="../ferramentas/calorias.html">Gasto Calórico</a></li>
-                        <li><a href="../ferramentas/agua.html">Água por Dia</a></li>
-                        <li><a href="../ferramentas/tmb.html">Taxa Metabólica</a></li>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="../termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="../ferramentas/calorias.html" class="hover:text-brand-400 transition-colors">Gasto Calórico</a></li>
+                        <li><a href="../ferramentas/tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="footer-bottom">
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
                 <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
-                <p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="../js/modo-noturno.js"></script>
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones
+        lucide.createIcons();
+
+        // Barra de Progresso de Leitura
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("reading-progress").style.width = scrolled + "%";
+        };
+
+        // Dark Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        // Mobile Menu
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
-
