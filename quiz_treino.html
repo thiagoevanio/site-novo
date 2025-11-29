@@ -1,120 +1,510 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcule Sua Saúde - Qual Tipo de Treino é Ideal para Você?</title>
-    <meta name="description" content="Descubra qual tipo de treino é mais adequado para seus objetivos e estilo de vida.">
-    <meta name="keywords" content="quiz treino, tipo de exercício, fitness, musculação, cardio, treino ideal">
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
-     crossorigin="anonymous"></script>
-
-            <!-- Google tag (gtag.js) -->
+    <meta name="theme-color" content="#3b82f6">
+    <title>Quiz: Qual Treino é Ideal para Você? - Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Descubra qual tipo de treino (musculação, HIIT, yoga, cardio) é mais adequado para seus objetivos e estilo de vida.">
+    <meta property="og:title" content="Quiz: Qual Treino é Ideal para Você? - Calcule Sua Saúde">
+    <meta property="og:description" content="Descubra qual tipo de treino é mais adequado para seus objetivos e estilo de vida.">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-      <script>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-EVCQQZV60N');
     </script>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="quiz_styles.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .dark .glass-effect {
+            background: rgba(17, 24, 39, 0.95);
+        }
+        
+        .quiz-option {
+            transition: all 0.2s ease;
+        }
+        .quiz-option:hover {
+            transform: translateY(-2px);
+            border-color: #2563eb;
+        }
+        .quiz-option.selected {
+            border-color: #2563eb;
+            background-color: #eff6ff;
+            color: #1e40af;
+        }
+        .dark .quiz-option.selected {
+            background-color: rgba(37, 99, 235, 0.2);
+            border-color: #3b82f6;
+            color: #93c5fd;
+        }
+    </style>
 </head>
-<body>
-    <!-- Cabeçalho -->
-    <header class="header-fixo">
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1>Calcule Sua Saúde</h1>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
                 </div>
-                <ul class="menu">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="#ferramentas">Ferramentas</a></li>
-                    <li><a href="artigos.html">Artigos</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                    <li><button id="modo-noturno" class="btn-modo">🌙</button></li>
-                </ul>
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-brand-600">Saúde</span>
+                </h1>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="todos_quizzes.html" class="text-sm font-bold text-brand-600">Quizzes</a>
+                <a href="index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
+                <a href="sobre.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Sobre</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="todos_quizzes.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Quizzes</a>
+                <a href="index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="artigos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
+                <a href="sobre.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Sobre</a>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <main>
-        <!-- Quiz de Tipo de Treino -->
-        <section class="mini-quiz-section">
-            <div class="container">
-                <h2>Qual Tipo de Treino é Ideal para Você?</h2>
-                <p class="quiz-subtitle">Responda às perguntas e descubra qual modalidade de exercício combina mais com seus objetivos e estilo de vida.</p>
+    <!-- Main Content -->
+    <main class="pt-28 pb-20 min-h-screen">
+        <div class="container mx-auto px-4 max-w-3xl">
+            
+            <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="index.html" class="hover:text-brand-600">Início</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <a href="todos_quizzes.html" class="hover:text-brand-600">Quizzes</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <span class="text-gray-900 dark:text-white font-medium">Treino Ideal</span>
+            </div>
+
+            <!-- Quiz Container -->
+            <div id="quiz-container" class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden animate-fade-in relative">
                 
-                <div class="quiz-card">
-                    <div id="quiz-questions">
-                        <!-- Perguntas serão carregadas aqui pelo JavaScript -->
+                <div class="w-full h-2 bg-gray-100 dark:bg-gray-700">
+                    <div id="progress-bar" class="h-full bg-blue-500 transition-all duration-500 ease-out" style="width: 0%"></div>
+                </div>
+
+                <!-- Tela Inicial -->
+                <div id="quiz-start" class="p-8 md:p-12 text-center">
+                    <div class="w-24 h-24 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="dumbbell" class="w-12 h-12"></i>
                     </div>
-                    <div id="quiz-navigation">
-                        <button id="prev-question" class="btn-secondary" style="display: none;">Anterior</button>
-                        <button id="next-question" class="btn-primary">Próxima</button>
-                        <button id="submit-quiz" class="btn-primary" style="display: none;">Ver Resultado</button>
+                    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Qual treino combina com você?</h1>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg mb-8 leading-relaxed">
+                        Musculação, HIIT, Yoga ou Funcional? Responda a 5 perguntas sobre seus objetivos e rotina para descobrir o exercício que vai te trazer mais resultados e satisfação!
+                    </p>
+                    <button onclick="startQuiz()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 transform">
+                        Descobrir Meu Treino
+                    </button>
+                </div>
+
+                <!-- Tela de Pergunta -->
+                <div id="quiz-question-screen" class="hidden p-8 md:p-12">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-sm font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide">Pergunta <span id="current-question-num">1</span> de <span id="total-questions">5</span></span>
                     </div>
-                    <div id="quiz-result" style="display: none;">
-                        <h3>Seu Resultado</h3>
-                        <p id="quiz-score"></p>
-                        <p id="quiz-feedback"></p>
-                        <button id="restart-quiz" class="btn-secondary">Tentar Novamente</button>
+
+                    <h2 id="question-text" class="text-2xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
+                        <!-- Texto da pergunta -->
+                    </h2>
+
+                    <div id="options-container" class="grid grid-cols-1 gap-4">
+                        <!-- Opções geradas via JS -->
                     </div>
                 </div>
+
+                <!-- Tela de Resultado -->
+                <div id="quiz-result-screen" class="hidden p-8 md:p-12 text-center animate-fade-in">
+                    <div id="result-icon-container" class="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 text-5xl bg-gradient-to-br from-blue-400 to-indigo-500 text-white shadow-lg">
+                        <!-- Emoji/Icone via JS -->
+                    </div>
+                    
+                    <span class="text-sm font-bold tracking-wider text-blue-600 dark:text-blue-400 uppercase mb-2 block">Seu Treino Ideal é</span>
+                    <h2 id="result-title" class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
+                        <!-- Título do Resultado -->
+                    </h2>
+                    
+                    <div class="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-2xl mb-8 border border-gray-100 dark:border-gray-700 text-left">
+                        <p id="result-description" class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6"></p>
+                        
+                        <div class="mt-4">
+                            <h4 class="font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+                                <i data-lucide="target" class="w-5 h-5 text-blue-500"></i> Por que esse treino?
+                            </h4>
+                            <ul id="result-reasons" class="text-sm text-gray-500 dark:text-gray-400 space-y-2 ml-7 list-disc marker:text-blue-500">
+                                <!-- Motivos via JS -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="restartQuiz()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl transition-colors shadow-md">
+                            Refazer Teste
+                        </button>
+                        <a href="todos_quizzes.html" class="bg-white dark:bg-gray-700 text-gray-700 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600 border border-gray-200 dark:border-gray-600 font-bold py-3 px-8 rounded-xl transition-colors">
+                            Outros Quizzes
+                        </a>
+                    </div>
+                </div>
+
             </div>
-        </section>
+            
+            <div class="mt-8 text-center">
+                <p class="text-xs text-gray-400 dark:text-gray-500 max-w-lg mx-auto">
+                    * Consulte um profissional de educação física antes de iniciar qualquer programa de exercícios.
+                </p>
+            </div>
+        </div>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Calcule Sua Saúde</h3>
-                    <p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Links Úteis</h4>
-                    <ul>
-                        <li><a href="sobre.html">Sobre</a></li>
-                        <li><a href="contato.html">Contato</a></li>
-                        <li><a href="politica.html">Política de Privacidade</a></li>
-                        <li><a href="termos.html">Termos de Uso</a></li>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h4>Ferramentas</h4>
-                    <ul>
-                        <li><a href="ferramentas/imc.html">Calculadora de IMC</a></li>
-                        <li><a href="ferramentas/tmb.html">Taxa Metabólica Basal</a></li>
-                        <li><a href="ferramentas/agua.html">Água por Dia</a></li>
-                        <li><a href="ferramentas/calorias.html">Gasto Calórico</a></li>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="ferramentas/tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
+                        <li><a href="ferramentas/agua.html" class="hover:text-brand-400 transition-colors">Água Diária</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="footer-bottom">
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
                 <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
-                <p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="js/modo-noturno.js"></script>
-    <script src="js/quiz_treino.js"></script>
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones Lucide
+        lucide.createIcons();
+
+        // 1. Dark Mode e Mobile Menu
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+
+        // 2. Lógica do Quiz (Treino Ideal)
+        const questions = [
+            {
+                question: "Qual é o seu principal objetivo hoje?",
+                options: [
+                    { text: "Ganhar músculos e definir o corpo", type: "musculacao" },
+                    { text: "Emagrecer e queimar gordura rápido", type: "hiit" },
+                    { text: "Melhorar a postura, flexibilidade e relaxar", type: "yoga" },
+                    { text: "Melhorar o fôlego e a saúde do coração", type: "cardio" }
+                ]
+            },
+            {
+                question: "Quanto tempo você tem disponível por dia?",
+                options: [
+                    { text: "Pouco (15-30 minutos), preciso de algo rápido", type: "hiit" },
+                    { text: "Médio (45-60 minutos), sem pressa", type: "musculacao" },
+                    { text: "Gosto de dedicar tempo longo (1h+)", type: "cardio" },
+                    { text: "Variável, mas prefiro qualidade a quantidade", type: "funcional" }
+                ]
+            },
+            {
+                question: "Onde você prefere treinar?",
+                options: [
+                    { text: "Na academia, com equipamentos", type: "musculacao" },
+                    { text: "Ao ar livre (parque, rua)", type: "cardio" },
+                    { text: "Em casa, com pouco ou nenhum equipamento", type: "hiit" },
+                    { text: "Em um estúdio calmo ou sala silenciosa", type: "yoga" }
+                ]
+            },
+            {
+                question: "O que te motiva mais durante o exercício?",
+                options: [
+                    { text: "Superar meus limites de carga/peso", type: "musculacao" },
+                    { text: "Suar muito e sentir o coração acelerado", type: "hiit" },
+                    { text: "A conexão com meu corpo e respiração", type: "yoga" },
+                    { text: "A sensação de movimento e liberdade", type: "cardio" }
+                ]
+            },
+            {
+                question: "Como você prefere a intensidade do treino?",
+                options: [
+                    { text: "Intensa e explosiva, com intervalos", type: "hiit" },
+                    { text: "Moderada a alta, focada na força", type: "musculacao" },
+                    { text: "Constante e rítmica", type: "cardio" },
+                    { text: "Dinâmica e variada, mexendo o corpo todo", type: "funcional" }
+                ]
+            }
+        ];
+
+        // Pontuação
+        let scores = {
+            musculacao: 0,
+            hiit: 0,
+            yoga: 0, // Inclui Pilates
+            cardio: 0, // Corrida, Bike
+            funcional: 0
+        };
+
+        let currentQuestionIndex = 0;
+
+        // Elementos DOM
+        const startScreen = document.getElementById('quiz-start');
+        const questionScreen = document.getElementById('quiz-question-screen');
+        const resultScreen = document.getElementById('quiz-result-screen');
+        
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const currentQuestionNum = document.getElementById('current-question-num');
+        const totalQuestions = document.getElementById('total-questions');
+        const progressBar = document.getElementById('progress-bar');
+
+        function startQuiz() {
+            startScreen.classList.add('hidden');
+            questionScreen.classList.remove('hidden');
+            totalQuestions.textContent = questions.length;
+            currentQuestionIndex = 0;
+            // Reset scores
+            for (let key in scores) scores[key] = 0;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const q = questions[currentQuestionIndex];
+            
+            questionText.textContent = q.question;
+            currentQuestionNum.textContent = currentQuestionIndex + 1;
+            optionsContainer.innerHTML = '';
+            
+            const progress = ((currentQuestionIndex) / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            q.options.forEach((option) => {
+                const btn = document.createElement('button');
+                btn.className = "quiz-option w-full text-left p-5 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-medium transition-all flex items-center justify-between group shadow-sm";
+                btn.innerHTML = `<span>${option.text}</span> <i data-lucide="chevron-right" class="w-5 h-5 text-gray-300 group-hover:text-blue-400"></i>`;
+                
+                btn.onclick = () => selectOption(option.type);
+                optionsContainer.appendChild(btn);
+            });
+            
+            lucide.createIcons();
+        }
+
+        function selectOption(type) {
+            scores[type]++;
+            
+            // Lógica secundária para empates ou tendências
+            if (type === 'hiit') scores['funcional'] += 0.5;
+            if (type === 'funcional') scores['musculacao'] += 0.3;
+            
+            nextQuestion();
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                setTimeout(showQuestion, 200);
+            } else {
+                showResult();
+            }
+        }
+
+        function getResult() {
+            let maxScore = -1;
+            let bestType = '';
+            
+            for (const [type, score] of Object.entries(scores)) {
+                if (score > maxScore) {
+                    maxScore = score;
+                    bestType = type;
+                }
+            }
+            return bestType;
+        }
+
+        function showResult() {
+            questionScreen.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
+            progressBar.style.width = '100%';
+
+            const resultType = getResult();
+            const resultTitle = document.getElementById('result-title');
+            const resultDesc = document.getElementById('result-description');
+            const resultReasons = document.getElementById('result-reasons');
+            const iconContainer = document.getElementById('result-icon-container');
+
+            let data = {};
+
+            switch(resultType) {
+                case 'musculacao':
+                    data = {
+                        title: "Musculação (Academia) 💪",
+                        desc: "Você busca resultados estéticos, força e tem disciplina. A musculação é a melhor opção para remodelar o corpo e acelerar o metabolismo a longo prazo.",
+                        reasons: ["Foco em hipertrofia e definição", "Ambiente controlado e seguro", "Evolução mensurável de carga"],
+                        icon: "🏋️"
+                    };
+                    break;
+                case 'hiit':
+                    data = {
+                        title: "HIIT (Treino Intervalado) 🔥",
+                        desc: "Você quer resultados rápidos e não tem tempo a perder. O HIIT queima muitas calorias em pouco tempo e continua queimando após o treino.",
+                        reasons: ["Treinos curtos e intensos", "Alta queima de gordura", "Pode ser feito em qualquer lugar"],
+                        icon: "⏱️"
+                    };
+                    break;
+                case 'yoga':
+                    data = {
+                        title: "Yoga ou Pilates 🧘",
+                        desc: "Você valoriza a conexão corpo-mente, postura e flexibilidade. Esses treinos fortalecem profundamente sem o impacto de saltos ou cargas excessivas.",
+                        reasons: ["Redução de estresse", "Melhora da postura e dores", "Fortalecimento do core"],
+                        icon: "🧘"
+                    };
+                    break;
+                case 'cardio':
+                    data = {
+                        title: "Cardio (Corrida/Bike) 🏃",
+                        desc: "Você gosta de se sentir livre e suar a camisa. Atividades aeróbicas são excelentes para o coração, resistência e para limpar a mente.",
+                        reasons: ["Saúde cardiovascular", "Alívio mental e endorfina", "Pode ser feito ao ar livre"],
+                        icon: "👟"
+                    };
+                    break;
+                default:
+                    data = {
+                        title: "Treino Funcional 🤸",
+                        desc: "Você gosta de dinamismo e de usar o corpo todo. O funcional prepara você para a vida real, melhorando força, equilíbrio e condicionamento simultaneamente.",
+                        reasons: ["Movimentos variados e não repetitivos", "Trabalha o corpo todo", "Alta queima calórica"],
+                        icon: "⚡"
+                    };
+            }
+
+            resultTitle.textContent = data.title;
+            resultDesc.textContent = data.desc;
+            iconContainer.innerHTML = data.icon;
+            
+            resultReasons.innerHTML = data.reasons.map(r => `<li>${r}</li>`).join('');
+        }
+
+        function restartQuiz() {
+            resultScreen.classList.add('hidden');
+            startScreen.classList.remove('hidden');
+            progressBar.style.width = '0%';
+        }
+    </script>
 </body>
 </html>
-
