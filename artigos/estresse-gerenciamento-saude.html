@@ -1,782 +1,441 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estresse: Como Gerenciar e Reduzir o Impacto na Saúde | Calcule Sua Saúde</title>
-    <meta name="description" content="Guia completo sobre estresse: causas, sintomas, impactos na saúde e estratégias eficazes para gerenciamento e redução do estresse no dia a dia.">
-    <meta name="keywords" content="estresse, ansiedade, gerenciamento estresse, cortisol, saúde mental, relaxamento, meditação">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Estresse: O Guia Definitivo de Gerenciamento e Saúde | Calcule Sua Saúde</title>
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="Estresse: Como Gerenciar e Reduzir o Impacto na Saúde">
-    <meta property="og:description" content="Estratégias científicas para gerenciar o estresse e proteger sua saúde física e mental.">
+    <!-- Meta Tags SEO Avançadas -->
+    <meta name="description" content="Descubra a ciência do estresse e como ele afeta seu corpo. Aprenda técnicas comprovadas de gerenciamento, mindfulness e redução de cortisol para uma vida mais equilibrada.">
+    <meta name="keywords" content="estresse crônico, cortisol, burnout, gerenciamento de estresse, mindfulness, saúde mental, ansiedade, relaxamento">
+    <meta name="author" content="Equipe Calcule Sua Saúde">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
+    <meta property="og:title" content="Estresse: O Guia Definitivo de Gerenciamento e Saúde">
+    <meta property="og:description" content="Estratégias científicas para blindar sua mente e proteger seu corpo dos efeitos do estresse.">
     <meta property="og:url" content="https://calculesuasaude.com.br/artigos/estresse-gerenciamento-saude.html">
+    <meta property="og:image" content="../img/artigos/estresse.jpg">
+    <meta property="article:published_time" content="2024-01-24">
+    <meta property="article:section" content="Saúde Mental e Bem-estar">
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
-     crossorigin="anonymous"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Dados Estruturados (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Estresse: Como Gerenciar e Reduzir o Impacto na Saúde",
+      "image": "https://calculesuasaude.com.br/img/artigos/estresse.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://calculesuasaude.com.br/icon192.png"
+        }
+      },
+      "datePublished": "2024-01-24",
+      "description": "Um guia completo sobre a fisiologia do estresse e técnicas práticas de gerenciamento."
+    }
+    </script>
 
-  gtag('config', 'G-EVCQQZV60N');
-</script>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/estilo.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    typography: (theme) => ({
+                        DEFAULT: {
+                            css: {
+                                color: theme('colors.gray.700'),
+                                h2: { color: theme('colors.gray.900'), fontWeight: '800' },
+                                h3: { color: theme('colors.gray.800'), fontWeight: '700' },
+                                strong: { color: theme('colors.gray.900') },
+                            },
+                        },
+                        dark: {
+                            css: {
+                                color: theme('colors.gray.300'),
+                                h2: { color: theme('colors.white') },
+                                h3: { color: theme('colors.gray.100') },
+                                strong: { color: theme('colors.white') },
+                            },
+                        },
+                    }),
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .prose h2 { margin-top: 2em; margin-bottom: 1em; line-height: 1.3; }
+        .prose h3 { margin-top: 1.5em; margin-bottom: 0.8em; }
+        .prose p { margin-bottom: 1.25em; line-height: 1.75; }
+        .prose ul { list-style-type: disc; padding-left: 1.5em; margin-bottom: 1.25em; }
+        .prose li { margin-bottom: 0.5em; }
+    </style>
 </head>
-<body>
-    <!-- Cabeçalho -->
-    <header class="header-fixo">
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
                 </div>
-                <ul class="menu">
-                    <li><a href="../index.html">Início</a></li>
-                    <li><a href="../index.html#ferramentas">Ferramentas</a></li>
-                    <li><a href="../artigos.html">Artigos</a></li>
-                    <li><a href="../sobre.html">Sobre</a></li>
-                    <li><a href="../contato.html">Contato</a></li>
-                    <li><button id="modo-noturno" class="btn-modo">🌙</button></li>
-                </ul>
+                <span class="font-bold text-gray-800 dark:text-white text-lg hidden sm:block">Calcule Sua Saúde</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="../index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="../index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="../artigos.html" class="text-sm font-bold text-brand-600">Artigos</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../artigos.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Artigos</a>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <!-- Breadcrumbs -->
-    <section class="breadcrumbs">
-        <div class="container">
-            <a href="../index.html">Início</a> > <a href="../artigos.html">Artigos</a> > <span>Estresse: Gerenciamento e Saúde</span>
-        </div>
-    </section>
+    <!-- Barra de Progresso de Leitura -->
+    <div class="fixed top-[60px] left-0 h-1 bg-teal-500 z-40 w-0 transition-all duration-100" id="reading-progress"></div>
 
-    <!-- Conteúdo Principal -->
-    <main>
-        <article class="artigo-content">
-            <div class="container">
-                <header class="artigo-header">
-                    <h1>Estresse: Como Gerenciar e Reduzir o Impacto na Saúde</h1>
-                    <div class="artigo-meta">
-                        <span class="data-publicacao">Publicado em 24 de Janeiro de 2024</span>
-                        <span class="tempo-leitura">Tempo de leitura: 17 minutos</span>
-                    </div>
-                    <p class="artigo-resumo">O estresse é uma resposta natural do organismo a desafios e pressões, mas quando se torna crônico, pode ter impactos devastadores na saúde física e mental. Aprender a gerenciar o estresse é fundamental para manter o bem-estar e prevenir doenças.</p>
-                </header>
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            
+            <!-- Breadcrumbs -->
+            <nav class="flex text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="../index.html" class="hover:text-brand-600 transition-colors">Início</a>
+                <span class="mx-2">/</span>
+                <a href="../artigos.html" class="hover:text-brand-600 transition-colors">Artigos</a>
+                <span class="mx-2">/</span>
+                <span class="font-medium text-gray-900 dark:text-white truncate">Estresse e Saúde</span>
+            </nav>
 
-                <div class="artigo-corpo">
-                    <h2>O que é Estresse?</h2>
-                    <p>O estresse é uma resposta fisiológica e psicológica do organismo a situações percebidas como desafiadoras, ameaçadoras ou demandantes. É um mecanismo evolutivo de sobrevivência que prepara o corpo para "lutar ou fugir" diante de perigos. No entanto, na vida moderna, essa resposta pode ser ativada constantemente por estressores não físicos, levando a problemas de saúde.</p>
-                    
-                    <p>O estresse não é necessariamente ruim - em doses adequadas, pode ser motivador e melhorar a performance. O problema surge quando se torna crônico ou excessivo, sobrecarregando os sistemas do corpo e comprometendo a saúde a longo prazo.</p>
-
-                    <h3>Tipos de Estresse</h3>
-                    <div class="tipos-estresse">
-                        <div class="tipo-estresse">
-                            <h4>🔥 Estresse Agudo</h4>
-                            <ul>
-                                <li><strong>Duração:</strong> Curto prazo (minutos a horas)</li>
-                                <li><strong>Características:</strong> Intenso, mas temporário</li>
-                                <li><strong>Exemplos:</strong> Apresentação, prova, acidente</li>
-                                <li><strong>Efeitos:</strong> Geralmente benéficos se não excessivos</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="tipo-estresse">
-                            <h4>⚡ Estresse Agudo Episódico</h4>
-                            <ul>
-                                <li><strong>Duração:</strong> Episódios frequentes de estresse agudo</li>
-                                <li><strong>Características:</strong> Padrão de vida caótico</li>
-                                <li><strong>Exemplos:</strong> Pessoas sempre apressadas, irritadas</li>
-                                <li><strong>Efeitos:</strong> Fadiga, irritabilidade, ansiedade</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="tipo-estresse">
-                            <h4>🌊 Estresse Crônico</h4>
-                            <ul>
-                                <li><strong>Duração:</strong> Longo prazo (semanas a anos)</li>
-                                <li><strong>Características:</strong> Constante, desgastante</li>
-                                <li><strong>Exemplos:</strong> Problemas financeiros, relacionamentos tóxicos</li>
-                                <li><strong>Efeitos:</strong> Mais prejudicial à saúde</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h2>Fisiologia do Estresse</h2>
-                    <p>Quando percebemos uma situação estressante, o corpo ativa dois sistemas principais:</p>
-
-                    <h3>Sistema Nervoso Simpático</h3>
-                    <p>Resposta imediata "luta ou fuga":</p>
-                    <ul>
-                        <li><strong>Liberação de adrenalina:</strong> Aumenta frequência cardíaca e pressão arterial</li>
-                        <li><strong>Dilatação das pupilas:</strong> Melhora a visão</li>
-                        <li><strong>Broncodilatação:</strong> Aumenta entrada de oxigênio</li>
-                        <li><strong>Liberação de glicose:</strong> Energia imediata para músculos</li>
-                        <li><strong>Redução da digestão:</strong> Energia direcionada para músculos</li>
-                        <li><strong>Tensão muscular:</strong> Preparação para ação</li>
-                    </ul>
-
-                    <h3>Eixo Hipotálamo-Hipófise-Adrenal (HPA)</h3>
-                    <p>Resposta hormonal mais duradoura:</p>
-                    <ul>
-                        <li><strong>Hipotálamo:</strong> Libera CRH (hormônio liberador de corticotrofina)</li>
-                        <li><strong>Hipófise:</strong> Libera ACTH (hormônio adrenocorticotrófico)</li>
-                        <li><strong>Glândulas adrenais:</strong> Liberam cortisol</li>
-                        <li><strong>Efeitos do cortisol:</strong> Mobiliza energia, suprime imunidade</li>
-                    </ul>
-
-                    <h3>Hormônios do Estresse</h3>
-                    <div class="hormonios-estresse">
-                        <div class="hormonio-card">
-                            <h4>⚡ Adrenalina (Epinefrina)</h4>
-                            <p><strong>Função:</strong> Resposta imediata ao estresse</p>
-                            <p><strong>Efeitos:</strong> ↑ FC, ↑ PA, ↑ glicose, ↑ alerta</p>
-                            <p><strong>Duração:</strong> Minutos</p>
-                        </div>
-                        
-                        <div class="hormonio-card">
-                            <h4>🔋 Noradrenalina</h4>
-                            <p><strong>Função:</strong> Neurotransmissor e hormônio</p>
-                            <p><strong>Efeitos:</strong> ↑ atenção, ↑ vigilância</p>
-                            <p><strong>Local:</strong> Sistema nervoso simpático</p>
-                        </div>
-                        
-                        <div class="hormonio-card">
-                            <h4>🌊 Cortisol</h4>
-                            <p><strong>Função:</strong> Resposta prolongada ao estresse</p>
-                            <p><strong>Efeitos:</strong> ↑ glicose, ↓ imunidade, ↑ inflamação</p>
-                            <p><strong>Duração:</strong> Horas a dias</p>
-                        </div>
-                    </div>
-
-                    <h2>Causas Comuns de Estresse</h2>
-                    <p>Os estressores podem ser categorizados em diferentes tipos:</p>
-
-                    <h3>Estressores Externos</h3>
-                    <ul>
-                        <li><strong>Trabalho:</strong> Prazos, pressão, conflitos, sobrecarga</li>
-                        <li><strong>Relacionamentos:</strong> Conflitos familiares, problemas conjugais</li>
-                        <li><strong>Financeiros:</strong> Dívidas, desemprego, instabilidade</li>
-                        <li><strong>Ambientais:</strong> Ruído, poluição, trânsito, clima</li>
-                        <li><strong>Eventos da vida:</strong> Morte, divórcio, mudança, doença</li>
-                        <li><strong>Tecnológicos:</strong> Sobrecarga de informação, redes sociais</li>
-                    </ul>
-
-                    <h3>Estressores Internos</h3>
-                    <ul>
-                        <li><strong>Perfeccionismo:</strong> Padrões irrealisticamente altos</li>
-                        <li><strong>Pessimismo:</strong> Visão negativa constante</li>
-                        <li><strong>Autocrítica:</strong> Diálogo interno negativo</li>
-                        <li><strong>Falta de controle:</strong> Sensação de impotência</li>
-                        <li><strong>Baixa autoestima:</strong> Insegurança e autodúvida</li>
-                        <li><strong>Expectativas irreais:</strong> Sobre si mesmo e outros</li>
-                    </ul>
-
-                    <h3>Escala de Estresse de Holmes-Rahe</h3>
-                    <p>Eventos da vida que mais causam estresse (pontuação):</p>
-                    <div class="escala-estresse">
-                        <div class="evento-estresse">
-                            <span class="pontos">100</span>
-                            <span class="evento">Morte do cônjuge</span>
-                        </div>
-                        <div class="evento-estresse">
-                            <span class="pontos">73</span>
-                            <span class="evento">Divórcio</span>
-                        </div>
-                        <div class="evento-estresse">
-                            <span class="pontos">65</span>
-                            <span class="evento">Separação conjugal</span>
-                        </div>
-                        <div class="evento-estresse">
-                            <span class="pontos">63</span>
-                            <span class="evento">Prisão</span>
-                        </div>
-                        <div class="evento-estresse">
-                            <span class="pontos">63</span>
-                            <span class="evento">Morte de familiar próximo</span>
-                        </div>
-                        <div class="evento-estresse">
-                            <span class="pontos">53</span>
-                            <span class="evento">Doença ou lesão pessoal</span>
-                        </div>
-                        <div class="evento-estresse">
-                            <span class="pontos">50</span>
-                            <span class="evento">Casamento</span>
-                        </div>
-                        <div class="evento-estresse">
-                            <span class="pontos">47</span>
-                            <span class="evento">Demissão do trabalho</span>
-                        </div>
-                    </div>
-                    <p><strong>Interpretação:</strong> >300 pontos = alto risco de doença; 150-299 = risco moderado; <150 = baixo risco</p>
-
-                    <h2>Sintomas do Estresse</h2>
-                    <p>O estresse manifesta-se através de sintomas físicos, emocionais, cognitivos e comportamentais:</p>
-
-                    <h3>Sintomas Físicos</h3>
-                    <ul>
-                        <li><strong>Cardiovasculares:</strong> Palpitações, hipertensão, dor no peito</li>
-                        <li><strong>Musculares:</strong> Tensão, dores nas costas, pescoço, ombros</li>
-                        <li><strong>Digestivos:</strong> Azia, náusea, diarreia, constipação</li>
-                        <li><strong>Neurológicos:</strong> Dores de cabeça, enxaquecas, tonturas</li>
-                        <li><strong>Imunológicos:</strong> Resfriados frequentes, cicatrização lenta</li>
-                        <li><strong>Dermatológicos:</strong> Acne, eczema, queda de cabelo</li>
-                        <li><strong>Reprodutivos:</strong> Irregularidades menstruais, disfunção sexual</li>
-                    </ul>
-
-                    <h3>Sintomas Emocionais</h3>
-                    <ul>
-                        <li><strong>Humor:</strong> Irritabilidade, ansiedade, depressão</li>
-                        <li><strong>Motivação:</strong> Apatia, desânimo, falta de energia</li>
-                        <li><strong>Autoestima:</strong> Sentimentos de inadequação</li>
-                        <li><strong>Relacionamentos:</strong> Isolamento social, conflitos</li>
-                        <li><strong>Emocional:</strong> Mudanças bruscas de humor</li>
-                    </ul>
-
-                    <h3>Sintomas Cognitivos</h3>
-                    <ul>
-                        <li><strong>Concentração:</strong> Dificuldade para focar</li>
-                        <li><strong>Memória:</strong> Esquecimentos frequentes</li>
-                        <li><strong>Tomada de decisão:</strong> Indecisão, julgamento prejudicado</li>
-                        <li><strong>Pensamentos:</strong> Preocupação excessiva, pensamentos negativos</li>
-                        <li><strong>Criatividade:</strong> Redução da capacidade criativa</li>
-                    </ul>
-
-                    <h3>Sintomas Comportamentais</h3>
-                    <ul>
-                        <li><strong>Alimentação:</strong> Comer demais ou muito pouco</li>
-                        <li><strong>Sono:</strong> Insônia ou sono excessivo</li>
-                        <li><strong>Substâncias:</strong> Aumento do uso de álcool, tabaco, drogas</li>
-                        <li><strong>Atividades:</strong> Procrastinação, negligência de responsabilidades</li>
-                        <li><strong>Sociais:</strong> Isolamento, agressividade</li>
-                        <li><strong>Hábitos:</strong> Roer unhas, balançar pernas, tiques</li>
-                    </ul>
-
-                    <h2>Impactos do Estresse na Saúde</h2>
-                    <p>O estresse crônico pode afetar praticamente todos os sistemas do corpo:</p>
-
-                    <h3>Sistema Cardiovascular</h3>
-                    <ul>
-                        <li><strong>Hipertensão:</strong> Pressão arterial cronicamente elevada</li>
-                        <li><strong>Doença coronariana:</strong> Aterosclerose acelerada</li>
-                        <li><strong>Arritmias:</strong> Distúrbios do ritmo cardíaco</li>
-                        <li><strong>Infarto:</strong> Risco aumentado de ataque cardíaco</li>
-                        <li><strong>AVC:</strong> Maior probabilidade de derrame</li>
-                        <li><strong>Inflamação vascular:</strong> Danos às artérias</li>
-                    </ul>
-
-                    <h3>Sistema Imunológico</h3>
-                    <ul>
-                        <li><strong>Imunossupressão:</strong> Redução da capacidade de defesa</li>
-                        <li><strong>Infecções frequentes:</strong> Resfriados, gripes, infecções</li>
-                        <li><strong>Cicatrização lenta:</strong> Recuperação prejudicada</li>
-                        <li><strong>Autoimunidade:</strong> Risco de doenças autoimunes</li>
-                        <li><strong>Câncer:</strong> Possível aumento do risco</li>
-                        <li><strong>Alergias:</strong> Exacerbação de reações alérgicas</li>
-                    </ul>
-
-                    <h3>Sistema Digestivo</h3>
-                    <ul>
-                        <li><strong>Úlceras:</strong> Gastrite e úlceras pépticas</li>
-                        <li><strong>Síndrome do intestino irritável:</strong> Distúrbios funcionais</li>
-                        <li><strong>Refluxo:</strong> Doença do refluxo gastroesofágico</li>
-                        <li><strong>Colite:</strong> Inflamação do cólon</li>
-                        <li><strong>Má absorção:</strong> Comprometimento nutricional</li>
-                    </ul>
-
-                    <h3>Sistema Endócrino</h3>
-                    <ul>
-                        <li><strong>Diabetes:</strong> Resistência à insulina</li>
-                        <li><strong>Obesidade:</strong> Aumento do cortisol e apetite</li>
-                        <li><strong>Tireoide:</strong> Disfunções tireoidianas</li>
-                        <li><strong>Reprodução:</strong> Irregularidades hormonais</li>
-                        <li><strong>Crescimento:</strong> Supressão do hormônio do crescimento</li>
-                    </ul>
-
-                    <h3>Sistema Nervoso</h3>
-                    <ul>
-                        <li><strong>Depressão:</strong> Alterações neuroquímicas</li>
-                        <li><strong>Ansiedade:</strong> Transtornos de ansiedade</li>
-                        <li><strong>Memória:</strong> Comprometimento cognitivo</li>
-                        <li><strong>Neurodegeneração:</strong> Possível aceleração do envelhecimento cerebral</li>
-                        <li><strong>Sono:</strong> Distúrbios do sono</li>
-                    </ul>
-
-                    <div class="ferramentas-relacionadas">
-                        <h3>💪 Monitore sua saúde</h3>
-                        <p>Acompanhe indicadores importantes de saúde:</p>
-                        <a href="../ferramentas/imc.html" class="btn-secondary">Calcular IMC</a>
-                    </div>
-
-                    <h2>Avaliação do Nível de Estresse</h2>
-                    <p>Existem várias ferramentas para avaliar o nível de estresse:</p>
-
-                    <h3>Questionário de Estresse Percebido (PSS)</h3>
-                    <p>Avalia como situações da vida são percebidas como estressantes:</p>
-                    <div class="questionario-estresse">
-                        <p><strong>Nas últimas 4 semanas, com que frequência você:</strong></p>
-                        <ul>
-                            <li>Ficou chateado por algo inesperado?</li>
-                            <li>Sentiu-se incapaz de controlar coisas importantes?</li>
-                            <li>Sentiu-se nervoso ou estressado?</li>
-                            <li>Lidou com sucesso com problemas irritantes?</li>
-                            <li>Sentiu que estava lidando bem com mudanças?</li>
-                        </ul>
-                        <p><strong>Escala:</strong> 0=Nunca, 1=Quase nunca, 2=Às vezes, 3=Frequentemente, 4=Muito frequentemente</p>
-                    </div>
-
-                    <h3>Sinais de Alerta</h3>
-                    <p>Procure ajuda profissional se apresentar:</p>
-                    <ul>
-                        <li>Sintomas físicos persistentes sem causa médica</li>
-                        <li>Mudanças significativas no sono ou apetite</li>
-                        <li>Uso aumentado de álcool ou substâncias</li>
-                        <li>Pensamentos de autolesão ou suicídio</li>
-                        <li>Incapacidade de funcionar no trabalho ou relacionamentos</li>
-                        <li>Ataques de pânico frequentes</li>
-                        <li>Isolamento social extremo</li>
-                    </ul>
-
-                    <h2>Estratégias de Gerenciamento do Estresse</h2>
-                    <p>Existem múltiplas abordagens para gerenciar o estresse eficazmente:</p>
-
-                    <h3>Técnicas de Relaxamento</h3>
-                    
-                    <h4>Respiração Profunda</h4>
-                    <ul>
-                        <li><strong>Técnica 4-7-8:</strong> Inspire 4s, segure 7s, expire 8s</li>
-                        <li><strong>Respiração diafragmática:</strong> Respirar com o abdômen</li>
-                        <li><strong>Respiração quadrada:</strong> 4s inspire, 4s segure, 4s expire, 4s pausa</li>
-                        <li><strong>Benefícios:</strong> Ativa sistema nervoso parassimpático</li>
-                    </ul>
-
-                    <h4>Relaxamento Muscular Progressivo</h4>
-                    <ul>
-                        <li><strong>Técnica:</strong> Tensionar e relaxar grupos musculares</li>
-                        <li><strong>Sequência:</strong> Pés → pernas → abdômen → braços → face</li>
-                        <li><strong>Duração:</strong> 10-20 minutos</li>
-                        <li><strong>Benefícios:</strong> Reduz tensão física e mental</li>
-                    </ul>
-
-                    <h4>Visualização</h4>
-                    <ul>
-                        <li><strong>Lugar seguro:</strong> Imaginar ambiente calmo e relaxante</li>
-                        <li><strong>Detalhes sensoriais:</strong> Visão, som, cheiro, tato</li>
-                        <li><strong>Prática regular:</strong> 10-15 minutos diários</li>
-                        <li><strong>Aplicação:</strong> Antes de situações estressantes</li>
-                    </ul>
-
-                    <h3>Meditação e Mindfulness</h3>
-                    <div class="tipos-meditacao">
-                        <div class="meditacao-card">
-                            <h4>🧘‍♀️ Meditação Mindfulness</h4>
-                            <ul>
-                                <li>Foco na respiração e momento presente</li>
-                                <li>Observação sem julgamento</li>
-                                <li>5-20 minutos diários</li>
-                                <li>Apps: Headspace, Calm, Insight Timer</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="meditacao-card">
-                            <h4>🔄 Meditação Transcendental</h4>
-                            <ul>
-                                <li>Uso de mantras específicos</li>
-                                <li>20 minutos, 2x ao dia</li>
-                                <li>Técnica padronizada</li>
-                                <li>Requer instrução certificada</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="meditacao-card">
-                            <h4>🚶‍♂️ Meditação Caminhando</h4>
-                            <ul>
-                                <li>Atenção plena durante caminhada</li>
-                                <li>Foco nos movimentos e sensações</li>
-                                <li>Pode ser feita em qualquer lugar</li>
-                                <li>Combina exercício e mindfulness</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="meditacao-card">
-                            <h4>❤️ Meditação Loving-Kindness</h4>
-                            <ul>
-                                <li>Cultivo de compaixão e bondade</li>
-                                <li>Direcionada a si mesmo e outros</li>
-                                <li>Reduz autocrítica e raiva</li>
-                                <li>Melhora relacionamentos</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Exercício Físico</h3>
-                    <p>O exercício é uma das formas mais eficazes de reduzir o estresse:</p>
-                    
-                    <h4>Benefícios do Exercício para o Estresse</h4>
-                    <ul>
-                        <li><strong>Endorfinas:</strong> Liberação de "hormônios da felicidade"</li>
-                        <li><strong>Cortisol:</strong> Redução dos níveis de cortisol</li>
-                        <li><strong>Neurotransmissores:</strong> Aumento de serotonina e dopamina</li>
-                        <li><strong>Sono:</strong> Melhora da qualidade do sono</li>
-                        <li><strong>Autoestima:</strong> Aumento da confiança</li>
-                        <li><strong>Distração:</strong> Quebra do ciclo de preocupações</li>
-                    </ul>
-
-                    <h4>Tipos de Exercício Recomendados</h4>
-                    <ul>
-                        <li><strong>Aeróbico:</strong> Caminhada, corrida, natação, ciclismo</li>
-                        <li><strong>Yoga:</strong> Combina movimento, respiração e meditação</li>
-                        <li><strong>Tai Chi:</strong> "Meditação em movimento"</li>
-                        <li><strong>Musculação:</strong> Libera tensão e aumenta força</li>
-                        <li><strong>Dança:</strong> Expressão criativa e diversão</li>
-                        <li><strong>Esportes:</strong> Interação social e competição saudável</li>
-                    </ul>
-
-                    <h4>Recomendações</h4>
-                    <ul>
-                        <li><strong>Frequência:</strong> Pelo menos 150 min/semana de atividade moderada</li>
-                        <li><strong>Intensidade:</strong> Moderada a vigorosa</li>
-                        <li><strong>Duração:</strong> Mínimo 10 minutos por sessão</li>
-                        <li><strong>Regularidade:</strong> Consistência é mais importante que intensidade</li>
-                    </ul>
-
-                    <div class="ferramentas-relacionadas">
-                        <h3>🔥 Monitore sua atividade</h3>
-                        <p>Calcule seu gasto calórico durante exercícios:</p>
-                        <a href="../ferramentas/calorias.html" class="btn-secondary">Calcular Gasto Calórico</a>
-                    </div>
-
-                    <h3>Gerenciamento do Tempo</h3>
-                    <p>Organizar melhor o tempo reduz significativamente o estresse:</p>
-                    
-                    <h4>Técnicas de Produtividade</h4>
-                    <ul>
-                        <li><strong>Matriz de Eisenhower:</strong> Urgente vs. Importante</li>
-                        <li><strong>Técnica Pomodoro:</strong> 25 min trabalho + 5 min pausa</li>
-                        <li><strong>Time blocking:</strong> Blocos de tempo para atividades específicas</li>
-                        <li><strong>Regra 80/20:</strong> 20% das ações geram 80% dos resultados</li>
-                        <li><strong>Batching:</strong> Agrupar tarefas similares</li>
-                    </ul>
-
-                    <h4>Estratégias de Organização</h4>
-                    <ul>
-                        <li><strong>Listas de tarefas:</strong> Priorizar e organizar atividades</li>
-                        <li><strong>Calendário:</strong> Agendar compromissos e deadlines</li>
-                        <li><strong>Delegação:</strong> Transferir responsabilidades quando possível</li>
-                        <li><strong>Dizer não:</strong> Estabelecer limites saudáveis</li>
-                        <li><strong>Preparação:</strong> Organizar coisas na noite anterior</li>
-                    </ul>
-
-                    <h3>Suporte Social</h3>
-                    <p>Relacionamentos saudáveis são fundamentais para o gerenciamento do estresse:</p>
-                    
-                    <h4>Benefícios do Suporte Social</h4>
-                    <ul>
-                        <li><strong>Emocional:</strong> Compreensão, empatia, carinho</li>
-                        <li><strong>Instrumental:</strong> Ajuda prática e recursos</li>
-                        <li><strong>Informacional:</strong> Conselhos e orientações</li>
-                        <li><strong>Avaliativo:</strong> Feedback e perspectiva externa</li>
-                    </ul>
-
-                    <h4>Como Construir Suporte Social</h4>
-                    <ul>
-                        <li><strong>Família:</strong> Fortalecer laços familiares</li>
-                        <li><strong>Amigos:</strong> Cultivar amizades genuínas</li>
-                        <li><strong>Colegas:</strong> Desenvolver relacionamentos no trabalho</li>
-                        <li><strong>Comunidade:</strong> Participar de grupos e atividades</li>
-                        <li><strong>Profissional:</strong> Terapeutas, coaches, mentores</li>
-                        <li><strong>Online:</strong> Grupos de apoio virtuais</li>
-                    </ul>
-
-                    <h2>Mudanças no Estilo de Vida</h2>
-                    <p>Pequenas mudanças no dia a dia podem ter grande impacto no estresse:</p>
-
-                    <h3>Alimentação Anti-Estresse</h3>
-                    <div class="alimentos-estresse">
-                        <div class="alimento-categoria">
-                            <h4>🥗 Alimentos que Reduzem Estresse</h4>
-                            <ul>
-                                <li><strong>Peixes gordos:</strong> Ômega-3 reduz inflamação</li>
-                                <li><strong>Vegetais verdes:</strong> Folato e magnésio</li>
-                                <li><strong>Frutas vermelhas:</strong> Antioxidantes</li>
-                                <li><strong>Nozes:</strong> Vitamina E e gorduras saudáveis</li>
-                                <li><strong>Chá verde:</strong> L-teanina relaxante</li>
-                                <li><strong>Chocolate amargo:</strong> Flavonoides e endorfinas</li>
-                                <li><strong>Abacate:</strong> Potássio e gorduras monoinsaturadas</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="alimento-categoria">
-                            <h4>🚫 Alimentos que Aumentam Estresse</h4>
-                            <ul>
-                                <li><strong>Cafeína em excesso:</strong> Aumenta ansiedade</li>
-                                <li><strong>Açúcar refinado:</strong> Picos de glicemia</li>
-                                <li><strong>Álcool:</strong> Interfere no sono e humor</li>
-                                <li><strong>Alimentos processados:</strong> Aditivos e conservantes</li>
-                                <li><strong>Gorduras trans:</strong> Inflamação</li>
-                                <li><strong>Excesso de sal:</strong> Pressão arterial</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Higiene do Sono</h3>
-                    <p>O sono adequado é fundamental para o gerenciamento do estresse:</p>
-                    <ul>
-                        <li><strong>Horário regular:</strong> Deitar e acordar no mesmo horário</li>
-                        <li><strong>Ambiente adequado:</strong> Escuro, silencioso, fresco</li>
-                        <li><strong>Rotina relaxante:</strong> 1 hora antes de dormir</li>
-                        <li><strong>Evitar telas:</strong> Luz azul interfere na melatonina</li>
-                        <li><strong>Exercícios:</strong> Mas não próximo ao horário de dormir</li>
-                        <li><strong>Alimentação:</strong> Jantar leve 2-3h antes de dormir</li>
-                    </ul>
-
-                    <h3>Redução de Estressores</h3>
-                    <p>Identificar e minimizar fontes de estresse:</p>
-                    <ul>
-                        <li><strong>Ambiente físico:</strong> Organizar espaços, reduzir bagunça</li>
-                        <li><strong>Relacionamentos tóxicos:</strong> Estabelecer limites ou afastar-se</li>
-                        <li><strong>Sobrecarga de trabalho:</strong> Negociar prazos, delegar</li>
-                        <li><strong>Finanças:</strong> Orçamento, planejamento financeiro</li>
-                        <li><strong>Tecnologia:</strong> Limitar uso de redes sociais</li>
-                        <li><strong>Notícias:</strong> Reduzir exposição a notícias negativas</li>
-                    </ul>
-
-                    <h2>Técnicas Cognitivas</h2>
-                    <p>Mudar a forma como pensamos sobre situações estressantes:</p>
-
-                    <h3>Reestruturação Cognitiva</h3>
-                    <p>Identificar e modificar pensamentos negativos:</p>
-                    
-                    <h4>Distorções Cognitivas Comuns</h4>
-                    <ul>
-                        <li><strong>Catastrofização:</strong> Imaginar o pior cenário possível</li>
-                        <li><strong>Pensamento tudo-ou-nada:</strong> Ver apenas extremos</li>
-                        <li><strong>Personalização:</strong> Assumir culpa por tudo</li>
-                        <li><strong>Leitura mental:</strong> Assumir o que outros pensam</li>
-                        <li><strong>Filtro mental:</strong> Focar apenas no negativo</li>
-                        <li><strong>Generalização:</strong> Conclusões baseadas em um evento</li>
-                    </ul>
-
-                    <h4>Técnicas de Questionamento</h4>
-                    <ul>
-                        <li>Esta situação será importante em 5 anos?</li>
-                        <li>Qual é a evidência para este pensamento?</li>
-                        <li>Existe uma explicação alternativa?</li>
-                        <li>O que eu diria a um amigo nesta situação?</li>
-                        <li>Qual é o pior que pode realmente acontecer?</li>
-                        <li>Como posso lidar se isso acontecer?</li>
-                    </ul>
-
-                    <h3>Aceitação e Mindfulness</h3>
-                    <p>Aceitar o que não pode ser mudado e focar no que pode:</p>
-                    <ul>
-                        <li><strong>Círculo de controle:</strong> Distinguir o que está sob seu controle</li>
-                        <li><strong>Aceitação radical:</strong> Aceitar situações difíceis sem resistência</li>
-                        <li><strong>Momento presente:</strong> Focar no aqui e agora</li>
-                        <li><strong>Autocompaixão:</strong> Tratar-se com gentileza</li>
-                        <li><strong>Impermanência:</strong> Lembrar que tudo passa</li>
-                    </ul>
-
-                    <h2>Terapias Profissionais</h2>
-                    <p>Quando o estresse é severo, a ajuda profissional pode ser necessária:</p>
-
-                    <h3>Tipos de Terapia</h3>
-                    <div class="tipos-terapia">
-                        <div class="terapia-card">
-                            <h4>🧠 Terapia Cognitivo-Comportamental (TCC)</h4>
-                            <ul>
-                                <li>Foca em pensamentos e comportamentos</li>
-                                <li>Técnicas práticas e estruturadas</li>
-                                <li>Eficaz para ansiedade e depressão</li>
-                                <li>Duração: 12-20 sessões</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="terapia-card">
-                            <h4>🌊 Terapia de Aceitação e Compromisso (ACT)</h4>
-                            <ul>
-                                <li>Foca na aceitação e valores pessoais</li>
-                                <li>Mindfulness e flexibilidade psicológica</li>
-                                <li>Eficaz para estresse crônico</li>
-                                <li>Abordagem baseada em evidências</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="terapia-card">
-                            <h4>💭 Terapia Psicodinâmica</h4>
-                            <ul>
-                                <li>Explora padrões inconscientes</li>
-                                <li>Foca em relacionamentos e passado</li>
-                                <li>Processo mais longo</li>
-                                <li>Insight e autoconhecimento</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="terapia-card">
-                            <h4>🎭 Terapia Humanística</h4>
-                            <ul>
-                                <li>Foca no crescimento pessoal</li>
-                                <li>Abordagem centrada na pessoa</li>
-                                <li>Enfatiza potencial humano</li>
-                                <li>Ambiente de apoio e aceitação</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Outras Abordagens</h3>
-                    <ul>
-                        <li><strong>EMDR:</strong> Para traumas e estresse pós-traumático</li>
-                        <li><strong>Biofeedback:</strong> Controle consciente de funções corporais</li>
-                        <li><strong>Hipnoterapia:</strong> Relaxamento profundo e sugestões</li>
-                        <li><strong>Arteterapia:</strong> Expressão através da arte</li>
-                        <li><strong>Musicoterapia:</strong> Uso terapêutico da música</li>
-                    </ul>
-
-                    <h2>Medicamentos para Estresse</h2>
-                    <p>Em alguns casos, medicamentos podem ser necessários:</p>
-
-                    <h3>Tipos de Medicamentos</h3>
-                    <ul>
-                        <li><strong>Ansiolíticos:</strong> Benzodiazepínicos (uso de curto prazo)</li>
-                        <li><strong>Antidepressivos:</strong> SSRIs, SNRIs para ansiedade e depressão</li>
-                        <li><strong>Beta-bloqueadores:</strong> Para sintomas físicos (palpitações)</li>
-                        <li><strong>Antipsicóticos atípicos:</strong> Em casos severos</li>
-                    </ul>
-
-                    <h3>Considerações Importantes</h3>
-                    <ul>
-                        <li>Sempre prescritos por médico especialista</li>
-                        <li>Efeitos colaterais e dependência</li>
-                        <li>Combinação com terapia é mais eficaz</li>
-                        <li>Monitoramento médico regular</li>
-                        <li>Não interromper abruptamente</li>
-                    </ul>
-
-                    <h2>Prevenção do Estresse</h2>
-                    <p>Estratégias para prevenir o acúmulo de estresse:</p>
-
-                    <h3>Construção de Resiliência</h3>
-                    <ul>
-                        <li><strong>Autoconhecimento:</strong> Identificar gatilhos e padrões</li>
-                        <li><strong>Flexibilidade:</strong> Adaptar-se a mudanças</li>
-                        <li><strong>Otimismo realista:</strong> Perspectiva positiva mas realista</li>
-                        <li><strong>Propósito:</strong> Ter objetivos e significado na vida</li>
-                        <li><strong>Crescimento:</strong> Ver desafios como oportunidades</li>
-                    </ul>
-
-                    <h3>Hábitos Preventivos</h3>
-                    <ul>
-                        <li><strong>Exercício regular:</strong> Pelo menos 30 min, 5x/semana</li>
-                        <li><strong>Sono adequado:</strong> 7-9 horas por noite</li>
-                        <li><strong>Alimentação saudável:</strong> Dieta equilibrada e nutritiva</li>
-                        <li><strong>Relacionamentos:</strong> Manter conexões sociais</li>
-                        <li><strong>Hobbies:</strong> Atividades prazerosas e relaxantes</li>
-                        <li><strong>Natureza:</strong> Tempo ao ar livre regularmente</li>
-                    </ul>
-
-                    <h3>Planejamento e Preparação</h3>
-                    <ul>
-                        <li><strong>Antecipação:</strong> Preparar-se para situações estressantes</li>
-                        <li><strong>Plano B:</strong> Ter alternativas para imprevistos</li>
-                        <li><strong>Recursos:</strong> Identificar fontes de apoio</li>
-                        <li><strong>Habilidades:</strong> Desenvolver competências relevantes</li>
-                        <li><strong>Reservas:</strong> Manter reservas financeiras e emocionais</li>
-                    </ul>
-
-                    <h2>Estresse no Trabalho</h2>
-                    <p>O ambiente profissional é uma das principais fontes de estresse:</p>
-
-                    <h3>Causas Comuns</h3>
-                    <ul>
-                        <li><strong>Sobrecarga:</strong> Excesso de trabalho e responsabilidades</li>
-                        <li><strong>Prazos:</strong> Pressão temporal constante</li>
-                        <li><strong>Conflitos:</strong> Problemas com colegas ou chefes</li>
-                        <li><strong>Insegurança:</strong> Medo de demissão ou mudanças</li>
-                        <li><strong>Falta de controle:</strong> Pouca autonomia nas decisões</li>
-                        <li><strong>Ambiente físico:</strong> Ruído, iluminação inadequada</li>
-                    </ul>
-
-                    <h3>Estratégias no Trabalho</h3>
-                    <ul>
-                        <li><strong>Organização:</strong> Priorizar tarefas e gerenciar tempo</li>
-                        <li><strong>Comunicação:</strong> Expressar necessidades e limites</li>
-                        <li><strong>Pausas:</strong> Fazer intervalos regulares</li>
-                        <li><strong>Ergonomia:</strong> Ambiente de trabalho adequado</li>
-                        <li><strong>Relacionamentos:</strong> Cultivar boas relações</li>
-                        <li><strong>Desenvolvimento:</strong> Aprender novas habilidades</li>
-                    </ul>
-
-                    <h2>Conclusão</h2>
-                    <p>O estresse é uma parte inevitável da vida moderna, mas não precisa dominar nossa existência. Compreender suas causas, reconhecer seus sintomas e implementar estratégias eficazes de gerenciamento são habilidades essenciais para manter a saúde e o bem-estar.</p>
-                    
-                    <p>O gerenciamento do estresse é uma jornada pessoal que requer experimentação para descobrir quais técnicas funcionam melhor para você. Combine diferentes abordagens - exercícios, meditação, mudanças no estilo de vida e suporte social - para criar um plano abrangente.</p>
-                    
-                    <p>Lembre-se de que buscar ajuda profissional não é sinal de fraqueza, mas de sabedoria. Se o estresse está impactando significativamente sua vida, não hesite em procurar um psicólogo, psiquiatra ou outro profissional de saúde mental qualificado.</p>
-
-                    <div class="cta-final">
-                        <h3>💪 Cuide da sua saúde</h3>
-                        <p>Monitore sua saúde geral e bem-estar:</p>
-                        <div class="cta-buttons">
-                            <a href="../ferramentas/imc.html" class="btn-primary">Calcular IMC</a>
-                            <a href="../ferramentas/calorias.html" class="btn-secondary">Gasto Calórico</a>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 
+                <!-- Sidebar (Índice) - Desktop -->
+                <aside class="hidden lg:block lg:col-span-3 relative">
+                    <div class="sticky top-32 p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <h4 class="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="list" class="w-4 h-4"></i> Neste artigo
+                        </h4>
+                        <nav class="space-y-2 text-sm border-l-2 border-gray-100 dark:border-gray-700 ml-1">
+                            <a href="#o-que-e" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-teal-600 hover:border-l-2 hover:border-teal-600 -ml-[2px] transition-all">O que é Estresse?</a>
+                            <a href="#fisiologia" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-teal-600 hover:border-l-2 hover:border-teal-600 -ml-[2px] transition-all">Fisiologia (Cortisol)</a>
+                            <a href="#sintomas" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-teal-600 hover:border-l-2 hover:border-teal-600 -ml-[2px] transition-all">Sinais de Alerta</a>
+                            <a href="#impactos" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-teal-600 hover:border-l-2 hover:border-teal-600 -ml-[2px] transition-all">Impacto no Corpo</a>
+                            <a href="#gerenciamento" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-teal-600 hover:border-l-2 hover:border-teal-600 -ml-[2px] transition-all">Técnicas de Controle</a>
+                            <a href="#burnout" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-teal-600 hover:border-l-2 hover:border-teal-600 -ml-[2px] transition-all">Burnout e Trabalho</a>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Conteúdo do Artigo -->
+                <article class="lg:col-span-9 prose dark:prose-invert max-w-none">
+                    
+                    <!-- Header do Artigo -->
+                    <header class="not-prose mb-10 text-center lg:text-left">
+                        <span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-teal-700 uppercase bg-teal-100 rounded-full dark:bg-teal-900/30 dark:text-teal-400">
+                            Saúde Mental e Bem-estar
+                        </span>
+                        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
+                            Estresse: A Ciência por Trás da Tensão e Como Recuperar o Controle
+                        </h1>
+                        
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-800 pb-8">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                                    <i data-lucide="brain" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <span class="block font-bold text-gray-900 dark:text-white">Revisão Psicológica</span>
+                                    <span class="text-xs">Baseado em evidências</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                24 de Janeiro, 2024
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                                17 min de leitura
+                            </div>
+                        </div>
+                    </header>
+
+                    <!-- Destaque Inicial -->
+                    <div class="bg-teal-50 dark:bg-teal-900/20 p-6 rounded-2xl border-l-4 border-teal-500 mb-8 not-prose">
+                        <h3 class="font-bold text-teal-800 dark:text-teal-300 mb-2">O "Mal do Século"</h3>
+                        <p class="text-lg text-gray-700 dark:text-gray-300">
+                            O estresse não é apenas uma sensação de incômodo; é uma reação química complexa que, se não gerenciada, pode reprogramar seu cérebro e danificar quase todos os sistemas do seu corpo. Entender esse mecanismo é o primeiro passo para desativá-lo.
+                        </p>
+                    </div>
+
+                    <section id="o-que-e">
+                        <h2>O que é Estresse? (E por que ele existe?)</h2>
+                        <p>Evolutivamente, o estresse é um mecanismo de sobrevivência brilhante. Diante de um predador, seu corpo ativava o modo "luta ou fuga": pupilas dilatadas, coração acelerado e energia muscular máxima. O problema? Seu cérebro não sabe a diferença entre um leão faminto e um prazo apertado no trabalho.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 not-prose my-8">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">🔥 Agudo</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">Curto prazo. Ocorre no trânsito, numa discussão ou antes de uma prova. Pode ser até positivo e motivador.</p>
+                            </div>
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">⚡ Agudo Episódico</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">Quando o estresse agudo é frequente. Comum em pessoas com vidas caóticas ou que assumem muitas responsabilidades.</p>
+                            </div>
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 border-l-4 border-l-red-500">
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">🌊 Crônico</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">O tipo perigoso. Persiste por semanas ou anos (problemas financeiros, casamentos infelizes). O corpo nunca "desliga".</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="fisiologia">
+                        <h2>A Fisiologia do Estresse: O que acontece no seu corpo?</h2>
+                        <p>Quando o estresse é ativado, o hipotálamo aciona um alarme no seu corpo, liberando uma enxurrada de hormônios:</p>
+                        
+                        <ul>
+                            <li><strong>Adrenalina:</strong> Aumenta a frequência cardíaca e a pressão arterial.</li>
+                            <li><strong>Cortisol:</strong> O principal hormônio do estresse. Aumenta a glicose no sangue, suprime o sistema digestivo e reprodutivo e altera respostas imunológicas.</li>
+                        </ul>
+
+                        <p>No estresse crônico, esses níveis hormonais permanecem elevados, agindo como um corrosivo lento para seus órgãos e artérias.</p>
+                    </section>
+
+                    <section id="sintomas">
+                        <h2>Sintomas: O Corpo Fala</h2>
+                        <p>Muitas vezes, nos acostumamos tanto a viver estressados que ignoramos os sinais. O estresse afeta quatro dimensões principais:</p>
+
+                        <div class="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 not-prose my-6">
+                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <tr>
+                                        <th class="px-6 py-3">Dimensão</th>
+                                        <th class="px-6 py-3">Sinais de Alerta</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4 font-bold text-teal-600">Físicos</td>
+                                        <td class="px-6 py-4">Dores de cabeça, tensão muscular, fadiga, problemas digestivos, insônia.</td>
+                                    </tr>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4 font-bold text-blue-600">Emocionais</td>
+                                        <td class="px-6 py-4">Ansiedade, irritabilidade, falta de motivação, sensação de sobrecarga.</td>
+                                    </tr>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4 font-bold text-purple-600">Cognitivos</td>
+                                        <td class="px-6 py-4">Esquecimento, dificuldade de concentração, pessimismo, preocupação constante.</td>
+                                    </tr>
+                                    <tr class="bg-white dark:bg-gray-800">
+                                        <td class="px-6 py-4 font-bold text-orange-600">Comportamentais</td>
+                                        <td class="px-6 py-4">Comer demais (ou de menos), procrastinação, uso de álcool/tabaco, isolamento social.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section id="impactos">
+                        <h2>O Impacto Devastador na Saúde a Longo Prazo</h2>
+                        <p>Ignorar o estresse crônico pode levar a problemas sérios de saúde:</p>
+                        <ul>
+                            <li><strong>Doenças Cardíacas:</strong> Aumento da pressão arterial e risco de infarto.</li>
+                            <li><strong>Obesidade e Diabetes:</strong> O cortisol aumenta o apetite e o acúmulo de gordura abdominal.</li>
+                            <li><strong>Problemas Gastrointestinais:</strong> Gastrite, refluxo e síndrome do intestino irritável.</li>
+                            <li><strong>Envelhecimento Precoce:</strong> O estresse encurta os telômeros (extremidades do DNA), acelerando o envelhecimento celular.</li>
+                        </ul>
+
+                        <div class="my-8 not-prose">
+                            <!-- Card CTA -->
+                            <div class="bg-gradient-to-r from-red-600 to-orange-600 rounded-2xl p-8 text-white text-center relative overflow-hidden">
+                                <div class="absolute top-0 right-0 opacity-10"><i data-lucide="heart-pulse" class="w-32 h-32"></i></div>
+                                <h3 class="text-2xl font-bold mb-2 relative z-10">Como está seu coração?</h3>
+                                <p class="mb-6 opacity-90 relative z-10">O estresse é um fator de risco para doenças cardiovasculares. Saiba mais.</p>
+                                <a href="../artigos/doencas-cardiovasculares-prevencao.html" class="relative z-10 inline-flex items-center bg-white text-red-700 font-bold py-3 px-6 rounded-full hover:bg-gray-100 transition-colors shadow-lg">
+                                    <i data-lucide="activity" class="w-5 h-5 mr-2"></i> Saúde do Coração
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="gerenciamento">
+                        <h2>A Caixa de Ferramentas Anti-Estresse</h2>
+                        <p>Você não pode eliminar todo o estresse da sua vida, mas pode mudar como reage a ele. Aqui estão estratégias comprovadas:</p>
+
+                        <h3>1. Atividade Física: O Antídoto Natural</h3>
+                        <p>O exercício metaboliza os hormônios do estresse acumulados e libera endorfinas. Apenas 30 minutos de caminhada já fazem diferença.</p>
+                        <p><a href="../ferramentas/calorias.html" class="text-teal-600 font-bold hover:underline">Calcule seu gasto calórico aqui.</a></p>
+
+                        <h3>2. A Regra dos 4 As</h3>
+                        <p>Para qualquer estressor, você tem quatro opções:</p>
+                        <ul>
+                            <li><strong>Afastar (Avoid):</strong> Aprenda a dizer "não" e evite pessoas/situações que te estressam desnecessariamente.</li>
+                            <li><strong>Alterar (Alter):</strong> Expresse seus sentimentos e gerencie seu tempo melhor.</li>
+                            <li><strong>Adaptar (Adapt):</strong> Reenquadre problemas e ajuste seus padrões (perfeccionismo gera estresse).</li>
+                            <li><strong>Aceitar (Accept):</strong> Para coisas incontroláveis, pratique o perdão e compartilhe seus sentimentos.</li>
+                        </ul>
+
+                        <h3>3. Mindfulness e Respiração</h3>
+                        <p>Técnicas simples como a <strong>respiração 4-7-8</strong> (inspirar por 4s, segurar por 7s, expirar por 8s) podem "hackear" seu sistema nervoso, forçando o corpo a sair do modo "luta ou fuga" para o modo "relaxamento".</p>
+                    </section>
+
+                    <section id="burnout">
+                        <h2>Síndrome de Burnout: Quando o Trabalho Adoece</h2>
+                        <p>O Burnout é o esgotamento profissional extremo. Fique atento aos três sinais clássicos:</p>
+                        <ol>
+                            <li><strong>Exaustão emocional:</strong> Sentir-se drenado e sem recursos.</li>
+                            <li><strong>Despersonalização:</strong> Cinismo e distanciamento emocional do trabalho e colegas.</li>
+                            <li><strong>Baixa realização pessoal:</strong> Sentimento de incompetência e falta de produtividade.</li>
+                        </ol>
+                        <p>Se identificar esses sinais, buscar ajuda profissional é essencial. Burnout é uma condição médica reconhecida.</p>
+                    </section>
+
+                    <div class="not-prose mt-12 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Referências Bibliográficas</h3>
+                        <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                            <li>1. American Psychological Association (APA). <em>Stress effects on the body</em>.</li>
+                            <li>2. Mayo Clinic. <em>Stress management: Strategies to reduce stress</em>.</li>
+                            <li>3. World Health Organization (WHO). <em>Burn-out an "occupational phenomenon": International Classification of Diseases</em>.</li>
+                        </ul>
+                    </div>
+
+                </article>
             </div>
-        </article>
+        </div>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Calcule Sua Saúde</h3>
-                    <p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Links Úteis</h4>
-                    <ul>
-                        <li><a href="../sobre.html">Sobre</a></li>
-                        <li><a href="../contato.html">Contato</a></li>
-                        <li><a href="../politica.html">Política de Privacidade</a></li>
-                        <li><a href="../termos.html">Termos de Uso</a></li>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="../sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="../contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h4>Ferramentas</h4>
-                    <ul>
-                        <li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
-                        <li><a href="../ferramentas/calorias.html">Gasto Calórico</a></li>
-                        <li><a href="../ferramentas/tmb.html">Taxa Metabólica</a></li>
-                        <li><a href="../ferramentas/agua.html">Água por Dia</a></li>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="../termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="../ferramentas/calorias.html" class="hover:text-brand-400 transition-colors">Gasto Calórico</a></li>
+                        <li><a href="../ferramentas/tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="footer-bottom">
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
                 <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
-                <p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="../js/modo-noturno.js"></script>
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones
+        lucide.createIcons();
+
+        // Barra de Progresso de Leitura
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("reading-progress").style.width = scrolled + "%";
+        };
+
+        // Dark Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        // Mobile Menu
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
-
