@@ -53,10 +53,8 @@
         }
     </script>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Ícones Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
@@ -68,7 +66,6 @@
         .dark .glass-effect {
             background: rgba(17, 24, 39, 0.95);
         }
-        /* Animação suave para o gradiente */
         .animated-gradient {
             background: linear-gradient(-45deg, #3b82f6, #06b6d4, #3b82f6, #6366f1);
             background-size: 400% 400%;
@@ -86,7 +83,6 @@
     <!-- Header Fixo -->
     <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <!-- Logo -->
             <a href="#" class="flex items-center gap-2 group">
                 <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
                     <i data-lucide="heart-pulse" class="w-6 h-6"></i>
@@ -96,30 +92,25 @@
                 </h1>
             </a>
 
-            <!-- Menu Desktop -->
             <nav class="hidden md:flex items-center gap-8">
                 <a href="#inicio" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
-                <!-- Link Destaque no Menu -->
                 <a href="personal.html" class="text-sm font-bold text-orange-600 hover:text-orange-700 transition-colors flex items-center gap-1"><i data-lucide="star" class="w-4 h-4"></i> Personal Trainer</a>
                 <a href="#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
                 <a href="#artigos" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
                 <a href="#faq" class="text-sm font-medium hover:text-brand-600 transition-colors">Dúvidas</a>
                 <a href="sobre.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Sobre</a>
                 
-                <!-- Botão Dark Mode -->
                 <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
                     <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
                     <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
                 </button>
             </nav>
 
-            <!-- Menu Mobile Button -->
             <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
             <div class="flex flex-col p-4 space-y-4">
                 <a href="#inicio" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
@@ -131,15 +122,12 @@
         </div>
     </header>
 
-    <!-- Hero Section (Banner Principal) -->
+    <!-- Hero Section -->
     <section id="inicio" class="pt-32 pb-20 animated-gradient relative overflow-hidden">
-        <!-- Overlay Pattern -->
         <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-30"></div>
         
         <div class="container mx-auto px-4 relative z-10">
             <div class="flex flex-col lg:flex-row items-center gap-12">
-                
-                <!-- Texto Hero -->
                 <div class="lg:w-1/2 text-white text-center lg:text-left">
                     <span class="inline-block py-1 px-3 rounded-full bg-white/20 backdrop-blur-sm text-sm font-semibold mb-4 border border-white/30">
                         ✨ Ferramentas 100% Gratuitas
@@ -162,7 +150,6 @@
                     </div>
                 </div>
 
-                <!-- Widget Rápido (Card Flutuante) -->
                 <div class="lg:w-1/2 w-full max-w-md">
                     <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 transform hover:rotate-1 transition-transform duration-500 border border-gray-100 dark:border-gray-700">
                         <div class="flex items-center gap-3 mb-4 border-b border-gray-100 dark:border-gray-700 pb-4">
@@ -202,23 +189,20 @@
             </div>
         </div>
         
-        <!-- Onda Divisória (SVG) -->
-        <div class="absolute bottom-0 w-full leading-none">
-            <svg class="block w-full h-12 md:h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" 
-                class="fill-gray-50 dark:fill-gray-900"></path>
-            </svg>
-        </div>
+        <!-- Onda Divisória REMOVIDA -->
     </section>
 
     <!-- ============================================== -->
     <!-- NOVO: Seção de Destaque Personal Trainer Rafael -->
-    <!-- ============================================== -->
+            </svg>
+        </div>
+    </section>
+
+    <!-- Seção de Destaque Personal Trainer Rafael -->
     <section class="py-16 bg-white dark:bg-gray-900 relative overflow-hidden">
         <div class="container mx-auto px-4">
             <div class="bg-gray-900 dark:bg-gray-800 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden border border-gray-800 flex flex-col lg:flex-row items-center gap-10">
                 
-                <!-- Imagem Circular/Destaque -->
                 <div class="relative shrink-0">
                     <div class="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-orange-500 shadow-[0_0_30px_rgba(249,115,22,0.3)] overflow-hidden">
                         <img src="personal.jpg" onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" alt="Rafael Aquino Personal" class="w-full h-full object-cover">
@@ -228,7 +212,6 @@
                     </div>
                 </div>
 
-                <!-- Texto de Chamada -->
                 <div class="text-center lg:text-left flex-1">
                     <span class="text-orange-400 font-bold tracking-wider uppercase text-sm mb-2 block">Consultoria Especializada</span>
                     <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
@@ -252,7 +235,7 @@
     </section>
 
     <!-- Desafio Diário -->
-    <section class="py-12 bg-white dark:bg-gray-800">
+    <section class="py-12 bg-white dark:bg-gray-900">
         <div class="container mx-auto px-4">
             <div class="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/30 dark:to-teal-900/30 border border-emerald-100 dark:border-emerald-800 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
                 <div class="flex items-start gap-4">
@@ -273,7 +256,7 @@
     </section>
 
     <!-- Ferramentas Grid -->
-    <section id="ferramentas" class="py-20 container mx-auto px-4">
+    <section id="ferramentas" class="py-20 container mx-auto px-4 bg-gray-50 dark:bg-gray-900">
         <div class="text-center mb-16">
             <span class="text-brand-600 font-bold tracking-wider uppercase text-sm">Ferramentas</span>
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-2">Calculadoras de Saúde</h2>
@@ -281,7 +264,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
             <!-- Card Component (Template) -->
             <a href="ferramentas/imc.html" class="group bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                 <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 rounded-xl flex items-center justify-center text-blue-600 dark:text-blue-400 mb-4 group-hover:scale-110 transition-transform">
@@ -501,59 +483,14 @@
         </div>
     </section>
 
-    <!-- FAQ Section (NOVA: Importante para AdSense) -->
-    <section id="faq" class="py-16 bg-white dark:bg-gray-800">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <div class="text-center mb-12">
-                <span class="text-brand-600 font-bold tracking-wider uppercase text-sm">Tire suas dúvidas</span>
-                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mt-2">Perguntas Frequentes</h2>
-            </div>
-            
-            <div class="space-y-6">
-                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-2xl">
-                    <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-                        <i data-lucide="help-circle" class="w-5 h-5 text-brand-500"></i>
-                        Como saber se estou no meu peso ideal?
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-300">
-                        O método mais comum é o cálculo do IMC (Índice de Massa Corporal), que divide seu peso pela altura ao quadrado. Um resultado entre 18.5 e 24.9 é considerado normal pela OMS. No entanto, é importante considerar também a composição corporal (massa magra x gordura), algo que nossas calculadoras de gordura corporal podem ajudar a estimar.
-                    </p>
-                </div>
-
-                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-2xl">
-                    <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-                        <i data-lucide="help-circle" class="w-5 h-5 text-brand-500"></i>
-                        Quanta água devo beber por dia?
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-300">
-                        A regra geral de "2 litros por dia" nem sempre se aplica a todos. A recomendação mais precisa é de aproximadamente 35ml de água para cada quilo de peso corporal. Fatores como atividade física, clima e metabolismo também influenciam. Use nossa ferramenta de "Água Diária" para um cálculo personalizado.
-                    </p>
-                </div>
-
-                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-2xl">
-                    <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-                        <i data-lucide="help-circle" class="w-5 h-5 text-brand-500"></i>
-                        O que é Taxa Metabólica Basal (TMB)?
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-300">
-                        A TMB representa a quantidade mínima de energia (calorias) que seu corpo precisa para manter as funções vitais em repouso (respirar, bombear sangue, etc.). Conhecer sua TMB é o primeiro passo para criar um plano alimentar, seja para perder peso ou ganhar massa muscular.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sobre Section (Melhorada) -->
-    <section class="py-16 bg-brand-50 dark:bg-gray-900 border-t dark:border-gray-800">
+    <!-- Sobre Section -->
+    <section class="py-16 bg-white dark:bg-gray-900 border-t dark:border-gray-800">
         <div class="container mx-auto px-4 text-center max-w-3xl">
-            <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-sm">
+            <div class="bg-brand-50 dark:bg-gray-800 p-8 rounded-3xl">
                 <i data-lucide="shield-check" class="w-12 h-12 text-brand-600 mx-auto mb-4"></i>
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Nossa Missão e Metodologia</h2>
-                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                    O <strong>Calcule Sua Saúde</strong> nasceu com o propósito de democratizar o acesso à informação de qualidade. Todas as nossas ferramentas utilizam fórmulas consagradas internacionalmente (como Mifflin-St Jeor para TMB e Organização Mundial da Saúde para IMC).
-                </p>
-                <p class="text-gray-500 dark:text-gray-400 text-sm">
-                    Aviso Legal: O conteúdo deste site tem caráter informativo e educativo. Nossas calculadoras fornecem estimativas baseadas em dados populacionais e não substituem, em hipótese alguma, a avaliação clínica individualizada realizada por médicos, nutricionistas ou profissionais de educação física.
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Compromisso com a Ciência</h2>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    O <strong>Calcule Sua Saúde</strong> é um projeto educativo que oferece ferramentas gratuitas baseadas em metodologias reconhecidas pela comunidade médica. Lembre-se: nossas calculadoras são informativas e não substituem o diagnóstico de um profissional de saúde.
                 </p>
             </div>
         </div>
@@ -603,19 +540,6 @@
         </div>
     </footer>
 
-    <!-- Banner de Cookies (Compliance AdSense) -->
-    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 p-4 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] border-t border-gray-200 dark:border-gray-700 z-50 transform translate-y-full transition-transform duration-300">
-        <div class="container mx-auto max-w-5xl flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="text-sm text-gray-600 dark:text-gray-300">
-                <p><strong>🍪 Usamos cookies</strong> para melhorar sua experiência e exibir anúncios personalizados. Ao continuar, você concorda com nossa <a href="politica.html" class="text-brand-600 hover:underline">Política de Privacidade</a>.</p>
-            </div>
-            <div class="flex gap-3">
-                <button id="cookie-decline" class="px-4 py-2 text-sm font-semibold text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white">Recusar</button>
-                <button id="cookie-accept" class="px-6 py-2 text-sm font-bold bg-brand-600 hover:bg-brand-700 text-white rounded-lg transition-colors">Aceitar</button>
-            </div>
-        </div>
-    </div>
-
     <!-- Scripts Logic -->
     <script>
         // Inicializa ícones Lucide
@@ -647,29 +571,6 @@
 
         btnMobile.addEventListener('click', () => {
             menuMobile.classList.toggle('hidden');
-        });
-
-        // Lógica do Cookie Banner
-        const cookieBanner = document.getElementById('cookie-banner');
-        const acceptBtn = document.getElementById('cookie-accept');
-        const declineBtn = document.getElementById('cookie-decline');
-
-        // Mostra o banner se não houver decisão salva
-        if (!localStorage.getItem('cookieConsent')) {
-            setTimeout(() => {
-                cookieBanner.classList.remove('translate-y-full');
-            }, 1000);
-        }
-
-        acceptBtn.addEventListener('click', () => {
-            localStorage.setItem('cookieConsent', 'accepted');
-            cookieBanner.classList.add('translate-y-full');
-            // Aqui você dispararia o Google Analytics/AdSense se estivesse controlando manualmente
-        });
-
-        declineBtn.addEventListener('click', () => {
-            localStorage.setItem('cookieConsent', 'declined');
-            cookieBanner.classList.add('translate-y-full');
         });
 
         // Lógica do Desafio Diário
