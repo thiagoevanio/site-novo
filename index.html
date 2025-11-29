@@ -723,12 +723,17 @@
         document.getElementById('quick-imc-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const peso = parseFloat(document.getElementById('quick-weight').value);
-            const altura = parseFloat(document.getElementById('quick-height').value);
+            let altura = parseFloat(document.getElementById('quick-height').value);
             const resultBox = document.getElementById('quick-result');
             const imcValue = document.getElementById('imc-value');
             const imcStatus = document.getElementById('imc-status');
 
             if (peso > 0 && altura > 0) {
+                // Correção automática: se digitou em cm (ex: 175), converte para metros (1.75)
+                if (altura > 3) {
+                    altura = altura / 100;
+                }
+
                 const imc = peso / (altura * altura);
                 imcValue.textContent = imc.toFixed(1);
                 resultBox.classList.remove('hidden');
