@@ -1,140 +1,499 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcule Sua Saúde - Seu Metabolismo é Rápido ou Lento? Descubra Agora</title>
-    <meta name="description" content="Descubra se seu metabolismo é rápido ou lento através deste teste rápido e personalizado.">
-    <meta name="keywords" content="quiz metabolismo, metabolismo rápido, metabolismo lento, taxa metabólica, queima de calorias">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Quiz: Metabolismo Rápido ou Lento? - Calcule Sua Saúde</title>
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="Calcule Sua Saúde - Seu Metabolismo é Rápido ou Lento? Descubra Agora">
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Descubra se seu metabolismo é rápido ou lento através deste teste rápido e personalizado.">
+    <meta property="og:title" content="Quiz: Metabolismo Rápido ou Lento? - Calcule Sua Saúde">
     <meta property="og:description" content="Descubra se seu metabolismo é rápido ou lento através deste teste rápido e personalizado.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://calculesuasaude.com.br/quiz_metabolismo.html">
-    <meta property="og:image" content="https://calculesuasaude.com.br/icon192.png">
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
-     crossorigin="anonymous"></script>
-
-            <!-- Google tag (gtag.js) -->
+    
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-      <script>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-EVCQQZV60N');
     </script>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="manifest" href="manifest.json">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="quiz_styles.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .dark .glass-effect {
+            background: rgba(17, 24, 39, 0.95);
+        }
+        
+        .quiz-option {
+            transition: all 0.2s ease;
+        }
+        .quiz-option:hover {
+            transform: translateY(-2px);
+            border-color: #ef4444; /* Vermelho para combinar com tema de metabolismo/fogo */
+        }
+        .quiz-option.selected {
+            border-color: #ef4444;
+            background-color: #fef2f2;
+            color: #b91c1c;
+        }
+        .dark .quiz-option.selected {
+            background-color: rgba(239, 68, 68, 0.2);
+            border-color: #ef4444;
+            color: #fca5a5;
+        }
+    </style>
 </head>
-<body>
-    <!-- Cabeçalho -->
-    <header class="header-fixo">
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1>Calcule Sua Saúde</h1>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
                 </div>
-                <ul class="menu">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="todos_quizzes.html">Quizzes</a></li>
-                    <li><a href="#ferramentas">Ferramentas</a></li>
-                    <li><a href="artigos.html">Artigos</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                    <li><button id="modo-noturno" class="btn-modo">🌙</button></li>
-                </ul>
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-brand-600">Saúde</span>
+                </h1>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="todos_quizzes.html" class="text-sm font-bold text-brand-600">Quizzes</a>
+                <a href="index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
+                <a href="sobre.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Sobre</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="todos_quizzes.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Quizzes</a>
+                <a href="index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="artigos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
+                <a href="sobre.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Sobre</a>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <main>
-        <!-- Quiz de Metabolismo -->
-        <section class="mini-quiz-section">
-            <div class="container">
-                <h2>🔥 Seu Metabolismo é Rápido ou Lento? Descubra Agora</h2>
-                <p class="quiz-subtitle">Responda às perguntas abaixo para descobrir se seu metabolismo é rápido ou lento e receba dicas personalizadas!</p>
+    <!-- Main Content -->
+    <main class="pt-28 pb-20 min-h-screen">
+        <div class="container mx-auto px-4 max-w-3xl">
+            
+            <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="index.html" class="hover:text-brand-600">Início</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <a href="todos_quizzes.html" class="hover:text-brand-600">Quizzes</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <span class="text-gray-900 dark:text-white font-medium">Metabolismo</span>
+            </div>
+
+            <!-- Quiz Container -->
+            <div id="quiz-container" class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden animate-fade-in relative">
                 
-                <div class="quiz-card">
-                    <div id="quiz-questions">
-                        <!-- As perguntas serão inseridas aqui pelo JavaScript -->
+                <div class="w-full h-2 bg-gray-100 dark:bg-gray-700">
+                    <div id="progress-bar" class="h-full bg-red-500 transition-all duration-500 ease-out" style="width: 0%"></div>
+                </div>
+
+                <!-- Tela Inicial -->
+                <div id="quiz-start" class="p-8 md:p-12 text-center">
+                    <div class="w-24 h-24 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="flame" class="w-12 h-12"></i>
                     </div>
-                    <div id="quiz-navigation">
-                        <button id="prev-question" class="btn-secondary" style="display: none;">Anterior</button>
-                        <button id="next-question" class="btn-primary">Próxima</button>
-                        <button id="submit-quiz" class="btn-primary" style="display: none;">Ver Resultado</button>
+                    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Seu metabolismo é Rápido ou Lento?</h1>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg mb-8 leading-relaxed">
+                        Responda a 6 perguntas sobre como seu corpo reage no dia a dia e descubra se você tem tendência a um metabolismo acelerado ou mais lento.
+                    </p>
+                    <button onclick="startQuiz()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 transform">
+                        Iniciar Teste
+                    </button>
+                </div>
+
+                <!-- Tela de Pergunta -->
+                <div id="quiz-question-screen" class="hidden p-8 md:p-12">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-sm font-bold text-red-600 dark:text-red-400 uppercase tracking-wide">Pergunta <span id="current-question-num">1</span> de <span id="total-questions">6</span></span>
                     </div>
-                    <div id="quiz-result" style="display: none;">
-                        <h3>Seu Resultado</h3>
-                        <p id="quiz-score"></p>
-                        <p id="quiz-feedback"></p>
-                        <button id="restart-quiz" class="btn-secondary">Tentar Novamente</button>
+
+                    <h2 id="question-text" class="text-2xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
+                        <!-- Texto da pergunta -->
+                    </h2>
+
+                    <div id="options-container" class="grid grid-cols-1 gap-4">
+                        <!-- Opções geradas via JS -->
                     </div>
                 </div>
-                
-                <!-- Informações Adicionais -->
-                <div class="quiz-info" style="margin-top: 2rem;">
-                    <h3>💡 Dicas para Otimizar seu Metabolismo</h3>
-                    <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
-                        <li>Faça exercícios regularmente, combinando aeróbicos e musculação.</li>
-                        <li>Consuma proteínas em todas as refeições para aumentar a termogênese.</li>
-                        <li>Beba bastante água ao longo do dia.</li>
-                        <li>Tenha um sono de qualidade, pois a privação afeta o metabolismo.</li>
-                        <li>Evite dietas muito restritivas que podem desacelerar seu metabolismo.</li>
-                        <li>Inclua alimentos termogênicos como pimenta, gengibre e chá verde na sua dieta.</li>
-                    </ul>
+
+                <!-- Tela de Resultado -->
+                <div id="quiz-result-screen" class="hidden p-8 md:p-12 text-center animate-fade-in">
+                    <div id="result-icon-container" class="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 text-5xl bg-gradient-to-br from-red-400 to-orange-500 text-white shadow-lg">
+                        <!-- Emoji/Icone via JS -->
+                    </div>
+                    
+                    <span class="text-sm font-bold tracking-wider text-red-600 dark:text-red-400 uppercase mb-2 block">Resultado da Análise</span>
+                    <h2 id="result-title" class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
+                        <!-- Título do Resultado -->
+                    </h2>
+                    
+                    <div class="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-2xl mb-8 border border-gray-100 dark:border-gray-700 text-left">
+                        <p id="result-description" class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6"></p>
+                        
+                        <div class="mt-4">
+                            <h4 class="font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+                                <i data-lucide="lightbulb" class="w-5 h-5 text-yellow-500"></i> Dicas para você:
+                            </h4>
+                            <ul id="result-tips" class="text-sm text-gray-500 dark:text-gray-400 space-y-2 ml-7 list-disc marker:text-red-500">
+                                <!-- Dicas via JS -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="restartQuiz()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-xl transition-colors shadow-md">
+                            Refazer Teste
+                        </button>
+                        <a href="todos_quizzes.html" class="bg-white dark:bg-gray-700 text-gray-700 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600 border border-gray-200 dark:border-gray-600 font-bold py-3 px-8 rounded-xl transition-colors">
+                            Outros Quizzes
+                        </a>
+                    </div>
                 </div>
+
+            </div>
+            
+            <!-- Disclaimer -->
+            <div class="mt-8 text-center">
+                <p class="text-xs text-gray-400 dark:text-gray-500 max-w-lg mx-auto">
+                    * Este teste é baseado em sinais comuns do metabolismo, mas não substitui exames médicos laboratoriais. Para um diagnóstico preciso, consulte um endocrinologista ou nutricionista.
+                </p>
+            </div>
+        </div>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Calcule Sua Saúde</h3>
-                    <p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Links Úteis</h4>
-                    <ul>
-                        <li><a href="sobre.html">Sobre</a></li>
-                        <li><a href="contato.html">Contato</a></li>
-                        <li><a href="politica.html">Política de Privacidade</a></li>
-                        <li><a href="termos.html">Termos de Uso</a></li>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h4>Ferramentas</h4>
-                    <ul>
-                        <li><a href="ferramentas/imc.html">Calculadora de IMC</a></li>
-                        <li><a href="ferramentas/tmb.html">Taxa Metabólica Basal</a></li>
-                        <li><a href="ferramentas/agua.html">Água por Dia</a></li>
-                        <li><a href="ferramentas/calorias.html">Gasto Calórico</a></li>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="ferramentas/tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
+                        <li><a href="ferramentas/agua.html" class="hover:text-brand-400 transition-colors">Água Diária</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="footer-bottom">
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
                 <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
-                <p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="js/modo-noturno.js"></script>
-    <script src="js/quiz_metabolismo.js"></script>
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones Lucide
+        lucide.createIcons();
+
+        // 1. Dark Mode e Mobile Menu
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+
+        // 2. Lógica do Quiz (Metabolismo)
+        const questions = [
+            {
+                question: "Como você descreveria sua facilidade para ganhar ou perder peso?",
+                options: [
+                    { text: "Tenho muita dificuldade para ganhar peso, como muito e não engordo", type: "rapido" },
+                    { text: "Ganho peso só de olhar para a comida, é difícil emagrecer", type: "lento" },
+                    { text: "Mantenho meu peso com facilidade se não exagerar", type: "equilibrado" }
+                ]
+            },
+            {
+                question: "Como você sente sua temperatura corporal geralmente?",
+                options: [
+                    { text: "Sinto calor frequentemente, mesmo em dias amenos", type: "rapido" },
+                    { text: "Sinto frio com facilidade, mãos e pés gelados", type: "lento" },
+                    { text: "Normal, me adapto bem ao clima", type: "equilibrado" }
+                ]
+            },
+            {
+                question: "Como é seu nível de fome durante o dia?",
+                options: [
+                    { text: "Sinto fome o tempo todo, preciso comer a cada 3h", type: "rapido" },
+                    { text: "Posso ficar muitas horas sem comer tranquilamente", type: "lento" },
+                    { text: "Sinto fome normal nas horas das refeições principais", type: "equilibrado" }
+                ]
+            },
+            {
+                question: "Como você se sente após uma refeição grande?",
+                options: [
+                    { text: "Energizado e pronto para continuar o dia", type: "rapido" },
+                    { text: "Sonolento, pesado e com vontade de deitar", type: "lento" },
+                    { text: "Satisfeito, sem grandes alterações de energia", type: "equilibrado" }
+                ]
+            },
+            {
+                question: "Sobre sua digestão, como ela costuma ser?",
+                options: [
+                    { text: "Muito rápida, vou ao banheiro várias vezes ao dia", type: "rapido" },
+                    { text: "Lenta, me sinto inchado com frequência", type: "lento" },
+                    { text: "Regular, funciona bem diariamente", type: "equilibrado" }
+                ]
+            },
+            {
+                question: "Você transpira com facilidade?",
+                options: [
+                    { text: "Sim, suo muito mesmo com pouco esforço", type: "rapido" },
+                    { text: "Quase não suo, mesmo fazendo exercícios", type: "lento" },
+                    { text: "Suo proporcionalmente ao esforço físico", type: "equilibrado" }
+                ]
+            }
+        ];
+
+        // Pontuação
+        let scores = {
+            rapido: 0,
+            lento: 0,
+            equilibrado: 0
+        };
+
+        let currentQuestionIndex = 0;
+
+        // Elementos DOM
+        const startScreen = document.getElementById('quiz-start');
+        const questionScreen = document.getElementById('quiz-question-screen');
+        const resultScreen = document.getElementById('quiz-result-screen');
+        
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const currentQuestionNum = document.getElementById('current-question-num');
+        const totalQuestions = document.getElementById('total-questions');
+        const progressBar = document.getElementById('progress-bar');
+
+        function startQuiz() {
+            startScreen.classList.add('hidden');
+            questionScreen.classList.remove('hidden');
+            totalQuestions.textContent = questions.length;
+            currentQuestionIndex = 0;
+            // Reset scores
+            for (let key in scores) scores[key] = 0;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const q = questions[currentQuestionIndex];
+            
+            questionText.textContent = q.question;
+            currentQuestionNum.textContent = currentQuestionIndex + 1;
+            optionsContainer.innerHTML = '';
+            
+            const progress = ((currentQuestionIndex) / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            q.options.forEach((option) => {
+                const btn = document.createElement('button');
+                btn.className = "quiz-option w-full text-left p-5 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-medium transition-all flex items-center justify-between group shadow-sm";
+                btn.innerHTML = `<span>${option.text}</span> <i data-lucide="chevron-right" class="w-5 h-5 text-gray-300 group-hover:text-red-400"></i>`;
+                
+                btn.onclick = () => selectOption(option.type);
+                optionsContainer.appendChild(btn);
+            });
+            
+            lucide.createIcons();
+        }
+
+        function selectOption(type) {
+            scores[type]++;
+            nextQuestion();
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                setTimeout(showQuestion, 200);
+            } else {
+                showResult();
+            }
+        }
+
+        function getResult() {
+            if (scores.rapido > scores.lento && scores.rapido >= scores.equilibrado) return 'rapido';
+            if (scores.lento > scores.rapido && scores.lento >= scores.equilibrado) return 'lento';
+            return 'equilibrado';
+        }
+
+        function showResult() {
+            questionScreen.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
+            progressBar.style.width = '100%';
+
+            const resultType = getResult();
+            const resultTitle = document.getElementById('result-title');
+            const resultDesc = document.getElementById('result-description');
+            const resultTips = document.getElementById('result-tips');
+            const iconContainer = document.getElementById('result-icon-container');
+
+            let data = {};
+
+            switch(resultType) {
+                case 'rapido':
+                    data = {
+                        title: "Metabolismo Acelerado 🔥",
+                        desc: "Seu corpo queima calorias rapidamente, mesmo em repouso. Você pode ter dificuldade em ganhar peso ou massa muscular, e sente fome com frequência.",
+                        tips: [
+                            "Não pule refeições para evitar perda de massa magra.",
+                            "Foque em treinos de força (musculação) para ganhar corpo.",
+                            "Aumente a ingestão de gorduras boas e proteínas.",
+                            "Cuidado com o excesso de exercícios aeróbicos."
+                        ],
+                        icon: "🚀"
+                    };
+                    break;
+                case 'lento':
+                    data = {
+                        title: "Metabolismo Lento 🐢",
+                        desc: "Seu corpo tende a economizar energia e armazenar gordura com mais facilidade. Você pode sentir mais frio e ter digestão mais demorada.",
+                        tips: [
+                            "Faça exercícios intervalados (HIIT) para acelerar a queima.",
+                            "Consuma mais proteínas e fibras para aumentar a saciedade.",
+                            "Beba água gelada e chá verde (efeito termogênico).",
+                            "Evite jantar muito tarde ou refeições pesadas à noite."
+                        ],
+                        icon: "🧘"
+                    };
+                    break;
+                default:
+                    data = {
+                        title: "Metabolismo Equilibrado ⚖️",
+                        desc: "Seu metabolismo funciona de forma eficiente e adaptável. Você consegue manter o peso com relativa facilidade se tiver hábitos saudáveis.",
+                        tips: [
+                            "Mantenha a rotina de exercícios variados.",
+                            "Foque na qualidade dos alimentos, não só nas calorias.",
+                            "Aproveite sua flexibilidade para testar novos esportes.",
+                            "Beba água regularmente para manter o equilíbrio."
+                        ],
+                        icon: "⭐"
+                    };
+            }
+
+            resultTitle.textContent = data.title;
+            resultDesc.textContent = data.desc;
+            iconContainer.innerHTML = data.icon;
+            
+            resultTips.innerHTML = data.tips.map(t => `<li>${t}</li>`).join('');
+        }
+
+        function restartQuiz() {
+            resultScreen.classList.add('hidden');
+            startScreen.classList.remove('hidden');
+            progressBar.style.width = '0%';
+        }
+    </script>
 </body>
 </html>
-
