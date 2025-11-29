@@ -515,20 +515,31 @@
             const correctIndex = q.correct;
             const options = optionsContainer.children;
 
+            // Helper to update icon since Lucide replaces <i> with <svg>
+            const updateIcon = (btn, iconName) => {
+                const existingIcon = btn.querySelector('svg') || btn.querySelector('i');
+                if (existingIcon) {
+                    const newIcon = document.createElement('i');
+                    newIcon.setAttribute('data-lucide', iconName);
+                    newIcon.className = "w-5 h-5";
+                    existingIcon.replaceWith(newIcon);
+                }
+            };
+
             // Update UI based on correctness
             if (selectedIndex === correctIndex) {
                 score++;
                 btnElement.classList.add('correct');
-                btnElement.querySelector('i').setAttribute('data-lucide', 'check-circle');
+                updateIcon(btnElement, 'check-circle');
                 showFeedback(true, q.explanation);
             } else {
                 btnElement.classList.add('incorrect');
-                btnElement.querySelector('i').setAttribute('data-lucide', 'x-circle');
+                updateIcon(btnElement, 'x-circle');
                 
                 // Highlight correct answer
                 const correctBtn = options[correctIndex];
                 correctBtn.classList.add('correct');
-                correctBtn.querySelector('i').setAttribute('data-lucide', 'check-circle');
+                updateIcon(correctBtn, 'check-circle');
                 
                 showFeedback(false, q.explanation);
             }
