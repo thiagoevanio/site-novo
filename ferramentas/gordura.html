@@ -1,256 +1,482 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-<meta charset="utf-8"/>
-<meta name="google-adsense-account" content="ca-pub-5825554897787593">  
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Calculadora de Gordura Corporal - Percentual de Gordura | Calcule Sua Saúde</title>
-<meta content="Calcule seu percentual de gordura corporal gratuitamente. Estime sua composição corporal com base em medidas antropométricas." name="description"/>
-<meta content="calculadora gordura corporal, percentual gordura, composição corporal, bioimpedância, dobras cutâneas" name="keywords"/>
-<!-- Open Graph -->
-<meta content="Calculadora de Gordura Corporal - Percentual de Gordura" property="og:title"/>
-<meta content="Calcule seu percentual de gordura corporal e entenda sua composição corporal." property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="https://calculesuasaude.com.br/ferramentas/gordura.html" property="og:url"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Calculadora de Gordura Corporal - Percentual de Gordura | Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Calcule seu percentual de gordura corporal gratuitamente. Estime sua composição corporal com base em medidas antropométricas.">
+    <meta property="og:title" content="Calculadora de Gordura Corporal - Calcule Sua Saúde">
+    <meta property="og:description" content="Calcule seu percentual de gordura corporal e entenda sua composição corporal.">
+    <meta property="og:type" content="website">
 
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
-     crossorigin="anonymous"></script>
-  
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
-  gtag('config', 'G-EVCQQZV60N');
-</script>
-<!-- Favicon -->
-<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
-<!-- CSS -->
-<link href="../css/estilo.css" rel="stylesheet"/>
-<link href="../css/estilo-adicional.css" rel="stylesheet"/>
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .dark .glass-effect {
+            background: rgba(17, 24, 39, 0.95);
+        }
+    </style>
 </head>
-<body>
-<!-- Cabeçalho -->
-<header class="header-fixo">
-<nav class="navbar">
-<div class="container">
-<div class="logo">
-<h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
-</div>
-<ul class="menu">
-<li><a href="../index.html">Início</a></li>
-<li><a href="../index.html#ferramentas">Ferramentas</a></li>
-<li><a href="../index.html#artigos">Artigos</a></li>
-<li><a href="../sobre.html">Sobre</a></li>
-<li><a href="../contato.html">Contato</a></li>
-<li><button class="btn-modo" id="modo-noturno">🌙</button></li>
-</ul>
-</div>
-</nav>
-</header>
-<!-- Breadcrumbs -->
-<section class="breadcrumbs">
-<div class="container">
-<a href="../index.html">Início</a> &gt; <a href="../index.html#ferramentas">Ferramentas</a> &gt; <span>Calculadora de Gordura Corporal</span>
-</div>
-</section>
-<!-- Conteúdo Principal -->
-<main>
-<section class="ferramenta-content">
-<div class="container">
-<div class="ferramenta-header">
-<div class="ferramenta-icon">⚖️</div>
-<h1>Calculadora de Gordura Corporal</h1>
-<p class="ferramenta-subtitle">Estime seu percentual de gordura corporal com base em medidas antropométricas</p>
-</div>
-<div class="ferramenta-grid">
-<div class="calculadora-section">
-<div class="calculadora-card">
-<h2>Calcule seu percentual de gordura</h2>
-<form id="gordura-form">
-<div class="form-group">
-<label for="sexo">Sexo</label>
-<select id="sexo" required="">
-<option value="">Selecione</option>
-<option value="masculino">Masculino</option>
-<option value="feminino">Feminino</option>
-</select>
-</div>
-<div class="form-group">
-<label for="idade">Idade (anos)</label>
-<input id="idade" max="80" min="18" placeholder="Ex: 30" required="" type="number"/>
-</div>
-<div class="form-group">
-<label for="peso">Peso (kg)</label>
-<input id="peso" max="200" min="30" placeholder="Ex: 70.5" required="" step="0.1" type="number"/>
-</div>
-<div class="form-group">
-<label for="altura">Altura (cm)</label>
-<input id="altura" max="220" min="140" placeholder="Ex: 175" required="" step="0.1" type="number"/>
-</div>
-<div class="form-group">
-<label for="cintura">Circunferência da Cintura (cm)</label>
-<input id="cintura" max="150" min="50" placeholder="Ex: 85" required="" step="0.1" type="number"/>
-<small>Meça na parte mais estreita do abdômen</small>
-</div>
-<div class="form-group">
-<label for="pescoco">Circunferência do Pescoço (cm)</label>
-<input id="pescoco" max="60" min="25" placeholder="Ex: 38" required="" step="0.1" type="number"/>
-<small>Meça logo abaixo da laringe</small>
-</div>
-<div class="form-group" id="quadril-group" style="display: none;">
-<label for="quadril">Circunferência do Quadril (cm)</label>
-<input id="quadril" max="150" min="60" placeholder="Ex: 95" step="0.1" type="number"/>
-<small>Meça na parte mais larga do quadril</small>
-</div>
-<button class="btn-primary" type="submit">Calcular Gordura Corporal</button>
-</form>
-<div class="resultado" id="resultado-gordura" style="display: none;">
-<h3>Seus Resultados</h3>
-<div class="resultado-gordura-grid">
-<div class="resultado-item">
-<div class="resultado-label">Gordura Corporal</div>
-<div class="resultado-valor" id="valor-gordura"></div>
-<div class="resultado-unidade">%</div>
-</div>
-<div class="resultado-item">
-<div class="resultado-label">Massa Magra</div>
-<div class="resultado-valor" id="valor-magra"></div>
-<div class="resultado-unidade">kg</div>
-</div>
-</div>
-<div class="resultado-interpretacao" id="interpretacao-gordura"></div>
-</div>
-</div>
-</div>
-<div class="info-section">
-<div class="info-card">
-<h3>O que é gordura corporal?</h3>
-<p>A gordura corporal é o percentual do peso total do corpo composto por tecido adiposo. É um indicador importante da composição corporal e saúde geral.</p>
-</div>
-<div class="info-card">
-<h3>Como calculamos?</h3>
-<p>Utilizamos a fórmula da Marinha Americana (US Navy), que estima o percentual de gordura baseado em circunferências corporais:</p>
-<div class="formula">Baseado em medidas de cintura, pescoço e quadril (mulheres)</div>
-</div>
-<div class="info-card">
-<h3>Faixas de Gordura Corporal</h3>
-<div class="tabela-gordura">
-<h4>Homens:</h4>
-<div class="tabela-row">
-<span class="categoria">Atleta</span>
-<span class="valor">6-13%</span>
-</div>
-<div class="tabela-row">
-<span class="categoria">Fitness</span>
-<span class="valor">14-17%</span>
-</div>
-<div class="tabela-row">
-<span class="categoria">Aceitável</span>
-<span class="valor">18-24%</span>
-</div>
-<div class="tabela-row">
-<span class="categoria">Obesidade</span>
-<span class="valor">25%+</span>
-</div>
-<h4 style="margin-top: 1rem;">Mulheres:</h4>
-<div class="tabela-row">
-<span class="categoria">Atleta</span>
-<span class="valor">16-20%</span>
-</div>
-<div class="tabela-row">
-<span class="categoria">Fitness</span>
-<span class="valor">21-24%</span>
-</div>
-<div class="tabela-row">
-<span class="categoria">Aceitável</span>
-<span class="valor">25-31%</span>
-</div>
-<div class="tabela-row">
-<span class="categoria">Obesidade</span>
-<span class="valor">32%+</span>
-</div>
-</div>
-</div>
-<div class="info-card">
-<h3>Dicas de Medição</h3>
-<ul>
-<li>Meça sempre no mesmo horário</li>
-<li>Use uma fita métrica flexível</li>
-<li>Não comprima a pele</li>
-<li>Mantenha postura ereta</li>
-<li>Respire normalmente</li>
-<li>Faça 2-3 medições para precisão</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="conteudo-educativo">
-<h2>Entenda a composição corporal</h2>
-<div class="educativo-grid">
-<div class="educativo-card">
-<h3>🎯 Por que medir?</h3>
-<p>O percentual de gordura é mais preciso que o IMC para avaliar a saúde, pois distingue entre massa magra e gordura, especialmente importante para atletas.</p>
-</div>
-<div class="educativo-card">
-<h3>⚖️ Gordura vs Peso</h3>
-<p>É possível manter o mesmo peso e melhorar a composição corporal, reduzindo gordura e aumentando massa muscular através de exercícios e dieta adequada.</p>
-</div>
-<div class="educativo-card">
-<h3>🏃‍♀️ Como reduzir gordura?</h3>
-<p>Combine exercícios aeróbicos com musculação, mantenha déficit calórico moderado e consuma proteína adequada para preservar massa muscular.</p>
-</div>
-<div class="educativo-card">
-<h3>⚠️ Limitações do método</h3>
-<p>Esta é uma estimativa. Métodos como DEXA, bioimpedância profissional ou hidrostática são mais precisos para medições exatas.</p>
-</div>
-</div>
-</div>
-<div class="leia-tambem">
-<h3>Leia também</h3>
-<div class="artigos-relacionados"><a class="artigo-link" href="../artigos/obesidade-causas-tratamento.html"><span class_="artigo-titulo">Obesidade: Causas, Consequências e Tratamento Completo</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/exercicios-queimar-calorias.html"><span class_="artigo-titulo">Melhores Exercícios para Queimar Calorias: Guia Completo</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a><a class="artigo-link" href="../artigos/imc-calculo-interpretacao.html"><span class_="artigo-titulo">IMC: Como Calcular e Interpretar o Índice de Massa Corporal</span><span class_="artigo-descricao">Leia mais sobre este tópico</span></a></div>
-</div>
-</div>
-</section>
-</main>
-<!-- Rodapé -->
-<footer class="footer">
-<div class="container">
-<div class="footer-content">
-<div class="footer-section">
-<h3>Calcule Sua Saúde</h3>
-<p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
-</div>
-<div class="footer-section">
-<h4>Links Úteis</h4>
-<ul>
-<li><a href="../sobre.html">Sobre</a></li>
-<li><a href="../contato.html">Contato</a></li>
-<li><a href="../politica.html">Política de Privacidade</a></li>
-<li><a href="../termos.html">Termos de Uso</a></li>
-</ul>
-</div>
-<div class="footer-section">
-<h4>Outras Ferramentas</h4>
-<ul>
-<li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
-<li><a href="../ferramentas/tmb.html">Taxa Metabólica Basal</a></li>
-<li><a href="../ferramentas/agua.html">Água por Dia</a></li>
-<li><a href="../ferramentas/macros.html">Macronutrientes</a></li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom">
-<p>© 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
-<p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
-</div>
-</div>
-</footer>
-<!-- JavaScript -->
-<script src="../js/modo-noturno.js"></script>
-<script src="../js/gordura.js"></script>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                </div>
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-brand-600">Saúde</span>
+                </h1>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="../index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="../todos_quizzes.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Quizzes</a>
+                <a href="../index.html#ferramentas" class="text-sm font-bold text-brand-600">Calculadoras</a>
+                <a href="../artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
+                <a href="../sobre.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Sobre</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../artigos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            
+            <!-- Breadcrumbs -->
+            <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="../index.html" class="hover:text-brand-600">Início</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <a href="../index.html#ferramentas" class="hover:text-brand-600">Ferramentas</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <span class="text-gray-900 dark:text-white font-medium">Gordura Corporal</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Coluna Esquerda: Calculadora -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden p-8">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="bg-yellow-100 dark:bg-yellow-900/30 p-3 rounded-xl text-yellow-600 dark:text-yellow-400">
+                                <i data-lucide="scale" class="w-6 h-6"></i>
+                            </div>
+                            <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Gordura Corporal</h1>
+                        </div>
+
+                        <form id="gordura-form" class="space-y-5">
+                            
+                            <!-- Sexo -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Sexo</label>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="sexo" value="masculino" class="peer sr-only" checked onchange="toggleHipInput()">
+                                        <div class="p-3 rounded-xl border border-gray-200 dark:border-gray-600 text-center peer-checked:bg-brand-50 dark:peer-checked:bg-brand-900/20 peer-checked:border-brand-500 peer-checked:text-brand-600 transition-all hover:bg-gray-50 dark:hover:bg-gray-700">
+                                            Masculino
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="sexo" value="feminino" class="peer sr-only" onchange="toggleHipInput()">
+                                        <div class="p-3 rounded-xl border border-gray-200 dark:border-gray-600 text-center peer-checked:bg-brand-50 dark:peer-checked:bg-brand-900/20 peer-checked:border-brand-500 peer-checked:text-brand-600 transition-all hover:bg-gray-50 dark:hover:bg-gray-700">
+                                            Feminino
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label for="idade" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Idade</label>
+                                    <input type="number" id="idade" min="18" max="100" placeholder="Ex: 30" required
+                                        class="block w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label for="peso" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Peso (kg)</label>
+                                    <input type="number" id="peso" step="0.1" placeholder="Ex: 70" required
+                                        class="block w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="altura" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Altura (cm)</label>
+                                <input type="number" id="altura" placeholder="Ex: 175" required
+                                    class="block w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label for="pescoco" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Pescoço (cm)</label>
+                                    <input type="number" id="pescoco" step="0.1" placeholder="Ex: 38" required
+                                        class="block w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                                    <span class="text-xs text-gray-400 mt-1">Abaixo do pomo de Adão</span>
+                                </div>
+                                <div>
+                                    <label for="cintura" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Cintura (cm)</label>
+                                    <input type="number" id="cintura" step="0.1" placeholder="Ex: 85" required
+                                        class="block w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                                    <span class="text-xs text-gray-400 mt-1">Na altura do umbigo</span>
+                                </div>
+                            </div>
+
+                            <div id="quadril-group" class="hidden">
+                                <label for="quadril" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Quadril (cm)</label>
+                                <input type="number" id="quadril" step="0.1" placeholder="Ex: 95"
+                                    class="block w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                                <span class="text-xs text-gray-400 mt-1">Parte mais larga dos glúteos</span>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                                Calcular Gordura
+                            </button>
+                        </form>
+
+                        <!-- Resultado -->
+                        <div id="resultado-container" class="hidden mt-8 pt-8 border-t border-gray-100 dark:border-gray-700 animate-fade-in">
+                            <h3 class="text-center font-bold text-gray-900 dark:text-white mb-6">Composição Estimada</h3>
+                            
+                            <div class="space-y-4">
+                                <!-- Gordura -->
+                                <div class="bg-yellow-50 dark:bg-yellow-900/20 p-5 rounded-2xl border border-yellow-200 dark:border-yellow-800 relative overflow-hidden text-center">
+                                    <span class="block text-xs text-yellow-600 dark:text-yellow-400 uppercase font-bold tracking-wider mb-2">Percentual de Gordura</span>
+                                    <div class="flex items-end justify-center gap-1">
+                                        <span id="resultado-bf" class="text-4xl font-extrabold text-yellow-700 dark:text-yellow-300">--</span>
+                                        <span class="text-xl font-medium text-yellow-600 dark:text-yellow-400 mb-1">%</span>
+                                    </div>
+                                    <span id="classificacao-bf" class="inline-block mt-2 px-3 py-1 bg-white/50 dark:bg-black/20 rounded-full text-xs font-bold text-yellow-800 dark:text-yellow-200">
+                                        --
+                                    </span>
+                                </div>
+
+                                <!-- Detalhes Massa -->
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-xl text-center border border-gray-200 dark:border-gray-600">
+                                        <span class="block text-xs text-gray-500 dark:text-gray-400 mb-1">Massa Gorda</span>
+                                        <span id="massa-gorda" class="text-xl font-bold text-gray-800 dark:text-white">-- kg</span>
+                                    </div>
+                                    <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-xl text-center border border-green-100 dark:border-green-800">
+                                        <span class="block text-xs text-green-600 dark:text-green-400 mb-1">Massa Magra</span>
+                                        <span id="massa-magra" class="text-xl font-bold text-green-700 dark:text-green-300">-- kg</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Conteúdo Educativo -->
+                <div class="lg:col-span-7 space-y-8">
+                    
+                    <!-- Sobre o Método -->
+                    <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-brand-100 dark:bg-brand-900/30 rounded-full text-brand-600 hidden sm:block">
+                                <i data-lucide="book-open" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Método da Marinha Americana</h2>
+                                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                    Esta calculadora utiliza a equação desenvolvida pela Marinha dos EUA. É considerada uma das formas mais precisas de estimar a gordura corporal sem equipamentos caros (como bioimpedância ou dobras cutâneas), usando apenas fita métrica.
+                                </p>
+                                <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border-l-4 border-blue-500">
+                                    <p class="text-sm text-blue-700 dark:text-blue-300">
+                                        <strong>Dica de Medição:</strong> Use uma fita métrica flexível. Não aperte a fita contra a pele, ela deve ficar justa mas confortável.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tabela de Referência -->
+                    <section class="bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+                            <i data-lucide="table" class="text-brand-600"></i> Tabelas de Referência (Adultos)
+                        </h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- Homens -->
+                            <div>
+                                <h3 class="font-bold text-center text-blue-600 dark:text-blue-400 mb-3">Homens 🚹</h3>
+                                <div class="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-600">
+                                    <table class="w-full text-xs text-left">
+                                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700 bg-white dark:bg-gray-800">
+                                            <tr><td class="px-3 py-2 font-medium">Atleta</td><td class="px-3 py-2">6-13%</td></tr>
+                                            <tr><td class="px-3 py-2 font-medium">Fitness</td><td class="px-3 py-2">14-17%</td></tr>
+                                            <tr><td class="px-3 py-2 font-medium">Aceitável</td><td class="px-3 py-2">18-24%</td></tr>
+                                            <tr><td class="px-3 py-2 font-medium text-red-500">Obeso</td><td class="px-3 py-2 text-red-500">25%+</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Mulheres -->
+                            <div>
+                                <h3 class="font-bold text-center text-pink-600 dark:text-pink-400 mb-3">Mulheres 🚺</h3>
+                                <div class="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-600">
+                                    <table class="w-full text-xs text-left">
+                                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700 bg-white dark:bg-gray-800">
+                                            <tr><td class="px-3 py-2 font-medium">Atleta</td><td class="px-3 py-2">14-20%</td></tr>
+                                            <tr><td class="px-3 py-2 font-medium">Fitness</td><td class="px-3 py-2">21-24%</td></tr>
+                                            <tr><td class="px-3 py-2 font-medium">Aceitável</td><td class="px-3 py-2">25-31%</td></tr>
+                                            <tr><td class="px-3 py-2 font-medium text-red-500">Obesa</td><td class="px-3 py-2 text-red-500">32%+</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Artigos Relacionados -->
+                    <section>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Saiba mais sobre composição corporal</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <a href="../artigos/perda-peso-estrategias.html" class="block p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-brand-500 transition-colors group">
+                                <h4 class="font-bold text-gray-900 dark:text-white group-hover:text-brand-600 mb-1">Estratégias para Perda de Peso</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">Como reduzir gordura de forma saudável.</p>
+                            </a>
+                            <a href="../artigos/ganho-massa-muscular.html" class="block p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-brand-500 transition-colors group">
+                                <h4 class="font-bold text-gray-900 dark:text-white group-hover:text-brand-600 mb-1">Guia de Hipertrofia</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">Como ganhar massa magra.</p>
+                            </a>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="../sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="../contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="../termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Outras Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
+                        <li><a href="calorias.html" class="hover:text-brand-400 transition-colors">Gasto Calórico</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones Lucide
+        lucide.createIcons();
+
+        // 1. Dark Mode e Mobile Menu
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+
+        // 2. Lógica Específica: Toggle Quadril
+        function toggleHipInput() {
+            const sexo = document.querySelector('input[name="sexo"]:checked').value;
+            const quadrilGroup = document.getElementById('quadril-group');
+            const quadrilInput = document.getElementById('quadril');
+            
+            if (sexo === 'feminino') {
+                quadrilGroup.classList.remove('hidden');
+                quadrilInput.required = true;
+            } else {
+                quadrilGroup.classList.add('hidden');
+                quadrilInput.required = false;
+                quadrilInput.value = ''; // Limpa valor
+            }
+        }
+
+        // 3. Lógica da Calculadora de Gordura (Método Marinha EUA)
+        document.getElementById('gordura-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const sexo = document.querySelector('input[name="sexo"]:checked').value;
+            const peso = parseFloat(document.getElementById('peso').value);
+            let altura = parseFloat(document.getElementById('altura').value);
+            const pescoco = parseFloat(document.getElementById('pescoco').value);
+            const cintura = parseFloat(document.getElementById('cintura').value);
+            const quadril = parseFloat(document.getElementById('quadril').value);
+            
+            const resultadoContainer = document.getElementById('resultado-container');
+
+            // Validações básicas
+            if (altura < 3) altura = altura * 100; // Converte para cm se necessário
+
+            if (isNaN(peso) || isNaN(altura) || isNaN(pescoco) || isNaN(cintura)) {
+                alert("Por favor, preencha todos os campos obrigatórios.");
+                return;
+            }
+
+            let gorduraCorporal = 0;
+
+            // Fórmulas da Marinha Americana
+            // Usam log10. Medidas em cm.
+            if (sexo === 'masculino') {
+                // BF = 495 / (1.0324 - 0.19077 * log10(cintura - pescoco) + 0.15456 * log10(altura)) - 450
+                gorduraCorporal = 495 / (1.0324 - 0.19077 * Math.log10(cintura - pescoco) + 0.15456 * Math.log10(altura)) - 450;
+            } else {
+                if (isNaN(quadril)) {
+                    alert("Por favor, informe a medida do quadril para mulheres.");
+                    return;
+                }
+                // BF = 495 / (1.29579 - 0.35004 * log10(cintura + quadril - pescoco) + 0.22100 * log10(altura)) - 450
+                gorduraCorporal = 495 / (1.29579 - 0.35004 * Math.log10(cintura + quadril - pescoco) + 0.22100 * Math.log10(altura)) - 450;
+            }
+
+            // Tratamento de erros matemáticos (casos extremos)
+            if (gorduraCorporal < 2) gorduraCorporal = 2; // Mínimo biológico
+            if (gorduraCorporal > 70) gorduraCorporal = 70; // Teto
+
+            // Massa Magra e Gorda
+            const massaGordaKg = (gorduraCorporal / 100) * peso;
+            const massaMagraKg = peso - massaGordaKg;
+
+            // Classificação Simplificada (ACE - American Council on Exercise)
+            let classificacao = "";
+            let classeCor = "";
+
+            if (sexo === 'masculino') {
+                if (gorduraCorporal < 6) { classificacao = "Gordura Essencial"; classeCor = "text-blue-600"; }
+                else if (gorduraCorporal < 14) { classificacao = "Atleta"; classeCor = "text-green-600"; }
+                else if (gorduraCorporal < 18) { classificacao = "Fitness"; classeCor = "text-green-500"; }
+                else if (gorduraCorporal < 25) { classificacao = "Aceitável"; classeCor = "text-yellow-600"; }
+                else { classificacao = "Obesidade"; classeCor = "text-red-600"; }
+            } else {
+                if (gorduraCorporal < 14) { classificacao = "Gordura Essencial"; classeCor = "text-blue-600"; }
+                else if (gorduraCorporal < 21) { classificacao = "Atleta"; classeCor = "text-green-600"; }
+                else if (gorduraCorporal < 25) { classificacao = "Fitness"; classeCor = "text-green-500"; }
+                else if (gorduraCorporal < 32) { classificacao = "Aceitável"; classeCor = "text-yellow-600"; }
+                else { classificacao = "Obesidade"; classeCor = "text-red-600"; }
+            }
+
+            // Exibir Resultados
+            document.getElementById('resultado-bf').textContent = gorduraCorporal.toFixed(1);
+            document.getElementById('massa-gorda').textContent = massaGordaKg.toFixed(1) + " kg";
+            document.getElementById('massa-magra').textContent = massaMagraKg.toFixed(1) + " kg";
+            
+            const badgeClass = document.getElementById('classificacao-bf');
+            badgeClass.textContent = classificacao;
+            // Remove cores antigas e adiciona nova (simplificado)
+            badgeClass.className = `inline-block mt-2 px-4 py-1 rounded-full text-sm font-bold bg-gray-100 dark:bg-gray-700 ${classeCor}`;
+            
+            resultadoContainer.classList.remove('hidden');
+            resultadoContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    </script>
 </body>
 </html>
