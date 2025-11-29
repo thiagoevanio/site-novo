@@ -20,7 +20,7 @@
                 extend: {
                     colors: {
                         brand: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 900: '#1e3a8a' },
-                        ra: { 500: '#ff4d00', 600: '#cc3d00' } /* Cor destaque do Personal (Laranja) */
+                        ra: { 50: '#fff7ed', 100: '#ffedd5', 500: '#f97316', 600: '#ea580c', 900: '#7c2d12' } /* Laranja Personalizado */
                     },
                     fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
@@ -46,9 +46,9 @@
     <!-- Header -->
     <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2 group">
-                <div class="bg-brand-600 text-white p-2 rounded-lg"><i data-lucide="arrow-left" class="w-6 h-6"></i></div>
-                <span class="font-bold text-gray-800 dark:text-white">Voltar ao Início</span>
+            <a href="index.html" class="flex items-center gap-2 group transition-opacity hover:opacity-80">
+                <div class="bg-ra-500 text-white p-2 rounded-lg"><i data-lucide="arrow-left" class="w-6 h-6"></i></div>
+                <span class="font-bold text-gray-800 dark:text-white hidden sm:block">Voltar ao Início</span>
             </a>
             <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
                 <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
@@ -65,109 +65,219 @@
                     <div class="grid grid-cols-1 lg:grid-cols-2">
                         
                         <!-- Coluna da Imagem -->
-                        <div class="relative h-96 lg:h-auto min-h-[500px] bg-gray-200">
+                        <div class="relative h-96 lg:h-auto min-h-[500px] bg-gray-200 group">
                             <!-- IMAGEM DO PERSONAL -->
                             <img src="personal.jpg" 
                                  onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" 
                                  alt="Rafael Aquino Personal Trainer" 
-                                 class="absolute inset-0 w-full h-full object-cover object-top">
+                                 class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
                             
                             <!-- Overlay Gradiente -->
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-black/10"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-black/40"></div>
                             
-                            <!-- Nome Mobile (Aparece sobre a foto em telas pequenas) -->
-                            <div class="absolute bottom-0 left-0 p-8 lg:hidden text-white">
+                            <!-- Nome Mobile -->
+                            <div class="absolute bottom-0 left-0 p-8 lg:hidden text-white z-10">
+                                <span class="inline-block py-1 px-2 rounded bg-ra-600 text-white text-[10px] font-bold tracking-wider uppercase mb-2">CREF: 42.897-G/MG</span>
                                 <h1 class="text-4xl font-black tracking-tight mb-1">Rafael Aquino</h1>
-                                <p class="text-ra-500 font-bold uppercase tracking-widest text-sm">Personal Trainer</p>
-                                <p class="text-gray-300 text-xs mt-1 opacity-80">CREF: 42.897-G/MG</p>
+                                <p class="text-gray-300 font-medium">Especialista em Alta Performance</p>
                             </div>
                         </div>
 
                         <!-- Coluna de Informações -->
                         <div class="p-8 lg:p-12 flex flex-col justify-center">
                             <div class="hidden lg:block mb-6">
-                                <span class="inline-block py-1 px-3 rounded-full bg-ra-500/10 text-ra-600 dark:text-ra-500 text-xs font-bold tracking-wider uppercase mb-2">
-                                    Alta Performance
-                                </span>
-                                <h1 class="text-5xl font-black text-gray-900 dark:text-white mb-2">Rafael Aquino</h1>
-                                <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400">
-                                    <i data-lucide="badge-check" class="w-5 h-5 text-blue-500"></i>
-                                    <span class="font-mono text-sm">CREF: 42.897-G/MG</span>
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span class="inline-block py-1 px-3 rounded-full bg-ra-100 dark:bg-ra-900/30 text-ra-600 dark:text-ra-400 text-xs font-bold tracking-wider uppercase">
+                                        Personal Trainer
+                                    </span>
+                                    <span class="flex items-center gap-1 text-gray-500 dark:text-gray-400 text-xs font-mono border border-gray-200 dark:border-gray-600 px-2 py-1 rounded-full">
+                                        <i data-lucide="badge-check" class="w-3 h-3 text-blue-500"></i> CREF: 42.897-G/MG
+                                    </span>
                                 </div>
+                                <h1 class="text-5xl font-black text-gray-900 dark:text-white mb-4">Rafael Aquino</h1>
                             </div>
 
-                            <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
-                                Transforme seu corpo e sua mente com um acompanhamento profissional de elite. 
-                                Metodologia focada em resultados reais, respeitando sua individualidade biológica e rotina.
+                            <!-- Resumo de Bio -->
+                            <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8 border-l-4 border-ra-500 pl-4">
+                                "Minha missão é transformar seu corpo e sua mentalidade através do movimento. Com metodologia focada em resultados reais, ofereço suporte completo para quem busca hipertrofia, emagrecimento ou preparação para concursos."
                             </p>
 
                             <!-- Especialidades Grid -->
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-                                <div class="flex items-start gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50">
+                            <div class="grid grid-cols-2 sm:grid-cols-2 gap-4 mb-8">
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50 hover:bg-ra-50 dark:hover:bg-ra-900/20 transition-colors cursor-default">
                                     <div class="bg-blue-100 dark:bg-blue-900/30 p-2 rounded-lg text-blue-600"><i data-lucide="dumbbell" class="w-5 h-5"></i></div>
-                                    <div>
-                                        <h3 class="font-bold text-sm dark:text-white">Hipertrofia</h3>
-                                        <p class="text-xs text-gray-500 dark:text-gray-400">Ganho de massa</p>
-                                    </div>
+                                    <div class="text-sm font-bold dark:text-white">Hipertrofia</div>
                                 </div>
-                                <div class="flex items-start gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50">
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50 hover:bg-ra-50 dark:hover:bg-ra-900/20 transition-colors cursor-default">
                                     <div class="bg-green-100 dark:bg-green-900/30 p-2 rounded-lg text-green-600"><i data-lucide="flame" class="w-5 h-5"></i></div>
-                                    <div>
-                                        <h3 class="font-bold text-sm dark:text-white">Emagrecimento</h3>
-                                        <p class="text-xs text-gray-500 dark:text-gray-400">Queima de gordura</p>
-                                    </div>
+                                    <div class="text-sm font-bold dark:text-white">Emagrecimento</div>
                                 </div>
-                                <div class="flex items-start gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50">
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50 hover:bg-ra-50 dark:hover:bg-ra-900/20 transition-colors cursor-default">
                                     <div class="bg-purple-100 dark:bg-purple-900/30 p-2 rounded-lg text-purple-600"><i data-lucide="activity" class="w-5 h-5"></i></div>
-                                    <div>
-                                        <h3 class="font-bold text-sm dark:text-white">Funcional</h3>
-                                        <p class="text-xs text-gray-500 dark:text-gray-400">Mobilidade e força</p>
-                                    </div>
+                                    <div class="text-sm font-bold dark:text-white">Funcional</div>
                                 </div>
-                                <div class="flex items-start gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50">
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50 hover:bg-ra-50 dark:hover:bg-ra-900/20 transition-colors cursor-default">
                                     <div class="bg-orange-100 dark:bg-orange-900/30 p-2 rounded-lg text-orange-600"><i data-lucide="timer" class="w-5 h-5"></i></div>
-                                    <div>
-                                        <h3 class="font-bold text-sm dark:text-white">TAF - Concursos</h3>
-                                        <p class="text-xs text-gray-500 dark:text-gray-400">Preparação física</p>
-                                    </div>
+                                    <div class="text-sm font-bold dark:text-white">TAF - Concursos</div>
                                 </div>
                             </div>
 
-                            <!-- Lista Detalhada -->
-                            <div class="space-y-2 mb-10 text-sm text-gray-600 dark:text-gray-300">
-                                <p class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-ra-500"></i> Atendimento Presencial e Online</p>
-                                <p class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-ra-500"></i> Reabilitação Física</p>
-                                <p class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-ra-500"></i> Grupos Especiais</p>
-                                <p class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-ra-500"></i> Alta Performance</p>
-                            </div>
-
-                            <!-- Botões de Ação -->
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <!-- WhatsApp -->
+                            <!-- Botões de Ação (Mobile e Desktop) -->
+                            <div class="flex flex-col sm:flex-row gap-3">
                                 <a href="https://wa.me/message/X5XSBKPUOUJDM1" target="_blank" 
-                                   class="group relative w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:shadow-green-500/30 transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden">
-                                    <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-                                    <i data-lucide="message-circle" class="w-6 h-6 fill-white"></i>
-                                    <div class="text-left">
-                                        <span class="block text-[10px] font-medium text-green-100 uppercase tracking-wider">Fale agora</span>
-                                        <span class="block text-lg leading-none">WhatsApp</span>
-                                    </div>
+                                   class="flex-1 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-green-500/20 transition-all hover:-translate-y-1 flex items-center justify-center gap-2">
+                                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                                    <span>Chamar no WhatsApp</span>
                                 </a>
-
-                                <!-- Instagram -->
                                 <a href="https://www.instagram.com/raphaquinopersonal?igsh=M3ExeDNpaWJmeHNx" target="_blank" 
-                                   class="group relative w-full bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:opacity-90 text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:shadow-pink-500/30 transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden">
-                                    <i data-lucide="instagram" class="w-6 h-6"></i>
-                                    <div class="text-left">
-                                        <span class="block text-[10px] font-medium text-white/80 uppercase tracking-wider">Siga no</span>
-                                        <span class="block text-lg leading-none">Instagram</span>
-                                    </div>
+                                   class="flex-1 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-pink-500/20 transition-all hover:-translate-y-1 flex items-center justify-center gap-2">
+                                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                                    <span>Instagram</span>
                                 </a>
                             </div>
 
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Nova Seção: Biografia Profissional -->
+        <section class="py-16 bg-white dark:bg-gray-900">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <div class="flex-1">
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                            Quem é <span class="text-ra-600">Rafael Aquino?</span>
+                        </h2>
+                        <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                            <p>
+                                Sou graduado em Educação Física e especialista em fisiologia do exercício. Minha trajetória profissional é marcada pela busca incessante em entregar a <strong>melhor versão física</strong> de cada aluno, respeitando seus limites e potencializando suas capacidades.
+                            </p>
+                            <p>
+                                Com vasta experiência em <strong>Reabilitação Física</strong> e treinamento para <strong>Grupos Especiais</strong>, desenvolvo protocolos seguros e eficientes. Para quem busca performance, aplico técnicas avançadas de treinamento utilizadas por atletas de alto rendimento.
+                            </p>
+                            <p>
+                                Minha filosofia é simples: <em class="text-gray-800 dark:text-gray-100 font-semibold">Consistência gera resultado.</em> Não vendo fórmulas mágicas, vendo ciência aplicada e suporte diário para você alcançar seus objetivos.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/3 w-full bg-ra-50 dark:bg-gray-800 p-6 rounded-2xl border border-ra-100 dark:border-gray-700">
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="award" class="text-ra-500"></i> Diferenciais
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+                                <div class="w-2 h-2 rounded-full bg-ra-500"></div> Anamnese Detalhada
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+                                <div class="w-2 h-2 rounded-full bg-ra-500"></div> Treinos Periodizados
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+                                <div class="w-2 h-2 rounded-full bg-ra-500"></div> Suporte de Dúvidas
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+                                <div class="w-2 h-2 rounded-full bg-ra-500"></div> Correção de Movimento
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nova Seção: Como Funciona (Serviços) -->
+        <section class="py-20 bg-gray-50 dark:bg-gray-800/50">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Como posso te ajudar?</h2>
+                    <p class="text-gray-600 dark:text-gray-400">Escolha a modalidade que melhor se adapta à sua rotina e objetivos.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Card Online -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-700 hover:-translate-y-1 transition-transform duration-300">
+                        <div class="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-blue-600 mb-6">
+                            <i data-lucide="smartphone" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Consultoria Online</h3>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 h-12">Treine onde e quando quiser, com meu planejamento na palma da sua mão.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Treino via App exclusivo</li>
+                            <li class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Análise de vídeos de execução</li>
+                            <li class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Ajustes mensais na ficha</li>
+                            <li class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Suporte via WhatsApp</li>
+                        </ul>
+                        <a href="https://wa.me/message/X5XSBKPUOUJDM1" class="block w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-center transition-colors">Saber Mais</a>
+                    </div>
+
+                    <!-- Card Presencial -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-ra-200 dark:border-ra-900/50 hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-ra-500 text-white text-xs font-bold px-3 py-1 rounded-bl-xl">PREMIUM</div>
+                        <div class="w-14 h-14 bg-ra-100 dark:bg-ra-900/30 rounded-xl flex items-center justify-center text-ra-600 mb-6">
+                            <i data-lucide="user-check" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Personal Presencial</h3>
+                        <p class="text-gray-500 dark:text-gray-400 mb-6 h-12">Acompanhamento lado a lado para extrair seu máximo potencial com segurança.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300"><i data-lucide="check" class="w-4 h-4 text-ra-500"></i> Correção técnica em tempo real</li>
+                            <li class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300"><i data-lucide="check" class="w-4 h-4 text-ra-500"></i> Motivação constante</li>
+                            <li class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300"><i data-lucide="check" class="w-4 h-4 text-ra-500"></i> Controle de carga e intensidade</li>
+                            <li class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300"><i data-lucide="check" class="w-4 h-4 text-ra-500"></i> Avaliação física inclusa</li>
+                        </ul>
+                        <a href="https://wa.me/message/X5XSBKPUOUJDM1" class="block w-full py-3 rounded-xl bg-ra-600 hover:bg-ra-700 text-white font-bold text-center transition-colors">Consultar Vagas</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nova Seção: FAQ -->
+        <section class="py-16 bg-white dark:bg-gray-900">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">Perguntas Frequentes</h2>
+                
+                <div class="space-y-4">
+                    <details class="group bg-gray-50 dark:bg-gray-800 p-4 rounded-xl cursor-pointer">
+                        <summary class="flex justify-between items-center font-medium text-gray-800 dark:text-white list-none">
+                            <span>Preciso de academia para a consultoria online?</span>
+                            <span class="transition group-open:rotate-180"><i data-lucide="chevron-down" class="w-5 h-5"></i></span>
+                        </summary>
+                        <p class="text-gray-600 dark:text-gray-400 mt-3 text-sm">
+                            Não necessariamente. Posso montar treinos para serem feitos em casa, no parque ou na academia, adaptando aos equipamentos que você tem disponíveis.
+                        </p>
+                    </details>
+
+                    <details class="group bg-gray-50 dark:bg-gray-800 p-4 rounded-xl cursor-pointer">
+                        <summary class="flex justify-between items-center font-medium text-gray-800 dark:text-white list-none">
+                            <span>A consultoria serve para iniciantes?</span>
+                            <span class="transition group-open:rotate-180"><i data-lucide="chevron-down" class="w-5 h-5"></i></span>
+                        </summary>
+                        <p class="text-gray-600 dark:text-gray-400 mt-3 text-sm">
+                            Com certeza! O trabalho é 100% personalizado. Se você nunca treinou, começaremos com uma fase de adaptação focada em aprendizado motor e segurança.
+                        </p>
+                    </details>
+
+                    <details class="group bg-gray-50 dark:bg-gray-800 p-4 rounded-xl cursor-pointer">
+                        <summary class="flex justify-between items-center font-medium text-gray-800 dark:text-white list-none">
+                            <span>Você atende grupos específicos (idosos, gestantes)?</span>
+                            <span class="transition group-open:rotate-180"><i data-lucide="chevron-down" class="w-5 h-5"></i></span>
+                        </summary>
+                        <p class="text-gray-600 dark:text-gray-400 mt-3 text-sm">
+                            Sim. Possuo especialização em grupos especiais e reabilitação, garantindo um treino seguro e eficaz para qualquer condição específica.
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="py-20 bg-gray-900 text-center">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-white mb-6">Pronto para transformar seu corpo?</h2>
+                <p class="text-gray-400 mb-8 max-w-xl mx-auto">Não deixe sua saúde para depois. Agende sua avaliação inicial hoje mesmo e comece sua jornada.</p>
+                <a href="https://wa.me/message/X5XSBKPUOUJDM1" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full transition-all hover:scale-105 shadow-lg shadow-green-500/20">
+                    <i data-lucide="message-circle" class="w-6 h-6"></i>
+                    Falar com Rafael no WhatsApp
+                </a>
             </div>
         </section>
     </main>
