@@ -1,748 +1,439 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sono e Saúde: A Importância do Descanso para o Bem-Estar | Calcule Sua Saúde</title>
-    <meta name="description" content="Descubra como o sono afeta sua saúde física e mental. Guia completo sobre higiene do sono, distúrbios e estratégias para melhorar a qualidade do descanso.">
-    <meta name="keywords" content="sono, qualidade do sono, insônia, higiene do sono, saúde, bem-estar, descanso, distúrbios do sono">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Sono e Saúde: O Guia Definitivo para Dormir Melhor | Calcule Sua Saúde</title>
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="Sono e Saúde: A Importância do Descanso para o Bem-Estar">
-    <meta property="og:description" content="Guia completo sobre a importância do sono para a saúde e estratégias para melhorar a qualidade do descanso.">
+    <!-- Meta Tags SEO Avançadas -->
+    <meta name="description" content="Descubra a ciência do sono e como ele afeta sua imunidade, peso e saúde mental. Guia completo de higiene do sono, ciclos circadianos e estratégias para vencer a insônia.">
+    <meta name="keywords" content="higiene do sono, insônia, dormir bem, ciclo circadiano, melatonina, sono profundo, sono REM, apneia do sono">
+    <meta name="author" content="Equipe Calcule Sua Saúde">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
+    <meta property="og:title" content="Sono e Saúde: O Guia Definitivo para Dormir Melhor">
+    <meta property="og:description" content="Dormir bem não é luxo, é necessidade biológica. Aprenda a hackear seu sono para viver com mais energia.">
     <meta property="og:url" content="https://calculesuasaude.com.br/artigos/sono-qualidade-saude.html">
+    <meta property="og:image" content="../img/artigos/sono_saude.jpg">
+    <meta property="article:published_time" content="2024-01-23">
+    <meta property="article:section" content="Bem-estar e Neurologia">
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
-     crossorigin="anonymous"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
 
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Dados Estruturados (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Sono e Saúde: A Importância do Descanso para o Bem-Estar",
+      "image": "https://calculesuasaude.com.br/img/artigos/sono_saude.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://calculesuasaude.com.br/icon192.png"
+        }
+      },
+      "datePublished": "2024-01-23",
+      "description": "Um guia completo sobre a fisiologia do sono e técnicas para melhorar a qualidade do descanso."
+    }
+    </script>
 
-  gtag('config', 'G-EVCQQZV60N');
-</script>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/estilo.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    typography: (theme) => ({
+                        DEFAULT: {
+                            css: {
+                                color: theme('colors.gray.700'),
+                                h2: { color: theme('colors.gray.900'), fontWeight: '800' },
+                                h3: { color: theme('colors.gray.800'), fontWeight: '700' },
+                                strong: { color: theme('colors.gray.900') },
+                            },
+                        },
+                        dark: {
+                            css: {
+                                color: theme('colors.gray.300'),
+                                h2: { color: theme('colors.white') },
+                                h3: { color: theme('colors.gray.100') },
+                                strong: { color: theme('colors.white') },
+                            },
+                        },
+                    }),
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .prose h2 { margin-top: 2em; margin-bottom: 1em; line-height: 1.3; }
+        .prose h3 { margin-top: 1.5em; margin-bottom: 0.8em; }
+        .prose p { margin-bottom: 1.25em; line-height: 1.75; }
+        .prose ul { list-style-type: disc; padding-left: 1.5em; margin-bottom: 1.25em; }
+        .prose li { margin-bottom: 0.5em; }
+    </style>
 </head>
-<body>
-    <!-- Cabeçalho -->
-    <header class="header-fixo">
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
                 </div>
-                <ul class="menu">
-                    <li><a href="../index.html">Início</a></li>
-                    <li><a href="../index.html#ferramentas">Ferramentas</a></li>
-                    <li><a href="../artigos.html">Artigos</a></li>
-                    <li><a href="../sobre.html">Sobre</a></li>
-                    <li><a href="../contato.html">Contato</a></li>
-                    <li><button id="modo-noturno" class="btn-modo">🌙</button></li>
-                </ul>
+                <span class="font-bold text-gray-800 dark:text-white text-lg hidden sm:block">Calcule Sua Saúde</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="../index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="../index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="../artigos.html" class="text-sm font-bold text-brand-600">Artigos</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../artigos.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Artigos</a>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <!-- Breadcrumbs -->
-    <section class="breadcrumbs">
-        <div class="container">
-            <a href="../index.html">Início</a> > <a href="../artigos.html">Artigos</a> > <span>Sono e Saúde</span>
-        </div>
-    </section>
+    <!-- Barra de Progresso de Leitura -->
+    <div class="fixed top-[60px] left-0 h-1 bg-indigo-500 z-40 w-0 transition-all duration-100" id="reading-progress"></div>
 
-    <!-- Conteúdo Principal -->
-    <main>
-        <article class="artigo-content">
-            <div class="container">
-                <header class="artigo-header">
-                    <h1>Sono e Saúde: A Importância do Descanso para o Bem-Estar</h1>
-                    <div class="artigo-meta">
-                        <span class="data-publicacao">Publicado em 23 de Janeiro de 2024</span>
-                        <span class="tempo-leitura">Tempo de leitura: 16 minutos</span>
-                    </div>
-                    <p class="artigo-resumo">O sono é um dos pilares fundamentais da saúde, tão importante quanto alimentação e exercícios. Durante o descanso, o corpo realiza processos essenciais de recuperação, consolidação da memória e regulação hormonal que impactam diretamente nossa qualidade de vida.</p>
-                </header>
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            
+            <!-- Breadcrumbs -->
+            <nav class="flex text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="../index.html" class="hover:text-brand-600 transition-colors">Início</a>
+                <span class="mx-2">/</span>
+                <a href="../artigos.html" class="hover:text-brand-600 transition-colors">Artigos</a>
+                <span class="mx-2">/</span>
+                <span class="font-medium text-gray-900 dark:text-white truncate">Sono e Saúde</span>
+            </nav>
 
-                <div class="artigo-corpo">
-                    <h2>Por que o Sono é Fundamental?</h2>
-                    <p>O sono não é apenas um período de inatividade, mas sim um estado ativo e complexo durante o qual ocorrem processos vitais para a manutenção da saúde física e mental. Durante as diferentes fases do sono, o organismo realiza reparos celulares, consolida memórias, regula hormônios e fortalece o sistema imunológico.</p>
-                    
-                    <p>A privação crônica do sono está associada a uma série de problemas de saúde, incluindo obesidade, diabetes, doenças cardiovasculares, depressão e comprometimento do sistema imunológico. Por isso, investir na qualidade do sono é investir na saúde a longo prazo.</p>
-
-                    <h3>Estatísticas Alarmantes</h3>
-                    <div class="estatisticas-sono">
-                        <div class="stat-card">
-                            <div class="stat-numero">35%</div>
-                            <p>dos adultos dormem menos de 7 horas por noite</p>
-                        </div>
-                        
-                        <div class="stat-card">
-                            <div class="stat-numero">50-70M</div>
-                            <p>de americanos têm distúrbios do sono</p>
-                        </div>
-                        
-                        <div class="stat-card">
-                            <div class="stat-numero">$411B</div>
-                            <p>custo anual da privação do sono nos EUA</p>
-                        </div>
-                        
-                        <div class="stat-card">
-                            <div class="stat-numero">1,2M</div>
-                            <p>dias de trabalho perdidos por ano devido ao sono inadequado</p>
-                        </div>
-                    </div>
-
-                    <h2>Fases do Sono</h2>
-                    <p>O sono é dividido em diferentes estágios que se repetem em ciclos de aproximadamente 90-120 minutos:</p>
-
-                    <h3>Sono NREM (Não-REM)</h3>
-                    <div class="fases-sono">
-                        <div class="fase-sono">
-                            <h4>Estágio 1 - Transição</h4>
-                            <ul>
-                                <li><strong>Duração:</strong> 5-10 minutos</li>
-                                <li><strong>Características:</strong> Sonolência, fácil despertar</li>
-                                <li><strong>Ondas cerebrais:</strong> Alfa e teta</li>
-                                <li><strong>Função:</strong> Transição da vigília para o sono</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="fase-sono">
-                            <h4>Estágio 2 - Sono Leve</h4>
-                            <ul>
-                                <li><strong>Duração:</strong> 45-55% do sono total</li>
-                                <li><strong>Características:</strong> Diminuição da temperatura corporal</li>
-                                <li><strong>Ondas cerebrais:</strong> Fusos do sono, complexos K</li>
-                                <li><strong>Função:</strong> Preparação para sono profundo</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="fase-sono">
-                            <h4>Estágio 3 - Sono Profundo</h4>
-                            <ul>
-                                <li><strong>Duração:</strong> 15-20% do sono total</li>
-                                <li><strong>Características:</strong> Difícil despertar, desorientação</li>
-                                <li><strong>Ondas cerebrais:</strong> Delta (ondas lentas)</li>
-                                <li><strong>Função:</strong> Recuperação física, crescimento</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Sono REM (Rapid Eye Movement)</h3>
-                    <ul>
-                        <li><strong>Duração:</strong> 20-25% do sono total</li>
-                        <li><strong>Características:</strong> Movimentos oculares rápidos, sonhos vívidos</li>
-                        <li><strong>Ondas cerebrais:</strong> Similares à vigília</li>
-                        <li><strong>Função:</strong> Consolidação da memória, processamento emocional</li>
-                        <li><strong>Paralisia muscular:</strong> Previne atuação dos sonhos</li>
-                    </ul>
-
-                    <h3>Ciclos do Sono</h3>
-                    <p>Durante uma noite típica de 8 horas, passamos por 4-6 ciclos completos:</p>
-                    <ul>
-                        <li><strong>Primeira metade da noite:</strong> Mais sono profundo (Estágio 3)</li>
-                        <li><strong>Segunda metade da noite:</strong> Mais sono REM</li>
-                        <li><strong>Despertar natural:</strong> Geralmente ocorre no final de um ciclo</li>
-                        <li><strong>Variação individual:</strong> Duração dos ciclos pode variar</li>
-                    </ul>
-
-                    <h2>Funções do Sono</h2>
-                    <p>O sono desempenha múltiplas funções essenciais para a saúde:</p>
-
-                    <h3>Recuperação Física</h3>
-                    <ul>
-                        <li><strong>Reparação celular:</strong> Síntese de proteínas, reparação de DNA</li>
-                        <li><strong>Crescimento:</strong> Liberação do hormônio do crescimento</li>
-                        <li><strong>Sistema imunológico:</strong> Produção de células de defesa</li>
-                        <li><strong>Remoção de toxinas:</strong> Sistema glinfático remove resíduos cerebrais</li>
-                        <li><strong>Recuperação muscular:</strong> Síntese proteica e reparação de tecidos</li>
-                    </ul>
-
-                    <h3>Consolidação da Memória</h3>
-                    <ul>
-                        <li><strong>Memória declarativa:</strong> Fatos e eventos (sono de ondas lentas)</li>
-                        <li><strong>Memória procedural:</strong> Habilidades motoras (sono REM)</li>
-                        <li><strong>Transferência:</strong> Do hipocampo para córtex</li>
-                        <li><strong>Esquecimento seletivo:</strong> Eliminação de informações irrelevantes</li>
-                        <li><strong>Criatividade:</strong> Formação de novas conexões</li>
-                    </ul>
-
-                    <h3>Regulação Hormonal</h3>
-                    <div class="hormonios-sono">
-                        <div class="hormonio-card">
-                            <h4>🌙 Melatonina</h4>
-                            <p><strong>Função:</strong> Induz sonolência</p>
-                            <p><strong>Pico:</strong> 2-3h da madrugada</p>
-                            <p><strong>Regulação:</strong> Luz suprime produção</p>
-                        </div>
-                        
-                        <div class="hormonio-card">
-                            <h4>💪 Hormônio do Crescimento</h4>
-                            <p><strong>Função:</strong> Crescimento e reparação</p>
-                            <p><strong>Pico:</strong> Sono profundo</p>
-                            <p><strong>Efeito:</strong> 75% liberado durante sono</p>
-                        </div>
-                        
-                        <div class="hormonio-card">
-                            <h4>😴 Cortisol</h4>
-                            <p><strong>Função:</strong> Despertar matinal</p>
-                            <p><strong>Pico:</strong> Início da manhã</p>
-                            <p><strong>Problema:</strong> Elevado à noite atrapalha sono</p>
-                        </div>
-                        
-                        <div class="hormonio-card">
-                            <h4>🍽️ Leptina/Grelina</h4>
-                            <p><strong>Função:</strong> Regulação do apetite</p>
-                            <p><strong>Leptina:</strong> Saciedade (aumenta no sono)</p>
-                            <p><strong>Grelina:</strong> Fome (diminui no sono)</p>
-                        </div>
-                    </div>
-
-                    <h3>Processamento Emocional</h3>
-                    <ul>
-                        <li><strong>Regulação emocional:</strong> Processamento de experiências do dia</li>
-                        <li><strong>Redução do estresse:</strong> Diminuição dos níveis de cortisol</li>
-                        <li><strong>Estabilidade do humor:</strong> Prevenção de irritabilidade</li>
-                        <li><strong>Resiliência:</strong> Capacidade de lidar com adversidades</li>
-                        <li><strong>Empatia:</strong> Melhora na compreensão social</li>
-                    </ul>
-
-                    <h2>Necessidades de Sono por Idade</h2>
-                    <p>As necessidades de sono variam significativamente ao longo da vida:</p>
-
-                    <div class="necessidades-sono">
-                        <div class="idade-sono">
-                            <h4>👶 Recém-nascidos (0-3 meses)</h4>
-                            <div class="horas-sono">14-17 horas</div>
-                            <p>Sono fragmentado, ciclos curtos de 50-60 min</p>
-                        </div>
-                        
-                        <div class="idade-sono">
-                            <h4>🍼 Bebês (4-11 meses)</h4>
-                            <div class="horas-sono">12-15 horas</div>
-                            <p>Desenvolvimento do ritmo circadiano</p>
-                        </div>
-                        
-                        <div class="idade-sono">
-                            <h4>👶 Crianças (1-2 anos)</h4>
-                            <div class="horas-sono">11-14 horas</div>
-                            <p>Incluindo sonecas diurnas</p>
-                        </div>
-                        
-                        <div class="idade-sono">
-                            <h4>🧒 Pré-escolares (3-5 anos)</h4>
-                            <div class="horas-sono">10-13 horas</div>
-                            <p>Redução gradual das sonecas</p>
-                        </div>
-                        
-                        <div class="idade-sono">
-                            <h4>👦 Escolares (6-13 anos)</h4>
-                            <div class="horas-sono">9-11 horas</div>
-                            <p>Sono noturno consolidado</p>
-                        </div>
-                        
-                        <div class="idade-sono">
-                            <h4>🧑 Adolescentes (14-17 anos)</h4>
-                            <div class="horas-sono">8-10 horas</div>
-                            <p>Atraso natural do ritmo circadiano</p>
-                        </div>
-                        
-                        <div class="idade-sono">
-                            <h4>👨 Adultos (18-64 anos)</h4>
-                            <div class="horas-sono">7-9 horas</div>
-                            <p>Necessidades estáveis</p>
-                        </div>
-                        
-                        <div class="idade-sono">
-                            <h4>👴 Idosos (65+ anos)</h4>
-                            <div class="horas-sono">7-8 horas</div>
-                            <p>Sono mais fragmentado, despertar precoce</p>
-                        </div>
-                    </div>
-
-                    <h2>Consequências da Privação do Sono</h2>
-                    <p>A falta de sono adequado tem impactos profundos na saúde física e mental:</p>
-
-                    <h3>Efeitos Agudos (Curto Prazo)</h3>
-                    <ul>
-                        <li><strong>Cognitivos:</strong> Redução da atenção, concentração e memória</li>
-                        <li><strong>Emocionais:</strong> Irritabilidade, mudanças de humor</li>
-                        <li><strong>Físicos:</strong> Fadiga, redução da coordenação motora</li>
-                        <li><strong>Performance:</strong> Diminuição da produtividade</li>
-                        <li><strong>Segurança:</strong> Maior risco de acidentes</li>
-                    </ul>
-
-                    <h3>Efeitos Crônicos (Longo Prazo)</h3>
-                    
-                    <h4>Sistema Cardiovascular</h4>
-                    <ul>
-                        <li><strong>Hipertensão:</strong> Aumento da pressão arterial</li>
-                        <li><strong>Doença coronariana:</strong> Maior risco de infarto</li>
-                        <li><strong>AVC:</strong> Risco aumentado de derrame</li>
-                        <li><strong>Arritmias:</strong> Distúrbios do ritmo cardíaco</li>
-                        <li><strong>Inflamação:</strong> Aumento de marcadores inflamatórios</li>
-                    </ul>
-
-                    <h4>Metabolismo e Peso</h4>
-                    <ul>
-                        <li><strong>Obesidade:</strong> Desregulação de hormônios da fome</li>
-                        <li><strong>Diabetes tipo 2:</strong> Resistência à insulina</li>
-                        <li><strong>Síndrome metabólica:</strong> Conjunto de fatores de risco</li>
-                        <li><strong>Metabolismo lento:</strong> Redução do gasto energético</li>
-                        <li><strong>Compulsão alimentar:</strong> Preferência por alimentos calóricos</li>
-                    </ul>
-
-                    <h4>Sistema Imunológico</h4>
-                    <ul>
-                        <li><strong>Imunidade reduzida:</strong> Maior susceptibilidade a infecções</li>
-                        <li><strong>Vacinas menos eficazes:</strong> Resposta imune comprometida</li>
-                        <li><strong>Cicatrização lenta:</strong> Reparação tecidual prejudicada</li>
-                        <li><strong>Inflamação crônica:</strong> Estado pró-inflamatório</li>
-                        <li><strong>Autoimunidade:</strong> Risco aumentado de doenças autoimunes</li>
-                    </ul>
-
-                    <h4>Saúde Mental</h4>
-                    <ul>
-                        <li><strong>Depressão:</strong> Risco 3x maior</li>
-                        <li><strong>Ansiedade:</strong> Aumento dos níveis de estresse</li>
-                        <li><strong>Transtorno bipolar:</strong> Desestabilização do humor</li>
-                        <li><strong>Psicose:</strong> Em casos extremos de privação</li>
-                        <li><strong>Suicídio:</strong> Risco aumentado</li>
-                    </ul>
-
-                    <div class="ferramentas-relacionadas">
-                        <h3>💪 Monitore sua saúde</h3>
-                        <p>Calcule seu IMC e acompanhe sua saúde geral:</p>
-                        <a href="../ferramentas/imc.html" class="btn-secondary">Calcular IMC</a>
-                    </div>
-
-                    <h2>Distúrbios do Sono</h2>
-                    <p>Existem mais de 80 distúrbios do sono catalogados. Aqui estão os mais comuns:</p>
-
-                    <h3>Insônia</h3>
-                    <p>Dificuldade para adormecer, manter o sono ou despertar precoce:</p>
-                    <ul>
-                        <li><strong>Prevalência:</strong> 30% da população</li>
-                        <li><strong>Tipos:</strong> Aguda (&lt;3 meses) ou crônica (&gt;3 meses)</li>
-                        <li><strong>Causas:</strong> Estresse, ansiedade, hábitos inadequados</li>
-                        <li><strong>Tratamento:</strong> Terapia cognitivo-comportamental, higiene do sono</li>
-                    </ul>
-
-                    <h3>Apneia do Sono</h3>
-                    <p>Interrupções da respiração durante o sono:</p>
-                    <ul>
-                        <li><strong>Prevalência:</strong> 2-4% da população</li>
-                        <li><strong>Tipos:</strong> Obstrutiva (mais comum), central, mista</li>
-                        <li><strong>Sintomas:</strong> Ronco, sonolência diurna, despertar ofegante</li>
-                        <li><strong>Riscos:</strong> Hipertensão, diabetes, problemas cardíacos</li>
-                        <li><strong>Tratamento:</strong> CPAP, dispositivos orais, cirurgia</li>
-                    </ul>
-
-                    <h3>Síndrome das Pernas Inquietas</h3>
-                    <p>Sensação desconfortável nas pernas com necessidade de movê-las:</p>
-                    <ul>
-                        <li><strong>Prevalência:</strong> 5-10% da população</li>
-                        <li><strong>Sintomas:</strong> Piora à noite, melhora com movimento</li>
-                        <li><strong>Causas:</strong> Deficiência de ferro, genética, gravidez</li>
-                        <li><strong>Tratamento:</strong> Suplementação de ferro, medicamentos</li>
-                    </ul>
-
-                    <h3>Narcolepsia</h3>
-                    <p>Sonolência excessiva diurna e ataques súbitos de sono:</p>
-                    <ul>
-                        <li><strong>Prevalência:</strong> 0,02-0,05% da população</li>
-                        <li><strong>Sintomas:</strong> Cataplexia, paralisia do sono, alucinações</li>
-                        <li><strong>Causa:</strong> Deficiência de hipocretina/orexina</li>
-                        <li><strong>Tratamento:</strong> Estimulantes, antidepressivos</li>
-                    </ul>
-
-                    <h3>Distúrbios do Ritmo Circadiano</h3>
-                    <p>Desalinhamento entre o relógio biológico e o ambiente:</p>
-                    <ul>
-                        <li><strong>Jet lag:</strong> Viagens através de fusos horários</li>
-                        <li><strong>Trabalho em turnos:</strong> Horários irregulares</li>
-                        <li><strong>Síndrome da fase atrasada:</strong> Adormecer e acordar tarde</li>
-                        <li><strong>Síndrome da fase avançada:</strong> Adormecer e acordar cedo</li>
-                    </ul>
-
-                    <h2>Higiene do Sono</h2>
-                    <p>Conjunto de práticas que promovem sono de qualidade:</p>
-
-                    <h3>Ambiente do Quarto</h3>
-                    <ul>
-                        <li><strong>Temperatura:</strong> 18-22°C (ideal: 19°C)</li>
-                        <li><strong>Escuridão:</strong> Cortinas blackout, máscara de dormir</li>
-                        <li><strong>Silêncio:</strong> Protetores auriculares, ruído branco</li>
-                        <li><strong>Colchão e travesseiro:</strong> Confortáveis e adequados</li>
-                        <li><strong>Ventilação:</strong> Ar fresco e circulação adequada</li>
-                        <li><strong>Organização:</strong> Ambiente limpo e organizado</li>
-                    </ul>
-
-                    <h3>Rotina Pré-Sono</h3>
-                    <ul>
-                        <li><strong>Horário consistente:</strong> Deitar e acordar no mesmo horário</li>
-                        <li><strong>Ritual relaxante:</strong> 30-60 min antes de dormir</li>
-                        <li><strong>Banho morno:</strong> Reduz temperatura corporal</li>
-                        <li><strong>Leitura:</strong> Atividade calma e relaxante</li>
-                        <li><strong>Meditação:</strong> Reduz ansiedade e estresse</li>
-                        <li><strong>Alongamento suave:</strong> Relaxa músculos</li>
-                    </ul>
-
-                    <h3>Hábitos Diurnos</h3>
-                    <ul>
-                        <li><strong>Exposição à luz solar:</strong> Especialmente pela manhã</li>
-                        <li><strong>Exercícios regulares:</strong> Mas não próximo ao horário de dormir</li>
-                        <li><strong>Sonecas limitadas:</strong> Máximo 20-30 min antes das 15h</li>
-                        <li><strong>Alimentação adequada:</strong> Jantar leve 2-3h antes de dormir</li>
-                        <li><strong>Hidratação:</strong> Reduzir líquidos 2h antes de dormir</li>
-                    </ul>
-
-                    <h3>Substâncias a Evitar</h3>
-                    <div class="substancias-evitar">
-                        <div class="substancia-card">
-                            <h4>☕ Cafeína</h4>
-                            <ul>
-                                <li>Evitar 6h antes de dormir</li>
-                                <li>Meia-vida: 5-6 horas</li>
-                                <li>Fontes: café, chá, chocolate, refrigerantes</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="substancia-card">
-                            <h4>🍷 Álcool</h4>
-                            <ul>
-                                <li>Evitar 3h antes de dormir</li>
-                                <li>Fragmenta o sono REM</li>
-                                <li>Causa despertar noturno</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="substancia-card">
-                            <h4>🚬 Nicotina</h4>
-                            <ul>
-                                <li>Estimulante, dificulta adormecer</li>
-                                <li>Abstinência causa despertar</li>
-                                <li>Evitar especialmente à noite</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="substancia-card">
-                            <h4>🍽️ Refeições Pesadas</h4>
-                            <ul>
-                                <li>Evitar 2-3h antes de dormir</li>
-                                <li>Digestão interfere no sono</li>
-                                <li>Pode causar refluxo</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h2>Tecnologia e Sono</h2>
-                    <p>O uso de dispositivos eletrônicos pode impactar significativamente a qualidade do sono:</p>
-
-                    <h3>Luz Azul e Melatonina</h3>
-                    <ul>
-                        <li><strong>Supressão da melatonina:</strong> Luz azul inibe produção</li>
-                        <li><strong>Atraso do ritmo:</strong> Desloca o relógio biológico</li>
-                        <li><strong>Alerta aumentado:</strong> Estimula o estado de vigília</li>
-                        <li><strong>Fontes:</strong> Smartphones, tablets, TVs, computadores</li>
-                    </ul>
-
-                    <h3>Estratégias para Reduzir Impacto</h3>
-                    <ul>
-                        <li><strong>Regra 3-2-1:</strong> 3h sem comida, 2h sem trabalho, 1h sem telas</li>
-                        <li><strong>Filtros de luz azul:</strong> Apps como f.lux, Night Shift</li>
-                        <li><strong>Óculos bloqueadores:</strong> Filtram luz azul</li>
-                        <li><strong>Modo noturno:</strong> Ativar em todos os dispositivos</li>
-                        <li><strong>Carregamento fora do quarto:</strong> Evitar tentação de uso</li>
-                    </ul>
-
-                    <h3>Tecnologia a Favor do Sono</h3>
-                    <ul>
-                        <li><strong>Apps de meditação:</strong> Headspace, Calm, Insight Timer</li>
-                        <li><strong>Ruído branco:</strong> Apps e dispositivos específicos</li>
-                        <li><strong>Monitoramento do sono:</strong> Smartwatches, pulseiras fitness</li>
-                        <li><strong>Despertadores inteligentes:</strong> Acordam na fase leve do sono</li>
-                        <li><strong>Lâmpadas inteligentes:</strong> Simulam nascer/pôr do sol</li>
-                    </ul>
-
-                    <h2>Alimentação e Sono</h2>
-                    <p>O que comemos e quando comemos afeta diretamente a qualidade do sono:</p>
-
-                    <h3>Alimentos que Promovem o Sono</h3>
-                    <div class="alimentos-sono">
-                        <div class="alimento-card">
-                            <h4>🥛 Laticínios</h4>
-                            <p><strong>Nutriente:</strong> Triptofano, cálcio</p>
-                            <p><strong>Efeito:</strong> Produção de serotonina e melatonina</p>
-                            <p><strong>Exemplos:</strong> Leite morno, iogurte, queijo</p>
-                        </div>
-                        
-                        <div class="alimento-card">
-                            <h4>🍒 Cerejas</h4>
-                            <p><strong>Nutriente:</strong> Melatonina natural</p>
-                            <p><strong>Efeito:</strong> Induz sonolência</p>
-                            <p><strong>Forma:</strong> Frescas ou suco concentrado</p>
-                        </div>
-                        
-                        <div class="alimento-card">
-                            <h4>🥜 Nozes e Amêndoas</h4>
-                            <p><strong>Nutriente:</strong> Magnésio, triptofano</p>
-                            <p><strong>Efeito:</strong> Relaxamento muscular</p>
-                            <p><strong>Quantidade:</strong> Punhado pequeno</p>
-                        </div>
-                        
-                        <div class="alimento-card">
-                            <h4>🐟 Peixes Gordos</h4>
-                            <p><strong>Nutriente:</strong> Ômega-3, vitamina D</p>
-                            <p><strong>Efeito:</strong> Regulação da serotonina</p>
-                            <p><strong>Exemplos:</strong> Salmão, atum, sardinha</p>
-                        </div>
-                    </div>
-
-                    <h3>Alimentos que Atrapalham o Sono</h3>
-                    <ul>
-                        <li><strong>Cafeína:</strong> Café, chá preto, chocolate, refrigerantes</li>
-                        <li><strong>Açúcar:</strong> Picos de glicemia causam despertar</li>
-                        <li><strong>Alimentos picantes:</strong> Podem causar azia e desconforto</li>
-                        <li><strong>Gorduras saturadas:</strong> Digestão lenta e pesada</li>
-                        <li><strong>Álcool:</strong> Fragmenta o sono e reduz REM</li>
-                    </ul>
-
-                    <h3>Timing das Refeições</h3>
-                    <ul>
-                        <li><strong>Jantar:</strong> 2-3 horas antes de dormir</li>
-                        <li><strong>Lanche noturno:</strong> Se necessário, algo leve</li>
-                        <li><strong>Hidratação:</strong> Reduzir 2h antes de dormir</li>
-                        <li><strong>Jejum intermitente:</strong> Pode melhorar qualidade do sono</li>
-                    </ul>
-
-                    <h2>Exercícios e Sono</h2>
-                    <p>A atividade física regular melhora significativamente a qualidade do sono:</p>
-
-                    <h3>Benefícios do Exercício para o Sono</h3>
-                    <ul>
-                        <li><strong>Redução do tempo para adormecer:</strong> 37% mais rápido</li>
-                        <li><strong>Aumento do sono profundo:</strong> Mais tempo no estágio 3</li>
-                        <li><strong>Redução da ansiedade:</strong> Diminui cortisol e adrenalina</li>
-                        <li><strong>Regulação da temperatura:</strong> Queda pós-exercício induz sono</li>
-                        <li><strong>Cansaço físico:</strong> Necessidade natural de recuperação</li>
-                    </ul>
-
-                    <h3>Timing do Exercício</h3>
-                    <ul>
-                        <li><strong>Manhã:</strong> Exposição à luz, energia para o dia</li>
-                        <li><strong>Tarde:</strong> Ideal para performance e sono noturno</li>
-                        <li><strong>Noite:</strong> Evitar 3-4h antes de dormir</li>
-                        <li><strong>Exercícios leves:</strong> Yoga, alongamento podem ser feitos à noite</li>
-                    </ul>
-
-                    <h3>Tipos de Exercício</h3>
-                    <ul>
-                        <li><strong>Aeróbico:</strong> Caminhada, corrida, ciclismo</li>
-                        <li><strong>Resistência:</strong> Musculação, exercícios com peso</li>
-                        <li><strong>Flexibilidade:</strong> Yoga, pilates, alongamento</li>
-                        <li><strong>Intensidade moderada:</strong> Mais eficaz que alta intensidade</li>
-                    </ul>
-
-                    <div class="ferramentas-relacionadas">
-                        <h3>🔥 Monitore sua atividade</h3>
-                        <p>Calcule seu gasto calórico durante exercícios:</p>
-                        <a href="../ferramentas/calorias.html" class="btn-secondary">Calcular Gasto Calórico</a>
-                    </div>
-
-                    <h2>Estratégias para Melhorar o Sono</h2>
-                    <p>Técnicas específicas para otimizar a qualidade do descanso:</p>
-
-                    <h3>Técnicas de Relaxamento</h3>
-                    <ul>
-                        <li><strong>Respiração 4-7-8:</strong> Inspire 4s, segure 7s, expire 8s</li>
-                        <li><strong>Relaxamento muscular progressivo:</strong> Tensionar e relaxar grupos musculares</li>
-                        <li><strong>Visualização:</strong> Imaginar cenários calmos e relaxantes</li>
-                        <li><strong>Meditação mindfulness:</strong> Foco no momento presente</li>
-                        <li><strong>Yoga nidra:</strong> "Sono yóguico" para relaxamento profundo</li>
-                    </ul>
-
-                    <h3>Terapia Cognitivo-Comportamental para Insônia (TCC-I)</h3>
-                    <ul>
-                        <li><strong>Controle de estímulos:</strong> Cama apenas para dormir</li>
-                        <li><strong>Restrição do sono:</strong> Limitar tempo na cama</li>
-                        <li><strong>Reestruturação cognitiva:</strong> Mudar pensamentos sobre sono</li>
-                        <li><strong>Higiene do sono:</strong> Otimizar ambiente e hábitos</li>
-                        <li><strong>Técnicas de relaxamento:</strong> Reduzir ativação fisiológica</li>
-                    </ul>
-
-                    <h3>Suplementos Naturais</h3>
-                    <div class="suplementos-sono">
-                        <div class="suplemento-card">
-                            <h4>🌙 Melatonina</h4>
-                            <p><strong>Dose:</strong> 0,5-3mg, 30min antes de dormir</p>
-                            <p><strong>Uso:</strong> Jet lag, distúrbios do ritmo</p>
-                            <p><strong>Cuidado:</strong> Pode causar sonolência matinal</p>
-                        </div>
-                        
-                        <div class="suplemento-card">
-                            <h4>🌿 Valeriana</h4>
-                            <p><strong>Dose:</strong> 300-600mg antes de dormir</p>
-                            <p><strong>Efeito:</strong> Sedativo natural</p>
-                            <p><strong>Tempo:</strong> Pode levar semanas para efeito</p>
-                        </div>
-                        
-                        <div class="suplemento-card">
-                            <h4>🍃 Camomila</h4>
-                            <p><strong>Forma:</strong> Chá ou extrato</p>
-                            <p><strong>Efeito:</strong> Relaxante suave</p>
-                            <p><strong>Segurança:</strong> Geralmente bem tolerada</p>
-                        </div>
-                        
-                        <div class="suplemento-card">
-                            <h4>⚡ Magnésio</h4>
-                            <p><strong>Dose:</strong> 200-400mg antes de dormir</p>
-                            <p><strong>Efeito:</strong> Relaxamento muscular</p>
-                            <p><strong>Tipo:</strong> Glicinato ou citrato</p>
-                        </div>
-                    </div>
-
-                    <h2>Sono e Diferentes Grupos</h2>
-                    <p>Considerações especiais para diferentes populações:</p>
-
-                    <h3>Trabalhadores em Turnos</h3>
-                    <ul>
-                        <li><strong>Ambiente escuro:</strong> Cortinas blackout para dormir de dia</li>
-                        <li><strong>Óculos escuros:</strong> No caminho para casa</li>
-                        <li><strong>Cafeína estratégica:</strong> Início do turno, evitar no final</li>
-                        <li><strong>Sonecas:</strong> 20-30 min antes do turno</li>
-                        <li><strong>Luz brilhante:</strong> Durante o trabalho noturno</li>
-                    </ul>
-
-                    <h3>Idosos</h3>
-                    <ul>
-                        <li><strong>Horários regulares:</strong> Ainda mais importantes</li>
-                        <li><strong>Atividade física:</strong> Adaptada às limitações</li>
-                        <li><strong>Medicamentos:</strong> Revisar com médico</li>
-                        <li><strong>Sonecas curtas:</strong> Máximo 30 min</li>
-                        <li><strong>Exposição à luz:</strong> Especialmente importante</li>
-                    </ul>
-
-                    <h3>Gestantes</h3>
-                    <ul>
-                        <li><strong>Posição:</strong> Lado esquerdo no 3º trimestre</li>
-                        <li><strong>Travesseiros:</strong> Suporte para barriga e pernas</li>
-                        <li><strong>Azia:</strong> Elevar cabeceira da cama</li>
-                        <li><strong>Frequência urinária:</strong> Reduzir líquidos à noite</li>
-                        <li><strong>Relaxamento:</strong> Técnicas seguras para gravidez</li>
-                    </ul>
-
-                    <h3>Atletas</h3>
-                    <ul>
-                        <li><strong>Sono extra:</strong> 8-10 horas para recuperação</li>
-                        <li><strong>Sonecas:</strong> 20-30 min pós-treino</li>
-                        <li><strong>Timing de treino:</strong> Evitar muito próximo ao sono</li>
-                        <li><strong>Nutrição:</strong> Carboidratos pós-treino</li>
-                        <li><strong>Monitoramento:</strong> Qualidade do sono como métrica</li>
-                    </ul>
-
-                    <h2>Quando Procurar Ajuda</h2>
-                    <p>Sinais de que é necessário buscar ajuda profissional:</p>
-
-                    <h3>Sintomas de Alerta</h3>
-                    <ul>
-                        <li><strong>Insônia crônica:</strong> Dificuldades por mais de 3 meses</li>
-                        <li><strong>Sonolência excessiva:</strong> Mesmo com sono adequado</li>
-                        <li><strong>Ronco alto:</strong> Com pausas respiratórias</li>
-                        <li><strong>Movimentos anormais:</strong> Durante o sono</li>
-                        <li><strong>Pesadelos frequentes:</strong> Que interferem no sono</li>
-                        <li><strong>Sonambulismo:</strong> Especialmente em adultos</li>
-                        <li><strong>Paralisia do sono:</strong> Episódios recorrentes</li>
-                    </ul>
-
-                    <h3>Profissionais Especializados</h3>
-                    <ul>
-                        <li><strong>Médico do sono:</strong> Diagnóstico e tratamento</li>
-                        <li><strong>Pneumologista:</strong> Apneia do sono</li>
-                        <li><strong>Neurologista:</strong> Distúrbios neurológicos</li>
-                        <li><strong>Psicólogo:</strong> TCC-I, aspectos comportamentais</li>
-                        <li><strong>Psiquiatra:</strong> Medicações, transtornos mentais</li>
-                    </ul>
-
-                    <h3>Exames do Sono</h3>
-                    <ul>
-                        <li><strong>Polissonografia:</strong> Estudo completo do sono</li>
-                        <li><strong>Teste de latência múltipla:</strong> Avalia sonolência diurna</li>
-                        <li><strong>Actigrafia:</strong> Monitoramento ambulatorial</li>
-                        <li><strong>Oximetria noturna:</strong> Níveis de oxigênio</li>
-                    </ul>
-
-                    <h2>Conclusão</h2>
-                    <p>O sono é um dos pilares fundamentais da saúde, tão importante quanto alimentação e exercícios. Investir na qualidade do sono é investir na qualidade de vida, performance e longevidade.</p>
-                    
-                    <p>Implementar boas práticas de higiene do sono, manter horários regulares e criar um ambiente propício ao descanso são estratégias simples mas poderosas para melhorar a qualidade do sono. Lembre-se de que mudanças levam tempo para se estabelecer, então seja paciente e consistente.</p>
-                    
-                    <p>Se você continua enfrentando dificuldades com o sono mesmo após implementar essas estratégias, não hesite em procurar ajuda profissional. Um sono de qualidade não é luxo, é necessidade básica para uma vida saudável e plena.</p>
-
-                    <div class="cta-final">
-                        <h3>💤 Cuide da sua saúde</h3>
-                        <p>Monitore sua saúde geral e bem-estar:</p>
-                        <div class="cta-buttons">
-                            <a href="../ferramentas/imc.html" class="btn-primary">Calcular IMC</a>
-                            <a href="../ferramentas/tmb.html" class="btn-secondary">Taxa Metabólica</a>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 
+                <!-- Sidebar (Índice) - Desktop -->
+                <aside class="hidden lg:block lg:col-span-3 relative">
+                    <div class="sticky top-32 p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <h4 class="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="list" class="w-4 h-4"></i> Neste artigo
+                        </h4>
+                        <nav class="space-y-2 text-sm border-l-2 border-gray-100 dark:border-gray-700 ml-1">
+                            <a href="#ciencia" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-indigo-600 hover:border-l-2 hover:border-indigo-600 -ml-[2px] transition-all">A Ciência do Sono</a>
+                            <a href="#ciclos" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-indigo-600 hover:border-l-2 hover:border-indigo-600 -ml-[2px] transition-all">Fases e Ciclos</a>
+                            <a href="#consequencias" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-indigo-600 hover:border-l-2 hover:border-indigo-600 -ml-[2px] transition-all">Riscos da Privação</a>
+                            <a href="#higiene" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-indigo-600 hover:border-l-2 hover:border-indigo-600 -ml-[2px] transition-all">Higiene do Sono</a>
+                            <a href="#disturbios" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-indigo-600 hover:border-l-2 hover:border-indigo-600 -ml-[2px] transition-all">Distúrbios Comuns</a>
+                            <a href="#estrategias" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-indigo-600 hover:border-l-2 hover:border-indigo-600 -ml-[2px] transition-all">Estratégias Práticas</a>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Conteúdo do Artigo -->
+                <article class="lg:col-span-9 prose dark:prose-invert max-w-none">
+                    
+                    <!-- Header do Artigo -->
+                    <header class="not-prose mb-10 text-center lg:text-left">
+                        <span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-indigo-700 uppercase bg-indigo-100 rounded-full dark:bg-indigo-900/30 dark:text-indigo-400">
+                            Neurociência e Bem-estar
+                        </span>
+                        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
+                            Sono: O Pilar Fundamental da Saúde Física e Mental
+                        </h1>
+                        
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-800 pb-8">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                                    <i data-lucide="moon" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <span class="block font-bold text-gray-900 dark:text-white">Revisão Clínica</span>
+                                    <span class="text-xs">Baseado em Neurologia</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                23 de Janeiro, 2024
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                                18 min de leitura
+                            </div>
+                        </div>
+                    </header>
+
+                    <!-- Destaque Inicial -->
+                    <div class="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-2xl border-l-4 border-indigo-500 mb-8 not-prose">
+                        <h3 class="font-bold text-indigo-800 dark:text-indigo-300 mb-2">A Cura Natural</h3>
+                        <p class="text-lg text-gray-700 dark:text-gray-300">
+                            O sono é o processo de recuperação mais poderoso e subestimado que temos. Durante a noite, seu cérebro se "lava" de toxinas, seus músculos se reparam e suas memórias são consolidadas. Negligenciar o sono é negligenciar a base de toda a sua saúde.
+                        </p>
+                    </div>
+
+                    <section id="ciencia">
+                        <h2>A Ciência do Sono: O Que Acontece Quando Fechamos os Olhos?</h2>
+                        <p>Dormir não é apenas "desligar". É um estado biologicamente ativo e complexo, regulado por dois sistemas principais:</p>
+                        <ul>
+                            <li><strong>Ritmo Circadiano:</strong> Seu relógio biológico interno de 24 horas, regulado pela luz e escuridão (melatonina).</li>
+                            <li><strong>Pressão do Sono (Homeostase):</strong> O acúmulo de uma substância química chamada <em>adenosina</em> no cérebro ao longo do dia, que nos faz sentir cansados.</li>
+                        </ul>
+                    </section>
+
+                    <section id="ciclos">
+                        <h2>Fases e Ciclos: A Arquitetura do Descanso</h2>
+                        <p>O sono ocorre em ciclos de aproximadamente 90 minutos, repetindo-se 4 a 6 vezes por noite. Cada ciclo é composto por fases distintas:</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose my-8">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-600"><i data-lucide="battery-charging" class="w-5 h-5"></i></div>
+                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white m-0">Sono NREM (Não-REM)</h3>
+                                </div>
+                                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                                    <li><strong>Estágio 1:</strong> Sono leve, transição.</li>
+                                    <li><strong>Estágio 2:</strong> Temperatura cai, batimentos desaceleram. Consolidação motora.</li>
+                                    <li><strong>Estágio 3 (Profundo):</strong> Recuperação física, liberação de GH, limpeza de toxinas cerebrais.</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-full text-purple-600"><i data-lucide="brain-circuit" class="w-5 h-5"></i></div>
+                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white m-0">Sono REM (Sonhos)</h3>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">Rapid Eye Movement.</p>
+                                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                                    <li>Atividade cerebral intensa (sonhos).</li>
+                                    <li>Paralisia muscular temporária.</li>
+                                    <li>Crucial para processamento emocional e criatividade.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="consequencias">
+                        <h2>Riscos da Privação do Sono</h2>
+                        <p>Dormir menos de 7 horas regularmente tem consequências devastadoras:</p>
+                        
+                        <div class="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 not-prose my-6">
+                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <tr>
+                                        <th class="px-6 py-3">Sistema</th>
+                                        <th class="px-6 py-3">Consequência</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4 font-bold text-red-600">Cérebro</td>
+                                        <td class="px-6 py-4">Déficit de atenção, perda de memória, risco aumentado de Alzheimer.</td>
+                                    </tr>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4 font-bold text-orange-600">Coração</td>
+                                        <td class="px-6 py-4">Aumento da pressão arterial, risco de infarto e AVC.</td>
+                                    </tr>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4 font-bold text-yellow-600">Metabolismo</td>
+                                        <td class="px-6 py-4">Aumento da fome (grelina), resistência à insulina, ganho de peso.</td>
+                                    </tr>
+                                    <tr class="bg-white dark:bg-gray-800">
+                                        <td class="px-6 py-4 font-bold text-blue-600">Imunidade</td>
+                                        <td class="px-6 py-4">Redução drástica das células de defesa (Natural Killers).</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        [Image of sleep deprivation effects infographic]
+                    </section>
+
+                    <section id="higiene">
+                        <h2>Higiene do Sono: O Ritual Sagrado</h2>
+                        <p>Para dormir bem, você precisa preparar o terreno. Aqui estão as regras de ouro:</p>
+                        <ul class="list-none space-y-4">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="sun" class="w-6 h-6 text-yellow-500 shrink-0 mt-1"></i>
+                                <div><strong>Luz Natural de Manhã:</strong> Exponha-se ao sol logo ao acordar para regular seu relógio biológico.</div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="coffee" class="w-6 h-6 text-brown-500 shrink-0 mt-1"></i>
+                                <div><strong>Cafeína com Limite:</strong> Evite café após as 14h. A cafeína fica no sistema por até 8 horas.</div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="thermometer" class="w-6 h-6 text-blue-500 shrink-0 mt-1"></i>
+                                <div><strong>Frio e Escuro:</strong> O quarto ideal deve ser fresco (aprox. 18-20°C) e totalmente escuro.</div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="smartphone-off" class="w-6 h-6 text-gray-500 shrink-0 mt-1"></i>
+                                <div><strong>Sem Telas:</strong> A luz azul do celular bloqueia a melatonina. Desligue telas 1h antes de deitar.</div>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="disturbios">
+                        <h2>Distúrbios Comuns do Sono</h2>
+                        <ul>
+                            <li><strong>Insônia:</strong> Dificuldade de iniciar ou manter o sono. Muitas vezes ligada à ansiedade.</li>
+                            <li><strong>Apneia do Sono:</strong> Paradas respiratórias durante a noite. Causa ronco alto e sonolência diurna. Fator de risco grave para o coração.</li>
+                            <li><strong>Síndrome das Pernas Inquietas:</strong> Desconforto nas pernas que exige movimento, atrapalhando o início do sono.</li>
+                        </ul>
+                        <p>Se você suspeita de algum desses, procure um médico do sono.</p>
+                    </section>
+
+                    <section id="estrategias">
+                        <h2>Técnicas de Relaxamento para Dormir</h2>
+                        <p>Se a mente não para na hora de deitar, tente estas técnicas:</p>
+                        <ul>
+                            <li><strong>Respiração 4-7-8:</strong> Inspire por 4s, segure por 7s, expire por 8s. Acalma o sistema nervoso.</li>
+                            <li><strong>Banho Quente:</strong> O resfriamento do corpo ao sair do banho sinaliza ao cérebro que é hora de dormir.</li>
+                            <li><strong>Leitura (Livro Físico):</strong> Nada de tablets. Ler algo leve ajuda a desconectar.</li>
+                        </ul>
+                    </section>
+
+                    <div class="not-prose mt-12 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Referências Bibliográficas</h3>
+                        <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                            <li>1. Walker, M. (2017). <em>Why We Sleep: Unlocking the Power of Sleep and Dreams</em>.</li>
+                            <li>2. National Sleep Foundation. <em>Sleep Hygiene Guidelines</em>.</li>
+                            <li>3. American Academy of Sleep Medicine (AASM). <em>International Classification of Sleep Disorders</em>.</li>
+                        </ul>
+                    </div>
+
+                </article>
             </div>
-        </article>
+        </div>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Calcule Sua Saúde</h3>
-                    <p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Links Úteis</h4>
-                    <ul>
-                        <li><a href="../sobre.html">Sobre</a></li>
-                        <li><a href="../contato.html">Contato</a></li>
-                        <li><a href="../politica.html">Política de Privacidade</a></li>
-                        <li><a href="../termos.html">Termos de Uso</a></li>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="../sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="../contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h4>Ferramentas</h4>
-                    <ul>
-                        <li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
-                        <li><a href="../ferramentas/tmb.html">Taxa Metabólica</a></li>
-                        <li><a href="../ferramentas/calorias.html">Gasto Calórico</a></li>
-                        <li><a href="../ferramentas/agua.html">Água por Dia</a></li>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="../termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="../ferramentas/calorias.html" class="hover:text-brand-400 transition-colors">Gasto Calórico</a></li>
+                        <li><a href="../ferramentas/tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="footer-bottom">
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
                 <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
-                <p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="../js/modo-noturno.js"></script>
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones
+        lucide.createIcons();
+
+        // Barra de Progresso de Leitura
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("reading-progress").style.width = scrolled + "%";
+        };
+
+        // Dark Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        // Mobile Menu
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
-
