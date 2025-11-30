@@ -1,653 +1,437 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hidratação: A Importância da Água para a Saúde e Performance | Calcule Sua Saúde</title>
-    <meta name="description" content="Descubra a importância da hidratação adequada para a saúde, performance física e mental. Aprenda quanto beber, sinais de desidratação e dicas práticas.">
-    <meta name="keywords" content="hidratação, água, desidratação, saúde, performance, quanto beber água, benefícios água">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Hidratação: O Guia Definitivo para Saúde e Performance | Calcule Sua Saúde</title>
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="Hidratação: A Importância da Água para a Saúde e Performance">
-    <meta property="og:description" content="Guia completo sobre hidratação: benefícios, necessidades diárias e estratégias para manter-se bem hidratado.">
+    <!-- Meta Tags SEO Avançadas -->
+    <meta name="description" content="Descubra a importância vital da água para o seu corpo. Guia completo sobre hidratação, sinais de desidratação, cálculo de necessidades diárias e dicas para beber mais água.">
+    <meta name="keywords" content="hidratação, água, desidratação, saúde renal, performance esportiva, quanto beber água, benefícios água, pele saudável">
+    <meta name="author" content="Equipe Calcule Sua Saúde">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
+    <meta property="og:title" content="Hidratação: O Guia Definitivo para Saúde e Performance">
+    <meta property="og:description" content="Água não é apenas para matar a sede. Descubra como a hidratação correta pode transformar sua energia, foco e saúde.">
     <meta property="og:url" content="https://calculesuasaude.com.br/artigos/hidratacao-importancia-saude.html">
+    <meta property="og:image" content="../img/artigos/hidratacao.jpg">
+    <meta property="article:published_time" content="2024-01-21">
+    <meta property="article:section" content="Saúde e Bem-estar">
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
-     crossorigin="anonymous"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
 
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Dados Estruturados (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Hidratação: A Importância da Água para a Saúde e Performance",
+      "image": "https://calculesuasaude.com.br/img/artigos/hidratacao.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://calculesuasaude.com.br/icon192.png"
+        }
+      },
+      "datePublished": "2024-01-21",
+      "description": "Um guia abrangente sobre a ciência da hidratação e como otimizar a ingestão de água para a saúde."
+    }
+    </script>
 
-  gtag('config', 'G-EVCQQZV60N');
-</script>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/estilo.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    typography: (theme) => ({
+                        DEFAULT: {
+                            css: {
+                                color: theme('colors.gray.700'),
+                                h2: { color: theme('colors.gray.900'), fontWeight: '800' },
+                                h3: { color: theme('colors.gray.800'), fontWeight: '700' },
+                                strong: { color: theme('colors.gray.900') },
+                            },
+                        },
+                        dark: {
+                            css: {
+                                color: theme('colors.gray.300'),
+                                h2: { color: theme('colors.white') },
+                                h3: { color: theme('colors.gray.100') },
+                                strong: { color: theme('colors.white') },
+                            },
+                        },
+                    }),
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .prose h2 { margin-top: 2em; margin-bottom: 1em; line-height: 1.3; }
+        .prose h3 { margin-top: 1.5em; margin-bottom: 0.8em; }
+        .prose p { margin-bottom: 1.25em; line-height: 1.75; }
+        .prose ul { list-style-type: disc; padding-left: 1.5em; margin-bottom: 1.25em; }
+        .prose li { margin-bottom: 0.5em; }
+    </style>
 </head>
-<body>
-    <!-- Cabeçalho -->
-    <header class="header-fixo">
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
                 </div>
-                <ul class="menu">
-                    <li><a href="../index.html">Início</a></li>
-                    <li><a href="../index.html#ferramentas">Ferramentas</a></li>
-                    <li><a href="../artigos.html">Artigos</a></li>
-                    <li><a href="../sobre.html">Sobre</a></li>
-                    <li><a href="../contato.html">Contato</a></li>
-                    <li><button id="modo-noturno" class="btn-modo">🌙</button></li>
-                </ul>
+                <span class="font-bold text-gray-800 dark:text-white text-lg hidden sm:block">Calcule Sua Saúde</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="../index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="../index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="../artigos.html" class="text-sm font-bold text-brand-600">Artigos</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../artigos.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Artigos</a>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <!-- Breadcrumbs -->
-    <section class="breadcrumbs">
-        <div class="container">
-            <a href="../index.html">Início</a> > <a href="../artigos.html">Artigos</a> > <span>Hidratação: Importância para a Saúde</span>
-        </div>
-    </section>
+    <!-- Barra de Progresso de Leitura -->
+    <div class="fixed top-[60px] left-0 h-1 bg-cyan-500 z-40 w-0 transition-all duration-100" id="reading-progress"></div>
 
-    <!-- Conteúdo Principal -->
-    <main>
-        <article class="artigo-content">
-            <div class="container">
-                <header class="artigo-header">
-                    <h1>Hidratação: A Importância da Água para a Saúde e Performance</h1>
-                    <div class="artigo-meta">
-                        <span class="data-publicacao">Publicado em 21 de Janeiro de 2024</span>
-                        <span class="tempo-leitura">Tempo de leitura: 14 minutos</span>
-                    </div>
-                    <p class="artigo-resumo">A água é essencial para a vida e representa cerca de 60% do peso corporal de um adulto. Uma hidratação adequada é fundamental para o funcionamento de todos os sistemas do organismo, performance física e mental, e bem-estar geral.</p>
-                </header>
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            
+            <!-- Breadcrumbs -->
+            <nav class="flex text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="../index.html" class="hover:text-brand-600 transition-colors">Início</a>
+                <span class="mx-2">/</span>
+                <a href="../artigos.html" class="hover:text-brand-600 transition-colors">Artigos</a>
+                <span class="mx-2">/</span>
+                <span class="font-medium text-gray-900 dark:text-white truncate">Hidratação</span>
+            </nav>
 
-                <div class="artigo-corpo">
-                    <h2>Por que a Hidratação é Fundamental?</h2>
-                    <p>A água é o componente mais abundante do corpo humano e participa de praticamente todas as funções fisiológicas. Ela atua como solvente universal, meio de transporte de nutrientes e resíduos, regulador de temperatura corporal e lubrificante de articulações e tecidos.</p>
-                    
-                    <p>Mesmo uma desidratação leve, de apenas 2% do peso corporal, pode afetar significativamente a performance física e cognitiva. Por isso, manter um estado de hidratação adequado é uma das estratégias mais simples e eficazes para otimizar a saúde e o bem-estar.</p>
-
-                    <h3>Composição Hídrica do Corpo</h3>
-                    <div class="composicao-hidrica">
-                        <div class="hidrica-item">
-                            <h4>👶 Recém-nascidos</h4>
-                            <div class="percentual">75-80%</div>
-                            <p>Maior proporção de água corporal</p>
-                        </div>
-                        
-                        <div class="hidrica-item">
-                            <h4>👨 Homens adultos</h4>
-                            <div class="percentual">60-65%</div>
-                            <p>Maior massa muscular = mais água</p>
-                        </div>
-                        
-                        <div class="hidrica-item">
-                            <h4>👩 Mulheres adultas</h4>
-                            <div class="percentual">50-55%</div>
-                            <p>Maior percentual de gordura = menos água</p>
-                        </div>
-                        
-                        <div class="hidrica-item">
-                            <h4>👴 Idosos</h4>
-                            <div class="percentual">45-50%</div>
-                            <p>Redução natural com o envelhecimento</p>
-                        </div>
-                    </div>
-
-                    <h2>Funções da Água no Organismo</h2>
-                    <p>A água desempenha múltiplas funções vitais no corpo humano:</p>
-
-                    <h3>1. Transporte e Circulação</h3>
-                    <ul>
-                        <li><strong>Sangue:</strong> 90% de água, transporta oxigênio e nutrientes</li>
-                        <li><strong>Linfa:</strong> Sistema linfático depende da hidratação adequada</li>
-                        <li><strong>Urina:</strong> Eliminação de resíduos metabólicos</li>
-                        <li><strong>Saliva:</strong> Digestão e proteção oral</li>
-                    </ul>
-
-                    <h3>2. Regulação da Temperatura</h3>
-                    <ul>
-                        <li><strong>Sudorese:</strong> Resfriamento por evaporação</li>
-                        <li><strong>Vasodilatação:</strong> Aumento do fluxo sanguíneo na pele</li>
-                        <li><strong>Respiração:</strong> Perda de água pelos pulmões</li>
-                        <li><strong>Capacidade térmica:</strong> Água absorve e libera calor lentamente</li>
-                    </ul>
-
-                    <h3>3. Metabolismo Celular</h3>
-                    <ul>
-                        <li><strong>Reações bioquímicas:</strong> Meio para processos metabólicos</li>
-                        <li><strong>Hidrólise:</strong> Quebra de moléculas complexas</li>
-                        <li><strong>Síntese proteica:</strong> Produção de proteínas</li>
-                        <li><strong>Produção de energia:</strong> ATP e processos energéticos</li>
-                    </ul>
-
-                    <h3>4. Estrutura e Proteção</h3>
-                    <ul>
-                        <li><strong>Líquido sinovial:</strong> Lubrificação das articulações</li>
-                        <li><strong>Líquor:</strong> Proteção do sistema nervoso</li>
-                        <li><strong>Humor vítreo:</strong> Manutenção da forma ocular</li>
-                        <li><strong>Pressão osmótica:</strong> Manutenção da forma celular</li>
-                    </ul>
-
-                    <div class="cta-calculadora">
-                        <h3>💧 Calcule sua necessidade</h3>
-                        <p>Descubra quanta água você deve beber por dia:</p>
-                        <a href="../ferramentas/agua.html" class="btn-primary">Calcular Água por Dia</a>
-                    </div>
-
-                    <h2>Necessidades Hídricas Diárias</h2>
-                    <p>As necessidades de água variam conforme diversos fatores individuais e ambientais:</p>
-
-                    <h3>Recomendações Gerais</h3>
-                    <div class="recomendacoes-agua">
-                        <div class="recomendacao-card">
-                            <h4>🧮 Fórmula Básica</h4>
-                            <p><strong>35ml por kg de peso corporal</strong></p>
-                            <p>Exemplo: 70kg × 35ml = 2,45L/dia</p>
-                        </div>
-                        
-                        <div class="recomendacao-card">
-                            <h4>👨 Homens</h4>
-                            <p><strong>2,7-3,7 litros/dia</strong></p>
-                            <p>Incluindo água de alimentos e bebidas</p>
-                        </div>
-                        
-                        <div class="recomendacao-card">
-                            <h4>👩 Mulheres</h4>
-                            <p><strong>2,2-2,7 litros/dia</strong></p>
-                            <p>Incluindo água de alimentos e bebidas</p>
-                        </div>
-                        
-                        <div class="recomendacao-card">
-                            <h4>🤱 Gestantes/Lactantes</h4>
-                            <p><strong>+300-700ml/dia</strong></p>
-                            <p>Necessidades aumentadas</p>
-                        </div>
-                    </div>
-
-                    <h3>Fatores que Aumentam as Necessidades</h3>
-                    <ul>
-                        <li><strong>Atividade física:</strong> +500-750ml por hora de exercício</li>
-                        <li><strong>Clima quente:</strong> +500-1000ml em dias muito quentes</li>
-                        <li><strong>Altitude elevada:</strong> +1000-1500ml acima de 2500m</li>
-                        <li><strong>Febre:</strong> +200ml para cada grau acima de 37°C</li>
-                        <li><strong>Diarreia/vômito:</strong> Reposição das perdas</li>
-                        <li><strong>Consumo de álcool/cafeína:</strong> Efeito diurético</li>
-                        <li><strong>Dieta rica em sódio:</strong> Maior necessidade de diluição</li>
-                    </ul>
-
-                    <h3>Fontes de Hidratação</h3>
-                    <div class="fontes-hidratacao">
-                        <h4>Água Pura (60-70% da ingestão)</h4>
-                        <ul>
-                            <li>Água filtrada ou mineral</li>
-                            <li>Água da torneira tratada</li>
-                            <li>Água com gás (sem açúcar)</li>
-                        </ul>
-
-                        <h4>Outras Bebidas (20-25% da ingestão)</h4>
-                        <ul>
-                            <li>Chás e infusões sem açúcar</li>
-                            <li>Café (com moderação)</li>
-                            <li>Leite e bebidas vegetais</li>
-                            <li>Sucos naturais (com moderação)</li>
-                        </ul>
-
-                        <h4>Alimentos (15-20% da ingestão)</h4>
-                        <ul>
-                            <li><strong>Frutas:</strong> Melancia (92%), laranja (87%), maçã (84%)</li>
-                            <li><strong>Vegetais:</strong> Pepino (95%), alface (95%), tomate (94%)</li>
-                            <li><strong>Laticínios:</strong> Leite (87%), iogurte (85%)</li>
-                            <li><strong>Sopas e caldos:</strong> 80-95% de água</li>
-                        </ul>
-                    </div>
-
-                    <h2>Sinais de Hidratação Adequada</h2>
-                    <p>Monitorar o estado de hidratação é importante para manter a saúde otimizada:</p>
-
-                    <h3>Indicadores Positivos</h3>
-                    <ul>
-                        <li><strong>Urina clara ou amarelo claro:</strong> Indicador mais confiável</li>
-                        <li><strong>Frequência urinária normal:</strong> 4-7 vezes por dia</li>
-                        <li><strong>Ausência de sede constante:</strong> Sede ocasional é normal</li>
-                        <li><strong>Pele elástica:</strong> Retorna rapidamente quando pinçada</li>
-                        <li><strong>Mucosas úmidas:</strong> Boca e olhos não ressecados</li>
-                        <li><strong>Energia adequada:</strong> Sem fadiga relacionada à desidratação</li>
-                        <li><strong>Concentração mental:</strong> Clareza de pensamento</li>
-                    </ul>
-
-                    <h3>Teste da Urina</h3>
-                    <div class="teste-urina">
-                        <div class="cor-urina bem-hidratado">
-                            <div class="cor-sample"></div>
-                            <h4>Bem Hidratado</h4>
-                            <p>Amarelo claro ou transparente</p>
-                        </div>
-                        
-                        <div class="cor-urina levemente-desidratado">
-                            <div class="cor-sample"></div>
-                            <h4>Levemente Desidratado</h4>
-                            <p>Amarelo mais escuro</p>
-                        </div>
-                        
-                        <div class="cor-urina desidratado">
-                            <div class="cor-sample"></div>
-                            <h4>Desidratado</h4>
-                            <p>Amarelo escuro ou âmbar</p>
-                        </div>
-                        
-                        <div class="cor-urina severamente-desidratado">
-                            <div class="cor-sample"></div>
-                            <h4>Severamente Desidratado</h4>
-                            <p>Marrom ou laranja escuro</p>
-                        </div>
-                    </div>
-
-                    <h2>Consequências da Desidratação</h2>
-                    <p>A desidratação pode ter efeitos graves na saúde e performance, mesmo em níveis leves:</p>
-
-                    <h3>Desidratação Leve (1-2% do peso corporal)</h3>
-                    <ul>
-                        <li><strong>Sede:</strong> Primeiro sinal de alerta</li>
-                        <li><strong>Redução da performance:</strong> 10-15% na capacidade física</li>
-                        <li><strong>Fadiga:</strong> Sensação de cansaço</li>
-                        <li><strong>Dificuldade de concentração:</strong> Redução da atenção</li>
-                        <li><strong>Dor de cabeça leve:</strong> Vasoconstrição cerebral</li>
-                        <li><strong>Humor alterado:</strong> Irritabilidade</li>
-                    </ul>
-
-                    <h3>Desidratação Moderada (3-5% do peso corporal)</h3>
-                    <ul>
-                        <li><strong>Sede intensa:</strong> Desejo urgente de beber</li>
-                        <li><strong>Urina escura:</strong> Concentração aumentada</li>
-                        <li><strong>Pele menos elástica:</strong> Demora para retornar</li>
-                        <li><strong>Boca seca:</strong> Redução da saliva</li>
-                        <li><strong>Constipação:</strong> Fezes ressecadas</li>
-                        <li><strong>Redução da sudorese:</strong> Comprometimento da termorregulação</li>
-                        <li><strong>Performance muito reduzida:</strong> 20-30% de perda</li>
-                    </ul>
-
-                    <h3>Desidratação Severa (>5% do peso corporal)</h3>
-                    <ul>
-                        <li><strong>Emergência médica:</strong> Requer intervenção imediata</li>
-                        <li><strong>Confusão mental:</strong> Alteração da consciência</li>
-                        <li><strong>Taquicardia:</strong> Aumento da frequência cardíaca</li>
-                        <li><strong>Hipotensão:</strong> Pressão arterial baixa</li>
-                        <li><strong>Ausência de sudorese:</strong> Pele seca e quente</li>
-                        <li><strong>Oligúria:</strong> Pouca ou nenhuma urina</li>
-                        <li><strong>Choque:</strong> Falência circulatória</li>
-                    </ul>
-
-                    <h2>Hidratação e Performance Física</h2>
-                    <p>A hidratação adequada é crucial para o desempenho atlético e exercícios em geral:</p>
-
-                    <h3>Efeitos da Desidratação no Exercício</h3>
-                    <ul>
-                        <li><strong>Redução do volume sanguíneo:</strong> Menos oxigênio para músculos</li>
-                        <li><strong>Aumento da frequência cardíaca:</strong> Coração trabalha mais</li>
-                        <li><strong>Comprometimento da termorregulação:</strong> Risco de hipertermia</li>
-                        <li><strong>Fadiga precoce:</strong> Redução da resistência</li>
-                        <li><strong>Diminuição da força:</strong> Perda de potência muscular</li>
-                        <li><strong>Coordenação prejudicada:</strong> Maior risco de lesões</li>
-                        <li><strong>Recuperação mais lenta:</strong> Processos de reparo comprometidos</li>
-                    </ul>
-
-                    <h3>Estratégias de Hidratação para Exercícios</h3>
-                    
-                    <h4>Pré-Exercício (2-4 horas antes)</h4>
-                    <ul>
-                        <li><strong>Volume:</strong> 500-600ml de água</li>
-                        <li><strong>Timing:</strong> 2-3 horas antes permite tempo para absorção</li>
-                        <li><strong>Verificação:</strong> Urina clara indica boa hidratação</li>
-                        <li><strong>Evitar:</strong> Excesso que pode causar desconforto</li>
-                    </ul>
-
-                    <h4>Durante o Exercício</h4>
-                    <ul>
-                        <li><strong>Volume:</strong> 150-250ml a cada 15-20 minutos</li>
-                        <li><strong>Temperatura:</strong> 15-22°C para melhor absorção</li>
-                        <li><strong>Eletrólitos:</strong> Para exercícios >60 minutos</li>
-                        <li><strong>Carboidratos:</strong> 6-8% para exercícios >90 minutos</li>
-                    </ul>
-
-                    <h4>Pós-Exercício</h4>
-                    <ul>
-                        <li><strong>Reposição:</strong> 150% do peso perdido pelo suor</li>
-                        <li><strong>Exemplo:</strong> Perdeu 1kg = beber 1,5L</li>
-                        <li><strong>Timing:</strong> Nas primeiras 6 horas</li>
-                        <li><strong>Eletrólitos:</strong> Incluir sódio para retenção</li>
-                    </ul>
-
-                    <div class="ferramentas-relacionadas">
-                        <h3>💪 Monitore sua atividade</h3>
-                        <p>Calcule seu gasto calórico durante exercícios:</p>
-                        <a href="../ferramentas/calorias.html" class="btn-secondary">Calcular Gasto Calórico</a>
-                    </div>
-
-                    <h2>Hidratação e Performance Mental</h2>
-                    <p>O cérebro é extremamente sensível à desidratação, afetando funções cognitivas:</p>
-
-                    <h3>Efeitos da Desidratação no Cérebro</h3>
-                    <ul>
-                        <li><strong>Redução do volume cerebral:</strong> Mesmo com 2% de desidratação</li>
-                        <li><strong>Diminuição do fluxo sanguíneo:</strong> Menos oxigênio e nutrientes</li>
-                        <li><strong>Alteração de neurotransmissores:</strong> Afeta humor e cognição</li>
-                        <li><strong>Aumento do cortisol:</strong> Hormônio do estresse elevado</li>
-                    </ul>
-
-                    <h3>Funções Cognitivas Afetadas</h3>
-                    <ul>
-                        <li><strong>Atenção e concentração:</strong> Dificuldade para focar</li>
-                        <li><strong>Memória de trabalho:</strong> Processamento de informações</li>
-                        <li><strong>Velocidade de processamento:</strong> Reações mais lentas</li>
-                        <li><strong>Tomada de decisão:</strong> Julgamento comprometido</li>
-                        <li><strong>Humor:</strong> Irritabilidade e ansiedade</li>
-                        <li><strong>Percepção de esforço:</strong> Tarefas parecem mais difíceis</li>
-                    </ul>
-
-                    <h3>Benefícios da Hidratação Adequada</h3>
-                    <ul>
-                        <li><strong>Clareza mental:</strong> Pensamento mais nítido</li>
-                        <li><strong>Melhor humor:</strong> Redução da irritabilidade</li>
-                        <li><strong>Energia sustentada:</strong> Menos fadiga mental</li>
-                        <li><strong>Produtividade:</strong> Maior eficiência no trabalho</li>
-                        <li><strong>Criatividade:</strong> Melhor fluxo de ideias</li>
-                        <li><strong>Memória:</strong> Melhor retenção e recall</li>
-                    </ul>
-
-                    <h2>Hidratação em Diferentes Idades</h2>
-                    <p>As necessidades e desafios de hidratação variam ao longo da vida:</p>
-
-                    <h3>Crianças e Adolescentes</h3>
-                    <ul>
-                        <li><strong>Maior superfície corporal:</strong> Perdem água mais rapidamente</li>
-                        <li><strong>Menor capacidade de concentração renal:</strong> Produzem urina mais diluída</li>
-                        <li><strong>Atividade física intensa:</strong> Necessidades aumentadas</li>
-                        <li><strong>Dependência dos pais:</strong> Precisam ser lembrados de beber</li>
-                        <li><strong>Recomendação:</strong> 1-1,5L/dia para crianças, 2-2,5L para adolescentes</li>
-                    </ul>
-
-                    <h3>Adultos</h3>
-                    <ul>
-                        <li><strong>Regulação eficiente:</strong> Mecanismos de sede funcionais</li>
-                        <li><strong>Estilo de vida:</strong> Trabalho pode interferir na hidratação</li>
-                        <li><strong>Exercícios:</strong> Necessidades variáveis conforme atividade</li>
-                        <li><strong>Álcool e cafeína:</strong> Podem afetar hidratação</li>
-                    </ul>
-
-                    <h3>Idosos</h3>
-                    <ul>
-                        <li><strong>Redução da sensação de sede:</strong> Mecanismo menos eficiente</li>
-                        <li><strong>Menor capacidade renal:</strong> Concentração de urina reduzida</li>
-                        <li><strong>Medicamentos:</strong> Diuréticos podem aumentar perdas</li>
-                        <li><strong>Mobilidade reduzida:</strong> Dificuldade para acessar água</li>
-                        <li><strong>Estratégia:</strong> Horários fixos para beber água</li>
-                    </ul>
-
-                    <h2>Qualidade da Água</h2>
-                    <p>Além da quantidade, a qualidade da água consumida é importante para a saúde:</p>
-
-                    <h3>Tipos de Água</h3>
-                    <div class="tipos-agua">
-                        <div class="tipo-agua-card">
-                            <h4>🚰 Água da Torneira</h4>
-                            <p><strong>Prós:</strong> Acessível, regulamentada, fluoretada</p>
-                            <p><strong>Contras:</strong> Pode ter cloro, metais pesados</p>
-                            <p><strong>Dica:</strong> Use filtro para melhorar sabor</p>
-                        </div>
-                        
-                        <div class="tipo-agua-card">
-                            <h4>💧 Água Filtrada</h4>
-                            <p><strong>Prós:</strong> Remove impurezas, melhor sabor</p>
-                            <p><strong>Contras:</strong> Custo do filtro, manutenção</p>
-                            <p><strong>Dica:</strong> Troque filtros regularmente</p>
-                        </div>
-                        
-                        <div class="tipo-agua-card">
-                            <h4>🏔️ Água Mineral</h4>
-                            <p><strong>Prós:</strong> Minerais naturais, pureza</p>
-                            <p><strong>Contras:</strong> Custo elevado, impacto ambiental</p>
-                            <p><strong>Dica:</strong> Verifique origem e composição</p>
-                        </div>
-                        
-                        <div class="tipo-agua-card">
-                            <h4>🫧 Água com Gás</h4>
-                            <p><strong>Prós:</strong> Hidrata igual, pode ajudar digestão</p>
-                            <p><strong>Contras:</strong> Pode causar gases</p>
-                            <p><strong>Dica:</strong> Sem açúcar ou adoçantes</p>
-                        </div>
-                    </div>
-
-                    <h3>Contaminantes Comuns</h3>
-                    <ul>
-                        <li><strong>Cloro:</strong> Usado na desinfecção, pode afetar sabor</li>
-                        <li><strong>Metais pesados:</strong> Chumbo, mercúrio, arsênio</li>
-                        <li><strong>Bactérias e vírus:</strong> Patógenos causadores de doenças</li>
-                        <li><strong>Pesticidas:</strong> Resíduos agrícolas</li>
-                        <li><strong>Microplásticos:</strong> Partículas de plástico microscópicas</li>
-                    </ul>
-
-                    <h3>Sinais de Água de Má Qualidade</h3>
-                    <ul>
-                        <li>Sabor ou odor estranho</li>
-                        <li>Cor alterada (amarelada, turva)</li>
-                        <li>Partículas visíveis</li>
-                        <li>Problemas gastrointestinais após consumo</li>
-                        <li>Manchas em utensílios</li>
-                    </ul>
-
-                    <h2>Estratégias Práticas para Manter-se Hidratado</h2>
-                    <p>Implementar hábitos simples pode garantir hidratação adequada:</p>
-
-                    <h3>Dicas Diárias</h3>
-                    <ul>
-                        <li><strong>Comece o dia com água:</strong> 1-2 copos ao acordar</li>
-                        <li><strong>Tenha água sempre à vista:</strong> Garrafa na mesa de trabalho</li>
-                        <li><strong>Estabeleça lembretes:</strong> Alarmes no celular</li>
-                        <li><strong>Beba antes das refeições:</strong> 1 copo 30 min antes</li>
-                        <li><strong>Monitore a cor da urina:</strong> Indicador simples</li>
-                        <li><strong>Varie as fontes:</strong> Chás, água saborizada natural</li>
-                        <li><strong>Use aplicativos:</strong> Para monitorar consumo</li>
-                    </ul>
-
-                    <h3>Estratégias por Ambiente</h3>
-                    
-                    <h4>No Trabalho</h4>
-                    <ul>
-                        <li>Garrafa de água na mesa</li>
-                        <li>Beber água a cada hora</li>
-                        <li>Usar pausas para se hidratar</li>
-                        <li>Evitar excesso de café</li>
-                    </ul>
-
-                    <h4>Em Casa</h4>
-                    <ul>
-                        <li>Água gelada na geladeira</li>
-                        <li>Copos em locais estratégicos</li>
-                        <li>Frutas ricas em água</li>
-                        <li>Chás e infusões</li>
-                    </ul>
-
-                    <h4>Durante Viagens</h4>
-                    <ul>
-                        <li>Garrafa reutilizável</li>
-                        <li>Hidratar-se antes do voo</li>
-                        <li>Evitar álcool em excesso</li>
-                        <li>Água extra em climas quentes</li>
-                    </ul>
-
-                    <h3>Águas Saborizadas Naturais</h3>
-                    <p>Para variar o sabor sem adicionar calorias:</p>
-                    <ul>
-                        <li><strong>Cítricos:</strong> Limão, lima, laranja</li>
-                        <li><strong>Frutas vermelhas:</strong> Morango, framboesa</li>
-                        <li><strong>Ervas:</strong> Hortelã, manjericão, alecrim</li>
-                        <li><strong>Vegetais:</strong> Pepino, aipo</li>
-                        <li><strong>Especiarias:</strong> Gengibre, canela</li>
-                    </ul>
-
-                    <h2>Hidratação e Condições Especiais</h2>
-                    <p>Algumas situações requerem atenção especial à hidratação:</p>
-
-                    <h3>Doenças e Medicamentos</h3>
-                    <ul>
-                        <li><strong>Diabetes:</strong> Sede excessiva pode indicar descontrole</li>
-                        <li><strong>Doenças renais:</strong> Podem requerer restrição hídrica</li>
-                        <li><strong>Insuficiência cardíaca:</strong> Controle rigoroso de líquidos</li>
-                        <li><strong>Diuréticos:</strong> Aumentam perdas de água e eletrólitos</li>
-                        <li><strong>Laxantes:</strong> Podem causar desidratação</li>
-                    </ul>
-
-                    <h3>Gravidez e Amamentação</h3>
-                    <ul>
-                        <li><strong>Gravidez:</strong> +300ml/dia, especialmente no 3º trimestre</li>
-                        <li><strong>Amamentação:</strong> +700ml/dia para produção de leite</li>
-                        <li><strong>Náuseas:</strong> Pequenos goles frequentes</li>
-                        <li><strong>Monitoramento:</strong> Urina clara é essencial</li>
-                    </ul>
-
-                    <h3>Clima e Altitude</h3>
-                    <ul>
-                        <li><strong>Calor extremo:</strong> Aumentar consumo em 500-1000ml</li>
-                        <li><strong>Frio intenso:</strong> Sede reduzida, mas necessidades mantidas</li>
-                        <li><strong>Altitude elevada:</strong> Respiração aumentada = mais perdas</li>
-                        <li><strong>Ar condicionado:</strong> Ambiente seco aumenta perdas</li>
-                    </ul>
-
-                    <h2>Mitos e Verdades sobre Hidratação</h2>
-                    
-                    <div class="mitos-verdades">
-                        <div class="mito">
-                            <h4>❌ Mito: 8 copos de água por dia para todos</h4>
-                            <p>As necessidades variam conforme peso, atividade, clima e condições individuais. Use a fórmula de 35ml/kg como base.</p>
-                        </div>
-                        
-                        <div class="verdade">
-                            <h4>✅ Verdade: Sede indica desidratação inicial</h4>
-                            <p>Quando sentimos sede, já estamos levemente desidratados. O ideal é beber água regularmente.</p>
-                        </div>
-                        
-                        <div class="mito">
-                            <h4>❌ Mito: Café e chá desidratam</h4>
-                            <p>Embora tenham efeito diurético leve, ainda contribuem para a hidratação total. O efeito diurético diminui com o uso regular.</p>
-                        </div>
-                        
-                        <div class="verdade">
-                            <h4>✅ Verdade: Urina clara indica boa hidratação</h4>
-                            <p>A cor da urina é o melhor indicador prático do estado de hidratação. Amarelo claro ou transparente é ideal.</p>
-                        </div>
-                    </div>
-
-                    <h2>Hidratação e Perda de Peso</h2>
-                    <p>A água pode ser uma aliada importante no controle de peso:</p>
-
-                    <h3>Mecanismos</h3>
-                    <ul>
-                        <li><strong>Saciedade:</strong> Água antes das refeições reduz consumo</li>
-                        <li><strong>Metabolismo:</strong> Termogênese induzida pela água</li>
-                        <li><strong>Substituição:</strong> Trocar bebidas calóricas por água</li>
-                        <li><strong>Retenção hídrica:</strong> Paradoxalmente, beber mais reduz retenção</li>
-                    </ul>
-
-                    <h3>Estratégias</h3>
-                    <ul>
-                        <li>500ml de água 30 minutos antes das refeições</li>
-                        <li>Substituir refrigerantes por água</li>
-                        <li>Água gelada pode aumentar gasto calórico</li>
-                        <li>Não confundir sede com fome</li>
-                    </ul>
-
-                    <h2>Tecnologia e Hidratação</h2>
-                    <p>Ferramentas modernas podem ajudar no monitoramento:</p>
-
-                    <h3>Aplicativos Úteis</h3>
-                    <ul>
-                        <li><strong>Lembretes:</strong> Notificações para beber água</li>
-                        <li><strong>Monitoramento:</strong> Registro de consumo diário</li>
-                        <li><strong>Metas personalizadas:</strong> Baseadas em peso e atividade</li>
-                        <li><strong>Estatísticas:</strong> Acompanhamento de tendências</li>
-                    </ul>
-
-                    <h3>Dispositivos</h3>
-                    <ul>
-                        <li><strong>Garrafas inteligentes:</strong> Monitoram consumo automaticamente</li>
-                        <li><strong>Smartwatches:</strong> Lembretes e monitoramento</li>
-                        <li><strong>Medidores de hidratação:</strong> Análise da composição corporal</li>
-                    </ul>
-
-                    <h2>Conclusão</h2>
-                    <p>A hidratação adequada é fundamental para a saúde, performance física e mental, e bem-estar geral. Embora as necessidades individuais variem, manter um estado de hidratação adequado é uma das estratégias mais simples e eficazes para otimizar a saúde.</p>
-                    
-                    <p>Monitore regularmente sua hidratação através da cor da urina, estabeleça hábitos consistentes de consumo de água e ajuste suas necessidades conforme atividade física, clima e condições individuais. Lembre-se de que a prevenção da desidratação é sempre mais eficaz que o tratamento.</p>
-                    
-                    <p>A água é vida, e manter-se adequadamente hidratado é um investimento diário na sua saúde e qualidade de vida. Comece hoje mesmo implementando estratégias simples para melhorar sua hidratação.</p>
-
-                    <div class="cta-final">
-                        <h3>💧 Calcule suas necessidades</h3>
-                        <p>Descubra exatamente quanta água você deve beber por dia:</p>
-                        <div class="cta-buttons">
-                            <a href="../ferramentas/agua.html" class="btn-primary">Calcular Água por Dia</a>
-                            <a href="../ferramentas/agua_corporal.html" class="btn-secondary">Água Corporal</a>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 
+                <!-- Sidebar (Índice) - Desktop -->
+                <aside class="hidden lg:block lg:col-span-3 relative">
+                    <div class="sticky top-32 p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <h4 class="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="list" class="w-4 h-4"></i> Neste artigo
+                        </h4>
+                        <nav class="space-y-2 text-sm border-l-2 border-gray-100 dark:border-gray-700 ml-1">
+                            <a href="#importancia" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-cyan-600 hover:border-l-2 hover:border-cyan-600 -ml-[2px] transition-all">Por que Hidratar?</a>
+                            <a href="#sinais" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-cyan-600 hover:border-l-2 hover:border-cyan-600 -ml-[2px] transition-all">Sinais de Alerta</a>
+                            <a href="#quantidade" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-cyan-600 hover:border-l-2 hover:border-cyan-600 -ml-[2px] transition-all">Quanto Beber?</a>
+                            <a href="#performance" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-cyan-600 hover:border-l-2 hover:border-cyan-600 -ml-[2px] transition-all">Físico e Mental</a>
+                            <a href="#estrategias" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-cyan-600 hover:border-l-2 hover:border-cyan-600 -ml-[2px] transition-all">Dicas Práticas</a>
+                            <a href="#mitos" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-cyan-600 hover:border-l-2 hover:border-cyan-600 -ml-[2px] transition-all">Mitos Comuns</a>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Conteúdo do Artigo -->
+                <article class="lg:col-span-9 prose dark:prose-invert max-w-none">
+                    
+                    <!-- Header do Artigo -->
+                    <header class="not-prose mb-10 text-center lg:text-left">
+                        <span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-cyan-700 uppercase bg-cyan-100 rounded-full dark:bg-cyan-900/30 dark:text-cyan-400">
+                            Saúde e Bem-estar
+                        </span>
+                        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
+                            Hidratação: O Segredo Simples para Energia e Saúde
+                        </h1>
+                        
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-800 pb-8">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                                    <i data-lucide="user" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <span class="block font-bold text-gray-900 dark:text-white">Equipe Nutrição</span>
+                                    <span class="text-xs">Revisão Científica</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                21 de Janeiro, 2024
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                                14 min de leitura
+                            </div>
+                        </div>
+                    </header>
+
+                    <!-- Destaque Inicial -->
+                    <div class="bg-cyan-50 dark:bg-cyan-900/20 p-6 rounded-2xl border-l-4 border-cyan-500 mb-8 not-prose">
+                        <h3 class="font-bold text-cyan-800 dark:text-cyan-300 mb-2">Você é 60% Água</h3>
+                        <p class="text-lg text-gray-700 dark:text-gray-300">
+                            A água não é apenas uma bebida; é o nutriente mais crítico para a sobrevivência humana. Ela regula sua temperatura, protege suas articulações, transporta oxigênio e impacta diretamente sua capacidade de pensar e se mover.
+                        </p>
+                    </div>
+
+                    <section id="importancia">
+                        <h2>Por que a Hidratação é Fundamental?</h2>
+                        <p>Cada célula, tecido e órgão do seu corpo precisa de água para funcionar corretamente. A água:</p>
+                        <ul>
+                            <li><strong>Regula a temperatura corporal:</strong> Através do suor e respiração.</li>
+                            <li><strong>Lubrifica as articulações:</strong> Essencial para prevenir dores e lesões.</li>
+                            <li><strong>Protege tecidos sensíveis:</strong> Como medula espinhal e cérebro.</li>
+                            <li><strong>Remove resíduos:</strong> Através da urina, suor e fezes.</li>
+                        </ul>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 not-prose my-8">
+                            <div class="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl text-center">
+                                <strong class="block text-2xl text-blue-600 mb-1">75%</strong>
+                                <span class="text-xs text-gray-600 dark:text-gray-400">Água no Cérebro</span>
+                            </div>
+                            <div class="p-4 bg-red-50 dark:bg-red-900/20 rounded-xl text-center">
+                                <strong class="block text-2xl text-red-600 mb-1">83%</strong>
+                                <span class="text-xs text-gray-600 dark:text-gray-400">Água no Sangue</span>
+                            </div>
+                            <div class="p-4 bg-orange-50 dark:bg-orange-900/20 rounded-xl text-center">
+                                <strong class="block text-2xl text-orange-600 mb-1">76%</strong>
+                                <span class="text-xs text-gray-600 dark:text-gray-400">Água nos Músculos</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="sinais">
+                        <h2>Sinais de que Você Está Desidratado</h2>
+                        <p>Muitas vezes, esperamos sentir sede para beber água, mas a sede já é um sinal de que o corpo está em déficit. Fique atento a outros sinais:</p>
+
+                        <div class="not-prose bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden my-6">
+                            <div class="p-4 bg-gray-100 dark:bg-gray-700 font-bold">Teste da Cor da Urina</div>
+                            <div class="p-4 space-y-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-[#fcfcda] border border-gray-300"></div>
+                                    <span class="text-sm"><strong>Amarelo Claro / Transparente:</strong> Ótimo! Você está bem hidratado.</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-[#fcfc7e] border border-gray-300"></div>
+                                    <span class="text-sm"><strong>Amarelo Palha:</strong> Ok, mas beba um pouco de água em breve.</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-[#e8b923]"></div>
+                                    <span class="text-sm"><strong>Amarelo Escuro / Âmbar:</strong> Atenção! Você precisa beber água agora.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>Outros sintomas incluem:</p>
+                        <ul>
+                            <li>Boca seca e pegajosa;</li>
+                            <li>Fadiga ou sonolência inexplicável;</li>
+                            <li>Dor de cabeça;</li>
+                            <li>Pele seca;</li>
+                            <li>Tontura.</li>
+                        </ul>
+                    </section>
+
+                    <section id="quantidade">
+                        <h2>Quanto Água Devo Beber por Dia?</h2>
+                        <p>A regra antiga de "8 copos por dia" é um bom começo, mas não é precisa para todos. A necessidade varia com peso, clima e atividade física.</p>
+                        <p>A recomendação geral mais precisa é de <strong>35ml de água para cada kg de peso corporal</strong>.</p>
+
+                        <div class="my-8 not-prose">
+                            <!-- Card CTA -->
+                            <div class="bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl p-8 text-white text-center relative overflow-hidden">
+                                <div class="absolute top-0 right-0 opacity-10"><i data-lucide="droplets" class="w-32 h-32"></i></div>
+                                <h3 class="text-2xl font-bold mb-2 relative z-10">Descubra sua meta diária</h3>
+                                <p class="mb-6 opacity-90 relative z-10">Use nossa calculadora para saber exatamente quantos litros você precisa.</p>
+                                <a href="../ferramentas/agua.html" class="relative z-10 inline-flex items-center bg-white text-cyan-700 font-bold py-3 px-6 rounded-full hover:bg-gray-100 transition-colors shadow-lg">
+                                    <i data-lucide="calculator" class="w-5 h-5 mr-2"></i> Calcular Agora
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="performance">
+                        <h2>Hidratação e Performance (Física e Mental)</h2>
+                        <p>A desidratação afeta drasticamente seu desempenho:</p>
+
+                        <h3>1. Cérebro e Foco</h3>
+                        <p>Estudos mostram que uma perda de apenas 1-2% de água corporal pode prejudicar a concentração, memória de curto prazo e aumentar a ansiedade e a fadiga mental.</p>
+
+                        <h3>2. Energia Física</h3>
+                        <p>Se você se exercita, a hidratação é ainda mais crítica. Sem água suficiente, o corpo não consegue regular a temperatura, o que leva à fadiga muscular precoce e redução da resistência.</p>
+                    </section>
+
+                    <section id="estrategias">
+                        <h2>Dicas Práticas para Beber Mais Água</h2>
+                        <p>Sabemos que na correria do dia a dia é fácil esquecer. Tente estas estratégias:</p>
+                        <ol>
+                            <li><strong>Beba ao acordar:</strong> Comece o dia repondo os líquidos perdidos durante o sono.</li>
+                            <li><strong>Tenha uma garrafa sempre perto:</strong> Visualizar a água é o melhor lembrete.</li>
+                            <li><strong>Use aplicativos:</strong> Existem apps ótimos que mandam lembretes para beber água.</li>
+                            <li><strong>Saborize sua água:</strong> Se não gosta de água pura, adicione rodelas de limão, pepino ou hortelã.</li>
+                            <li><strong>Coma sua água:</strong> Frutas e vegetais como melancia, pepino e laranja são ricos em água.</li>
+                        </ol>
+                    </section>
+
+                    <section id="mitos">
+                        <h2>Mitos Comuns sobre Hidratação</h2>
+                        <div class="space-y-4 not-prose my-6">
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="x-circle" class="w-6 h-6 text-red-500 shrink-0 mt-1"></i>
+                                <div>
+                                    <strong>Mito: Café desidrata.</strong> Embora a cafeína tenha efeito diurético leve, o líquido do café compensa, contribuindo para a hidratação total (se consumido com moderação).
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="x-circle" class="w-6 h-6 text-red-500 shrink-0 mt-1"></i>
+                                <div>
+                                    <strong>Mito: Você precisa beber água durante as refeições para digerir.</strong> Na verdade, o corpo digere bem com ou sem água, mas beber pode ajudar a comer mais devagar.
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="not-prose mt-12 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Referências Bibliográficas</h3>
+                        <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                            <li>1. Jéquier E, Constant F. <em>Water as an essential nutrient: the physiological basis of hydration</em>. Eur J Clin Nutr. 2010.</li>
+                            <li>2. Popkin BM, et al. <em>Water, hydration, and health</em>. Nutr Rev. 2010.</li>
+                            <li>3. Armstrong LE. <em>Challenges of linking chronic dehydration and fluid consumption to health outcomes</em>. Nutr Rev. 2012.</li>
+                        </ul>
+                    </div>
+
+                </article>
             </div>
-        </article>
+        </div>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Calcule Sua Saúde</h3>
-                    <p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Links Úteis</h4>
-                    <ul>
-                        <li><a href="../sobre.html">Sobre</a></li>
-                        <li><a href="../contato.html">Contato</a></li>
-                        <li><a href="../politica.html">Política de Privacidade</a></li>
-                        <li><a href="../termos.html">Termos de Uso</a></li>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="../sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="../contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h4>Ferramentas</h4>
-                    <ul>
-                        <li><a href="../ferramentas/agua.html">Água por Dia</a></li>
-                        <li><a href="../ferramentas/agua_corporal.html">Água Corporal</a></li>
-                        <li><a href="../ferramentas/calorias.html">Gasto Calórico</a></li>
-                        <li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="../termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="../ferramentas/agua.html" class="hover:text-brand-400 transition-colors">Calculadora de Água</a></li>
+                        <li><a href="../ferramentas/calorias.html" class="hover:text-brand-400 transition-colors">Gasto Calórico</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="footer-bottom">
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
                 <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
-                <p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="../js/modo-noturno.js"></script>
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones
+        lucide.createIcons();
+
+        // Barra de Progresso de Leitura
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("reading-progress").style.width = scrolled + "%";
+        };
+
+        // Dark Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        // Mobile Menu
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
-
