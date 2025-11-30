@@ -233,7 +233,7 @@
         // Inicializa ícones Lucide
         lucide.createIcons();
 
-        // 1. Lógica do Dark Mode e Menu Mobile (Padrão)
+        // 1. Lógica do Dark Mode e Menu Mobile
         const themeToggleBtn = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
 
@@ -259,18 +259,18 @@
             menuMobile.classList.toggle('hidden');
         });
 
-        // 2. Dados dos Artigos (Mantidos originais)
+        // 2. Dados dos Artigos
         const artigos = [
             {
                 titulo: "IMC: Como Calcular e Interpretar",
-                descricao: "Aprenda como calcular e interpretar o IMC (Índice de Massa Corporal). Entenda as faixas de peso e limitações.",
+                descricao: "Aprenda como calcular e interpretar o IMC. Entenda as faixas de peso e limitações.",
                 categoria: "nutricao",
                 arquivo: "artigos/imc-calculo-interpretacao.html",
                 imagem: "img/artigos/imc.jpg"
             },
             {
                 titulo: "Obesidade: Causas e Tratamento",
-                descricao: "Guia completo sobre obesidade: principais causas, consequências para a saúde e opções de tratamento.",
+                descricao: "Guia completo sobre obesidade: principais causas, consequências e opções de tratamento.",
                 categoria: "prevencao",
                 arquivo: "artigos/obesidade-causas-tratamento.html",
                 imagem: "img/artigos/obesidade.jpg"
@@ -400,10 +400,74 @@
                 categoria: "prevencao",
                 arquivo: "artigos/saude-mulher-cuidados.html",
                 imagem: "img/artigos/saude_mulher.jpg"
+            },
+            // Novos Artigos Adicionados
+            {
+                titulo: "Benefícios da Atividade Física",
+                descricao: "Descubra como o exercício regular transforma seu corpo e mente.",
+                categoria: "exercicios",
+                arquivo: "artigos/atividade-fisica-beneficios.html",
+                imagem: "img/artigos/atividade_fisica.jpg"
+            },
+            {
+                titulo: "Prevenção do Câncer",
+                descricao: "Dicas essenciais de estilo de vida para reduzir riscos e detecção precoce.",
+                categoria: "prevencao",
+                arquivo: "artigos/cancer-prevencao-deteccao.html",
+                imagem: "img/artigos/cancer.jpg"
+            },
+            {
+                titulo: "Fortalecendo a Imunidade",
+                descricao: "Estratégias naturais para deixar seu sistema imunológico mais forte.",
+                categoria: "bem-estar",
+                arquivo: "artigos/imunidade-fortalecimento.html",
+                imagem: "img/artigos/imunidade.jpg"
+            },
+            {
+                titulo: "Prevenção de Lesões Esportivas",
+                descricao: "Como treinar com segurança e evitar lesões comuns.",
+                categoria: "exercicios",
+                arquivo: "artigos/lesoes-esportivas-prevencao.html",
+                imagem: "img/artigos/lesoes_esportivas.jpg"
+            },
+            {
+                titulo: "Nutrição Esportiva",
+                descricao: "O que comer para maximizar sua performance nos treinos.",
+                categoria: "nutricao",
+                arquivo: "artigos/nutricao-esportiva.html",
+                imagem: "img/artigos/nutricao_esportiva.jpg"
+            },
+            {
+                titulo: "Saúde Digestiva",
+                descricao: "Cuidando do seu intestino para uma saúde global melhor.",
+                categoria: "bem-estar",
+                arquivo: "artigos/saude-digestiva-intestino.html",
+                imagem: "img/artigos/saude_digestiva.jpg"
+            },
+            {
+                titulo: "Saúde do Homem",
+                descricao: "Cuidados específicos e prevenção para a saúde masculina.",
+                categoria: "prevencao",
+                arquivo: "artigos/saude-homem-cuidados.html",
+                imagem: "img/artigos/saude_homem.jpg"
+            },
+            {
+                titulo: "Saúde Infantil",
+                descricao: "Guia de cuidados essenciais para o desenvolvimento saudável das crianças.",
+                categoria: "prevencao",
+                arquivo: "artigos/saude-infantil-cuidados.html",
+                imagem: "img/artigos/saude_infantil.jpg"
+            },
+            {
+                titulo: "Bem-Estar Mental",
+                descricao: "Práticas para cultivar uma mente saudável e equilibrada.",
+                categoria: "saude-mental",
+                arquivo: "artigos/saude-mental-bem-estar.html",
+                imagem: "img/artigos/saude_mental_bem_estar.jpg"
             }
         ];
 
-        // 3. Funções de Renderização e Filtro (Modernizadas com Tailwind)
+        // 3. Funções de Renderização e Filtro
         function getBadgeColor(categoria) {
             const colors = {
                 'nutricao': 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400',
