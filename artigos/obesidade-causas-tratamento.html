@@ -1,456 +1,475 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obesidade: Causas, Consequências e Tratamento Completo | Calcule Sua Saúde</title>
-    <meta name="description" content="Guia completo sobre obesidade: principais causas, consequências para a saúde e opções de tratamento. Aprenda como prevenir e tratar a obesidade.">
-    <meta name="keywords" content="obesidade, sobrepeso, causas obesidade, tratamento obesidade, prevenção obesidade, IMC obesidade">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Obesidade: Guia Completo de Causas, Tratamentos e Ciência | Calcule Sua Saúde</title>
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="Obesidade: Causas, Consequências e Tratamento Completo">
-    <meta property="og:description" content="Entenda as causas da obesidade, suas consequências e as melhores opções de tratamento disponíveis.">
+    <!-- Meta Tags SEO Avançadas -->
+    <meta name="description" content="Guia definitivo sobre obesidade como doença crônica. Entenda a ciência do peso, hormônios (leptina/grelina), novos tratamentos medicamentosos e cirurgia bariátrica.">
+    <meta name="keywords" content="obesidade, perda de peso, tratamento obesidade, ozempic, wegovy, cirurgia bariátrica, causas obesidade, IMC, gordura visceral">
+    <meta name="author" content="Equipe Calcule Sua Saúde">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
+    <meta property="og:title" content="Obesidade: Guia Completo de Causas e Tratamentos">
+    <meta property="og:description" content="Muito além da força de vontade: a ciência por trás da obesidade e como tratá-la efetivamente.">
     <meta property="og:url" content="https://calculesuasaude.com.br/artigos/obesidade-causas-tratamento.html">
+    <meta property="og:image" content="../img/artigos/obesidade.jpg">
+    <meta property="article:published_time" content="2024-02-10">
+    <meta property="article:section" content="Endocrinologia e Metabologia">
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
-     crossorigin="anonymous"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
 
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Dados Estruturados (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "headline": "Obesidade: Causas, Consequências e Tratamento Completo",
+      "image": "https://calculesuasaude.com.br/img/artigos/obesidade.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://calculesuasaude.com.br/icon192.png"
+        }
+      },
+      "datePublished": "2024-02-10",
+      "about": { "@type": "MedicalCondition", "name": "Obesity" }
+    }
+    </script>
 
-  gtag('config', 'G-EVCQQZV60N');
-</script>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/estilo.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    typography: (theme) => ({
+                        DEFAULT: {
+                            css: {
+                                color: theme('colors.gray.700'),
+                                h2: { color: theme('colors.gray.900'), fontWeight: '800' },
+                                h3: { color: theme('colors.gray.800'), fontWeight: '700' },
+                                strong: { color: theme('colors.gray.900') },
+                            },
+                        },
+                        dark: {
+                            css: {
+                                color: theme('colors.gray.300'),
+                                h2: { color: theme('colors.white') },
+                                h3: { color: theme('colors.gray.100') },
+                                strong: { color: theme('colors.white') },
+                            },
+                        },
+                    }),
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .prose h2 { margin-top: 2em; margin-bottom: 1em; line-height: 1.3; }
+        .prose h3 { margin-top: 1.5em; margin-bottom: 0.8em; }
+        .prose p { margin-bottom: 1.25em; line-height: 1.75; }
+        .prose ul { list-style-type: disc; padding-left: 1.5em; margin-bottom: 1.25em; }
+        .prose li { margin-bottom: 0.5em; }
+    </style>
 </head>
-<body>
-    <!-- Cabeçalho -->
-    <header class="header-fixo">
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
                 </div>
-                <ul class="menu">
-                    <li><a href="../index.html">Início</a></li>
-                    <li><a href="../index.html#ferramentas">Ferramentas</a></li>
-                    <li><a href="../artigos.html">Artigos</a></li>
-                    <li><a href="../sobre.html">Sobre</a></li>
-                    <li><a href="../contato.html">Contato</a></li>
-                    <li><button id="modo-noturno" class="btn-modo">🌙</button></li>
-                </ul>
+                <span class="font-bold text-gray-800 dark:text-white text-lg hidden sm:block">Calcule Sua Saúde</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="../index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="../index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="../artigos.html" class="text-sm font-bold text-brand-600">Artigos</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../artigos.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Artigos</a>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <!-- Breadcrumbs -->
-    <section class="breadcrumbs">
-        <div class="container">
-            <a href="../index.html">Início</a> > <a href="../artigos.html">Artigos</a> > <span>Obesidade: Causas e Tratamento</span>
-        </div>
-    </section>
+    <!-- Barra de Progresso de Leitura -->
+    <div class="fixed top-[60px] left-0 h-1 bg-blue-500 z-40 w-0 transition-all duration-100" id="reading-progress"></div>
 
-    <!-- Conteúdo Principal -->
-    <main>
-        <article class="artigo-content">
-            <div class="container">
-                <header class="artigo-header">
-                    <h1>Obesidade: Causas, Consequências e Tratamento Completo</h1>
-                    <div class="artigo-meta">
-                        <span class="data-publicacao">Publicado em 16 de Janeiro de 2024</span>
-                        <span class="tempo-leitura">Tempo de leitura: 12 minutos</span>
-                    </div>
-                    <p class="artigo-resumo">A obesidade é uma das principais epidemias do século XXI, afetando milhões de pessoas no mundo. Neste guia completo, exploramos as causas, consequências e opções de tratamento para esta condição complexa que vai muito além da questão estética.</p>
-                </header>
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            
+            <!-- Breadcrumbs -->
+            <nav class="flex text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="../index.html" class="hover:text-brand-600 transition-colors">Início</a>
+                <span class="mx-2">/</span>
+                <a href="../artigos.html" class="hover:text-brand-600 transition-colors">Artigos</a>
+                <span class="mx-2">/</span>
+                <span class="font-medium text-gray-900 dark:text-white truncate">Obesidade</span>
+            </nav>
 
-                <div class="artigo-corpo">
-                    <h2>O que é Obesidade?</h2>
-                    <p>A obesidade é uma doença crônica caracterizada pelo acúmulo excessivo de gordura corporal que pode prejudicar a saúde. Segundo a Organização Mundial da Saúde (OMS), uma pessoa é considerada obesa quando seu Índice de Massa Corporal (IMC) é igual ou superior a 30 kg/m².</p>
-                    
-                    <p>É importante entender que a obesidade não é simplesmente uma questão de falta de força de vontade ou disciplina. Trata-se de uma condição médica complexa que envolve fatores genéticos, ambientais, psicológicos e metabólicos.</p>
-
-                    <div class="classificacao-obesidade">
-                        <h3>Classificação da Obesidade por IMC</h3>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Classificação</th>
-                                    <th>IMC (kg/m²)</th>
-                                    <th>Risco de Comorbidades</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Peso normal</td>
-                                    <td>18,5 - 24,9</td>
-                                    <td>Médio</td>
-                                </tr>
-                                <tr>
-                                    <td>Sobrepeso</td>
-                                    <td>25,0 - 29,9</td>
-                                    <td>Pouco elevado</td>
-                                </tr>
-                                <tr class="obesidade-1">
-                                    <td>Obesidade grau I</td>
-                                    <td>30,0 - 34,9</td>
-                                    <td>Elevado</td>
-                                </tr>
-                                <tr class="obesidade-2">
-                                    <td>Obesidade grau II</td>
-                                    <td>35,0 - 39,9</td>
-                                    <td>Muito elevado</td>
-                                </tr>
-                                <tr class="obesidade-3">
-                                    <td>Obesidade grau III</td>
-                                    <td>≥ 40,0</td>
-                                    <td>Extremamente elevado</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="cta-calculadora">
-                        <h3>📊 Verifique seu IMC</h3>
-                        <p>Descubra em qual categoria você se encontra:</p>
-                        <a href="../ferramentas/imc.html" class="btn-primary">Calcular meu IMC</a>
-                    </div>
-
-                    <h2>Principais Causas da Obesidade</h2>
-                    <p>A obesidade resulta de uma interação complexa entre múltiplos fatores. Compreender essas causas é fundamental para um tratamento eficaz.</p>
-
-                    <h3>1. Fatores Genéticos</h3>
-                    <p>A genética desempenha um papel significativo na predisposição à obesidade:</p>
-                    <ul>
-                        <li><strong>Hereditariedade:</strong> Filhos de pais obesos têm 50-80% mais chance de desenvolver obesidade</li>
-                        <li><strong>Metabolismo:</strong> Variações genéticas afetam a taxa metabólica basal</li>
-                        <li><strong>Regulação do apetite:</strong> Genes influenciam hormônios como leptina e grelina</li>
-                        <li><strong>Distribuição de gordura:</strong> Tendência genética para acumular gordura em certas regiões</li>
-                    </ul>
-
-                    <h3>2. Fatores Ambientais e Comportamentais</h3>
-                    <p>O ambiente moderno favorece o ganho de peso através de:</p>
-                    
-                    <h4>Alimentação Inadequada</h4>
-                    <ul>
-                        <li>Consumo excessivo de alimentos ultraprocessados</li>
-                        <li>Porções aumentadas (supersizing)</li>
-                        <li>Alta densidade calórica dos alimentos</li>
-                        <li>Baixo consumo de frutas e vegetais</li>
-                        <li>Bebidas açucaradas e álcool</li>
-                    </ul>
-
-                    <h4>Sedentarismo</h4>
-                    <ul>
-                        <li>Redução da atividade física no trabalho</li>
-                        <li>Aumento do tempo de tela (TV, computador, celular)</li>
-                        <li>Uso excessivo de transporte motorizado</li>
-                        <li>Falta de espaços para atividade física</li>
-                    </ul>
-
-                    <h3>3. Fatores Psicológicos</h3>
-                    <p>Aspectos emocionais e psicológicos que contribuem para a obesidade:</p>
-                    <ul>
-                        <li><strong>Estresse crônico:</strong> Aumenta cortisol e favorece acúmulo de gordura abdominal</li>
-                        <li><strong>Depressão e ansiedade:</strong> Podem levar ao comer emocional</li>
-                        <li><strong>Transtornos alimentares:</strong> Compulsão alimentar e síndrome do comer noturno</li>
-                        <li><strong>Baixa autoestima:</strong> Ciclo vicioso entre peso e autoimagem</li>
-                    </ul>
-
-                    <h3>4. Fatores Metabólicos e Hormonais</h3>
-                    <p>Condições médicas que podem contribuir para o ganho de peso:</p>
-                    <ul>
-                        <li><strong>Resistência à insulina:</strong> Dificulta o uso da glicose e favorece estoque de gordura</li>
-                        <li><strong>Hipotireoidismo:</strong> Reduz o metabolismo basal</li>
-                        <li><strong>Síndrome dos ovários policísticos (SOP):</strong> Altera hormônios femininos</li>
-                        <li><strong>Síndrome de Cushing:</strong> Excesso de cortisol</li>
-                        <li><strong>Deficiência de hormônio do crescimento:</strong> Afeta composição corporal</li>
-                    </ul>
-
-                    <h3>5. Medicamentos</h3>
-                    <p>Alguns medicamentos podem causar ganho de peso:</p>
-                    <ul>
-                        <li>Antidepressivos (especialmente tricíclicos)</li>
-                        <li>Antipsicóticos</li>
-                        <li>Corticosteroides</li>
-                        <li>Alguns anticonvulsivantes</li>
-                        <li>Insulina e sulfoniluréias</li>
-                        <li>Beta-bloqueadores</li>
-                    </ul>
-
-                    <h2>Consequências da Obesidade para a Saúde</h2>
-                    <p>A obesidade está associada a mais de 200 comorbidades e pode reduzir significativamente a expectativa de vida.</p>
-
-                    <h3>Doenças Cardiovasculares</h3>
-                    <p>A obesidade é um dos principais fatores de risco cardiovascular:</p>
-                    <ul>
-                        <li><strong>Hipertensão arterial:</strong> Risco 2-3 vezes maior</li>
-                        <li><strong>Doença coronariana:</strong> Aumento do risco de infarto</li>
-                        <li><strong>Acidente vascular cerebral (AVC):</strong> Risco aumentado em 50%</li>
-                        <li><strong>Insuficiência cardíaca:</strong> Sobrecarga do coração</li>
-                        <li><strong>Arritmias:</strong> Alterações no ritmo cardíaco</li>
-                    </ul>
-
-                    <h3>Diabetes Tipo 2</h3>
-                    <p>A obesidade é o principal fator de risco modificável para diabetes tipo 2:</p>
-                    <ul>
-                        <li>Risco 7 vezes maior em pessoas obesas</li>
-                        <li>Resistência à insulina progressiva</li>
-                        <li>Complicações microvasculares e macrovasculares</li>
-                        <li>Necessidade de medicação mais complexa</li>
-                    </ul>
-
-                    <div class="ferramentas-relacionadas">
-                        <h3>🩸 Monitore sua glicemia</h3>
-                        <p>Verifique se seus níveis de glicose estão adequados:</p>
-                        <a href="../ferramentas/glicemia.html" class="btn-secondary">Interpretar Glicemia</a>
-                    </div>
-
-                    <h3>Problemas Respiratórios</h3>
-                    <ul>
-                        <li><strong>Apneia obstrutiva do sono:</strong> Interrupções na respiração durante o sono</li>
-                        <li><strong>Síndrome da hipoventilação:</strong> Redução da capacidade pulmonar</li>
-                        <li><strong>Asma:</strong> Maior prevalência e gravidade</li>
-                        <li><strong>Embolia pulmonar:</strong> Risco aumentado de coágulos</li>
-                    </ul>
-
-                    <h3>Problemas Articulares</h3>
-                    <ul>
-                        <li><strong>Osteoartrite:</strong> Desgaste das articulações por sobrecarga</li>
-                        <li><strong>Dor nas costas:</strong> Sobrecarga da coluna vertebral</li>
-                        <li><strong>Limitação da mobilidade:</strong> Redução da qualidade de vida</li>
-                        <li><strong>Fraturas:</strong> Alterações na densidade óssea</li>
-                    </ul>
-
-                    <h3>Câncer</h3>
-                    <p>A obesidade aumenta o risco de vários tipos de câncer:</p>
-                    <ul>
-                        <li>Câncer de mama (pós-menopausa)</li>
-                        <li>Câncer colorretal</li>
-                        <li>Câncer de endométrio</li>
-                        <li>Câncer de rim</li>
-                        <li>Câncer de fígado</li>
-                        <li>Câncer de esôfago</li>
-                    </ul>
-
-                    <h3>Problemas Psicológicos e Sociais</h3>
-                    <ul>
-                        <li><strong>Depressão:</strong> Relação bidirecional com obesidade</li>
-                        <li><strong>Ansiedade:</strong> Preocupação com peso e aparência</li>
-                        <li><strong>Baixa autoestima:</strong> Impacto na autoimagem</li>
-                        <li><strong>Discriminação social:</strong> Estigma e preconceito</li>
-                        <li><strong>Isolamento social:</strong> Redução das atividades sociais</li>
-                    </ul>
-
-                    <h2>Opções de Tratamento da Obesidade</h2>
-                    <p>O tratamento da obesidade deve ser individualizado e multidisciplinar, envolvendo mudanças no estilo de vida, suporte psicológico e, quando necessário, intervenções médicas ou cirúrgicas.</p>
-
-                    <h3>1. Mudanças no Estilo de Vida</h3>
-                    <p>A base do tratamento da obesidade envolve modificações sustentáveis nos hábitos:</p>
-
-                    <h4>Alimentação Saudável</h4>
-                    <ul>
-                        <li><strong>Déficit calórico moderado:</strong> Redução de 500-750 kcal/dia</li>
-                        <li><strong>Dieta equilibrada:</strong> Rica em frutas, vegetais, grãos integrais e proteínas magras</li>
-                        <li><strong>Controle de porções:</strong> Uso de pratos menores e atenção aos sinais de saciedade</li>
-                        <li><strong>Redução de ultraprocessados:</strong> Evitar alimentos ricos em açúcar, gordura trans e sódio</li>
-                        <li><strong>Hidratação adequada:</strong> Preferir água a bebidas calóricas</li>
-                    </ul>
-
-                    <h4>Atividade Física Regular</h4>
-                    <ul>
-                        <li><strong>Exercícios aeróbicos:</strong> 150-300 minutos por semana de intensidade moderada</li>
-                        <li><strong>Treinamento de força:</strong> 2-3 vezes por semana para preservar massa muscular</li>
-                        <li><strong>Atividades do dia a dia:</strong> Usar escadas, caminhar mais, reduzir tempo sentado</li>
-                        <li><strong>Progressão gradual:</strong> Aumentar intensidade e duração progressivamente</li>
-                    </ul>
-
-                    <div class="ferramentas-relacionadas">
-                        <h3>🔥 Calcule seu gasto calórico</h3>
-                        <p>Descubra quantas calorias você queima em diferentes atividades:</p>
-                        <a href="../ferramentas/calorias.html" class="btn-secondary">Calcular Gasto Calórico</a>
-                    </div>
-
-                    <h3>2. Suporte Psicológico</h3>
-                    <p>O acompanhamento psicológico é fundamental para o sucesso a longo prazo:</p>
-                    <ul>
-                        <li><strong>Terapia cognitivo-comportamental:</strong> Modificação de padrões de pensamento e comportamento</li>
-                        <li><strong>Educação nutricional:</strong> Compreensão sobre alimentação saudável</li>
-                        <li><strong>Manejo do estresse:</strong> Técnicas de relaxamento e mindfulness</li>
-                        <li><strong>Grupos de apoio:</strong> Compartilhamento de experiências e motivação mútua</li>
-                    </ul>
-
-                    <h3>3. Tratamento Medicamentoso</h3>
-                    <p>Medicamentos podem ser indicados quando IMC ≥ 30 ou IMC ≥ 27 com comorbidades:</p>
-
-                    <h4>Medicamentos Aprovados</h4>
-                    <ul>
-                        <li><strong>Orlistat:</strong> Inibidor da lipase pancreática, reduz absorção de gorduras</li>
-                        <li><strong>Liraglutida:</strong> Agonista do GLP-1, reduz apetite e retarda esvaziamento gástrico</li>
-                        <li><strong>Naltrexona/Bupropiona:</strong> Combinação que atua no sistema nervoso central</li>
-                        <li><strong>Semaglutida:</strong> Agonista do GLP-1 de ação prolongada</li>
-                    </ul>
-
-                    <p><strong>Importante:</strong> Medicamentos devem ser prescritos e acompanhados por médico especialista.</p>
-
-                    <h3>4. Cirurgia Bariátrica</h3>
-                    <p>Indicada para casos de obesidade grave quando outros tratamentos falharam:</p>
-
-                    <h4>Critérios para Cirurgia</h4>
-                    <ul>
-                        <li>IMC ≥ 40 kg/m²</li>
-                        <li>IMC ≥ 35 kg/m² com comorbidades graves</li>
-                        <li>Idade entre 18-65 anos</li>
-                        <li>Falha de tratamento clínico por pelo menos 2 anos</li>
-                        <li>Ausência de contraindicações psiquiátricas graves</li>
-                    </ul>
-
-                    <h4>Tipos de Cirurgia</h4>
-                    <ul>
-                        <li><strong>Bypass gástrico:</strong> Reduz estômago e modifica absorção intestinal</li>
-                        <li><strong>Sleeve gástrico:</strong> Remove parte do estômago, reduzindo capacidade</li>
-                        <li><strong>Banda gástrica:</strong> Coloca anel ajustável no estômago</li>
-                        <li><strong>Duodenal switch:</strong> Procedimento mais complexo para obesidade extrema</li>
-                    </ul>
-
-                    <h2>Prevenção da Obesidade</h2>
-                    <p>A prevenção é sempre a melhor estratégia e deve começar desde a infância:</p>
-
-                    <h3>Na Infância e Adolescência</h3>
-                    <ul>
-                        <li>Aleitamento materno exclusivo até 6 meses</li>
-                        <li>Introdução adequada de alimentos complementares</li>
-                        <li>Educação nutricional nas escolas</li>
-                        <li>Estímulo à atividade física e brincadeiras ativas</li>
-                        <li>Limitação do tempo de tela</li>
-                        <li>Exemplo familiar de hábitos saudáveis</li>
-                    </ul>
-
-                    <h3>Na Vida Adulta</h3>
-                    <ul>
-                        <li>Manutenção de peso estável</li>
-                        <li>Monitoramento regular do peso e IMC</li>
-                        <li>Alimentação equilibrada e consciente</li>
-                        <li>Atividade física regular</li>
-                        <li>Manejo adequado do estresse</li>
-                        <li>Sono de qualidade (7-9 horas por noite)</li>
-                    </ul>
-
-                    <h2>Mitos e Verdades sobre Obesidade</h2>
-                    
-                    <div class="mitos-verdades">
-                        <div class="mito">
-                            <h4>❌ Mito: Obesidade é só falta de força de vontade</h4>
-                            <p>A obesidade é uma doença complexa que envolve fatores genéticos, metabólicos, ambientais e psicológicos, não apenas questões comportamentais.</p>
-                        </div>
-                        
-                        <div class="verdade">
-                            <h4>✅ Verdade: Pequenas mudanças fazem diferença</h4>
-                            <p>Perder 5-10% do peso corporal já traz benefícios significativos para a saúde, mesmo sem atingir o peso ideal.</p>
-                        </div>
-                        
-                        <div class="mito">
-                            <h4>❌ Mito: Dietas restritivas são a solução</h4>
-                            <p>Dietas muito restritivas são insustentáveis e podem levar ao efeito sanfona. O ideal são mudanças graduais e permanentes.</p>
-                        </div>
-                        
-                        <div class="verdade">
-                            <h4>✅ Verdade: Exercício é fundamental</h4>
-                            <p>Além de queimar calorias, o exercício melhora o metabolismo, preserva massa muscular e traz benefícios psicológicos.</p>
-                        </div>
-                    </div>
-
-                    <h2>O Papel da Família e Sociedade</h2>
-                    <p>O combate à obesidade requer esforços coletivos:</p>
-
-                    <h3>Ambiente Familiar</h3>
-                    <ul>
-                        <li>Refeições em família sem distrações</li>
-                        <li>Disponibilidade de alimentos saudáveis em casa</li>
-                        <li>Atividades físicas em família</li>
-                        <li>Apoio emocional e motivação</li>
-                        <li>Exemplo de hábitos saudáveis</li>
-                    </ul>
-
-                    <h3>Políticas Públicas</h3>
-                    <ul>
-                        <li>Regulamentação da publicidade de alimentos</li>
-                        <li>Criação de espaços para atividade física</li>
-                        <li>Programas de educação nutricional</li>
-                        <li>Taxação de alimentos ultraprocessados</li>
-                        <li>Melhoria da rotulagem nutricional</li>
-                    </ul>
-
-                    <h2>Conclusão</h2>
-                    <p>A obesidade é uma doença complexa que requer abordagem multidisciplinar e tratamento individualizado. Não existe uma solução única ou rápida, mas sim um conjunto de estratégias que devem ser mantidas a longo prazo.</p>
-                    
-                    <p>O sucesso no tratamento da obesidade depende de mudanças sustentáveis no estilo de vida, apoio profissional adequado e, principalmente, compreensão de que se trata de uma condição médica que merece cuidado e atenção, não julgamento.</p>
-                    
-                    <p>Se você está enfrentando problemas com o peso, procure ajuda profissional. Com o tratamento adequado e apoio necessário, é possível alcançar e manter um peso saudável, melhorando significativamente a qualidade de vida e reduzindo riscos à saúde.</p>
-
-                    <div class="cta-final">
-                        <h3>🎯 Comece sua jornada</h3>
-                        <p>Avalie sua situação atual e dê o primeiro passo:</p>
-                        <div class="cta-buttons">
-                            <a href="../ferramentas/imc.html" class="btn-primary">Calcular IMC</a>
-                            <a href="../ferramentas/tmb.html" class="btn-secondary">Taxa Metabólica</a>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 
+                <!-- Sidebar (Índice) - Desktop -->
+                <aside class="hidden lg:block lg:col-span-3 relative">
+                    <div class="sticky top-32 p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <h4 class="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="list" class="w-4 h-4"></i> Neste artigo
+                        </h4>
+                        <nav class="space-y-2 text-sm border-l-2 border-gray-100 dark:border-gray-700 ml-1">
+                            <a href="#o-que-e" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:border-l-2 hover:border-blue-600 -ml-[2px] transition-all">O que é Obesidade?</a>
+                            <a href="#causas-reais" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:border-l-2 hover:border-blue-600 -ml-[2px] transition-all">Causas (Hormônios)</a>
+                            <a href="#diagnostico" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:border-l-2 hover:border-blue-600 -ml-[2px] transition-all">Diagnóstico e IMC</a>
+                            <a href="#consequencias" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:border-l-2 hover:border-blue-600 -ml-[2px] transition-all">Riscos à Saúde</a>
+                            <a href="#tratamento" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:border-l-2 hover:border-blue-600 -ml-[2px] transition-all">Tratamento Clínico</a>
+                            <a href="#cirurgia" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:border-l-2 hover:border-blue-600 -ml-[2px] transition-all">Cirurgia Bariátrica</a>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Conteúdo do Artigo -->
+                <article class="lg:col-span-9 prose dark:prose-invert max-w-none">
+                    
+                    <!-- Header do Artigo -->
+                    <header class="not-prose mb-10 text-center lg:text-left">
+                        <span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-blue-700 uppercase bg-blue-100 rounded-full dark:bg-blue-900/30 dark:text-blue-400">
+                            Endocrinologia
+                        </span>
+                        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
+                            Obesidade: Uma Doença Complexa (Muito Além da Força de Vontade)
+                        </h1>
+                        
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-800 pb-8">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                                    <i data-lucide="stethoscope" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <span class="block font-bold text-gray-900 dark:text-white">Revisão Médica</span>
+                                    <span class="text-xs">Baseado em diretrizes ABESO</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                10 de Fevereiro, 2024
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                                25 min de leitura
+                            </div>
+                        </div>
+                    </header>
+
+                    <!-- Destaque Inicial -->
+                    <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border-l-4 border-blue-500 mb-8 not-prose">
+                        <h3 class="font-bold text-blue-800 dark:text-blue-300 mb-2">Mudança de Paradigma</h3>
+                        <p class="text-lg text-gray-700 dark:text-gray-300">
+                            A obesidade não é uma falha de caráter ou simples falta de disciplina. A medicina moderna a classifica como uma <strong>doença crônica, recidivante e multifatorial</strong>. Entender isso é o primeiro passo para um tratamento eficaz e sem culpa.
+                        </p>
+                    </div>
+
+                    <section id="o-que-e">
+                        <h2>O que é Obesidade?</h2>
+                        <p>A obesidade é definida como o acúmulo excessivo de gordura corporal que apresenta risco à saúde. Mais do que apenas peso, trata-se de um estado inflamatório crônico de baixo grau que afeta quase todos os sistemas do corpo.</p>
+                        <p>A Organização Mundial da Saúde (OMS) utiliza o IMC (Índice de Massa Corporal) como principal ferramenta de triagem, mas a distribuição da gordura (visceral vs. subcutânea) é clinicamente mais relevante.</p>
+                    </section>
+
+                    <section id="causas-reais">
+                        <h2>As Causas Reais (A Ciência do Peso)</h2>
+                        <p>Se fosse apenas "comer menos e gastar mais", não teríamos uma epidemia global. O corpo humano possui mecanismos poderosos para defender seu peso (homeostase energética).</p>
+
+                        <h3>1. O Jogo Hormonal</h3>
+                        <p>Seus hormônios controlam sua fome e saciedade muito antes de você decidir comer:</p>
+                        <ul>
+                            <li><strong>Leptina:</strong> Produzida pelas células de gordura, avisa ao cérebro que "tem energia suficiente". Em pessoas com obesidade, o cérebro se torna <em>resistente à leptina</em>, não recebendo o sinal de saciedade.</li>
+                            <li><strong>Grelina:</strong> O hormônio da fome, produzido no estômago. Aumenta antes das refeições e dificulta a dieta.</li>
+                            <li><strong>Insulina:</strong> O hormônio do armazenamento. Níveis crônicos altos favorecem o acúmulo de gordura e bloqueiam sua queima.</li>
+                        </ul>
+
+                        <h3>2. Genética e Epigenética</h3>
+                        <p>Estudos com gêmeos mostram que a genética pode explicar entre 40% a 70% da predisposição à obesidade. Isso não é uma sentença, mas significa que algumas pessoas precisam se esforçar muito mais para manter o mesmo peso que outras.</p>
+
+                        <h3>3. Ambiente Obesogênico</h3>
+                        <p>Vivemos cercados de alimentos ultraprocessados, hiperpalatáveis (desenhados para viciar) e densamente calóricos, combinados com um estilo de vida sedentário e estressante.</p>
+                    </section>
+
+                    <section id="diagnostico">
+                        <h2>Diagnóstico: Muito Além da Balança</h2>
+                        <p>A avaliação da obesidade deve ser completa:</p>
+
+                        <div class="overflow-x-auto not-prose my-6">
+                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <tr>
+                                        <th class="px-6 py-3">Classificação</th>
+                                        <th class="px-6 py-3">IMC (kg/m²)</th>
+                                        <th class="px-6 py-3">Risco Metabólico</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4">Sobrepeso</td>
+                                        <td class="px-6 py-4">25.0 – 29.9</td>
+                                        <td class="px-6 py-4 text-yellow-600 font-bold">Aumentado</td>
+                                    </tr>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4">Obesidade Grau I</td>
+                                        <td class="px-6 py-4">30.0 – 34.9</td>
+                                        <td class="px-6 py-4 text-orange-500 font-bold">Alto</td>
+                                    </tr>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4">Obesidade Grau II</td>
+                                        <td class="px-6 py-4">35.0 – 39.9</td>
+                                        <td class="px-6 py-4 text-orange-600 font-bold">Muito Alto</td>
+                                    </tr>
+                                    <tr class="bg-white dark:bg-gray-800">
+                                        <td class="px-6 py-4">Obesidade Grau III</td>
+                                        <td class="px-6 py-4">≥ 40.0</td>
+                                        <td class="px-6 py-4 text-red-600 font-bold">Extremo</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>Circunferência Abdominal</h3>
+                        <p>A gordura visceral (na barriga) é a mais perigosa. Risco aumentado se:</p>
+                        <ul>
+                            <li><strong>Homens:</strong> > 102 cm</li>
+                            <li><strong>Mulheres:</strong> > 88 cm</li>
+                        </ul>
+
+                        <div class="not-prose my-8 flex justify-center">
+                            <a href="../ferramentas/imc.html" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-bold px-6 py-3 rounded-lg transition-all shadow-lg">
+                                <i data-lucide="calculator" class="w-5 h-5"></i> Calcular Meu IMC Agora
+                            </a>
+                        </div>
+                    </section>
+
+                    <section id="consequencias">
+                        <h2>Consequências: Por que Tratar?</h2>
+                        <p>A obesidade afeta cada sistema do corpo:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose my-6">
+                            <div class="bg-red-50 dark:bg-red-900/10 p-4 rounded-lg border border-red-100 dark:border-red-900">
+                                <strong class="block text-red-700 dark:text-red-400 mb-2">Cardiovascular</strong>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Hipertensão Arterial</li>
+                                    <li>• Infarto e AVC</li>
+                                    <li>• Insuficiência Cardíaca</li>
+                                </ul>
+                            </div>
+                            <div class="bg-yellow-50 dark:bg-yellow-900/10 p-4 rounded-lg border border-yellow-100 dark:border-yellow-900">
+                                <strong class="block text-yellow-700 dark:text-yellow-400 mb-2">Metabólico</strong>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Diabetes Tipo 2</li>
+                                    <li>• Colesterol Alto</li>
+                                    <li>• Esteatose Hepática (Gordura no Fígado)</li>
+                                </ul>
+                            </div>
+                            <div class="bg-blue-50 dark:bg-blue-900/10 p-4 rounded-lg border border-blue-100 dark:border-blue-900">
+                                <strong class="block text-blue-700 dark:text-blue-400 mb-2">Mecânico</strong>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Artrose e dores articulares</li>
+                                    <li>• Apneia do Sono</li>
+                                    <li>• Refluxo Gastroesofágico</li>
+                                </ul>
+                            </div>
+                            <div class="bg-purple-50 dark:bg-purple-900/10 p-4 rounded-lg border border-purple-100 dark:border-purple-900">
+                                <strong class="block text-purple-700 dark:text-purple-400 mb-2">Saúde Mental</strong>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Depressão e Ansiedade</li>
+                                    <li>• Estigma social</li>
+                                    <li>• Baixa autoestima</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="tratamento">
+                        <h2>Tratamento Clínico (Não Cirúrgico)</h2>
+                        <p>O tratamento da obesidade é uma escada. Começamos com a base e subimos conforme a necessidade.</p>
+
+                        <h3>1. Mudança de Estilo de Vida (MEV)</h3>
+                        <p>A base de tudo. Envolve reeducação alimentar (não dietas malucas), aumento da atividade física, sono de qualidade e gerenciamento de estresse.</p>
+                        <p>
+                            <a href="../artigos/atividade-fisica-beneficios.html" class="text-brand-600 font-bold hover:underline">Veja como começar a se exercitar.</a>
+                        </p>
+
+                        <h3>2. Tratamento Medicamentoso (A Nova Era)</h3>
+                        <p>Nos últimos anos, a medicina da obesidade passou por uma revolução com novos fármacos seguros e eficazes. Eles não são "caminhos fáceis", são ferramentas biológicas para corrigir desregulações hormonais.</p>
+                        <ul>
+                            <li><strong>Análogos de GLP-1 (Semaglutida, Liraglutida):</strong> Medicamentos injetáveis (ex: Ozempic, Wegovy, Saxenda) que imitam hormônios da saciedade, reduzindo drasticamente o apetite e o "ruído mental" sobre comida.</li>
+                            <li><strong>Inibidores de Absorção (Orlistate):</strong> Reduzem a absorção de gordura no intestino.</li>
+                            <li><strong>Ação Central (Sibutramina, Bupropiona+Naltrexona):</strong> Atuam nos neurotransmissores do cérebro para controlar a fome e a compulsão.</li>
+                        </ul>
+                        <p class="text-sm text-gray-500 italic">*Medicamentos devem ser prescritos exclusivamente por médicos.</p>
+                    </section>
+
+                    <section id="cirurgia">
+                        <h2>Cirurgia Bariátrica</h2>
+                        <p>Indicada para casos de obesidade grave ou quando o tratamento clínico falha. É o tratamento mais eficaz a longo prazo para obesidade severa.</p>
+
+                        <h3>Critérios Gerais de Indicação (Brasil):</h3>
+                        <ul>
+                            <li>IMC ≥ 40 (independente de comorbidades).</li>
+                            <li>IMC ≥ 35 com comorbidades (diabetes, hipertensão, apneia, etc.).</li>
+                            <li>IMC entre 30 e 35 com Diabetes Tipo 2 de difícil controle (Cirurgia Metabólica).</li>
+                            <li>Falha no tratamento clínico por pelo menos 2 anos.</li>
+                        </ul>
+
+                        <h3>Principais Técnicas</h3>
+                        <ul>
+                            <li><strong>Bypass Gástrico:</strong> Reduz o estômago e desvia parte do intestino. Padrão-ouro para diabéticos.</li>
+                            <li><strong>Sleeve (Manga Gástrica):</strong> Remove cerca de 80% do estômago, reduzindo a produção de grelina (hormônio da fome).</li>
+                        </ul>
+                    </section>
+
+                    <div class="not-prose mt-12 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Referências Bibliográficas</h3>
+                        <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                            <li>1. ABESO (Associação Brasileira para o Estudo da Obesidade). <em>Diretrizes Brasileiras de Obesidade 2016</em>.</li>
+                            <li>2. World Health Organization (WHO). <em>Obesity and overweight</em>.</li>
+                            <li>3. Ryan, D. H., & Yockey, S. R. (2017). <em>Weight Loss and Improvement in Comorbidity: Differences at 5%, 10%, 15%, and Over</em>.</li>
+                        </ul>
+                    </div>
+
+                </article>
             </div>
-        </article>
+        </div>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Calcule Sua Saúde</h3>
-                    <p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Links Úteis</h4>
-                    <ul>
-                        <li><a href="../sobre.html">Sobre</a></li>
-                        <li><a href="../contato.html">Contato</a></li>
-                        <li><a href="../politica.html">Política de Privacidade</a></li>
-                        <li><a href="../termos.html">Termos de Uso</a></li>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="../sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="../contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h4>Ferramentas</h4>
-                    <ul>
-                        <li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
-                        <li><a href="../ferramentas/tmb.html">Taxa Metabólica Basal</a></li>
-                        <li><a href="../ferramentas/gordura.html">Gordura Corporal</a></li>
-                        <li><a href="../ferramentas/calorias.html">Gasto Calórico</a></li>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="../termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="../ferramentas/calorias.html" class="hover:text-brand-400 transition-colors">Gasto Calórico</a></li>
+                        <li><a href="../ferramentas/tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="footer-bottom">
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
                 <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
-                <p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="../js/modo-noturno.js"></script>
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones
+        lucide.createIcons();
+
+        // Barra de Progresso de Leitura
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("reading-progress").style.width = scrolled + "%";
+        };
+
+        // Dark Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        // Mobile Menu
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
-
