@@ -1,802 +1,456 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Macronutrientes: Guia Completo sobre Carboidratos, Proteínas e Gorduras | Calcule Sua Saúde</title>
-    <meta name="description" content="Guia completo sobre macronutrientes: funções, fontes, quantidades ideais e como equilibrar carboidratos, proteínas e gorduras na sua dieta.">
-    <meta name="keywords" content="macronutrientes, carboidratos, proteínas, gorduras, nutrição, dieta, alimentação equilibrada">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Macronutrientes: O Guia Definitivo sobre Carboidratos, Proteínas e Gorduras | Calcule Sua Saúde</title>
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="Macronutrientes: Guia Completo sobre Carboidratos, Proteínas e Gorduras">
-    <meta property="og:description" content="Tudo sobre macronutrientes: como equilibrar carboidratos, proteínas e gorduras para uma alimentação saudável.">
+    <!-- Meta Tags SEO Avançadas -->
+    <meta name="description" content="Domine a nutrição: aprenda tudo sobre carboidratos, proteínas e gorduras. Como calcular seus macros, escolher as melhores fontes e otimizar sua dieta para hipertrofia ou emagrecimento.">
+    <meta name="keywords" content="macronutrientes, calcular macros, dieta flexível, carboidratos complexos, proteína magra, gorduras saudáveis, nutrição esportiva">
+    <meta name="author" content="Equipe Calcule Sua Saúde">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
+    <meta property="og:title" content="Macronutrientes: O Guia Definitivo">
+    <meta property="og:description" content="A base de qualquer dieta de sucesso. Entenda a ciência por trás do que você come.">
     <meta property="og:url" content="https://calculesuasaude.com.br/artigos/macronutrientes-guia-completo.html">
+    <meta property="og:image" content="../img/artigos/macronutrientes.jpg">
+    <meta property="article:published_time" content="2024-01-22">
+    <meta property="article:section" content="Nutrição">
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
-     crossorigin="anonymous"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
 
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Dados Estruturados (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Macronutrientes: Guia Completo sobre Carboidratos, Proteínas e Gorduras",
+      "image": "https://calculesuasaude.com.br/img/artigos/macronutrientes.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://calculesuasaude.com.br/icon192.png"
+        }
+      },
+      "datePublished": "2024-01-22",
+      "description": "Um guia educacional profundo sobre os componentes fundamentais da nutrição humana."
+    }
+    </script>
 
-  gtag('config', 'G-EVCQQZV60N');
-</script>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/estilo.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    typography: (theme) => ({
+                        DEFAULT: {
+                            css: {
+                                color: theme('colors.gray.700'),
+                                h2: { color: theme('colors.gray.900'), fontWeight: '800' },
+                                h3: { color: theme('colors.gray.800'), fontWeight: '700' },
+                                strong: { color: theme('colors.gray.900') },
+                            },
+                        },
+                        dark: {
+                            css: {
+                                color: theme('colors.gray.300'),
+                                h2: { color: theme('colors.white') },
+                                h3: { color: theme('colors.gray.100') },
+                                strong: { color: theme('colors.white') },
+                            },
+                        },
+                    }),
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .prose h2 { margin-top: 2em; margin-bottom: 1em; line-height: 1.3; }
+        .prose h3 { margin-top: 1.5em; margin-bottom: 0.8em; }
+        .prose p { margin-bottom: 1.25em; line-height: 1.75; }
+        .prose ul { list-style-type: disc; padding-left: 1.5em; margin-bottom: 1.25em; }
+        .prose li { margin-bottom: 0.5em; }
+    </style>
 </head>
-<body>
-    <!-- Cabeçalho -->
-    <header class="header-fixo">
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1><a href="../index.html" style="text-decoration: none; color: inherit;">Calcule Sua Saúde</a></h1>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
                 </div>
-                <ul class="menu">
-                    <li><a href="../index.html">Início</a></li>
-                    <li><a href="../index.html#ferramentas">Ferramentas</a></li>
-                    <li><a href="../artigos.html">Artigos</a></li>
-                    <li><a href="../sobre.html">Sobre</a></li>
-                    <li><a href="../contato.html">Contato</a></li>
-                    <li><button id="modo-noturno" class="btn-modo">🌙</button></li>
-                </ul>
+                <span class="font-bold text-gray-800 dark:text-white text-lg hidden sm:block">Calcule Sua Saúde</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="../index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="../index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="../artigos.html" class="text-sm font-bold text-brand-600">Artigos</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../artigos.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Artigos</a>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <!-- Breadcrumbs -->
-    <section class="breadcrumbs">
-        <div class="container">
-            <a href="../index.html">Início</a> > <a href="../artigos.html">Artigos</a> > <span>Macronutrientes: Guia Completo</span>
-        </div>
-    </section>
+    <!-- Barra de Progresso de Leitura -->
+    <div class="fixed top-[60px] left-0 h-1 bg-green-500 z-40 w-0 transition-all duration-100" id="reading-progress"></div>
 
-    <!-- Conteúdo Principal -->
-    <main>
-        <article class="artigo-content">
-            <div class="container">
-                <header class="artigo-header">
-                    <h1>Macronutrientes: Guia Completo sobre Carboidratos, Proteínas e Gorduras</h1>
-                    <div class="artigo-meta">
-                        <span class="data-publicacao">Publicado em 22 de Janeiro de 2024</span>
-                        <span class="tempo-leitura">Tempo de leitura: 18 minutos</span>
-                    </div>
-                    <p class="artigo-resumo">Os macronutrientes são os pilares da nutrição humana, fornecendo energia e elementos essenciais para o funcionamento do organismo. Compreender carboidratos, proteínas e gorduras é fundamental para uma alimentação equilibrada e saúde otimizada.</p>
-                </header>
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            
+            <!-- Breadcrumbs -->
+            <nav class="flex text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="../index.html" class="hover:text-brand-600 transition-colors">Início</a>
+                <span class="mx-2">/</span>
+                <a href="../artigos.html" class="hover:text-brand-600 transition-colors">Artigos</a>
+                <span class="mx-2">/</span>
+                <span class="font-medium text-gray-900 dark:text-white truncate">Macronutrientes</span>
+            </nav>
 
-                <div class="artigo-corpo">
-                    <h2>O que são Macronutrientes?</h2>
-                    <p>Macronutrientes são os nutrientes que o corpo necessita em grandes quantidades para funcionar adequadamente. Eles fornecem energia (calorias) e são essenciais para crescimento, manutenção e reparação dos tecidos corporais. Os três macronutrientes principais são carboidratos, proteínas e gorduras.</p>
-                    
-                    <p>Cada macronutriente tem funções específicas e únicas no organismo, e o equilíbrio adequado entre eles é crucial para a saúde, performance e composição corporal. Compreender suas características individuais e como trabalham em conjunto é fundamental para otimizar a alimentação.</p>
-
-                    <h3>Valor Energético dos Macronutrientes</h3>
-                    <div class="valor-energetico">
-                        <div class="macro-energia">
-                            <h4>🍞 Carboidratos</h4>
-                            <div class="calorias">4 kcal/g</div>
-                            <p>Principal fonte de energia rápida</p>
-                        </div>
-                        
-                        <div class="macro-energia">
-                            <h4>🥩 Proteínas</h4>
-                            <div class="calorias">4 kcal/g</div>
-                            <p>Construção e reparação de tecidos</p>
-                        </div>
-                        
-                        <div class="macro-energia">
-                            <h4>🥑 Gorduras</h4>
-                            <div class="calorias">9 kcal/g</div>
-                            <p>Energia concentrada e funções estruturais</p>
-                        </div>
-                        
-                        <div class="macro-energia">
-                            <h4>🍷 Álcool</h4>
-                            <div class="calorias">7 kcal/g</div>
-                            <p>Energia sem valor nutricional</p>
-                        </div>
-                    </div>
-
-                    <div class="cta-calculadora">
-                        <h3>🧮 Calcule suas necessidades</h3>
-                        <p>Descubra suas necessidades de macronutrientes:</p>
-                        <a href="../ferramentas/macros.html" class="btn-primary">Calcular Macronutrientes</a>
-                    </div>
-
-                    <h2>Carboidratos: A Principal Fonte de Energia</h2>
-                    <p>Os carboidratos são a fonte preferencial de energia do corpo, especialmente para o cérebro, sistema nervoso e músculos durante exercícios intensos. Eles são compostos por carbono, hidrogênio e oxigênio, e podem ser classificados em simples e complexos.</p>
-
-                    <h3>Tipos de Carboidratos</h3>
-                    
-                    <h4>Carboidratos Simples (Açúcares)</h4>
-                    <p>Estruturas moleculares pequenas que são rapidamente absorvidas e elevam a glicemia rapidamente:</p>
-                    
-                    <div class="tipos-carboidratos">
-                        <div class="carb-tipo">
-                            <h5>Monossacarídeos</h5>
-                            <ul>
-                                <li><strong>Glicose:</strong> Açúcar do sangue, energia imediata</li>
-                                <li><strong>Frutose:</strong> Açúcar das frutas, metabolizada no fígado</li>
-                                <li><strong>Galactose:</strong> Componente da lactose</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="carb-tipo">
-                            <h5>Dissacarídeos</h5>
-                            <ul>
-                                <li><strong>Sacarose:</strong> Açúcar comum (glicose + frutose)</li>
-                                <li><strong>Lactose:</strong> Açúcar do leite (glicose + galactose)</li>
-                                <li><strong>Maltose:</strong> Açúcar do malte (glicose + glicose)</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h4>Carboidratos Complexos (Amidos e Fibras)</h4>
-                    <p>Estruturas moleculares maiores que são digeridas mais lentamente:</p>
-                    
-                    <ul>
-                        <li><strong>Amidos:</strong> Polímeros de glicose encontrados em grãos, tubérculos</li>
-                        <li><strong>Glicogênio:</strong> Forma de armazenamento animal de glicose</li>
-                        <li><strong>Fibras:</strong> Carboidratos não digeríveis com funções importantes</li>
-                    </ul>
-
-                    <h3>Funções dos Carboidratos</h3>
-                    <ul>
-                        <li><strong>Energia primária:</strong> Combustível preferido para cérebro e músculos</li>
-                        <li><strong>Poupador de proteínas:</strong> Evita uso de proteínas para energia</li>
-                        <li><strong>Metabolismo de gorduras:</strong> Necessário para oxidação completa</li>
-                        <li><strong>Função cerebral:</strong> Cérebro usa ~120g de glicose por dia</li>
-                        <li><strong>Performance atlética:</strong> Essencial para exercícios intensos</li>
-                        <li><strong>Regulação intestinal:</strong> Fibras promovem saúde digestiva</li>
-                    </ul>
-
-                    <h3>Índice Glicêmico e Carga Glicêmica</h3>
-                    <p>Ferramentas importantes para entender o impacto dos carboidratos na glicemia:</p>
-                    
-                    <h4>Índice Glicêmico (IG)</h4>
-                    <ul>
-                        <li><strong>Baixo IG (&lt;55):</strong> Aveia, maçã, feijão, iogurte</li>
-                        <li><strong>Médio IG (55-70):</strong> Arroz integral, banana, mel</li>
-                        <li><strong>Alto IG (&gt;70):</strong> Pão branco, batata, açúcar</li>
-                    </ul>
-
-                    <h4>Carga Glicêmica (CG)</h4>
-                    <p>Considera tanto o IG quanto a quantidade de carboidratos:</p>
-                    <ul>
-                        <li><strong>Baixa CG (&lt;10):</strong> Impacto mínimo na glicemia</li>
-                        <li><strong>Média CG (10-20):</strong> Impacto moderado</li>
-                        <li><strong>Alta CG (&gt;20):</strong> Impacto significativo</li>
-                    </ul>
-
-                    <h3>Melhores Fontes de Carboidratos</h3>
-                    <div class="fontes-carboidratos">
-                        <div class="fonte-carb">
-                            <h4>🌾 Grãos Integrais</h4>
-                            <ul>
-                                <li>Aveia</li>
-                                <li>Quinoa</li>
-                                <li>Arroz integral</li>
-                                <li>Pão integral</li>
-                                <li>Cevada</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="fonte-carb">
-                            <h4>🍎 Frutas</h4>
-                            <ul>
-                                <li>Maçã</li>
-                                <li>Banana</li>
-                                <li>Frutas vermelhas</li>
-                                <li>Laranja</li>
-                                <li>Uva</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="fonte-carb">
-                            <h4>🥔 Tubérculos</h4>
-                            <ul>
-                                <li>Batata-doce</li>
-                                <li>Mandioca</li>
-                                <li>Inhame</li>
-                                <li>Batata inglesa</li>
-                                <li>Beterraba</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="fonte-carb">
-                            <h4>🫘 Leguminosas</h4>
-                            <ul>
-                                <li>Feijão</li>
-                                <li>Lentilha</li>
-                                <li>Grão-de-bico</li>
-                                <li>Ervilha</li>
-                                <li>Soja</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Necessidades de Carboidratos</h3>
-                    <ul>
-                        <li><strong>Sedentários:</strong> 45-65% das calorias totais</li>
-                        <li><strong>Atividade moderada:</strong> 5-7g por kg de peso corporal</li>
-                        <li><strong>Atletas de resistência:</strong> 7-12g por kg de peso corporal</li>
-                        <li><strong>Mínimo absoluto:</strong> 130g/dia para função cerebral</li>
-                    </ul>
-
-                    <h2>Proteínas: Os Blocos Construtores</h2>
-                    <p>As proteínas são macromoléculas compostas por aminoácidos, essenciais para a construção, manutenção e reparação de todos os tecidos corporais. Elas desempenham funções estruturais, enzimáticas, hormonais e imunológicas.</p>
-
-                    <h3>Aminoácidos: Os Componentes das Proteínas</h3>
-                    <p>Existem 20 aminoácidos diferentes que se combinam para formar proteínas:</p>
-                    
-                    <div class="aminoacidos-tipos">
-                        <div class="amino-tipo">
-                            <h4>Essenciais (9)</h4>
-                            <p>Devem ser obtidos pela alimentação:</p>
-                            <ul>
-                                <li>Histidina</li>
-                                <li>Isoleucina</li>
-                                <li>Leucina</li>
-                                <li>Lisina</li>
-                                <li>Metionina</li>
-                                <li>Fenilalanina</li>
-                                <li>Treonina</li>
-                                <li>Triptofano</li>
-                                <li>Valina</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="amino-tipo">
-                            <h4>Não-Essenciais (11)</h4>
-                            <p>Produzidos pelo próprio corpo:</p>
-                            <ul>
-                                <li>Alanina</li>
-                                <li>Asparagina</li>
-                                <li>Ácido aspártico</li>
-                                <li>Ácido glutâmico</li>
-                                <li>Serina</li>
-                                <li>E outros...</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="amino-tipo">
-                            <h4>Condicionalmente Essenciais</h4>
-                            <p>Tornam-se essenciais em certas condições:</p>
-                            <ul>
-                                <li>Arginina</li>
-                                <li>Cisteína</li>
-                                <li>Glutamina</li>
-                                <li>Glicina</li>
-                                <li>Prolina</li>
-                                <li>Tirosina</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Funções das Proteínas</h3>
-                    <ul>
-                        <li><strong>Estrutural:</strong> Músculos, pele, cabelo, unhas, ossos</li>
-                        <li><strong>Enzimática:</strong> Catalisam reações bioquímicas</li>
-                        <li><strong>Hormonal:</strong> Insulina, hormônio do crescimento</li>
-                        <li><strong>Imunológica:</strong> Anticorpos e sistema de defesa</li>
-                        <li><strong>Transporte:</strong> Hemoglobina, albumina</li>
-                        <li><strong>Energética:</strong> Fonte secundária de energia</li>
-                        <li><strong>Regulatória:</strong> Controle de pH e pressão osmótica</li>
-                    </ul>
-
-                    <h3>Qualidade Proteica</h3>
-                    <p>A qualidade de uma proteína é determinada por sua composição de aminoácidos essenciais:</p>
-                    
-                    <h4>Proteínas Completas</h4>
-                    <p>Contêm todos os aminoácidos essenciais em proporções adequadas:</p>
-                    <ul>
-                        <li><strong>Animais:</strong> Carne, peixe, ovos, laticínios</li>
-                        <li><strong>Vegetais:</strong> Quinoa, amaranto, soja, chia</li>
-                    </ul>
-
-                    <h4>Proteínas Incompletas</h4>
-                    <p>Deficientes em um ou mais aminoácidos essenciais:</p>
-                    <ul>
-                        <li><strong>Cereais:</strong> Baixos em lisina</li>
-                        <li><strong>Leguminosas:</strong> Baixas em metionina</li>
-                        <li><strong>Nozes/sementes:</strong> Variável conforme tipo</li>
-                    </ul>
-
-                    <h4>Complementação Proteica</h4>
-                    <p>Combinação de proteínas incompletas para formar perfil completo:</p>
-                    <ul>
-                        <li>Arroz + feijão</li>
-                        <li>Pão + pasta de amendoim</li>
-                        <li>Lentilha + nozes</li>
-                        <li>Hummus + pão integral</li>
-                    </ul>
-
-                    <h3>Melhores Fontes de Proteína</h3>
-                    <div class="fontes-proteinas">
-                        <div class="fonte-prot">
-                            <h4>🥩 Carnes</h4>
-                            <ul>
-                                <li>Frango (23g/100g)</li>
-                                <li>Carne bovina magra (26g/100g)</li>
-                                <li>Porco magro (22g/100g)</li>
-                                <li>Cordeiro (25g/100g)</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="fonte-prot">
-                            <h4>🐟 Peixes e Frutos do Mar</h4>
-                            <ul>
-                                <li>Salmão (25g/100g)</li>
-                                <li>Atum (30g/100g)</li>
-                                <li>Sardinha (25g/100g)</li>
-                                <li>Camarão (24g/100g)</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="fonte-prot">
-                            <h4>🥚 Ovos e Laticínios</h4>
-                            <ul>
-                                <li>Ovos (13g/100g)</li>
-                                <li>Queijo cottage (11g/100g)</li>
-                                <li>Iogurte grego (10g/100g)</li>
-                                <li>Leite (3,4g/100ml)</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="fonte-prot">
-                            <h4>🌱 Fontes Vegetais</h4>
-                            <ul>
-                                <li>Lentilha (9g/100g cozida)</li>
-                                <li>Quinoa (4,4g/100g cozida)</li>
-                                <li>Tofu (8g/100g)</li>
-                                <li>Amendoim (26g/100g)</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Necessidades de Proteína</h3>
-                    <ul>
-                        <li><strong>Sedentários:</strong> 0,8g por kg de peso corporal</li>
-                        <li><strong>Atividade moderada:</strong> 1,0-1,2g por kg</li>
-                        <li><strong>Atletas de resistência:</strong> 1,2-1,4g por kg</li>
-                        <li><strong>Atletas de força:</strong> 1,6-2,2g por kg</li>
-                        <li><strong>Idosos:</strong> 1,0-1,2g por kg (mínimo)</li>
-                        <li><strong>Perda de peso:</strong> 1,6-2,4g por kg</li>
-                    </ul>
-
-                    <h3>Timing Proteico</h3>
-                    <p>A distribuição da proteína ao longo do dia pode otimizar seus benefícios:</p>
-                    <ul>
-                        <li><strong>Café da manhã:</strong> 20-30g para quebrar jejum noturno</li>
-                        <li><strong>Pré-treino:</strong> 10-20g para disponibilidade de aminoácidos</li>
-                        <li><strong>Pós-treino:</strong> 20-40g para síntese proteica</li>
-                        <li><strong>Antes de dormir:</strong> 20-30g de caseína para recuperação noturna</li>
-                    </ul>
-
-                    <h2>Gorduras: Essenciais para a Saúde</h2>
-                    <p>As gorduras são macronutrientes essenciais que desempenham funções vitais no organismo. Apesar de terem sido demonizadas no passado, hoje sabemos que gorduras de qualidade são fundamentais para a saúde.</p>
-
-                    <h3>Tipos de Gorduras</h3>
-                    
-                    <h4>Gorduras Saturadas</h4>
-                    <p>Não possuem duplas ligações na cadeia de carbono:</p>
-                    <ul>
-                        <li><strong>Fontes:</strong> Carnes, laticínios integrais, óleo de coco</li>
-                        <li><strong>Características:</strong> Sólidas à temperatura ambiente</li>
-                        <li><strong>Recomendação:</strong> &lt;10% das calorias totais</li>
-                        <li><strong>Função:</strong> Estrutura celular, produção hormonal</li>
-                    </ul>
-
-                    <h4>Gorduras Monoinsaturadas</h4>
-                    <p>Possuem uma dupla ligação:</p>
-                    <ul>
-                        <li><strong>Fontes:</strong> Azeite, abacate, nozes, azeitonas</li>
-                        <li><strong>Benefícios:</strong> Reduzem LDL, mantêm HDL</li>
-                        <li><strong>Estabilidade:</strong> Resistentes à oxidação</li>
-                        <li><strong>Recomendação:</strong> 15-20% das calorias</li>
-                    </ul>
-
-                    <h4>Gorduras Poli-insaturadas</h4>
-                    <p>Possuem múltiplas duplas ligações:</p>
-                    
-                    <div class="gorduras-poli">
-                        <div class="omega-tipo">
-                            <h5>Ômega-3</h5>
-                            <ul>
-                                <li><strong>EPA/DHA:</strong> Peixes gordos</li>
-                                <li><strong>ALA:</strong> Linhaça, chia, nozes</li>
-                                <li><strong>Benefícios:</strong> Anti-inflamatório, saúde cerebral</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="omega-tipo">
-                            <h5>Ômega-6</h5>
-                            <ul>
-                                <li><strong>Fontes:</strong> Óleos vegetais, sementes</li>
-                                <li><strong>Função:</strong> Essencial, mas em excesso é pró-inflamatório</li>
-                                <li><strong>Proporção ideal:</strong> 1:1 a 1:4 (ômega-3:ômega-6)</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h4>Gorduras Trans</h4>
-                    <p>Gorduras artificiais criadas por hidrogenação:</p>
-                    <ul>
-                        <li><strong>Fontes:</strong> Alimentos processados, margarinas</li>
-                        <li><strong>Riscos:</strong> Aumentam LDL, reduzem HDL</li>
-                        <li><strong>Recomendação:</strong> Evitar completamente</li>
-                        <li><strong>Identificação:</strong> "Gordura vegetal hidrogenada" no rótulo</li>
-                    </ul>
-
-                    <h3>Funções das Gorduras</h3>
-                    <ul>
-                        <li><strong>Energia concentrada:</strong> 9 kcal/g, reserva energética</li>
-                        <li><strong>Absorção de vitaminas:</strong> Vitaminas A, D, E, K</li>
-                        <li><strong>Estrutura celular:</strong> Membranas celulares</li>
-                        <li><strong>Produção hormonal:</strong> Testosterona, estrogênio, cortisol</li>
-                        <li><strong>Isolamento térmico:</strong> Manutenção da temperatura</li>
-                        <li><strong>Proteção de órgãos:</strong> Amortecimento físico</li>
-                        <li><strong>Saciedade:</strong> Retardam esvaziamento gástrico</li>
-                        <li><strong>Sabor:</strong> Palatabilidade dos alimentos</li>
-                    </ul>
-
-                    <h3>Melhores Fontes de Gorduras</h3>
-                    <div class="fontes-gorduras">
-                        <div class="fonte-gord">
-                            <h4>🥑 Monoinsaturadas</h4>
-                            <ul>
-                                <li>Azeite extra virgem</li>
-                                <li>Abacate</li>
-                                <li>Nozes e amêndoas</li>
-                                <li>Azeitonas</li>
-                                <li>Óleo de abacate</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="fonte-gord">
-                            <h4>🐟 Ômega-3</h4>
-                            <ul>
-                                <li>Salmão</li>
-                                <li>Sardinha</li>
-                                <li>Linhaça</li>
-                                <li>Chia</li>
-                                <li>Nozes</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="fonte-gord">
-                            <h4>🥥 Saturadas Saudáveis</h4>
-                            <ul>
-                                <li>Óleo de coco</li>
-                                <li>Manteiga grass-fed</li>
-                                <li>Gema de ovo</li>
-                                <li>Carne de animais criados a pasto</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="fonte-gord">
-                            <h4>🌰 Sementes e Nozes</h4>
-                            <ul>
-                                <li>Castanha-do-pará</li>
-                                <li>Macadâmia</li>
-                                <li>Sementes de girassol</li>
-                                <li>Tahine</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Necessidades de Gorduras</h3>
-                    <ul>
-                        <li><strong>Mínimo:</strong> 20% das calorias totais</li>
-                        <li><strong>Ideal:</strong> 25-35% das calorias totais</li>
-                        <li><strong>Saturadas:</strong> &lt;10% das calorias</li>
-                        <li><strong>Trans:</strong> &lt;1% das calorias (idealmente zero)</li>
-                        <li><strong>Ômega-3:</strong> 1-2g EPA/DHA por dia</li>
-                    </ul>
-
-                    <div class="ferramentas-relacionadas">
-                        <h3>⚖️ Monitore seu peso</h3>
-                        <p>Calcule seu IMC e acompanhe sua composição corporal:</p>
-                        <a href="../ferramentas/imc.html" class="btn-secondary">Calcular IMC</a>
-                    </div>
-
-                    <h2>Distribuição Ideal de Macronutrientes</h2>
-                    <p>A distribuição ideal varia conforme objetivos, atividade física e condições individuais:</p>
-
-                    <h3>Distribuições Populares</h3>
-                    <div class="distribuicoes-macros">
-                        <div class="distribuicao-card">
-                            <h4>🏃‍♂️ Atletas de Resistência</h4>
-                            <ul>
-                                <li>Carboidratos: 55-65%</li>
-                                <li>Proteínas: 12-15%</li>
-                                <li>Gorduras: 20-30%</li>
-                            </ul>
-                            <p>Foco em energia para exercícios prolongados</p>
-                        </div>
-                        
-                        <div class="distribuicao-card">
-                            <h4>💪 Atletas de Força</h4>
-                            <ul>
-                                <li>Carboidratos: 45-55%</li>
-                                <li>Proteínas: 15-25%</li>
-                                <li>Gorduras: 25-35%</li>
-                            </ul>
-                            <p>Maior proteína para síntese muscular</p>
-                        </div>
-                        
-                        <div class="distribuicao-card">
-                            <h4>🎯 Perda de Peso</h4>
-                            <ul>
-                                <li>Carboidratos: 40-50%</li>
-                                <li>Proteínas: 25-30%</li>
-                                <li>Gorduras: 25-30%</li>
-                            </ul>
-                            <p>Alta proteína para preservar massa muscular</p>
-                        </div>
-                        
-                        <div class="distribuicao-card">
-                            <h4>🧘‍♀️ Sedentários</h4>
-                            <ul>
-                                <li>Carboidratos: 45-65%</li>
-                                <li>Proteínas: 10-15%</li>
-                                <li>Gorduras: 20-35%</li>
-                            </ul>
-                            <p>Distribuição padrão para saúde geral</p>
-                        </div>
-                    </div>
-
-                    <h3>Fatores que Influenciam a Distribuição</h3>
-                    <ul>
-                        <li><strong>Objetivo:</strong> Perda de peso, ganho muscular, performance</li>
-                        <li><strong>Atividade física:</strong> Tipo, intensidade, duração</li>
-                        <li><strong>Composição corporal:</strong> Percentual de gordura atual</li>
-                        <li><strong>Metabolismo:</strong> Taxa metabólica individual</li>
-                        <li><strong>Preferências:</strong> Tolerância e gostos pessoais</li>
-                        <li><strong>Condições médicas:</strong> Diabetes, resistência à insulina</li>
-                        <li><strong>Idade:</strong> Necessidades mudam ao longo da vida</li>
-                    </ul>
-
-                    <h2>Timing de Macronutrientes</h2>
-                    <p>Quando consumir cada macronutriente pode otimizar resultados:</p>
-
-                    <h3>Pré-Treino (1-3 horas antes)</h3>
-                    <ul>
-                        <li><strong>Carboidratos:</strong> 30-60g para energia</li>
-                        <li><strong>Proteínas:</strong> 10-20g para aminoácidos disponíveis</li>
-                        <li><strong>Gorduras:</strong> Mínimas para evitar desconforto digestivo</li>
-                        <li><strong>Exemplo:</strong> Banana com whey protein</li>
-                    </ul>
-
-                    <h3>Pós-Treino (0-2 horas após)</h3>
-                    <ul>
-                        <li><strong>Carboidratos:</strong> 0,5-1,2g/kg para repor glicogênio</li>
-                        <li><strong>Proteínas:</strong> 20-40g para síntese proteica</li>
-                        <li><strong>Proporção:</strong> 3:1 ou 4:1 (carbo:proteína)</li>
-                        <li><strong>Exemplo:</strong> Batata-doce com frango</li>
-                    </ul>
-
-                    <h3>Antes de Dormir</h3>
-                    <ul>
-                        <li><strong>Proteínas:</strong> 20-30g de caseína (digestão lenta)</li>
-                        <li><strong>Gorduras:</strong> Pequena quantidade de gorduras saudáveis</li>
-                        <li><strong>Carboidratos:</strong> Mínimos para não atrapalhar o sono</li>
-                        <li><strong>Exemplo:</strong> Iogurte grego com nozes</li>
-                    </ul>
-
-                    <h2>Macronutrientes e Composição Corporal</h2>
-                    <p>Cada macronutriente afeta diferentemente a composição corporal:</p>
-
-                    <h3>Para Perda de Gordura</h3>
-                    <ul>
-                        <li><strong>Proteína alta:</strong> Preserva massa muscular, aumenta saciedade</li>
-                        <li><strong>Carboidratos moderados:</strong> Mantém energia para treinos</li>
-                        <li><strong>Gorduras adequadas:</strong> Produção hormonal, saciedade</li>
-                        <li><strong>Déficit calórico:</strong> Fundamental independente da distribuição</li>
-                    </ul>
-
-                    <h3>Para Ganho Muscular</h3>
-                    <ul>
-                        <li><strong>Proteína adequada:</strong> 1,6-2,2g/kg para síntese</li>
-                        <li><strong>Carboidratos suficientes:</strong> Energia para treinos intensos</li>
-                        <li><strong>Gorduras para hormônios:</strong> Testosterona, hormônio do crescimento</li>
-                        <li><strong>Superávit calórico:</strong> Necessário para construir tecido</li>
-                    </ul>
-
-                    <h3>Para Manutenção</h3>
-                    <ul>
-                        <li><strong>Equilíbrio:</strong> Distribuição balanceada conforme preferências</li>
-                        <li><strong>Qualidade:</strong> Foco em fontes nutritivas</li>
-                        <li><strong>Flexibilidade:</strong> Adaptação conforme atividades</li>
-                        <li><strong>Sustentabilidade:</strong> Padrão que pode ser mantido</li>
-                    </ul>
-
-                    <h2>Erros Comuns com Macronutrientes</h2>
-                    <p>Evite esses erros para otimizar sua nutrição:</p>
-
-                    <h3>Erros com Carboidratos</h3>
-                    <ul>
-                        <li><strong>Demonizar carboidratos:</strong> São essenciais para energia</li>
-                        <li><strong>Só carboidratos simples:</strong> Falta de fibras e nutrientes</li>
-                        <li><strong>Timing inadequado:</strong> Carboidratos simples longe do treino</li>
-                        <li><strong>Quantidade inadequada:</strong> Muito pouco para atividade física</li>
-                    </ul>
-
-                    <h3>Erros com Proteínas</h3>
-                    <ul>
-                        <li><strong>Proteína insuficiente:</strong> Compromete recuperação e massa muscular</li>
-                        <li><strong>Excesso desnecessário:</strong> Mais que 2,5g/kg raramente beneficia</li>
-                        <li><strong>Distribuição inadequada:</strong> Toda proteína em uma refeição</li>
-                        <li><strong>Qualidade baixa:</strong> Proteínas incompletas sem complementação</li>
-                    </ul>
-
-                    <h3>Erros com Gorduras</h3>
-                    <ul>
-                        <li><strong>Evitar gorduras:</strong> Compromete hormônios e absorção de vitaminas</li>
-                        <li><strong>Só gorduras saturadas:</strong> Falta de ômega-3 e monoinsaturadas</li>
-                        <li><strong>Gorduras trans:</strong> Consumo de gorduras artificiais</li>
-                        <li><strong>Proporção ômega-6/3:</strong> Excesso de ômega-6 pró-inflamatório</li>
-                    </ul>
-
-                    <h2>Suplementação de Macronutrientes</h2>
-                    <p>Quando a alimentação não é suficiente, suplementos podem ajudar:</p>
-
-                    <h3>Suplementos de Proteína</h3>
-                    <ul>
-                        <li><strong>Whey protein:</strong> Absorção rápida, pós-treino</li>
-                        <li><strong>Caseína:</strong> Absorção lenta, antes de dormir</li>
-                        <li><strong>Proteína vegetal:</strong> Para veganos/vegetarianos</li>
-                        <li><strong>Aminoácidos:</strong> BCAAs, EAAs para situações específicas</li>
-                    </ul>
-
-                    <h3>Suplementos de Carboidratos</h3>
-                    <ul>
-                        <li><strong>Dextrose:</strong> Pós-treino para reposição rápida</li>
-                        <li><strong>Maltodextrina:</strong> Durante exercícios longos</li>
-                        <li><strong>Aveia em pó:</strong> Carboidrato complexo conveniente</li>
-                        <li><strong>Ciclodextrina:</strong> Absorção rápida sem desconforto</li>
-                    </ul>
-
-                    <h3>Suplementos de Gorduras</h3>
-                    <ul>
-                        <li><strong>Óleo de peixe:</strong> EPA/DHA para ômega-3</li>
-                        <li><strong>MCT oil:</strong> Triglicerídeos de cadeia média</li>
-                        <li><strong>Óleo de linhaça:</strong> ALA vegetal</li>
-                        <li><strong>CLA:</strong> Ácido linoleico conjugado</li>
-                    </ul>
-
-                    <h2>Macronutrientes em Diferentes Dietas</h2>
-                    <p>Como diferentes abordagens dietéticas manipulam macronutrientes:</p>
-
-                    <h3>Dieta Cetogênica</h3>
-                    <ul>
-                        <li>Carboidratos: 5-10%</li>
-                        <li>Proteínas: 15-25%</li>
-                        <li>Gorduras: 70-80%</li>
-                        <li><strong>Objetivo:</strong> Cetose para queima de gordura</li>
-                    </ul>
-
-                    <h3>Dieta Mediterrânea</h3>
-                    <ul>
-                        <li>Carboidratos: 45-55%</li>
-                        <li>Proteínas: 15-20%</li>
-                        <li>Gorduras: 30-40%</li>
-                        <li><strong>Foco:</strong> Gorduras monoinsaturadas e ômega-3</li>
-                    </ul>
-
-                    <h3>Dieta Paleo</h3>
-                    <ul>
-                        <li>Carboidratos: 20-35%</li>
-                        <li>Proteínas: 25-35%</li>
-                        <li>Gorduras: 35-45%</li>
-                        <li><strong>Princípio:</strong> Alimentos não processados</li>
-                    </ul>
-
-                    <h3>Dieta Vegana</h3>
-                    <ul>
-                        <li>Carboidratos: 50-65%</li>
-                        <li>Proteínas: 10-15%</li>
-                        <li>Gorduras: 25-35%</li>
-                        <li><strong>Desafio:</strong> Proteínas completas e B12</li>
-                    </ul>
-
-                    <h2>Monitoramento e Ajustes</h2>
-                    <p>Como acompanhar e ajustar sua ingestão de macronutrientes:</p>
-
-                    <h3>Ferramentas de Monitoramento</h3>
-                    <ul>
-                        <li><strong>Aplicativos:</strong> MyFitnessPal, Cronometer</li>
-                        <li><strong>Balança de alimentos:</strong> Precisão nas porções</li>
-                        <li><strong>Diário alimentar:</strong> Registro manual</li>
-                        <li><strong>Fotos das refeições:</strong> Controle visual</li>
-                    </ul>
-
-                    <h3>Sinais para Ajustes</h3>
-                    <ul>
-                        <li><strong>Energia baixa:</strong> Pode precisar de mais carboidratos</li>
-                        <li><strong>Fome constante:</strong> Aumentar proteína ou gorduras</li>
-                        <li><strong>Recuperação lenta:</strong> Verificar proteína e calorias totais</li>
-                        <li><strong>Performance reduzida:</strong> Avaliar carboidratos pré-treino</li>
-                    </ul>
-
-                    <h3>Frequência de Ajustes</h3>
-                    <ul>
-                        <li><strong>Iniciantes:</strong> Ajustes semanais pequenos</li>
-                        <li><strong>Intermediários:</strong> Avaliação quinzenal</li>
-                        <li><strong>Avançados:</strong> Ajustes conforme periodização</li>
-                        <li><strong>Mudanças graduais:</strong> 5-10% por vez</li>
-                    </ul>
-
-                    <h2>Conclusão</h2>
-                    <p>Os macronutrientes são os pilares fundamentais da nutrição humana. Compreender suas funções individuais e como trabalham em sinergia é essencial para otimizar a saúde, performance e composição corporal.</p>
-                    
-                    <p>Não existe uma distribuição única ideal para todos. As necessidades variam conforme objetivos, atividade física, preferências e condições individuais. O importante é encontrar um equilíbrio sustentável que forneça energia adequada, preserve a massa muscular e promova a saúde a longo prazo.</p>
-                    
-                    <p>Foque na qualidade das fontes, distribua adequadamente ao longo do dia e ajuste conforme seus resultados e sensações. Lembre-se de que a consistência e o equilíbrio são mais importantes que a perfeição absoluta.</p>
-
-                    <div class="cta-final">
-                        <h3>🎯 Calcule suas necessidades</h3>
-                        <p>Descubra sua distribuição ideal de macronutrientes:</p>
-                        <div class="cta-buttons">
-                            <a href="../ferramentas/macros.html" class="btn-primary">Calcular Macronutrientes</a>
-                            <a href="../ferramentas/tmb.html" class="btn-secondary">Taxa Metabólica</a>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 
+                <!-- Sidebar (Índice) - Desktop -->
+                <aside class="hidden lg:block lg:col-span-3 relative">
+                    <div class="sticky top-32 p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <h4 class="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="list" class="w-4 h-4"></i> Neste artigo
+                        </h4>
+                        <nav class="space-y-2 text-sm border-l-2 border-gray-100 dark:border-gray-700 ml-1">
+                            <a href="#o-que-sao" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-green-600 hover:border-l-2 hover:border-green-600 -ml-[2px] transition-all">O que são Macros?</a>
+                            <a href="#proteinas" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-green-600 hover:border-l-2 hover:border-green-600 -ml-[2px] transition-all">Proteínas</a>
+                            <a href="#carboidratos" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-green-600 hover:border-l-2 hover:border-green-600 -ml-[2px] transition-all">Carboidratos</a>
+                            <a href="#gorduras" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-green-600 hover:border-l-2 hover:border-green-600 -ml-[2px] transition-all">Gorduras</a>
+                            <a href="#alcool" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-green-600 hover:border-l-2 hover:border-green-600 -ml-[2px] transition-all">Álcool: O 4º Macro</a>
+                            <a href="#como-calcular" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-green-600 hover:border-l-2 hover:border-green-600 -ml-[2px] transition-all">Como Calcular</a>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Conteúdo do Artigo -->
+                <article class="lg:col-span-9 prose dark:prose-invert max-w-none">
+                    
+                    <!-- Header do Artigo -->
+                    <header class="not-prose mb-10 text-center lg:text-left">
+                        <span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-green-700 uppercase bg-green-100 rounded-full dark:bg-green-900/30 dark:text-green-400">
+                            Nutrição Básica
+                        </span>
+                        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
+                            Macronutrientes: O Guia Definitivo sobre Carboidratos, Proteínas e Gorduras
+                        </h1>
+                        
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-800 pb-8">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                                    <i data-lucide="utensils" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <span class="block font-bold text-gray-900 dark:text-white">Revisão Nutricional</span>
+                                    <span class="text-xs">Baseado na ciência</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                22 de Janeiro, 2024
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                                18 min de leitura
+                            </div>
+                        </div>
+                    </header>
+
+                    <!-- Destaque Inicial -->
+                    <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-2xl border-l-4 border-green-500 mb-8 not-prose">
+                        <h3 class="font-bold text-green-800 dark:text-green-300 mb-2">A Base de Tudo</h3>
+                        <p class="text-lg text-gray-700 dark:text-gray-300">
+                            Se o seu corpo fosse uma casa, as <strong>Proteínas</strong> seriam os tijolos, as <strong>Gorduras</strong> o isolamento e acabamento, e os <strong>Carboidratos</strong> a eletricidade que faz tudo funcionar. Entender como equilibrá-los é o segredo para qualquer transformação corporal.
+                        </p>
+                    </div>
+
+                    <section id="o-que-sao">
+                        <h2>O que são Macronutrientes?</h2>
+                        <p>Macronutrientes (ou "macros") são os nutrientes que o corpo precisa em grandes quantidades para sobreviver, crescer e ter energia. Ao contrário dos micronutrientes (vitaminas e minerais), eles fornecem calorias.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 not-prose my-8">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 text-center">
+                                <div class="inline-flex p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-600 mb-4"><i data-lucide="wheat" class="w-6 h-6"></i></div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Carboidratos</h3>
+                                <p class="text-2xl font-black text-blue-600 mb-2">4 kcal/g</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Fonte primária de energia.</p>
+                            </div>
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 text-center">
+                                <div class="inline-flex p-3 bg-red-100 dark:bg-red-900/30 rounded-full text-red-600 mb-4"><i data-lucide="beef" class="w-6 h-6"></i></div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Proteínas</h3>
+                                <p class="text-2xl font-black text-red-600 mb-2">4 kcal/g</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Construção e reparo.</p>
+                            </div>
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 text-center">
+                                <div class="inline-flex p-3 bg-yellow-100 dark:bg-yellow-900/30 rounded-full text-yellow-600 mb-4"><i data-lucide="droplet" class="w-6 h-6"></i></div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Gorduras</h3>
+                                <p class="text-2xl font-black text-yellow-600 mb-2">9 kcal/g</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Hormônios e reserva.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="proteinas">
+                        <h2>Proteínas: Os Blocos de Construção</h2>
+                        <p>As proteínas são formadas por cadeias de aminoácidos. Elas são essenciais não apenas para músculos, mas para pele, cabelo, enzimas, hormônios e sistema imunológico.</p>
+
+                        <h3>Qualidade da Proteína</h3>
+                        <p>Nem toda proteína é igual. O valor biológico define o quão bem seu corpo pode usá-la:</p>
+                        <ul>
+                            <li><strong>Alto Valor Biológico (Completas):</strong> Contêm todos os 9 aminoácidos essenciais. Ex: Carnes, ovos, leite, whey protein, soja.</li>
+                            <li><strong>Baixo Valor Biológico (Incompletas):</strong> Faltam um ou mais aminoácidos essenciais. Ex: Feijão, arroz, nozes (precisam ser combinados).</li>
+                        </ul>
+
+                        <h3>Quanto consumir?</h3>
+                        <div class="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 not-prose my-6">
+                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <tr>
+                                        <th class="px-6 py-3">Objetivo / Perfil</th>
+                                        <th class="px-6 py-3">Recomendação Diária</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Sedentário</td>
+                                        <td class="px-6 py-4">0,8g a 1,0g por kg de peso</td>
+                                    </tr>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Ativo (Endurance)</td>
+                                        <td class="px-6 py-4">1,2g a 1,4g por kg de peso</td>
+                                    </tr>
+                                    <tr class="bg-white dark:bg-gray-800">
+                                        <td class="px-6 py-4 font-bold text-red-600 dark:text-red-400">Hipertrofia / Força</td>
+                                        <td class="px-6 py-4 font-bold">1,6g a 2,2g por kg de peso</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section id="carboidratos">
+                        <h2>Carboidratos: O Combustível de Alta Octanagem</h2>
+                        <p>Apesar da má fama recente, os carboidratos são a fonte de energia preferida do cérebro e dos músculos durante exercícios de alta intensidade.</p>
+
+                        <h3>Simples vs. Complexos</h3>
+                        <ul>
+                            <li><strong>Simples (Açúcares):</strong> Digestão rápida, pico de insulina. Úteis no pós-treino imediato, mas devem ser moderados. Ex: Frutas, mel, açúcar, pão branco.</li>
+                            <li><strong>Complexos (Amidos + Fibras):</strong> Digestão lenta, energia sustentada. Devem ser a base da dieta. Ex: Aveia, batata doce, arroz integral, feijão.</li>
+                        </ul>
+
+                        <div class="not-prose bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800 mb-6">
+                            <h4 class="font-bold text-blue-800 dark:text-blue-300 text-sm mb-1">💡 Dica de Ouro</h4>
+                            <p class="text-xs text-blue-700 dark:text-blue-200">
+                                Fibras não são digeridas e não contam como calorias líquidas, mas são vitais para a saúde intestinal e saciedade. Meta: 25-30g por dia.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section id="gorduras">
+                        <h2>Gorduras: Proteção e Hormônios</h2>
+                        <p>As gorduras são vitais para a absorção de vitaminas (A, D, E, K) e para a produção de hormônios como a testosterona.</p>
+
+                        <h3>O Bom, o Ruim e o Feio</h3>
+                        <ul>
+                            <li><strong>Insaturadas (Boas):</strong> Azeite, abacate, nozes, peixes (ômega-3). Protegem o coração.</li>
+                            <li><strong>Saturadas (Neutras/Moderadas):</strong> Carnes, laticínios, óleo de coco. Consumir com moderação (aprox. 10% das calorias).</li>
+                            <li><strong>Trans (O Feio):</strong> Gordura hidrogenada industrial. <span class="text-red-600 font-bold">Evite a todo custo.</span> Inflamatória e perigosa.</li>
+                        </ul>
+                    </section>
+
+                    <section id="alcool">
+                        <h2>Álcool: O "Quarto" Macronutriente</h2>
+                        <p>O álcool não é um nutriente essencial, mas fornece energia: <strong>7 kcal por grama</strong>. É quase tão denso quanto a gordura, mas sem valor nutricional ("calorias vazias"). Além disso, o corpo prioriza a eliminação do álcool, pausando a queima de gordura.</p>
+                    </section>
+
+                    <section id="como-calcular">
+                        <h2>Como Calcular sua Dieta?</h2>
+                        <p>A distribuição ideal (split) depende do seu objetivo. Aqui estão configurações comuns:</p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 not-prose my-6 text-center text-sm">
+                            <div class="p-4 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                                <strong class="block text-lg mb-2">Equilibrada</strong>
+                                <div>Carbo: 50%</div>
+                                <div>Prot: 20%</div>
+                                <div>Gord: 30%</div>
+                            </div>
+                            <div class="p-4 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                                <strong class="block text-lg mb-2">Low Carb</strong>
+                                <div>Carbo: 20%</div>
+                                <div>Prot: 40%</div>
+                                <div>Gord: 40%</div>
+                            </div>
+                            <div class="p-4 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                                <strong class="block text-lg mb-2">Atleta</strong>
+                                <div>Carbo: 55%</div>
+                                <div>Prot: 25%</div>
+                                <div>Gord: 20%</div>
+                            </div>
+                        </div>
+
+                        <div class="my-8 not-prose">
+                            <!-- Card CTA -->
+                            <div class="bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl p-8 text-white text-center relative overflow-hidden">
+                                <div class="absolute top-0 right-0 opacity-10"><i data-lucide="calculator" class="w-32 h-32"></i></div>
+                                <h3 class="text-2xl font-bold mb-2 relative z-10">Não quer fazer contas?</h3>
+                                <p class="mb-6 opacity-90 relative z-10">Nossa calculadora faz todo o trabalho pesado para você. Descubra seus macros ideais em segundos.</p>
+                                <a href="../ferramentas/macros.html" class="relative z-10 inline-flex items-center bg-white text-green-700 font-bold py-3 px-6 rounded-full hover:bg-gray-100 transition-colors shadow-lg">
+                                    <i data-lucide="play-circle" class="w-5 h-5 mr-2"></i> Calcular Meus Macros
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="not-prose mt-12 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Referências Bibliográficas</h3>
+                        <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                            <li>1. Institute of Medicine (US). <em>Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids</em>.</li>
+                            <li>2. International Society of Sports Nutrition (ISSN). <em>Position Stand: Nutrient Timing</em>.</li>
+                        </ul>
+                    </div>
+
+                </article>
             </div>
-        </article>
+        </div>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Calcule Sua Saúde</h3>
-                    <p>Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Links Úteis</h4>
-                    <ul>
-                        <li><a href="../sobre.html">Sobre</a></li>
-                        <li><a href="../contato.html">Contato</a></li>
-                        <li><a href="../politica.html">Política de Privacidade</a></li>
-                        <li><a href="../termos.html">Termos de Uso</a></li>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="../sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="../contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h4>Ferramentas</h4>
-                    <ul>
-                        <li><a href="../ferramentas/macros.html">Macronutrientes</a></li>
-                        <li><a href="../ferramentas/tmb.html">Taxa Metabólica</a></li>
-                        <li><a href="../ferramentas/imc.html">Calculadora de IMC</a></li>
-                        <li><a href="../ferramentas/gordura.html">Gordura Corporal</a></li>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="../termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="../ferramentas/tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
+                        <li><a href="../ferramentas/calorias.html" class="hover:text-brand-400 transition-colors">Gasto Calórico</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="footer-bottom">
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
                 <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
-                <p>Este site é apenas informativo e não substitui orientação médica profissional.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="../js/modo-noturno.js"></script>
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones
+        lucide.createIcons();
+
+        // Barra de Progresso de Leitura
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("reading-progress").style.width = scrolled + "%";
+        };
+
+        // Dark Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        // Mobile Menu
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
-
