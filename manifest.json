@@ -1,12 +1,14 @@
 {
   "name": "Calcule Sua Saúde",
-  "short_name": "Saúde",
-  "description": "Ferramentas gratuitas e confiáveis para cuidar da sua saúde. Calculadoras de IMC, TMB, água diária e muito mais. Artigos informativos sobre nutrição e bem-estar.",
+  "short_name": "CalcSaúde",
+  "description": "Ferramentas gratuitas e confiáveis para cuidar da sua saúde. Calculadoras de IMC, TMB, água diária e artigos sobre bem-estar.",
   "start_url": "/index.html",
+  "id": "calcule-sua-saude",
   "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#3b82f6",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "icon192.png",
@@ -22,7 +24,7 @@
     },
     {
       "src": "maskable_icon_x192.png",
-      "sizes": "192x199",
+      "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
@@ -33,11 +35,29 @@
       "purpose": "maskable"
     }
   ],
-  "id": "calcule-sua-saude",
-  "orientation": "portrait",
-  "lang": "pt-BR",
-  "categories": ["health", "fitness", "education"],
-  "dir": "ltr",
+  "shortcuts": [
+    {
+      "name": "Calcular IMC",
+      "short_name": "IMC",
+      "description": "Calcule seu Índice de Massa Corporal",
+      "url": "/ferramentas/imc.html",
+      "icons": [{ "src": "icon192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Calcular TMB",
+      "short_name": "TMB",
+      "description": "Descubra sua Taxa Metabólica Basal",
+      "url": "/ferramentas/tmb.html",
+      "icons": [{ "src": "icon192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Beber Água",
+      "short_name": "Água",
+      "description": "Calcule sua meta de hidratação",
+      "url": "/ferramentas/agua.html",
+      "icons": [{ "src": "icon192.png", "sizes": "192x192" }]
+    }
+  ],
   "screenshots": [
     {
       "src": "screenshot1.png",
@@ -51,13 +71,14 @@
       "sizes": "720x1280",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "Menu mobile do Calcule Sua Saúde"
+      "label": "Ferramentas de saúde no celular"
     }
   ],
+  "categories": ["health", "fitness", "medical", "utilities"],
+  "lang": "pt-BR",
+  "dir": "ltr",
   "launch_handler": {
-    "client_mode": ["navigate-existing", "focus-existing", "auto"]
+    "client_mode": ["navigate-existing", "auto"]
   },
-  "iarc_rating_id": "e84b072d-71de-4e28-a95a-3dc3bc3c4582",
   "prefer_related_applications": false
 }
-
