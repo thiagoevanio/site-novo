@@ -30,7 +30,7 @@
     <changefreq>monthly</changefreq>
   </url>
 
-  <!-- Ferramentas e Calculadoras -->
+  <!-- Ferramentas -->
   <url>
     <loc>https://www.calculesuasaude.com.br/ferramentas/imc.html</loc>
     <priority>0.8</priority>
@@ -82,7 +82,12 @@
     <changefreq>monthly</changefreq>
   </url>
 
-  <!-- Artigos Educativos -->
+  <!-- Artigos -->
+  <url>
+    <loc>https://www.calculesuasaude.com.br/artigos/nutricao-funcional-microbiota.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
   <url>
     <loc>https://www.calculesuasaude.com.br/artigos/imc-calculo-interpretacao.html</loc>
     <priority>0.7</priority>
