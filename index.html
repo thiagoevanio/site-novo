@@ -21,7 +21,7 @@
     
     <meta name="google-adsense-account" content="ca-pub-5825554897787593">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 
     <!-- Google AdSense -->
     <meta name="google-adsense-account" content="ca-pub-5825554897787593">
@@ -97,6 +97,14 @@
         #ad-modal-backdrop {
             transition: opacity 0.3s ease;
         }
+        
+        /* Estilo para o accordion (FAQ) */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
@@ -138,6 +146,7 @@
                 <a href="personal.html" class="block py-2 text-center font-bold text-orange-600 bg-orange-50 dark:bg-orange-900/20 rounded">Personal Trainer</a>
                 <a href="#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
                 <a href="#artigos" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
+                <a href="#faq" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Dúvidas Frequentes</a>
                 <a href="todos_quizzes.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Quizzes</a>
             </div>
         </div>
@@ -209,7 +218,6 @@
                 </div>
             </div>
         </div>
-        <!-- Onda Divisória REMOVIDA para encaixe perfeito com o banner -->
     </section>
 
     <!-- Seção de Destaque Personal Trainer Rafael -->
@@ -220,7 +228,6 @@
                 <!-- Imagem Circular/Destaque -->
                 <div class="relative shrink-0">
                     <div class="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-orange-500 shadow-[0_0_30px_rgba(249,115,22,0.3)] overflow-hidden">
-                        <!-- Imagem Personal: personal.jpg -->
                         <img src="personal.jpg" onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" alt="Rafael Aquino Personal" class="w-full h-full object-cover">
                     </div>
                     <div class="absolute bottom-2 right-2 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
@@ -497,6 +504,276 @@
             <a href="artigos.html" class="inline-block border-2 border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white px-8 py-3 rounded-full font-bold transition-all duration-300">
                 Ver Todos os Artigos
             </a>
+        </div>
+    </section>
+
+    <!-- FAQ Section (NOVA) -->
+    <section id="faq" class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">Dúvidas Frequentes</h2>
+            <p class="text-center text-gray-500 dark:text-gray-400 mb-12">Respostas para as principais perguntas dos nossos usuários.</p>
+            
+            <div class="space-y-4">
+                <!-- Pergunta 1 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        O uso das ferramentas é totalmente gratuito?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        Sim! Todas as calculadoras e artigos do Calcule Sua Saúde são 100% gratuitos e de acesso livre.
+                    </div>
+                </details>
+
+                <!-- Pergunta 2 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        Preciso fazer cadastro para usar?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        Não. Acreditamos no acesso rápido à informação. Você pode usar qualquer ferramenta sem necessidade de login ou cadastro.
+                    </div>
+                </details>
+
+                <!-- Pergunta 3 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        O que é o IMC e para que serve?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        IMC é o Índice de Massa Corporal, uma medida internacional usada para calcular se uma pessoa está no peso ideal. Ele é um indicador geral de saúde.
+                    </div>
+                </details>
+
+                <!-- Pergunta 4 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        O IMC diferencia músculo de gordura?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        Não. Esta é a principal limitação do IMC. Atletas muito musculosos podem ter um IMC alto (sobrepeso) mesmo tendo pouca gordura. Para esses casos, a análise de % de gordura é melhor.
+                    </div>
+                </details>
+
+                <!-- Pergunta 5 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        O que é TMB (Taxa Metabólica Basal)?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        É a quantidade mínima de energia (calorias) que seu corpo precisa para manter as funções vitais (como respirar e bater o coração) em repouso absoluto.
+                    </div>
+                </details>
+
+                <!-- Pergunta 6 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        Como uso a TMB para emagrecer?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        Para emagrecer, você deve consumir menos calorias do que gasta (Déficit Calórico). A TMB ajuda a calcular esse limite diário com segurança.
+                    </div>
+                </details>
+
+                <!-- Pergunta 7 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        Qual a quantidade ideal de água por dia?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        A recomendação geral é de cerca de 35ml por quilo de peso corporal. Use nossa calculadora de água para obter seu valor exato.
+                    </div>
+                </details>
+
+                <!-- Pergunta 8 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        Café e suco contam como água?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        Eles ajudam na hidratação, mas não substituem a água pura. O ideal é que a maior parte da sua ingestão líquida venha de água natural.
+                    </div>
+                </details>
+
+                <!-- Pergunta 9 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        A calculadora de gordura corporal é exata?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        É uma estimativa baseada em medidas corporais. Para um resultado 100% preciso, é necessário um exame de bioimpedância ou dobras cutâneas com um profissional.
+                    </div>
+                </details>
+
+                <!-- Pergunta 10 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        O que são macronutrientes?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        São os nutrientes que fornecem energia e estrutura ao corpo: Proteínas, Carboidratos e Gorduras. O equilíbrio entre eles é a chave para uma dieta saudável.
+                    </div>
+                </details>
+
+                <!-- Pergunta 11 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        Devo cortar carboidratos para emagrecer?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        Não necessariamente. O excesso de calorias é que causa ganho de peso. Carboidratos são importantes fontes de energia, especialmente se você treina.
+                    </div>
+                </details>
+
+                <!-- Pergunta 12 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        Qual o nível normal de glicemia?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        Em jejum, considera-se normal valores abaixo de 99 mg/dL. Entre 100 e 125 mg/dL indica pré-diabetes. Sempre confirme com exame laboratorial.
+                    </div>
+                </details>
+
+                <!-- Pergunta 13 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        As calculadoras substituem o médico?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        Jamais. Nossas ferramentas são informativas e educativas. Para diagnósticos e tratamentos, consulte sempre um médico ou nutricionista.
+                    </div>
+                </details>
+
+                <!-- Pergunta 14 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        Meus dados ficam salvos no site?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        Não. Respeitamos sua privacidade. Os cálculos são feitos na hora e nenhum dado pessoal de saúde é armazenado em nossos servidores.
+                    </div>
+                </details>
+
+                <!-- Pergunta 15 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        Como funciona a consultoria do Personal Raphael Aquino?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        O Raphael oferece tanto acompanhamento presencial quanto consultoria online, montando treinos específicos para seu objetivo (hipertrofia, emagrecimento, etc).
+                    </div>
+                </details>
+
+                <!-- Pergunta 16 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        Como contrato o Personal Trainer?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        Você pode clicar no botão "Agendar no WhatsApp" na seção de destaque dele aqui na página inicial ou ir até a página "Personal Trainer" no menu.
+                    </div>
+                </details>
+
+                <!-- Pergunta 17 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        O que é o Desafio Diário?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        É uma sugestão de hábito saudável diferente para cada dia do mês, incentivando pequenas mudanças na rotina que melhoram sua qualidade de vida.
+                    </div>
+                </details>
+
+                <!-- Pergunta 18 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        Crianças podem usar a calculadora de IMC comum?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        Não. Para crianças e adolescentes, utilize nossa ferramenta específica de "IMC Infantil", pois os critérios de avaliação dependem da idade e sexo.
+                    </div>
+                </details>
+
+                <!-- Pergunta 19 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        O app FinSafe é do mesmo criador?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        Sim! O FinSafe é nosso aplicativo parceiro focado em saúde financeira, ajudando você a controlar gastos de forma offline e gratuita.
+                    </div>
+                </details>
+
+                <!-- Pergunta 20 -->
+                <details class="group bg-white dark:bg-gray-700 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-600">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-800 dark:text-gray-200">
+                        Como entro em contato para sugestões?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-600 pt-4 text-sm leading-relaxed">
+                        Você pode usar a página de "Contato" no rodapé do site para nos enviar mensagens, sugestões de novas calculadoras ou reportar erros.
+                    </div>
+                </details>
+            </div>
         </div>
     </section>
 
