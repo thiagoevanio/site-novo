@@ -1,602 +1,528 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#db2777">
     <title>Memória da Saúde - Calcule Sua Saúde</title>
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../css/estilo.css">
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Exercite seu cérebro! Combine alimentos saudáveis com seus benefícios neste jogo da memória educativo e divertido.">
+    <link rel="canonical" href="https://calculesuasaude.com.br/jogos/memoria_saude.html">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+                        },
+                        memory: {
+                            primary: '#db2777', // Pink
+                            secondary: '#be185d',
+                            accent: '#f472b6',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pop-in': 'popIn 0.3s ease-out forwards',
+                        'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
+                        'pulse-green': 'pulseGreen 0.5s ease-in-out',
+                    },
+                    keyframes: {
+                        popIn: {
+                            '0%': { transform: 'scale(0.5)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                        shake: {
+                            '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+                            '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+                            '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+                            '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
+                        },
+                        pulseGreen: {
+                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(34, 197, 94, 0.7)' },
+                            '50%': { boxShadow: '0 0 0 10px rgba(34, 197, 94, 0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
     <style>
-        .game-container {
-            max-width: 900px;
-            margin: 100px auto 20px;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
-        .game-header {
-            text-align: center;
-            margin-bottom: 30px;
+        .dark .glass-panel {
+            background: rgba(31, 41, 55, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        
-        .difficulty-selector {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .difficulty-btn {
-            background: #E91E63;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 0 5px;
-            border-radius: 5px;
+
+        /* 3D Card Flip Styles */
+        .card-container {
+            perspective: 1000px;
             cursor: pointer;
-            font-size: 14px;
         }
-        
-        .difficulty-btn.active {
-            background: #C2185B;
-        }
-        
-        .score-board {
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
             text-align: center;
-            margin: 20px 0;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
         }
-        
-        .score-item {
-            margin: 10px;
+        .card-container.flipped .card-inner {
+            transform: rotateY(180deg);
         }
-        
-        .score {
-            font-size: 20px;
-            font-weight: bold;
-            color: #E91E63;
-        }
-        
-        .memory-grid {
-            display: grid;
-            gap: 10px;
-            margin: 30px auto;
-            max-width: 600px;
-            justify-content: center;
-        }
-        
-        .memory-card {
-            width: 100px;
-            height: 100px;
-            background: #f0f0f0;
-            border: 3px solid #E91E63;
-            border-radius: 10px;
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            position: relative;
-            font-size: 12px;
-            text-align: center;
-            padding: 5px;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
-        
-        .memory-card:hover {
-            transform: scale(1.05);
+        .card-front {
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white;
         }
-        
-        .memory-card.flipped {
-            background: #fff;
-            transform: rotateY(180deg);
-        }
-        
-        .memory-card.flipped .card-content {
-            transform: rotateY(180deg);
-        }
-        
-        .memory-card.matched {
-            background: #c8e6c9;
-            border-color: #4CAF50;
-            cursor: default;
-        }
-        
-        .memory-card.wrong {
-            background: #ffcdd2;
-            border-color: #f44336;
-        }
-        
-        .card-content {
-            display: none;
-            font-size: 14px;
-            font-weight: bold;
-            text-align: center;
-            line-height: 1.2;
-        }
-        
-        .memory-card.flipped .card-content,
-        .memory-card.matched .card-content {
-            display: block;
-        }
-        
         .card-back {
-            font-size: 30px;
+            background-color: white;
+            color: #1f2937;
+            transform: rotateY(180deg);
+            border: 2px solid #fbcfe8;
         }
-        
-        .memory-card.flipped .card-back,
-        .memory-card.matched .card-back {
-            display: none;
-        }
-        
-        .game-controls {
-            text-align: center;
-            margin: 20px 0;
-        }
-        
-        .btn {
-            background: #E91E63;
+        .dark .card-back {
+            background-color: #374151;
             color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 0 10px;
+            border-color: #db2777;
         }
-        
-        .btn:hover {
-            background: #C2185B;
+        .matched .card-back {
+            background-color: #dcfce7;
+            border-color: #22c55e;
         }
-        
-        .btn.secondary {
-            background: #2196F3;
-        }
-        
-        .btn.secondary:hover {
-            background: #1976D2;
-        }
-        
-        .tips {
-            background: #e3f2fd;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-        }
-        
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 500px;
-            text-align: center;
-        }
-        
-        .share-buttons {
-            margin-top: 20px;
-        }
-        
-        .share-btn {
-            background: #1877f2;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .share-btn.twitter {
-            background: #1da1f2;
-        }
-        
-        .share-btn.whatsapp {
-            background: #25d366;
-        }
-        
-        @media (max-width: 768px) {
-            .memory-card {
-                width: 80px;
-                height: 80px;
-                font-size: 10px;
-            }
-            
-            .card-content {
-                font-size: 11px;
-            }
+        .dark .matched .card-back {
+            background-color: #064e3b;
+            border-color: #059669;
         }
     </style>
 </head>
-<body>
-    <header class="header-fixo">
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1><a href="../index.html" style="color: inherit; text-decoration: none;">Calcule Sua Saúde</a></h1>
+<body class="bg-pink-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- Header Simples -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-pink-100 dark:border-gray-800 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-pink-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="brain-circuit" class="w-5 h-5"></i>
                 </div>
-                <ul class="menu">
-                    <li><a href="../index.html">🏠 Início</a></li>
-                    <li><a href="../jogos.html">🎮 Jogos</a></li>
-                </ul>
-            </div>
-        </nav>
+                <h1 class="text-lg font-bold text-gray-900 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-pink-600">Saúde</span>
+                </h1>
+            </a>
+            <a href="../jogos.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-pink-600 transition-colors flex items-center gap-1">
+                <i data-lucide="gamepad-2" class="w-4 h-4"></i> Voltar
+            </a>
+        </div>
     </header>
 
-    <div class="game-container">
-        <div class="game-header">
-            <h1>🧠 Memória da Saúde</h1>
-            <p>Combine cartas de alimentos com seus benefícios para a saúde!</p>
-        </div>
+    <!-- Main Game Area -->
+    <main class="flex-1 pt-24 pb-12 flex items-center justify-center px-4 relative overflow-hidden">
+        
+        <!-- Background Elements -->
+        <div class="absolute top-20 -left-10 w-64 h-64 bg-pink-200 rounded-full blur-3xl opacity-30 animate-pulse pointer-events-none"></div>
+        <div class="absolute bottom-10 -right-10 w-72 h-72 bg-purple-200 rounded-full blur-3xl opacity-30 animate-pulse pointer-events-none"></div>
 
-        <div class="difficulty-selector">
-            <h3>Escolha a dificuldade:</h3>
-            <button class="difficulty-btn active" data-level="easy">Fácil</button>
-            <button class="difficulty-btn" data-level="medium">Médio</button>
-            <button class="difficulty-btn" data-level="hard">Difícil</button>
-        </div>
+        <div class="w-full max-w-4xl relative z-10">
 
-        <div class="score-board">
-            <div class="score-item">
-                <div class="score">Pontuação: <span id="score">0</span></div>
+            <!-- TELA INICIAL -->
+            <div id="start-screen" class="glass-panel rounded-3xl p-8 md:p-12 shadow-2xl text-center animate-pop-in">
+                <div class="w-24 h-24 bg-gradient-to-tr from-pink-500 to-purple-600 rounded-full mx-auto flex items-center justify-center mb-6 shadow-lg">
+                    <span class="text-5xl">🧠</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-4">Memória da Saúde</h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-lg mx-auto">
+                    Exercite seu cérebro! Combine os alimentos com seus benefícios nutricionais. Quanto mais rápido, maior sua pontuação.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
+                    <button onclick="game.start('easy')" class="group p-6 bg-white dark:bg-gray-800 border-2 border-green-200 dark:border-green-800 rounded-2xl hover:border-green-500 transition-all hover:-translate-y-1 shadow-sm hover:shadow-md">
+                        <div class="text-3xl mb-2 group-hover:scale-110 transition-transform">🥬</div>
+                        <h3 class="font-bold text-lg text-green-700 dark:text-green-400">Fácil</h3>
+                        <p class="text-xs text-gray-500">6 Pares • Grade 3x4</p>
+                    </button>
+                    <button onclick="game.start('medium')" class="group p-6 bg-white dark:bg-gray-800 border-2 border-blue-200 dark:border-blue-800 rounded-2xl hover:border-blue-500 transition-all hover:-translate-y-1 shadow-sm hover:shadow-md">
+                        <div class="text-3xl mb-2 group-hover:scale-110 transition-transform">🍎</div>
+                        <h3 class="font-bold text-lg text-blue-700 dark:text-blue-400">Médio</h3>
+                        <p class="text-xs text-gray-500">8 Pares • Grade 4x4</p>
+                    </button>
+                    <button onclick="game.start('hard')" class="group p-6 bg-white dark:bg-gray-800 border-2 border-purple-200 dark:border-purple-800 rounded-2xl hover:border-purple-500 transition-all hover:-translate-y-1 shadow-sm hover:shadow-md">
+                        <div class="text-3xl mb-2 group-hover:scale-110 transition-transform">🥑</div>
+                        <h3 class="font-bold text-lg text-purple-700 dark:text-purple-400">Difícil</h3>
+                        <p class="text-xs text-gray-500">12 Pares • Grade 4x6</p>
+                    </button>
+                </div>
             </div>
-            <div class="score-item">
-                <div class="score">Tentativas: <span id="attempts">0</span></div>
-            </div>
-            <div class="score-item">
-                <div class="score">Pares: <span id="matches">0</span> / <span id="total-pairs">6</span></div>
-            </div>
-            <div class="score-item">
-                <div class="score">Tempo: <span id="timer">0</span>s</div>
-            </div>
-        </div>
 
-        <div class="memory-grid" id="memory-grid">
-            <!-- Cartas serão inseridas aqui -->
-        </div>
+            <!-- TELA DO JOGO -->
+            <div id="game-screen" class="hidden flex flex-col h-full">
+                
+                <!-- HUD -->
+                <div class="glass-panel rounded-2xl p-4 mb-6 flex justify-between items-center shadow-lg">
+                    <div class="flex items-center gap-6">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-gray-500 dark:text-gray-400 tracking-wider">Tempo</span>
+                            <div class="text-2xl font-black text-gray-800 dark:text-white font-mono" id="timer">00:00</div>
+                        </div>
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-gray-500 dark:text-gray-400 tracking-wider">Movimentos</span>
+                            <div class="text-2xl font-black text-gray-800 dark:text-white" id="moves">0</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-right">
+                        <span class="text-[10px] uppercase font-bold text-gray-500 dark:text-gray-400 tracking-wider">Pontos</span>
+                        <div class="text-3xl font-black text-pink-600 dark:text-pink-400" id="score">0</div>
+                    </div>
+                </div>
 
-        <div class="game-controls">
-            <button class="btn" id="start-btn">Iniciar Jogo</button>
-            <button class="btn secondary" id="reset-btn">Reiniciar</button>
-        </div>
+                <!-- Grid de Cartas -->
+                <div id="memory-grid" class="grid gap-3 mx-auto w-full max-w-3xl perspective-1000">
+                    <!-- Cartas inseridas via JS -->
+                </div>
 
-        <div class="tips">
-            <h3>💡 Como Jogar:</h3>
-            <ul>
-                <li>Clique em duas cartas para virá-las</li>
-                <li>Combine alimentos com seus benefícios para a saúde</li>
-                <li>Encontre todos os pares no menor tempo possível</li>
-                <li>Menos tentativas = mais pontos!</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Modal de Resultado -->
-    <div id="result-modal" class="modal">
-        <div class="modal-content">
-            <h2>🎉 Parabéns!</h2>
-            <p>Você completou o jogo!</p>
-            <p>Pontuação final: <span id="final-score">0</span></p>
-            <p>Tempo: <span id="final-time">0</span> segundos</p>
-            <p>Tentativas: <span id="final-attempts">0</span></p>
-            <p id="performance-message"></p>
-            <div class="share-buttons">
-                <h3>Compartilhe sua pontuação:</h3>
-                <button class="share-btn" onclick="shareOnFacebook()">Facebook</button>
-                <button class="share-btn twitter" onclick="shareOnTwitter()">Twitter</button>
-                <button class="share-btn whatsapp" onclick="shareOnWhatsApp()">WhatsApp</button>
+                <div class="mt-6 text-center">
+                    <button onclick="game.restart()" class="text-sm font-semibold text-gray-500 hover:text-pink-600 transition-colors flex items-center justify-center gap-1 mx-auto">
+                        <i data-lucide="refresh-cw" class="w-4 h-4"></i> Reiniciar
+                    </button>
+                </div>
             </div>
-            <button class="btn" onclick="closeModal()">Fechar</button>
+
+            <!-- TELA DE RESULTADO -->
+            <div id="result-screen" class="hidden glass-panel rounded-3xl p-8 md:p-12 shadow-2xl text-center animate-pop-in max-w-md mx-auto relative z-20">
+                <div class="relative inline-block mb-6">
+                    <div class="w-24 h-24 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center shadow-lg mx-auto">
+                        <i data-lucide="check-circle" class="w-12 h-12 text-green-600 dark:text-green-400"></i>
+                    </div>
+                </div>
+                
+                <h2 class="text-3xl font-black text-gray-900 dark:text-white mb-2">Memória Afiada!</h2>
+                <p class="text-gray-500 dark:text-gray-400 mb-8" id="result-msg">Você completou o desafio.</p>
+
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700">
+                        <span class="block text-[10px] uppercase font-bold text-gray-400">Pontuação Final</span>
+                        <span class="block text-3xl font-black text-pink-600" id="final-score">0</span>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700">
+                        <span class="block text-[10px] uppercase font-bold text-gray-400">Tempo Total</span>
+                        <span class="block text-3xl font-black text-blue-600" id="final-time">0s</span>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <button onclick="game.restart()" class="w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="rotate-ccw" class="w-5 h-5"></i> Jogar Novamente
+                    </button>
+                    <button onclick="game.share()" class="w-full bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-white font-bold py-3.5 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-600 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="share-2" class="w-5 h-5"></i> Compartilhar
+                    </button>
+                </div>
+            </div>
+
         </div>
-    </div>
+    </main>
 
     <script>
+        lucide.createIcons();
+
+        // Banco de Dados de Pares (Alimento + Benefício/Categoria)
+        const memoryData = [
+            { id: 1, content: '🍎<br><span class="text-xs font-bold">Maçã</span>', match: 'Fibras', type: 'food' },
+            { id: 1, content: '💩<br><span class="text-xs font-bold">Digestão</span>', match: 'Fibras', type: 'benefit' },
+            
+            { id: 2, content: '🥕<br><span class="text-xs font-bold">Cenoura</span>', match: 'Olhos', type: 'food' },
+            { id: 2, content: '👀<br><span class="text-xs font-bold">Visão</span>', match: 'Olhos', type: 'benefit' },
+            
+            { id: 3, content: '🍌<br><span class="text-xs font-bold">Banana</span>', match: 'Potássio', type: 'food' },
+            { id: 3, content: '⚡<br><span class="text-xs font-bold">Energia</span>', match: 'Potássio', type: 'benefit' },
+            
+            { id: 4, content: '🥦<br><span class="text-xs font-bold">Brócolis</span>', match: 'Imunidade', type: 'food' },
+            { id: 4, content: '🛡️<br><span class="text-xs font-bold">Defesa</span>', match: 'Imunidade', type: 'benefit' },
+            
+            { id: 5, content: '🐟<br><span class="text-xs font-bold">Peixe</span>', match: 'Omega3', type: 'food' },
+            { id: 5, content: '🧠<br><span class="text-xs font-bold">Cérebro</span>', match: 'Omega3', type: 'benefit' },
+            
+            { id: 6, content: '🥛<br><span class="text-xs font-bold">Leite</span>', match: 'Calcio', type: 'food' },
+            { id: 6, content: '🦴<br><span class="text-xs font-bold">Ossos</span>', match: 'Calcio', type: 'benefit' },
+            
+            { id: 7, content: '🥑<br><span class="text-xs font-bold">Abacate</span>', match: 'Gordura Boa', type: 'food' },
+            { id: 7, content: '❤️<br><span class="text-xs font-bold">Coração</span>', match: 'Gordura Boa', type: 'benefit' },
+            
+            { id: 8, content: '🥚<br><span class="text-xs font-bold">Ovo</span>', match: 'Proteína', type: 'food' },
+            { id: 8, content: '💪<br><span class="text-xs font-bold">Músculos</span>', match: 'Proteína', type: 'benefit' },
+            
+            { id: 9, content: '🍊<br><span class="text-xs font-bold">Laranja</span>', match: 'Vit C', type: 'food' },
+            { id: 9, content: '🦠<br><span class="text-xs font-bold">Gripe</span>', match: 'Vit C', type: 'benefit' },
+            
+            { id: 10, content: '💧<br><span class="text-xs font-bold">Água</span>', match: 'Hidratação', type: 'food' },
+            { id: 10, content: '🧴<br><span class="text-xs font-bold">Pele</span>', match: 'Hidratação', type: 'benefit' },
+            
+            { id: 11, content: '🌰<br><span class="text-xs font-bold">Nozes</span>', match: 'Memoria', type: 'food' },
+            { id: 11, content: '💡<br><span class="text-xs font-bold">Foco</span>', match: 'Memoria', type: 'benefit' },
+            
+            { id: 12, content: '😴<br><span class="text-xs font-bold">Sono</span>', match: 'Descanso', type: 'food' },
+            { id: 12, content: '🔋<br><span class="text-xs font-bold">Recarga</span>', match: 'Descanso', type: 'benefit' }
+        ];
+
         class MemoryGame {
             constructor() {
-                this.difficulty = 'easy';
-                this.gameActive = false;
-                this.flippedCards = [];
-                this.matchedPairs = 0;
-                this.attempts = 0;
-                this.score = 0;
-                this.startTime = 0;
-                this.timer = null;
-                
-                this.cardPairs = [
-                    { food: '🍎\nMaçã', benefit: 'Rico em\nFibras' },
-                    { food: '🥕\nCenoura', benefit: 'Vitamina A\nVisão' },
-                    { food: '🥦\nBrócolis', benefit: 'Vitamina K\nOssos' },
-                    { food: '🍌\nBanana', benefit: 'Potássio\nCoração' },
-                    { food: '🐟\nPeixe', benefit: 'Ômega-3\nCérebro' },
-                    { food: '🥑\nAbacate', benefit: 'Gorduras\nBoas' },
-                    { food: '🍇\nUvas', benefit: 'Antioxidantes\nAnti-idade' },
-                    { food: '🥬\nEspinafre', benefit: 'Ferro\nEnergia' },
-                    { food: '🍊\nLaranja', benefit: 'Vitamina C\nImunidade' },
-                    { food: '🥒\nPepino', benefit: 'Hidratação\nPele' },
-                    { food: '🍓\nMorango', benefit: 'Antioxidantes\nMemória' },
-                    { food: '🥜\nCastanhas', benefit: 'Vitamina E\nCélulas' }
-                ];
-                
-                this.init();
+                this.state = {
+                    difficulty: 'easy',
+                    cards: [],
+                    flippedCards: [],
+                    matchedPairs: 0,
+                    score: 0,
+                    moves: 0,
+                    timer: 0,
+                    isLocked: false,
+                    gameInterval: null,
+                    combo: 0
+                };
+
+                this.dom = {
+                    startScreen: document.getElementById('start-screen'),
+                    gameScreen: document.getElementById('game-screen'),
+                    resultScreen: document.getElementById('result-screen'),
+                    grid: document.getElementById('memory-grid'),
+                    score: document.getElementById('score'),
+                    moves: document.getElementById('moves'),
+                    timer: document.getElementById('timer'),
+                    finalScore: document.getElementById('final-score'),
+                    finalTime: document.getElementById('final-time')
+                };
             }
-            
-            init() {
-                this.setupEventListeners();
-            }
-            
-            setupEventListeners() {
-                document.getElementById('start-btn').addEventListener('click', () => this.startGame());
-                document.getElementById('reset-btn').addEventListener('click', () => this.resetGame());
+
+            start(difficulty) {
+                this.state.difficulty = difficulty;
+                this.resetState();
                 
-                document.querySelectorAll('.difficulty-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => this.setDifficulty(e.target.dataset.level));
-                });
-            }
-            
-            setDifficulty(level) {
-                this.difficulty = level;
-                document.querySelectorAll('.difficulty-btn').forEach(btn => btn.classList.remove('active'));
-                document.querySelector(`[data-level="${level}"]`).classList.add('active');
-            }
-            
-            startGame() {
-                this.gameActive = true;
-                this.flippedCards = [];
-                this.matchedPairs = 0;
-                this.attempts = 0;
-                this.score = 0;
-                this.startTime = Date.now();
-                
-                document.getElementById('start-btn').disabled = true;
-                
-                this.generateCards();
-                this.startTimer();
-                this.updateScore();
-            }
-            
-            generateCards() {
-                const grid = document.getElementById('memory-grid');
-                grid.innerHTML = '';
-                
-                let pairCount;
+                // Configuração da Grade
+                let pairsCount;
                 let gridCols;
                 
-                switch(this.difficulty) {
-                    case 'easy':
-                        pairCount = 6;
-                        gridCols = 4;
-                        break;
-                    case 'medium':
-                        pairCount = 8;
-                        gridCols = 4;
-                        break;
-                    case 'hard':
-                        pairCount = 10;
-                        gridCols = 5;
-                        break;
-                }
-                
-                grid.style.gridTemplateColumns = `repeat(${gridCols}, 1fr)`;
-                document.getElementById('total-pairs').textContent = pairCount;
-                
-                // Selecionar pares aleatórios
-                const selectedPairs = this.cardPairs.slice(0, pairCount);
-                
-                // Criar array de cartas
-                const cards = [];
-                selectedPairs.forEach((pair, index) => {
-                    cards.push({ type: 'food', content: pair.food, pairId: index });
-                    cards.push({ type: 'benefit', content: pair.benefit, pairId: index });
-                });
-                
-                // Embaralhar cartas
-                cards.sort(() => Math.random() - 0.5);
-                
-                // Criar elementos das cartas
-                cards.forEach((card, index) => {
-                    const cardElement = document.createElement('div');
-                    cardElement.className = 'memory-card';
-                    cardElement.dataset.cardId = index;
-                    cardElement.dataset.pairId = card.pairId;
-                    cardElement.dataset.type = card.type;
-                    
-                    cardElement.innerHTML = `
-                        <div class="card-back">🧠</div>
-                        <div class="card-content">${card.content}</div>
-                    `;
-                    
-                    cardElement.addEventListener('click', () => this.flipCard(cardElement));
-                    grid.appendChild(cardElement);
-                });
-            }
-            
-            flipCard(cardElement) {
-                if (!this.gameActive || 
-                    cardElement.classList.contains('flipped') || 
-                    cardElement.classList.contains('matched') ||
-                    this.flippedCards.length >= 2) {
-                    return;
-                }
-                
-                cardElement.classList.add('flipped');
-                this.flippedCards.push(cardElement);
-                
-                if (this.flippedCards.length === 2) {
-                    this.attempts++;
-                    document.getElementById('attempts').textContent = this.attempts;
-                    
-                    setTimeout(() => this.checkMatch(), 1000);
-                }
-            }
-            
-            checkMatch() {
-                const [card1, card2] = this.flippedCards;
-                const pairId1 = card1.dataset.pairId;
-                const pairId2 = card2.dataset.pairId;
-                
-                if (pairId1 === pairId2) {
-                    // Match!
-                    card1.classList.add('matched');
-                    card2.classList.add('matched');
-                    card1.classList.remove('flipped');
-                    card2.classList.remove('flipped');
-                    
-                    this.matchedPairs++;
-                    this.score += this.calculatePoints();
-                    
-                    document.getElementById('matches').textContent = this.matchedPairs;
-                    this.updateScore();
-                    
-                    // Verificar se o jogo terminou
-                    const totalPairs = parseInt(document.getElementById('total-pairs').textContent);
-                    if (this.matchedPairs === totalPairs) {
-                        this.endGame();
-                    }
+                if (difficulty === 'easy') {
+                    pairsCount = 6;
+                    gridCols = 'grid-cols-3 sm:grid-cols-4'; // 12 cartas
+                } else if (difficulty === 'medium') {
+                    pairsCount = 8;
+                    gridCols = 'grid-cols-4'; // 16 cartas
                 } else {
-                    // No match
-                    card1.classList.add('wrong');
-                    card2.classList.add('wrong');
+                    pairsCount = 12;
+                    gridCols = 'grid-cols-4 sm:grid-cols-6'; // 24 cartas
+                }
+
+                // Selecionar e embaralhar cartas
+                const selectedPairs = memoryData.slice(0, pairsCount * 2);
+                this.state.cards = selectedPairs.sort(() => Math.random() - 0.5);
+
+                // Renderizar Grid
+                this.dom.grid.className = `grid gap-3 mx-auto w-full max-w-3xl perspective-1000 ${gridCols}`;
+                this.dom.grid.innerHTML = '';
+
+                this.state.cards.forEach((card, index) => {
+                    const cardEl = document.createElement('div');
+                    cardEl.className = 'card-container h-24 sm:h-28';
+                    cardEl.innerHTML = `
+                        <div class="card-inner" id="card-${index}">
+                            <div class="card-face card-front">
+                                <i data-lucide="brain-circuit" class="w-8 h-8 opacity-50"></i>
+                            </div>
+                            <div class="card-face card-back flex flex-col justify-center items-center p-2 leading-tight">
+                                <div class="text-3xl mb-1">${card.content.split('<br>')[0]}</div>
+                                <div class="text-xs font-bold text-gray-600 dark:text-gray-300">${card.content.split('<br>')[1]}</div>
+                            </div>
+                        </div>
+                    `;
+                    cardEl.onclick = () => this.flipCard(index);
+                    this.dom.grid.appendChild(cardEl);
+                });
+                lucide.createIcons();
+
+                // UI Transitions
+                this.dom.startScreen.classList.add('hidden');
+                this.dom.resultScreen.classList.add('hidden');
+                this.dom.gameScreen.classList.remove('hidden');
+
+                // Iniciar Timer
+                this.state.gameInterval = setInterval(() => {
+                    this.state.timer++;
+                    this.updateHUD();
+                }, 1000);
+
+                // Mecânica de "Espiada" Inicial (Só no fácil)
+                if (difficulty === 'easy') {
+                    this.peekCards();
+                }
+            }
+
+            peekCards() {
+                this.state.isLocked = true;
+                setTimeout(() => {
+                    const allCards = document.querySelectorAll('.card-container');
+                    allCards.forEach(c => c.classList.add('flipped'));
                     
                     setTimeout(() => {
-                        card1.classList.remove('flipped', 'wrong');
-                        card2.classList.remove('flipped', 'wrong');
+                        allCards.forEach(c => c.classList.remove('flipped'));
+                        this.state.isLocked = false;
+                    }, 2000);
+                }, 500);
+            }
+
+            flipCard(index) {
+                if (this.state.isLocked) return;
+                const cardEl = document.getElementById(`card-${index}`).parentElement;
+                
+                // Impede virar a mesma carta ou carta já combinada
+                if (cardEl.classList.contains('flipped') || cardEl.classList.contains('matched')) return;
+
+                cardEl.classList.add('flipped');
+                this.state.flippedCards.push({ index, ...this.state.cards[index] });
+
+                if (this.state.flippedCards.length === 2) {
+                    this.checkMatch();
+                }
+            }
+
+            checkMatch() {
+                this.state.isLocked = true;
+                this.state.moves++;
+                
+                const [card1, card2] = this.state.flippedCards;
+                const el1 = document.getElementById(`card-${card1.index}`).parentElement;
+                const el2 = document.getElementById(`card-${card2.index}`).parentElement;
+
+                if (card1.id === card2.id && card1.type !== card2.type) {
+                    // Match!
+                    this.state.matchedPairs++;
+                    this.state.combo++;
+                    this.state.score += 100 * this.state.combo; // Pontos com multiplicador
+                    
+                    setTimeout(() => {
+                        el1.classList.add('matched', 'animate-pulse-green');
+                        el2.classList.add('matched', 'animate-pulse-green');
+                        this.state.flippedCards = [];
+                        this.state.isLocked = false;
+                        
+                        // Verificar fim de jogo
+                        if (this.state.matchedPairs === this.state.cards.length / 2) {
+                            this.endGame();
+                        }
                     }, 500);
-                }
-                
-                this.flippedCards = [];
-            }
-            
-            calculatePoints() {
-                let basePoints = 100;
-                
-                // Bonus por dificuldade
-                switch(this.difficulty) {
-                    case 'medium':
-                        basePoints = 150;
-                        break;
-                    case 'hard':
-                        basePoints = 200;
-                        break;
-                }
-                
-                // Penalty por tentativas
-                const penalty = Math.max(0, (this.attempts - 1) * 10);
-                
-                return Math.max(10, basePoints - penalty);
-            }
-            
-            startTimer() {
-                this.timer = setInterval(() => {
-                    const elapsed = Math.floor((Date.now() - this.startTime) / 1000);
-                    document.getElementById('timer').textContent = elapsed;
-                }, 1000);
-            }
-            
-            updateScore() {
-                document.getElementById('score').textContent = this.score;
-            }
-            
-            endGame() {
-                this.gameActive = false;
-                clearInterval(this.timer);
-                document.getElementById('start-btn').disabled = false;
-                
-                const finalTime = Math.floor((Date.now() - this.startTime) / 1000);
-                
-                // Bonus por tempo
-                const timeBonus = Math.max(0, 300 - finalTime);
-                this.score += timeBonus;
-                this.updateScore();
-                
-                this.showResults(finalTime);
-            }
-            
-            showResults(finalTime) {
-                document.getElementById('final-score').textContent = this.score;
-                document.getElementById('final-time').textContent = finalTime;
-                document.getElementById('final-attempts').textContent = this.attempts;
-                
-                let message = '';
-                const efficiency = this.matchedPairs / this.attempts;
-                
-                if (efficiency >= 0.8 && finalTime <= 60) {
-                    message = '🌟 Incrível! Memória excepcional e conhecimento sobre saúde!';
-                } else if (efficiency >= 0.6 && finalTime <= 90) {
-                    message = '👍 Muito bom! Você tem bons conhecimentos sobre nutrição!';
-                } else if (efficiency >= 0.4) {
-                    message = '📚 Bom trabalho! Continue aprendendo sobre os benefícios dos alimentos!';
+                    
+                    confetti({
+                        particleCount: 20 * this.state.combo,
+                        spread: 40,
+                        origin: { y: 0.7 }
+                    });
+
                 } else {
-                    message = '💪 Continue praticando! A memória e o conhecimento melhoram com o treino!';
+                    // No Match
+                    this.state.combo = 0; // Reset combo
+                    setTimeout(() => {
+                        el1.classList.add('animate-shake');
+                        el2.classList.add('animate-shake');
+                    }, 400);
+
+                    setTimeout(() => {
+                        el1.classList.remove('flipped', 'animate-shake');
+                        el2.classList.remove('flipped', 'animate-shake');
+                        this.state.flippedCards = [];
+                        this.state.isLocked = false;
+                    }, 1000);
                 }
                 
-                document.getElementById('performance-message').textContent = message;
-                document.getElementById('result-modal').style.display = 'block';
+                this.updateHUD();
             }
-            
-            resetGame() {
-                this.gameActive = false;
-                clearInterval(this.timer);
-                this.flippedCards = [];
-                this.matchedPairs = 0;
-                this.attempts = 0;
-                this.score = 0;
+
+            resetState() {
+                this.state.score = 0;
+                this.state.moves = 0;
+                this.state.timer = 0;
+                this.state.matchedPairs = 0;
+                this.state.flippedCards = [];
+                this.state.combo = 0;
+                this.state.isLocked = false;
+                if (this.state.gameInterval) clearInterval(this.state.gameInterval);
+                this.updateHUD();
+            }
+
+            updateHUD() {
+                const mins = Math.floor(this.state.timer / 60).toString().padStart(2, '0');
+                const secs = (this.state.timer % 60).toString().padStart(2, '0');
+                this.dom.timer.textContent = `${mins}:${secs}`;
+                this.dom.moves.textContent = this.state.moves;
+                this.dom.score.textContent = this.state.score;
+            }
+
+            endGame() {
+                clearInterval(this.state.gameInterval);
                 
-                document.getElementById('score').textContent = '0';
-                document.getElementById('attempts').textContent = '0';
-                document.getElementById('matches').textContent = '0';
-                document.getElementById('timer').textContent = '0';
-                document.getElementById('start-btn').disabled = false;
-                
-                document.getElementById('memory-grid').innerHTML = '';
+                setTimeout(() => {
+                    this.dom.gameScreen.classList.add('hidden');
+                    this.dom.resultScreen.classList.remove('hidden');
+                    
+                    this.dom.finalScore.textContent = this.state.score;
+                    const mins = Math.floor(this.state.timer / 60);
+                    const secs = this.state.timer % 60;
+                    this.dom.finalTime.textContent = `${mins}m ${secs}s`;
+
+                    confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
+                }, 800);
+            }
+
+            restart() {
+                this.dom.gameScreen.classList.add('hidden');
+                this.dom.resultScreen.classList.add('hidden');
+                this.dom.startScreen.classList.remove('hidden');
+                this.resetState();
+            }
+
+            share() {
+                const text = `Fiz ${this.state.score} pontos no Memória da Saúde em ${this.dom.finalTime.textContent}! 🧠💪 Tente superar:`;
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Memória da Saúde',
+                        text: text,
+                        url: window.location.href
+                    });
+                } else {
+                    navigator.clipboard.writeText(`${text} ${window.location.href}`);
+                    alert('Copiado para a área de transferência!');
+                }
             }
         }
-        
-        function closeModal() {
-            document.getElementById('result-modal').style.display = 'none';
-        }
-        
-        function shareOnFacebook() {
-            const score = document.getElementById('final-score').textContent;
-            const time = document.getElementById('final-time').textContent;
-            const text = `Acabei de fazer ${score} pontos no jogo Memória da Saúde em ${time} segundos! 🧠 Teste sua memória e conhecimento sobre nutrição!`;
-            const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`;
-            window.open(url, '_blank');
-        }
-        
-        function shareOnTwitter() {
-            const score = document.getElementById('final-score').textContent;
-            const time = document.getElementById('final-time').textContent;
-            const text = `Fiz ${score} pontos no Memória da Saúde em ${time}s! 🧠 #MemóriadasSaúde #Nutrição`;
-            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`;
-            window.open(url, '_blank');
-        }
-        
-        function shareOnWhatsApp() {
-            const score = document.getElementById('final-score').textContent;
-            const time = document.getElementById('final-time').textContent;
-            const text = `Acabei de fazer ${score} pontos no jogo Memória da Saúde em ${time} segundos! 🧠 Teste sua memória: ${window.location.href}`;
-            const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
-            window.open(url, '_blank');
-        }
-        
-        // Inicializar o jogo
+
         const game = new MemoryGame();
     </script>
 </body>
 </html>
-
