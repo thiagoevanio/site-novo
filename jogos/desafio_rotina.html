@@ -1,701 +1,605 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0ea5e9">
     <title>Desafio da Rotina Saudável - Calcule Sua Saúde</title>
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../css/estilo.css">
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Simule um dia perfeito! Tome as melhores decisões desde a hora de acordar até a hora de dormir neste jogo interativo.">
+    <link rel="canonical" href="https://calculesuasaude.com.br/jogos/rotina_saudavel.html">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+                        },
+                        morning: '#f59e0b', // Amber
+                        afternoon: '#0ea5e9', // Sky
+                        night: '#6366f1', // Indigo
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'slide-up': 'slideUp 0.5s ease-out forwards',
+                        'fade-in': 'fadeIn 0.3s ease-out forwards',
+                        'bounce-slow': 'bounce 2s infinite',
+                    },
+                    keyframes: {
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
     <style>
-        .game-container {
-            max-width: 900px;
-            margin: 100px auto 20px;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
-        .game-header {
-            text-align: center;
-            margin-bottom: 30px;
+        .dark .glass-panel {
+            background: rgba(31, 41, 55, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        
-        .difficulty-selector {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .difficulty-btn {
-            background: #00BCD4;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 0 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        
-        .difficulty-btn.active {
-            background: #0097A7;
-        }
-        
-        .challenge-area {
-            background: #f0f8ff;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            text-align: center;
-        }
-        
-        .challenge-question {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        
-        .challenge-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .option-card {
-            background: white;
-            border: 2px solid #00BCD4;
-            border-radius: 10px;
-            padding: 15px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: center;
-        }
-        
         .option-card:hover {
-            background: #e0f7fa;
             transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        
-        .option-card.selected {
-            background: #00BCD4;
-            color: white;
+        .option-card.selected-correct {
+            background-color: #dcfce7;
+            border-color: #22c55e;
+            color: #166534;
         }
-        
-        .option-card.correct {
-            background: #4CAF50;
-            border-color: #4CAF50;
-            color: white;
+        .option-card.selected-wrong {
+            background-color: #fee2e2;
+            border-color: #ef4444;
+            color: #991b1b;
         }
-        
-        .option-card.incorrect {
-            background: #f44336;
-            border-color: #f44336;
-            color: white;
-        }
-        
-        .option-icon {
-            font-size: 30px;
-            margin-bottom: 10px;
-        }
-        
-        .option-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .option-description {
-            font-size: 14px;
-            color: #666;
-        }
-        
-        .option-card.selected .option-description,
-        .option-card.correct .option-description,
-        .option-card.incorrect .option-description {
-            color: rgba(255,255,255,0.9);
-        }
-        
-        .score-board {
-            display: flex;
-            justify-content: space-around;
-            background: #f5f5f5;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-        
-        .score-item {
-            text-align: center;
-            margin: 5px;
-        }
-        
-        .score-value {
-            font-size: 24px;
-            font-weight: bold;
-            color: #00BCD4;
-        }
-        
-        .score-label {
-            font-size: 14px;
-            color: #666;
-        }
-        
-        .feedback {
-            background: #fff3e0;
-            border-left: 4px solid #FF9800;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 5px;
-            display: none;
-        }
-        
-        .feedback.show {
-            display: block;
-        }
-        
-        .feedback h4 {
-            margin-top: 0;
-            color: #FF9800;
-        }
-        
-        .game-controls {
-            text-align: center;
-            margin: 20px 0;
-        }
-        
-        .btn {
-            background: #00BCD4;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 0 10px;
-        }
-        
-        .btn:hover {
-            background: #0097A7;
-        }
-        
-        .btn.secondary {
-            background: #2196F3;
-        }
-        
-        .btn.secondary:hover {
-            background: #1976D2;
-        }
-        
-        .btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
-        
-        .progress-bar {
-            width: 100%;
-            height: 10px;
-            background: #ddd;
-            border-radius: 5px;
-            overflow: hidden;
-            margin: 20px 0;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: #00BCD4;
-            transition: width 0.3s;
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-        }
-        
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 500px;
-            text-align: center;
-        }
-        
-        .share-buttons {
-            margin-top: 20px;
-        }
-        
-        .share-btn {
-            background: #1877f2;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .share-btn.twitter {
-            background: #1da1f2;
-        }
-        
-        .share-btn.whatsapp {
-            background: #25d366;
-        }
+        /* Dark mode overrides applied via JS logic classes */
     </style>
 </head>
-<body>
-    <header class="header-fixo">
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1><a href="../index.html" style="color: inherit; text-decoration: none;">Calcule Sua Saúde</a></h1>
+<body class="bg-blue-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- Header Simples -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-blue-100 dark:border-gray-800 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-blue-500 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="sun" class="w-5 h-5"></i>
                 </div>
-                <ul class="menu">
-                    <li><a href="../index.html">🏠 Início</a></li>
-                    <li><a href="../jogos.html">🎮 Jogos</a></li>
-                </ul>
-            </div>
-        </nav>
+                <h1 class="text-lg font-bold text-gray-900 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-blue-500">Saúde</span>
+                </h1>
+            </a>
+            <a href="../jogos.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-500 transition-colors flex items-center gap-1">
+                <i data-lucide="gamepad-2" class="w-4 h-4"></i> Voltar
+            </a>
+        </div>
     </header>
 
-    <div class="game-container">
-        <div class="game-header">
-            <h1>🧘 Desafio da Rotina Saudável</h1>
-            <p>Teste seus conhecimentos sobre hábitos saudáveis e construa a rotina perfeita!</p>
-        </div>
+    <!-- Main Game Area -->
+    <main class="flex-1 pt-24 pb-12 flex items-center justify-center px-4 relative overflow-hidden">
+        
+        <!-- Elementos de Fundo (Mudam com o tempo do jogo) -->
+        <div id="bg-decoration" class="absolute top-0 left-0 w-full h-full transition-colors duration-1000 z-0 bg-gradient-to-b from-blue-100 to-white dark:from-gray-800 dark:to-gray-900"></div>
+        <div class="absolute -top-20 -right-20 w-96 h-96 bg-yellow-300/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-white to-transparent dark:from-gray-900 opacity-50 pointer-events-none"></div>
 
-        <div class="difficulty-selector">
-            <h3>Escolha a dificuldade:</h3>
-            <button class="difficulty-btn active" data-level="easy">Fácil</button>
-            <button class="difficulty-btn" data-level="medium">Médio</button>
-            <button class="difficulty-btn" data-level="hard">Difícil</button>
-        </div>
+        <div class="w-full max-w-3xl relative z-10">
 
-        <div class="score-board">
-            <div class="score-item">
-                <div class="score-value" id="score">0</div>
-                <div class="score-label">Pontuação</div>
-            </div>
-            <div class="score-item">
-                <div class="score-value" id="current-question">0</div>
-                <div class="score-label">Pergunta</div>
-            </div>
-            <div class="score-item">
-                <div class="score-value" id="total-questions">10</div>
-                <div class="score-label">Total</div>
-            </div>
-            <div class="score-item">
-                <div class="score-value" id="streak">0</div>
-                <div class="score-label">Sequência</div>
-            </div>
-        </div>
+            <!-- TELA INICIAL -->
+            <div id="start-screen" class="glass-panel rounded-3xl p-8 md:p-16 shadow-2xl text-center animate-slide-up">
+                <div class="inline-block p-4 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-6 text-blue-600 dark:text-blue-400">
+                    <i data-lucide="calendar-clock" class="w-12 h-12"></i>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-6">Jornada Saudável</h1>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed max-w-xl mx-auto">
+                    Você consegue sobreviver a um dia moderno mantendo hábitos saudáveis? Tome as decisões certas desde o acordar até a hora de dormir.
+                </p>
 
-        <div class="progress-bar">
-            <div class="progress-fill" id="progress-fill" style="width: 0%;"></div>
-        </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 text-left">
+                    <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
+                        <span class="text-2xl mb-2 block">🌅</span>
+                        <h3 class="font-bold">Manhã</h3>
+                        <p class="text-xs text-gray-500">Energia e Ativação</p>
+                    </div>
+                    <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
+                        <span class="text-2xl mb-2 block">☀️</span>
+                        <h3 class="font-bold">Tarde</h3>
+                        <p class="text-xs text-gray-500">Foco e Nutrição</p>
+                    </div>
+                    <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
+                        <span class="text-2xl mb-2 block">🌙</span>
+                        <h3 class="font-bold">Noite</h3>
+                        <p class="text-xs text-gray-500">Recuperação e Sono</p>
+                    </div>
+                </div>
 
-        <div class="challenge-area" id="challenge-area" style="display: none;">
-            <div class="challenge-question" id="question-text"></div>
-            <div class="challenge-options" id="options-container"></div>
-            
-            <div class="feedback" id="feedback">
-                <h4 id="feedback-title"></h4>
-                <p id="feedback-text"></p>
+                <button onclick="game.start()" class="w-full md:w-auto px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg rounded-full shadow-lg hover:shadow-blue-500/30 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 mx-auto">
+                    Iniciar Meu Dia <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </button>
             </div>
-        </div>
 
-        <div class="game-controls">
-            <button class="btn" id="start-btn">Iniciar Desafio</button>
-            <button class="btn secondary" id="next-btn" style="display: none;">Próxima Pergunta</button>
-            <button class="btn secondary" id="reset-btn">Reiniciar</button>
-        </div>
-    </div>
+            <!-- TELA DO JOGO -->
+            <div id="game-screen" class="hidden flex flex-col h-full">
+                
+                <!-- HUD -->
+                <div class="flex justify-between items-end mb-6 px-2">
+                    <div>
+                        <span class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest" id="phase-label">Manhã</span>
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white leading-none mt-1">Pergunta <span id="current-q">1</span><span class="text-gray-400 text-lg">/10</span></h2>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">Pontos</span>
+                        <div class="text-3xl font-black text-blue-600 dark:text-blue-400" id="score">0</div>
+                    </div>
+                </div>
 
-    <!-- Modal de Resultado -->
-    <div id="result-modal" class="modal">
-        <div class="modal-content">
-            <h2>🎉 Desafio Concluído!</h2>
-            <p>Pontuação final: <span id="final-score">0</span></p>
-            <p>Acertos: <span id="correct-answers">0</span> / <span id="total-answers">10</span></p>
-            <p>Maior sequência: <span id="best-streak">0</span></p>
-            <p id="performance-message"></p>
-            <div class="share-buttons">
-                <h3>Compartilhe seu resultado:</h3>
-                <button class="share-btn" onclick="shareOnFacebook()">Facebook</button>
-                <button class="share-btn twitter" onclick="shareOnTwitter()">Twitter</button>
-                <button class="share-btn whatsapp" onclick="shareOnWhatsApp()">WhatsApp</button>
+                <!-- Barra de Progresso -->
+                <div class="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full mb-8 overflow-hidden">
+                    <div id="progress-bar" class="bg-blue-500 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+
+                <!-- Cartão da Pergunta -->
+                <div class="glass-panel rounded-3xl p-6 md:p-10 shadow-xl relative animate-slide-up">
+                    
+                    <!-- Pergunta -->
+                    <div class="mb-8">
+                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-2xl mb-4" id="q-icon">
+                            ⏰
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-800 dark:text-white" id="q-text">
+                            O despertador tocou! Qual a primeira coisa a fazer?
+                        </h3>
+                    </div>
+
+                    <!-- Opções -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="options-container">
+                        <!-- Botões gerados via JS -->
+                    </div>
+
+                    <!-- Feedback Area (Aparece após resposta) -->
+                    <div id="feedback-area" class="hidden mt-6 p-5 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 animate-fade-in">
+                        <div class="flex items-start gap-3">
+                            <div id="fb-icon" class="mt-1"></div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1" id="fb-title"></h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed" id="fb-text"></p>
+                            </div>
+                        </div>
+                        <button onclick="game.nextQuestion()" class="mt-4 w-full py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold rounded-xl hover:opacity-90 transition-opacity">
+                            Continuar Jornada
+                        </button>
+                    </div>
+
+                </div>
             </div>
-            <button class="btn" onclick="closeModal()">Fechar</button>
+
+            <!-- TELA DE RESULTADO -->
+            <div id="result-screen" class="hidden glass-panel rounded-3xl p-8 md:p-12 shadow-2xl text-center animate-slide-up">
+                <div class="relative inline-block mb-6">
+                    <div class="w-24 h-24 bg-gradient-to-tr from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
+                        <i data-lucide="award" class="w-12 h-12 text-white"></i>
+                    </div>
+                    <div class="absolute -bottom-2 -right-2 bg-white dark:bg-gray-800 text-xs font-bold px-3 py-1 rounded-full shadow border border-gray-100 dark:border-gray-700" id="final-badge">
+                        Guru da Saúde
+                    </div>
+                </div>
+                
+                <h2 class="text-3xl font-black text-gray-900 dark:text-white mb-2">Dia Concluído!</h2>
+                <p class="text-gray-500 dark:text-gray-400 mb-8" id="result-msg">Você fez escolhas incríveis hoje.</p>
+
+                <div class="grid grid-cols-3 gap-4 mb-8">
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl">
+                        <span class="block text-[10px] uppercase font-bold text-gray-400">Pontuação</span>
+                        <span class="block text-2xl font-black text-blue-600" id="final-score">0</span>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl">
+                        <span class="block text-[10px] uppercase font-bold text-gray-400">Precisão</span>
+                        <span class="block text-2xl font-black text-green-600" id="final-accuracy">0%</span>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl">
+                        <span class="block text-[10px] uppercase font-bold text-gray-400">Sequência</span>
+                        <span class="block text-2xl font-black text-purple-600" id="final-streak">0</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-3 max-w-sm mx-auto">
+                    <button onclick="game.reset()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="rotate-ccw" class="w-5 h-5"></i> Tentar Novo Dia
+                    </button>
+                    <button onclick="game.share()" class="w-full bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-white font-bold py-3.5 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-600 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="share-2" class="w-5 h-5"></i> Compartilhar
+                    </button>
+                </div>
+            </div>
+
         </div>
-    </div>
+    </main>
 
     <script>
-        class RoutineChallengeGame {
+        lucide.createIcons();
+
+        // Banco de Dados de Perguntas (Jornada)
+        const journeyData = [
+            // MANHÃ (1-3)
+            {
+                phase: "Manhã 🌅",
+                theme: "morning",
+                icon: "⏰",
+                question: "O despertador tocou! Qual a primeira coisa a fazer para ativar o corpo?",
+                options: [
+                    { text: "Ver redes sociais na cama", icon: "📱", correct: false, feedback: "A luz azul e a dopamina logo cedo podem aumentar a ansiedade." },
+                    { text: "Beber um copo d'água", icon: "💧", correct: true, feedback: "Perfeito! Seu corpo desidrata durante a noite. Água ativa o metabolismo." },
+                    { text: "Tomar café preto forte", icon: "☕", correct: false, feedback: "Café em jejum pode aumentar a acidez estomacal e o cortisol rapidamente." },
+                    { text: "Pular da cama correndo", icon: "🏃", correct: false, feedback: "Calma! Mudanças bruscas podem causar tontura. Espreguice-se primeiro." }
+                ]
+            },
+            {
+                phase: "Manhã 🌅",
+                theme: "morning",
+                icon: "🍳",
+                question: "Hora do café da manhã. Qual a opção mais equilibrada?",
+                options: [
+                    { text: "Pão, ovos e fruta", icon: "🥑", correct: true, feedback: "Excelente! Carboidrato, proteína e fibras garantem saciedade e energia." },
+                    { text: "Apenas café", icon: "☕", correct: false, feedback: "Pular refeições pode causar queda de energia e fome excessiva depois." },
+                    { text: "Cereal açucarado e leite", icon: "🥣", correct: false, feedback: "Muito açúcar causa um pico de insulina seguido de cansaço rápido." },
+                    { text: "Suco de laranja e torrada", icon: "🍊", correct: false, feedback: "Faltou proteína! Isso vai te deixar com fome em menos de 1 hora." }
+                ]
+            },
+            {
+                phase: "Manhã 🌅",
+                theme: "morning",
+                icon: "🚗",
+                question: "Como ir para o trabalho/estudo de forma mais saudável?",
+                options: [
+                    { text: "Ir de carro/ônibus sentado", icon: "💺", correct: false, feedback: "Sedentarismo total. Tente adicionar algum movimento." },
+                    { text: "Descer um ponto antes e caminhar", icon: "🚶", correct: true, feedback: "Ótima estratégia! Adiciona atividade física sem mudar muito a rotina." },
+                    { text: "Ir estressado no trânsito", icon: "🤬", correct: false, feedback: "O estresse matinal eleva o cortisol e prejudica o dia todo." },
+                    { text: "Comendo no caminho", icon: "🥐", correct: false, feedback: "Comer distraído e com pressa prejudica a digestão e a saciedade." }
+                ]
+            },
+            // TARDE (4-7)
+            {
+                phase: "Tarde ☀️",
+                theme: "afternoon",
+                icon: "🍽️",
+                question: "Almoço no self-service. Como montar o prato?",
+                options: [
+                    { text: "Só carnes e salada", icon: "🥩", correct: false, feedback: "Falta energia (carboidratos). O equilíbrio é a chave." },
+                    { text: "Metade salada, 1/4 proteína, 1/4 carbo", icon: "🥗", correct: true, feedback: "A regra de ouro! Garante nutrientes, saciedade e controle calórico." },
+                    { text: "Massa, arroz e batata", icon: "🍝", correct: false, feedback: "Excesso de carboidratos causa sonolência à tarde." },
+                    { text: "Só o que eu gosto", icon: "🍔", correct: false, feedback: "O prazer é importante, mas seu corpo precisa de nutrientes variados." }
+                ]
+            },
+            {
+                phase: "Tarde ☀️",
+                theme: "afternoon",
+                icon: "😫",
+                question: "Bateu aquele sono às 15h. O que fazer?",
+                options: [
+                    { text: "Tomar um energético", icon: "⚡", correct: false, feedback: "Muito açúcar e cafeína. Vai atrapalhar seu sono à noite." },
+                    { text: "Comer um doce", icon: "🍫", correct: false, feedback: "O pico de açúcar dá energia rápida, mas depois vem o cansaço dobrado." },
+                    { text: "Fazer uma pausa ativa e beber água", icon: "🧘", correct: true, feedback: "Movimento e hidratação oxigenam o cérebro e devolvem o foco." },
+                    { text: "Continuar forçando", icon: "💻", correct: false, feedback: "A produtividade cai. Respeite os sinais do seu corpo." }
+                ]
+            },
+            {
+                phase: "Tarde ☀️",
+                theme: "afternoon",
+                icon: "🍎",
+                question: "Fome no meio da tarde. Qual o melhor lanche?",
+                options: [
+                    { text: "Pacote de biscoito", icon: "🍪", correct: false, feedback: "Calorias vazias, gordura trans e pouco nutritivo." },
+                    { text: "Iogurte com fruta ou castanhas", icon: "🥜", correct: true, feedback: "Combinação perfeita de fibras, proteínas e gorduras boas." },
+                    { text: "Não comer nada até o jantar", icon: "🤐", correct: false, feedback: "Ficar muito tempo sem comer pode gerar compulsão à noite." },
+                    { text: "Salgado da lanchonete", icon: "🥟", correct: false, feedback: "Geralmente fritos e com farinha branca refinada." }
+                ]
+            },
+            {
+                phase: "Tarde ☀️",
+                theme: "afternoon",
+                icon: "💧",
+                question: "Você percebeu que não bebeu água a tarde toda.",
+                options: [
+                    { text: "Beber 1 litro de uma vez", icon: "🌊", correct: false, feedback: "Seu corpo não absorve tudo de uma vez. Beba aos poucos." },
+                    { text: "Deixar para amanhã", icon: "🌵", correct: false, feedback: "A desidratação causa dor de cabeça e fadiga." },
+                    { text: "Encher a garrafa e beber goles constantes", icon: "bottle", correct: true, feedback: "A hidratação constante é a mais eficiente para o corpo." },
+                    { text: "Tomar refrigerante para hidratar", icon: "🥤", correct: false, feedback: "Refrigerante não hidrata e adiciona açúcar desnecessário." }
+                ]
+            },
+            // NOITE (8-10)
+            {
+                phase: "Noite 🌙",
+                theme: "night",
+                icon: "🍲",
+                question: "Hora do jantar. O que é melhor para o sono?",
+                options: [
+                    { text: "Pizza ou lanche pesado", icon: "🍕", correct: false, feedback: "Digestão pesada atrapalha o sono profundo." },
+                    { text: "Não jantar", icon: "🚫", correct: false, feedback: "Dormir com fome pode fazer você acordar de madrugada." },
+                    { text: "Sopa ou prato leve com proteína", icon: "🥣", correct: true, feedback: "Nutre sem pesar, facilitando o descanso do corpo." },
+                    { text: "Café com pão", icon: "☕", correct: false, feedback: "Cafeína à noite? Má ideia para quem quer dormir bem." }
+                ]
+            },
+            {
+                phase: "Noite 🌙",
+                theme: "night",
+                icon: "📱",
+                question: "Faltam 30 minutos para dormir. O que você faz?",
+                options: [
+                    { text: "Rola o feed do Instagram", icon: "📱", correct: false, feedback: "A luz azul bloqueia a melatonina, hormônio do sono." },
+                    { text: "Vê notícias ou filmes de ação", icon: "📺", correct: false, feedback: "Estímulos agitados deixam o cérebro alerta." },
+                    { text: "Lê um livro ou medita", icon: "📖", correct: true, feedback: "Atividades relaxantes preparam o cérebro para desligar." },
+                    { text: "Discute problemas de trabalho", icon: "📢", correct: false, feedback: "Aumenta o estresse e a ansiedade na hora errada." }
+                ]
+            },
+            {
+                phase: "Noite 🌙",
+                theme: "night",
+                icon: "🛏️",
+                question: "Hora de dormir. Qual o ambiente ideal?",
+                options: [
+                    { text: "TV ligada e luz acesa", icon: "💡", correct: false, feedback: "Luz inibe o sono profundo e reparador." },
+                    { text: "Quarto quente e abafado", icon: "🌡️", correct: false, feedback: "O corpo precisa baixar a temperatura para dormir bem." },
+                    { text: "Escuro, silencioso e fresco", icon: "zk", correct: true, feedback: "O cenário perfeito para a regeneração celular e mental!" },
+                    { text: "Dormir no sofá", icon: "🛋️", correct: false, feedback: "Prejudica a postura e a continuidade do sono." }
+                ]
+            }
+        ];
+
+        class RoutineGame {
             constructor() {
-                this.difficulty = 'easy';
-                this.currentQuestion = 0;
-                this.totalQuestions = 10;
-                this.score = 0;
-                this.streak = 0;
-                this.bestStreak = 0;
-                this.correctAnswers = 0;
-                this.gameActive = false;
-                
-                this.questions = [
-                    {
-                        question: "Qual é o melhor horário para fazer exercícios?",
-                        options: [
-                            { icon: "🌅", title: "Manhã", description: "Logo após acordar", correct: true, explanation: "Exercícios matinais aceleram o metabolismo e dão energia para o dia!" },
-                            { icon: "🌞", title: "Meio-dia", description: "Durante o almoço", correct: false, explanation: "Exercitar-se logo após comer pode causar desconforto digestivo." },
-                            { icon: "🌙", title: "Noite", description: "Antes de dormir", correct: false, explanation: "Exercícios noturnos podem atrapalhar o sono." },
-                            { icon: "🤷", title: "Qualquer hora", description: "Não importa", correct: false, explanation: "O horário faz diferença para otimizar os benefícios." }
-                        ]
-                    },
-                    {
-                        question: "Quantas horas de sono um adulto precisa por noite?",
-                        options: [
-                            { icon: "😴", title: "5-6 horas", description: "Sono curto", correct: false, explanation: "Muito pouco sono prejudica a saúde física e mental." },
-                            { icon: "😊", title: "7-9 horas", description: "Sono adequado", correct: true, explanation: "Esta é a quantidade ideal para recuperação e bem-estar!" },
-                            { icon: "😪", title: "10-12 horas", description: "Sono longo", correct: false, explanation: "Dormir demais pode causar sonolência durante o dia." },
-                            { icon: "🤔", title: "Varia muito", description: "Depende da pessoa", correct: false, explanation: "Embora varie um pouco, 7-9h é o padrão recomendado." }
-                        ]
-                    },
-                    {
-                        question: "Qual a melhor forma de se hidratar durante o dia?",
-                        options: [
-                            { icon: "💧", title: "Água pura", description: "2L ao longo do dia", correct: true, explanation: "Água é a melhor opção para hidratação constante!" },
-                            { icon: "🥤", title: "Refrigerantes", description: "Várias vezes ao dia", correct: false, explanation: "Refrigerantes têm muito açúcar e não hidratam adequadamente." },
-                            { icon: "☕", title: "Café", description: "Várias xícaras", correct: false, explanation: "Café em excesso pode desidratar e causar ansiedade." },
-                            { icon: "🧃", title: "Sucos", description: "Industrializados", correct: false, explanation: "Sucos industrializados têm muito açúcar adicionado." }
-                        ]
-                    },
-                    {
-                        question: "Com que frequência devemos comer frutas e vegetais?",
-                        options: [
-                            { icon: "📅", title: "1x por semana", description: "Ocasionalmente", correct: false, explanation: "Muito pouco para obter os benefícios nutricionais." },
-                            { icon: "🗓️", title: "3x por semana", description: "Algumas vezes", correct: false, explanation: "Ainda insuficiente para uma dieta equilibrada." },
-                            { icon: "📆", title: "Todos os dias", description: "5 porções diárias", correct: true, explanation: "O ideal são 5 porções de frutas e vegetais por dia!" },
-                            { icon: "🤷", title: "Quando lembrar", description: "Sem regularidade", correct: false, explanation: "A regularidade é importante para manter os nutrientes." }
-                        ]
-                    },
-                    {
-                        question: "Qual é a melhor estratégia para gerenciar o estresse?",
-                        options: [
-                            { icon: "📱", title: "Redes sociais", description: "Navegar no celular", correct: false, explanation: "Redes sociais podem aumentar o estresse e ansiedade." },
-                            { icon: "🧘", title: "Meditação", description: "5-10 min diários", correct: true, explanation: "Meditação reduz cortisol e melhora o bem-estar mental!" },
-                            { icon: "🍫", title: "Comer doces", description: "Para se sentir melhor", correct: false, explanation: "Comer por estresse pode criar dependência e problemas de saúde." },
-                            { icon: "😴", title: "Dormir mais", description: "Escapar dos problemas", correct: false, explanation: "Dormir demais pode ser sinal de depressão." }
-                        ]
-                    },
-                    {
-                        question: "Qual a importância do café da manhã?",
-                        options: [
-                            { icon: "⏰", title: "Acelera metabolismo", description: "Inicia o dia com energia", correct: true, explanation: "Um bom café da manhã ativa o metabolismo e melhora o foco!" },
-                            { icon: "⚖️", title: "Ajuda a emagrecer", description: "Pulando refeições", correct: false, explanation: "Pular o café da manhã pode levar a excessos nas outras refeições." },
-                            { icon: "🤷", title: "Não é importante", description: "Posso pular", correct: false, explanation: "O café da manhã é fundamental para energia e concentração." },
-                            { icon: "☕", title: "Só café basta", description: "Líquidos apenas", correct: false, explanation: "Só café não fornece os nutrientes necessários." }
-                        ]
-                    },
-                    {
-                        question: "Como devemos nos exercitar durante a semana?",
-                        options: [
-                            { icon: "🏃", title: "Todo dia intenso", description: "Sem descanso", correct: false, explanation: "Exercitar-se intensamente todo dia pode causar lesões." },
-                            { icon: "📅", title: "3-5x por semana", description: "Com descanso", correct: true, explanation: "Esta frequência permite recuperação e progressão segura!" },
-                            { icon: "🛋️", title: "Só fins de semana", description: "Guerreiro de fim de semana", correct: false, explanation: "Exercitar-se só no fim de semana aumenta risco de lesões." },
-                            { icon: "🤔", title: "Quando der vontade", description: "Sem planejamento", correct: false, explanation: "Consistência é fundamental para obter benefícios." }
-                        ]
-                    },
-                    {
-                        question: "Qual a melhor forma de lidar com a fome entre refeições?",
-                        options: [
-                            { icon: "🍎", title: "Frutas ou nuts", description: "Lanches saudáveis", correct: true, explanation: "Lanches nutritivos mantêm energia e saciedade!" },
-                            { icon: "🍪", title: "Biscoitos", description: "Qualquer coisa doce", correct: false, explanation: "Doces causam picos de açúcar e fome rebote." },
-                            { icon: "💧", title: "Só água", description: "Ignorar a fome", correct: false, explanation: "Ignorar a fome pode levar a excessos na próxima refeição." },
-                            { icon: "☕", title: "Café", description: "Para cortar a fome", correct: false, explanation: "Café não fornece nutrientes e pode causar ansiedade." }
-                        ]
-                    },
-                    {
-                        question: "Como melhorar a qualidade do sono?",
-                        options: [
-                            { icon: "📱", title: "Ver TV na cama", description: "Para relaxar", correct: false, explanation: "Telas antes de dormir prejudicam a produção de melatonina." },
-                            { icon: "🌙", title: "Rotina noturna", description: "Horários regulares", correct: true, explanation: "Rotina noturna prepara o corpo para um sono reparador!" },
-                            { icon: "☕", title: "Café à noite", description: "Para ficar acordado", correct: false, explanation: "Cafeína à noite atrapalha o sono profundo." },
-                            { icon: "🍷", title: "Álcool", description: "Para relaxar", correct: false, explanation: "Álcool prejudica a qualidade do sono REM." }
-                        ]
-                    },
-                    {
-                        question: "Qual a importância da postura no trabalho?",
-                        options: [
-                            { icon: "💺", title: "Ergonomia adequada", description: "Previne dores", correct: true, explanation: "Boa postura previne dores nas costas e pescoço!" },
-                            { icon: "🛋️", title: "Qualquer posição", description: "Conforto é o que importa", correct: false, explanation: "Posições inadequadas causam problemas musculares." },
-                            { icon: "🏃", title: "Ficar em pé", description: "O tempo todo", correct: false, explanation: "Ficar muito tempo em pé também pode causar problemas." },
-                            { icon: "🤷", title: "Não importa", description: "Só por algumas horas", correct: false, explanation: "Mesmo poucas horas em má postura podem causar danos." }
-                        ]
-                    }
-                ];
-                
-                this.init();
+                this.state = {
+                    currentIndex: 0,
+                    score: 0,
+                    streak: 0,
+                    correctCount: 0,
+                    isPlaying: false
+                };
+
+                this.dom = {
+                    startScreen: document.getElementById('start-screen'),
+                    gameScreen: document.getElementById('game-screen'),
+                    resultScreen: document.getElementById('result-screen'),
+                    phaseLabel: document.getElementById('phase-label'),
+                    currentQ: document.getElementById('current-q'),
+                    score: document.getElementById('score'),
+                    progressBar: document.getElementById('progress-bar'),
+                    qIcon: document.getElementById('q-icon'),
+                    qText: document.getElementById('q-text'),
+                    optionsContainer: document.getElementById('options-container'),
+                    feedbackArea: document.getElementById('feedback-area'),
+                    fbIcon: document.getElementById('fb-icon'),
+                    fbTitle: document.getElementById('fb-title'),
+                    fbText: document.getElementById('fb-text'),
+                    finalScore: document.getElementById('final-score'),
+                    finalAccuracy: document.getElementById('final-accuracy'),
+                    finalStreak: document.getElementById('final-streak'),
+                    resultMsg: document.getElementById('result-msg'),
+                    finalBadge: document.getElementById('final-badge'),
+                    bgDecoration: document.getElementById('bg-decoration')
+                };
             }
-            
-            init() {
-                this.setupEventListeners();
+
+            start() {
+                this.state.currentIndex = 0;
+                this.state.score = 0;
+                this.state.streak = 0;
+                this.state.correctCount = 0;
+                this.state.isPlaying = true;
+
+                this.dom.startScreen.classList.add('hidden');
+                this.dom.resultScreen.classList.add('hidden');
+                this.dom.gameScreen.classList.remove('hidden');
+
+                this.renderQuestion();
             }
-            
-            setupEventListeners() {
-                document.getElementById('start-btn').addEventListener('click', () => this.startGame());
-                document.getElementById('next-btn').addEventListener('click', () => this.nextQuestion());
-                document.getElementById('reset-btn').addEventListener('click', () => this.resetGame());
+
+            renderQuestion() {
+                const question = journeyData[this.state.currentIndex];
                 
-                document.querySelectorAll('.difficulty-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => this.setDifficulty(e.target.dataset.level));
-                });
-            }
-            
-            setDifficulty(level) {
-                this.difficulty = level;
-                document.querySelectorAll('.difficulty-btn').forEach(btn => btn.classList.remove('active'));
-                document.querySelector(`[data-level="${level}"]`).classList.add('active');
+                // Update UI based on phase
+                this.dom.phaseLabel.textContent = question.phase;
+                this.updateTheme(question.theme);
                 
-                switch(level) {
-                    case 'easy':
-                        this.totalQuestions = 8;
-                        break;
-                    case 'medium':
-                        this.totalQuestions = 10;
-                        break;
-                    case 'hard':
-                        this.totalQuestions = 12;
-                        break;
-                }
+                this.dom.currentQ.textContent = this.state.currentIndex + 1;
+                this.dom.score.textContent = this.state.score;
+                this.dom.qIcon.textContent = question.icon;
+                this.dom.qText.textContent = question.question;
                 
-                document.getElementById('total-questions').textContent = this.totalQuestions;
-            }
-            
-            startGame() {
-                this.gameActive = true;
-                this.currentQuestion = 0;
-                this.score = 0;
-                this.streak = 0;
-                this.bestStreak = 0;
-                this.correctAnswers = 0;
+                // Progress Bar
+                const progress = ((this.state.currentIndex) / journeyData.length) * 100;
+                this.dom.progressBar.style.width = `${progress}%`;
+
+                // Render Options
+                this.dom.optionsContainer.innerHTML = '';
+                this.dom.feedbackArea.classList.add('hidden');
                 
-                document.getElementById('start-btn').style.display = 'none';
-                document.getElementById('challenge-area').style.display = 'block';
-                
-                this.updateScore();
-                this.nextQuestion();
-            }
-            
-            nextQuestion() {
-                if (this.currentQuestion >= this.totalQuestions) {
-                    this.endGame();
-                    return;
-                }
-                
-                this.currentQuestion++;
-                document.getElementById('current-question').textContent = this.currentQuestion;
-                
-                // Atualizar barra de progresso
-                const progress = (this.currentQuestion / this.totalQuestions) * 100;
-                document.getElementById('progress-fill').style.width = progress + '%';
-                
-                // Esconder feedback e botão próxima
-                document.getElementById('feedback').classList.remove('show');
-                document.getElementById('next-btn').style.display = 'none';
-                
-                // Selecionar pergunta aleatória
-                const questionIndex = Math.floor(Math.random() * this.questions.length);
-                const question = this.questions[questionIndex];
-                
-                this.currentQuestionData = question;
-                this.displayQuestion(question);
-            }
-            
-            displayQuestion(question) {
-                document.getElementById('question-text').textContent = question.question;
-                
-                const container = document.getElementById('options-container');
-                container.innerHTML = '';
-                
-                question.options.forEach((option, index) => {
-                    const optionCard = document.createElement('div');
-                    optionCard.className = 'option-card';
-                    optionCard.dataset.index = index;
-                    
-                    optionCard.innerHTML = `
-                        <div class="option-icon">${option.icon}</div>
-                        <div class="option-title">${option.title}</div>
-                        <div class="option-description">${option.description}</div>
+                // Shuffle options for variety
+                const shuffledOptions = [...question.options].sort(() => Math.random() - 0.5);
+
+                shuffledOptions.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = 'option-card w-full text-left p-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 transition-all duration-200 flex items-center gap-4 group';
+                    btn.innerHTML = `
+                        <span class="text-3xl bg-gray-50 dark:bg-gray-700 w-12 h-12 flex items-center justify-center rounded-lg group-hover:scale-110 transition-transform">${opt.icon}</span>
+                        <span class="font-semibold text-gray-700 dark:text-gray-200 text-lg">${opt.text}</span>
                     `;
-                    
-                    optionCard.addEventListener('click', () => this.selectOption(index));
-                    container.appendChild(optionCard);
+                    btn.onclick = () => this.handleAnswer(opt, btn);
+                    this.dom.optionsContainer.appendChild(btn);
                 });
             }
-            
-            selectOption(selectedIndex) {
-                if (!this.gameActive) return;
-                
-                const options = document.querySelectorAll('.option-card');
-                options.forEach(option => option.style.pointerEvents = 'none');
-                
-                const selectedOption = this.currentQuestionData.options[selectedIndex];
-                const isCorrect = selectedOption.correct;
-                
-                // Marcar respostas
-                options.forEach((option, index) => {
-                    if (this.currentQuestionData.options[index].correct) {
-                        option.classList.add('correct');
-                    } else if (index === selectedIndex && !isCorrect) {
-                        option.classList.add('incorrect');
-                    }
-                });
-                
-                // Atualizar pontuação
-                if (isCorrect) {
-                    this.correctAnswers++;
-                    this.streak++;
-                    this.bestStreak = Math.max(this.bestStreak, this.streak);
-                    
-                    let points = 100;
-                    if (this.difficulty === 'medium') points = 150;
-                    if (this.difficulty === 'hard') points = 200;
-                    
-                    // Bonus por sequência
-                    points += this.streak * 10;
-                    
-                    this.score += points;
+
+            updateTheme(theme) {
+                const bg = this.dom.bgDecoration;
+                if (theme === 'morning') {
+                    bg.className = 'absolute top-0 left-0 w-full h-full transition-colors duration-1000 z-0 bg-gradient-to-b from-orange-50 to-blue-50 dark:from-gray-800 dark:to-gray-900';
+                    this.dom.phaseLabel.className = 'text-xs font-bold text-orange-500 uppercase tracking-widest';
+                } else if (theme === 'afternoon') {
+                    bg.className = 'absolute top-0 left-0 w-full h-full transition-colors duration-1000 z-0 bg-gradient-to-b from-blue-100 to-white dark:from-gray-800 dark:to-gray-900';
+                    this.dom.phaseLabel.className = 'text-xs font-bold text-blue-500 uppercase tracking-widest';
                 } else {
-                    this.streak = 0;
+                    bg.className = 'absolute top-0 left-0 w-full h-full transition-colors duration-1000 z-0 bg-gradient-to-b from-indigo-100 to-purple-50 dark:from-gray-900 dark:to-gray-800';
+                    this.dom.phaseLabel.className = 'text-xs font-bold text-indigo-500 uppercase tracking-widest';
+                }
+            }
+
+            handleAnswer(option, btnElement) {
+                // Disable all buttons
+                const buttons = this.dom.optionsContainer.querySelectorAll('button');
+                buttons.forEach(btn => {
+                    btn.disabled = true;
+                    btn.classList.add('opacity-50', 'cursor-not-allowed');
+                });
+                btnElement.classList.remove('opacity-50');
+
+                if (option.correct) {
+                    btnElement.classList.add('selected-correct');
+                    this.state.streak++;
+                    this.state.correctCount++;
+                    // Base points + streak bonus
+                    this.state.score += 100 + (this.state.streak * 10);
+                    
+                    this.showFeedback(true, option.feedback);
+                    
+                    // Confetti
+                    confetti({
+                        particleCount: 50,
+                        spread: 60,
+                        origin: { y: 0.7 }
+                    });
+                } else {
+                    btnElement.classList.add('selected-wrong');
+                    this.state.streak = 0;
+                    this.showFeedback(false, option.feedback);
+                    
+                    // Highlight the correct one
+                    // (Optional logic to find and show correct one)
                 }
                 
-                this.updateScore();
-                this.showFeedback(selectedOption, isCorrect);
+                this.dom.score.textContent = this.state.score;
+            }
+
+            showFeedback(isCorrect, text) {
+                const area = this.dom.feedbackArea;
+                const icon = this.dom.fbIcon;
+                const title = this.dom.fbTitle;
+                const body = this.dom.fbText;
+
+                area.classList.remove('hidden');
                 
-                // Mostrar botão próxima pergunta
+                if (isCorrect) {
+                    area.className = 'mt-6 p-5 rounded-2xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 animate-fade-in';
+                    icon.innerHTML = '<div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600"><i data-lucide="check" class="w-5 h-5"></i></div>';
+                    title.textContent = "Excelente escolha!";
+                    title.className = "font-bold text-lg mb-1 text-green-700 dark:text-green-400";
+                } else {
+                    area.className = 'mt-6 p-5 rounded-2xl bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 animate-fade-in';
+                    icon.innerHTML = '<div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600"><i data-lucide="x" class="w-5 h-5"></i></div>';
+                    title.textContent = "Cuidado com essa escolha...";
+                    title.className = "font-bold text-lg mb-1 text-red-700 dark:text-red-400";
+                }
+                
+                body.textContent = text;
+                lucide.createIcons();
+                
+                // Scroll to feedback on mobile
                 setTimeout(() => {
-                    document.getElementById('next-btn').style.display = 'inline-block';
-                    options.forEach(option => option.style.pointerEvents = 'auto');
-                }, 2000);
+                    area.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
             }
-            
-            showFeedback(selectedOption, isCorrect) {
-                const feedback = document.getElementById('feedback');
-                const title = document.getElementById('feedback-title');
-                const text = document.getElementById('feedback-text');
-                
-                if (isCorrect) {
-                    title.textContent = '🎉 Correto!';
-                    title.style.color = '#4CAF50';
+
+            nextQuestion() {
+                this.state.currentIndex++;
+                if (this.state.currentIndex >= journeyData.length) {
+                    this.endGame();
                 } else {
-                    title.textContent = '❌ Incorreto!';
-                    title.style.color = '#f44336';
+                    this.renderQuestion();
                 }
-                
-                text.textContent = selectedOption.explanation;
-                feedback.classList.add('show');
             }
-            
-            updateScore() {
-                document.getElementById('score').textContent = this.score;
-                document.getElementById('streak').textContent = this.streak;
-            }
-            
+
             endGame() {
-                this.gameActive = false;
-                document.getElementById('challenge-area').style.display = 'none';
-                document.getElementById('start-btn').style.display = 'inline-block';
-                
-                this.showResults();
-            }
-            
-            showResults() {
-                document.getElementById('final-score').textContent = this.score;
-                document.getElementById('correct-answers').textContent = this.correctAnswers;
-                document.getElementById('total-answers').textContent = this.totalQuestions;
-                document.getElementById('best-streak').textContent = this.bestStreak;
-                
-                const percentage = (this.correctAnswers / this.totalQuestions) * 100;
-                let message = '';
-                
-                if (percentage >= 90) {
-                    message = '🌟 Incrível! Você é um expert em hábitos saudáveis!';
-                } else if (percentage >= 70) {
-                    message = '👍 Muito bom! Você tem ótimos conhecimentos sobre saúde!';
-                } else if (percentage >= 50) {
-                    message = '📚 Bom trabalho! Continue aprendendo sobre vida saudável!';
+                this.dom.gameScreen.classList.add('hidden');
+                this.dom.resultScreen.classList.remove('hidden');
+
+                // Stats
+                this.dom.finalScore.textContent = this.state.score;
+                this.dom.finalStreak.textContent = this.state.streak; // Last streak
+                const accuracy = Math.round((this.state.correctCount / journeyData.length) * 100);
+                this.dom.finalAccuracy.textContent = `${accuracy}%`;
+
+                // Badge Logic
+                let badge = "";
+                let msg = "";
+                if (accuracy === 100) {
+                    badge = "Lenda da Saúde";
+                    msg = "Perfeito! Você sabe exatamente como viver bem.";
+                } else if (accuracy >= 80) {
+                    badge = "Mestre do Bem-Estar";
+                    msg = "Ótimo desempenho! Pequenos ajustes e você chega na perfeição.";
+                } else if (accuracy >= 50) {
+                    badge = "Aprendiz Dedicado";
+                    msg = "Você está no caminho certo, mas atenção aos detalhes!";
                 } else {
-                    message = '💪 Continue estudando! Cada passo conta para uma vida mais saudável!';
+                    badge = "Iniciante";
+                    msg = "Que tal ler nossos artigos para aprender mais sobre saúde?";
                 }
+
+                this.dom.finalBadge.textContent = badge;
+                this.dom.resultMsg.textContent = msg;
                 
-                document.getElementById('performance-message').textContent = message;
-                document.getElementById('result-modal').style.display = 'block';
+                if (accuracy >= 80) {
+                    setTimeout(() => {
+                        confetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
+                    }, 500);
+                }
             }
-            
-            resetGame() {
-                this.gameActive = false;
-                this.currentQuestion = 0;
-                this.score = 0;
-                this.streak = 0;
-                this.bestStreak = 0;
-                this.correctAnswers = 0;
+
+            reset() {
+                this.start();
+            }
+
+            share() {
+                const accuracy = Math.round((this.state.correctCount / journeyData.length) * 100);
+                const text = `Completei a Jornada Saudável com ${accuracy}% de precisão e ${this.state.score} pontos! 🌅☀️🌙 Você consegue fazer melhor? Jogue agora:`;
                 
-                document.getElementById('score').textContent = '0';
-                document.getElementById('current-question').textContent = '0';
-                document.getElementById('streak').textContent = '0';
-                document.getElementById('progress-fill').style.width = '0%';
-                
-                document.getElementById('start-btn').style.display = 'inline-block';
-                document.getElementById('challenge-area').style.display = 'none';
-                document.getElementById('next-btn').style.display = 'none';
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Desafio da Rotina Saudável',
+                        text: text,
+                        url: window.location.href
+                    });
+                } else {
+                    navigator.clipboard.writeText(`${text} ${window.location.href}`);
+                    alert('Texto copiado para a área de transferência!');
+                }
             }
         }
-        
-        function closeModal() {
-            document.getElementById('result-modal').style.display = 'none';
-        }
-        
-        function shareOnFacebook() {
-            const score = document.getElementById('final-score').textContent;
-            const correct = document.getElementById('correct-answers').textContent;
-            const total = document.getElementById('total-answers').textContent;
-            const text = `Acabei de fazer ${score} pontos no Desafio da Rotina Saudável! Acertei ${correct}/${total} perguntas! 🧘 Teste seus conhecimentos sobre hábitos saudáveis!`;
-            const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`;
-            window.open(url, '_blank');
-        }
-        
-        function shareOnTwitter() {
-            const score = document.getElementById('final-score').textContent;
-            const correct = document.getElementById('correct-answers').textContent;
-            const total = document.getElementById('total-answers').textContent;
-            const text = `Fiz ${score} pontos no Desafio da Rotina Saudável! ${correct}/${total} acertos! 🧘 #RotinaSaudável #BemEstar`;
-            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`;
-            window.open(url, '_blank');
-        }
-        
-        function shareOnWhatsApp() {
-            const score = document.getElementById('final-score').textContent;
-            const correct = document.getElementById('correct-answers').textContent;
-            const total = document.getElementById('total-answers').textContent;
-            const text = `Acabei de fazer ${score} pontos no Desafio da Rotina Saudável! Acertei ${correct}/${total} perguntas! 🧘 Teste você também: ${window.location.href}`;
-            const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
-            window.open(url, '_blank');
-        }
-        
-        // Inicializar o jogo
-        const game = new RoutineChallengeGame();
+
+        const game = new RoutineGame();
     </script>
 </body>
 </html>
-
