@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#3b82f6">
-    <title>Calculadora de Água por Dia - Hidratação Ideal | Calcule Sua Saúde</title>
+    <meta name="theme-color" content="#0ea5e9">
     
-    <!-- Meta Tags SEO -->
-    <meta name="description" content="Calcule a quantidade ideal de água que você deve beber por dia. Descubra suas necessidades de hidratação baseadas em evidências científicas.">
+    <!-- SEO -->
+    <title>Calculadora de Água Diária - Hidratação Ideal | Calcule Sua Saúde</title>
+    <meta name="description" content="Descubra a quantidade exata de água que você deve beber por dia baseada no seu peso. Ferramenta gratuita, benefícios da hidratação e sinais de desidratação.">
     <meta property="og:title" content="Calculadora de Água por Dia - Calcule Sua Saúde">
     <meta property="og:description" content="Descubra a quantidade ideal de água que você deve beber por dia para manter-se hidratado.">
     <meta property="og:type" content="website">
@@ -29,17 +29,32 @@
             theme: {
                 extend: {
                     colors: {
+                        portal: {
+                            red: '#c4170c',
+                            dark: '#1e1e1e',
+                            gray: '#f5f5f5'
+                        },
                         brand: {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            900: '#1e3a8a',
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
                         }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.3s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
                     }
                 }
             }
@@ -47,7 +62,7 @@
     </script>
 
     <!-- Google Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
@@ -59,12 +74,20 @@
         .dark .glass-effect {
             background: rgba(17, 24, 39, 0.95);
         }
+        /* Estilos do Chatbot */
+        .typing-dot { animation: typing 1.4s infinite ease-in-out both; }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes typing { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
+
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 
     <!-- Header Fixo -->
-    <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
+    <header class="fixed w-full top-0 z-40 glass-effect shadow-sm transition-all duration-300">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="../index.html" class="flex items-center gap-2 group">
                 <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
@@ -77,8 +100,8 @@
 
             <nav class="hidden md:flex items-center gap-8">
                 <a href="../index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
-                <a href="../todos_quizzes.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Quizzes</a>
-                <a href="../index.html#ferramentas" class="text-sm font-bold text-brand-600">Calculadoras</a>
+                <a href="../calculadoras.html" class="text-sm font-bold text-brand-600">Calculadoras</a>
+                <a href="../jogos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Jogos</a>
                 <a href="../artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
                 <a href="../sobre.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Sobre</a>
                 
@@ -97,7 +120,8 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
             <div class="flex flex-col p-4 space-y-4">
                 <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
-                <a href="../index.html#ferramentas" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../calculadoras.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../jogos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Jogos</a>
                 <a href="../artigos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
             </div>
         </div>
@@ -111,96 +135,58 @@
             <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
                 <a href="../index.html" class="hover:text-brand-600">Início</a>
                 <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <a href="../index.html#ferramentas" class="hover:text-brand-600">Ferramentas</a>
+                <a href="../calculadoras.html" class="hover:text-brand-600">Ferramentas</a>
                 <i data-lucide="chevron-right" class="w-4 h-4"></i>
                 <span class="text-gray-900 dark:text-white font-medium">Calculadora de Água</span>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                 
-                <!-- Coluna Esquerda: Calculadora -->
-                <div class="lg:col-span-5 space-y-8">
+                <!-- Coluna Esquerda: Calculadora e Artigo -->
+                <div class="lg:col-span-8 space-y-8">
+                    
+                    <!-- Ferramenta -->
                     <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden p-8">
                         <div class="flex items-center gap-3 mb-6">
                             <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-xl text-blue-600 dark:text-blue-400">
-                                <i data-lucide="droplets" class="w-6 h-6"></i>
+                                <i data-lucide="droplets" class="w-8 h-8"></i>
                             </div>
                             <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Hidratação Diária</h1>
                         </div>
 
-                        <form id="agua-form" class="space-y-5">
-                            
-                            <!-- Peso -->
-                            <div>
-                                <label for="peso" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Peso Atual</label>
-                                <div class="relative">
-                                    <input type="number" id="peso" step="0.1" placeholder="Ex: 70.5" required
-                                        class="block w-full pl-4 pr-12 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all">
-                                    <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
-                                        <span class="text-gray-500 dark:text-gray-400 font-medium">kg</span>
+                        <form id="agua-form" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Peso -->
+                                <div>
+                                    <label for="peso" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Peso Atual</label>
+                                    <div class="relative">
+                                        <input type="number" id="peso" step="0.1" placeholder="Ex: 70.5" required
+                                            class="block w-full pl-4 pr-12 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                                        <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                                            <span class="text-gray-500 dark:text-gray-400 font-medium">kg</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Idade (Opcional para ajuste fino) -->
-                            <div>
-                                <label for="idade" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Idade</label>
-                                <input type="number" id="idade" placeholder="Ex: 30" required
-                                    class="block w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all">
-                            </div>
-
-                            <!-- Nível de Atividade -->
-                            <div>
-                                <label for="atividade" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Nível de Atividade Física</label>
-                                <div class="relative">
-                                    <select id="atividade" required
-                                        class="block w-full pl-4 pr-10 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all appearance-none">
-                                        <option value="0">Baixo (Sedentário)</option>
-                                        <option value="350">Moderado (Ex: Caminhada/Academia leve)</option>
-                                        <option value="700">Alto (Ex: Corrida/Esportes intensos)</option>
-                                        <option value="1000">Muito Alto (Atleta/Trabalho físico pesado)</option>
-                                    </select>
-                                    <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
-                                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Clima -->
-                            <div>
-                                <label for="clima" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Clima Predominante</label>
-                                <div class="relative">
-                                    <select id="clima" required
-                                        class="block w-full pl-4 pr-10 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all appearance-none">
-                                        <option value="0">Ameno / Frio (< 25°C)</option>
-                                        <option value="500">Quente (25-30°C)</option>
-                                        <option value="1000">Muito Quente (> 30°C)</option>
-                                    </select>
-                                    <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
-                                        <i data-lucide="sun" class="w-5 h-5 text-gray-400"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Condições Especiais -->
-                            <div>
-                                <label for="condicoes" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Condição Especial</label>
-                                <div class="relative">
-                                    <select id="condicoes"
-                                        class="block w-full pl-4 pr-10 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all appearance-none">
-                                        <option value="0">Nenhuma</option>
-                                        <option value="300">Gravidez (+300ml)</option>
-                                        <option value="800">Amamentação (+800ml)</option>
-                                        <option value="500">Febre / Doença</option>
-                                    </select>
-                                    <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
-                                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400"></i>
+                                <!-- Nível de Atividade -->
+                                <div>
+                                    <label for="atividade" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Nível de Atividade</label>
+                                    <div class="relative">
+                                        <select id="atividade" required
+                                            class="block w-full pl-4 pr-10 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all appearance-none">
+                                            <option value="35">Normal (Escritório/Casa)</option>
+                                            <option value="40">Moderado (Treino 3x/semana)</option>
+                                            <option value="45">Intenso (Atleta/Trabalho pesado)</option>
+                                        </select>
+                                        <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                Calcular Necessidade
+                                Calcular Meta
                             </button>
                         </form>
 
@@ -208,109 +194,110 @@
                         <div id="resultado-container" class="hidden mt-8 pt-8 border-t border-gray-100 dark:border-gray-700 animate-fade-in">
                             <h3 class="text-center font-bold text-gray-900 dark:text-white mb-6">Meta Diária Sugerida</h3>
                             
-                            <div class="space-y-4">
-                                <!-- Resultado Principal -->
-                                <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border border-blue-200 dark:border-blue-800 text-center relative overflow-hidden">
-                                    <div class="absolute -right-4 -top-4 opacity-10">
-                                        <i data-lucide="droplet" class="w-32 h-32 text-blue-500"></i>
-                                    </div>
-                                    <span class="block text-xs text-blue-600 dark:text-blue-300 uppercase font-bold tracking-wider mb-2">Total Recomendado</span>
-                                    <div class="flex items-center justify-center gap-2">
-                                        <span id="resultado-litros" class="text-5xl font-extrabold text-blue-700 dark:text-blue-100">--</span>
-                                        <span class="text-lg font-medium text-blue-600 dark:text-blue-300 mt-2">litros</span>
-                                    </div>
-                                    <p class="text-sm text-blue-600 dark:text-blue-300 mt-2">
-                                        Aprox. <span id="resultado-copos" class="font-bold">--</span> copos de 250ml
-                                    </p>
+                            <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border border-blue-200 dark:border-blue-800 text-center relative overflow-hidden">
+                                <div class="absolute -right-4 -top-4 opacity-10">
+                                    <i data-lucide="glass-water" class="w-32 h-32 text-blue-500"></i>
                                 </div>
-
-                                <!-- Dica de Água Pura -->
-                                <div class="flex gap-4 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl border border-gray-200 dark:border-gray-600">
-                                    <i data-lucide="info" class="w-6 h-6 text-brand-500 shrink-0 mt-1"></i>
-                                    <div>
-                                        <h4 class="font-bold text-gray-900 dark:text-white text-sm">Dica Importante</h4>
-                                        <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">
-                                            Cerca de 20% da hidratação vem dos alimentos (frutas, vegetais). O valor acima foca na ingestão de líquidos diretos (água, chás).
-                                        </p>
-                                    </div>
+                                <span class="block text-xs text-blue-600 dark:text-blue-300 uppercase font-bold tracking-wider mb-2">Total Recomendado</span>
+                                <div class="flex items-center justify-center gap-2">
+                                    <span id="resultado-litros" class="text-5xl font-extrabold text-blue-700 dark:text-blue-100">--</span>
+                                    <span class="text-lg font-medium text-blue-600 dark:text-blue-300 mt-2">litros</span>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Coluna Direita: Conteúdo Educativo -->
-                <div class="lg:col-span-7 space-y-8">
-                    
-                    <!-- Por que hidratar? -->
-                    <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 shadow-sm">
-                        <div class="flex items-start gap-4">
-                            <div class="p-3 bg-brand-100 dark:bg-brand-900/30 rounded-full text-brand-600 hidden sm:block">
-                                <i data-lucide="book-open" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Por que beber água é vital?</h2>
-                                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                                    A água compõe cerca de 60% do nosso corpo. Ela é essencial para transportar nutrientes, regular a temperatura corporal, lubrificar as articulações e eliminar toxinas.
+                                <p class="text-sm text-blue-600 dark:text-blue-300 mt-2">
+                                    Aprox. <span id="resultado-copos" class="font-bold">--</span> copos de 250ml
                                 </p>
-                                <div class="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-xl border border-gray-200 dark:border-gray-600">
-                                    <p class="font-mono text-sm text-gray-700 dark:text-gray-300">
-                                        <strong>Cálculo Base:</strong> 35ml × Peso (kg) + Ajustes (Atividade/Clima)
-                                    </p>
-                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Sinais de Desidratação -->
-                    <section class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-red-300 transition-colors group">
-                            <h3 class="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                                <i data-lucide="alert-triangle" class="w-5 h-5 text-red-500"></i> Sinais de Desidratação
-                            </h3>
-                            <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red-400 rounded-full"></span> Urina escura ou com cheiro forte</li>
-                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red-400 rounded-full"></span> Boca seca e pegajosa</li>
-                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red-400 rounded-full"></span> Dor de cabeça e tontura</li>
-                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red-400 rounded-full"></span> Cansaço excessivo</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-green-300 transition-colors group">
-                            <h3 class="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                                <i data-lucide="glass-water" class="w-5 h-5 text-green-500"></i> Fontes de Hidratação
-                            </h3>
-                            <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span> Água pura (melhor opção)</li>
-                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span> Chás naturais sem açúcar</li>
-                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span> Água de coco</li>
-                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span> Frutas ricas em água (melancia, melão)</li>
-                            </ul>
-                        </div>
-                    </section>
-
-                    <!-- Dicas Práticas -->
-                    <section class="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-3xl p-8 text-white shadow-lg">
-                        <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
-                            <i data-lucide="check-circle-2" class="w-6 h-6"></i> Dicas para Beber Mais Água
+                    <!-- ARTIGO EDUCATIVO (Essencial para AdSense) -->
+                    <article class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+                        
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <span class="bg-brand-600 w-1 h-8 rounded-full block"></span>
+                            Como funciona o cálculo?
                         </h2>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-blue-50">
-                            <div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm">
-                                <strong>⏰ Distribua:</strong> Não beba tudo de uma vez. O corpo absorve melhor em pequenas doses ao longo do dia.
+                        <p class="mb-6 leading-relaxed">
+                            Muitas pessoas acreditam na regra antiga de "2 litros por dia", mas a ciência nutricional moderna mostra que a necessidade de hidratação é individual. O cálculo mais aceito pela <strong>Organização Mundial da Saúde (OMS)</strong> considera o seu peso corporal como fator principal.
+                        </p>
+                        <p class="mb-8 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg border-l-4 border-brand-500 italic">
+                            A fórmula base utilizada nesta ferramenta é: <strong>Peso (kg) x 35ml</strong>. Isso garante que seu corpo tenha fluido suficiente para realizar processos metabólicos vitais.
+                        </p>
+
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Por que a hidratação é vital?</h3>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-1 shrink-0"></i>
+                                <span><strong>Melhorar o desempenho físico:</strong> A desidratação de apenas 2% já pode prejudicar a performance em exercícios.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-1 shrink-0"></i>
+                                <span><strong>Função cerebral:</strong> A falta de água pode causar dores de cabeça, falta de concentração e fadiga mental.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-1 shrink-0"></i>
+                                <span><strong>Saúde renal:</strong> A água é essencial para filtrar resíduos e prevenir pedras nos rins.</span>
+                            </li>
+                        </ul>
+
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Sinais de Desidratação</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                            <div class="bg-yellow-50 dark:bg-yellow-900/20 p-5 rounded-xl border border-yellow-100 dark:border-yellow-800">
+                                <h4 class="font-bold text-yellow-800 dark:text-yellow-400 mb-2 flex items-center gap-2"><i data-lucide="alert-triangle" class="w-4 h-4"></i> Urina Escura</h4>
+                                <p class="text-sm">Se sua urina está amarela escura, você precisa beber água imediatamente.</p>
                             </div>
-                            <div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm">
-                                <strong>🌅 Ao Acordar:</strong> Comece o dia com 1 ou 2 copos para reativar o metabolismo após o sono.
-                            </div>
-                            <div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm">
-                                <strong>🍽️ Antes de Comer:</strong> Beber um copo 30min antes das refeições ajuda na digestão e saciedade.
-                            </div>
-                            <div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm">
-                                <strong>📱 Use Apps:</strong> Configure lembretes no celular ou tenha uma garrafa sempre à vista.
+                            <div class="bg-red-50 dark:bg-red-900/20 p-5 rounded-xl border border-red-100 dark:border-red-800">
+                                <h4 class="font-bold text-red-800 dark:text-red-400 mb-2 flex items-center gap-2"><i data-lucide="frown" class="w-4 h-4"></i> Pele Seca</h4>
+                                <p class="text-sm">Boca seca e pele sem elasticidade são sinais claros de falta de água.</p>
                             </div>
                         </div>
-                    </section>
-
+                    </article>
                 </div>
+
+                <!-- Coluna Direita: Sidebar -->
+                <aside class="lg:col-span-4 space-y-8">
+                    
+                    <!-- Link para outras ferramentas -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+                        <h3 class="font-bold text-lg mb-4 text-gray-900 dark:text-white border-l-4 border-portal-red pl-3">Outras Ferramentas</h3>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="imc.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors group">
+                                    <div class="bg-blue-100 text-blue-600 p-2 rounded group-hover:bg-blue-600 group-hover:text-white transition-colors"><i data-lucide="activity" class="w-4 h-4"></i></div>
+                                    <span class="font-medium text-sm">Calculadora IMC</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tmb.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors group">
+                                    <div class="bg-orange-100 text-orange-600 p-2 rounded group-hover:bg-orange-600 group-hover:text-white transition-colors"><i data-lucide="flame" class="w-4 h-4"></i></div>
+                                    <span class="font-medium text-sm">Gasto Calórico (TMB)</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="gordura.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors group">
+                                    <div class="bg-yellow-100 text-yellow-600 p-2 rounded group-hover:bg-yellow-600 group-hover:text-white transition-colors"><i data-lucide="scale" class="w-4 h-4"></i></div>
+                                    <span class="font-medium text-sm">Percentual de Gordura</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="macros.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors group">
+                                    <div class="bg-green-100 text-green-600 p-2 rounded group-hover:bg-green-600 group-hover:text-white transition-colors"><i data-lucide="utensils" class="w-4 h-4"></i></div>
+                                    <span class="font-medium text-sm">Calculadora de Macros</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Banner Personal -->
+                    <div class="relative rounded-xl overflow-hidden bg-gray-900 text-white p-6 text-center group">
+                        <img src="../personal.jpg" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=500&q=60'">
+                        <div class="relative z-10">
+                            <span class="text-orange-400 font-bold text-xs uppercase tracking-widest">Consultoria</span>
+                            <h3 class="text-xl font-bold mb-4 mt-1">Quer um plano personalizado?</h3>
+                            <a href="../personal.html" class="inline-block bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-full font-bold text-sm transition-all shadow-lg">Falar com Personal</a>
+                        </div>
+                    </div>
+                </aside>
             </div>
         </div>
     </main>
@@ -342,15 +329,6 @@
                         <li><a href="../termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
                     </ul>
                 </div>
-
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Outras Ferramentas</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
-                        <li><a href="tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
-                        <li><a href="calorias.html" class="hover:text-brand-400 transition-colors">Gasto Calórico</a></li>
-                    </ul>
-                </div>
             </div>
             
             <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
@@ -358,6 +336,45 @@
             </div>
         </div>
     </footer>
+
+    <!-- WIDGET DO DICABOT -->
+    <div id="dicabot-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
+        
+        <!-- Janela do Chat -->
+        <div id="dicabot-window" class="hidden bg-white dark:bg-gray-800 w-[350px] max-w-[90vw] h-[500px] max-h-[80vh] rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 flex flex-col mb-4 overflow-hidden animate-slide-up">
+            <div class="bg-gradient-to-r from-green-600 to-emerald-600 p-4 flex justify-between items-center text-white">
+                <div class="flex items-center gap-2">
+                    <div class="bg-white/20 p-1.5 rounded-lg"><i data-lucide="leaf" class="w-5 h-5 text-white"></i></div>
+                    <div><h3 class="font-bold text-sm">DicaBot</h3><p class="text-[10px] text-green-100 opacity-90">Receitas • Saúde • Casa</p></div>
+                </div>
+                <button onclick="toggleDicaBot()" class="p-1 hover:bg-white/10 rounded-full transition-colors"><i data-lucide="x" class="w-5 h-5"></i></button>
+            </div>
+            <div id="dicabot-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 dark:bg-gray-900/50">
+                <div class="flex justify-start w-full">
+                    <div class="flex max-w-[85%] gap-2">
+                        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center"><i data-lucide="sparkles" class="w-4 h-4 text-green-600 dark:text-green-400"></i></div>
+                        <div class="bg-white dark:bg-gray-800 p-3 rounded-2xl rounded-tl-none border border-gray-200 dark:border-gray-700 text-sm shadow-sm"><p>Olá! Sou sua assistente de dicas. Quer uma receita saudável, dicas para tirar manchas ou ajuda para relaxar? 🌿🥗</p></div>
+                    </div>
+                </div>
+            </div>
+            <div id="dicabot-suggestions" class="px-4 py-2 bg-gray-50 dark:bg-gray-900/50 flex gap-2 overflow-x-auto hide-scrollbar border-t border-gray-100 dark:border-gray-800">
+                <button onclick="sendSuggestion('Receita com o que tenho')" class="whitespace-nowrap px-3 py-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full text-xs text-gray-600 dark:text-gray-300 hover:text-green-600 hover:border-green-200 transition-colors">🍳 Receita fácil</button>
+                <button onclick="sendSuggestion('Chá para dormir')" class="whitespace-nowrap px-3 py-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full text-xs text-gray-600 dark:text-gray-300 hover:text-green-600 hover:border-green-200 transition-colors">☕ Chá calmo</button>
+            </div>
+            <div class="p-3 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+                <div class="relative flex items-center">
+                    <input type="text" id="dicabot-input" placeholder="Digite sua dúvida..." class="w-full pl-4 pr-10 py-3 bg-gray-100 dark:bg-gray-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500/50 transition-all" onkeypress="handleChatKeyPress(event)">
+                    <button onclick="sendMessage()" class="absolute right-2 p-1.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-sm"><i data-lucide="send" class="w-4 h-4"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botão Flutuante (FAB) -->
+        <button id="dicabot-fab" onclick="toggleDicaBot()" class="w-14 h-14 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-lg hover:shadow-green-500/30 transition-all transform hover:scale-105 flex items-center justify-center relative group">
+            <i data-lucide="leaf" class="w-7 h-7"></i>
+            <span class="absolute right-16 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Dicas & Receitas</span>
+        </button>
+    </div>
 
     <!-- Scripts Logic -->
     <script>
@@ -395,10 +412,7 @@
             e.preventDefault();
             
             const peso = parseFloat(document.getElementById('peso').value);
-            const idade = parseFloat(document.getElementById('idade').value);
-            const atividadeAdd = parseFloat(document.getElementById('atividade').value);
-            const climaAdd = parseFloat(document.getElementById('clima').value);
-            const condicaoAdd = parseFloat(document.getElementById('condicoes').value);
+            const atividade = parseFloat(document.getElementById('atividade').value);
             
             const resultadoContainer = document.getElementById('resultado-container');
 
@@ -407,13 +421,8 @@
                 return;
             }
 
-            // Cálculo Base: 35ml por kg
-            let aguaTotalML = peso * 35;
-
-            // Ajustes Adicionais
-            aguaTotalML += atividadeAdd;
-            aguaTotalML += climaAdd;
-            aguaTotalML += condicaoAdd;
+            // Cálculo Base: ml por kg * peso
+            let aguaTotalML = peso * atividade;
 
             // Conversão para Litros
             const aguaTotalLitros = (aguaTotalML / 1000).toFixed(2);
@@ -430,6 +439,166 @@
             // Scroll suave até o resultado
             resultadoContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
+
+        // === LÓGICA DO DICABOT (Integrado) ===
+        const GEMINI_API_KEY = "AIzaSyCRLcTu7Mw5z-PxmVYtMkMktwE_QOJxZoU";
+        
+        const SYSTEM_PROMPT = `
+            Você é a "DicaBot", assistente do portal 'Calcule Sua Saúde'.
+            Especialista em: Culinária Saudável, Dicas de Casa e Bem-estar.
+            Regras:
+            - Seja breve e amigável.
+            - Use formatação simples com negrito (**texto**) e listas.
+            - Se perguntarem de medicina grave, recomende um médico.
+            - Use emojis.
+        `;
+        
+        let chatHistory = [
+            { role: 'model', parts: [{ text: 'Olá! Sou sua assistente de dicas. Quer uma receita saudável ou dicas para a casa?' }] }
+        ];
+
+        function toggleDicaBot() {
+            const windowEl = document.getElementById('dicabot-window');
+            windowEl.classList.toggle('hidden');
+            if(!windowEl.classList.contains('hidden')) {
+                document.getElementById('dicabot-input').focus();
+            }
+        }
+
+        function handleChatKeyPress(e) {
+            if(e.key === 'Enter') sendMessage();
+        }
+
+        function sendSuggestion(text) {
+            document.getElementById('dicabot-input').value = text;
+            sendMessage();
+        }
+
+        async function sendMessage() {
+            const inputEl = document.getElementById('dicabot-input');
+            const text = inputEl.value.trim();
+            if(!text) return;
+
+            // Adiciona mensagem do usuário
+            appendMessage('user', text);
+            inputEl.value = '';
+            
+            // Adiciona indicador de "digitando..."
+            const loadingId = showLoading();
+
+            try {
+                const contents = chatHistory.map(msg => ({
+                    role: msg.role,
+                    parts: msg.parts
+                }));
+                contents.push({ role: 'user', parts: [{ text: text }] });
+
+                const response = await fetch(
+                    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${GEMINI_API_KEY}`,
+                    {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+                            contents: contents
+                        })
+                    }
+                );
+
+                const data = await response.json();
+                const botText = data.candidates?.[0]?.content?.parts?.[0]?.text || "Desculpe, não consegui responder agora.";
+                
+                removeLoading(loadingId);
+                appendMessage('model', botText, true); 
+
+                chatHistory.push({ role: 'user', parts: [{ text: text }] });
+                chatHistory.push({ role: 'model', parts: [{ text: botText }] });
+
+            } catch (error) {
+                removeLoading(loadingId);
+                appendMessage('model', "Erro de conexão. Verifique sua chave API.");
+            }
+        }
+
+        function appendMessage(role, text, animate = false) {
+            const container = document.getElementById('dicabot-messages');
+            const div = document.createElement('div');
+            div.className = `flex w-full ${role === 'user' ? 'justify-end' : 'justify-start'}`;
+            
+            const isUser = role === 'user';
+            
+            let html = `
+                <div class="flex max-w-[85%] gap-2 ${isUser ? 'flex-row-reverse' : 'flex-row'}">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full ${isUser ? 'bg-gray-700' : 'bg-green-100 dark:bg-green-900'} flex items-center justify-center">
+                        <i data-lucide="${isUser ? 'user' : 'sparkles'}" class="w-4 h-4 ${isUser ? 'text-white' : 'text-green-600 dark:text-green-400'}"></i>
+                    </div>
+                    <div class="${isUser ? 'bg-green-600 text-white' : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700'} p-3 rounded-2xl ${isUser ? 'rounded-tr-none' : 'rounded-tl-none'} text-sm shadow-sm leading-relaxed message-content">
+                        ${animate ? '' : formatText(text)}
+                    </div>
+                </div>
+            `;
+            
+            div.innerHTML = html;
+            container.appendChild(div);
+            lucide.createIcons();
+            
+            container.scrollTop = container.scrollHeight;
+
+            if (animate) {
+                const contentDiv = div.querySelector('.message-content');
+                typeWriter(contentDiv, text);
+            }
+        }
+
+        function formatText(text) {
+            let formatted = text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\n/g, '<br>');
+            return formatted;
+        }
+
+        function typeWriter(element, text) {
+            let i = 0;
+            const speed = 15;
+            element.innerHTML = ''; 
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    document.getElementById('dicabot-messages').scrollTop = document.getElementById('dicabot-messages').scrollHeight;
+                    setTimeout(type, speed);
+                } else {
+                    element.innerHTML = formatText(text);
+                }
+            }
+            type();
+        }
+
+        function showLoading() {
+            const container = document.getElementById('dicabot-messages');
+            const id = 'loading-' + Date.now();
+            const div = document.createElement('div');
+            div.id = id;
+            div.className = "flex justify-start w-full";
+            div.innerHTML = `
+                <div class="flex items-center ml-10 bg-gray-100 dark:bg-gray-800 rounded-full px-3 py-2">
+                    <div class="flex gap-1">
+                        <div class="w-1.5 h-1.5 bg-green-500 rounded-full typing-dot"></div>
+                        <div class="w-1.5 h-1.5 bg-green-500 rounded-full typing-dot"></div>
+                        <div class="w-1.5 h-1.5 bg-green-500 rounded-full typing-dot"></div>
+                    </div>
+                </div>
+            `;
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+            return id;
+        }
+
+        function removeLoading(id) {
+            const el = document.getElementById(id);
+            if(el) el.remove();
+        }
     </script>
 </body>
 </html>
