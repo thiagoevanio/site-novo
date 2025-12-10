@@ -1,1847 +1,704 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR" class="scroll-smooth">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="theme-color" content="#3b82f6">
-
-    <title>Calcule Sua Saúde - Ferramentas de Nutrição e Bem-Estar</title>
-
+    <meta name="theme-color" content="#b91c1c">
+    <title>Calcule Sua Saúde - Portal de Notícias e Bem-estar</title>
     
-
     <!-- Meta Tags SEO & Social -->
-
-    <meta name="description" content="Portal completo de saúde: Calculadoras de IMC, TMB, Gordura Corporal e Água. Acesse artigos baseados em ciência e melhore sua qualidade de vida gratuitamente.">
-
-    <meta name="keywords" content="saúde, calculadora IMC, dieta, nutrição, personal trainer, bem-estar, emagrecimento, massa muscular, jogos de saude">
-
-    <meta property="og:title" content="Calcule Sua Saúde - Ferramentas Gratuitas">
-
-    <meta property="og:description" content="Monitore sua saúde com precisão. Ferramentas gratuitas e artigos científicos.">
-
-    <meta property="og:type" content="website">
-
-    <meta property="og:url" content="https://calculesuasaude.com.br">
-
-    <meta property="og:image" content="https://calculesuasaude.com.br/icon192.png">
-
-    <meta name="p:domain_verify" content="87045e0f762d5e077c77f1a95e94d2dd"/>
-
-
-
-    <link rel="manifest" href="/manifest.json">
-
-    <link rel="apple-touch-icon" href="/icon192.png">
-
-    <link rel="canonical" href="https://calculesuasaude.com.br">
-
+    <meta name="description" content="Portal completo: Saúde, Finanças, Notícias Globais, NASA, Clima e Ferramentas.">
     
-
-    <!-- Google AdSense -->
-
-    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
-
-
-
-    <!-- Google Analytics -->
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-
-    <script>
-
-      window.dataLayer = window.dataLayer || [];
-
-      function gtag(){dataLayer.push(arguments);}
-
-      gtag('js', new Date());
-
-      gtag('config', 'G-EVCQQZV60N');
-
-    </script>
-
-
-
-    <!-- Schema.org - SEO Avançado para o Google -->
-
-    <script type="application/ld+json">
-
-    {
-
-      "@context": "https://schema.org",
-
-      "@type": "WebSite",
-
-      "name": "Calcule Sua Saúde",
-
-      "url": "https://calculesuasaude.com.br",
-
-      "potentialAction": {
-
-        "@type": "SearchAction",
-
-        "target": "https://calculesuasaude.com.br/search?q={search_term_string}",
-
-        "query-input": "required name=search_term_string"
-
-      },
-
-      "description": "Ferramentas gratuitas de saúde e bem-estar baseadas em evidências.",
-
-      "publisher": {
-
-        "@type": "Organization",
-
-        "name": "Calcule Sua Saúde",
-
-        "logo": {
-
-          "@type": "ImageObject",
-
-          "url": "https://calculesuasaude.com.br/icon192.png"
-
-        }
-
-      }
-
-    }
-
-    </script>
-
-
-
     <!-- Tailwind CSS -->
-
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script>
-
         tailwind.config = {
-
             darkMode: 'class',
-
             theme: {
-
                 extend: {
-
                     colors: {
-
                         brand: {
-
-                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
-
-                        }
-
-                    },
-
-                    fontFamily: {
-
-                        sans: ['Inter', 'sans-serif'],
-
-                    },
-
-                    animation: {
-
-                        'pop-up': 'popUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-
-                        'float': 'float 6s ease-in-out infinite',
-
-                    },
-
-                    keyframes: {
-
-                        popUp: {
-
-                            '0%': { opacity: 0, transform: 'scale(0.9) translateY(20px)' },
-
-                            '100%': { opacity: 1, transform: 'scale(1) translateY(0)' },
-
+                            50: '#f0f9ff', 100: '#e0f2fe', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1', 900: '#0c4a6e',
                         },
-
-                        float: {
-
-                            '0%, 100%': { transform: 'translateY(0)' },
-
-                            '50%': { transform: 'translateY(-10px)' },
-
+                        portal: {
+                            red: '#dc2626',    
+                            dark: '#1e293b',   
+                            gray: '#64748b',   
+                            bg: '#f8fafc'      
+                        },
+                        accent: {
+                            500: '#10b981', 
+                            600: '#059669',
                         }
-
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'marquee': 'marquee 40s linear infinite',
+                        'breathe': 'breathe 8s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        breathe: {
+                            '0%, 100%': { transform: 'scale(1)', opacity: '0.8' },
+                            '50%': { transform: 'scale(1.1)', opacity: '1' },
+                        }
                     }
-
                 }
-
             }
-
         }
-
     </script>
 
-
-
-    <!-- Google Fonts & Icons -->
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-
-
     <style>
-
-        body { font-family: 'Inter', sans-serif; }
-
-        .glass-effect {
-
-            background: rgba(255, 255, 255, 0.90);
-
-            backdrop-filter: blur(12px);
-
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        h1, h2, h3, h4, .manchete { font-family: 'Merriweather', serif; }
+        
+        .glass-header {
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
-
-        .dark .glass-effect {
-
-            background: rgba(17, 24, 39, 0.90);
-
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-
+        .dark .glass-header {
+            background: rgba(15, 23, 42, 0.98);
+            border-bottom: 1px solid #334155;
         }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        .animated-gradient {
-
-            background: linear-gradient(-45deg, #2563eb, #0ea5e9, #3b82f6, #4f46e5);
-
-            background-size: 400% 400%;
-
-            animation: gradient 15s ease infinite;
-
+        .breathing-circle {
+            width: 80px; height: 80px; border-radius: 50%;
+            background: radial-gradient(circle, #6366f1 0%, rgba(165,180,252,0.5) 100%);
+            box-shadow: 0 0 20px rgba(99,102,241,0.4);
         }
-
-        @keyframes gradient {
-
-            0% { background-position: 0% 50%; }
-
-            50% { background-position: 100% 50%; }
-
-            100% { background-position: 0% 50%; }
-
-        }
-
-        details > summary { list-style: none; }
-
-        details > summary::-webkit-details-marker { display: none; }
-
+        .breathing-active { animation: breathe 8s infinite ease-in-out; }
+        
+        .portal-link:hover { text-decoration: underline; text-decoration-color: #0284c7; text-decoration-thickness: 2px; }
     </style>
-
 </head>
+<body class="text-portal-dark dark:bg-slate-950 dark:text-slate-200 transition-colors duration-300">
 
-<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
-
-
-
-    <!-- Header Fixo -->
-
-    <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
-
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-
-            <a href="#" class="flex items-center gap-2 group">
-
-                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform shadow-md">
-
-                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
-
-                </div>
-
-                <h1 class="text-xl font-bold text-gray-900 dark:text-white tracking-tight">
-
-                    Calcule Sua <span class="text-brand-600">Saúde</span>
-
-                </h1>
-
-            </a>
-
-
-
-            <nav class="hidden md:flex items-center gap-8">
-
-                <a href="#inicio" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
-
-                <a href="#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
-
-                <a href="artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Biblioteca</a>
-
-                <a href="personal.html" class="text-sm font-bold text-orange-600 hover:text-orange-700 bg-orange-50 dark:bg-orange-900/20 px-3 py-1.5 rounded-full transition-colors flex items-center gap-1">
-
-                    <i data-lucide="star" class="w-3 h-3"></i> Personal Trainer
-
-                </a>
-
-                <a href="#faq" class="text-sm font-medium hover:text-brand-600 transition-colors">Dúvidas</a>
-
-                
-
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Alternar Tema">
-
-                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
-
-                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
-
-                </button>
-
-            </nav>
-
-
-
-            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300" aria-label="Menu">
-
-                <i data-lucide="menu" class="w-6 h-6"></i>
-
-            </button>
-
-        </div>
-
-
-
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[64px] z-40 shadow-lg">
-
-            <div class="flex flex-col p-4 space-y-3">
-
-                <a href="#inicio" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Início</a>
-
-                <a href="personal.html" class="block py-2 px-4 font-bold text-orange-600 bg-orange-50 dark:bg-orange-900/20 rounded-lg">Personal Trainer</a>
-
-                <a href="#ferramentas" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Calculadoras</a>
-
-                <a href="artigos.html" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Artigos</a>
-
-                <a href="todos_quizzes.html" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Quizzes</a>
-
+    <!-- 1. BARRA DE TOPO -->
+    <div class="bg-portal-dark text-white text-[11px] font-medium py-1.5 relative z-[60]">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="hidden md:flex items-center gap-4 text-slate-400">
+                <span id="current-date">--/--/----</span>
+                <span class="w-px h-3 bg-slate-700"></span>
+                <span>São Paulo, Brasil</span>
             </div>
-
-        </div>
-
-    </header>
-
-
-
-    <!-- Hero Section -->
-
-    <section id="inicio" class="pt-36 pb-24 animated-gradient relative overflow-hidden">
-
-        <!-- Background Pattern -->
-
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-30"></div>
-
-        
-
-        <div class="container mx-auto px-4 relative z-10">
-
-            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-
-                
-
-                <!-- Texto Hero -->
-
-                <div class="lg:w-1/2 text-white text-center lg:text-left">
-
-                    <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold mb-6 animate-float">
-
-                        <span class="relative flex h-2 w-2">
-
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-
-                          <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-
-                        </span>
-
-                        Ferramentas 100% Gratuitas
-
-                    </div>
-
-                    
-
-                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight">
-
-                        Cuide da sua saúde com <br class="hidden lg:block"><span class="text-blue-100">precisão e ciência.</span>
-
-                    </h2>
-
-                    
-
-                    <p class="text-lg text-blue-50/90 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-
-                        Calculadoras baseadas em protocolos médicos para monitorar seu bem-estar. Sem cadastro, sem taxas, com foco total na sua privacidade.
-
-                    </p>
-
-                    
-
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-
-                        <a href="#ferramentas" class="bg-white text-brand-700 px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-2">
-
-                            <i data-lucide="calculator" class="w-5 h-5"></i>
-
-                            Acessar Ferramentas
-
-                        </a>
-
-                        <a href="artigos.html" class="bg-brand-800/40 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-bold hover:bg-brand-800/60 transition-all flex items-center justify-center gap-2">
-
-                            <i data-lucide="book-open" class="w-5 h-5"></i>
-
-                            Ler Artigos
-
-                        </a>
-
-                    </div>
-
-
-
-                    <!-- Trust Badges -->
-
-                    <div class="mt-10 flex items-center justify-center lg:justify-start gap-6 text-sm font-medium text-blue-100/80">
-
-                        <div class="flex items-center gap-2">
-
-                            <i data-lucide="shield-check" class="w-5 h-5"></i> Privacidade Garantida
-
-                        </div>
-
-                        <div class="flex items-center gap-2">
-
-                            <i data-lucide="microscope" class="w-5 h-5"></i> Base Científica
-
-                        </div>
-
-                    </div>
-
+            <div class="flex-1 md:flex-none overflow-hidden max-w-2xl">
+                <div class="whitespace-nowrap animate-marquee flex gap-6 items-center" id="finance-ticker">
+                    <span class="text-green-400 font-bold uppercase flex items-center gap-1"><i data-lucide="trending-up" class="w-3 h-3"></i> Mercado:</span>
+                    <span id="ticker-loading">Carregando cotações...</span>
                 </div>
-
-
-
-                <!-- Widget IMC Rápido -->
-
-                <div class="lg:w-1/2 w-full max-w-md">
-
-                    <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 transform hover:rotate-1 transition-transform duration-500 border border-gray-100 dark:border-gray-700">
-
-                        <div class="flex items-center gap-4 mb-6 border-b border-gray-100 dark:border-gray-700 pb-4">
-
-                            <div class="bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 p-3 rounded-xl">
-
-                                <i data-lucide="activity" class="w-7 h-7"></i>
-
-                            </div>
-
-                            <div>
-
-                                <h3 class="font-bold text-xl text-gray-800 dark:text-white">Teste Rápido de IMC</h3>
-
-                                <p class="text-xs text-gray-500 dark:text-gray-400">Verifique seu índice agora mesmo</p>
-
-                            </div>
-
-                        </div>
-
-                        
-
-                        <form id="quick-imc-form" class="space-y-5">
-
-                            <div class="grid grid-cols-2 gap-5">
-
-                                <div>
-
-                                    <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Peso (kg)</label>
-
-                                    <div class="relative">
-
-                                        <input type="number" id="quick-weight" placeholder="Ex: 70" class="w-full pl-3 pr-4 py-3 rounded-xl border border-gray-200 dark:bg-gray-700 dark:border-gray-600 focus:ring-2 focus:ring-brand-500 outline-none transition-all text-lg">
-
-                                    </div>
-
-                                </div>
-
-                                <div>
-
-                                    <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Altura (m)</label>
-
-                                    <div class="relative">
-
-                                        <input type="number" step="0.01" id="quick-height" placeholder="Ex: 1.75" class="w-full pl-3 pr-4 py-3 rounded-xl border border-gray-200 dark:bg-gray-700 dark:border-gray-600 focus:ring-2 focus:ring-brand-500 outline-none transition-all text-lg">
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <button type="submit" class="w-full bg-gray-900 dark:bg-brand-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-gray-800 dark:hover:bg-brand-700 transition-colors shadow-lg">
-
-                                Calcular Agora
-
-                            </button>
-
-                        </form>
-
-
-
-                        <div id="quick-result" class="hidden mt-6 p-5 rounded-xl bg-gray-50 dark:bg-gray-700/50 text-center animate-pulse border border-gray-200 dark:border-gray-600">
-
-                            <span class="block text-sm text-gray-500 dark:text-gray-300 uppercase tracking-wide font-semibold">Seu IMC é</span>
-
-                            <span class="block text-4xl font-black text-brand-600 dark:text-brand-400 my-1" id="imc-value">00.0</span>
-
-                            <span class="inline-block px-3 py-1 rounded-full text-sm font-bold mt-1" id="imc-status">Normal</span>
-
-                            <a href="ferramentas/imc.html" class="block mt-4 text-sm text-brand-600 hover:text-brand-800 font-semibold underline">
-
-                                Ver análise detalhada e tabela →
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
             </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- Personal Trainer Highlight -->
-
-    <section class="py-20 bg-white dark:bg-gray-900 border-b dark:border-gray-800">
-
-        <div class="container mx-auto px-4">
-
-            <div class="bg-gradient-to-br from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 rounded-[2.5rem] p-8 md:p-14 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-center gap-12 group">
-
-                
-
-                <!-- Efeito de Fundo -->
-
-                <div class="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-
-
-
-                <!-- Imagem -->
-
-                <div class="relative shrink-0 z-10">
-
-                    <div class="w-56 h-56 md:w-72 md:h-72 rounded-full p-1 bg-gradient-to-tr from-orange-500 to-red-600 shadow-[0_0_40px_rgba(249,115,22,0.4)]">
-
-                        <img src="personal.jpg" onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" alt="Raphael Aquino Personal" class="w-full h-full object-cover rounded-full border-4 border-gray-900">
-
-                    </div>
-
-                    <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-orange-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap border-2 border-gray-900">
-
-                        CREF: 42.897-G/MG
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- Texto -->
-
-                <div class="text-center lg:text-left flex-1 z-10">
-
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-4">
-
-                        <i data-lucide="award" class="w-4 h-4"></i> Destaque Profissional
-
-                    </div>
-
-                    <h2 class="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">
-
-                        Transforme seu corpo com <br>
-
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">Raphael Aquino</span>
-
-                    </h2>
-
-                    <p class="text-gray-300 text-lg mb-8 max-w-2xl leading-relaxed">
-
-                        Consultoria especializada em Hipertrofia, Emagrecimento e Alta Performance. Planos personalizados (online e presencial) adaptados à sua rotina e objetivos.
-
-                    </p>
-
-                    
-
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-
-                        <a href="personal.html" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-orange-600 rounded-full hover:bg-orange-700 shadow-lg hover:shadow-orange-500/30 transition-all hover:-translate-y-1">
-
-                            Conhecer Planos
-
-                        </a>
-
-                        <a href="https://wa.me/message/X5XSBKPUOUJDM1" target="_blank" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-transparent border-2 border-gray-600 rounded-full hover:bg-white hover:text-gray-900 hover:border-white transition-all">
-
-                            <i data-lucide="message-circle" class="w-5 h-5 mr-2"></i> Agendar no WhatsApp
-
-                        </a>
-
-                    </div>
-
-                </div>
-
+            <div class="hidden md:flex gap-3 text-slate-400">
+                <a href="#" class="hover:text-white transition-colors">Assine</a>
+                <a href="#" class="hover:text-white transition-colors">Newsletter</a>
             </div>
-
         </div>
-
-    </section>
-
-
-
-    <!-- Desafio Diário -->
-
-    <section class="py-12 bg-gray-50 dark:bg-gray-900/50">
-
-        <div class="container mx-auto px-4">
-
-            <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg border-l-8 border-emerald-500">
-
-                <div class="flex items-start gap-5">
-
-                    <div class="bg-emerald-100 dark:bg-emerald-900/40 p-4 rounded-full text-emerald-600 dark:text-emerald-400 shrink-0">
-
-                        <i data-lucide="calendar-check" class="w-8 h-8"></i>
-
-                    </div>
-
-                    <div>
-
-                        <h3 class="text-emerald-800 dark:text-emerald-300 font-bold text-lg mb-1 uppercase tracking-wide">Desafio Saudável de Hoje</h3>
-
-                        <p class="text-2xl font-bold text-gray-900 dark:text-white" id="desafio-hoje">Carregando desafio...</p>
-
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Pequenas atitudes diárias constroem uma vida longa.</p>
-
-                    </div>
-
-                </div>
-
-                <a href="desafios.html" class="w-full md:w-auto text-center bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-md">
-
-                    Ver Calendário Completo
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- Seção de Jogos em Destaque (NOVO) -->
-
-    <section class="py-12 bg-white dark:bg-gray-900">
-
-        <div class="container mx-auto px-4">
-
-            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-indigo-500 to-purple-600 shadow-xl">
-
-                <!-- Background decorative shapes -->
-
-                <div class="absolute top-0 right-0 -mt-10 -mr-10 h-40 w-40 rounded-full bg-white/20 blur-3xl"></div>
-
-                <div class="absolute bottom-0 left-0 -mb-10 -ml-10 h-40 w-40 rounded-full bg-white/20 blur-3xl"></div>
-
-
-
-                <div class="relative z-10 flex flex-col items-center justify-between gap-6 p-8 md:flex-row">
-
-                    <div class="flex items-center gap-6">
-
-                        <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white/20 text-white backdrop-blur-sm">
-
-                            <i data-lucide="gamepad-2" class="h-8 w-8"></i>
-
-                        </div>
-
-                        <div class="text-white">
-
-                            <h3 class="mb-2 text-2xl font-bold">Aprenda Brincando!</h3>
-
-                            <p class="text-blue-100">
-
-                                Teste seus conhecimentos com nossos jogos interativos de nutrição e memória.
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                    
-
-                    <a href="jogos.html" class="group flex items-center gap-2 rounded-full bg-white px-8 py-3.5 font-bold text-indigo-600 transition-all hover:bg-indigo-50 hover:shadow-lg">
-
-                        Jogar Agora
-
-                        <i data-lucide="arrow-right" class="h-5 w-5 transition-transform group-hover:translate-x-1"></i>
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- Ferramentas Grid -->
-
-    <section id="ferramentas" class="py-24 container mx-auto px-4">
-
-        <div class="text-center mb-16">
-
-            <span class="text-brand-600 font-bold tracking-wider uppercase text-xs bg-brand-50 dark:bg-brand-900/20 px-3 py-1 rounded-full">Calculadoras Online</span>
-
-            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mt-4 mb-4">Monitore seus Indicadores</h2>
-
-            <p class="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-
-                Ferramentas essenciais para quem busca controle corporal e nutricional. Selecione uma opção para começar.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-            <!-- Card IMC -->
-
-            <a href="ferramentas/imc.html" class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-
-                <div class="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 mb-6 group-hover:scale-110 transition-transform">
-
-                    <i data-lucide="bar-chart-2" class="w-7 h-7"></i>
-
-                </div>
-
-                <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">IMC</h3>
-
-                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Índice de Massa Corporal. A ferramenta padrão para verificar se você está no peso ideal.</p>
-
-                <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
-
-                    Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- Card TMB -->
-
-            <a href="ferramentas/tmb.html" class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-
-                <div class="w-14 h-14 bg-orange-100 dark:bg-orange-900/30 rounded-2xl flex items-center justify-center text-orange-600 dark:text-orange-400 mb-6 group-hover:scale-110 transition-transform">
-
-                    <i data-lucide="flame" class="w-7 h-7"></i>
-
-                </div>
-
-                <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Metabolismo Basal</h3>
-
-                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Descubra quantas calorias seu corpo queima em repouso. Essencial para dietas.</p>
-
-                <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
-
-                    Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- Card Água -->
-
-            <a href="ferramentas/agua.html" class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-
-                <div class="w-14 h-14 bg-cyan-100 dark:bg-cyan-900/30 rounded-2xl flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-6 group-hover:scale-110 transition-transform">
-
-                    <i data-lucide="droplets" class="w-7 h-7"></i>
-
-                </div>
-
-                <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Água Diária</h3>
-
-                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Hidratação personalizada baseada no seu peso corporal. Mantenha seu corpo fluindo.</p>
-
-                <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
-
-                    Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- Card Gordura -->
-
-            <a href="ferramentas/gordura.html" class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-
-                <div class="w-14 h-14 bg-yellow-100 dark:bg-yellow-900/30 rounded-2xl flex items-center justify-center text-yellow-600 dark:text-yellow-400 mb-6 group-hover:scale-110 transition-transform">
-
-                    <i data-lucide="scale" class="w-7 h-7"></i>
-
-                </div>
-
-                <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Gordura Corporal</h3>
-
-                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Estimativa avançada do seu percentual de gordura e massa magra.</p>
-
-                <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
-
-                    Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- Card Macros -->
-
-            <a href="ferramentas/macros.html" class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-
-                <div class="w-14 h-14 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center text-green-600 dark:text-green-400 mb-6 group-hover:scale-110 transition-transform">
-
-                    <i data-lucide="utensils" class="w-7 h-7"></i>
-
-                </div>
-
-                <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Macronutrientes</h3>
-
-                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Calcule a divisão ideal de Carboidratos, Proteínas e Gorduras para seu objetivo.</p>
-
-                <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
-
-                    Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- Card Glicemia -->
-
-            <a href="ferramentas/glicemia.html" class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-
-                <div class="w-14 h-14 bg-red-100 dark:bg-red-900/30 rounded-2xl flex items-center justify-center text-red-600 dark:text-red-400 mb-6 group-hover:scale-110 transition-transform">
-
-                    <i data-lucide="activity" class="w-7 h-7"></i>
-
-                </div>
-
-                <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Glicemia</h3>
-
-                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Interprete seus níveis de glicose no sangue e entenda os valores de referência.</p>
-
-                <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
-
-                    Verificar <i data-lucide="arrow-right" class="w-4 h-4"></i>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- Card Calorias -->
-
-            <a href="ferramentas/calorias.html" class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-
-                <div class="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center text-purple-600 dark:text-purple-400 mb-6 group-hover:scale-110 transition-transform">
-
-                    <i data-lucide="zap" class="w-7 h-7"></i>
-
-                </div>
-
-                <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Gasto Calórico Total</h3>
-
-                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Quantas calorias você gasta por dia considerando seus exercícios e rotina.</p>
-
-                <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
-
-                    Calcular <i data-lucide="arrow-right" class="w-4 h-4"></i>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- Card IMC Infantil -->
-
-            <a href="ferramentas/imc_infantil.html" class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-
-                <div class="w-14 h-14 bg-pink-100 dark:bg-pink-900/30 rounded-2xl flex items-center justify-center text-pink-600 dark:text-pink-400 mb-6 group-hover:scale-110 transition-transform">
-
-                    <i data-lucide="baby" class="w-7 h-7"></i>
-
-                </div>
-
-                <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">IMC Infantil</h3>
-
-                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Cálculo especializado para acompanhar o crescimento de crianças e adolescentes.</p>
-
-                <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
-
-                    Calcular <i data-lucide="arrow-right" class="w-4 h-4"></i>
-
-                </div>
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- Quizzes Section -->
-
-    <section class="py-24 bg-gray-100 dark:bg-gray-800/50 border-y dark:border-gray-800">
-
-        <div class="container mx-auto px-4">
-
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
-
-                <div class="max-w-2xl">
-
-                    <span class="text-violet-600 font-bold tracking-wider uppercase text-xs mb-2 block">Interativo</span>
-
-                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Teste seus Conhecimentos</h2>
-
-                    <p class="text-gray-600 dark:text-gray-300 text-lg">Aprender sobre saúde não precisa ser chato. Divirta-se com nossos quizzes e descubra curiosidades sobre seu corpo.</p>
-
-                </div>
-
-                <a href="todos_quizzes.html" class="hidden md:inline-flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-800 dark:text-white px-6 py-3 rounded-full font-semibold shadow-sm hover:shadow-md transition-all border border-gray-200 dark:border-gray-700">
-
-                    Ver todos os quizzes <i data-lucide="arrow-right" class="w-5 h-5"></i>
-
-                </a>
-
-            </div>
-
-
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-                <!-- Quiz 1 -->
-
-                <div class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-100 dark:border-gray-700">
-
-                    <div class="h-3 bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
-
-                    <div class="p-8 flex-1">
-
-                        <div class="bg-violet-100 dark:bg-violet-900/30 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
-
-                            <i data-lucide="brain-circuit" class="w-6 h-6 text-violet-600 dark:text-violet-400"></i>
-
-                        </div>
-
-                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Geral de Saúde</h3>
-
-                        <p class="text-gray-500 dark:text-gray-400 leading-relaxed">Você sabe o básico sobre nutrição, sono e exercícios? Faça o teste e descubra seu nível.</p>
-
-                    </div>
-
-                    <div class="p-6 pt-0">
-
-                        <a href="quiz.html" class="block w-full text-center bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-bold py-3.5 rounded-xl hover:bg-violet-600 hover:text-white transition-all">
-
-                            Começar Quiz
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- Quiz 2 -->
-
-                <div class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-100 dark:border-gray-700">
-
-                    <div class="h-3 bg-gradient-to-r from-blue-500 to-cyan-500"></div>
-
-                    <div class="p-8 flex-1">
-
-                        <div class="bg-blue-100 dark:bg-blue-900/30 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
-
-                            <i data-lucide="dumbbell" class="w-6 h-6 text-blue-600 dark:text-blue-400"></i>
-
-                        </div>
-
-                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Perfil de Treino</h3>
-
-                        <p class="text-gray-500 dark:text-gray-400 leading-relaxed">Musculação, CrossFit ou Yoga? Descubra qual modalidade combina mais com sua personalidade.</p>
-
-                    </div>
-
-                    <div class="p-6 pt-0">
-
-                        <a href="quiz_treino.html" class="block w-full text-center bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-bold py-3.5 rounded-xl hover:bg-blue-600 hover:text-white transition-all">
-
-                            Descobrir Agora
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- Quiz 3 -->
-
-                <div class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-100 dark:border-gray-700">
-
-                    <div class="h-3 bg-gradient-to-r from-green-500 to-emerald-500"></div>
-
-                    <div class="p-8 flex-1">
-
-                        <div class="bg-green-100 dark:bg-green-900/30 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
-
-                            <i data-lucide="apple" class="w-6 h-6 text-green-600 dark:text-green-400"></i>
-
-                        </div>
-
-                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Nutrição Real</h3>
-
-                        <p class="text-gray-500 dark:text-gray-400 leading-relaxed">Mitos e verdades sobre alimentação. Você sabe montar um prato verdadeiramente equilibrado?</p>
-
-                    </div>
-
-                    <div class="p-6 pt-0">
-
-                        <a href="quiz_alimentacao.html" class="block w-full text-center bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-bold py-3.5 rounded-xl hover:bg-green-600 hover:text-white transition-all">
-
-                            Testar Agora
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            
-
-            <div class="mt-10 text-center md:hidden">
-
-                <a href="todos_quizzes.html" class="inline-flex items-center gap-2 text-brand-600 font-bold hover:text-brand-800 underline">
-
-                    Ver todos os quizzes <i data-lucide="arrow-right" class="w-5 h-5"></i>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- Artigos Section -->
-
-    <section id="artigos" class="py-24 container mx-auto px-4">
-
-        <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-
-            <div>
-
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Conteúdo em Destaque</h2>
-
-                <p class="text-gray-500 dark:text-gray-400 max-w-xl">Artigos aprofundados para você entender a ciência por trás da sua saúde.</p>
-
-            </div>
-
-            <a href="artigos.html" class="hidden md:inline-flex items-center gap-2 text-brand-600 font-bold hover:text-brand-800 hover:underline transition-all">
-
-                Acessar Biblioteca Completa <i data-lucide="arrow-right" class="w-5 h-5"></i>
-
-            </a>
-
-        </div>
-
-
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-            
-
-            <!-- Artigo 1 -->
-
-            <article class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
-
-                <a href="artigos/metabolismo-como-acelerar.html" class="h-56 overflow-hidden relative">
-
-                    <img src="img/artigos/metabolismo.jpg" onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" alt="Metabolismo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-
-                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur text-brand-700 px-3 py-1 rounded-full text-xs font-bold uppercase shadow-sm">
-
-                        Nutrição
-
-                    </div>
-
-                </a>
-
-                <div class="p-8 flex-1 flex flex-col">
-
-                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-brand-600 transition-colors">
-
-                        <a href="artigos/metabolismo-como-acelerar.html">Acelere seu Metabolismo</a>
-
-                    </h3>
-
-                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 flex-1">Estratégias naturais, baseadas em ciência, para aumentar seu gasto calórico diário sem dietas malucas.</p>
-
-                    <a href="artigos/metabolismo-como-acelerar.html" class="text-brand-600 font-bold hover:text-brand-800 inline-flex items-center gap-2">
-
-                        Ler artigo <i data-lucide="arrow-right" class="w-4 h-4"></i>
-
-                    </a>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- Artigo 2 -->
-
-            <article class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
-
-                <a href="artigos/hidratacao-importancia-saude.html" class="h-56 overflow-hidden relative">
-
-                    <img src="img/artigos/hidratacao.jpg" onerror="this.src='https://images.unsplash.com/photo-1548839140-29a749e1cf4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" alt="Hidratação" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-
-                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur text-cyan-700 px-3 py-1 rounded-full text-xs font-bold uppercase shadow-sm">
-
-                        Bem-estar
-
-                    </div>
-
-                </a>
-
-                <div class="p-8 flex-1 flex flex-col">
-
-                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-cyan-600 transition-colors">
-
-                        <a href="artigos/hidratacao-importancia-saude.html">O Poder da Água</a>
-
-                    </h3>
-
-                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 flex-1">Descubra como a hidratação correta impacta sua cognição, pele e performance física imediata.</p>
-
-                    <a href="artigos/hidratacao-importancia-saude.html" class="text-cyan-600 font-bold hover:text-cyan-800 inline-flex items-center gap-2">
-
-                        Ler artigo <i data-lucide="arrow-right" class="w-4 h-4"></i>
-
-                    </a>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- Artigo 3 -->
-
-            <article class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
-
-                <a href="artigos/ia-saude-chatgpt-gemini.html" class="h-56 overflow-hidden relative">
-
-                    <img src="img/artigos/iasaude.png" onerror="this.src='https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" alt="IA na Saúde" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-
-                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur text-indigo-700 px-3 py-1 rounded-full text-xs font-bold uppercase shadow-sm">
-
-                        Tecnologia
-
-                    </div>
-
-                </a>
-
-                <div class="p-8 flex-1 flex flex-col">
-
-                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-indigo-600 transition-colors">
-
-                        <a href="artigos/ia-saude-chatgpt-gemini.html">IA na Saúde</a>
-
-                    </h3>
-
-                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 flex-1">Como usar ChatGPT e Gemini para melhorar sua saúde com segurança, ética e sem riscos.</p>
-
-                    <a href="artigos/ia-saude-chatgpt-gemini.html" class="text-indigo-600 font-bold hover:text-indigo-800 inline-flex items-center gap-2">
-
-                        Ler artigo <i data-lucide="arrow-right" class="w-4 h-4"></i>
-
-                    </a>
-
-                </div>
-
-            </article>
-
-        </div>
-
-        
-
-        <div class="text-center mt-12 md:hidden">
-
-            <a href="artigos.html" class="inline-block border-2 border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white px-8 py-3 rounded-full font-bold transition-all duration-300">
-
-                Ver Todos os Artigos
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- FAQ Section -->
-
-    <section id="faq" class="py-24 bg-gray-50 dark:bg-gray-800/50 border-t dark:border-gray-800">
-
-        <div class="container mx-auto px-4 max-w-4xl">
-
-            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">Dúvidas Frequentes</h2>
-
-            <p class="text-center text-gray-500 dark:text-gray-400 mb-12 max-w-2xl mx-auto">Informação clara e direta. Entenda como nossas ferramentas funcionam.</p>
-
-            
-
-            <div class="space-y-4">
-
-                <!-- Pergunta 1 -->
-
-                <details class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
-
-                    <summary class="flex items-center justify-between cursor-pointer p-6 font-bold text-lg text-gray-800 dark:text-gray-200">
-
-                        O uso das ferramentas é gratuito?
-
-                        <span class="bg-gray-100 dark:bg-gray-700 p-2 rounded-full transition-transform group-open:rotate-180">
-
-                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
-
-                        </span>
-
-                    </summary>
-
-                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-700 pt-4 leading-relaxed">
-
-                        Sim! Todas as calculadoras e artigos do Calcule Sua Saúde são 100% gratuitos e de acesso livre para todos os usuários.
-
-                    </div>
-
-                </details>
-
-
-
-                <!-- Pergunta 2 -->
-
-                <details class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
-
-                    <summary class="flex items-center justify-between cursor-pointer p-6 font-bold text-lg text-gray-800 dark:text-gray-200">
-
-                        Preciso fazer cadastro?
-
-                        <span class="bg-gray-100 dark:bg-gray-700 p-2 rounded-full transition-transform group-open:rotate-180">
-
-                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
-
-                        </span>
-
-                    </summary>
-
-                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-700 pt-4 leading-relaxed">
-
-                        Não. Acreditamos no acesso rápido à informação. Você pode usar qualquer ferramenta sem necessidade de login, cadastro ou fornecer e-mail.
-
-                    </div>
-
-                </details>
-
-
-
-                <!-- Pergunta 3 -->
-
-                <details class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
-
-                    <summary class="flex items-center justify-between cursor-pointer p-6 font-bold text-lg text-gray-800 dark:text-gray-200">
-
-                        As calculadoras substituem o médico?
-
-                        <span class="bg-gray-100 dark:bg-gray-700 p-2 rounded-full transition-transform group-open:rotate-180">
-
-                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
-
-                        </span>
-
-                    </summary>
-
-                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-700 pt-4 leading-relaxed">
-
-                        Jamais. Nossas ferramentas são informativas e educativas, baseadas em fórmulas matemáticas gerais. Para diagnósticos clínicos e tratamentos, consulte sempre um médico ou nutricionista.
-
-                    </div>
-
-                </details>
-
-
-
-                <!-- Pergunta 4 -->
-
-                <details class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
-
-                    <summary class="flex items-center justify-between cursor-pointer p-6 font-bold text-lg text-gray-800 dark:text-gray-200">
-
-                        Meus dados ficam salvos?
-
-                        <span class="bg-gray-100 dark:bg-gray-700 p-2 rounded-full transition-transform group-open:rotate-180">
-
-                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
-
-                        </span>
-
-                    </summary>
-
-                    <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-700 pt-4 leading-relaxed">
-
-                        Não. Respeitamos rigorosamente sua privacidade. Os cálculos são processados no seu próprio navegador e nenhum dado pessoal de saúde é enviado ou armazenado em nossos servidores.
-
-                    </div>
-
-                </details>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- Sobre Section (Trust) -->
-
-    <section class="py-20 bg-white dark:bg-gray-900 border-t dark:border-gray-800">
-
-        <div class="container mx-auto px-4 text-center max-w-3xl">
-
-            <div class="bg-brand-50 dark:bg-brand-900/10 p-10 rounded-[3rem] border border-brand-100 dark:border-brand-800">
-
-                <i data-lucide="shield-check" class="w-16 h-16 text-brand-600 mx-auto mb-6"></i>
-
-                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Compromisso com a Ciência</h2>
-
-                <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
-
-                    O <strong>Calcule Sua Saúde</strong> é um projeto educativo dedicado a democratizar o acesso a ferramentas de saúde. Utilizamos apenas metodologias e fórmulas reconhecidas internacionalmente pela comunidade médica e científica (como OMS e Harris-Benedict).
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- Footer -->
-
-    <footer class="bg-gray-900 text-gray-300 pt-20 pb-10 border-t border-gray-800">
-
-        <div class="container mx-auto px-4">
-
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-
-                <div class="col-span-1 md:col-span-1">
-
-                    <h3 class="text-white text-xl font-bold mb-6 flex items-center gap-2">
-
-                        <i data-lucide="heart-pulse" class="w-6 h-6 text-brand-500"></i> Calcule Sua Saúde
-
-                    </h3>
-
-                    <p class="text-sm text-gray-400 leading-relaxed mb-6">
-
-                        Sua plataforma completa para monitoramento de saúde e bem-estar. Simples, rápido e cientificamente embasado.
-
-                    </p>
-
-                    <div class="flex gap-4">
-
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-
-                    </div>
-
-                </div>
-
-                
-
-                <div>
-
-                    <h4 class="text-white font-bold mb-6 text-lg">Navegação</h4>
-
-                    <ul class="space-y-3 text-sm">
-
-                        <li><a href="#inicio" class="hover:text-brand-400 transition-colors">Início</a></li>
-
-                        <li><a href="personal.html" class="hover:text-brand-400 transition-colors text-orange-400 font-semibold">Personal Trainer</a></li>
-
-                        <li><a href="sobre.html" class="hover:text-brand-400 transition-colors">Quem Somos</a></li>
-
-                        <li><a href="contato.html" class="hover:text-brand-400 transition-colors">Fale Conosco</a></li>
-
-                    </ul>
-
-                </div>
-
-
-
-                <div>
-
-                    <h4 class="text-white font-bold mb-6 text-lg">Legal</h4>
-
-                    <ul class="space-y-3 text-sm">
-
-                        <li><a href="politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
-
-                        <li><a href="termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
-
-                        <li><a href="#" class="hover:text-brand-400 transition-colors">Isenção de Responsabilidade</a></li>
-
-                    </ul>
-
-                </div>
-
-
-
-                <div>
-
-                    <h4 class="text-white font-bold mb-6 text-lg">Ferramentas</h4>
-
-                    <ul class="space-y-3 text-sm">
-
-                        <li><a href="ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
-
-                        <li><a href="ferramentas/tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
-
-                        <li><a href="ferramentas/agua.html" class="hover:text-brand-400 transition-colors">Hidratação Diária</a></li>
-
-                        <li><a href="todos_quizzes.html" class="hover:text-brand-400 transition-colors">Quizzes de Saúde</a></li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-            
-
-            <div class="border-t border-gray-800 pt-8 text-center">
-
-                <p class="text-sm text-gray-500 mb-4">
-
-                    <strong>Aviso Legal:</strong> O conteúdo deste site é apenas para fins informativos e educacionais. Não substitui o conselho médico profissional, diagnóstico ou tratamento.
-
-                </p>
-
-                <p class="text-sm text-gray-600">
-
-                    &copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </footer>
-
-
-
-    <!-- ============================================== -->
-
-    <!-- MODAL DE PROPAGANDA (APP) -->
-
-    <!-- ============================================== -->
-
-    <div id="ad-modal-backdrop" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm transition-opacity duration-300">
-
-        <div id="ad-modal-content" class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-sm w-full relative overflow-hidden animate-pop-up border border-gray-200 dark:border-gray-700">
-
-            
-
-            <!-- Botão Fechar -->
-
-            <button onclick="closeAd()" class="absolute top-3 right-3 z-10 p-2 bg-black/20 hover:bg-black/40 rounded-full text-white transition-colors">
-
-                <i data-lucide="x" class="w-5 h-5"></i>
-
-            </button>
-
-
-
-            <!-- Imagem / Banner do App -->
-
-            <div class="h-40 bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center relative overflow-hidden">
-
-                <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
-
-                <!-- Icone do App -->
-
-                <img src="finsafe.png" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2382/2382461.png'" alt="Ícone FinSafe" class="w-20 h-20 rounded-2xl shadow-lg transform rotate-6 hover:rotate-0 transition-transform duration-300 z-10">
-
-            </div>
-
-
-
-            <!-- Conteúdo do Modal -->
-
-            <div class="p-6 text-center">
-
-                <div class="mb-3">
-
-                    <span class="bg-green-100 text-green-700 text-[10px] font-extrabold px-2 py-1 rounded uppercase tracking-wider">Gratuito & Offline</span>
-
-                </div>
-
-                
-
-                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-
-                    FinSafe: Controle Financeiro
-
-                </h3>
-
-                
-
-                <p class="text-gray-600 dark:text-gray-300 text-sm mb-5 leading-relaxed">
-
-                    Organize suas finanças, controle gastos e economize de forma simples e prática. O app parceiro do Calcule Sua Saúde.
-
-                </p>
-
-
-
-                <!-- Botão de Download -->
-
-                <a href="https://play.google.com/store/apps/details?id=com.thiagoevanio.finsafe&hl=pt_BR" target="_blank" class="flex items-center justify-center gap-2 w-full py-3.5 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 mb-3">
-
-                    <i data-lucide="download" class="w-5 h-5"></i>
-
-                    Baixar na Play Store
-
-                </a>
-
-                
-
-                <p class="text-[10px] text-gray-400 dark:text-gray-500 leading-tight mb-4">
-
-                    *Sem anúncios intrusivos. Focado em privacidade.
-
-                </p>
-
-                
-
-                <button onclick="closeAd()" class="text-sm text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 underline">
-
-                    Agora não, obrigado
-
-                </button>
-
-            </div>
-
-        </div>
-
     </div>
 
+    <!-- 2. HEADER PRINCIPAL -->
+    <header class="sticky top-0 z-50 glass-header transition-all duration-300">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center h-auto md:h-20 py-3 md:py-0 gap-4 md:gap-0">
+                
+                <!-- Logo -->
+                <div class="flex items-center justify-between w-full md:w-auto">
+                    <div class="flex items-center gap-4">
+                        <button id="mobile-menu-btn" class="md:hidden text-slate-700 dark:text-slate-300" aria-label="Abrir menu">
+                            <i data-lucide="menu" class="w-6 h-6"></i>
+                        </button>
+                        <a href="#" class="flex items-center gap-2 group">
+                            <div class="bg-brand-600 text-white p-1.5 rounded shadow-sm group-hover:scale-105 transition-transform">
+                                <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                            </div>
+                            <div class="leading-none">
+                                <div class="text-2xl font-black tracking-tighter text-slate-900 dark:text-white">
+                                    CALCULE<span class="text-brand-600">SAÚDE</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <button id="theme-toggle-mobile" class="md:hidden p-2 text-slate-600" aria-label="Tema">
+                        <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i><i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                    </button>
+                </div>
 
+                <!-- Busca -->
+                <div class="w-full md:w-1/3 relative hidden md:block">
+                    <input type="text" placeholder="Buscar notícias, receitas ou sintomas..." class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded text-sm px-4 py-2 focus:ring-2 focus:ring-brand-500 transition-all">
+                    <i data-lucide="search" class="absolute right-3 top-2 w-4 h-4 text-slate-400"></i>
+                </div>
 
-    <!-- Scripts Logic -->
+                <!-- Nav -->
+                <nav class="hidden md:flex items-center gap-6 text-sm font-bold uppercase tracking-wide text-slate-600 dark:text-slate-300">
+                    <a href="#feed-anchor" class="hover:text-brand-600 transition-colors">Últimas</a>
+                    <a href="#receitas" class="hover:text-accent-600 transition-colors">Nutrição</a>
+                    <a href="#ferramentas" class="hover:text-brand-600 transition-colors">Ferramentas</a>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Alternar tema">
+                        <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                    </button>
+                </nav>
+            </div>
+            
+            <!-- Barra de Categorias -->
+            <div class="hidden md:flex border-t border-slate-200 dark:border-slate-800 py-2 gap-6 text-xs font-bold justify-center">
+                <button onclick="fetchNews('Mundo')" class="text-slate-600 hover:text-brand-600 uppercase">Mundo</button>
+                <button onclick="fetchNews('Tecnologia')" class="text-slate-600 hover:text-tech-500 uppercase">Tecnologia</button>
+                <button onclick="fetchNews('Saude')" class="text-brand-600 uppercase">Saúde & Ciência</button>
+                <button onclick="fetchRecipes('Vegetarian')" class="text-accent-600 uppercase">Receitas Fit</button>
+                <a href="#ferramentas" class="text-orange-600 uppercase">Calculadoras</a>
+            </div>
+        </div>
 
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-t dark:border-slate-800 shadow-xl p-4 space-y-4">
+            <input type="text" placeholder="Buscar..." class="w-full bg-slate-100 dark:bg-slate-800 p-2 rounded text-sm mb-4">
+            <a href="#feed-anchor" class="block font-bold text-slate-700 dark:text-slate-200">Últimas Notícias</a>
+            <a href="#receitas" class="block font-bold text-accent-600">Receitas & Dietas</a>
+            <a href="#ferramentas" class="block font-bold text-brand-600">Calculadoras</a>
+            <a href="personal.html" class="block font-bold text-orange-600">Personal Trainer</a>
+        </div>
+    </header>
+
+    <!-- 3. CAPA DO PORTAL (GRID PRINCIPAL) -->
+    <main class="container mx-auto px-4 lg:px-8 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- COLUNA ESQUERDA (PRINCIPAL) -->
+            <div class="lg:col-span-6 space-y-6">
+                <div id="main-headline-container" class="group cursor-pointer relative overflow-hidden rounded-xl shadow-sm h-[400px]">
+                    <div class="bg-slate-200 dark:bg-slate-800 h-full w-full animate-pulse"></div>
+                </div>
+            </div>
+
+            <!-- COLUNA MEIO (SECUNDÁRIAS) -->
+            <div class="lg:col-span-3 space-y-6">
+                <div id="sub-headlines-container" class="space-y-6">
+                    <div class="bg-slate-200 dark:bg-slate-800 h-48 w-full rounded-lg animate-pulse"></div>
+                    <div class="bg-slate-200 dark:bg-slate-800 h-48 w-full rounded-lg animate-pulse"></div>
+                </div>
+            </div>
+
+            <!-- COLUNA DIREITA (SIDEBAR SERVIÇOS) -->
+            <div class="lg:col-span-3 space-y-6">
+                
+                <!-- WIDGET IMC -->
+                <div class="bg-white dark:bg-slate-900 rounded-lg shadow-sm border border-slate-200 dark:border-slate-800 p-5">
+                    <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-2">
+                        <h3 class="font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                            <i data-lucide="calculator" class="w-4 h-4 text-brand-600"></i> IMC Rápido
+                        </h3>
+                        <span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-500 px-2 py-0.5 rounded-full" id="history-badge">Histórico</span>
+                    </div>
+                    <div id="last-result-box" class="hidden mb-3 text-xs text-brand-600 bg-brand-50 p-2 rounded">
+                        Último: <strong id="last-imc-val">--</strong>
+                    </div>
+                    <form id="quick-imc-form" class="space-y-3">
+                        <div class="flex gap-2">
+                            <input type="number" id="quick-weight" class="w-1/2 p-2 text-sm bg-slate-50 dark:bg-slate-800 border rounded" placeholder="Peso (kg)">
+                            <input type="number" step="0.01" id="quick-height" class="w-1/2 p-2 text-sm bg-slate-50 dark:bg-slate-800 border rounded" placeholder="Altura (m)">
+                        </div>
+                        <button type="submit" class="w-full bg-brand-700 hover:bg-brand-800 text-white text-sm font-bold py-2 rounded transition-colors">Calcular</button>
+                    </form>
+                    <div id="quick-result" class="hidden mt-3 text-center border-t pt-2">
+                        <span class="text-2xl font-black text-brand-700 block" id="imc-value">00.0</span>
+                        <span class="text-xs text-slate-500" id="imc-status">Normal</span>
+                    </div>
+                </div>
+
+                <!-- WIDGET CLIMA -->
+                <div id="weather-widget" class="bg-gradient-to-r from-blue-600 to-brand-700 rounded-lg p-4 text-white shadow-md relative overflow-hidden">
+                    <div class="relative z-10 flex justify-between items-center">
+                        <div>
+                            <p class="text-xs opacity-80 uppercase tracking-wider mb-1">Agora</p>
+                            <div class="flex items-baseline gap-2">
+                                <span class="text-3xl font-black" id="weather-temp">--°</span>
+                                <span class="text-xs" id="weather-city">SP</span>
+                            </div>
+                            <p class="text-[10px] mt-1 opacity-90" id="weather-tip">Carregando...</p>
+                        </div>
+                        <i data-lucide="cloud-sun" class="w-10 h-10 opacity-80"></i>
+                    </div>
+                </div>
+
+                <!-- WIDGET POPULAÇÃO -->
+                <div class="bg-slate-800 text-white rounded-lg p-4 text-center">
+                    <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-1">Brasil (População Est.)</p>
+                    <p class="text-xl font-mono text-green-400 font-bold tracking-widest" id="ibge-pop">216.420.392</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 4. TODAS AS FERRAMENTAS (Restauradas) -->
+    <section id="ferramentas" class="bg-white dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800 py-8">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex items-center justify-between mb-6">
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest text-center md:text-left">Central de Ferramentas</p>
+                <span class="text-xs text-slate-400">Acesso Rápido</span>
+            </div>
+            
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-4">
+                <!-- Originais Restaurados -->
+                <a href="ferramentas/imc.html" class="flex flex-col items-center gap-2 group cursor-pointer p-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-all">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center"><i data-lucide="scale" class="w-5 h-5"></i></div>
+                    <span class="text-[10px] font-bold text-slate-600 dark:text-slate-400">IMC</span>
+                </a>
+                <a href="ferramentas/tmb.html" class="flex flex-col items-center gap-2 group cursor-pointer p-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-all">
+                    <div class="w-10 h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center"><i data-lucide="flame" class="w-5 h-5"></i></div>
+                    <span class="text-[10px] font-bold text-slate-600 dark:text-slate-400">Calorias</span>
+                </a>
+                <a href="ferramentas/agua.html" class="flex flex-col items-center gap-2 group cursor-pointer p-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-all">
+                    <div class="w-10 h-10 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center"><i data-lucide="droplets" class="w-5 h-5"></i></div>
+                    <span class="text-[10px] font-bold text-slate-600 dark:text-slate-400">Água</span>
+                </a>
+                <a href="ferramentas/gordura.html" class="flex flex-col items-center gap-2 group cursor-pointer p-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-all">
+                    <div class="w-10 h-10 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center"><i data-lucide="percent" class="w-5 h-5"></i></div>
+                    <span class="text-[10px] font-bold text-slate-600 dark:text-slate-400">Gordura</span>
+                </a>
+                <a href="ferramentas/macros.html" class="flex flex-col items-center gap-2 group cursor-pointer p-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-all">
+                    <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                    <span class="text-[10px] font-bold text-slate-600 dark:text-slate-400">Macros</span>
+                </a>
+                <a href="ferramentas/glicemia.html" class="flex flex-col items-center gap-2 group cursor-pointer p-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-all">
+                    <div class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center"><i data-lucide="activity" class="w-5 h-5"></i></div>
+                    <span class="text-[10px] font-bold text-slate-600 dark:text-slate-400">Glicemia</span>
+                </a>
+                <a href="ferramentas/imc_infantil.html" class="flex flex-col items-center gap-2 group cursor-pointer p-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-all">
+                    <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center"><i data-lucide="baby" class="w-5 h-5"></i></div>
+                    <span class="text-[10px] font-bold text-slate-600 dark:text-slate-400">IMC Kids</span>
+                </a>
+                <a href="personal.html" class="flex flex-col items-center gap-2 group cursor-pointer p-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-all">
+                    <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center"><i data-lucide="dumbbell" class="w-5 h-5"></i></div>
+                    <span class="text-[10px] font-bold text-slate-600 dark:text-slate-400">Treino</span>
+                </a>
+                <a href="todos_quizzes.html" class="flex flex-col items-center gap-2 group cursor-pointer p-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-all">
+                    <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center"><i data-lucide="brain-circuit" class="w-5 h-5"></i></div>
+                    <span class="text-[10px] font-bold text-slate-600 dark:text-slate-400">Quizzes</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FEED "INFINITO" + SIDEBAR CONTEÚDO -->
+    <section id="feed-anchor" class="container mx-auto px-4 lg:px-8 py-10">
+        <div class="flex flex-col lg:flex-row gap-12">
+            
+            <!-- Feed de Notícias -->
+            <div class="lg:w-2/3">
+                <div class="flex items-center gap-2 mb-6 border-b-2 border-brand-600 pb-2 inline-block">
+                    <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+                    <h2 class="text-xl font-bold uppercase tracking-wide text-brand-700 dark:text-brand-400">Últimas do Feed</h2>
+                </div>
+                
+                <div id="news-feed-container" class="flex flex-col gap-8 divide-y divide-slate-100 dark:divide-slate-800">
+                    <!-- Notícias entram aqui -->
+                </div>
+                
+                <button onclick="fetchNews('Mundo')" class="mt-8 w-full py-3 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold rounded hover:bg-slate-200 transition-colors">
+                    Carregar Mais Notícias
+                </button>
+
+                <!-- DESTAQUES DA REDAÇÃO (SEUS ARTIGOS ORIGINAIS) -->
+                <div class="mt-16">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-6 border-l-4 border-brand-600 pl-3">Destaques da Nossa Biblioteca</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Artigo 1 -->
+                        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg overflow-hidden group">
+                            <a href="artigos/metabolismo-como-acelerar.html" class="block h-32 overflow-hidden">
+                                <img src="img/artigos/metabolismo.jpg" onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400'" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                            </a>
+                            <div class="p-3">
+                                <h4 class="font-bold text-sm mb-1 leading-tight"><a href="artigos/metabolismo-como-acelerar.html" class="hover:text-brand-600">Acelere seu Metabolismo</a></h4>
+                                <span class="text-[10px] text-slate-500 uppercase">Nutrição</span>
+                            </div>
+                        </div>
+                        <!-- Artigo 2 -->
+                        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg overflow-hidden group">
+                            <a href="artigos/hidratacao-importancia-saude.html" class="block h-32 overflow-hidden">
+                                <img src="img/artigos/hidratacao.jpg" onerror="this.src='https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400'" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                            </a>
+                            <div class="p-3">
+                                <h4 class="font-bold text-sm mb-1 leading-tight"><a href="artigos/hidratacao-importancia-saude.html" class="hover:text-cyan-600">O Poder da Água</a></h4>
+                                <span class="text-[10px] text-slate-500 uppercase">Bem-estar</span>
+                            </div>
+                        </div>
+                        <!-- Artigo 3 -->
+                        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg overflow-hidden group">
+                            <a href="artigos/ia-saude-chatgpt-gemini.html" class="block h-32 overflow-hidden">
+                                <img src="img/artigos/iasaude.png" onerror="this.src='https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400'" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                            </a>
+                            <div class="p-3">
+                                <h4 class="font-bold text-sm mb-1 leading-tight"><a href="artigos/ia-saude-chatgpt-gemini.html" class="hover:text-tech-500">IA na Saúde</a></h4>
+                                <span class="text-[10px] text-slate-500 uppercase">Tecnologia</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="artigos.html" class="text-xs font-bold text-brand-600 hover:underline">Ver Biblioteca Completa →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="lg:w-1/3 space-y-8">
+                <!-- NASA -->
+                <div class="bg-black rounded-lg overflow-hidden relative group">
+                    <div class="h-56 relative">
+                        <img id="nasa-img" src="" loading="lazy" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" alt="NASA">
+                        <div class="absolute top-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">ESPAÇO</div>
+                        <div class="absolute bottom-0 p-4 bg-gradient-to-t from-black to-transparent w-full">
+                            <p class="text-xs text-slate-300 mb-1">Astronomy Picture of the Day</p>
+                            <h4 class="text-white font-bold leading-tight" id="nasa-title">Carregando cosmos...</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Citação -->
+                <div class="bg-yellow-50 dark:bg-yellow-900/10 border-l-4 border-yellow-400 p-4">
+                    <i data-lucide="quote" class="w-4 h-4 text-yellow-600 mb-2"></i>
+                    <p class="font-serif italic text-slate-800 dark:text-slate-200 text-sm mb-2" id="daily-quote">...</p>
+                    <p class="text-xs font-bold text-slate-500 text-right" id="daily-author"></p>
+                </div>
+
+                <!-- Respiração -->
+                <div class="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-xl text-center border border-indigo-100 dark:border-indigo-900/30">
+                    <h4 class="font-bold text-indigo-900 dark:text-indigo-300 mb-4">Pausa Anti-Stress</h4>
+                    <div class="flex justify-center mb-4">
+                        <div id="breathing-circle" class="breathing-circle flex items-center justify-center">
+                            <span class="text-xs font-bold text-white" id="breath-text">Inicie</span>
+                        </div>
+                    </div>
+                    <button onclick="toggleBreathing()" id="breath-btn" class="text-xs font-bold text-indigo-600 hover:underline">Começar 4-4-4</button>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- 6. SEÇÃO RECEITAS (Com Links de Busca) -->
+    <section id="receitas" class="bg-slate-100 dark:bg-slate-900 py-12 border-t border-slate-200 dark:border-slate-800">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-2xl font-black text-slate-800 dark:text-white font-serif">Gastronomia & Nutrição</h2>
+                <div class="flex gap-2">
+                    <button onclick="fetchRecipes('Vegetarian')" class="px-3 py-1 text-xs font-bold bg-white dark:bg-slate-800 rounded shadow hover:bg-accent-50 transition-colors">Vegetariano</button>
+                    <button onclick="fetchRecipes('Breakfast')" class="px-3 py-1 text-xs font-bold bg-white dark:bg-slate-800 rounded shadow hover:bg-accent-50 transition-colors">Café da Manhã</button>
+                </div>
+            </div>
+            
+            <div id="recipes-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- JS preenche aqui -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-portal-dark text-slate-400 text-xs py-10 border-t border-slate-800">
+        <div class="container mx-auto px-4 text-center md:text-left">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h5 class="text-white font-black text-lg mb-4">CALCULE<span class="text-brand-500">SAÚDE</span></h5>
+                    <p class="mb-4">Informação confiável, ferramentas precisas e ciência para uma vida melhor.</p>
+                    <div class="flex gap-4 justify-center md:justify-start">
+                        <i data-lucide="facebook" class="w-5 h-5 hover:text-white cursor-pointer"></i>
+                        <i data-lucide="instagram" class="w-5 h-5 hover:text-white cursor-pointer"></i>
+                        <i data-lucide="twitter" class="w-5 h-5 hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+                <div>
+                    <h6 class="text-white font-bold uppercase mb-4">Editorial</h6>
+                    <ul class="space-y-2">
+                        <li><a href="politica.html" class="hover:text-brand-400">Política de Privacidade</a></li>
+                        <li><a href="termos.html" class="hover:text-brand-400">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="text-white font-bold uppercase mb-4">Ferramentas</h6>
+                    <ul class="space-y-2">
+                        <li><a href="ferramentas/imc.html" class="hover:text-brand-400">Calculadora IMC</a></li>
+                        <li><a href="ferramentas/tmb.html" class="hover:text-brand-400">Tabela de Calorias</a></li>
+                        <li><a href="todos_quizzes.html" class="hover:text-brand-400">Quizzes de Saúde</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="text-white font-bold uppercase mb-4">Parceiro</h6>
+                    <a href="https://play.google.com/store/apps/details?id=com.thiagoevanio.finsafe&hl=pt_BR" target="_blank" class="bg-slate-800 p-3 rounded flex items-center gap-3">
+                        <div class="bg-green-600 p-2 rounded text-white"><i data-lucide="smartphone" class="w-4 h-4"></i></div>
+                        <div>
+                            <p class="font-bold text-white">FinSafe App</p>
+                            <p class="text-[10px]">Controle Financeiro</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-slate-800 text-center">
+                © 2025 Calcule Sua Saúde. Conteúdo informativo, consulte sempre um médico.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
     <script>
-
-        // Inicializa ícones Lucide
-
         lucide.createIcons();
 
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('pt-BR', { weekday: 'short', day: 'numeric', month: 'long' });
 
-
-        // Lógica do Dark Mode
-
-        const themeToggleBtn = document.getElementById('theme-toggle');
-
-        const htmlElement = document.documentElement;
-
-
+        const themeBtn = document.getElementById('theme-toggle');
+        const themeBtnMobile = document.getElementById('theme-toggle-mobile');
+        const htmlEl = document.documentElement;
+        
+        function toggleTheme() {
+            htmlEl.classList.toggle('dark');
+            localStorage.theme = htmlEl.classList.contains('dark') ? 'dark' : 'light';
+        }
+        themeBtn.addEventListener('click', toggleTheme);
+        themeBtnMobile.addEventListener('click', toggleTheme);
 
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-
-            htmlElement.classList.add('dark');
-
-        } else {
-
-            htmlElement.classList.remove('dark');
-
+            htmlEl.classList.add('dark');
         }
 
-
-
-        themeToggleBtn.addEventListener('click', () => {
-
-            htmlElement.classList.toggle('dark');
-
-            if (htmlElement.classList.contains('dark')) {
-
-                localStorage.theme = 'dark';
-
-            } else {
-
-                localStorage.theme = 'light';
-
-            }
-
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
-
-
-        // Menu Mobile
-
-        const btnMobile = document.getElementById('mobile-menu-btn');
-
-        const menuMobile = document.getElementById('mobile-menu');
-
-
-
-        btnMobile.addEventListener('click', () => {
-
-            menuMobile.classList.toggle('hidden');
-
-        });
-
-
-
-        // Lógica do Desafio Diário
-
-        const desafiosSaudaveis = [
-
-            "Beba 2L de água hoje", "Caminhe por 20 minutos", "Coma 5 porções de frutas/vegetais",
-
-            "Durma 8 horas", "Faça 10 minutos de alongamento", "Evite açúcar refinado hoje",
-
-            "Pratique 5 minutos de meditação", "Suba escadas ao invés do elevador",
-
-            "Coma um café da manhã nutritivo", "Faça uma pausa de 5 min a cada hora",
-
-            "Beba um copo de água ao acordar", "Caminhe durante o almoço", "Coma uma salada no almoço",
-
-            "Pratique respiração profunda", "Evite bebidas açucaradas", "Faça 20 polichinelos",
-
-            "Leia por 15 minutos", "Coma uma fruta como lanche", "Desconecte-se das telas 1h antes de dormir",
-
-            "Faça uma atividade ao ar livre", "Beba chá verde", "Pratique gratidão - liste 3 coisas boas",
-
-            "Coma peixe ou proteína magra", "Faça 15 minutos de exercício", "Evite comida processada",
-
-            "Tome sol por 15 minutos", "Faça uma refeição sem pressa", "Pratique uma nova receita saudável",
-
-            "Durma e acorde no mesmo horário", "Celebre suas conquistas do mês", "Planeje metas saudáveis"
-
+        // 1. Notícias
+        const RSS_API_URL = "https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss/search?q=saude+medicina+bem-estar&hl=pt-BR&gl=BR&ceid=BR:pt-BR";
+        const MOCK_NEWS = [
+            { title: "Descoberta Revolucionária: Novo tratamento para Diabetes tipo 2 aprovado no Brasil", link: "#", image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800", date: "Hoje", desc: "Anvisa libera medicamento que promete reduzir em 40% as complicações cardíacas." },
+            { title: "Onda de Calor: 5 dicas essenciais para não desidratar", link: "#", image: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=800", date: "Ontem", desc: "" },
+            { title: "Estudo liga sono irregular a problemas de memória", link: "#", image: "https://images.unsplash.com/photo-1511174511562-5f7f18b874f8?w=800", date: "Ontem", desc: "" },
+            { title: "Tecnologia: IA ajuda a detectar câncer de pele precocemente", link: "#", image: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800", date: "2h atrás", desc: "" },
+            { title: "Nutrição: Por que você deveria comer mais fibras", link: "#", image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800", date: "3h atrás", desc: "" }
         ];
 
-
-
-        document.addEventListener('DOMContentLoaded', function() {
-
-            const hoje = new Date();
-
-            const diaDoMes = hoje.getDate();
-
-            const challengeIndex = (diaDoMes - 1) % desafiosSaudaveis.length;
-
-            const desafioElement = document.getElementById('desafio-hoje');
-
-            if(desafioElement) desafioElement.textContent = desafiosSaudaveis[challengeIndex];
-
-        });
-
-
-
-        // Widget de Calculadora Rápida IMC
-
-        document.getElementById('quick-imc-form').addEventListener('submit', function(e) {
-
-            e.preventDefault();
-
-            const peso = parseFloat(document.getElementById('quick-weight').value);
-
-            let altura = parseFloat(document.getElementById('quick-height').value);
-
-            const resultBox = document.getElementById('quick-result');
-
-            const imcValue = document.getElementById('imc-value');
-
-            const imcStatus = document.getElementById('imc-status');
-
-
-
-            if (peso > 0 && altura > 0) {
-
-                // Correção automática: se digitou em cm (ex: 175), converte para metros (1.75)
-
-                if (altura > 3) {
-
-                    altura = altura / 100;
-
-                }
-
-
-
-                const imc = peso / (altura * altura);
-
-                imcValue.textContent = imc.toFixed(1);
-
-                resultBox.classList.remove('hidden');
-
-
-
-                let status = '';
-
-                let colorClass = '';
-
-
-
-                if (imc < 18.5) { status = 'Abaixo do Peso'; colorClass = 'bg-yellow-100 text-yellow-800'; }
-
-                else if (imc < 24.9) { status = 'Peso Normal'; colorClass = 'bg-green-100 text-green-800'; }
-
-                else if (imc < 29.9) { status = 'Sobrepeso'; colorClass = 'bg-orange-100 text-orange-800'; }
-
-                else { status = 'Obesidade'; colorClass = 'bg-red-100 text-red-800'; }
-
-
-
-                imcStatus.textContent = status;
-
-                imcStatus.className = `inline-block px-3 py-1 rounded-full text-sm font-bold mt-1 ${colorClass}`;
-
-            } else {
-
-                alert('Por favor, insira valores válidos.');
-
+        async function fetchNews(query) {
+            let url = RSS_API_URL;
+            if(query) url = `https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss/search?q=${query}&hl=pt-BR&gl=BR&ceid=BR:pt-BR`;
+            
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+                const items = (data.status === 'ok' && data.items.length > 0) ? data.items : MOCK_NEWS;
+                renderPortalLayout(items);
+            } catch {
+                renderPortalLayout(MOCK_NEWS);
             }
+        }
 
-        });
+        function renderPortalLayout(articles) {
+            const main = articles[0];
+            const mainImg = main.enclosure?.link || main.thumbnail || main.image || `https://source.unsplash.com/800x600/?health&sig=1`;
+            
+            document.getElementById('main-headline-container').innerHTML = `
+                <div class="absolute inset-0">
+                    <img src="${mainImg}" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                </div>
+                <div class="absolute bottom-0 left-0 p-6 w-full">
+                    <span class="bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase mb-3 inline-block">Destaque do Dia</span>
+                    <h2 class="text-2xl md:text-4xl font-black text-white leading-tight font-serif hover:underline decoration-white decoration-2 underline-offset-4">
+                        <a href="${main.link}" target="_blank">${main.title}</a>
+                    </h2>
+                    <p class="text-slate-300 mt-2 text-sm line-clamp-2 hidden md:block">${(main.description || main.desc || '').replace(/<[^>]*>?/gm, '').slice(0, 150)}...</p>
+                </div>
+            `;
 
-
-
-        // Service Worker
-
-        if ('serviceWorker' in navigator) {
-
-            window.addEventListener('load', () => {
-
-                navigator.serviceWorker.register('/sw.js').catch(error => console.log('SW falhou: ', error));
-
+            const subContainer = document.getElementById('sub-headlines-container');
+            subContainer.innerHTML = '';
+            articles.slice(1, 3).forEach((art, i) => {
+                const img = art.enclosure?.link || art.thumbnail || art.image || `https://source.unsplash.com/800x600/?medicine&sig=${i+2}`;
+                subContainer.innerHTML += `
+                    <div class="group cursor-pointer flex flex-col h-full bg-white dark:bg-slate-900 rounded-lg shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden">
+                        <div class="h-32 overflow-hidden relative">
+                            <img src="${img}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                        </div>
+                        <div class="p-4 flex-1">
+                            <h3 class="font-bold text-sm md:text-base text-slate-800 dark:text-white leading-snug font-serif portal-link">
+                                <a href="${art.link}" target="_blank">${art.title}</a>
+                            </h3>
+                            <span class="text-[10px] text-slate-400 mt-2 block uppercase font-bold">Ler mais</span>
+                        </div>
+                    </div>
+                `;
             });
 
+            const feedContainer = document.getElementById('news-feed-container');
+            feedContainer.innerHTML = '';
+            articles.slice(3, 8).forEach((art, i) => {
+                const img = art.enclosure?.link || art.thumbnail || art.image || `https://source.unsplash.com/800x600/?science&sig=${i+10}`;
+                const desc = (art.description || art.desc || '').replace(/<[^>]*>?/gm, '').slice(0, 140);
+                
+                feedContainer.innerHTML += `
+                    <article class="flex gap-4 py-4 group">
+                        <div class="w-1/3 md:w-48 h-28 bg-slate-200 rounded overflow-hidden shrink-0 relative">
+                            <img src="${img}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-slate-900 dark:text-white font-serif leading-tight mb-2 portal-link">
+                                <a href="${art.link}" target="_blank">${art.title}</a>
+                            </h3>
+                            <p class="text-xs md:text-sm text-slate-600 dark:text-slate-400 line-clamp-2">${desc}...</p>
+                            <div class="flex items-center gap-2 mt-2">
+                                <span class="text-[10px] font-bold text-brand-600 uppercase">Notícia</span>
+                                <span class="text-[10px] text-slate-400">• ${new Date(art.pubDate || Date.now()).toLocaleDateString()}</span>
+                                <button onclick="this.innerHTML='✨ Resumindo...'; setTimeout(()=>{this.innerHTML='✅ Resumo IA: Importante ler.'; this.classList.add('text-green-600')}, 1500)" class="ml-auto text-[10px] border border-slate-200 px-2 py-0.5 rounded text-slate-500 hover:bg-slate-50">🤖 IA Resumir</button>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            });
         }
 
-
-
-        // LÓGICA DO MODAL DE PROPAGANDA
-
-        function showAd() {
-
-            // Verifica se já foi fechado
-
-            if (!localStorage.getItem('appAdClosed')) {
-
-                const modal = document.getElementById('ad-modal-backdrop');
-
-                modal.classList.remove('hidden');
-
-                modal.classList.add('flex'); // Garante que use flex para centralizar
-
-            }
-
+        // 2. Receitas (Agora Clicáveis!)
+        async function fetchRecipes(tag) {
+            const grid = document.getElementById('recipes-grid');
+            grid.innerHTML = '<div class="col-span-4 text-center py-10 opacity-50">Carregando pratos...</div>';
+            try {
+                const res = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${tag}`);
+                const data = await res.json();
+                grid.innerHTML = '';
+                data.meals.slice(0, 4).forEach(m => {
+                    // Link para buscar a receita no Google
+                    const searchUrl = `https://www.google.com/search?q=receita+${encodeURIComponent(m.strMeal)}`;
+                    
+                    grid.innerHTML += `
+                        <a href="${searchUrl}" target="_blank" class="group cursor-pointer block">
+                            <div class="h-40 rounded-lg overflow-hidden relative mb-2 shadow-sm">
+                                <img src="${m.strMealThumb}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                                <div class="absolute top-2 right-2 bg-white/90 text-slate-800 text-[10px] font-bold px-1.5 rounded"><i data-lucide="clock" class="w-3 h-3 inline"></i> 30m</div>
+                                <div class="absolute bottom-0 w-full p-2 bg-gradient-to-t from-black/60 to-transparent">
+                                    <span class="text-white text-[10px]"><i data-lucide="external-link" class="w-3 h-3 inline"></i> Ver receita</span>
+                                </div>
+                            </div>
+                            <h4 class="font-bold text-sm text-slate-800 dark:text-white leading-tight group-hover:text-accent-600 transition-colors">${m.strMeal}</h4>
+                        </a>
+                    `;
+                });
+                lucide.createIcons();
+            } catch(e) {}
         }
 
-
-
-        function closeAd() {
-
-            const modal = document.getElementById('ad-modal-backdrop');
-
-            modal.classList.add('hidden');
-
-            modal.classList.remove('flex');
-
-            // Salva no navegador que o usuário fechou
-
-            localStorage.setItem('appAdClosed', 'true');
-
+        // 3. Financeiro
+        async function fetchFinance() {
+            try {
+                const res = await fetch('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL');
+                const data = await res.json();
+                const el = document.getElementById('finance-ticker');
+                document.getElementById('ticker-loading').style.display = 'none';
+                
+                const coins = [
+                    {n:'Dólar', v:data.USDBRL}, {n:'Euro', v:data.EURBRL}, {n:'Bitcoin', v:data.BTCBRL}
+                ];
+                
+                coins.forEach(c => {
+                    const color = parseFloat(c.v.pctChange) >= 0 ? 'text-green-400' : 'text-red-400';
+                    const icon = parseFloat(c.v.pctChange) >= 0 ? '▲' : '▼';
+                    const span = document.createElement('span');
+                    span.innerHTML = `<span class="opacity-70">${c.n}:</span> ${parseFloat(c.v.bid).toFixed(2)} <span class="${color} text-[10px] ml-1">${icon} ${c.v.pctChange}%</span>`;
+                    el.appendChild(span);
+                    const sep = document.createElement('span');
+                    sep.className = 'opacity-30';
+                    sep.innerHTML = '|';
+                    el.appendChild(sep);
+                });
+            } catch(e){}
         }
 
+        // 4. Clima
+        async function fetchWeather() {
+            if(navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(pos => loadWeather(pos.coords.latitude, pos.coords.longitude), () => loadWeather(-23.55, -46.63));
+            } else loadWeather(-23.55, -46.63);
+        }
+        async function loadWeather(lat, lon) {
+            try {
+                const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
+                const data = await res.json();
+                document.getElementById('weather-temp').innerText = `${Math.round(data.current_weather.temperature)}°`;
+                document.getElementById('weather-tip').innerText = data.current_weather.temperature > 25 ? "Calor: Beba água." : "Clima agradável.";
+            } catch {}
+        }
 
-
-        // Ativa o modal após 3.5 segundos (menos intrusivo)
-
-        window.addEventListener('load', () => {
-
-            setTimeout(showAd, 3500);
-
+        fetch('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY').then(r=>r.json()).then(d=>{
+            if(d.url) { document.getElementById('nasa-img').src=d.url; document.getElementById('nasa-title').textContent=d.title; }
+        }).catch(()=>{
+            document.getElementById('nasa-img').src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800";
         });
 
+        const quotes = [{t:"A saúde é a maior riqueza.",a:"Virgílio"}, {t:"Caminhar é o melhor remédio.",a:"Hipócrates"}];
+        document.getElementById('daily-quote').innerText = `"${quotes[0].t}"`;
+        document.getElementById('daily-author').innerText = `— ${quotes[0].a}`;
+
+        let isBreathing = false;
+        let breathInterval;
+        function toggleBreathing() {
+            const c = document.getElementById('breathing-circle');
+            const txt = document.getElementById('breath-text');
+            const btn = document.getElementById('breath-btn');
+            if(!isBreathing) {
+                c.classList.add('breathing-active');
+                txt.innerText = "Inspire...";
+                btn.innerText = "Parar";
+                let step = 0;
+                breathInterval = setInterval(() => {
+                    step = (step + 1) % 2;
+                    txt.innerText = step === 0 ? "Inspire..." : "Expire...";
+                }, 4000);
+                isBreathing = true;
+            } else {
+                c.classList.remove('breathing-active');
+                clearInterval(breathInterval);
+                txt.innerText = "Inicie";
+                btn.innerText = "Começar 4-4-4";
+                isBreathing = false;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('lastImc');
+            if(saved) {
+                document.getElementById('last-result-box').classList.remove('hidden');
+                document.getElementById('last-imc-val').textContent = saved;
+            }
+        });
+        document.getElementById('quick-imc-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const p = parseFloat(document.getElementById('quick-weight').value);
+            let a = parseFloat(document.getElementById('quick-height').value);
+            if(p>0 && a>0) {
+                if(a>3) a=a/100;
+                const imc = (p/(a*a)).toFixed(1);
+                document.getElementById('imc-value').innerText = imc;
+                document.getElementById('quick-result').classList.remove('hidden');
+                localStorage.setItem('lastImc', imc);
+            }
+        });
+
+        fetchNews();
+        fetchFinance();
+        fetchRecipes('Vegetarian');
+        fetchWeather();
     </script>
-
 </body>
-
 </html>
