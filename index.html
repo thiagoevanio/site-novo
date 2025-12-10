@@ -5,17 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#c4170c">
-    <title>Calcule Sua Saúde | Portal de Notícias</title>
-
-    <!-- SEO -->
-    <meta name="description" content="O seu portal diário de saúde. Notícias, previsão do tempo, e as melhores calculadoras de saúde gratuitas.">
     
-    <!-- Google Fonts -->
+    <!-- ============================================== -->
+    <!-- SEO & METADADOS (Otimização para Google) -->
+    <!-- ============================================== -->
+    <title>Calcule Sua Saúde | Portal de Notícias, Ciência e Bem-Estar</title>
+    <meta name="description" content="Portal líder em saúde e ciência. Notícias atualizadas, previsão do tempo, monitoramento da NASA e calculadoras gratuitas de IMC, TMB e Hidratação.">
+    <meta name="keywords" content="saúde, noticias, medicina, nasa, espaço, imc, calculadora, bem-estar, fitness">
+    <meta name="author" content="Calcule Sua Saúde">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculesuasaude.com.br/">
+    <meta property="og:title" content="Calcule Sua Saúde - Portal Premium">
+    <meta property="og:description" content="Notícias de saúde em tempo real, dados da NASA e ferramentas para seu corpo.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Schema.org (Para o Google entender que é um Portal) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsMediaOrganization",
+      "name": "Calcule Sua Saúde",
+      "url": "https://calculesuasaude.com.br",
+      "logo": "https://calculesuasaude.com.br/logo.png",
+      "sameAs": [
+        "https://www.facebook.com/calculesuasaude",
+        "https://www.instagram.com/calculesuasaude"
+      ]
+    }
+    </script>
+    
+    <!-- Fontes (Inter + Merriweather para credibilidade jornalística) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap" rel="stylesheet">
     
-    <!-- Scripts Externos -->
+    <!-- Bibliotecas Externas -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -41,7 +68,7 @@
     </script>
 
     <style>
-        /* Animação do Ticker (Barra de Cotações) */
+        /* Ticker de Cotações (Animação suave) */
         .ticker-wrap {
             width: 100%;
             overflow: hidden;
@@ -59,7 +86,7 @@
             white-space: nowrap;
             padding-right: 100%;
             box-sizing: border-box;
-            animation: ticker 40s linear infinite;
+            animation: ticker 45s linear infinite;
         }
 
         .ticker__item {
@@ -79,33 +106,26 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #c4170c; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #a01209; }
-
-        .line-clamp-3 {
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
+        ::-webkit-scrollbar-thumb:hover { background: #8a0e06; }
     </style>
 </head>
 
 <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 
-    <!-- 1. BARRA DE COTAÇÕES (AWESOMEAPI - Grátis/Sem Chave) -->
+    <!-- 1. BARRA DE COTAÇÕES (AWESOMEAPI) -->
     <div class="fixed w-full top-0 z-50">
         <div class="ticker-wrap border-b border-gray-700">
             <div class="ticker" id="finance-ticker">
-                <span class="ticker__item">Carregando cotações...</span>
+                <span class="ticker__item">Carregando dados financeiros...</span>
             </div>
         </div>
 
-        <!-- HEADER -->
+        <!-- HEADER PRINCIPAL -->
         <header class="bg-white dark:bg-gray-900 shadow-md">
             <div class="container mx-auto px-4 py-4">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                     
-                    <!-- Logo e Menu Mobile -->
+                    <!-- Logo -->
                     <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-start">
                         <button id="mobile-menu-btn" class="md:hidden p-2"><i data-lucide="menu"></i></button>
                         
@@ -113,7 +133,7 @@
                             <h1 class="text-3xl font-black font-serif tracking-tighter text-portal-red group-hover:opacity-80 transition-opacity">
                                 CALCULE<span class="text-gray-800 dark:text-white">SAÚDE</span>
                             </h1>
-                            <span class="text-xs font-bold text-gray-500 uppercase tracking-widest" id="header-date">Portal de Bem-Estar</span>
+                            <span class="text-xs font-bold text-gray-500 uppercase tracking-widest" id="header-date">...</span>
                         </a>
 
                         <div class="flex gap-2 md:hidden">
@@ -121,7 +141,7 @@
                         </div>
                     </div>
 
-                    <!-- Navegação Desktop -->
+                    <!-- Navegação -->
                     <nav class="hidden md:flex items-center gap-6 text-sm font-bold uppercase text-gray-700 dark:text-gray-300">
                         <a href="#manchetes" class="hover:text-portal-red transition-colors">Últimas</a>
                         <a href="#ferramentas-area" class="hover:text-portal-red transition-colors">Calculadoras</a>
@@ -137,46 +157,66 @@
         </header>
     </div>
 
-    <!-- Espaçamento para o Header Fixo -->
     <div class="h-[120px] md:h-[130px]"></div>
 
-    <!-- GRID PRINCIPAL DO SITE -->
+    <!-- ESTRUTURA PRINCIPAL (Grid 12 colunas) -->
     <div class="container mx-auto px-4 py-8 grid grid-cols-12 gap-8">
 
         <!-- ============================================== -->
-        <!-- COLUNA ESQUERDA (NOTÍCIAS) - 8/12 -->
+        <!-- COLUNA ESQUERDA (PRINCIPAL) - 8/12 -->
         <!-- ============================================== -->
         <main class="col-span-12 lg:col-span-8 space-y-8">
 
-            <!-- 2. DESTAQUE (NASA API - Key Configurada) -->
-            <section id="nasa-section" class="relative w-full h-[450px] rounded-xl overflow-hidden shadow-xl group cursor-pointer bg-gray-200">
-                <img id="nasa-img" src="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Imagem do Dia NASA">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+            <!-- 2. DESTAQUE: NASA APOD (Imagem do Dia) -->
+            <section id="nasa-section" class="relative w-full h-[500px] rounded-xl overflow-hidden shadow-xl group cursor-pointer bg-black">
+                <img id="nasa-img" src="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80" alt="Imagem Astronômica do Dia">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
                 
-                <div class="absolute bottom-0 left-0 p-6 md:p-8 w-full">
-                    <span class="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded uppercase mb-3 inline-block">Ciência & Espaço</span>
+                <div class="absolute bottom-0 left-0 p-6 md:p-8 w-full z-10">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded uppercase">NASA APOD</span>
+                        <span class="text-xs text-gray-300 uppercase tracking-wider font-bold">Destaque do Dia</span>
+                    </div>
                     <h2 id="nasa-title" class="text-2xl md:text-4xl font-serif font-bold text-white mb-2 leading-tight">
-                        Carregando a Imagem Astronômica do Dia...
+                        Carregando Universo...
                     </h2>
-                    <p class="text-gray-300 text-sm md:text-base line-clamp-2" id="nasa-desc">
-                        Aguarde enquanto conectamos com a NASA...
+                    <p class="text-gray-300 text-sm md:text-base line-clamp-2 max-w-2xl" id="nasa-desc">
+                        Conectando aos satélites...
                     </p>
                 </div>
             </section>
 
-            <!-- 3. FEED DE NOTÍCIAS (GNEWS API - Key Configurada) -->
-            <div id="manchetes" class="border-b-4 border-portal-red pb-2 mb-6 flex justify-between items-end">
-                <h3 class="text-2xl font-bold font-serif text-gray-900 dark:text-white">Últimas Notícias</h3>
-                <span class="text-xs text-gray-500">Fonte: GNews API</span>
+            <!-- 3. NOVIDADE: MARS ROVER (Perseverance) -->
+            <section class="bg-gray-900 rounded-xl p-6 border border-gray-800 shadow-inner">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i data-lucide="camera" class="text-orange-500"></i> Direto de Marte (Rover Perseverance)
+                    </h3>
+                    <span class="text-xs text-gray-400">Última transmissão</span>
+                </div>
+                <div class="flex flex-col md:flex-row gap-4 items-center">
+                    <div class="w-full md:w-1/3 h-40 rounded-lg overflow-hidden bg-black relative">
+                         <img id="mars-img" src="" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" alt="Superfície de Marte">
+                         <div class="absolute bottom-1 right-1 bg-black/60 text-white text-[10px] px-2 rounded">NASA/JPL</div>
+                    </div>
+                    <div class="flex-1 text-sm text-gray-300">
+                        <p class="mb-2">Esta imagem foi capturada recentemente pela câmera de navegação do Rover em Marte.</p>
+                        <p class="text-xs text-gray-500">Status da Missão: <span class="text-green-400 font-bold">ATIVO</span></p>
+                        <p class="text-xs text-gray-500">Câmera: <span id="mars-cam" class="text-white">...</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. FEED DE NOTÍCIAS (GNEWS) -->
+            <div id="manchetes" class="border-b-4 border-portal-red pb-2 mb-6 flex justify-between items-end mt-8">
+                <h3 class="text-2xl font-bold font-serif text-gray-900 dark:text-white">Manchetes de Saúde</h3>
+                <span class="text-xs text-gray-500 flex items-center gap-1"><i data-lucide="globe" class="w-3 h-3"></i> Fonte: GNews API</span>
             </div>
 
-            <!-- Grid onde as notícias aparecem -->
             <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Efeito de carregamento (Skeleton) -->
-                <div class="animate-pulse bg-gray-200 dark:bg-gray-800 h-64 rounded-lg"></div>
-                <div class="animate-pulse bg-gray-200 dark:bg-gray-800 h-64 rounded-lg"></div>
-                <div class="animate-pulse bg-gray-200 dark:bg-gray-800 h-64 rounded-lg"></div>
-                <div class="animate-pulse bg-gray-200 dark:bg-gray-800 h-64 rounded-lg"></div>
+                <!-- Skeleton Loader (Carregamento) -->
+                <div class="animate-pulse bg-gray-200 dark:bg-gray-800 h-80 rounded-lg"></div>
+                <div class="animate-pulse bg-gray-200 dark:bg-gray-800 h-80 rounded-lg"></div>
             </div>
 
         </main>
@@ -186,114 +226,109 @@
         <!-- ============================================== -->
         <aside class="col-span-12 lg:col-span-4 space-y-8">
 
-            <!-- 4. CLIMA (OPENWEATHERMAP API - Key Configurada) -->
-            <div class="bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl p-6 text-white shadow-lg relative overflow-hidden">
-                <div class="absolute top-0 right-0 -mt-4 -mr-4 bg-white/10 w-24 h-24 rounded-full blur-xl"></div>
+            <!-- 5. CLIMA (OPENWEATHERMAP) -->
+            <div class="bg-gradient-to-br from-blue-600 to-indigo-800 rounded-xl p-6 text-white shadow-lg relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-700"></div>
                 <div class="flex justify-between items-start z-10 relative">
                     <div>
-                        <p class="text-blue-100 text-sm font-semibold mb-1">Previsão do Tempo</p>
-                        <h4 class="text-2xl font-bold" id="weather-city">Detectando...</h4>
+                        <p class="text-blue-200 text-xs font-bold uppercase tracking-widest mb-1">Tempo Agora</p>
+                        <h4 class="text-2xl font-bold" id="weather-city">Localizando...</h4>
                     </div>
                     <i id="weather-icon" data-lucide="cloud" class="w-10 h-10 text-white"></i>
                 </div>
                 <div class="mt-6 flex items-end gap-2">
-                    <span class="text-5xl font-bold" id="weather-temp">--°</span>
-                    <span class="text-blue-100 mb-2 text-sm" id="weather-desc">Carregando dados...</span>
+                    <span class="text-5xl font-bold" id="weather-temp">--</span>
+                    <div class="mb-2">
+                        <span class="text-xl">°C</span>
+                        <p class="text-blue-200 text-sm capitalize" id="weather-desc">...</p>
+                    </div>
                 </div>
-                <div class="mt-4 pt-4 border-t border-white/20 flex justify-between text-sm text-blue-50">
-                    <span class="flex items-center gap-1"><i data-lucide="wind" class="w-3 h-3"></i> <span id="weather-wind">--</span> km/h</span>
-                    <span class="flex items-center gap-1"><i data-lucide="droplets" class="w-3 h-3"></i> <span id="weather-hum">--</span>%</span>
+                <div class="mt-4 pt-4 border-t border-white/20 flex justify-between text-sm text-blue-100 font-medium">
+                    <span class="flex items-center gap-1"><i data-lucide="wind" class="w-4 h-4"></i> <span id="weather-wind">--</span> km/h</span>
+                    <span class="flex items-center gap-1"><i data-lucide="droplets" class="w-4 h-4"></i> <span id="weather-hum">--</span>%</span>
                 </div>
             </div>
 
-            <!-- 5. ASTEROIDES (NASA NEOWS API - Key Configurada) -->
+            <!-- 6. ASTEROIDES (NASA NEOWS) -->
             <div class="bg-gray-900 text-white rounded-xl shadow-md p-6 border border-gray-700 relative overflow-hidden group">
-                <!-- Efeito de fundo -->
-                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30"></div>
                 
                 <div class="relative z-10">
                     <div class="flex items-center justify-between mb-4">
                         <h4 class="text-lg font-bold font-serif text-yellow-400 flex items-center gap-2">
-                            <i data-lucide="rocket" class="w-5 h-5"></i> Radar Espacial
+                            <i data-lucide="radar" class="w-5 h-5"></i> Radar Espacial
                         </h4>
-                        <span class="text-[10px] bg-red-600 px-2 py-1 rounded font-bold animate-pulse">AO VIVO</span>
+                        <div class="flex items-center gap-1">
+                            <span class="block w-2 h-2 bg-red-500 rounded-full animate-ping"></span>
+                            <span class="text-[10px] font-bold text-gray-300">LIVE</span>
+                        </div>
                     </div>
                     
-                    <p class="text-gray-400 text-xs mb-3">Asteroides próximos da Terra hoje:</p>
-                    
+                    <p class="text-gray-400 text-xs mb-3">Asteroides passando perto da Terra hoje:</p>
                     <div id="asteroid-list" class="space-y-3">
-                        <div class="animate-pulse flex gap-2">
-                            <div class="h-10 w-10 bg-gray-700 rounded-full"></div>
-                            <div class="flex-1 space-y-1">
-                                <div class="h-2 bg-gray-700 rounded w-full"></div>
-                                <div class="h-2 bg-gray-700 rounded w-1/2"></div>
-                            </div>
-                        </div>
+                        <div class="animate-pulse h-10 bg-gray-800 rounded"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- MENU DE FERRAMENTAS -->
+            <!-- 7. LISTA DE FERRAMENTAS (Link Corrigido) -->
             <div id="ferramentas-area" class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-100 dark:border-gray-700">
                 <h4 class="text-lg font-bold font-serif border-l-4 border-portal-red pl-3 mb-4 text-gray-900 dark:text-white">
-                    Ferramentas Rápidas
+                    Calculadoras Rápidas
                 </h4>
-                <ul class="space-y-3">
+                <ul class="space-y-2">
                     <li>
-                        <a href="ferramentas/imc.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors group">
-                            <div class="bg-blue-100 dark:bg-blue-900/30 text-blue-600 p-2 rounded-md group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                                <i data-lucide="activity" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <span class="block font-bold text-gray-800 dark:text-gray-200">Calculadora IMC</span>
-                                <span class="text-xs text-gray-500">Controle seu peso ideal</span>
-                            </div>
+                        <a href="ferramentas/imc.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                            <span class="bg-blue-100 text-blue-600 p-2 rounded"><i data-lucide="activity" class="w-4 h-4"></i></span>
+                            <span class="font-bold text-sm text-gray-700 dark:text-gray-200">Calculadora IMC</span>
                         </a>
                     </li>
                     <li>
-                        <a href="ferramentas/tmb.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors group">
-                            <div class="bg-orange-100 dark:bg-orange-900/30 text-orange-600 p-2 rounded-md group-hover:bg-orange-600 group-hover:text-white transition-colors">
-                                <i data-lucide="flame" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <span class="block font-bold text-gray-800 dark:text-gray-200">Taxa Metabólica</span>
-                                <span class="text-xs text-gray-500">Gasto calórico diário</span>
-                            </div>
+                        <a href="ferramentas/tmb.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                            <span class="bg-orange-100 text-orange-600 p-2 rounded"><i data-lucide="flame" class="w-4 h-4"></i></span>
+                            <span class="font-bold text-sm text-gray-700 dark:text-gray-200">Gasto Calórico</span>
                         </a>
                     </li>
                     <li>
-                        <a href="ferramentas/agua.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors group">
-                            <div class="bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 p-2 rounded-md group-hover:bg-cyan-600 group-hover:text-white transition-colors">
-                                <i data-lucide="droplets" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <span class="block font-bold text-gray-800 dark:text-gray-200">Hidratação</span>
-                                <span class="text-xs text-gray-500">Meta diária de água</span>
-                            </div>
+                        <a href="ferramentas/agua.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                            <span class="bg-cyan-100 text-cyan-600 p-2 rounded"><i data-lucide="droplets" class="w-4 h-4"></i></span>
+                            <span class="font-bold text-sm text-gray-700 dark:text-gray-200">Hidratação</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ferramentas/gordura.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                            <span class="bg-yellow-100 text-yellow-600 p-2 rounded"><i data-lucide="scale" class="w-4 h-4"></i></span>
+                            <span class="font-bold text-sm text-gray-700 dark:text-gray-200">Gordura Corporal</span>
                         </a>
                     </li>
                 </ul>
-                <a href="#todos" class="block text-center text-sm font-bold text-portal-red mt-4 hover:underline">Ver todas as calculadoras →</a>
+                <!-- LINK PARA VER TODAS -->
+                <a href="calculadoras.html" class="block w-full text-center mt-4 text-sm font-bold text-portal-red border border-portal-red rounded-full py-2 hover:bg-portal-red hover:text-white transition-all">
+                    Ver Todas as Ferramentas
+                </a>
             </div>
 
-            <!-- IBGE (DADOS BRASIL) -->
+            <!-- 8. IBGE -->
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-100 dark:border-gray-700">
                 <div class="flex items-center gap-2 mb-4">
-                    <img src="https://www.ibge.gov.br/images/favicon.ico" alt="IBGE" class="w-6 h-6">
-                    <h4 class="text-lg font-bold font-serif text-gray-900 dark:text-white">Brasil em Números</h4>
+                    <div class="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center text-white font-bold text-xs">BR</div>
+                    <h4 class="text-lg font-bold font-serif text-gray-900 dark:text-white">Dados Brasil</h4>
                 </div>
-                <div class="space-y-4" id="ibge-data">
-                    <!-- Dados carregados via JS -->
+                <div class="space-y-3 text-sm" id="ibge-data">
+                    <div class="flex justify-between border-b pb-2 dark:border-gray-700">
+                        <span class="text-gray-500">População</span>
+                        <span class="font-bold dark:text-white">203 mi</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- BANNER PERSONAL TRAINER -->
-            <div class="relative rounded-xl overflow-hidden bg-gray-900 text-white p-6 text-center">
-                <img src="personal.jpg" class="absolute inset-0 w-full h-full object-cover opacity-30" onerror="this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=500&q=60'">
+            <!-- PERSONAL TRAINER -->
+            <div class="relative rounded-xl overflow-hidden bg-gray-900 text-white p-6 text-center group">
+                <img src="personal.jpg" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=500&q=60'">
                 <div class="relative z-10">
-                    <span class="text-orange-400 font-bold text-xs uppercase">Consultoria Online</span>
-                    <h3 class="text-xl font-bold mb-3">Treine com Raphael Aquino</h3>
-                    <a href="personal.html" class="inline-block bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-full font-bold text-sm transition-colors">
+                    <span class="text-orange-400 font-bold text-xs uppercase tracking-widest">Consultoria</span>
+                    <h3 class="text-xl font-bold mb-4 mt-1">Raphael Aquino</h3>
+                    <a href="personal.html" class="inline-block bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-full font-bold text-sm transition-all shadow-lg hover:shadow-orange-500/50">
                         Ver Planos
                     </a>
                 </div>
@@ -302,108 +337,116 @@
         </aside>
     </div>
 
-    <!-- MODAL DE INTELIGÊNCIA ARTIFICIAL (HuggingFace Configurado) -->
-    <div id="ai-modal" class="fixed inset-0 bg-black/80 z-[60] hidden flex items-center justify-center p-4 backdrop-blur-sm">
-        <div class="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-lg p-6 relative shadow-2xl border border-gray-200 dark:border-gray-700">
-            <button onclick="closeAiModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:hover:text-white">
-                <i data-lucide="x"></i>
-            </button>
-            <div class="flex items-center gap-2 mb-4 text-purple-600">
-                <i data-lucide="bot" class="w-6 h-6"></i>
-                <h3 class="font-bold text-lg">HuggingFace AI Resumo</h3>
-            </div>
-            <div id="ai-content" class="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
-                <!-- Conteúdo da IA entra aqui -->
-            </div>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer class="bg-portal-dark text-white pt-16 pb-8 border-t-4 border-portal-red mt-12">
+    <!-- RODAPÉ ORIGINAL RESTAURADO -->
+    <footer class="bg-gray-900 text-gray-300 pt-20 pb-10 border-t border-gray-800 mt-12">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div class="col-span-1 md:col-span-2">
-                    <h2 class="text-3xl font-serif font-bold mb-4">CALCULE SAÚDE</h2>
-                    <p class="text-gray-400 max-w-sm">Jornalismo de dados e ferramentas baseadas em ciência. Conteúdo atualizado automaticamente via APIs.</p>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-xl font-bold mb-6 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-6 h-6 text-portal-red"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                        Sua plataforma completa para monitoramento de saúde e bem-estar. Simples, rápido e cientificamente embasado.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Twitter"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                    </div>
                 </div>
+
                 <div>
-                    <h4 class="font-bold mb-4 text-gray-200">Editorias</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-white">Saúde Pública</a></li>
-                        <li><a href="#" class="hover:text-white">Nutrição</a></li>
-                        <li><a href="#" class="hover:text-white">Ciência</a></li>
+                    <h4 class="text-white font-bold mb-6 text-lg">Navegação</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#inicio" class="hover:text-red-400 transition-colors">Início</a></li>
+                        <li><a href="personal.html" class="hover:text-red-400 transition-colors text-orange-400 font-semibold">Personal Trainer</a></li>
+                        <li><a href="sobre.html" class="hover:text-red-400 transition-colors">Quem Somos</a></li>
+                        <li><a href="contato.html" class="hover:text-red-400 transition-colors">Fale Conosco</a></li>
                     </ul>
                 </div>
+
                 <div>
-                    <h4 class="font-bold mb-4 text-gray-200">Legal</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="politica.html" class="hover:text-white">Privacidade</a></li>
-                        <li><a href="termos.html" class="hover:text-white">Termos de Uso</a></li>
+                    <h4 class="text-white font-bold mb-6 text-lg">Legal</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="politica.html" class="hover:text-red-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="termos.html" class="hover:text-red-400 transition-colors">Termos de Uso</a></li>
+                        <li><a href="#" class="hover:text-red-400 transition-colors">Isenção de Responsabilidade</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-lg">Ferramentas</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="ferramentas/imc.html" class="hover:text-red-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="ferramentas/tmb.html" class="hover:text-red-400 transition-colors">Taxa Metabólica</a></li>
+                        <li><a href="ferramentas/agua.html" class="hover:text-red-400 transition-colors">Hidratação Diária</a></li>
+                        <li><a href="todos_quizzes.html" class="hover:text-red-400 transition-colors">Quizzes de Saúde</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
-                &copy; 2024 Calcule Sua Saúde. Portal desenvolvido com APIs OpenSource.
+
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-sm text-gray-500 mb-4">
+                    <strong>Aviso Legal:</strong> O conteúdo deste site é apenas para fins informativos e educacionais. Não substitui o conselho médico profissional, diagnóstico ou tratamento.
+                </p>
+                <p class="text-sm text-gray-600">
+                    &copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.
+                </p>
             </div>
         </div>
     </footer>
 
     <!-- ========================================================== -->
-    <!-- LÓGICA DO JAVASCRIPT COM SUAS CHAVES -->
+    <!-- LÓGICA JAVASCRIPT & APIs -->
     <!-- ========================================================== -->
     <script>
         lucide.createIcons();
 
-        // Data no Header
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        // Data Dinâmica
+        const options = { weekday: 'long', day: 'numeric', month: 'long' };
         document.getElementById('header-date').innerText = new Date().toLocaleDateString('pt-BR', options);
 
         // ==========================================================
-        //  SUAS CHAVES REAIS CONFIGURADAS:
+        //  🔑 SUAS CHAVES DE API (TODAS CONFIGURADAS)
         // ==========================================================
         const API_KEYS = {
-            gnews: '2d4cba603a9063a0a53a954b1f7aff18', 
-            weather: 'deca5723c570194449aeabef8e552289', 
-            huggingFace: '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',
-            nasa: 'MmcTBTUPCpAEDub0kQrQwtzcYRc888yGS1K5thB8' 
+            gnews: '2d4cba603a9063a0a53a954b1f7aff18',
+            weather: 'deca5723c570194449aeabef8e552289',
+            nasa: 'MmcTBTUPCpAEDub0kQrQwtzcYRc888yGS1K5thB8',
+            unsplash: 'K2Idx4LtwRXeQxz7K2sW4HU0HTRsP6AdeYHIFruv-i0'
         };
 
-        // 1. COTAÇÕES (AWESOMEAPI) - 100% Grátis
+        // 1. COTAÇÕES (AwesomeAPI)
         async function fetchFinance() {
             try {
-                const response = await fetch('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL');
-                const data = await response.json();
+                const res = await fetch('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL');
+                const data = await res.json();
                 
                 const html = `
-                    <span class="ticker__item text-green-400"><i data-lucide="dollar-sign" class="inline w-3 h-3"></i> USD: R$ ${data.USDBRL.bid}</span>
-                    <span class="ticker__item text-blue-400">EUR: R$ ${data.EURBRL.bid}</span>
-                    <span class="ticker__item text-yellow-500">₿ BTC: R$ ${parseFloat(data.BTCBRL.bid).toLocaleString('pt-BR')}</span>
+                    <span class="ticker__item text-green-400">USD: ${data.USDBRL.bid.substring(0,4)}</span>
+                    <span class="ticker__item text-blue-400">EUR: ${data.EURBRL.bid.substring(0,4)}</span>
+                    <span class="ticker__item text-yellow-500">BTC: ${parseFloat(data.BTCBRL.bid).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</span>
                     <span class="ticker__item text-gray-400">|</span>
-                    <span class="ticker__item text-white">IPCA: 0.56%</span>
-                    <span class="ticker__item text-white">Selic: 11.25%</span>
+                    <span class="ticker__item">IPCA: 0.56%</span>
+                    <span class="ticker__item">SELIC: 11.25%</span>
                 `;
-                document.getElementById('finance-ticker').innerHTML = html + html + html; 
-                lucide.createIcons();
-            } catch (error) { console.error("Erro Finance", error); }
+                document.getElementById('finance-ticker').innerHTML = html.repeat(4); // Repete para o efeito infinito
+            } catch (e) { console.error("Erro Finance", e); }
         }
 
-        // 2. CLIMA (OPENWEATHERMAP)
+        // 2. CLIMA (OpenWeather)
         async function fetchWeather() {
-            if (!API_KEYS.weather) return;
-
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(async (position) => {
-                    const lat = position.coords.latitude;
-                    const lon = position.coords.longitude;
-                    // Forçando idioma PT_BR
+                navigator.geolocation.getCurrentPosition(async (pos) => {
+                    const { latitude: lat, longitude: lon } = pos.coords;
                     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEYS.weather}&units=metric&lang=pt_br`;
                     try {
                         const res = await fetch(url);
                         const data = await res.json();
-                        if(data.cod === 200) renderWeather(data);
-                    } catch(e) { console.error(e); }
+                        renderWeather(data);
+                    } catch(e) {}
                 }, () => {
-                    // Fallback para SP se negar permissão
+                    // Fallback para SP
                     fetch(`https://api.openweathermap.org/data/2.5/weather?q=Sao%20Paulo&appid=${API_KEYS.weather}&units=metric&lang=pt_br`)
                         .then(r => r.json()).then(renderWeather);
                 });
@@ -412,239 +455,186 @@
 
         function renderWeather(data) {
             document.getElementById('weather-city').innerText = data.name;
-            document.getElementById('weather-temp').innerText = Math.round(data.main.temp) + "°";
+            document.getElementById('weather-temp').innerText = Math.round(data.main.temp);
             document.getElementById('weather-desc').innerText = data.weather[0].description;
             document.getElementById('weather-wind').innerText = data.wind.speed;
             document.getElementById('weather-hum').innerText = data.main.humidity;
+            lucide.createIcons();
         }
 
-        // 3. NASA API (FOTO DO DIA)
+        // 3. NASA APOD (Imagem do Dia)
         async function fetchNasa() {
-            const key = API_KEYS.nasa;
-            const url = `https://api.nasa.gov/planetary/apod?api_key=${key}`;
-
+            const url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEYS.nasa}`;
             try {
                 const res = await fetch(url);
                 const data = await res.json();
                 
-                // Se for vídeo, usa imagem de backup, senão usa a imagem da NASA
-                const img = data.media_type === 'image' ? data.url : 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80';
+                if (data.media_type === 'image') {
+                    document.getElementById('nasa-img').src = data.url;
+                } else {
+                    // Vídeo? Usa Unsplash Fallback
+                    useUnsplashFallback();
+                }
                 
-                document.getElementById('nasa-img').src = img;
-                document.getElementById('nasa-title').innerText = data.title || "Universo Infinito";
-                document.getElementById('nasa-desc').innerText = data.explanation || "Explorando os mistérios do cosmos.";
+                document.getElementById('nasa-title').innerText = data.title || "Universo";
+                document.getElementById('nasa-desc').innerText = data.explanation || "Explorando o cosmos.";
             } catch (e) {
-                // Se falhar (limite excedido), mostra backup
-                document.getElementById('nasa-img').src = 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1000&q=80';
-                document.getElementById('nasa-title').innerText = "Via Láctea (Modo Offline)";
-                document.getElementById('nasa-desc').innerText = "Não foi possível carregar a imagem oficial da NASA no momento.";
+                useUnsplashFallback();
             }
         }
 
-        // 4. NOTÍCIAS (GNEWS API)
+        async function useUnsplashFallback() {
+            const uUrl = `https://api.unsplash.com/photos/random?query=galaxy&orientation=landscape&client_id=${API_KEYS.unsplash}`;
+            try {
+                const r = await fetch(uUrl);
+                const d = await r.json();
+                document.getElementById('nasa-img').src = d.urls.regular;
+            } catch {
+                document.getElementById('nasa-img').src = 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1000&q=80';
+            }
+        }
+
+        // 4. NASA MARS ROVER (NOVO! - Fotos Reais de Marte)
+        async function fetchMars() {
+            // Pega fotos recentes do Perseverance
+            const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/latest_photos?api_key=${API_KEYS.nasa}`;
+            
+            // Fallback image function
+            const setMarsFallback = () => {
+                document.getElementById('mars-img').src = 'https://images.unsplash.com/photo-1614728853913-1e32005e307a?auto=format&fit=crop&w=500&q=60';
+                document.getElementById('mars-cam').innerText = "Arquivo NASA (Offline)";
+            };
+
+            try {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`); // Handle non-200
+                
+                const data = await res.json();
+                
+                if(data.latest_photos && data.latest_photos.length > 0) {
+                    const photo = data.latest_photos[0]; 
+                    document.getElementById('mars-img').src = photo.img_src;
+                    document.getElementById('mars-cam').innerText = photo.camera.full_name;
+                } else {
+                    setMarsFallback();
+                }
+            } catch(e) {
+                console.warn("Erro Marte (Usando Fallback):", e); // Warn instead of Error
+                setMarsFallback();
+            }
+        }
+
+        // 5. NOTÍCIAS (GNews)
         async function fetchNews() {
             const container = document.getElementById('news-grid');
             container.innerHTML = ''; 
 
-            if (API_KEYS.gnews) {
-                try {
-                    // Busca por "saúde" no Brasil
-                    const url = `https://gnews.io/api/v4/search?q=saude&lang=pt&country=br&max=6&apikey=${API_KEYS.gnews}`;
-                    const res = await fetch(url);
-                    const data = await res.json();
+            try {
+                const url = `https://gnews.io/api/v4/search?q=saude&lang=pt&country=br&max=6&apikey=${API_KEYS.gnews}`;
+                const res = await fetch(url);
+                const data = await res.json();
+                
+                if(!data.articles) throw new Error("GNews limit");
+
+                for (const article of data.articles) {
+                    let imgUrl = article.image;
+                    // Se faltar imagem, Unsplash salva
+                    if (!imgUrl) imgUrl = 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&q=80';
+
+                    const safeTitle = article.title.replace(/'/g, "\\'").replace(/"/g, '&quot;');
                     
-                    if(data.articles && data.articles.length > 0) {
-                        renderArticles(data.articles, container);
-                    } else {
-                        throw new Error("Sem notícias ou limite atingido");
-                    }
-                } catch (e) {
-                    console.warn("Usando notícias de backup", e);
-                    renderArticles(MOCK_NEWS, container);
+                    const card = document.createElement('article');
+                    card.className = "bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col h-full group";
+                    card.innerHTML = `
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="${imgUrl}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="${safeTitle}">
+                            <span class="absolute top-2 left-2 bg-portal-red text-white text-[10px] font-bold px-2 py-1 rounded uppercase shadow-sm">${article.source.name}</span>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold font-serif mb-2 leading-tight group-hover:text-portal-red transition-colors dark:text-white">
+                                    <a href="${article.url}" target="_blank">${article.title}</a>
+                                </h3>
+                                <p class="text-gray-500 text-sm line-clamp-3 mb-4">${article.description || 'Leia mais...'}</p>
+                            </div>
+                            <div class="flex justify-between items-center mt-auto border-t border-gray-100 dark:border-gray-700 pt-3">
+                                <span class="text-xs text-gray-400">${new Date(article.publishedAt).toLocaleDateString()}</span>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(card);
                 }
-            } else {
-                renderArticles(MOCK_NEWS, container);
+                lucide.createIcons();
+            } catch (e) {
+                container.innerHTML = '<p class="text-gray-500 p-4">Não foi possível carregar notícias (Limite GNews excedido ou erro).</p>';
             }
         }
 
-        function renderArticles(articles, container) {
-            articles.forEach(article => {
-                const imgUrl = article.image || 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80';
-                const safeTitle = article.title.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-
-                const card = document.createElement('article');
-                card.className = "bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow flex flex-col h-full";
-                
-                card.innerHTML = `
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="${imgUrl}" alt="${safeTitle}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://via.placeholder.com/800x400?text=Notícia'">
-                        <span class="absolute top-2 left-2 bg-portal-red text-white text-[10px] font-bold px-2 py-1 rounded uppercase">${article.source.name}</span>
-                    </div>
-                    <div class="p-5 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-lg font-bold font-serif mb-2 leading-tight hover:text-portal-red transition-colors text-gray-900 dark:text-white">
-                                <a href="${article.url}" target="_blank">${article.title}</a>
-                            </h3>
-                            <p class="text-gray-500 text-sm line-clamp-3 mb-4">${article.description || 'Leia a matéria completa clicando no título.'}</p>
-                        </div>
-                        <div class="flex justify-between items-center mt-auto border-t border-gray-100 dark:border-gray-700 pt-3">
-                            <span class="text-xs text-gray-400">${new Date(article.publishedAt).toLocaleDateString()}</span>
-                            <button onclick="summarizeNews('${safeTitle}')" class="text-purple-600 hover:text-purple-800 text-xs font-bold flex items-center gap-1 bg-purple-50 dark:bg-purple-900/20 px-2 py-1 rounded">
-                                <i data-lucide="sparkles" class="w-3 h-3"></i> IA Resumir
-                            </button>
-                        </div>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-            lucide.createIcons();
-        }
-
-        // Dados de Backup (Caso a GNews atinja o limite)
-        const MOCK_NEWS = [
-            { title: "Brasil bate recorde em transplantes de coração", source: {name: "Saúde Gov"}, description: "Sistema público de saúde mostra eficiência em novos procedimentos.", image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=800&q=80", url: "#", publishedAt: new Date().toISOString() },
-            { title: "Nova vitamina descoberta auxilia na memória", source: {name: "Ciência Hoje"}, description: "Estudos preliminares indicam avanços no combate ao esquecimento.", image: "https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&w=800&q=80", url: "#", publishedAt: new Date().toISOString() },
-            { title: "A importância do sono para a recuperação muscular", source: {name: "FitNews"}, description: "Dormir menos de 7 horas pode anular seus ganhos na academia.", image: "https://images.unsplash.com/photo-1541781777621-39121f476d96?auto=format&fit=crop&w=800&q=80", url: "#", publishedAt: new Date().toISOString() },
-            { title: "Hospitais utilizam IA para triagem rápida", source: {name: "TechHealth"}, description: "Inteligência Artificial reduz tempo de espera em emergências.", image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80", url: "#", publishedAt: new Date().toISOString() }
-        ];
-
-        // 5. ASTEROIDES (NASA NEOWS)
+        // 6. ASTEROIDES (NASA)
         async function fetchAsteroids() {
-            const key = API_KEYS.nasa;
             const today = new Date().toISOString().split('T')[0];
-            const url = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&end_date=${today}&api_key=${key}`;
+            const url = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&end_date=${today}&api_key=${API_KEYS.nasa}`;
 
             try {
                 const res = await fetch(url);
                 const data = await res.json();
-                const asteroids = data.near_earth_objects[today] || [];
-                const topAsteroids = asteroids.slice(0, 3);
-                
                 const list = document.getElementById('asteroid-list');
-                list.innerHTML = ''; 
-
-                if (topAsteroids.length === 0) {
-                     list.innerHTML = '<p class="text-xs text-gray-400">Nenhum dado próximo hoje.</p>';
-                     return;
-                }
-
-                topAsteroids.forEach(ast => {
-                    const isDangerous = ast.is_potentially_hazardous_asteroid;
-                    const size = Math.round(ast.estimated_diameter.meters.estimated_diameter_max);
-                    const distance = parseFloat(ast.close_approach_data[0].miss_distance.kilometers).toLocaleString('pt-BR');
-
+                list.innerHTML = '';
+                
+                const asts = data.near_earth_objects[today].slice(0, 3);
+                
+                asts.forEach(ast => {
+                    const isDanger = ast.is_potentially_hazardous_asteroid;
                     list.innerHTML += `
                         <div class="flex items-center gap-3 border-b border-gray-700 pb-2 last:border-0">
-                            <div class="relative">
-                                <i data-lucide="circle-dot" class="w-8 h-8 ${isDangerous ? 'text-red-500 animate-pulse' : 'text-gray-500'}"></i>
-                            </div>
+                            <i data-lucide="circle-dot" class="w-6 h-6 ${isDanger ? 'text-red-500 animate-pulse' : 'text-gray-500'}"></i>
                             <div>
                                 <p class="font-bold text-sm text-gray-200">${ast.name.replace(/[()]/g, '')}</p>
-                                <p class="text-[10px] text-gray-400">Tam: ${size}m | Dist: ${distance} km</p>
+                                <p class="text-[10px] text-gray-400">Tam: ${Math.round(ast.estimated_diameter.meters.estimated_diameter_max)}m</p>
                             </div>
-                        </div>
-                    `;
+                        </div>`;
                 });
                 lucide.createIcons();
             } catch (e) {
-                console.error("Erro Asteroides", e);
-                document.getElementById('asteroid-list').innerHTML = '<p class="text-xs text-gray-500">Radar indisponível.</p>';
+                document.getElementById('asteroid-list').innerHTML = '<p class="text-xs text-gray-500">Sem atividade próxima.</p>';
             }
         }
 
-        // 6. IBGE (DADOS)
+        // 8. IBGE (Dados)
         async function fetchIBGE() {
-            document.getElementById('ibge-data').innerHTML = `
-                <div class="flex justify-between border-b border-gray-200 dark:border-gray-600 pb-2">
-                    <span class="text-sm text-gray-600 dark:text-gray-400">População (Est.)</span>
-                    <span class="font-bold text-gray-900 dark:text-white">203.1 Milhões</span>
+             document.getElementById('ibge-data').innerHTML = `
+                <div class="flex justify-between border-b pb-2 dark:border-gray-700">
+                    <span class="text-gray-500">População</span>
+                    <span class="font-bold dark:text-white">203.1 mi</span>
                 </div>
-                <div class="flex justify-between border-b border-gray-200 dark:border-gray-600 pb-2 pt-2">
-                    <span class="text-sm text-gray-600 dark:text-gray-400">Exp. de Vida</span>
-                    <span class="font-bold text-gray-900 dark:text-white">75,5 anos</span>
+                <div class="flex justify-between border-b pb-2 dark:border-gray-700 pt-2">
+                    <span class="text-gray-500">PIB Saúde</span>
+                    <span class="font-bold dark:text-white">9,6%</span>
                 </div>
-                <div class="flex justify-between pt-2">
-                    <span class="text-sm text-gray-600 dark:text-gray-400">PIB Saúde</span>
-                    <span class="font-bold text-gray-900 dark:text-white">9,6% do PIB</span>
-                </div>
-            `;
+             `;
         }
 
-        // 7. HUGGING FACE (IA)
-        async function summarizeNews(title) {
-            const modal = document.getElementById('ai-modal');
-            const content = document.getElementById('ai-content');
-            modal.classList.remove('hidden');
-            
-            content.innerHTML = `
-                <div class="flex flex-col items-center justify-center py-6">
-                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
-                    <p class="mt-3 text-gray-500 text-xs">Lendo notícia...</p>
-                </div>`;
-
-            if (!API_KEYS.huggingFace) {
-                setTimeout(() => content.innerHTML = `<p><strong>Aviso:</strong> Chave da HuggingFace não configurada.</p>`, 1000);
-                return;
-            }
-
-            try {
-                // Modelo Flan-T5 Large (Bom e gratuito na API Inference)
-                const response = await fetch("https://api-inference.huggingface.co/models/google/flan-t5-large", {
-                    headers: { Authorization: `Bearer ${API_KEYS.huggingFace}` },
-                    method: "POST",
-                    body: JSON.stringify({ inputs: `Summarize this news title in Portuguese: ${title}` }),
-                });
-                
-                const result = await response.json();
-                
-                if (result.error && result.error.includes("loading")) {
-                    content.innerHTML = `<p class="text-orange-500">O modelo de IA está "acordando". Tente novamente em 20 segundos.</p>`;
-                    return;
-                }
-
-                let summary = (result[0] && result[0].generated_text) ? result[0].generated_text : "Não consegui gerar o resumo desta vez.";
-                
-                content.innerHTML = `
-                    <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg border border-purple-100 dark:border-purple-800">
-                        <p class="font-bold text-purple-700 dark:text-purple-300 mb-2 text-xs uppercase tracking-wide">Resumo da Inteligência Artificial</p>
-                        <p class="text-gray-800 dark:text-gray-100 font-medium">"${summary}"</p>
-                    </div>
-                    <p class="mt-4 text-[10px] text-gray-400 text-center">IA experimental (Modelo Google Flan-T5)</p>
-                `;
-
-            } catch (error) {
-                console.error(error);
-                content.innerHTML = `<p class="text-red-500 text-center">Erro de conexão com a IA.</p>`;
-            }
-        }
-
-        function closeAiModal() { document.getElementById('ai-modal').classList.add('hidden'); }
-
-        // MODO ESCURO
+        // TEMA ESCURO (Dark Mode)
         const themeBtn = document.getElementById('theme-toggle');
         const html = document.documentElement;
-
-        function toggleTheme() {
+        themeBtn.addEventListener('click', () => {
             html.classList.toggle('dark');
             localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
-        }
-
+        });
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             html.classList.add('dark');
         }
-
-        themeBtn.addEventListener('click', toggleTheme);
 
         // INICIALIZAÇÃO
         document.addEventListener('DOMContentLoaded', () => {
             fetchFinance();
             fetchWeather();
             fetchNasa();
+            fetchMars(); 
             fetchNews();
-            fetchIBGE();
             fetchAsteroids();
+            fetchIBGE();
         });
-
     </script>
 </body>
 </html>
