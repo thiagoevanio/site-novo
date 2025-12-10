@@ -38,6 +38,7 @@
                     animation: {
                         'fade-in': 'fadeIn 0.5s ease-in-out',
                         'slide-up': 'slideUp 0.3s ease-out',
+                        'flip': 'flipIn 0.6s ease-out',
                     },
                     keyframes: {
                         fadeIn: {
@@ -47,6 +48,10 @@
                         slideUp: {
                             '0%': { transform: 'translateY(20px)', opacity: '0' },
                             '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        flipIn: {
+                            '0%': { transform: 'rotateX(-90deg)', opacity: '0' },
+                            '100%': { transform: 'rotateX(0)', opacity: '1' }
                         }
                     }
                 }
@@ -137,7 +142,50 @@
         <!-- ============================================== -->
         <main class="col-span-12 lg:col-span-8 space-y-12">
 
-            <!-- 2. NASA SLIDER -->
+            <!-- 4. FEED DE NOTÍCIAS (Topo) -->
+            <section id="noticias-section">
+                <div class="border-b-4 border-portal-red pb-2 mb-6 flex justify-between items-end">
+                    <h3 id="manchetes" class="text-2xl font-bold font-serif text-gray-900 dark:text-white">Manchetes do Dia</h3>
+                    <span class="text-xs text-gray-500 flex items-center gap-1"><i data-lucide="globe" class="w-3 h-3"></i> GNews API</span>
+                </div>
+                <div id="news-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Carregamento -->
+                    <div class="md:col-span-3 animate-pulse bg-gray-200 dark:bg-gray-800 h-96 rounded-lg"></div>
+                </div>
+            </section>
+
+            <!-- 3. MITO OU VERDADE (SEÇÃO INTERATIVA) -->
+            <section class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-xl relative overflow-hidden group">
+                <!-- Efeito visual -->
+                <div class="absolute -right-10 -top-10 bg-indigo-500/10 w-40 h-40 rounded-full blur-3xl group-hover:bg-indigo-500/20 transition-all"></div>
+                
+                <div class="relative z-10 text-center">
+                    <div class="inline-block bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
+                        Desafio do Conhecimento
+                    </div>
+                    
+                    <h3 class="text-2xl font-black text-gray-900 dark:text-white mb-6">Mito ou Verdade?</h3>
+                    
+                    <!-- Área da Pergunta -->
+                    <div id="myth-card" class="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-xl border border-gray-100 dark:border-gray-700 mb-6 min-h-[120px] flex items-center justify-center flex-col transition-all duration-500">
+                        <p id="myth-text" class="text-xl font-serif text-gray-800 dark:text-gray-200">"Carregando desafio..."</p>
+                        <div id="myth-answer" class="hidden mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 w-full animate-flip">
+                            <span id="answer-badge" class="px-3 py-1 rounded font-bold text-white text-sm mb-2 inline-block"></span>
+                            <p id="answer-desc" class="text-sm text-gray-600 dark:text-gray-400"></p>
+                        </div>
+                    </div>
+
+                    <!-- Botão de Ação -->
+                    <button onclick="revealAnswer()" id="btn-reveal" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-indigo-500/30 transition-all transform hover:-translate-y-1 active:scale-95">
+                        Ver Resposta
+                    </button>
+                    <button onclick="nextMyth()" id="btn-next" class="hidden bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 text-gray-800 dark:text-white font-bold py-3 px-8 rounded-full transition-all">
+                        Próximo <i data-lucide="arrow-right" class="inline w-4 h-4 ml-1"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- 2. NASA SLIDER (Abaixo) -->
             <section id="nasa-section" class="relative w-full h-[500px] rounded-xl overflow-hidden shadow-xl group bg-black">
                 <img id="nasa-img" src="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 opacity-80" alt="Imagem Astronômica">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
@@ -150,37 +198,6 @@
                     </div>
                     <h2 id="nasa-title" class="text-2xl md:text-4xl font-serif font-bold text-white mb-2 leading-tight">Carregando Universo...</h2>
                     <p class="text-gray-300 text-sm md:text-base line-clamp-2 max-w-2xl" id="nasa-desc">Conectando aos satélites...</p>
-                </div>
-            </section>
-
-            <!-- 3. CURIOSIDADE DO CORPO HUMANO (Substituindo Marte) -->
-            <section class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-6 border border-gray-700 shadow-lg relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4 opacity-10">
-                    <i data-lucide="brain-circuit" class="w-24 h-24 text-white"></i>
-                </div>
-                <div class="relative z-10">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-lg font-bold text-white flex items-center gap-2"><i data-lucide="lightbulb" class="text-yellow-400"></i> Sabia Disso?</h3>
-                        <span class="text-xs text-gray-400 uppercase tracking-widest">Corpo Humano</span>
-                    </div>
-                    <div class="bg-gray-800/50 p-4 rounded-lg border border-gray-700 backdrop-blur-sm">
-                        <p id="curiosity-text" class="text-gray-200 text-lg font-serif italic leading-relaxed">"O coração humano bate mais de 100 mil vezes por dia."</p>
-                    </div>
-                    <button onclick="loadCuriosity()" class="mt-4 text-xs font-bold text-portal-red hover:text-white transition-colors flex items-center gap-1 group">
-                        <i data-lucide="refresh-cw" class="w-3 h-3 group-hover:rotate-180 transition-transform duration-500"></i> Outra Curiosidade
-                    </button>
-                </div>
-            </section>
-
-            <!-- 4. FEED DE NOTÍCIAS (1 Destaque + 3 Menores) -->
-            <section id="noticias-section">
-                <div class="border-b-4 border-portal-red pb-2 mb-6 flex justify-between items-end">
-                    <h3 id="manchetes" class="text-2xl font-bold font-serif text-gray-900 dark:text-white">Manchetes do Dia</h3>
-                    <span class="text-xs text-gray-500 flex items-center gap-1"><i data-lucide="globe" class="w-3 h-3"></i> GNews API</span>
-                </div>
-                <div id="news-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Carregamento -->
-                    <div class="md:col-span-3 animate-pulse bg-gray-200 dark:bg-gray-800 h-96 rounded-lg"></div>
                 </div>
             </section>
 
@@ -312,6 +329,13 @@
                     </div>
 
                 </div>
+                
+                <!-- BOTÃO VER TODOS OS QUIZZES -->
+                <div class="text-center mt-10">
+                    <a href="todos_quizzes.html" class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-8 py-3 rounded-full font-bold shadow-md hover:shadow-lg transition-all border border-gray-200 dark:border-gray-700 hover:-translate-y-1">
+                        Ver todos os quizzes <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                </div>
             </section>
 
         </main>
@@ -367,24 +391,36 @@
                 </div>
             </div>
 
-            <!-- FERRAMENTAS LISTA -->
+            <!-- FERRAMENTAS LISTA - COM TODAS AS CALCULADORAS -->
             <div id="ferramentas-area" class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-100 dark:border-gray-700">
                 <h4 class="text-lg font-bold font-serif border-l-4 border-portal-red pl-3 mb-4 text-gray-900 dark:text-white">Ferramentas</h4>
                 <ul class="space-y-2">
                     <li><a href="ferramentas/imc.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="bg-blue-100 text-blue-600 p-2 rounded"><i data-lucide="activity" class="w-4 h-4"></i></span><span class="font-bold text-sm text-gray-700 dark:text-gray-200">Calculadora IMC</span></a></li>
+                    <li><a href="ferramentas/imc_infantil.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="bg-pink-100 text-pink-600 p-2 rounded"><i data-lucide="baby" class="w-4 h-4"></i></span><span class="font-bold text-sm text-gray-700 dark:text-gray-200">IMC Infantil</span></a></li>
                     <li><a href="ferramentas/tmb.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="bg-orange-100 text-orange-600 p-2 rounded"><i data-lucide="flame" class="w-4 h-4"></i></span><span class="font-bold text-sm text-gray-700 dark:text-gray-200">Gasto Calórico</span></a></li>
                     <li><a href="ferramentas/agua.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="bg-cyan-100 text-cyan-600 p-2 rounded"><i data-lucide="droplets" class="w-4 h-4"></i></span><span class="font-bold text-sm text-gray-700 dark:text-gray-200">Hidratação</span></a></li>
+                    <li><a href="ferramentas/gordura.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="bg-yellow-100 text-yellow-600 p-2 rounded"><i data-lucide="scale" class="w-4 h-4"></i></span><span class="font-bold text-sm text-gray-700 dark:text-gray-200">% Gordura</span></a></li>
+                    <li><a href="ferramentas/macros.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="bg-green-100 text-green-600 p-2 rounded"><i data-lucide="utensils" class="w-4 h-4"></i></span><span class="font-bold text-sm text-gray-700 dark:text-gray-200">Macros</span></a></li>
+                    <li><a href="ferramentas/calorias.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="bg-purple-100 text-purple-600 p-2 rounded"><i data-lucide="zap" class="w-4 h-4"></i></span><span class="font-bold text-sm text-gray-700 dark:text-gray-200">Calorias Totais</span></a></li>
+                    <li><a href="ferramentas/glicemia.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="bg-red-100 text-red-600 p-2 rounded"><i data-lucide="heart-pulse" class="w-4 h-4"></i></span><span class="font-bold text-sm text-gray-700 dark:text-gray-200">Glicemia</span></a></li>
                 </ul>
-                <a href="calculadoras.html" class="block w-full text-center mt-4 text-sm font-bold text-portal-red border border-portal-red rounded-full py-2 hover:bg-portal-red hover:text-white transition-all">Ver Todas</a>
             </div>
 
-            <!-- IBGE -->
+            <!-- IBGE ATUALIZADO COM MAIS DADOS -->
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-100 dark:border-gray-700">
                 <div class="flex items-center gap-2 mb-4">
                     <div class="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center text-white font-bold text-xs">BR</div>
-                    <h4 class="text-lg font-bold font-serif text-gray-900 dark:text-white">Dados Brasil</h4>
+                    <h4 class="text-lg font-bold font-serif text-gray-900 dark:text-white">Dados Demográficos (IBGE)</h4>
                 </div>
-                <div class="space-y-3 text-sm" id="ibge-data"></div>
+                <div class="space-y-3 text-sm" id="ibge-data">
+                    <div class="flex justify-between border-b pb-2 dark:border-gray-700">
+                        <span class="text-gray-500">População</span>
+                        <span class="font-bold dark:text-white">203.1 mi</span>
+                    </div>
+                </div>
+                <div class="mt-3 text-[10px] text-gray-400 italic">
+                    * Dados baseados em estimativas/projeções oficiais.
+                </div>
             </div>
 
             <!-- 9. NOVO: CONVERSOR DE MOEDAS -->
@@ -392,16 +428,29 @@
                 <h4 class="text-lg font-bold font-serif border-l-4 border-green-500 pl-3 mb-4 text-gray-900 dark:text-white">Conversor de Câmbio</h4>
                 <div class="space-y-3">
                     <div>
-                        <label class="block text-xs font-bold text-gray-500 mb-1">Valor (BRL)</label>
-                        <input type="number" id="conv-amount" value="100" class="w-full p-2 bg-gray-50 dark:bg-gray-700 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none">
+                        <label class="block text-xs font-bold text-gray-500 mb-1">Valor</label>
+                        <input type="number" id="conv-amount" value="1" class="w-full p-2 bg-gray-50 dark:bg-gray-700 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none">
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-500 mb-1">Converter para</label>
-                        <select id="conv-currency" class="w-full p-2 bg-gray-50 dark:bg-gray-700 border rounded-lg outline-none">
-                            <option value="USD">Dólar (USD)</option>
-                            <option value="EUR">Euro (EUR)</option>
-                            <option value="BTC">Bitcoin (BTC)</option>
-                        </select>
+                    <div class="grid grid-cols-[1fr,auto,1fr] gap-2 items-center">
+                        <div>
+                            <label class="block text-[10px] font-bold text-gray-500 mb-1">De</label>
+                            <select id="conv-from" class="w-full p-2 text-sm bg-gray-50 dark:bg-gray-700 border rounded-lg outline-none">
+                                <option value="BRL">Real</option>
+                                <option value="USD" selected>Dólar</option>
+                                <option value="EUR">Euro</option>
+                                <option value="BTC">Bitcoin</option>
+                            </select>
+                        </div>
+                        <button onclick="swapCurrencies()" class="mt-4 text-gray-400 hover:text-green-500 transition-colors p-1"><i data-lucide="arrow-right-left" class="w-4 h-4"></i></button>
+                        <div>
+                            <label class="block text-[10px] font-bold text-gray-500 mb-1">Para</label>
+                            <select id="conv-to" class="w-full p-2 text-sm bg-gray-50 dark:bg-gray-700 border rounded-lg outline-none">
+                                <option value="BRL" selected>Real</option>
+                                <option value="USD">Dólar</option>
+                                <option value="EUR">Euro</option>
+                                <option value="BTC">Bitcoin</option>
+                            </select>
+                        </div>
                     </div>
                     <button onclick="convertCurrency()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded-lg transition-colors">Converter</button>
                     <div id="conv-result" class="hidden mt-2 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg text-center border border-green-100 dark:border-green-800">
@@ -432,7 +481,7 @@
                     <h3 class="text-white text-xl font-bold mb-6 flex items-center gap-2"><i data-lucide="heart-pulse" class="w-6 h-6 text-portal-red"></i> Calcule Sua Saúde</h3>
                     <p class="text-sm text-gray-400 leading-relaxed mb-6">Sua plataforma completa para monitoramento de saúde e bem-estar. Simples, rápido e cientificamente embasado.</p>
                 </div>
-                <div><h4 class="text-white font-bold mb-6 text-lg">Navegação</h4><ul class="space-y-3 text-sm"><li><a href="#inicio" class="hover:text-red-400">Início</a></li><li><a href="personal.html" class="hover:text-red-400 text-orange-400">Personal Trainer</a></li><li><a href="contato.html" class="hover:text-red-400">Fale Conosco</a></li></ul></div>
+                <div><h4 class="text-white font-bold mb-6 text-lg">Navegação</h4><ul class="space-y-3 text-sm"><li><a href="index.html" class="hover:text-red-400">Início</a></li><li><a href="personal.html" class="hover:text-red-400 text-orange-400">Personal Trainer</a></li><li><a href="contato.html" class="hover:text-red-400">Fale Conosco</a></li></ul></div>
                 <div><h4 class="text-white font-bold mb-6 text-lg">Legal</h4><ul class="space-y-3 text-sm"><li><a href="politica.html" class="hover:text-red-400">Política de Privacidade</a></li><li><a href="termos.html" class="hover:text-red-400">Termos de Uso</a></li></ul></div>
                 <div><h4 class="text-white font-bold mb-6 text-lg">Ferramentas</h4><ul class="space-y-3 text-sm"><li><a href="ferramentas/imc.html" class="hover:text-red-400">Calculadora IMC</a></li><li><a href="ferramentas/tmb.html" class="hover:text-red-400">Taxa Metabólica</a></li></ul></div>
             </div>
@@ -725,10 +774,11 @@
             }
         }
 
-        // 2. CONVERSOR DE MOEDAS
+        // 2. CONVERSOR DE MOEDAS (ATUALIZADO)
         function convertCurrency() {
             const amount = parseFloat(document.getElementById('conv-amount').value);
-            const currency = document.getElementById('conv-currency').value;
+            const from = document.getElementById('conv-from').value;
+            const to = document.getElementById('conv-to').value;
             const resultBox = document.getElementById('conv-result');
             const valueSpan = document.getElementById('conv-value');
 
@@ -737,22 +787,43 @@
                 return;
             }
 
-            const key = currency + 'BRL';
-            const rate = currencyRates[key];
+            // Taxas baseadas em BRL (1 unidade da moeda = X Reais)
+            const rates = {
+                'BRL': 1,
+                'USD': parseFloat(currencyRates.USDBRL || 0),
+                'EUR': parseFloat(currencyRates.EURBRL || 0),
+                'BTC': parseFloat(currencyRates.BTCBRL || 0)
+            };
 
-            if (rate) {
-                const result = amount / parseFloat(rate);
-                let symbol = "$";
-                if(currency === 'EUR') symbol = "€";
-                if(currency === 'BTC') symbol = "₿";
-
-                const finalValue = currency === 'BTC' ? result.toFixed(6) : result.toFixed(2);
-                valueSpan.innerText = `${symbol} ${finalValue}`;
+            if (!rates[from] || !rates[to]) {
+                valueSpan.innerText = "Carregando taxas...";
                 resultBox.classList.remove('hidden');
-            } else {
-                valueSpan.innerText = "Erro na cotação";
-                resultBox.classList.remove('hidden');
+                return;
             }
+
+            // Lógica: Converte 'De' para Reais, depois de Reais para 'Para'
+            const valueInBRL = amount * rates[from];
+            const result = valueInBRL / rates[to];
+
+            let symbol = "";
+            if(to === 'USD') symbol = "$";
+            if(to === 'EUR') symbol = "€";
+            if(to === 'BTC') symbol = "₿";
+            if(to === 'BRL') symbol = "R$";
+
+            const finalValue = to === 'BTC' ? result.toFixed(6) : result.toFixed(2);
+            
+            valueSpan.innerText = `${symbol} ${finalValue}`;
+            resultBox.classList.remove('hidden');
+        }
+
+        function swapCurrencies() {
+            const fromEl = document.getElementById('conv-from');
+            const toEl = document.getElementById('conv-to');
+            const temp = fromEl.value;
+            fromEl.value = toEl.value;
+            toEl.value = temp;
+            convertCurrency(); // Recalcula automaticamente
         }
 
         // 3. GNEWS + BACKUP + PROTEÇÃO DE IMAGEM
@@ -832,30 +903,43 @@
         }
         function changeNasaSlide(d) { renderNasaSlide(currentNasaIndex + d); }
 
-        // --- CURIOSIDADES DO CORPO HUMANO (Substitui Marte) ---
-        const CURIOSITIES = [
-            "O seu nariz pode lembrar de mais de 50.000 cheiros diferentes.",
-            "O ácido do seu estômago é forte o suficiente para dissolver metal.",
-            "Você produz saliva suficiente em sua vida para encher duas piscinas olímpicas.",
-            "O músculo mais forte do corpo humano (baseado em seu peso) é o masseter (mandíbula).",
-            "Seus vasos sanguíneos poderiam dar a volta na Terra duas vezes.",
-            "A pele é o maior órgão do corpo humano.",
-            "Você perde cerca de 4kg de células de pele por ano.",
-            "O cérebro humano gera energia suficiente para acender uma lâmpada pequena.",
-            "Seus ossos são compostos por 31% de água.",
-            "O coração humano bate mais de 3 bilhões de vezes durante uma vida média.",
-            "As unhas das mãos crescem 4 vezes mais rápido que as dos pés."
+        // --- MITO OU VERDADE (JOGO) ---
+        const MYTHS = [
+            { text: "Água com limão emagrece?", isTrue: false, desc: "Mito. Ajuda na imunidade e digestão, mas não queima gordura sozinha." },
+            { text: "Beber água gelada queima calorias?", isTrue: true, desc: "Verdade. O corpo gasta energia para aquecer o líquido, mas o efeito é mínimo." },
+            { text: "Ler no escuro estraga a visão?", isTrue: false, desc: "Mito. Causa cansaço ocular e dor de cabeça, mas não danos permanentes." },
+            { text: "Cenoura melhora a visão?", isTrue: true, desc: "Verdade. Rica em Vitamina A, essencial para a saúde dos olhos." },
+            { text: "Estalar os dedos causa artrite?", isTrue: false, desc: "Mito. O barulho é apenas gás liberado das articulações." },
+            { text: "Suor significa que você está emagrecendo?", isTrue: false, desc: "Mito. Suor é perda de água e regulação térmica, não perda de gordura." }
         ];
 
-        function loadCuriosity() {
-            const textEl = document.getElementById('curiosity-text');
-            const randomIndex = Math.floor(Math.random() * CURIOSITIES.length);
-            // Efeito de fade simples
-            textEl.style.opacity = 0;
-            setTimeout(() => {
-                textEl.innerText = `"${CURIOSITIES[randomIndex]}"`;
-                textEl.style.opacity = 1;
-            }, 200);
+        let currentMythIndex = 0;
+
+        function loadMyth() {
+            const myth = MYTHS[currentMythIndex];
+            document.getElementById('myth-text').innerText = `"${myth.text}"`;
+            document.getElementById('myth-answer').classList.add('hidden');
+            document.getElementById('btn-reveal').classList.remove('hidden');
+            document.getElementById('btn-next').classList.add('hidden');
+        }
+
+        function revealAnswer() {
+            const myth = MYTHS[currentMythIndex];
+            const badge = document.getElementById('answer-badge');
+            
+            badge.innerText = myth.isTrue ? "VERDADE" : "MITO";
+            badge.className = `px-3 py-1 rounded font-bold text-white text-sm mb-2 inline-block ${myth.isTrue ? 'bg-green-600' : 'bg-red-600'}`;
+            
+            document.getElementById('answer-desc').innerText = myth.desc;
+            document.getElementById('myth-answer').classList.remove('hidden');
+            
+            document.getElementById('btn-reveal').classList.add('hidden');
+            document.getElementById('btn-next').classList.remove('hidden');
+        }
+
+        function nextMyth() {
+            currentMythIndex = (currentMythIndex + 1) % MYTHS.length;
+            loadMyth();
         }
 
         async function fetchWeather() {
@@ -940,7 +1024,16 @@
         }
 
         async function fetchIBGE() {
-            document.getElementById('ibge-data').innerHTML = `<div class="flex justify-between border-b pb-2 dark:border-gray-700"><span class="text-gray-500">População</span><span class="font-bold dark:text-white">203.1 mi</span></div>`;
+            document.getElementById('ibge-data').innerHTML = `
+                <div class="flex justify-between border-b pb-2 dark:border-gray-700">
+                    <span class="text-gray-500">População</span>
+                    <span class="font-bold dark:text-white">203.1 mi</span>
+                </div>
+                <div class="flex justify-between border-b pb-2 dark:border-gray-700">
+                    <span class="text-gray-500">Exp. Vida</span>
+                    <span class="font-bold dark:text-white">76.6 anos</span>
+                </div>
+            `;
         }
 
         const themeBtn = document.getElementById('theme-toggle');
@@ -948,7 +1041,7 @@
         themeBtn.addEventListener('click', () => { html.classList.toggle('dark'); });
 
         document.addEventListener('DOMContentLoaded', () => {
-            fetchFinance(); fetchWeather(); fetchNasa(); loadCuriosity(); fetchNews(); fetchAsteroids(); fetchIBGE();
+            fetchFinance(); fetchWeather(); fetchNasa(); loadMyth(); fetchNews(); fetchAsteroids(); fetchIBGE();
         });
     </script>
 </body>
