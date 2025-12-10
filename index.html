@@ -7,6 +7,7 @@
     <meta name="theme-color" content="#c4170c">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+    <!-- === SEO PRINCIPAL === -->
     <title>Calcule Sua Saúde | Notícias, Ciência, IMC e Bem-Estar</title>
     <meta name="description" content="Portal completo de saúde. Notícias atualizadas, previsão do tempo, jogos educativos, quizzes e calculadoras precisas de IMC, TMB e Hidratação. Cuide de você.">
     <meta name="keywords" content="saúde, imc, calculadora, bem-estar, notícias saúde, medicina, nutrição, fitness">
@@ -14,19 +15,27 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://calculesuasaude.com.br/">
 
+    <!-- === OPEN GRAPH (Para redes sociais como WhatsApp e Facebook) === -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://calculesuasaude.com.br/">
     <meta property="og:title" content="Calcule Sua Saúde | Seu Portal de Bem-Estar">
     <meta property="og:description" content="Acesse calculadoras de saúde, notícias do dia e dicas de especialistas.">
-    <meta property="og:image" content="https://calculesuasaude.com.br/img/og-image.jpg"> <meta name="twitter:card" content="summary_large_image">
+    <!-- Adicione uma imagem real aqui para aparecer no WhatsApp -->
+    <meta property="og:image" content="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&q=80">
+
+    <!-- === TWITTER CARDS === -->
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Calcule Sua Saúde">
     <meta name="twitter:description" content="Portal completo de saúde e bem-estar.">
 
+    <!-- === GOOGLE ADSENSE === -->
     <meta name="google-adsense-account" content="ca-pub-5825554897787593">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
 
+    <!-- === PWA / MANIFEST === -->
     <link rel="manifest" href="/manifest.json">
 
+    <!-- === ANALYTICS === -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -35,11 +44,13 @@
         gtag('config', 'G-EVCQQZV60N');
     </script>
     
+    <!-- === FONTS & ICONS === -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- === TAILWIND CSS === -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -58,6 +69,7 @@
         }
     </script>
 
+    <!-- === SCHEMA.ORG (JSON-LD) === -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -98,12 +110,17 @@
         #mobile-menu { transition: transform 0.3s ease-in-out; }
         .mobile-menu-closed { transform: translateX(-100%); }
         .mobile-menu-open { transform: translateX(0); }
+        
+        /* Glass Effect */
+        .glass-effect { backdrop-filter: blur(5px); }
     </style>
 </head>
 
 <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 relative flex flex-col min-h-screen">
 
+    <!-- === HEADER & NAV === -->
     <div class="fixed w-full top-0 z-50">
+        <!-- Ticker Financeiro -->
         <div class="ticker-wrap border-b border-gray-700">
             <div class="ticker" id="finance-ticker">
                 <span class="ticker__item">Carregando dados financeiros...</span>
@@ -114,6 +131,7 @@
             <div class="container mx-auto px-4 py-4">
                 <div class="flex justify-between items-center">
                     
+                    <!-- Logo & Menu Button -->
                     <div class="flex items-center gap-4">
                         <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-700 dark:text-white" aria-label="Abrir Menu">
                             <i data-lucide="menu"></i>
@@ -126,6 +144,7 @@
                         </a>
                     </div>
 
+                    <!-- Desktop Nav -->
                     <nav class="hidden md:flex items-center gap-6 text-sm font-bold uppercase text-gray-700 dark:text-gray-300">
                         <a href="index.html" class="hover:text-portal-red transition-colors">Início</a>
                         <a href="jogos.html" class="hover:text-portal-red transition-colors text-purple-600 dark:text-purple-400">Jogos</a>
@@ -137,6 +156,7 @@
                         </button>
                     </nav>
 
+                    <!-- Mobile Theme Toggle (Visible only on mobile) -->
                     <div class="md:hidden">
                         <button id="theme-toggle-mobile" class="p-2 text-gray-700 dark:text-white" aria-label="Alternar Tema Mobile">
                             <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
@@ -148,6 +168,7 @@
         </header>
     </div>
 
+    <!-- === MOBILE MENU DRAWER (NOVO - FALTAVA NO ORIGINAL) === -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden glass-effect" onclick="toggleMobileMenu()"></div>
     <div id="mobile-menu" class="fixed top-0 left-0 w-[70%] h-full bg-white dark:bg-gray-900 z-50 shadow-2xl mobile-menu-closed md:hidden flex flex-col p-6">
         <div class="flex justify-between items-center mb-8 border-b pb-4 dark:border-gray-700">
@@ -163,12 +184,15 @@
         </nav>
     </div>
 
+    <!-- Spacer for Fixed Header -->
     <div class="h-[120px] md:h-[130px]"></div>
 
+    <!-- === MAIN CONTENT === -->
     <div class="container mx-auto px-4 py-8 grid grid-cols-12 gap-8 flex-grow">
 
         <main class="col-span-12 lg:col-span-8 space-y-12">
 
+            <!-- Seção de Notícias -->
             <section id="noticias-section">
                 <div class="border-b-4 border-portal-red pb-2 mb-6 flex justify-between items-end">
                     <h2 id="manchetes" class="text-2xl font-bold font-serif text-gray-900 dark:text-white">Manchetes do Dia</h2>
@@ -179,6 +203,7 @@
                 </div>
             </section>
 
+            <!-- Seção Curiosidade -->
             <section id="curiosidade-wrapper" class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-xl relative overflow-hidden group">
                 <div class="absolute -right-10 -top-10 bg-blue-500/10 w-40 h-40 rounded-full blur-3xl group-hover:bg-blue-500/20 transition-all"></div>
                 
@@ -208,6 +233,7 @@
                 </div>
             </section>
 
+            <!-- Seção NASA -->
             <section id="nasa-section" class="relative w-full h-[500px] rounded-xl overflow-hidden shadow-xl group bg-black">
                 <img id="nasa-img" src="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 opacity-80" alt="Imagem Astronômica do Dia" loading="lazy">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
@@ -223,6 +249,7 @@
                 </div>
             </section>
 
+            <!-- Seção Jogos Banner -->
             <section id="jogos" class="relative rounded-2xl overflow-hidden bg-gradient-to-r from-purple-600 to-indigo-600 p-8 text-white shadow-lg">
                 <div class="absolute top-0 right-0 -mt-10 -mr-10 h-40 w-40 rounded-full bg-white/20 blur-3xl"></div>
                 <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
@@ -241,11 +268,13 @@
                 </div>
             </section>
 
+            <!-- Seção Artigos -->
             <section id="artigos">
                 <div class="border-b border-gray-200 dark:border-gray-700 pb-2 mb-6 mt-4">
                     <h3 class="text-xl font-bold font-serif text-gray-900 dark:text-white">Artigos Recomendados</h3>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Artigo 1 -->
                     <a href="artigos/ia-saude-chatgpt-gemini.html" class="group bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-lg transition-all">
                         <div class="h-40 overflow-hidden relative">
                             <img src="img/artigos/iasaude.png" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&q=80'" class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="IA na Saúde">
@@ -255,6 +284,7 @@
                             <h4 class="font-bold text-sm text-gray-900 dark:text-white mt-1 group-hover:text-portal-red transition-colors line-clamp-2">Inteligência Artificial na Saúde</h4>
                         </div>
                     </a>
+                    <!-- Artigo 2 -->
                     <a href="artigos/ansiedade-depressao.html" class="group bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-lg transition-all">
                         <div class="h-40 overflow-hidden relative">
                             <img src="img/artigos/saude-mental.png" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1527137342181-19aab11a8ee8?w=500&q=80'" class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Saúde Mental">
@@ -264,6 +294,7 @@
                             <h4 class="font-bold text-sm text-gray-900 dark:text-white mt-1 group-hover:text-portal-red transition-colors line-clamp-2">Ansiedade e Depressão</h4>
                         </div>
                     </a>
+                    <!-- Artigo 3 -->
                     <a href="artigos/nutricao-funcional-microbiota.html" class="group bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-lg transition-all">
                         <div class="h-40 overflow-hidden relative">
                             <img src="img/artigos/nutriçãodigestiva.png" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=500&q=80'" class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Nutrição Funcional">
@@ -273,6 +304,7 @@
                             <h4 class="font-bold text-sm text-gray-900 dark:text-white mt-1 group-hover:text-portal-red transition-colors line-clamp-2">Nutrição Funcional e Microbiota</h4>
                         </div>
                     </a>
+                    <!-- Artigo 4 -->
                     <a href="artigos/macronutrientes-guia-completo.html" class="group bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-lg transition-all">
                         <div class="h-40 overflow-hidden relative">
                             <img src="img/artigos/macronutrientes.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1505253149613-112d21d9f6a9?w=500&q=80'" class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Macronutrientes">
@@ -285,11 +317,13 @@
                 </div>
             </section>
 
+            <!-- Seção Quizzes -->
             <section class="mb-8">
                 <div class="border-b border-gray-200 dark:border-gray-700 pb-2 mb-6">
                     <h3 class="text-xl font-bold font-serif text-gray-900 dark:text-white">Teste Seus Conhecimentos</h3>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Quiz 1 -->
                     <div class="bg-violet-50 dark:bg-violet-900/10 border border-violet-200 dark:border-violet-800 rounded-xl p-6 flex flex-col justify-between">
                         <div class="flex justify-between items-start mb-4">
                             <i data-lucide="brain-circuit" class="w-10 h-10 text-violet-500"></i>
@@ -301,6 +335,7 @@
                             <a href="quiz.html" class="block text-center w-full py-2 bg-violet-600 hover:bg-violet-700 text-white rounded-lg font-bold text-sm transition-colors">Começar</a>
                         </div>
                     </div>
+                    <!-- Quiz 2 -->
                     <div class="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-xl p-6 flex flex-col justify-between">
                         <div class="flex justify-between items-start mb-4">
                             <i data-lucide="dumbbell" class="w-10 h-10 text-blue-500"></i>
@@ -312,6 +347,7 @@
                             <a href="quiz_treino.html" class="block text-center w-full py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-sm transition-colors">Descobrir</a>
                         </div>
                     </div>
+                    <!-- Quiz 3 -->
                     <div class="bg-green-50 dark:bg-green-900/10 border border-green-200 dark:border-green-800 rounded-xl p-6 flex flex-col justify-between">
                         <div class="flex justify-between items-start mb-4">
                             <i data-lucide="apple" class="w-10 h-10 text-green-500"></i>
@@ -334,8 +370,10 @@
 
         </main>
 
+        <!-- === SIDEBAR === -->
         <aside class="col-span-12 lg:col-span-4 space-y-8">
 
+            <!-- Calculadora IMC -->
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-l-4 border-portal-red transform hover:-translate-y-1 transition-transform duration-300">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="bg-red-100 p-2 rounded-lg text-portal-red">
@@ -359,6 +397,7 @@
                 </div>
             </div>
 
+            <!-- Previsão do Tempo -->
             <div class="bg-gradient-to-br from-blue-600 to-indigo-800 rounded-xl p-6 text-white shadow-lg relative overflow-hidden group">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-700"></div>
                 <div class="flex justify-between items-start z-10 relative">
@@ -381,6 +420,7 @@
                 </div>
             </div>
 
+            <!-- Lista de Ferramentas -->
             <div id="ferramentas-area" class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-100 dark:border-gray-700">
                 <h4 class="text-lg font-bold font-serif border-l-4 border-portal-red pl-3 mb-4 text-gray-900 dark:text-white">Ferramentas</h4>
                 <ul class="space-y-2">
@@ -395,6 +435,7 @@
                 </ul>
             </div>
 
+            <!-- Dados IBGE -->
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-100 dark:border-gray-700">
                 <div class="flex items-center gap-2 mb-4">
                     <div class="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center text-white font-bold text-xs">BR</div>
@@ -411,6 +452,7 @@
                 </div>
             </div>
 
+            <!-- Conversor de Câmbio -->
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-100 dark:border-gray-700">
                 <h4 class="text-lg font-bold font-serif border-l-4 border-green-500 pl-3 mb-4 text-gray-900 dark:text-white">Conversor de Câmbio</h4>
                 <div class="space-y-3">
@@ -447,6 +489,7 @@
                 </div>
             </div>
 
+            <!-- Banner Personal Trainer -->
             <div class="relative rounded-xl overflow-hidden bg-gray-900 text-white p-6 text-center group">
                 <img src="personal.jpg" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=500&q=60'" alt="Personal Trainer" loading="lazy">
                 <div class="relative z-10">
@@ -459,6 +502,7 @@
         </aside>
     </div>
 
+    <!-- === FOOTER === -->
     <footer class="bg-gray-900 text-gray-300 pt-20 pb-10 border-t border-gray-800 mt-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
@@ -493,6 +537,7 @@
         </div>
     </footer>
 
+    <!-- === DICABOT WIDGET === -->
     <div id="dicabot-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
         
         <div id="dicabot-window" class="hidden bg-white dark:bg-gray-800 w-[350px] max-w-[90vw] h-[500px] max-h-[80vh] rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 flex flex-col mb-4 overflow-hidden animate-slide-up">
@@ -550,6 +595,7 @@
         </button>
     </div>
 
+    <!-- === SCRIPTS === -->
     <script>
         // Inicialização de Ícones
         lucide.createIcons();
@@ -560,7 +606,7 @@
             headerDate.innerText = new Date().toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' });
         }
 
-        // --- LÓGICA DO MENU MOBILE (ADICIONADO) ---
+        // --- LÓGICA DO MENU MOBILE ---
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -593,16 +639,13 @@
         if(themeBtn) themeBtn.addEventListener('click', toggleTheme);
         if(themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
 
-        // Verifica preferência salva
         if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             html.classList.add('dark');
         } else {
             html.classList.remove('dark');
         }
 
-        // --- APIs (CHAVES MANTIDAS) ---
-        // AVISO DE SEGURANÇA: Em um site profissional real, estas chaves deveriam estar no backend.
-        // Como o site é estático, mantive aqui para funcionar.
+        // --- APIs ---
         const API_KEYS = {
             gnews: '2d4cba603a9063a0a53a954b1f7aff18',
             weather: 'deca5723c570194449aeabef8e552289',
@@ -611,10 +654,10 @@
         };
 
         const MOCK_NEWS = [
-            { title: "Brasil bate recorde em transplantes de coração", source: {name: "Saúde Gov"}, description: "Sistema público mostra eficiência.", image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=800&q=80", url: "#", publishedAt: new Date().toISOString() },
-            { title: "Nova vitamina auxilia na memória", source: {name: "Ciência Hoje"}, description: "Estudos preliminares indicam avanços.", image: "https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&w=800&q=80", url: "#", publishedAt: new Date().toISOString() },
-            { title: "Sono e recuperação muscular", source: {name: "FitNews"}, description: "Dormir bem é essencial.", image: "https://images.unsplash.com/photo-1541781777621-39121f476d96?auto=format&fit=crop&w=800&q=80", url: "#", publishedAt: new Date().toISOString() },
-            { title: "Hospitais utilizam IA para triagem", source: {name: "TechHealth"}, description: "IA reduz tempo de espera.", image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80", url: "#", publishedAt: new Date().toISOString() }
+            { title: "Brasil bate recorde em transplantes de coração", source: {name: "Saúde Gov"}, description: "Sistema público mostra eficiência.", image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=800&q=80", url: "https://www.google.com/search?q=Brasil+transplantes+coração", publishedAt: new Date().toISOString() },
+            { title: "Nova vitamina auxilia na memória", source: {name: "Ciência Hoje"}, description: "Estudos preliminares indicam avanços.", image: "https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&w=800&q=80", url: "https://www.google.com/search?q=vitamina+memoria+estudo", publishedAt: new Date().toISOString() },
+            { title: "Sono e recuperação muscular", source: {name: "FitNews"}, description: "Dormir bem é essencial.", image: "https://images.unsplash.com/photo-1541781777621-39121f476d96?auto=format&fit=crop&w=800&q=80", url: "https://www.google.com/search?q=sono+recuperação+muscular", publishedAt: new Date().toISOString() },
+            { title: "Hospitais utilizam IA para triagem", source: {name: "TechHealth"}, description: "IA reduz tempo de espera.", image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80", url: "https://www.google.com/search?q=IA+triagem+hospitalar", publishedAt: new Date().toISOString() }
         ];
 
         let currencyRates = {};
@@ -791,7 +834,7 @@
             lucide.createIcons();
         }
 
-        // --- FETCH NEWS ---
+        // --- FETCH NEWS (CORRIGIDO) ---
         async function fetchNews() {
             const container = document.getElementById('news-grid');
             try {
@@ -811,16 +854,22 @@
                 let imgUrl = article.image || 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&q=80';
                 const safeTitle = article.title.replace(/'/g, "\\'").replace(/"/g, '&quot;');
                 const pubDate = article.publishedAt ? new Date(article.publishedAt).toLocaleDateString() : 'Hoje';
-                const card = document.createElement('article');
+                
+                // MUDANÇA PRINCIPAL: O CARD AGORA É UM LINK <a> INTEIRO
+                const card = document.createElement('a');
+                card.href = article.url;
+                card.target = "_blank"; // Abre em nova aba
                 
                 const imgTag = `<img src="${imgUrl}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80';" alt="${safeTitle}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ${index === 0 ? 'brightness-50 group-hover:brightness-60' : ''}">`;
 
                 if (index === 0) { 
-                    card.className = "col-span-1 md:col-span-3 bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group relative h-96";
-                    card.innerHTML = `${imgTag}<div class="absolute bottom-0 left-0 p-8 w-full z-10 bg-gradient-to-t from-black via-black/70 to-transparent"><span class="bg-portal-red text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block shadow-md">Manchete do Dia</span><h3 class="text-2xl md:text-4xl font-bold font-serif text-white mb-2 leading-tight drop-shadow-md"><a href="${article.url}" target="_blank" class="hover:underline decoration-portal-red decoration-2 underline-offset-4">${article.title}</a></h3><div class="mt-4 flex items-center gap-2 text-gray-300 text-sm font-medium"><i data-lucide="clock" class="w-4 h-4"></i> ${pubDate}</div></div>`;
+                    card.className = "col-span-1 md:col-span-3 bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group relative h-96 block";
+                    // Removemos links internos para evitar erro de HTML
+                    card.innerHTML = `${imgTag}<div class="absolute bottom-0 left-0 p-8 w-full z-10 bg-gradient-to-t from-black via-black/70 to-transparent"><span class="bg-portal-red text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block shadow-md">Manchete do Dia</span><h3 class="text-2xl md:text-4xl font-bold font-serif text-white mb-2 leading-tight drop-shadow-md hover:underline decoration-portal-red decoration-2 underline-offset-4">${article.title}</h3><div class="mt-4 flex items-center gap-2 text-gray-300 text-sm font-medium"><i data-lucide="clock" class="w-4 h-4"></i> ${pubDate}</div></div>`;
                 } else {
-                    card.className = "bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col h-full group border border-gray-100 dark:border-gray-700";
-                    card.innerHTML = `<div class="h-40 overflow-hidden relative">${imgTag}</div><div class="p-4 flex-1 flex flex-col justify-between"><h3 class="text-base font-bold font-serif mb-2 leading-snug group-hover:text-portal-red transition-colors dark:text-white line-clamp-3"><a href="${article.url}" target="_blank">${article.title}</a></h3><div class="flex justify-between items-center mt-3 border-t border-gray-100 dark:border-gray-700 pt-2"><span class="text-xs text-gray-400 flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3"></i> ${pubDate}</span></div></div>`;
+                    card.className = "bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col h-full group border border-gray-100 dark:border-gray-700 block";
+                    // Removemos links internos
+                    card.innerHTML = `<div class="h-40 overflow-hidden relative">${imgTag}</div><div class="p-4 flex-1 flex flex-col justify-between"><h3 class="text-base font-bold font-serif mb-2 leading-snug group-hover:text-portal-red transition-colors dark:text-white line-clamp-3">${article.title}</h3><div class="flex justify-between items-center mt-3 border-t border-gray-100 dark:border-gray-700 pt-2"><span class="text-xs text-gray-400 flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3"></i> ${pubDate}</span></div></div>`;
                 }
                 container.appendChild(card);
             });
