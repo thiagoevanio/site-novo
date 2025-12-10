@@ -118,7 +118,6 @@
                     <!-- Navegação -->
                     <nav class="hidden md:flex items-center gap-6 text-sm font-bold uppercase text-gray-700 dark:text-gray-300">
                         <a href="index.html" class="hover:text-portal-red transition-colors">Início</a>
-                        <a href="calculadoras.html" class="hover:text-portal-red transition-colors">Calculadoras</a>
                         <a href="jogos.html" class="hover:text-portal-red transition-colors text-purple-600 dark:text-purple-400">Jogos</a>
                         <a href="artigos.html" class="hover:text-portal-red transition-colors">Artigos</a>
                         <a href="sobre.html" class="hover:text-portal-red transition-colors">Sobre</a>
@@ -959,7 +958,8 @@
                         .then(r => r.json())
                         .then(data => {
                             if(data.cod === 200) renderWeather(data);
-                        });
+                        })
+                        .catch(err => console.error("Erro no fallback do clima:", err));
                 }, {timeout: 5000});
             }
         }
