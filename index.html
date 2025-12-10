@@ -6,22 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#c4170c">
     
-    <!-- SEO -->
     <title>Calcule Sua Saúde | Portal de Notícias, Ciência e Bem-Estar</title>
     <meta name="description" content="Portal completo de saúde. Notícias, previsão do tempo, jogos educativos, quizzes e calculadoras de IMC, TMB e Hidratação.">
     
-    <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap" rel="stylesheet">
 
     <meta name="google-adsense-account" content="ca-pub-5825554897787593">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 
     <link rel="manifest" href="/manifest.json">
 
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -30,7 +27,6 @@
       gtag('config', 'G-EVCQQZV60N');
     </script>
     
-    <!-- Scripts -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -104,7 +100,6 @@
 
 <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 relative">
 
-    <!-- 1. BARRA DE COTAÇÕES -->
     <div class="fixed w-full top-0 z-50">
         <div class="ticker-wrap border-b border-gray-700">
             <div class="ticker" id="finance-ticker">
@@ -112,11 +107,9 @@
             </div>
         </div>
 
-        <!-- HEADER -->
         <header class="bg-white dark:bg-gray-900 shadow-md">
             <div class="container mx-auto px-4 py-4">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <!-- Logo -->
                     <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-start">
                         <button id="mobile-menu-btn" class="md:hidden p-2"><i data-lucide="menu"></i></button>
                         <a href="index.html" class="flex flex-col group">
@@ -130,7 +123,6 @@
                         </div>
                     </div>
 
-                    <!-- Navegação -->
                     <nav class="hidden md:flex items-center gap-6 text-sm font-bold uppercase text-gray-700 dark:text-gray-300">
                         <a href="index.html" class="hover:text-portal-red transition-colors">Início</a>
                         <a href="jogos.html" class="hover:text-portal-red transition-colors text-purple-600 dark:text-purple-400">Jogos</a>
@@ -148,29 +140,21 @@
 
     <div class="h-[120px] md:h-[130px]"></div>
 
-    <!-- GRID PRINCIPAL -->
     <div class="container mx-auto px-4 py-8 grid grid-cols-12 gap-8">
 
-        <!-- ============================================== -->
-        <!-- COLUNA ESQUERDA (PRINCIPAL) - 8/12 -->
-        <!-- ============================================== -->
         <main class="col-span-12 lg:col-span-8 space-y-12">
 
-            <!-- 4. FEED DE NOTÍCIAS (Topo) -->
             <section id="noticias-section">
                 <div class="border-b-4 border-portal-red pb-2 mb-6 flex justify-between items-end">
                     <h3 id="manchetes" class="text-2xl font-bold font-serif text-gray-900 dark:text-white">Manchetes do Dia</h3>
                     <span class="text-xs text-gray-500 flex items-center gap-1"><i data-lucide="globe" class="w-3 h-3"></i> GNews API</span>
                 </div>
                 <div id="news-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Carregamento -->
                     <div class="md:col-span-3 animate-pulse bg-gray-200 dark:bg-gray-800 h-96 rounded-lg"></div>
                 </div>
             </section>
 
-            <!-- 3. CURIOSIDADE ALEATÓRIA (WIDGET NOVO) -->
             <section id="curiosidade-wrapper" class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-xl relative overflow-hidden group">
-                <!-- Efeito visual de fundo -->
                 <div class="absolute -right-10 -top-10 bg-blue-500/10 w-40 h-40 rounded-full blur-3xl group-hover:bg-blue-500/20 transition-all"></div>
                 
                 <div class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left">
@@ -204,7 +188,6 @@
                 </div>
             </section>
 
-            <!-- 2. NASA SLIDER (Abaixo) -->
             <section id="nasa-section" class="relative w-full h-[500px] rounded-xl overflow-hidden shadow-xl group bg-black">
                 <img id="nasa-img" src="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 opacity-80" alt="Imagem Astronômica">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
@@ -220,7 +203,6 @@
                 </div>
             </section>
 
-            <!-- 5. JOGOS DE SAÚDE (BANNER) -->
             <section id="jogos" class="relative rounded-2xl overflow-hidden bg-gradient-to-r from-purple-600 to-indigo-600 p-8 text-white shadow-lg">
                 <div class="absolute top-0 right-0 -mt-10 -mr-10 h-40 w-40 rounded-full bg-white/20 blur-3xl"></div>
                 <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
@@ -239,14 +221,12 @@
                 </div>
             </section>
 
-            <!-- 6. ARTIGOS EM DESTAQUE (Personalizados) -->
             <section id="artigos">
                 <div class="border-b border-gray-200 dark:border-gray-700 pb-2 mb-6 mt-4">
                     <h3 class="text-xl font-bold font-serif text-gray-900 dark:text-white">Artigos Recomendados</h3>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     
-                    <!-- Artigo 1 -->
                     <a href="artigos/ia-saude-chatgpt-gemini.html" class="group bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-lg transition-all">
                         <div class="h-40 overflow-hidden relative">
                             <img src="img/artigos/iasaude.png" 
@@ -259,7 +239,6 @@
                         </div>
                     </a>
 
-                    <!-- Artigo 2 -->
                     <a href="artigos/ansiedade-depressao.html" class="group bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-lg transition-all">
                         <div class="h-40 overflow-hidden relative">
                             <img src="img/artigos/saude-mental.png" 
@@ -272,7 +251,6 @@
                         </div>
                     </a>
 
-                    <!-- Artigo 3 -->
                     <a href="artigos/nutricao-funcional-microbiota.html" class="group bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-lg transition-all">
                         <div class="h-40 overflow-hidden relative">
                             <img src="img/artigos/nutriçãodigestiva.png" 
@@ -285,7 +263,6 @@
                         </div>
                     </a>
 
-                    <!-- Artigo 4 -->
                     <a href="artigos/macronutrientes-guia-completo.html" class="group bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-lg transition-all">
                         <div class="h-40 overflow-hidden relative">
                             <img src="img/artigos/macronutrientes.jpg" 
@@ -301,14 +278,12 @@
                 </div>
             </section>
 
-            <!-- 7. QUIZZES EM DESTAQUE (Restaurados) -->
             <section class="mb-8">
                 <div class="border-b border-gray-200 dark:border-gray-700 pb-2 mb-6">
                     <h3 class="text-xl font-bold font-serif text-gray-900 dark:text-white">Teste Seus Conhecimentos</h3>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     
-                    <!-- Quiz 1 -->
                     <div class="bg-violet-50 dark:bg-violet-900/10 border border-violet-200 dark:border-violet-800 rounded-xl p-6 flex flex-col justify-between">
                         <div class="flex justify-between items-start mb-4">
                             <i data-lucide="brain-circuit" class="w-10 h-10 text-violet-500"></i>
@@ -321,7 +296,6 @@
                         </div>
                     </div>
 
-                    <!-- Quiz 2 -->
                     <div class="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-xl p-6 flex flex-col justify-between">
                         <div class="flex justify-between items-start mb-4">
                             <i data-lucide="dumbbell" class="w-10 h-10 text-blue-500"></i>
@@ -334,7 +308,6 @@
                         </div>
                     </div>
 
-                    <!-- Quiz 3 -->
                     <div class="bg-green-50 dark:bg-green-900/10 border border-green-200 dark:border-green-800 rounded-xl p-6 flex flex-col justify-between">
                         <div class="flex justify-between items-start mb-4">
                             <i data-lucide="apple" class="w-10 h-10 text-green-500"></i>
@@ -349,7 +322,6 @@
 
                 </div>
                 
-                <!-- BOTÃO VER TODOS OS QUIZZES -->
                 <div class="text-center mt-10">
                     <a href="todos_quizzes.html" class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-8 py-3 rounded-full font-bold shadow-md hover:shadow-lg transition-all border border-gray-200 dark:border-gray-700 hover:-translate-y-1">
                         Ver todos os quizzes <i data-lucide="arrow-right" class="w-5 h-5"></i>
@@ -359,12 +331,8 @@
 
         </main>
 
-        <!-- ============================================== -->
-        <!-- COLUNA DIREITA (SIDEBAR) - 4/12 -->
-        <!-- ============================================== -->
         <aside class="col-span-12 lg:col-span-4 space-y-8">
 
-            <!-- 8. ATALHO: CALCULADORA RÁPIDA DE IMC (RESTAURADA!) -->
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-l-4 border-portal-red transform hover:-translate-y-1 transition-transform duration-300">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="bg-red-100 p-2 rounded-lg text-portal-red">
@@ -378,7 +346,6 @@
                     <button onclick="calculateQuickIMC()" class="w-full bg-portal-red hover:bg-red-700 text-white font-bold py-3 rounded-lg shadow-md transition-colors">
                         Calcular Agora
                     </button>
-                    <!-- Resultado -->
                     <div id="quick-result" class="hidden mt-3 text-center bg-gray-100 dark:bg-gray-900 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
                         <span class="block text-xs text-gray-500 uppercase">Seu IMC</span>
                         <span id="quick-imc-value" class="text-2xl font-black text-portal-red">00.0</span>
@@ -387,7 +354,6 @@
                 </div>
             </div>
 
-            <!-- CLIMA -->
             <div class="bg-gradient-to-br from-blue-600 to-indigo-800 rounded-xl p-6 text-white shadow-lg relative overflow-hidden group">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-700"></div>
                 <div class="flex justify-between items-start z-10 relative">
@@ -410,7 +376,6 @@
                 </div>
             </div>
 
-            <!-- FERRAMENTAS LISTA - COM TODAS AS CALCULADORAS -->
             <div id="ferramentas-area" class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-100 dark:border-gray-700">
                 <h4 class="text-lg font-bold font-serif border-l-4 border-portal-red pl-3 mb-4 text-gray-900 dark:text-white">Ferramentas</h4>
                 <ul class="space-y-2">
@@ -425,7 +390,6 @@
                 </ul>
             </div>
 
-            <!-- IBGE ATUALIZADO COM MAIS DADOS -->
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-100 dark:border-gray-700">
                 <div class="flex items-center gap-2 mb-4">
                     <div class="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center text-white font-bold text-xs">BR</div>
@@ -442,7 +406,6 @@
                 </div>
             </div>
 
-            <!-- 9. NOVO: CONVERSOR DE MOEDAS -->
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-100 dark:border-gray-700">
                 <h4 class="text-lg font-bold font-serif border-l-4 border-green-500 pl-3 mb-4 text-gray-900 dark:text-white">Conversor de Câmbio</h4>
                 <div class="space-y-3">
@@ -479,7 +442,6 @@
                 </div>
             </div>
 
-            <!-- PERSONAL TRAINER -->
             <div class="relative rounded-xl overflow-hidden bg-gray-900 text-white p-6 text-center group">
                 <img src="personal.jpg" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=500&q=60'">
                 <div class="relative z-10">
@@ -492,7 +454,6 @@
         </aside>
     </div>
 
-    <!-- RODAPÉ ORIGINAL -->
     <footer class="bg-gray-900 text-gray-300 pt-20 pb-10 border-t border-gray-800 mt-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
@@ -508,15 +469,10 @@
         </div>
     </footer>
 
-    <!-- ========================================== -->
-    <!-- WIDGET DO DICABOT (INÍCIO) -->
-    <!-- ========================================== -->
     <div id="dicabot-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
         
-        <!-- Janela do Chat -->
         <div id="dicabot-window" class="hidden bg-white dark:bg-gray-800 w-[350px] max-w-[90vw] h-[500px] max-h-[80vh] rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 flex flex-col mb-4 overflow-hidden animate-slide-up">
             
-            <!-- Header do Chat -->
             <div class="bg-gradient-to-r from-green-600 to-emerald-600 p-4 flex justify-between items-center text-white">
                 <div class="flex items-center gap-2">
                     <div class="bg-white/20 p-1.5 rounded-lg">
@@ -532,9 +488,7 @@
                 </button>
             </div>
 
-            <!-- Área de Mensagens -->
             <div id="dicabot-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 dark:bg-gray-900/50">
-                <!-- Mensagem Inicial -->
                 <div class="flex justify-start w-full">
                     <div class="flex max-w-[85%] gap-2">
                         <div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center">
@@ -547,14 +501,12 @@
                 </div>
             </div>
 
-            <!-- Sugestões (Chips) -->
             <div id="dicabot-suggestions" class="px-4 py-2 bg-gray-50 dark:bg-gray-900/50 flex gap-2 overflow-x-auto hide-scrollbar border-t border-gray-100 dark:border-gray-800">
                 <button onclick="sendSuggestion('Receita com o que tenho')" class="whitespace-nowrap px-3 py-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full text-xs text-gray-600 dark:text-gray-300 hover:text-green-600 hover:border-green-200 transition-colors">🍳 Receita fácil</button>
                 <button onclick="sendSuggestion('Chá para dormir')" class="whitespace-nowrap px-3 py-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full text-xs text-gray-600 dark:text-gray-300 hover:text-green-600 hover:border-green-200 transition-colors">☕ Chá calmo</button>
                 <button onclick="sendSuggestion('Como tirar mancha de vinho')" class="whitespace-nowrap px-3 py-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full text-xs text-gray-600 dark:text-gray-300 hover:text-green-600 hover:border-green-200 transition-colors">🍷 Manchas</button>
             </div>
 
-            <!-- Input -->
             <div class="p-3 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
                 <div class="relative flex items-center">
                     <input type="text" id="dicabot-input" placeholder="Digite sua dúvida..." 
@@ -568,18 +520,11 @@
             </div>
         </div>
 
-        <!-- Botão Flutuante (FAB) -->
         <button id="dicabot-fab" onclick="toggleDicaBot()" class="w-14 h-14 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-lg hover:shadow-green-500/30 transition-all transform hover:scale-105 flex items-center justify-center relative group">
             <i data-lucide="leaf" class="w-7 h-7"></i>
             <span class="absolute right-16 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Dicas & Receitas</span>
         </button>
     </div>
-    <!-- ========================================== -->
-    <!-- WIDGET DO DICABOT (FIM) -->
-    <!-- ========================================== -->
-
-
-    <!-- LÓGICA JAVASCRIPT -->
     <script>
         lucide.createIcons();
         document.getElementById('header-date').innerText = new Date().toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' });
@@ -603,7 +548,7 @@
         // === LÓGICA DO DICABOT (Javascript Puro) ===
         
         // 1. CONFIGURAÇÃO DA IA
-        const GEMINI_API_KEY = "AIzaSyCRLcTu7Mw5z-PxmVYtMkMktwE_QOJxZoU"; // <--- JÁ ESTÁ CONFIGURADA
+        const GEMINI_API_KEY = "AIzaSyC5iGcWNIqyBlpquW4ZT8GqVcjc_rburLg"; // <--- JÁ ESTÁ CONFIGURADA
         
         const SYSTEM_PROMPT = `
             Você é a "DicaBot", assistente do portal 'Calcule Sua Saúde'.
