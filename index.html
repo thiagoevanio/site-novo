@@ -99,7 +99,7 @@
                     <!-- Logo -->
                     <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-start">
                         <button id="mobile-menu-btn" class="md:hidden p-2"><i data-lucide="menu"></i></button>
-                        <a href="#" class="flex flex-col group">
+                        <a href="index.html" class="flex flex-col group">
                             <h1 class="text-3xl font-black font-serif tracking-tighter text-portal-red group-hover:opacity-80 transition-opacity">
                                 CALCULE<span class="text-gray-800 dark:text-white">SAÚDE</span>
                             </h1>
@@ -112,10 +112,11 @@
 
                     <!-- Navegação -->
                     <nav class="hidden md:flex items-center gap-6 text-sm font-bold uppercase text-gray-700 dark:text-gray-300">
-                        <a href="#manchetes" class="hover:text-portal-red transition-colors">Últimas</a>
-                        <a href="#ferramentas-area" class="hover:text-portal-red transition-colors">Calculadoras</a>
-                        <a href="#jogos" class="hover:text-portal-red transition-colors text-purple-600 dark:text-purple-400">Jogos</a>
-                        <a href="#artigos" class="hover:text-portal-red transition-colors">Artigos</a>
+                        <a href="index.html" class="hover:text-portal-red transition-colors">Início</a>
+                        <a href="calculadoras.html" class="hover:text-portal-red transition-colors">Calculadoras</a>
+                        <a href="jogos.html" class="hover:text-portal-red transition-colors text-purple-600 dark:text-purple-400">Jogos</a>
+                        <a href="artigos.html" class="hover:text-portal-red transition-colors">Artigos</a>
+                        <a href="sobre.html" class="hover:text-portal-red transition-colors">Sobre</a>
                         <button id="theme-toggle" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full">
                             <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
                             <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
@@ -152,23 +153,22 @@
                 </div>
             </section>
 
-            <!-- 3. MARS ROVER -->
-            <section class="bg-gray-900 rounded-xl p-6 border border-gray-800 shadow-inner">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-lg font-bold text-white flex items-center gap-2"><i data-lucide="camera" class="text-orange-500"></i> Direto de Marte</h3>
-                    <span class="text-xs text-gray-400">Rover Perseverance</span>
+            <!-- 3. CURIOSIDADE DO CORPO HUMANO (Substituindo Marte) -->
+            <section class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-6 border border-gray-700 shadow-lg relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10">
+                    <i data-lucide="brain-circuit" class="w-24 h-24 text-white"></i>
                 </div>
-                <div class="flex flex-col md:flex-row gap-4 items-center">
-                    <div class="w-full md:w-1/3 h-40 rounded-lg overflow-hidden bg-gray-800 relative group">
-                         <img id="mars-img" src="https://images.unsplash.com/photo-1540198163009-7afda7da2945?w=500&q=60" 
-                              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1614728853913-1e32005e307a?w=500&q=60';"
-                              class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                         <div class="absolute bottom-1 right-1 bg-black/60 text-white text-[10px] px-2 rounded">NASA/JPL</div>
+                <div class="relative z-10">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-bold text-white flex items-center gap-2"><i data-lucide="lightbulb" class="text-yellow-400"></i> Sabia Disso?</h3>
+                        <span class="text-xs text-gray-400 uppercase tracking-widest">Corpo Humano</span>
                     </div>
-                    <div class="flex-1 text-sm text-gray-300">
-                        <p class="mb-2">Imagem real da superfície marciana.</p>
-                        <p class="text-xs text-gray-500">Câmera: <span id="mars-cam" class="text-white">Carregando...</span></p>
+                    <div class="bg-gray-800/50 p-4 rounded-lg border border-gray-700 backdrop-blur-sm">
+                        <p id="curiosity-text" class="text-gray-200 text-lg font-serif italic leading-relaxed">"O coração humano bate mais de 100 mil vezes por dia."</p>
                     </div>
+                    <button onclick="loadCuriosity()" class="mt-4 text-xs font-bold text-portal-red hover:text-white transition-colors flex items-center gap-1 group">
+                        <i data-lucide="refresh-cw" class="w-3 h-3 group-hover:rotate-180 transition-transform duration-500"></i> Outra Curiosidade
+                    </button>
                 </div>
             </section>
 
@@ -354,9 +354,16 @@
                     </div>
                     <i id="weather-icon" data-lucide="cloud" class="w-10 h-10 text-white"></i>
                 </div>
-                <div class="mt-6 flex items-end gap-2">
-                    <span class="text-5xl font-bold" id="weather-temp">--</span>
-                    <div class="mb-2"><span class="text-xl">°C</span></div>
+                <div class="mt-6 flex flex-col">
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-5xl font-bold" id="weather-temp">--</span>
+                        <span class="text-xl">°C</span>
+                    </div>
+                    <p class="text-white text-lg font-bold capitalize mt-1" id="weather-desc">Carregando...</p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-white/20 flex justify-between text-sm text-blue-100 font-medium">
+                    <span class="flex items-center gap-1"><i data-lucide="wind" class="w-4 h-4"></i> <span id="weather-wind">--</span> km/h</span>
+                    <span class="flex items-center gap-1"><i data-lucide="droplets" class="w-4 h-4"></i> <span id="weather-hum">--</span>%</span>
                 </div>
             </div>
 
@@ -825,15 +832,30 @@
         }
         function changeNasaSlide(d) { renderNasaSlide(currentNasaIndex + d); }
 
-        async function fetchMars() {
-            try {
-                const res = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/latest_photos?api_key=${API_KEYS.nasa}`);
-                const data = await res.json();
-                if(data.latest_photos && data.latest_photos.length > 0) {
-                    document.getElementById('mars-img').src = data.latest_photos[0].img_src;
-                    document.getElementById('mars-cam').innerText = data.latest_photos[0].camera.full_name;
-                }
-            } catch(e) {}
+        // --- CURIOSIDADES DO CORPO HUMANO (Substitui Marte) ---
+        const CURIOSITIES = [
+            "O seu nariz pode lembrar de mais de 50.000 cheiros diferentes.",
+            "O ácido do seu estômago é forte o suficiente para dissolver metal.",
+            "Você produz saliva suficiente em sua vida para encher duas piscinas olímpicas.",
+            "O músculo mais forte do corpo humano (baseado em seu peso) é o masseter (mandíbula).",
+            "Seus vasos sanguíneos poderiam dar a volta na Terra duas vezes.",
+            "A pele é o maior órgão do corpo humano.",
+            "Você perde cerca de 4kg de células de pele por ano.",
+            "O cérebro humano gera energia suficiente para acender uma lâmpada pequena.",
+            "Seus ossos são compostos por 31% de água.",
+            "O coração humano bate mais de 3 bilhões de vezes durante uma vida média.",
+            "As unhas das mãos crescem 4 vezes mais rápido que as dos pés."
+        ];
+
+        function loadCuriosity() {
+            const textEl = document.getElementById('curiosity-text');
+            const randomIndex = Math.floor(Math.random() * CURIOSITIES.length);
+            // Efeito de fade simples
+            textEl.style.opacity = 0;
+            setTimeout(() => {
+                textEl.innerText = `"${CURIOSITIES[randomIndex]}"`;
+                textEl.style.opacity = 1;
+            }, 200);
         }
 
         async function fetchWeather() {
@@ -926,7 +948,7 @@
         themeBtn.addEventListener('click', () => { html.classList.toggle('dark'); });
 
         document.addEventListener('DOMContentLoaded', () => {
-            fetchFinance(); fetchWeather(); fetchNasa(); fetchMars(); fetchNews(); fetchAsteroids(); fetchIBGE();
+            fetchFinance(); fetchWeather(); fetchNasa(); loadCuriosity(); fetchNews(); fetchAsteroids(); fetchIBGE();
         });
     </script>
 </body>
