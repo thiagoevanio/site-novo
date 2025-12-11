@@ -9,47 +9,8 @@
 
     <!-- === SEO PRINCIPAL === -->
     <title>Calcule Sua Saúde | Notícias, Ciência, IMC e Bem-Estar</title>
-    <meta name="description" content="Portal completo de saúde. Notícias atualizadas, previsão do tempo, jogos educativos, quizzes e calculadoras precisas de IMC, TMB e Hidratação. Cuide de você.">
-    <meta name="keywords" content="saúde, imc, calculadora, bem-estar, notícias saúde, medicina, nutrição, fitness">
-    <meta name="author" content="Calcule Sua Saúde">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://calculesuasaude.com.br/">
-
-    <!-- === OPEN GRAPH (Para redes sociais como WhatsApp e Facebook) === -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://calculesuasaude.com.br/">
-    <meta property="og:title" content="Calcule Sua Saúde | Seu Portal de Bem-Estar">
-    <meta property="og:description" content="Acesse calculadoras de saúde, notícias do dia e dicas de especialistas.">
-    <!-- Adicione uma imagem real aqui para aparecer no WhatsApp -->
-    <meta property="og:image" content="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&q=80">
-
-    <!-- === TWITTER CARDS === -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Calcule Sua Saúde">
-    <meta name="twitter:description" content="Portal completo de saúde e bem-estar.">
-
-    <!-- === GOOGLE ADSENSE === -->
-    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
-
-    <!-- === PWA / MANIFEST === -->
-    <link rel="manifest" href="/manifest.json">
-
-    <!-- === ANALYTICS === -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-EVCQQZV60N');
-    </script>
+    <meta name="description" content="Portal completo de saúde. Notícias atualizadas, previsão do tempo, jogos educativos, quizzes e calculadoras precisas de IMC.">
     
-    <!-- === FONTS & ICONS === -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-
     <!-- === TAILWIND CSS === -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -59,59 +20,29 @@
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Merriweather', 'serif'] },
                     colors: { portal: { red: '#c4170c', dark: '#1e1e1e', gray: '#f5f5f5' } },
-                    animation: { 'fade-in': 'fadeIn 0.5s ease-in-out', 'slide-up': 'slideUp 0.3s ease-out' },
+                    animation: { 'fade-in': 'fadeIn 0.5s ease-in-out' },
                     keyframes: {
-                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
-                        slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } }
                     }
                 }
             }
         }
     </script>
 
-    <!-- === SCHEMA.ORG (JSON-LD) === -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Calcule Sua Saúde",
-      "url": "https://calculesuasaude.com.br/",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://calculesuasaude.com.br/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
+    <!-- === FONTS & ICONS === -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        /* Otimização da Barra de Notícias (Ticker) */
-        .ticker-wrap { width: 100%; overflow: hidden; background-color: #1e1e1e; height: 40px; line-height: 40px; }
-        .ticker { display: inline-block; white-space: nowrap; animation: ticker 45s linear infinite; }
-        .ticker__item { display: inline-block; padding: 0 2rem; color: #fff; font-size: 0.9rem; font-weight: 600; }
-        @keyframes ticker { 0% { transform: translate3d(100%, 0, 0); } 100% { transform: translate3d(-100%, 0, 0); } }
-        
         /* Scrollbar Personalizada */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #c4170c; border-radius: 4px; }
         
-        /* Animação Digitação Chatbot */
-        .typing-dot { animation: typing 1.4s infinite ease-in-out both; }
-        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
-        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
-        @keyframes typing { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
-        
-        /* Utilitários */
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        /* Mobile Menu Transition */
+        /* Mobile Menu */
         #mobile-menu { transition: transform 0.3s ease-in-out; }
         .mobile-menu-closed { transform: translateX(-100%); }
         .mobile-menu-open { transform: translateX(0); }
-        
-        /* Glass Effect */
         .glass-effect { backdrop-filter: blur(5px); }
     </style>
 </head>
@@ -120,13 +51,6 @@
 
     <!-- === HEADER & NAV === -->
     <div class="fixed w-full top-0 z-50">
-        <!-- Ticker Financeiro -->
-        <div class="ticker-wrap border-b border-gray-700">
-            <div class="ticker" id="finance-ticker">
-                <span class="ticker__item">Carregando dados financeiros...</span>
-            </div>
-        </div>
-
         <header class="bg-white dark:bg-gray-900 shadow-md">
             <div class="container mx-auto px-4 py-4">
                 <div class="flex justify-between items-center">
@@ -146,19 +70,19 @@
 
                     <!-- Desktop Nav -->
                     <nav class="hidden md:flex items-center gap-6 text-sm font-bold uppercase text-gray-700 dark:text-gray-300">
-                        <a href="index.html" class="hover:text-portal-red transition-colors">Início</a>
-                        <a href="jogos.html" class="hover:text-portal-red transition-colors text-purple-600 dark:text-purple-400">Jogos</a>
-                        <a href="artigos.html" class="hover:text-portal-red transition-colors">Artigos</a>
-                        <a href="sobre.html" class="hover:text-portal-red transition-colors">Sobre</a>
+                        <a href="#" class="hover:text-portal-red transition-colors">Início</a>
+                        <a href="#" class="hover:text-portal-red transition-colors text-purple-600 dark:text-purple-400">Jogos</a>
+                        <a href="#" class="hover:text-portal-red transition-colors">Artigos</a>
+                        <a href="#" class="hover:text-portal-red transition-colors">Sobre</a>
                         <button id="theme-toggle" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full" aria-label="Alternar Tema">
                             <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
                             <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
                         </button>
                     </nav>
 
-                    <!-- Mobile Theme Toggle (Visible only on mobile) -->
+                    <!-- Mobile Theme Toggle -->
                     <div class="md:hidden">
-                        <button id="theme-toggle-mobile" class="p-2 text-gray-700 dark:text-white" aria-label="Alternar Tema Mobile">
+                        <button id="theme-toggle-mobile" class="p-2 text-gray-700 dark:text-white">
                             <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
                             <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
                         </button>
@@ -168,7 +92,7 @@
         </header>
     </div>
 
-    <!-- === MOBILE MENU DRAWER (NOVO - FALTAVA NO ORIGINAL) === -->
+    <!-- === MOBILE MENU DRAWER === -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden glass-effect" onclick="toggleMobileMenu()"></div>
     <div id="mobile-menu" class="fixed top-0 left-0 w-[70%] h-full bg-white dark:bg-gray-900 z-50 shadow-2xl mobile-menu-closed md:hidden flex flex-col p-6">
         <div class="flex justify-between items-center mb-8 border-b pb-4 dark:border-gray-700">
@@ -176,16 +100,15 @@
             <button onclick="toggleMobileMenu()" class="p-2"><i data-lucide="x"></i></button>
         </div>
         <nav class="flex flex-col gap-6 text-lg font-bold text-gray-700 dark:text-gray-300">
-            <a href="index.html" class="flex items-center gap-3"><i data-lucide="home" class="w-5 h-5"></i> Início</a>
-            <a href="jogos.html" class="flex items-center gap-3 text-purple-600"><i data-lucide="gamepad-2" class="w-5 h-5"></i> Jogos</a>
-            <a href="artigos.html" class="flex items-center gap-3"><i data-lucide="file-text" class="w-5 h-5"></i> Artigos</a>
-            <a href="ferramentas/imc.html" class="flex items-center gap-3"><i data-lucide="calculator" class="w-5 h-5"></i> Calculadoras</a>
-            <a href="sobre.html" class="flex items-center gap-3"><i data-lucide="info" class="w-5 h-5"></i> Sobre</a>
+            <a href="#" class="flex items-center gap-3"><i data-lucide="home" class="w-5 h-5"></i> Início</a>
+            <a href="#" class="flex items-center gap-3 text-purple-600"><i data-lucide="gamepad-2" class="w-5 h-5"></i> Jogos</a>
+            <a href="#" class="flex items-center gap-3"><i data-lucide="file-text" class="w-5 h-5"></i> Artigos</a>
+            <a href="#" class="flex items-center gap-3"><i data-lucide="calculator" class="w-5 h-5"></i> Calculadoras</a>
         </nav>
     </div>
 
     <!-- Spacer for Fixed Header -->
-    <div class="h-[120px] md:h-[130px]"></div>
+    <div class="h-[90px] md:h-[100px]"></div>
 
     <!-- === MAIN CONTENT === -->
     <div class="container mx-auto px-4 py-8 grid grid-cols-12 gap-8 flex-grow">
@@ -196,40 +119,34 @@
             <section id="noticias-section">
                 <div class="border-b-4 border-portal-red pb-2 mb-6 flex justify-between items-end">
                     <h2 id="manchetes" class="text-2xl font-bold font-serif text-gray-900 dark:text-white">Manchetes do Dia</h2>
-                    <span class="text-xs text-gray-500 flex items-center gap-1"><i data-lucide="globe" class="w-3 h-3"></i> GNews API</span>
+                    <span class="text-xs text-gray-500 flex items-center gap-1"><i data-lucide="globe" class="w-3 h-3"></i> Atualização Diária</span>
                 </div>
                 <div id="news-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="md:col-span-3 animate-pulse bg-gray-200 dark:bg-gray-800 h-96 rounded-lg flex items-center justify-center text-gray-400">Carregando notícias...</div>
+                    <div class="md:col-span-3 animate-pulse bg-gray-200 dark:bg-gray-800 h-96 rounded-lg flex items-center justify-center text-gray-400">
+                        Carregando notícias...
+                    </div>
                 </div>
             </section>
 
             <!-- Seção Curiosidade -->
             <section id="curiosidade-wrapper" class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-xl relative overflow-hidden group">
                 <div class="absolute -right-10 -top-10 bg-blue-500/10 w-40 h-40 rounded-full blur-3xl group-hover:bg-blue-500/20 transition-all"></div>
-                
                 <div class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left">
                     <div class="flex items-center gap-3 mb-6">
                         <span class="text-4xl animate-bounce">💡</span>
                         <div>
                             <h2 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white leading-tight">Curiosidade Aleatória</h2>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">Descubra algo inútil, mas interessante!</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Descubra algo interessante!</p>
                         </div>
                     </div>
-
                     <div class="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-xl border border-gray-100 dark:border-gray-700 w-full mb-6 min-h-[100px] flex items-center justify-center">
                         <p id="curiosidade-texto" class="text-lg font-serif text-gray-800 dark:text-gray-200 leading-relaxed italic transition-opacity duration-300">
                             Carregando curiosidade...
                         </p>
                     </div>
-
-                    <div class="flex flex-col sm:flex-row items-center justify-between w-full gap-4">
-                        <button id="curiosidade-botao" class="order-1 sm:order-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-blue-500/30 transition-all transform hover:-translate-y-1 active:scale-95 flex items-center gap-2">
-                            <i data-lucide="refresh-cw" class="w-4 h-4"></i> Quero outra
-                        </button>
-                        <span id="curiosidade-status" class="order-2 sm:order-1 text-xs font-medium text-gray-400 flex items-center gap-1">
-                            <i data-lucide="loader-2" class="w-3 h-3 animate-spin"></i> Conectando...
-                        </span>
-                    </div>
+                    <button id="curiosidade-botao" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all flex items-center gap-2">
+                        <i data-lucide="refresh-cw" class="w-4 h-4"></i> Quero outra
+                    </button>
                 </div>
             </section>
 
@@ -249,132 +166,13 @@
                 </div>
             </section>
 
-            <!-- Seção Jogos Banner -->
-            <section id="jogos" class="relative rounded-2xl overflow-hidden bg-gradient-to-r from-purple-600 to-indigo-600 p-8 text-white shadow-lg">
-                <div class="absolute top-0 right-0 -mt-10 -mr-10 h-40 w-40 rounded-full bg-white/20 blur-3xl"></div>
-                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div class="flex items-center gap-6">
-                        <div class="bg-white/20 p-4 rounded-2xl backdrop-blur-sm">
-                            <i data-lucide="gamepad-2" class="w-10 h-10 text-white"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold mb-2">Aprenda Brincando!</h3>
-                            <p class="text-purple-100 max-w-md">Teste seus conhecimentos com jogos de memória e nutrição interativos.</p>
-                        </div>
-                    </div>
-                    <a href="jogos.html" class="bg-white text-purple-700 px-8 py-3 rounded-full font-bold hover:bg-purple-50 transition-colors shadow-md whitespace-nowrap">
-                        Jogar Agora
-                    </a>
-                </div>
-            </section>
-
-            <!-- Seção Artigos -->
-            <section id="artigos">
-                <div class="border-b border-gray-200 dark:border-gray-700 pb-2 mb-6 mt-4">
-                    <h3 class="text-xl font-bold font-serif text-gray-900 dark:text-white">Artigos Recomendados</h3>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Artigo 1 -->
-                    <a href="artigos/ia-saude-chatgpt-gemini.html" class="group bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-lg transition-all">
-                        <div class="h-40 overflow-hidden relative">
-                            <img src="img/artigos/iasaude.png" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&q=80'" class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="IA na Saúde">
-                            <div class="absolute top-2 left-2"><span class="text-[10px] bg-indigo-600 text-white px-2 py-1 rounded font-bold uppercase">Inovação</span></div>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="font-bold text-sm text-gray-900 dark:text-white mt-1 group-hover:text-portal-red transition-colors line-clamp-2">Inteligência Artificial na Saúde</h4>
-                        </div>
-                    </a>
-                    <!-- Artigo 2 -->
-                    <a href="artigos/ansiedade-depressao.html" class="group bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-lg transition-all">
-                        <div class="h-40 overflow-hidden relative">
-                            <img src="img/artigos/saude-mental.png" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1527137342181-19aab11a8ee8?w=500&q=80'" class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Saúde Mental">
-                            <div class="absolute top-2 left-2"><span class="text-[10px] bg-purple-600 text-white px-2 py-1 rounded font-bold uppercase">Mente</span></div>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="font-bold text-sm text-gray-900 dark:text-white mt-1 group-hover:text-portal-red transition-colors line-clamp-2">Ansiedade e Depressão</h4>
-                        </div>
-                    </a>
-                    <!-- Artigo 3 -->
-                    <a href="artigos/nutricao-funcional-microbiota.html" class="group bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-lg transition-all">
-                        <div class="h-40 overflow-hidden relative">
-                            <img src="img/artigos/nutriçãodigestiva.png" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=500&q=80'" class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Nutrição Funcional">
-                            <div class="absolute top-2 left-2"><span class="text-[10px] bg-green-600 text-white px-2 py-1 rounded font-bold uppercase">Nutrição</span></div>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="font-bold text-sm text-gray-900 dark:text-white mt-1 group-hover:text-portal-red transition-colors line-clamp-2">Nutrição Funcional e Microbiota</h4>
-                        </div>
-                    </a>
-                    <!-- Artigo 4 -->
-                    <a href="artigos/macronutrientes-guia-completo.html" class="group bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-lg transition-all">
-                        <div class="h-40 overflow-hidden relative">
-                            <img src="img/artigos/macronutrientes.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1505253149613-112d21d9f6a9?w=500&q=80'" class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Macronutrientes">
-                            <div class="absolute top-2 left-2"><span class="text-[10px] bg-orange-600 text-white px-2 py-1 rounded font-bold uppercase">Dieta</span></div>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="font-bold text-sm text-gray-900 dark:text-white mt-1 group-hover:text-portal-red transition-colors line-clamp-2">Guia de Macronutrientes</h4>
-                        </div>
-                    </a>
-                </div>
-            </section>
-
-            <!-- Seção Quizzes -->
-            <section class="mb-8">
-                <div class="border-b border-gray-200 dark:border-gray-700 pb-2 mb-6">
-                    <h3 class="text-xl font-bold font-serif text-gray-900 dark:text-white">Teste Seus Conhecimentos</h3>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Quiz 1 -->
-                    <div class="bg-violet-50 dark:bg-violet-900/10 border border-violet-200 dark:border-violet-800 rounded-xl p-6 flex flex-col justify-between">
-                        <div class="flex justify-between items-start mb-4">
-                            <i data-lucide="brain-circuit" class="w-10 h-10 text-violet-500"></i>
-                            <span class="text-xs font-bold text-violet-700 bg-violet-200 px-2 py-1 rounded">Básico</span>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-lg text-violet-900 dark:text-violet-400">Geral de Saúde</h4>
-                            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1 mb-4">O que você sabe sobre o corpo humano?</p>
-                            <a href="quiz.html" class="block text-center w-full py-2 bg-violet-600 hover:bg-violet-700 text-white rounded-lg font-bold text-sm transition-colors">Começar</a>
-                        </div>
-                    </div>
-                    <!-- Quiz 2 -->
-                    <div class="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-xl p-6 flex flex-col justify-between">
-                        <div class="flex justify-between items-start mb-4">
-                            <i data-lucide="dumbbell" class="w-10 h-10 text-blue-500"></i>
-                            <span class="text-xs font-bold text-blue-700 bg-blue-200 px-2 py-1 rounded">Fitness</span>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-lg text-blue-900 dark:text-blue-400">Perfil de Treino</h4>
-                            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1 mb-4">Qual modalidade combina com você?</p>
-                            <a href="quiz_treino.html" class="block text-center w-full py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-sm transition-colors">Descobrir</a>
-                        </div>
-                    </div>
-                    <!-- Quiz 3 -->
-                    <div class="bg-green-50 dark:bg-green-900/10 border border-green-200 dark:border-green-800 rounded-xl p-6 flex flex-col justify-between">
-                        <div class="flex justify-between items-start mb-4">
-                            <i data-lucide="apple" class="w-10 h-10 text-green-500"></i>
-                            <span class="text-xs font-bold text-green-700 bg-green-200 px-2 py-1 rounded">Dieta</span>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-lg text-green-900 dark:text-green-400">Nutrição Real</h4>
-                            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1 mb-4">Mitos e verdades sobre o que comemos.</p>
-                            <a href="quiz_alimentacao.html" class="block text-center w-full py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-bold text-sm transition-colors">Testar</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-10">
-                    <a href="todos_quizzes.html" class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-8 py-3 rounded-full font-bold shadow-md hover:shadow-lg transition-all border border-gray-200 dark:border-gray-700 hover:-translate-y-1">
-                        Ver todos os quizzes <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                    </a>
-                </div>
-            </section>
-
         </main>
 
         <!-- === SIDEBAR === -->
         <aside class="col-span-12 lg:col-span-4 space-y-8">
 
             <!-- Calculadora IMC -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-l-4 border-portal-red transform hover:-translate-y-1 transition-transform duration-300">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-l-4 border-portal-red">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="bg-red-100 p-2 rounded-lg text-portal-red">
                         <i data-lucide="calculator" class="w-6 h-6"></i>
@@ -382,14 +180,12 @@
                     <h4 class="text-xl font-bold text-gray-900 dark:text-white">IMC Rápido</h4>
                 </div>
                 <div class="space-y-3">
-                    <label for="quick-weight" class="sr-only">Peso</label>
-                    <input type="number" id="quick-weight" placeholder="Peso (kg)" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-portal-red outline-none">
-                    <label for="quick-height" class="sr-only">Altura</label>
-                    <input type="number" id="quick-height" placeholder="Altura (ex: 1.75)" step="0.01" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-portal-red outline-none">
+                    <input type="number" id="quick-weight" placeholder="Peso (kg)" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg outline-none">
+                    <input type="number" id="quick-height" placeholder="Altura (ex: 1.75)" step="0.01" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg outline-none">
                     <button onclick="calculateQuickIMC()" class="w-full bg-portal-red hover:bg-red-700 text-white font-bold py-3 rounded-lg shadow-md transition-colors">
                         Calcular Agora
                     </button>
-                    <div id="quick-result" class="hidden mt-3 text-center bg-gray-100 dark:bg-gray-900 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <div id="quick-result" class="hidden mt-3 text-center bg-gray-100 dark:bg-gray-900 p-3 rounded-lg">
                         <span class="block text-xs text-gray-500 uppercase">Seu IMC</span>
                         <span id="quick-imc-value" class="text-2xl font-black text-portal-red">00.0</span>
                         <span id="quick-imc-status" class="block text-sm font-bold text-gray-700 dark:text-gray-300">Normal</span>
@@ -420,180 +216,124 @@
                 </div>
             </div>
 
-            <!-- Lista de Ferramentas -->
-            <div id="ferramentas-area" class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-100 dark:border-gray-700">
-                <h4 class="text-lg font-bold font-serif border-l-4 border-portal-red pl-3 mb-4 text-gray-900 dark:text-white">Ferramentas</h4>
-                <ul class="space-y-2">
-                    <li><a href="ferramentas/imc.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="bg-blue-100 text-blue-600 p-2 rounded"><i data-lucide="activity" class="w-4 h-4"></i></span><span class="font-bold text-sm text-gray-700 dark:text-gray-200">Calculadora IMC</span></a></li>
-                    <li><a href="ferramentas/imc_infantil.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="bg-pink-100 text-pink-600 p-2 rounded"><i data-lucide="baby" class="w-4 h-4"></i></span><span class="font-bold text-sm text-gray-700 dark:text-gray-200">IMC Infantil</span></a></li>
-                    <li><a href="ferramentas/tmb.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="bg-orange-100 text-orange-600 p-2 rounded"><i data-lucide="flame" class="w-4 h-4"></i></span><span class="font-bold text-sm text-gray-700 dark:text-gray-200">Gasto Calórico</span></a></li>
-                    <li><a href="ferramentas/agua.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="bg-cyan-100 text-cyan-600 p-2 rounded"><i data-lucide="droplets" class="w-4 h-4"></i></span><span class="font-bold text-sm text-gray-700 dark:text-gray-200">Hidratação</span></a></li>
-                    <li><a href="ferramentas/gordura.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="bg-yellow-100 text-yellow-600 p-2 rounded"><i data-lucide="scale" class="w-4 h-4"></i></span><span class="font-bold text-sm text-gray-700 dark:text-gray-200">% Gordura</span></a></li>
-                    <li><a href="ferramentas/macros.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="bg-green-100 text-green-600 p-2 rounded"><i data-lucide="utensils" class="w-4 h-4"></i></span><span class="font-bold text-sm text-gray-700 dark:text-gray-200">Macros</span></a></li>
-                    <li><a href="ferramentas/calorias.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="bg-purple-100 text-purple-600 p-2 rounded"><i data-lucide="zap" class="w-4 h-4"></i></span><span class="font-bold text-sm text-gray-700 dark:text-gray-200">Calorias Totais</span></a></li>
-                    <li><a href="ferramentas/glicemia.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="bg-red-100 text-red-600 p-2 rounded"><i data-lucide="heart-pulse" class="w-4 h-4"></i></span><span class="font-bold text-sm text-gray-700 dark:text-gray-200">Glicemia</span></a></li>
-                </ul>
-            </div>
-
-            <!-- Dados IBGE -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-100 dark:border-gray-700">
-                <div class="flex items-center gap-2 mb-4">
-                    <div class="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center text-white font-bold text-xs">BR</div>
-                    <h4 class="text-lg font-bold font-serif text-gray-900 dark:text-white">Dados Demográficos</h4>
-                </div>
-                <div class="space-y-3 text-sm" id="ibge-data">
-                    <div class="flex justify-between border-b pb-2 dark:border-gray-700">
-                        <span class="text-gray-500">População</span>
-                        <span class="font-bold dark:text-white">203.1 mi</span>
-                    </div>
-                </div>
-                <div class="mt-3 text-[10px] text-gray-400 italic">
-                    * Dados baseados em estimativas/projeções oficiais.
-                </div>
-            </div>
-
             <!-- Conversor de Câmbio -->
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-100 dark:border-gray-700">
-                <h4 class="text-lg font-bold font-serif border-l-4 border-green-500 pl-3 mb-4 text-gray-900 dark:text-white">Conversor de Câmbio</h4>
+                <h4 class="text-lg font-bold font-serif border-l-4 border-green-500 pl-3 mb-4 text-gray-900 dark:text-white">Conversor Rápido</h4>
                 <div class="space-y-3">
                     <div>
                         <label for="conv-amount" class="block text-xs font-bold text-gray-500 mb-1">Valor</label>
-                        <input type="number" id="conv-amount" value="1" class="w-full p-2 bg-gray-50 dark:bg-gray-700 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none">
+                        <input type="number" id="conv-amount" value="1" class="w-full p-2 bg-gray-50 dark:bg-gray-700 border rounded-lg outline-none">
                     </div>
                     <div class="grid grid-cols-[1fr,auto,1fr] gap-2 items-center">
-                        <div>
-                            <label for="conv-from" class="block text-[10px] font-bold text-gray-500 mb-1">De</label>
-                            <select id="conv-from" class="w-full p-2 text-sm bg-gray-50 dark:bg-gray-700 border rounded-lg outline-none">
-                                <option value="BRL">Real</option>
-                                <option value="USD" selected>Dólar</option>
-                                <option value="EUR">Euro</option>
-                                <option value="BTC">Bitcoin</option>
-                            </select>
-                        </div>
-                        <button onclick="swapCurrencies()" class="mt-4 text-gray-400 hover:text-green-500 transition-colors p-1" aria-label="Inverter"><i data-lucide="arrow-right-left" class="w-4 h-4"></i></button>
-                        <div>
-                            <label for="conv-to" class="block text-[10px] font-bold text-gray-500 mb-1">Para</label>
-                            <select id="conv-to" class="w-full p-2 text-sm bg-gray-50 dark:bg-gray-700 border rounded-lg outline-none">
-                                <option value="BRL" selected>Real</option>
-                                <option value="USD">Dólar</option>
-                                <option value="EUR">Euro</option>
-                                <option value="BTC">Bitcoin</option>
-                            </select>
-                        </div>
+                        <select id="conv-from" class="w-full p-2 text-sm bg-gray-50 dark:bg-gray-700 border rounded-lg outline-none">
+                            <option value="USD" selected>Dólar</option>
+                            <option value="EUR">Euro</option>
+                            <option value="BRL">Real</option>
+                        </select>
+                        <button onclick="swapCurrencies()" class="text-gray-400 hover:text-green-500"><i data-lucide="arrow-right-left" class="w-4 h-4"></i></button>
+                        <select id="conv-to" class="w-full p-2 text-sm bg-gray-50 dark:bg-gray-700 border rounded-lg outline-none">
+                            <option value="BRL" selected>Real</option>
+                            <option value="USD">Dólar</option>
+                        </select>
                     </div>
                     <button onclick="convertCurrency()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded-lg transition-colors">Converter</button>
                     <div id="conv-result" class="hidden mt-2 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg text-center border border-green-100 dark:border-green-800">
-                        <span class="block text-xs text-gray-500">Resultado Estimado</span>
                         <span id="conv-value" class="text-xl font-bold text-green-700 dark:text-green-400">...</span>
                     </div>
-                </div>
-            </div>
-
-            <!-- Banner Personal Trainer -->
-            <div class="relative rounded-xl overflow-hidden bg-gray-900 text-white p-6 text-center group">
-                <img src="personal.jpg" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=500&q=60'" alt="Personal Trainer" loading="lazy">
-                <div class="relative z-10">
-                    <span class="text-orange-400 font-bold text-xs uppercase tracking-widest">Consultoria</span>
-                    <h3 class="text-xl font-bold mb-4 mt-1">Raphael Aquino</h3>
-                    <a href="personal.html" class="inline-block bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-full font-bold text-sm transition-all shadow-lg hover:shadow-orange-500/50">Ver Planos</a>
                 </div>
             </div>
 
         </aside>
     </div>
 
-    <!-- === FOOTER === -->
-    <footer class="bg-gray-900 text-gray-300 pt-20 pb-10 border-t border-gray-800 mt-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-                <div class="col-span-1 md:col-span-1">
-                    <h3 class="text-white text-xl font-bold mb-6 flex items-center gap-2"><i data-lucide="heart-pulse" class="w-6 h-6 text-portal-red"></i> Calcule Sua Saúde</h3>
-                    <p class="text-sm text-gray-400 leading-relaxed mb-6">Sua plataforma completa para monitoramento de saúde e bem-estar. Simples, rápido e cientificamente embasado.</p>
+    <!-- === MONITOR FINANCEIRO (GRÁFICOS) === -->
+    <section class="container mx-auto px-4 py-8">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
+            <div class="mb-6 flex items-center gap-3">
+                <div class="bg-green-100 dark:bg-green-900/30 p-2 rounded-lg">
+                    <i data-lucide="trending-up" class="w-6 h-6 text-green-600 dark:text-green-400"></i>
                 </div>
                 <div>
-                    <h4 class="text-white font-bold mb-6 text-lg">Navegação</h4>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Mercado Financeiro</h3>
+                    <p class="text-sm text-gray-500">Cotações em Tempo Real (Dólar, Euro, Bitcoin e Ibovespa)</p>
+                </div>
+            </div>
+            
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container h-[500px] w-full">
+                <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                {
+                    "colorTheme": "light",
+                    "dateRange": "12M",
+                    "showChart": true,
+                    "locale": "br",
+                    "largeChartUrl": "",
+                    "isTransparent": false,
+                    "showSymbolLogo": true,
+                    "showFloatingTooltip": false,
+                    "width": "100%",
+                    "height": "500",
+                    "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+                    "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+                    "gridLineColor": "rgba(240, 243, 250, 0)",
+                    "scaleFontColor": "rgba(106, 109, 120, 1)",
+                    "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+                    "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+                    "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+                    "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+                    "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+                    "tabs": [
+                        {
+                            "title": "Principais",
+                            "symbols": [
+                                { "s": "FX_IDC:USDBRL", "d": "Dólar Comercial" },
+                                { "s": "FX_IDC:EURBRL", "d": "Euro Comercial" },
+                                { "s": "BINANCE:BTCBRL", "d": "Bitcoin (R$)" },
+                                { "s": "BMFBOVESPA:IBOV", "d": "Ibovespa" }
+                            ]
+                        }
+                    ]
+                }
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </div>
+    </section>
+
+    <!-- === FOOTER === -->
+    <footer class="bg-gray-900 text-gray-300 pt-16 pb-8 border-t border-gray-800 mt-auto">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <h3 class="text-white text-xl font-bold mb-6 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-6 h-6 text-portal-red"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Sua plataforma completa para monitoramento de saúde, notícias e economia.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-lg">Links Rápidos</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="index.html" class="hover:text-red-400">Início</a></li>
-                        <li><a href="personal.html" class="hover:text-red-400 text-orange-400">Personal Trainer</a></li>
-                        <li><a href="contato.html" class="hover:text-red-400">Fale Conosco</a></li>
+                        <li><a href="#" class="hover:text-red-400">Início</a></li>
+                        <li><a href="#" class="hover:text-red-400">Jogos</a></li>
+                        <li><a href="#" class="hover:text-red-400">Calculadoras</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-white font-bold mb-6 text-lg">Legal</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="politica.html" class="hover:text-red-400">Política de Privacidade</a></li>
-                        <li><a href="termos.html" class="hover:text-red-400">Termos de Uso</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold mb-6 text-lg">Ferramentas</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="ferramentas/imc.html" class="hover:text-red-400">Calculadora IMC</a></li>
-                        <li><a href="ferramentas/tmb.html" class="hover:text-red-400">Taxa Metabólica</a></li>
+                        <li><a href="#" class="hover:text-red-400">Política de Privacidade</a></li>
+                        <li><a href="#" class="hover:text-red-400">Termos de Uso</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 pt-8 text-center"><p class="text-sm text-gray-600">&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p></div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-sm text-gray-600">&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+            </div>
         </div>
     </footer>
-
-    <!-- === DICABOT WIDGET === -->
-    <div id="dicabot-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
-        
-        <div id="dicabot-window" class="hidden bg-white dark:bg-gray-800 w-[350px] max-w-[90vw] h-[500px] max-h-[80vh] rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 flex flex-col mb-4 overflow-hidden animate-slide-up">
-            
-            <div class="bg-gradient-to-r from-green-600 to-emerald-600 p-4 flex justify-between items-center text-white">
-                <div class="flex items-center gap-2">
-                    <div class="bg-white/20 p-1.5 rounded-lg">
-                        <i data-lucide="leaf" class="w-5 h-5 text-white"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-sm">DicaBot</h3>
-                        <p class="text-[10px] text-green-100 opacity-90">Receitas • Saúde • Casa</p>
-                    </div>
-                </div>
-                <button onclick="toggleDicaBot()" class="p-1 hover:bg-white/10 rounded-full transition-colors" aria-label="Fechar Chat">
-                    <i data-lucide="x" class="w-5 h-5"></i>
-                </button>
-            </div>
-
-            <div id="dicabot-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 dark:bg-gray-900/50">
-                <div class="flex justify-start w-full">
-                    <div class="flex max-w-[85%] gap-2">
-                        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center">
-                            <i data-lucide="sparkles" class="w-4 h-4 text-green-600 dark:text-green-400"></i>
-                        </div>
-                        <div class="bg-white dark:bg-gray-800 p-3 rounded-2xl rounded-tl-none border border-gray-200 dark:border-gray-700 text-sm shadow-sm">
-                            <p>Olá! Sou sua assistente de dicas. Quer uma receita saudável, dicas para tirar manchas ou ajuda para relaxar? 🌿🥗</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="dicabot-suggestions" class="px-4 py-2 bg-gray-50 dark:bg-gray-900/50 flex gap-2 overflow-x-auto hide-scrollbar border-t border-gray-100 dark:border-gray-800">
-                <button onclick="sendSuggestion('Receita com o que tenho')" class="whitespace-nowrap px-3 py-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full text-xs text-gray-600 dark:text-gray-300 hover:text-green-600 hover:border-green-200 transition-colors">🍳 Receita fácil</button>
-                <button onclick="sendSuggestion('Chá para dormir')" class="whitespace-nowrap px-3 py-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full text-xs text-gray-600 dark:text-gray-300 hover:text-green-600 hover:border-green-200 transition-colors">☕ Chá calmo</button>
-                <button onclick="sendSuggestion('Como tirar mancha de vinho')" class="whitespace-nowrap px-3 py-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full text-xs text-gray-600 dark:text-gray-300 hover:text-green-600 hover:border-green-200 transition-colors">🍷 Manchas</button>
-            </div>
-
-            <div class="p-3 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
-                <div class="relative flex items-center">
-                    <input type="text" id="dicabot-input" placeholder="Digite sua dúvida..." 
-                           class="w-full pl-4 pr-10 py-3 bg-gray-100 dark:bg-gray-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500/50 transition-all"
-                           onkeypress="handleChatKeyPress(event)">
-                    <button onclick="sendMessage()" class="absolute right-2 p-1.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-sm" aria-label="Enviar Mensagem">
-                        <i data-lucide="send" class="w-4 h-4"></i>
-                    </button>
-                </div>
-                <p class="text-[10px] text-center text-gray-400 mt-2">Dicas de IA não substituem médicos.</p>
-            </div>
-        </div>
-
-        <button id="dicabot-fab" onclick="toggleDicaBot()" class="w-14 h-14 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-lg hover:shadow-green-500/30 transition-all transform hover:scale-105 flex items-center justify-center relative group" aria-label="Abrir Chat de Dicas">
-            <i data-lucide="leaf" class="w-7 h-7"></i>
-            <span class="absolute right-16 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Dicas & Receitas</span>
-        </button>
-    </div>
 
     <!-- === SCRIPTS === -->
     <script>
@@ -606,11 +346,10 @@
             headerDate.innerText = new Date().toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' });
         }
 
-        // --- LÓGICA DO MENU MOBILE ---
+        // --- MENU MOBILE ---
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
 
         function toggleMobileMenu() {
             if (mobileMenu.classList.contains('mobile-menu-closed')) {
@@ -623,10 +362,9 @@
                 mobileMenuOverlay.classList.add('hidden');
             }
         }
-
         if(mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMobileMenu);
 
-        // --- TEMA DARK/LIGHT ---
+        // --- TEMA ---
         const themeBtn = document.getElementById('theme-toggle');
         const html = document.documentElement;
 
@@ -634,11 +372,17 @@
             html.classList.toggle('dark');
             const isDark = html.classList.contains('dark');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            
+            // Atualiza Widget TradingView (Recarrega para aplicar tema se necessário, aqui simplificado)
+            const widget = document.querySelector('.tradingview-widget-container__widget');
+            if(widget) {
+                // TradingView usa iframe, difícil mudar tema dinamicamente sem recriar, 
+                // mantive 'light' fixo no script do widget para legibilidade do gráfico.
+            }
         }
-
         if(themeBtn) themeBtn.addEventListener('click', toggleTheme);
-        if(themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
 
+        // Verifica preferência salva
         if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             html.classList.add('dark');
         } else {
@@ -647,236 +391,131 @@
 
         // --- APIs ---
         const API_KEYS = {
-            gnews: '2d4cba603a9063a0a53a954b1f7aff18',
+            gnews: '2d4cba603a9063a0a53a954b1f7aff18', // Chave Demo GNews
             weather: 'deca5723c570194449aeabef8e552289',
             nasa: 'MmcTBTUPCpAEDub0kQrQwtzcYRc888yGS1K5thB8',
             gemini: 'AIzaSyC5iGcWNIqyBlpquW4ZT8GqVcjc_rburLg'
         };
 
+        // --- NOTÍCIAS (Correção de Links e Atualização) ---
         const MOCK_NEWS = [
-            { title: "Brasil bate recorde em transplantes de coração", source: {name: "Saúde Gov"}, description: "Sistema público mostra eficiência.", image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=800&q=80", url: "https://www.google.com/search?q=Brasil+transplantes+coração", publishedAt: new Date().toISOString() },
-            { title: "Nova vitamina auxilia na memória", source: {name: "Ciência Hoje"}, description: "Estudos preliminares indicam avanços.", image: "https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&w=800&q=80", url: "https://www.google.com/search?q=vitamina+memoria+estudo", publishedAt: new Date().toISOString() },
-            { title: "Sono e recuperação muscular", source: {name: "FitNews"}, description: "Dormir bem é essencial.", image: "https://images.unsplash.com/photo-1541781777621-39121f476d96?auto=format&fit=crop&w=800&q=80", url: "https://www.google.com/search?q=sono+recuperação+muscular", publishedAt: new Date().toISOString() },
-            { title: "Hospitais utilizam IA para triagem", source: {name: "TechHealth"}, description: "IA reduz tempo de espera.", image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80", url: "https://www.google.com/search?q=IA+triagem+hospitalar", publishedAt: new Date().toISOString() }
+            { 
+                title: "SUS bate recorde em transplantes de coração em 2024", 
+                image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=800&q=80", 
+                url: "https://www.gov.br/saude/pt-br", // Link real de saúde
+                publishedAt: new Date().toISOString() 
+            },
+            { 
+                title: "Estudo revela nova vitamina essencial para memória", 
+                image: "https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&w=800&q=80", 
+                url: "https://www.sciencedaily.com/news/health_medicine/", // Link real de ciência
+                publishedAt: new Date().toISOString() 
+            },
+            { 
+                title: "Importância do sono na recuperação muscular", 
+                image: "https://images.unsplash.com/photo-1541781777621-39121f476d96?auto=format&fit=crop&w=800&q=80", 
+                url: "https://www.minhavida.com.br/", 
+                publishedAt: new Date().toISOString() 
+            },
+            { 
+                title: "Hospitais utilizam IA para triagem de pacientes", 
+                image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80", 
+                url: "https://www.tecmundo.com.br/ciencia", 
+                publishedAt: new Date().toISOString() 
+            }
         ];
 
-        let currencyRates = {};
-
-        // --- DICABOT ---
-        const SYSTEM_PROMPT = `Você é a "DicaBot", assistente do 'Calcule Sua Saúde'. Especialista em Culinária Saudável, Dicas de Casa e Bem-estar. Seja breve, use emojis e nunca dê diagnósticos médicos.`;
-        let chatHistory = [{ role: 'model', parts: [{ text: 'Olá! Sou sua assistente de dicas. Quer uma receita saudável ou dicas para a casa?' }] }];
-
-        function toggleDicaBot() {
-            const windowEl = document.getElementById('dicabot-window');
-            windowEl.classList.toggle('hidden');
-            if(!windowEl.classList.contains('hidden')) {
-                document.getElementById('dicabot-input').focus();
-            }
-        }
-
-        function handleChatKeyPress(e) { if(e.key === 'Enter') sendMessage(); }
-        function sendSuggestion(text) { document.getElementById('dicabot-input').value = text; sendMessage(); }
-
-        async function sendMessage() {
-            const inputEl = document.getElementById('dicabot-input');
-            const text = inputEl.value.trim();
-            if(!text) return;
-
-            appendMessage('user', text);
-            inputEl.value = '';
-            const loadingId = showLoading();
-
-            try {
-                const contents = chatHistory.map(msg => ({ role: msg.role, parts: msg.parts }));
-                contents.push({ role: 'user', parts: [{ text: text }] });
-
-                const response = await fetch(
-                    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${API_KEYS.gemini}`,
-                    {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-                            contents: contents
-                        })
-                    }
-                );
-
-                const data = await response.json();
-                const botText = data.candidates?.[0]?.content?.parts?.[0]?.text || "Desculpe, tente novamente mais tarde.";
-                
-                removeLoading(loadingId);
-                appendMessage('model', botText, true);
-
-                chatHistory.push({ role: 'user', parts: [{ text: text }] });
-                chatHistory.push({ role: 'model', parts: [{ text: botText }] });
-
-            } catch (error) {
-                removeLoading(loadingId);
-                appendMessage('model', "Erro de conexão. Verifique sua internet.");
-                console.error(error);
-            }
-        }
-
-        function appendMessage(role, text, animate = false) {
-            const container = document.getElementById('dicabot-messages');
-            const div = document.createElement('div');
-            div.className = `flex w-full ${role === 'user' ? 'justify-end' : 'justify-start'}`;
-            const isUser = role === 'user';
-            
-            div.innerHTML = `
-                <div class="flex max-w-[85%] gap-2 ${isUser ? 'flex-row-reverse' : 'flex-row'}">
-                    <div class="flex-shrink-0 w-8 h-8 rounded-full ${isUser ? 'bg-gray-700' : 'bg-green-100 dark:bg-green-900'} flex items-center justify-center">
-                        <i data-lucide="${isUser ? 'user' : 'sparkles'}" class="w-4 h-4 ${isUser ? 'text-white' : 'text-green-600 dark:text-green-400'}"></i>
-                    </div>
-                    <div class="${isUser ? 'bg-green-600 text-white' : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700'} p-3 rounded-2xl ${isUser ? 'rounded-tr-none' : 'rounded-tl-none'} text-sm shadow-sm leading-relaxed message-content">
-                        ${animate ? '' : formatText(text)}
-                    </div>
-                </div>`;
-            
-            container.appendChild(div);
-            lucide.createIcons();
-            container.scrollTop = container.scrollHeight;
-            if (animate) typeWriter(div.querySelector('.message-content'), text);
-        }
-
-        function formatText(text) { return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>'); }
-
-        function typeWriter(element, text) {
-            let i = 0; const speed = 15; element.innerHTML = '';
-            function type() {
-                if (i < text.length) {
-                    element.textContent += text.charAt(i); i++;
-                    document.getElementById('dicabot-messages').scrollTop = document.getElementById('dicabot-messages').scrollHeight;
-                    setTimeout(type, speed);
-                } else { element.innerHTML = formatText(text); }
-            }
-            type();
-        }
-
-        function showLoading() {
-            const container = document.getElementById('dicabot-messages');
-            const id = 'loading-' + Date.now();
-            const div = document.createElement('div');
-            div.id = id; div.className = "flex justify-start w-full";
-            div.innerHTML = `<div class="flex items-center ml-10 bg-gray-100 dark:bg-gray-800 rounded-full px-3 py-2"><div class="flex gap-1"><div class="w-1.5 h-1.5 bg-green-500 rounded-full typing-dot"></div><div class="w-1.5 h-1.5 bg-green-500 rounded-full typing-dot"></div><div class="w-1.5 h-1.5 bg-green-500 rounded-full typing-dot"></div></div></div>`;
-            container.appendChild(div); container.scrollTop = container.scrollHeight;
-            return id;
-        }
-
-        function removeLoading(id) { const el = document.getElementById(id); if(el) el.remove(); }
-
-        // --- CALCULADORA IMC ---
-        function calculateQuickIMC() {
-            const peso = parseFloat(document.getElementById('quick-weight').value);
-            let altura = parseFloat(document.getElementById('quick-height').value);
-            if (peso > 0 && altura > 0) {
-                if (altura > 3) altura = altura / 100;
-                const imc = peso / (altura * altura);
-                document.getElementById('quick-imc-value').innerText = imc.toFixed(1);
-                let status = imc < 18.5 ? 'Abaixo do Peso' : imc < 25 ? 'Normal' : imc < 30 ? 'Sobrepeso' : 'Obesidade';
-                document.getElementById('quick-imc-status').innerText = status;
-                document.getElementById('quick-result').classList.remove('hidden');
-            }
-        }
-
-        // --- CONVERSOR DE MOEDAS ---
-        function convertCurrency() {
-            const amount = parseFloat(document.getElementById('conv-amount').value);
-            if (!amount || amount <= 0) return alert("Digite um valor válido");
-            
-            const from = document.getElementById('conv-from').value;
-            const to = document.getElementById('conv-to').value;
-            const rates = { 'BRL': 1, 'USD': parseFloat(currencyRates.USDBRL || 0), 'EUR': parseFloat(currencyRates.EURBRL || 0), 'BTC': parseFloat(currencyRates.BTCBRL || 0) };
-            
-            if (!rates[from] || !rates[to]) {
-                document.getElementById('conv-value').innerText = "Carregando...";
-                document.getElementById('conv-result').classList.remove('hidden');
-                return;
-            }
-
-            const valueInBRL = amount * rates[from];
-            const result = valueInBRL / rates[to];
-            const symbol = to === 'USD' ? '$' : to === 'EUR' ? '€' : to === 'BTC' ? '₿' : 'R$';
-            document.getElementById('conv-value').innerText = `${symbol} ${to === 'BTC' ? result.toFixed(6) : result.toFixed(2)}`;
-            document.getElementById('conv-result').classList.remove('hidden');
-        }
-
-        function swapCurrencies() {
-            const fromEl = document.getElementById('conv-from');
-            const toEl = document.getElementById('conv-to');
-            [fromEl.value, toEl.value] = [toEl.value, fromEl.value];
-            convertCurrency();
-        }
-
-        // --- CURIOSIDADES ---
-        const FALLBACK_FACTS = ["O coração de um camarão fica na cabeça.", "As formigas não têm pulmões.", "O mel nunca estraga.", "O olho de um avestruz é maior que seu cérebro."];
-        async function carregarCuriosidade() {
-            const textoEl = document.getElementById('curiosidade-texto');
-            const statusEl = document.getElementById('curiosidade-status');
-            statusEl.innerHTML = '<i data-lucide="loader-2" class="w-3 h-3 animate-spin"></i> Buscando...';
-            textoEl.style.opacity = '0.5';
-
-            try {
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${API_KEYS.gemini}`, {
-                    method: 'POST', headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ contents: [{ parts: [{ text: "Me dê uma curiosidade aleatória, inútil mas interessante, curta, em português." }] }] })
-                });
-                const data = await response.json();
-                const fact = data.candidates?.[0]?.content?.parts?.[0]?.text || FALLBACK_FACTS[0];
-                textoEl.textContent = `"${fact.trim()}"`;
-                statusEl.innerHTML = '<i data-lucide="check" class="w-3 h-3 text-green-500"></i> Atualizado';
-            } catch (e) {
-                textoEl.textContent = `"${FALLBACK_FACTS[Math.floor(Math.random() * FALLBACK_FACTS.length)]}"`;
-                statusEl.textContent = 'Modo offline';
-            }
-            textoEl.style.opacity = '1';
-            lucide.createIcons();
-        }
-
-        // --- FETCH NEWS (CORRIGIDO) ---
         async function fetchNews() {
             const container = document.getElementById('news-grid');
             try {
-                const res = await fetch(`https://gnews.io/api/v4/search?q=saude&lang=pt&country=br&max=6&apikey=${API_KEYS.gnews}`);
+                // Adicionei timestamp para evitar cache e forçar "atualização diária"
+                const timestamp = new Date().getTime(); 
+                const res = await fetch(`https://gnews.io/api/v4/search?q=saude&lang=pt&country=br&max=5&apikey=${API_KEYS.gnews}&_=${timestamp}`);
+                
+                if (!res.ok) throw new Error("Erro na API"); // Força o catch se der erro 403 (limite excedido)
+
                 const data = await res.json();
-                if(!data.articles) throw new Error("GNews limit");
+                if(!data.articles || data.articles.length === 0) throw new Error("Sem artigos");
+                
                 renderArticles(data.articles, container);
-            } catch (e) { renderArticles(MOCK_NEWS, container); }
+            } catch (e) { 
+                console.log("Usando notícias de backup (API Limitada ou Offline)");
+                renderArticles(MOCK_NEWS, container); 
+            }
         }
 
         function renderArticles(articles, container) {
             container.innerHTML = '';
+            // Pega 4 notícias
             let displayArticles = articles.slice(0, 4);
-            if (displayArticles.length < 4) displayArticles = [...displayArticles, ...MOCK_NEWS.slice(0, 4 - displayArticles.length)];
-
+            
             displayArticles.forEach((article, index) => {
                 let imgUrl = article.image || 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&q=80';
                 const safeTitle = article.title.replace(/'/g, "\\'").replace(/"/g, '&quot;');
                 const pubDate = article.publishedAt ? new Date(article.publishedAt).toLocaleDateString() : 'Hoje';
-                
-                // MUDANÇA PRINCIPAL: O CARD AGORA É UM LINK <a> INTEIRO
-                const card = document.createElement('a');
-                card.href = article.url;
-                card.target = "_blank"; // Abre em nova aba
-                
-                const imgTag = `<img src="${imgUrl}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80';" alt="${safeTitle}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ${index === 0 ? 'brightness-50 group-hover:brightness-60' : ''}">`;
+                const linkUrl = article.url; // URL direta da notícia
 
+                // Destaque (Primeira notícia)
                 if (index === 0) { 
+                    const card = document.createElement('a');
+                    card.href = linkUrl;
+                    card.target = "_blank";
                     card.className = "col-span-1 md:col-span-3 bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group relative h-96 block";
-                    // Removemos links internos para evitar erro de HTML
-                    card.innerHTML = `${imgTag}<div class="absolute bottom-0 left-0 p-8 w-full z-10 bg-gradient-to-t from-black via-black/70 to-transparent"><span class="bg-portal-red text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block shadow-md">Manchete do Dia</span><h3 class="text-2xl md:text-4xl font-bold font-serif text-white mb-2 leading-tight drop-shadow-md hover:underline decoration-portal-red decoration-2 underline-offset-4">${article.title}</h3><div class="mt-4 flex items-center gap-2 text-gray-300 text-sm font-medium"><i data-lucide="clock" class="w-4 h-4"></i> ${pubDate}</div></div>`;
+                    
+                    card.innerHTML = `
+                        <img src="${imgUrl}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80';" alt="${safeTitle}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-50 group-hover:brightness-60">
+                        <div class="absolute bottom-0 left-0 p-8 w-full z-10 bg-gradient-to-t from-black via-black/70 to-transparent">
+                            <span class="bg-portal-red text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block shadow-md">Destaque do Dia</span>
+                            <h3 class="text-2xl md:text-4xl font-bold font-serif text-white mb-2 leading-tight drop-shadow-md group-hover:underline decoration-portal-red decoration-2 underline-offset-4">${article.title}</h3>
+                            <div class="mt-4 flex items-center gap-2 text-gray-300 text-sm font-medium"><i data-lucide="clock" class="w-4 h-4"></i> ${pubDate} - Clique para ler</div>
+                        </div>
+                    `;
+                    container.appendChild(card);
                 } else {
+                    // Cards menores
+                    const card = document.createElement('a');
+                    card.href = linkUrl;
+                    card.target = "_blank";
                     card.className = "bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col h-full group border border-gray-100 dark:border-gray-700 block";
-                    // Removemos links internos
-                    card.innerHTML = `<div class="h-40 overflow-hidden relative">${imgTag}</div><div class="p-4 flex-1 flex flex-col justify-between"><h3 class="text-base font-bold font-serif mb-2 leading-snug group-hover:text-portal-red transition-colors dark:text-white line-clamp-3">${article.title}</h3><div class="flex justify-between items-center mt-3 border-t border-gray-100 dark:border-gray-700 pt-2"><span class="text-xs text-gray-400 flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3"></i> ${pubDate}</span></div></div>`;
+                    
+                    card.innerHTML = `
+                        <div class="h-40 overflow-hidden relative">
+                            <img src="${imgUrl}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80';" alt="${safeTitle}" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h3 class="text-base font-bold font-serif mb-2 leading-snug group-hover:text-portal-red transition-colors dark:text-white line-clamp-3">${article.title}</h3>
+                            <div class="flex justify-between items-center mt-3 border-t border-gray-100 dark:border-gray-700 pt-2">
+                                <span class="text-xs text-gray-400 flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3"></i> ${pubDate}</span>
+                                <span class="text-xs text-portal-red font-bold">Ler mais →</span>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(card);
                 }
-                container.appendChild(card);
             });
             lucide.createIcons();
         }
 
-        // --- NASA & WEATHER & FINANCE ---
+        // --- CURIOSIDADE IA ---
+        async function carregarCuriosidade() {
+            const textoEl = document.getElementById('curiosidade-texto');
+            textoEl.style.opacity = '0.5';
+            
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${API_KEYS.gemini}`, {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ contents: [{ parts: [{ text: "Me dê uma curiosidade aleatória curta sobre saúde ou corpo humano, em português." }] }] })
+                });
+                const data = await response.json();
+                const fact = data.candidates?.[0]?.content?.parts?.[0]?.text || "O coração humano bate cerca de 100 mil vezes por dia.";
+                textoEl.textContent = `"${fact.trim()}"`;
+            } catch (e) {
+                textoEl.textContent = '"Rir aumenta o fluxo sanguíneo em até 22%, melhorando a saúde cardiovascular."';
+            }
+            textoEl.style.opacity = '1';
+        }
+
+        // --- NASA API ---
         let nasaDataList = []; let currentNasaIndex = 0;
         async function fetchNasa() {
             const endDate = new Date(); const startDate = new Date(); startDate.setDate(endDate.getDate() - 4);
@@ -901,6 +540,7 @@
         }
         function changeNasaSlide(d) { renderNasaSlide(currentNasaIndex + d); }
 
+        // --- WEATHER ---
         async function fetchWeather() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(async (pos) => {
@@ -916,35 +556,74 @@
                 }, {timeout: 5000});
             }
         }
-
         function renderWeather(data) {
             document.getElementById('weather-city').innerText = data.name;
             document.getElementById('weather-temp').innerText = Math.round(data.main.temp);
             document.getElementById('weather-desc').innerText = data.weather[0].description;
             document.getElementById('weather-wind').innerText = data.wind.speed;
             document.getElementById('weather-hum').innerText = data.main.humidity;
-            const iconMap = { 'Clear': 'sun', 'Clouds': 'cloud', 'Rain': 'cloud-rain', 'Drizzle': 'cloud-drizzle', 'Thunderstorm': 'cloud-lightning', 'Snow': 'snowflake', 'Mist': 'cloud-fog', 'Fog': 'cloud-fog' };
+            const iconMap = { 'Clear': 'sun', 'Clouds': 'cloud', 'Rain': 'cloud-rain', 'Drizzle': 'cloud-drizzle', 'Thunderstorm': 'cloud-lightning', 'Snow': 'snowflake' };
             const iconEl = document.getElementById('weather-icon');
             if(iconEl) { iconEl.setAttribute('data-lucide', iconMap[data.weather[0].main] || 'cloud'); lucide.createIcons(); }
         }
 
-        async function fetchFinance() {
+        // --- CONVERSOR SIMPLES (Câmbio) ---
+        let rates = { USD: 5.50, EUR: 6.00, BRL: 1.00 }; // Fallback inicial
+        
+        async function fetchRates() {
             try {
-                const res = await fetch('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL');
+                const res = await fetch('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL');
                 const data = await res.json();
-                currencyRates = { USDBRL: data.USDBRL.bid, EURBRL: data.EURBRL.bid, BTCBRL: data.BTCBRL.bid };
-                const html = `<span class="ticker__item text-green-400">USD: ${data.USDBRL.bid.substring(0,4)}</span><span class="ticker__item text-blue-400">EUR: ${data.EURBRL.bid.substring(0,4)}</span><span class="ticker__item text-yellow-500">BTC: R$ ${parseFloat(data.BTCBRL.bid).toLocaleString('pt-BR')}</span>`;
-                document.getElementById('finance-ticker').innerHTML = html.repeat(4);
-            } catch(e) { console.error(e); }
+                rates.USD = parseFloat(data.USDBRL.bid);
+                rates.EUR = parseFloat(data.EURBRL.bid);
+            } catch(e) { console.log('Erro ao buscar taxas, usando fallback'); }
         }
 
-        async function fetchIBGE() {
-            // Em produção, buscar de API real do IBGE
-            document.getElementById('ibge-data').innerHTML = `<div class="flex justify-between border-b pb-2 dark:border-gray-700"><span class="text-gray-500">População</span><span class="font-bold dark:text-white">203.1 mi</span></div><div class="flex justify-between border-b pb-2 dark:border-gray-700"><span class="text-gray-500">Exp. Vida</span><span class="font-bold dark:text-white">76.6 anos</span></div>`;
+        function convertCurrency() {
+            const amount = parseFloat(document.getElementById('conv-amount').value);
+            const from = document.getElementById('conv-from').value;
+            const to = document.getElementById('conv-to').value;
+            
+            // Lógica simples de conversão baseada em BRL
+            let valInBrl = 0;
+            if (from === 'BRL') valInBrl = amount;
+            else if (from === 'USD') valInBrl = amount * rates.USD;
+            else if (from === 'EUR') valInBrl = amount * rates.EUR;
+
+            let finalVal = 0;
+            if (to === 'BRL') finalVal = valInBrl;
+            else if (to === 'USD') finalVal = valInBrl / rates.USD;
+            else if (to === 'EUR') finalVal = valInBrl / rates.EUR;
+
+            const symbol = to === 'USD' ? '$' : to === 'EUR' ? '€' : 'R$';
+            document.getElementById('conv-value').innerText = `${symbol} ${finalVal.toFixed(2)}`;
+            document.getElementById('conv-result').classList.remove('hidden');
         }
 
+        function swapCurrencies() {
+            const fromEl = document.getElementById('conv-from');
+            const toEl = document.getElementById('conv-to');
+            [fromEl.value, toEl.value] = [toEl.value, fromEl.value];
+            convertCurrency();
+        }
+
+        // --- IMC RAPIDO ---
+        function calculateQuickIMC() {
+            const peso = parseFloat(document.getElementById('quick-weight').value);
+            let altura = parseFloat(document.getElementById('quick-height').value);
+            if (peso > 0 && altura > 0) {
+                if (altura > 3) altura = altura / 100;
+                const imc = peso / (altura * altura);
+                document.getElementById('quick-imc-value').innerText = imc.toFixed(1);
+                let status = imc < 18.5 ? 'Abaixo do Peso' : imc < 25 ? 'Normal' : imc < 30 ? 'Sobrepeso' : 'Obesidade';
+                document.getElementById('quick-imc-status').innerText = status;
+                document.getElementById('quick-result').classList.remove('hidden');
+            }
+        }
+
+        // Inicia Tudo
         document.addEventListener('DOMContentLoaded', () => {
-            fetchFinance(); fetchWeather(); fetchNasa(); carregarCuriosidade(); fetchNews(); fetchIBGE();
+            fetchWeather(); fetchNasa(); carregarCuriosidade(); fetchNews(); fetchRates();
             const btnCuriosidade = document.getElementById('curiosidade-botao');
             if(btnCuriosidade) btnCuriosidade.addEventListener('click', carregarCuriosidade);
         });
