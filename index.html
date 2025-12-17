@@ -1162,89 +1162,77 @@
     });
 
     // ==============================================
-    // GNEWS API INTEGRATION LOGIC
+    // GNEWS API INTEGRATION LOGIC (UPDATED)
     // ==============================================
-    async function fetchHealthNews() {
-      const apiKey = '2d4cba603a9063a0a53a954b1f7aff18';
-      const container = document.getElementById('gnews-container');
-      
-      // MUDANÇA: Usando endpoint 'top-headlines' com categoria 'health' para garantir resultados
-      // Isso é mais confiável que buscar por palavras-chave específicas
-      const url = `https://gnews.io/api/v4/top-headlines?category=health&lang=pt&country=br&max=4&apikey=${apiKey}`;
+    document.addEventListener("DOMContentLoaded", async () => {
+      const container = document.getElementById("gnews-container");
+
+      const API_KEY = "2d4cba603a9063a0a53a954b1f7aff18"; 
+      const URL = `https://gnews.io/api/v4/search?q=saúde OR nutrição OR medicina&lang=pt&country=br&max=8&apikey=${API_KEY}`;
 
       try {
-        const response = await fetch(url);
-        
-        // Check for HTTP errors (like 401, 403, 429)
-        if (!response.ok) {
-            const errorData = await response.json().catch(() => ({})); // Previne erro no parse do erro
-            throw new Error(`Erro API: ${response.status}`);
-        }
+        const response = await fetch(URL);
+        if (!response.ok) throw new Error("Erro ao buscar notícias");
 
         const data = await response.json();
-        console.log('Dados da GNews:', data); // Para debug no console
+        container.innerHTML = "";
 
-        if (data.articles && data.articles.length > 0) {
-          let allCardsHTML = ''; // Constrói o HTML em memória primeiro
-          
-          data.articles.forEach(article => {
-            const date = new Date(article.publishedAt).toLocaleDateString('pt-BR');
-            // Garante que existe uma imagem ou usa placeholder
-            const safeImage = article.image || 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
-            
-            allCardsHTML += `
-              <a href="${article.url}" target="_blank" rel="noopener noreferrer" 
-                 class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col h-full border border-gray-100 dark:border-gray-700">
-                <div class="h-40 overflow-hidden relative">
-                   <img src="${safeImage}" alt="${article.title}" loading="lazy"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        onerror="this.src='https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
-                   <div class="absolute top-2 right-2 bg-black/60 backdrop-blur text-white text-[10px] px-2 py-1 rounded font-bold">
-                     ${article.source.name}
-                   </div>
-                </div>
-                <div class="p-5 flex-1 flex flex-col">
-                  <span class="text-xs text-brand-600 font-bold mb-2 block">${date}</span>
-                  <h3 class="text-lg font-bold text-gray-900 dark:text-white leading-tight mb-2 line-clamp-2 group-hover:text-brand-500 transition-colors">
-                    ${article.title}
-                  </h3>
-                  <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3 mb-4 flex-1">
-                    ${article.description || 'Clique para ler a notícia completa na fonte original.'}
-                  </p>
-                  <div class="text-brand-600 text-sm font-bold flex items-center gap-1 mt-auto">
-                    Ler Mais <i data-lucide="external-link" class="w-3 h-3"></i>
-                  </div>
-                </div>
-              </a>
-            `;
-          });
-          
-          container.innerHTML = allCardsHTML; // Atualiza o DOM uma única vez
-          lucide.createIcons(); // Recarrega icones nos novos elementos
-        } else {
-           throw new Error('Nenhuma notícia encontrada (array vazio)');
+        if (!data.articles || data.articles.length === 0) {
+          container.innerHTML = "<p class='text-gray-500'>Nenhuma notícia disponível no momento.</p>";
+          return;
         }
 
+        data.articles.slice(0, 8).forEach(article => {
+          const card = document.createElement("article");
+          card.className = `
+            bg-white dark:bg-gray-800 rounded-2xl overflow-hidden
+            shadow-md hover:shadow-xl transition-all duration-300
+            border border-gray-100 dark:border-gray-700 flex flex-col
+          `;
+
+          card.innerHTML = `
+            <a href="${article.url}" target="_blank" rel="noopener" class="block h-40 overflow-hidden relative">
+              <img
+                src="${article.image || 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=800&q=80'}"
+                alt="${article.title}"
+                class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                loading="lazy"
+                onerror="this.src='https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=800&q=80'"
+              >
+               <div class="absolute top-2 right-2 bg-black/60 backdrop-blur text-white text-[10px] px-2 py-1 rounded font-bold">
+                 ${article.source.name}
+               </div>
+            </a>
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="font-bold text-gray-900 dark:text-white text-base mb-2 line-clamp-3">
+                ${article.title}
+              </h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3 flex-1 mb-4">
+                ${article.description || "Leia a matéria completa no portal de origem."}
+              </p>
+              <a href="${article.url}" target="_blank" rel="noopener"
+                class="mt-auto inline-flex items-center gap-2 text-sm font-bold text-brand-600 hover:text-brand-800">
+                Ler notícia
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          `;
+
+          container.appendChild(card);
+        });
+
+        lucide.createIcons();
+
       } catch (error) {
-        console.error('Erro ao carregar notícias:', error);
-        // Fallback elegante caso a API falhe ou limite acabe
+        console.error(error);
         container.innerHTML = `
           <div class="col-span-full text-center py-8">
-            <div class="inline-block p-4 rounded-full bg-gray-100 dark:bg-gray-800 mb-3">
-                <i data-lucide="newspaper" class="w-8 h-8 text-gray-400"></i>
-            </div>
-            <p class="text-gray-500 mb-4">Não foi possível carregar as notícias em tempo real.</p>
-            <a href="artigos.html" class="inline-block bg-brand-100 text-brand-700 px-6 py-2 rounded-full font-bold text-sm hover:bg-brand-200 transition-colors">
-              Ver nossos artigos técnicos
-            </a>
+             <p class="text-red-500 text-sm mb-2">Não foi possível carregar as notícias agora.</p>
+             <a href="artigos.html" class="inline-block bg-brand-100 text-brand-700 px-4 py-2 rounded-full font-bold text-xs">Ler Artigos do Site</a>
           </div>
         `;
-        lucide.createIcons();
       }
-    }
-
-    // Chama a função ao carregar
-    fetchHealthNews();
+    });
 
     // ==============================================
     // BACK TO TOP BUTTON LOGIC
