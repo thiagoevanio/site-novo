@@ -1167,11 +1167,20 @@
     async function fetchHealthNews() {
       const apiKey = '2d4cba603a9063a0a53a954b1f7aff18';
       const container = document.getElementById('gnews-container');
-      // Query busca notícias de saúde ou nutrição em português do Brasil
-      const url = `https://gnews.io/api/v4/search?q=saúde OR nutrição OR bem-estar&lang=pt&country=br&max=4&apikey=${apiKey}`;
+      
+      // FIX: Encode the query properly to handle spaces and accents
+      const query = encodeURIComponent('"saúde" OR "nutrição" OR "bem-estar"');
+      const url = `https://gnews.io/api/v4/search?q=${query}&lang=pt&country=br&max=4&apikey=${apiKey}`;
 
       try {
         const response = await fetch(url);
+        
+        // FIX: Check for HTTP errors (like 401, 403, 429)
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(`Erro API: ${response.status} - ${errorData.message || 'Erro desconhecido'}`);
+        }
+
         const data = await response.json();
 
         if (data.articles && data.articles.length > 0) {
