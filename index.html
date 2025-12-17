@@ -11,9 +11,9 @@
   <!-- META TAGS SEO & SOCIAL -->
   <!-- ============================================== -->
   <meta name="description"
-    content="Portal completo de saúde: Calculadoras de IMC, TMB, Gordura Corporal e Água. Acesse notícias atualizadas, artigos baseados em ciência e melhore sua qualidade de vida gratuitamente.">
+    content="Portal completo de saúde: Calculadoras de IMC, TMB, Gordura Corporal e Água. Acesse artigos baseados em ciência e melhore sua qualidade de vida gratuitamente.">
   <meta name="keywords"
-    content="saúde, calculadora IMC, dieta, nutrição, personal trainer, bem-estar, emagrecimento, massa muscular, jogos de saude, noticias saude">
+    content="saúde, calculadora IMC, dieta, nutrição, personal trainer, bem-estar, emagrecimento, massa muscular, jogos de saude">
   <meta property="og:title" content="Calcule Sua Saúde - Ferramentas Gratuitas">
   <meta property="og:description" content="Monitore sua saúde com precisão. Ferramentas gratuitas e artigos científicos.">
   <meta property="og:type" content="website">
@@ -794,50 +794,6 @@
   </section>
 
   <!-- ============================================== -->
-  <!-- NOVA SEÇÃO: NOTÍCIAS GNEWS API -->
-  <!-- ============================================== -->
-  <section id="news-section" class="py-16 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
-    <div class="container mx-auto px-4">
-      <div class="flex items-center justify-between mb-8">
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
-          <span class="bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 p-2 rounded-lg">
-            <i data-lucide="newspaper" class="w-6 h-6"></i>
-          </span>
-          Giro da Saúde: <span class="text-gray-500 dark:text-gray-400 font-medium">Últimas Notícias</span>
-        </h2>
-        <span class="text-xs font-semibold uppercase tracking-wider text-gray-400 border border-gray-200 dark:border-gray-700 px-3 py-1 rounded-full">Atualizado Agora</span>
-      </div>
-
-      <!-- Container das Notícias -->
-      <div id="gnews-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Loader Skeleton (Mostra enquanto carrega) -->
-        <div class="animate-pulse space-y-4">
-          <div class="h-40 bg-gray-200 dark:bg-gray-700 rounded-2xl"></div>
-          <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
-          <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2"></div>
-        </div>
-        <div class="animate-pulse space-y-4 hidden md:block">
-          <div class="h-40 bg-gray-200 dark:bg-gray-700 rounded-2xl"></div>
-          <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
-          <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2"></div>
-        </div>
-        <div class="animate-pulse space-y-4 hidden lg:block">
-          <div class="h-40 bg-gray-200 dark:bg-gray-700 rounded-2xl"></div>
-          <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
-          <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2"></div>
-        </div>
-        <div class="animate-pulse space-y-4 hidden lg:block">
-          <div class="h-40 bg-gray-200 dark:bg-gray-700 rounded-2xl"></div>
-          <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
-          <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2"></div>
-        </div>
-      </div>
-      
-      <p class="text-center text-xs text-gray-400 mt-6">Notícias fornecidas por GNews API • Fontes verificadas</p>
-    </div>
-  </section>
-
-  <!-- ============================================== -->
   <!-- FAQ -->
   <!-- ============================================== -->
   <section id="faq" class="py-24 bg-gray-50 dark:bg-gray-800/50 border-t dark:border-gray-800">
@@ -1158,79 +1114,6 @@
         imcStatus.className = `inline-block px-3 py-1 rounded-full text-sm font-bold mt-1 ${colorClass}`;
       } else {
         alert('Por favor, insira valores válidos.');
-      }
-    });
-
-    // ==============================================
-    // GNEWS API INTEGRATION LOGIC (UPDATED)
-    // ==============================================
-    document.addEventListener("DOMContentLoaded", async () => {
-      const container = document.getElementById("gnews-container");
-
-      const API_KEY = "2d4cba603a9063a0a53a954b1f7aff18"; 
-      const URL = `https://gnews.io/api/v4/search?q=saúde OR nutrição OR medicina&lang=pt&country=br&max=8&apikey=${API_KEY}`;
-
-      try {
-        const response = await fetch(URL);
-        if (!response.ok) throw new Error("Erro ao buscar notícias");
-
-        const data = await response.json();
-        container.innerHTML = "";
-
-        if (!data.articles || data.articles.length === 0) {
-          container.innerHTML = "<p class='text-gray-500'>Nenhuma notícia disponível no momento.</p>";
-          return;
-        }
-
-        data.articles.slice(0, 8).forEach(article => {
-          const card = document.createElement("article");
-          card.className = `
-            bg-white dark:bg-gray-800 rounded-2xl overflow-hidden
-            shadow-md hover:shadow-xl transition-all duration-300
-            border border-gray-100 dark:border-gray-700 flex flex-col
-          `;
-
-          card.innerHTML = `
-            <a href="${article.url}" target="_blank" rel="noopener" class="block h-40 overflow-hidden relative">
-              <img
-                src="${article.image || 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=800&q=80'}"
-                alt="${article.title}"
-                class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                loading="lazy"
-                onerror="this.src='https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=800&q=80'"
-              >
-               <div class="absolute top-2 right-2 bg-black/60 backdrop-blur text-white text-[10px] px-2 py-1 rounded font-bold">
-                 ${article.source.name}
-               </div>
-            </a>
-            <div class="p-5 flex flex-col flex-1">
-              <h3 class="font-bold text-gray-900 dark:text-white text-base mb-2 line-clamp-3">
-                ${article.title}
-              </h3>
-              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3 flex-1 mb-4">
-                ${article.description || "Leia a matéria completa no portal de origem."}
-              </p>
-              <a href="${article.url}" target="_blank" rel="noopener"
-                class="mt-auto inline-flex items-center gap-2 text-sm font-bold text-brand-600 hover:text-brand-800">
-                Ler notícia
-                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </a>
-            </div>
-          `;
-
-          container.appendChild(card);
-        });
-
-        lucide.createIcons();
-
-      } catch (error) {
-        console.error(error);
-        container.innerHTML = `
-          <div class="col-span-full text-center py-8">
-             <p class="text-red-500 text-sm mb-2">Não foi possível carregar as notícias agora.</p>
-             <a href="artigos.html" class="inline-block bg-brand-100 text-brand-700 px-4 py-2 rounded-full font-bold text-xs">Ler Artigos do Site</a>
-          </div>
-        `;
       }
     });
 
