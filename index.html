@@ -1168,34 +1168,37 @@
       const apiKey = '2d4cba603a9063a0a53a954b1f7aff18';
       const container = document.getElementById('gnews-container');
       
-      // FIX: Encode the query properly to handle spaces and accents
-      const query = encodeURIComponent('"saúde" OR "nutrição" OR "bem-estar"');
-      const url = `https://gnews.io/api/v4/search?q=${query}&lang=pt&country=br&max=4&apikey=${apiKey}`;
+      // MUDANÇA: Usando endpoint 'top-headlines' com categoria 'health' para garantir resultados
+      // Isso é mais confiável que buscar por palavras-chave específicas
+      const url = `https://gnews.io/api/v4/top-headlines?category=health&lang=pt&country=br&max=4&apikey=${apiKey}`;
 
       try {
         const response = await fetch(url);
         
-        // FIX: Check for HTTP errors (like 401, 403, 429)
+        // Check for HTTP errors (like 401, 403, 429)
         if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(`Erro API: ${response.status} - ${errorData.message || 'Erro desconhecido'}`);
+            const errorData = await response.json().catch(() => ({})); // Previne erro no parse do erro
+            throw new Error(`Erro API: ${response.status}`);
         }
 
         const data = await response.json();
+        console.log('Dados da GNews:', data); // Para debug no console
 
         if (data.articles && data.articles.length > 0) {
-          container.innerHTML = ''; // Limpa os skeletons
+          let allCardsHTML = ''; // Constrói o HTML em memória primeiro
           
           data.articles.forEach(article => {
             const date = new Date(article.publishedAt).toLocaleDateString('pt-BR');
+            // Garante que existe uma imagem ou usa placeholder
             const safeImage = article.image || 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
             
-            const cardHTML = `
+            allCardsHTML += `
               <a href="${article.url}" target="_blank" rel="noopener noreferrer" 
                  class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col h-full border border-gray-100 dark:border-gray-700">
                 <div class="h-40 overflow-hidden relative">
                    <img src="${safeImage}" alt="${article.title}" loading="lazy"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        onerror="this.src='https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
                    <div class="absolute top-2 right-2 bg-black/60 backdrop-blur text-white text-[10px] px-2 py-1 rounded font-bold">
                      ${article.source.name}
                    </div>
@@ -1214,24 +1217,29 @@
                 </div>
               </a>
             `;
-            container.innerHTML += cardHTML;
           });
+          
+          container.innerHTML = allCardsHTML; // Atualiza o DOM uma única vez
           lucide.createIcons(); // Recarrega icones nos novos elementos
         } else {
-           throw new Error('Nenhuma notícia encontrada');
+           throw new Error('Nenhuma notícia encontrada (array vazio)');
         }
 
       } catch (error) {
-        console.log('Fallback GNews ativado', error);
+        console.error('Erro ao carregar notícias:', error);
         // Fallback elegante caso a API falhe ou limite acabe
         container.innerHTML = `
           <div class="col-span-full text-center py-8">
-            <p class="text-gray-500 mb-4">Não foi possível carregar as notícias em tempo real no momento.</p>
-            <a href="artigos.html" class="inline-block bg-brand-100 text-brand-700 px-6 py-2 rounded-full font-bold text-sm">
+            <div class="inline-block p-4 rounded-full bg-gray-100 dark:bg-gray-800 mb-3">
+                <i data-lucide="newspaper" class="w-8 h-8 text-gray-400"></i>
+            </div>
+            <p class="text-gray-500 mb-4">Não foi possível carregar as notícias em tempo real.</p>
+            <a href="artigos.html" class="inline-block bg-brand-100 text-brand-700 px-6 py-2 rounded-full font-bold text-sm hover:bg-brand-200 transition-colors">
               Ver nossos artigos técnicos
             </a>
           </div>
         `;
+        lucide.createIcons();
       }
     }
 
