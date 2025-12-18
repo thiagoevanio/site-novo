@@ -7,6 +7,9 @@
   <meta name="theme-color" content="#3b82f6">
   <title>Calcule Sua Saúde - Ferramentas de Nutrição e Bem-Estar</title>
 
+  <!-- ============================================== -->
+  <!-- META TAGS SEO & SOCIAL -->
+  <!-- ============================================== -->
   <meta name="description"
     content="Portal completo de saúde: Calculadoras de IMC, TMB, Gordura Corporal e Água. Acesse artigos baseados em ciência e melhore sua qualidade de vida gratuitamente.">
   <meta name="keywords"
@@ -18,14 +21,20 @@
   <meta property="og:image" content="https://calculesuasaude.com.br/icon192.png">
   <meta name="p:domain_verify" content="87045e0f762d5e077c77f1a95e94d2dd" />
 
+  <!-- PWA / Mobile -->
   <link rel="manifest" href="/manifest.json">
   <link rel="apple-touch-icon" href="/icon192.png">
   <link rel="canonical" href="https://calculesuasaude.com.br">
 
+  <!-- ============================================== -->
+  <!-- ANALYTICS & ADS -->
+  <!-- ============================================== -->
+  <!-- Google AdSense -->
   <meta name="google-adsense-account" content="ca-pub-5825554897787593">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
     crossorigin="anonymous"></script>
 
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -34,6 +43,7 @@
     gtag('config', 'G-EVCQQZV60N');
   </script>
 
+  <!-- Schema.org -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -57,13 +67,19 @@
     }
   </script>
 
+  <!-- ============================================== -->
+  <!-- ESTILOS E SCRIPTS VISUAIS -->
+  <!-- ============================================== -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
   
+  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -102,6 +118,7 @@
     }
   </script>
 
+  <!-- Custom CSS -->
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -160,8 +177,12 @@
 
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 
+  <!-- ============================================== -->
+  <!-- HEADER -->
+  <!-- ============================================== -->
   <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <!-- Logo -->
       <a href="#" class="flex items-center gap-2 group">
         <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform shadow-md">
           <i data-lucide="heart-pulse" class="w-6 h-6"></i>
@@ -171,6 +192,7 @@
         </h1>
       </a>
 
+      <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-8">
         <a href="#inicio" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
         <a href="#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
@@ -188,11 +210,13 @@
         </button>
       </nav>
 
+      <!-- Mobile Button -->
       <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300" aria-label="Menu">
         <i data-lucide="menu" class="w-6 h-6"></i>
       </button>
     </div>
 
+    <!-- Mobile Menu -->
     <div id="mobile-menu"
       class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[64px] z-40 shadow-lg">
       <div class="flex flex-col p-4 space-y-3">
@@ -209,7 +233,11 @@
     </div>
   </header>
 
+  <!-- ============================================== -->
+  <!-- HERO SECTION -->
+  <!-- ============================================== -->
   <section id="inicio" class="pt-36 pb-24 animated-gradient relative overflow-hidden">
+    <!-- Background Pattern -->
     <div
       class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-30">
     </div>
@@ -217,6 +245,7 @@
     <div class="container mx-auto px-4 relative z-10">
       <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
+        <!-- Texto Hero -->
         <div class="lg:w-1/2 text-white text-center lg:text-left">
           <div
             class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold mb-6 animate-float">
@@ -232,8 +261,7 @@
           </h2>
 
           <p class="text-lg text-blue-50/90 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-            Calculadoras baseadas em protocolos médicos para monitorar seu bem-estar. Sem cadastro, sem taxas, com foco
-            total na sua privacidade.
+            Monitorar seus indicadores é o primeiro passo para uma vida longeva. Nossas calculadoras utilizam protocolos médicos padronizados para te dar o controle total do seu bem-estar, sem taxas e com privacidade total.
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -249,6 +277,7 @@
             </a>
           </div>
 
+          <!-- Trust Badges -->
           <div
             class="mt-10 flex items-center justify-center lg:justify-start gap-6 text-sm font-medium text-blue-100/80">
             <div class="flex items-center gap-2">
@@ -260,6 +289,7 @@
           </div>
         </div>
 
+        <!-- Widget IMC Rápido -->
         <div class="lg:w-1/2 w-full max-w-md">
           <div
             class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 transform hover:rotate-1 transition-transform duration-500 border border-gray-100 dark:border-gray-700">
@@ -313,59 +343,169 @@
     </div>
   </section>
 
-  <section class="py-20 bg-white dark:bg-gray-900 border-b dark:border-gray-800">
+  <!-- ============================================== -->
+  <!-- NOVA SEÇÃO: 3 PILARES DA SAÚDE (TEXTO RICO) -->
+  <!-- ============================================== -->
+  <section class="py-20 bg-white dark:bg-gray-900">
     <div class="container mx-auto px-4">
-      <div
-        class="bg-gradient-to-br from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 rounded-[2.5rem] p-8 md:p-14 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-center gap-12 group">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-brand-600 font-bold tracking-wider uppercase text-xs mb-2 block">Metodologia</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">A Saúde Vai Além dos Números</h2>
+            <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+                Calcular seu IMC ou TMB é apenas o começo. Para uma vida verdadeiramente saudável e longeva, acreditamos no equilíbrio entre três pilares fundamentais. Nossas ferramentas são desenhadas para apoiar você em cada um deles.
+            </p>
+        </div>
 
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- Pilar 1 -->
+            <div class="text-center group">
+                <div class="w-20 h-20 mx-auto bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i data-lucide="leaf" class="w-10 h-10 text-green-600 dark:text-green-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Nutrição Inteligente</h3>
+                <p class="text-gray-500 dark:text-gray-400 leading-relaxed">
+                    Não se trata de comer pouco, mas comer melhor. Entender seus macronutrientes e necessidades calóricas permite que você se alimente de forma que nutra suas células, não apenas mate a fome.
+                </p>
+            </div>
+
+            <!-- Pilar 2 -->
+            <div class="text-center group">
+                <div class="w-20 h-20 mx-auto bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i data-lucide="activity" class="w-10 h-10 text-blue-600 dark:text-blue-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Movimento Constante</h3>
+                <p class="text-gray-500 dark:text-gray-400 leading-relaxed">
+                    O corpo humano foi projetado para se mover. Seja musculação, caminhada ou yoga, a atividade física regular é o melhor remédio preventivo contra doenças crônicas e envelhecimento precoce.
+                </p>
+            </div>
+
+            <!-- Pilar 3 -->
+            <div class="text-center group">
+                <div class="w-20 h-20 mx-auto bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i data-lucide="brain" class="w-10 h-10 text-purple-600 dark:text-purple-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Mente Equilibrada</h3>
+                <p class="text-gray-500 dark:text-gray-400 leading-relaxed">
+                    O estresse e a ansiedade sabotam seus resultados físicos. Cuidar do sono, da hidratação e do bem-estar mental é tão crucial quanto a dieta. Mente sã, corpo são.
+                </p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- PERSONAL TRAINER & NOTÍCIAS SECTION -->
+  <!-- ============================================== -->
+  <section class="py-20 bg-gray-50 dark:bg-gray-800/30 border-y dark:border-gray-800">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- Card Personal (Metade) -->
         <div
-          class="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3">
-        </div>
-
-        <div class="relative shrink-0 z-10">
+          class="bg-gradient-to-br from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 rounded-[2.5rem] p-8 shadow-2xl relative overflow-hidden flex flex-col items-center text-center group transition-transform hover:-translate-y-1 h-full justify-between min-h-[400px]">
+          
+          <!-- Efeito de Fundo -->
           <div
-            class="w-56 h-56 md:w-72 md:h-72 rounded-full p-1 bg-gradient-to-tr from-orange-500 to-red-600 shadow-[0_0_40px_rgba(249,115,22,0.4)]">
-            <img src="personal.jpg" loading="lazy"
-              onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
-              alt="Raphael Aquino Personal" class="w-full h-full object-cover rounded-full border-4 border-gray-900">
+            class="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3">
           </div>
-          <div
-            class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-orange-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap border-2 border-gray-900">
-            CREF: 42.897-G/MG
-          </div>
-        </div>
 
-        <div class="text-center lg:text-left flex-1 z-10">
-          <div
-            class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-4">
-            <i data-lucide="award" class="w-4 h-4"></i> Destaque Profissional
-          </div>
-          <h2 class="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">
-            Transforme seu corpo com <br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">Raphael
-              Aquino</span>
-          </h2>
-          <p class="text-gray-300 text-lg mb-8 max-w-2xl leading-relaxed">
-            Consultoria especializada em Hipertrofia, Emagrecimento e Alta Performance. Planos personalizados (online e
-            presencial) adaptados à sua rotina e objetivos.
-          </p>
+          <div class="w-full">
+            <!-- Imagem -->
+            <div class="relative shrink-0 z-10 mb-6 flex justify-center">
+              <div
+                class="w-40 h-40 rounded-full p-1 bg-gradient-to-tr from-orange-500 to-red-600 shadow-[0_0_30px_rgba(249,115,22,0.4)]">
+                <img src="personal.jpg" loading="lazy"
+                  onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+                  alt="Raphael Aquino Personal" class="w-full h-full object-cover rounded-full border-4 border-gray-900">
+              </div>
+              <div
+                class="absolute -bottom-3 bg-orange-600 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg whitespace-nowrap border-2 border-gray-900">
+                CREF: 42.897-G/MG
+              </div>
+            </div>
 
-          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <!-- Texto -->
+            <div class="flex-1 z-10 w-full">
+              <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-4">
+                <i data-lucide="award" class="w-4 h-4"></i> Destaque Profissional
+              </div>
+              <h2 class="text-2xl md:text-3xl font-black text-white mb-4 leading-tight">
+                Treine com <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">Raphael Aquino</span>
+              </h2>
+              <p class="text-gray-300 text-sm mb-6 leading-relaxed max-w-md mx-auto">
+                Consultoria especializada em Hipertrofia e Emagrecimento. Planos personalizados adaptados à sua rotina.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 justify-center w-full z-10">
             <a href="personal.html"
-              class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-orange-600 rounded-full hover:bg-orange-700 shadow-lg hover:shadow-orange-500/30 transition-all hover:-translate-y-1">
+              class="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-white bg-orange-600 rounded-full hover:bg-orange-700 shadow-lg hover:shadow-orange-500/30 transition-all w-full sm:w-auto">
               Conhecer Planos
             </a>
             <a href="https://wa.me/message/X5XSBKPUOUJDM1" target="_blank"
-              class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-transparent border-2 border-gray-600 rounded-full hover:bg-white hover:text-gray-900 hover:border-white transition-all">
-              <i data-lucide="message-circle" class="w-5 h-5 mr-2"></i> Agendar no WhatsApp
+              class="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-white bg-transparent border-2 border-gray-600 rounded-full hover:bg-white hover:text-gray-900 hover:border-white transition-all w-full sm:w-auto">
+              WhatsApp
             </a>
           </div>
         </div>
+
+        <!-- Card: Notícias de Saúde (GNews) -->
+        <div id="news-card-container"
+          class="bg-gradient-to-br from-cyan-900 to-blue-900 dark:from-cyan-900 dark:to-slate-900 rounded-[2.5rem] p-8 shadow-2xl relative overflow-hidden flex flex-col items-center text-center group transition-transform hover:-translate-y-1 h-full min-h-[400px] justify-between">
+          
+          <!-- Efeito de Fundo -->
+          <div
+            class="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500/20 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3">
+          </div>
+
+          <div class="w-full relative z-10">
+            <!-- Ícone/Header -->
+            <div class="mb-6 flex justify-center">
+              <div
+                class="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_30px_rgba(34,211,238,0.3)] border border-white/10">
+                <i data-lucide="newspaper" class="w-10 h-10 text-cyan-300"></i>
+              </div>
+            </div>
+
+            <!-- Texto -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-500/20 text-cyan-300 text-xs font-bold uppercase tracking-widest mb-4">
+              <i data-lucide="globe" class="w-4 h-4"></i> Últimas da Saúde
+            </div>
+            
+            <h2 id="news-title" class="text-xl md:text-2xl font-black text-white mb-4 leading-tight min-h-[64px] flex items-center justify-center">
+              Carregando novidades...
+            </h2>
+            
+            <p id="news-desc" class="text-gray-300 text-sm mb-6 leading-relaxed max-w-md mx-auto line-clamp-3 min-h-[60px]">
+              Trazendo as informações mais recentes para você se manter atualizado sobre o mundo da saúde e bem-estar.
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 justify-center w-full z-10">
+            <a id="news-link" href="#" target="_blank"
+              class="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-cyan-900 bg-cyan-400 rounded-full hover:bg-cyan-300 shadow-lg hover:shadow-cyan-500/30 transition-all w-full sm:w-auto">
+              Ler Matéria Completa <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+            </a>
+          </div>
+          
+          <div class="absolute top-4 right-4 animate-pulse">
+            <span class="flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-cyan-500"></span>
+            </span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <section class="py-12 bg-gray-50 dark:bg-gray-900/50">
+  <!-- ============================================== -->
+  <!-- DESAFIO DIÁRIO -->
+  <!-- ============================================== -->
+  <section class="py-12 bg-white dark:bg-gray-900">
     <div class="container mx-auto px-4">
       <div
         class="bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg border-l-8 border-emerald-500">
@@ -390,9 +530,150 @@
     </div>
   </section>
 
+  <!-- ============================================== -->
+  <!-- GRID DE FERRAMENTAS -->
+  <!-- ============================================== -->
+  <section id="ferramentas" class="py-24 container mx-auto px-4 bg-gray-50 dark:bg-gray-900/50">
+    <div class="text-center mb-16">
+      <span
+        class="text-brand-600 font-bold tracking-wider uppercase text-xs bg-brand-50 dark:bg-brand-900/20 px-3 py-1 rounded-full">Calculadoras
+        Online</span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mt-4 mb-4">Ferramentas de Precisão</h2>
+      <p class="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+        Não adivinhe, calcule. Utilize nossas ferramentas gratuitas para obter dados exatos sobre seu corpo e tomar decisões baseadas em fatos, não em suposições.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Card IMC -->
+      <a href="ferramentas/imc.html"
+        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div
+          class="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="bar-chart-2" class="w-7 h-7"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">IMC</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Índice de Massa Corporal. A
+          ferramenta padrão para verificar se você está no peso ideal.</p>
+        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+          Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </a>
+
+      <!-- Card TMB -->
+      <a href="ferramentas/tmb.html"
+        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div
+          class="w-14 h-14 bg-orange-100 dark:bg-orange-900/30 rounded-2xl flex items-center justify-center text-orange-600 dark:text-orange-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="flame" class="w-7 h-7"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Metabolismo Basal</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Descubra quantas calorias seu corpo
+          queima em repouso. Essencial para dietas.</p>
+        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+          Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </a>
+
+      <!-- Card Água -->
+      <a href="ferramentas/agua.html"
+        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div
+          class="w-14 h-14 bg-cyan-100 dark:bg-cyan-900/30 rounded-2xl flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="droplets" class="w-7 h-7"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Água Diária</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Hidratação personalizada baseada no
+          seu peso corporal. Mantenha seu corpo fluindo.</p>
+        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+          Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </a>
+
+      <!-- Card Gordura -->
+      <a href="ferramentas/gordura.html"
+        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div
+          class="w-14 h-14 bg-yellow-100 dark:bg-yellow-900/30 rounded-2xl flex items-center justify-center text-yellow-600 dark:text-yellow-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="scale" class="w-7 h-7"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Gordura Corporal</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Estimativa avançada do seu percentual
+          de gordura e massa magra.</p>
+        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+          Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </a>
+
+      <!-- Card Macros -->
+      <a href="ferramentas/macros.html"
+        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div
+          class="w-14 h-14 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center text-green-600 dark:text-green-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="utensils" class="w-7 h-7"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Macronutrientes</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Calcule a divisão ideal de
+          Carboidratos, Proteínas e Gorduras para seu objetivo.</p>
+        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+          Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </a>
+
+      <!-- Card Glicemia -->
+      <a href="ferramentas/glicemia.html"
+        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div
+          class="w-14 h-14 bg-red-100 dark:bg-red-900/30 rounded-2xl flex items-center justify-center text-red-600 dark:text-red-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="activity" class="w-7 h-7"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Glicemia</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Interprete seus níveis de glicose no
+          sangue e entenda os valores de referência.</p>
+        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+          Verificar <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </a>
+
+      <!-- Card Calorias -->
+      <a href="ferramentas/calorias.html"
+        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div
+          class="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center text-purple-600 dark:text-purple-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="zap" class="w-7 h-7"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Gasto Calórico Total</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Quantas calorias você gasta por dia
+          considerando seus exercícios e rotina.</p>
+        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+          Calcular <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </a>
+
+      <!-- Card IMC Infantil -->
+      <a href="ferramentas/imc_infantil.html"
+        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div
+          class="w-14 h-14 bg-pink-100 dark:bg-pink-900/30 rounded-2xl flex items-center justify-center text-pink-600 dark:text-pink-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="baby" class="w-7 h-7"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">IMC Infantil</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Cálculo especializado para acompanhar
+          o crescimento de crianças e adolescentes.</p>
+        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+          Calcular <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </a>
+    </div>
+  </section>
+  
+  <!-- ============================================== -->
+  <!-- JOGOS / GAMIFICATION -->
+  <!-- ============================================== -->
   <section class="py-12 bg-white dark:bg-gray-900">
     <div class="container mx-auto px-4">
       <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-indigo-500 to-purple-600 shadow-xl">
+        <!-- Background decorative shapes -->
         <div class="absolute top-0 right-0 -mt-10 -mr-10 h-40 w-40 rounded-full bg-white/20 blur-3xl"></div>
         <div class="absolute bottom-0 left-0 -mb-10 -ml-10 h-40 w-40 rounded-full bg-white/20 blur-3xl"></div>
 
@@ -420,133 +701,9 @@
     </div>
   </section>
 
-  <section id="ferramentas" class="py-24 container mx-auto px-4">
-    <div class="text-center mb-16">
-      <span
-        class="text-brand-600 font-bold tracking-wider uppercase text-xs bg-brand-50 dark:bg-brand-900/20 px-3 py-1 rounded-full">Calculadoras
-        Online</span>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mt-4 mb-4">Monitore seus
-        Indicadores</h2>
-      <p class="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-        Ferramentas essenciais para quem busca controle corporal e nutricional. Selecione uma opção para começar.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <a href="ferramentas/imc.html"
-        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-        <div
-          class="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 mb-6 group-hover:scale-110 transition-transform">
-          <i data-lucide="bar-chart-2" class="w-7 h-7"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">IMC</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Índice de Massa Corporal. A
-          ferramenta padrão para verificar se você está no peso ideal.</p>
-        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
-          Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </div>
-      </a>
-
-      <a href="ferramentas/tmb.html"
-        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-        <div
-          class="w-14 h-14 bg-orange-100 dark:bg-orange-900/30 rounded-2xl flex items-center justify-center text-orange-600 dark:text-orange-400 mb-6 group-hover:scale-110 transition-transform">
-          <i data-lucide="flame" class="w-7 h-7"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Metabolismo Basal</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Descubra quantas calorias seu corpo
-          queima em repouso. Essencial para dietas.</p>
-        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
-          Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </div>
-      </a>
-
-      <a href="ferramentas/agua.html"
-        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-        <div
-          class="w-14 h-14 bg-cyan-100 dark:bg-cyan-900/30 rounded-2xl flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-6 group-hover:scale-110 transition-transform">
-          <i data-lucide="droplets" class="w-7 h-7"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Água Diária</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Hidratação personalizada baseada no
-          seu peso corporal. Mantenha seu corpo fluindo.</p>
-        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
-          Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </div>
-      </a>
-
-      <a href="ferramentas/gordura.html"
-        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-        <div
-          class="w-14 h-14 bg-yellow-100 dark:bg-yellow-900/30 rounded-2xl flex items-center justify-center text-yellow-600 dark:text-yellow-400 mb-6 group-hover:scale-110 transition-transform">
-          <i data-lucide="scale" class="w-7 h-7"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Gordura Corporal</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Estimativa avançada do seu percentual
-          de gordura e massa magra.</p>
-        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
-          Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </div>
-      </a>
-
-      <a href="ferramentas/macros.html"
-        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-        <div
-          class="w-14 h-14 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center text-green-600 dark:text-green-400 mb-6 group-hover:scale-110 transition-transform">
-          <i data-lucide="utensils" class="w-7 h-7"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Macronutrientes</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Calcule a divisão ideal de
-          Carboidratos, Proteínas e Gorduras para seu objetivo.</p>
-        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
-          Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </div>
-      </a>
-
-      <a href="ferramentas/glicemia.html"
-        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-        <div
-          class="w-14 h-14 bg-red-100 dark:bg-red-900/30 rounded-2xl flex items-center justify-center text-red-600 dark:text-red-400 mb-6 group-hover:scale-110 transition-transform">
-          <i data-lucide="activity" class="w-7 h-7"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Glicemia</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Interprete seus níveis de glicose no
-          sangue e entenda os valores de referência.</p>
-        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
-          Verificar <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </div>
-      </a>
-
-      <a href="ferramentas/calorias.html"
-        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-        <div
-          class="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center text-purple-600 dark:text-purple-400 mb-6 group-hover:scale-110 transition-transform">
-          <i data-lucide="zap" class="w-7 h-7"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Gasto Calórico Total</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Quantas calorias você gasta por dia
-          considerando seus exercícios e rotina.</p>
-        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
-          Calcular <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </div>
-      </a>
-
-      <a href="ferramentas/imc_infantil.html"
-        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-        <div
-          class="w-14 h-14 bg-pink-100 dark:bg-pink-900/30 rounded-2xl flex items-center justify-center text-pink-600 dark:text-pink-400 mb-6 group-hover:scale-110 transition-transform">
-          <i data-lucide="baby" class="w-7 h-7"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">IMC Infantil</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Cálculo especializado para acompanhar
-          o crescimento de crianças e adolescentes.</p>
-        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
-          Calcular <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </div>
-      </a>
-    </div>
-  </section>
-
+  <!-- ============================================== -->
+  <!-- QUIZZES -->
+  <!-- ============================================== -->
   <section class="py-24 bg-gray-100 dark:bg-gray-800/50 border-y dark:border-gray-800">
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-between items-end mb-16">
@@ -563,6 +720,7 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Quiz 1 -->
         <div
           class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-100 dark:border-gray-700">
           <div class="h-3 bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
@@ -582,6 +740,7 @@
           </div>
         </div>
 
+        <!-- Quiz 2 -->
         <div
           class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-100 dark:border-gray-700">
           <div class="h-3 bg-gradient-to-r from-blue-500 to-cyan-500"></div>
@@ -601,6 +760,7 @@
           </div>
         </div>
 
+        <!-- Quiz 3 -->
         <div
           class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-100 dark:border-gray-700">
           <div class="h-3 bg-gradient-to-r from-green-500 to-emerald-500"></div>
@@ -630,6 +790,9 @@
     </div>
   </section>
 
+  <!-- ============================================== -->
+  <!-- ARTIGOS -->
+  <!-- ============================================== -->
   <section id="artigos" class="py-24 container mx-auto px-4">
     <div class="flex flex-col md:flex-row justify-between items-end mb-12">
       <div>
@@ -644,6 +807,7 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Artigo 1 -->
       <article
         class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
         <a href="artigos/metabolismo-como-acelerar.html" class="h-56 overflow-hidden relative">
@@ -668,6 +832,7 @@
         </div>
       </article>
 
+      <!-- Artigo 2 -->
       <article
         class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
         <a href="artigos/hidratacao-importancia-saude.html" class="h-56 overflow-hidden relative">
@@ -692,6 +857,7 @@
         </div>
       </article>
 
+      <!-- Artigo 3 -->
       <article
         class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
         <a href="artigos/ia-saude-chatgpt-gemini.html" class="h-56 overflow-hidden relative">
@@ -717,6 +883,7 @@
         </div>
       </article>
 
+      <!-- Artigo 4 (Novo) -->
       <article
         class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
         <a href="artigos/ganho-massa-muscular.html" class="h-56 overflow-hidden relative">
@@ -741,6 +908,7 @@
         </div>
       </article>
 
+      <!-- Artigo 5 (Novo) -->
       <article
         class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
         <a href="artigos/ansiedade-depressao.html" class="h-56 overflow-hidden relative">
@@ -765,6 +933,7 @@
         </div>
       </article>
 
+      <!-- Artigo 6 (Novo) -->
       <article
         class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
         <a href="artigos/diabetes-prevencao-tratamento.html" class="h-56 overflow-hidden relative">
@@ -799,6 +968,9 @@
     </div>
   </section>
 
+  <!-- ============================================== -->
+  <!-- FAQ -->
+  <!-- ============================================== -->
   <section id="faq" class="py-24 bg-gray-50 dark:bg-gray-800/50 border-t dark:border-gray-800">
     <div class="container mx-auto px-4 max-w-4xl">
       <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">Dúvidas Frequentes</h2>
@@ -806,6 +978,7 @@
         Entenda como nossas ferramentas funcionam.</p>
 
       <div class="space-y-4">
+        <!-- Pergunta 1 -->
         <details
           class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
           <summary
@@ -822,6 +995,7 @@
           </div>
         </details>
 
+        <!-- Pergunta 2 -->
         <details
           class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
           <summary
@@ -838,6 +1012,7 @@
           </div>
         </details>
 
+        <!-- Pergunta 3 -->
         <details
           class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
           <summary
@@ -854,6 +1029,7 @@
           </div>
         </details>
 
+        <!-- Pergunta 4 -->
         <details
           class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
           <summary
@@ -873,6 +1049,9 @@
     </div>
   </section>
 
+  <!-- ============================================== -->
+  <!-- SOBRE / TRUST -->
+  <!-- ============================================== -->
   <section class="py-20 bg-white dark:bg-gray-900 border-t dark:border-gray-800">
     <div class="container mx-auto px-4 text-center max-w-3xl">
       <div class="bg-brand-50 dark:bg-brand-900/10 p-10 rounded-[3rem] border border-brand-100 dark:border-brand-800">
@@ -887,6 +1066,9 @@
     </div>
   </section>
 
+  <!-- ============================================== -->
+  <!-- FOOTER -->
+  <!-- ============================================== -->
   <footer class="bg-gray-900 text-gray-300 pt-20 pb-10 border-t border-gray-800">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
@@ -951,26 +1133,33 @@
     </div>
   </footer>
 
+  <!-- ============================================== -->
+  <!-- MODAL DE PROPAGANDA (APP) -->
+  <!-- ============================================== -->
   <div id="ad-modal-backdrop"
     class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm transition-opacity duration-300">
     <div id="ad-modal-content"
       class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-sm w-full relative overflow-hidden animate-pop-up border border-gray-200 dark:border-gray-700">
 
+      <!-- Botão Fechar -->
       <button onclick="closeAd()"
         class="absolute top-3 right-3 z-10 p-2 bg-black/20 hover:bg-black/40 rounded-full text-white transition-colors">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
 
+      <!-- Imagem / Banner do App -->
       <div
         class="h-40 bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center relative overflow-hidden">
         <div
           class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20">
         </div>
+        <!-- Icone do App -->
         <img src="finsafe.png" loading="lazy" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2382/2382461.png'"
           alt="Ícone FinSafe"
           class="w-20 h-20 rounded-2xl shadow-lg transform rotate-6 hover:rotate-0 transition-transform duration-300 z-10">
       </div>
 
+      <!-- Conteúdo do Modal -->
       <div class="p-6 text-center">
         <div class="mb-3">
           <span
@@ -987,6 +1176,7 @@
           Saúde.
         </p>
 
+        <!-- Botão de Download -->
         <a href="https://play.google.com/store/apps/details?id=com.thiagoevanio.finsafe&hl=pt_BR" target="_blank"
           class="flex items-center justify-center gap-2 w-full py-3.5 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 mb-3">
           <i data-lucide="download" class="w-5 h-5"></i>
@@ -1005,11 +1195,15 @@
     </div>
   </div>
 
+  <!-- Botão Back to Top -->
   <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
     class="fixed bottom-6 right-6 bg-brand-600 hover:bg-brand-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 translate-y-20 opacity-0 z-40">
     <i data-lucide="arrow-up" class="w-6 h-6"></i>
   </button>
 
+  <!-- ============================================== -->
+  <!-- JAVASCRIPT LOGIC -->
+  <!-- ============================================== -->
   <script>
     // Inicializa ícones Lucide
     lucide.createIcons();
@@ -1139,6 +1333,84 @@
     window.addEventListener('load', () => {
       setTimeout(showAd, 3500);
     });
+
+    // ==============================================
+    // NEWS FETCHING LOGIC (GNEWS)
+    // ==============================================
+    const GNEWS_API_KEY = 'SUA_CHAVE_GNEWS_AQUI'; // <--- COLE SUA CHAVE AQUI
+
+    async function fetchHealthNews() {
+        const titleEl = document.getElementById('news-title');
+        const descEl = document.getElementById('news-desc');
+        const linkEl = document.getElementById('news-link');
+
+        // Notícia de Fallback (Padrão)
+        const fallbackNews = {
+            title: "Longevidade: 5 hábitos simples para viver mais e melhor",
+            description: "Estudos recentes apontam que sono de qualidade, hidratação e redução de estresse são mais eficazes que dietas restritivas.",
+            url: "artigos.html" // Link interno como fallback
+        };
+
+        if(GNEWS_API_KEY === '2d4cba603a9063a0a53a954b1f7aff18' || !GNEWS_API_KEY) {
+            console.log("API Key não configurada. Usando fallback.");
+            updateNewsUI(fallbackNews);
+            return;
+        }
+
+        try {
+            // Verifica cache (para não gastar API à toa no reload)
+            const cachedNews = localStorage.getItem('cached_health_news');
+            const cachedTime = localStorage.getItem('cached_news_time');
+            const now = new Date().getTime();
+
+            // Usa cache se tiver menos de 1 hora (3600000 ms)
+            if (cachedNews && cachedTime && (now - cachedTime < 3600000)) {
+                updateNewsUI(JSON.parse(cachedNews));
+                return;
+            }
+
+            const url = `https://gnews.io/api/v4/search?q=saúde+bem-estar&lang=pt&country=br&max=1&apikey=${GNEWS_API_KEY}`;
+            const response = await fetch(url);
+            
+            if (!response.ok) throw new Error('Erro na API');
+            
+            const data = await response.json();
+            
+            if (data.articles && data.articles.length > 0) {
+                const article = data.articles[0];
+                const newsItem = {
+                    title: article.title,
+                    description: article.description,
+                    url: article.url
+                };
+                
+                // Salva no cache
+                localStorage.setItem('cached_health_news', JSON.stringify(newsItem));
+                localStorage.setItem('cached_news_time', now);
+                
+                updateNewsUI(newsItem);
+            } else {
+                updateNewsUI(fallbackNews);
+            }
+        } catch (error) {
+            console.error("Erro ao buscar notícias:", error);
+            updateNewsUI(fallbackNews);
+        }
+    }
+
+    function updateNewsUI(news) {
+        const titleEl = document.getElementById('news-title');
+        const descEl = document.getElementById('news-desc');
+        const linkEl = document.getElementById('news-link');
+
+        titleEl.textContent = news.title;
+        descEl.textContent = news.description;
+        linkEl.href = news.url;
+    }
+
+    // Inicia a busca
+    fetchHealthNews();
+
   </script>
 </body>
 
