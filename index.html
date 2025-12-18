@@ -22,7 +22,8 @@
   <meta name="p:domain_verify" content="87045e0f762d5e077c77f1a95e94d2dd" />
 
   <!-- PWA / Mobile -->
-  <link rel="manifest" href="/manifest.json">
+  <!-- Ajustado para caminho relativo para compatibilidade com GitHub Pages -->
+  <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="/icon192.png">
   <link rel="canonical" href="https://calculesuasaude.com.br">
 
@@ -1307,7 +1308,8 @@
     // Service Worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(error => console.log('SW falhou: ', error));
+        // Ajustado para caminho relativo para compatibilidade com GitHub Pages
+        navigator.serviceWorker.register('sw.js').catch(error => console.log('SW falhou: ', error));
       });
     }
 
@@ -1337,30 +1339,31 @@
     // ==============================================
     // NEWS FETCHING LOGIC (GNEWS)
     // ==============================================
-    const GNEWS_API_KEY = 'SUA_CHAVE_GNEWS_AQUI'; // <--- COLE SUA CHAVE AQUI
+    // NEWS FETCHING LOGIC (RSS TO JSON - GRATUITO)
+    // ==============================================
+    
+    // URL do Feed RSS do Google Notícias (Tópico Saúde - Brasil)
+    const RSS_URL = 'https://news.google.com/rss/search?q=saude+bem+estar+brasil&hl=pt-BR&gl=BR&ceid=BR:pt-419';
+    
+    // Conversor RSS para JSON (Permite ler o feed no navegador sem bloqueio)
+    const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
 
     async function fetchHealthNews() {
         const titleEl = document.getElementById('news-title');
         const descEl = document.getElementById('news-desc');
         const linkEl = document.getElementById('news-link');
 
-        // Notícia de Fallback (Padrão)
+        // Notícia de Fallback (Caso falhe ou demore)
         const fallbackNews = {
             title: "Longevidade: 5 hábitos simples para viver mais e melhor",
             description: "Estudos recentes apontam que sono de qualidade, hidratação e redução de estresse são mais eficazes que dietas restritivas.",
-            url: "artigos.html" // Link interno como fallback
+            url: "artigos.html"
         };
 
-        if(GNEWS_API_KEY === '2d4cba603a9063a0a53a954b1f7aff18' || !GNEWS_API_KEY) {
-            console.log("API Key não configurada. Usando fallback.");
-            updateNewsUI(fallbackNews);
-            return;
-        }
-
         try {
-            // Verifica cache (para não gastar API à toa no reload)
-            const cachedNews = localStorage.getItem('cached_health_news');
-            const cachedTime = localStorage.getItem('cached_news_time');
+            // Verifica cache (para economizar requisições e carregar rápido)
+            const cachedNews = localStorage.getItem('cached_health_news_rss');
+            const cachedTime = localStorage.getItem('cached_news_time_rss');
             const now = new Date().getTime();
 
             // Usa cache se tiver menos de 1 hora (3600000 ms)
@@ -1369,32 +1372,52 @@
                 return;
             }
 
-            const url = `https://gnews.io/api/v4/search?q=saúde+bem-estar&lang=pt&country=br&max=1&apikey=${GNEWS_API_KEY}`;
-            const response = await fetch(url);
+            const response = await fetch(API_URL);
             
-            if (!response.ok) throw new Error('Erro na API');
+            if (!response.ok) throw new Error('Erro na API RSS');
             
             const data = await response.json();
             
-            if (data.articles && data.articles.length > 0) {
-                const article = data.articles[0];
+            if (data.items && data.items.length > 0) {
+                // Pega a primeira notícia que tenha imagem ou descrição decente, ou apenas a primeira
+                // O Google RSS as vezes não manda descrição limpa, então filtramos
+                const article = data.items[0];
+                
+                // Limpeza básica do título (remove o nome do jornal no final, ex: " - Globo.com")
+                const cleanTitle = article.title.split(' - ')[0];
+
+                // Como RSS do Google as vezes não tem descrição curta, usamos o título ou criamos um resumo
+                // Tenta pegar a descrição limpa ou usa uma genérica convidativa
+                let cleanDesc = "Confira os detalhes completos desta matéria sobre saúde e bem-estar clicando no botão abaixo.";
+                
+                // Se o RSS trouxer content snippet, usamos (limitado)
+                if(article.contentSnippet && article.contentSnippet.length > 10) {
+                   cleanDesc = article.contentSnippet.substring(0, 120) + "...";
+                }
+
                 const newsItem = {
-                    title: article.title,
-                    description: article.description,
-                    url: article.url
+                    title: cleanTitle,
+                    description: cleanDesc,
+                    url: article.link
                 };
                 
                 // Salva no cache
-                localStorage.setItem('cached_health_news', JSON.stringify(newsItem));
-                localStorage.setItem('cached_news_time', now);
+                localStorage.setItem('cached_health_news_rss', JSON.stringify(newsItem));
+                localStorage.setItem('cached_news_time_rss', now);
                 
                 updateNewsUI(newsItem);
             } else {
                 updateNewsUI(fallbackNews);
             }
         } catch (error) {
-            console.error("Erro ao buscar notícias:", error);
-            updateNewsUI(fallbackNews);
+            console.error("Erro ao buscar notícias RSS:", error);
+            // Se falhar, tenta usar o cache antigo mesmo vencido
+            const cachedNews = localStorage.getItem('cached_health_news_rss');
+            if (cachedNews) {
+                 updateNewsUI(JSON.parse(cachedNews));
+            } else {
+                 updateNewsUI(fallbackNews);
+            }
         }
     }
 
@@ -1403,9 +1426,19 @@
         const descEl = document.getElementById('news-desc');
         const linkEl = document.getElementById('news-link');
 
-        titleEl.textContent = news.title;
-        descEl.textContent = news.description;
-        linkEl.href = news.url;
+        // Animação suave na troca de texto
+        titleEl.style.opacity = 0;
+        descEl.style.opacity = 0;
+        
+        setTimeout(() => {
+            titleEl.textContent = news.title;
+            // Remove tags HTML se vierem na descrição
+            descEl.innerHTML = news.description; 
+            linkEl.href = news.url;
+            
+            titleEl.style.opacity = 1;
+            descEl.style.opacity = 1;
+        }, 200);
     }
 
     // Inicia a busca
