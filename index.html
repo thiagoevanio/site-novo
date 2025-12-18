@@ -7,9 +7,6 @@
   <meta name="theme-color" content="#3b82f6">
   <title>Calcule Sua Saúde - Ferramentas de Nutrição e Bem-Estar</title>
 
-  <!-- ============================================== -->
-  <!-- META TAGS SEO & SOCIAL -->
-  <!-- ============================================== -->
   <meta name="description"
     content="Portal completo de saúde: Calculadoras de IMC, TMB, Gordura Corporal e Água. Acesse artigos baseados em ciência e melhore sua qualidade de vida gratuitamente.">
   <meta name="keywords"
@@ -21,20 +18,14 @@
   <meta property="og:image" content="https://calculesuasaude.com.br/icon192.png">
   <meta name="p:domain_verify" content="87045e0f762d5e077c77f1a95e94d2dd" />
 
-  <!-- PWA / Mobile -->
   <link rel="manifest" href="/manifest.json">
   <link rel="apple-touch-icon" href="/icon192.png">
   <link rel="canonical" href="https://calculesuasaude.com.br">
 
-  <!-- ============================================== -->
-  <!-- ANALYTICS & ADS -->
-  <!-- ============================================== -->
-  <!-- Google AdSense -->
   <meta name="google-adsense-account" content="ca-pub-5825554897787593">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
     crossorigin="anonymous"></script>
 
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -43,7 +34,6 @@
     gtag('config', 'G-EVCQQZV60N');
   </script>
 
-  <!-- Schema.org -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -67,19 +57,13 @@
     }
   </script>
 
-  <!-- ============================================== -->
-  <!-- ESTILOS E SCRIPTS VISUAIS -->
-  <!-- ============================================== -->
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
   
-  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -118,7 +102,6 @@
     }
   </script>
 
-  <!-- Custom CSS -->
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -177,12 +160,8 @@
 
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 
-  <!-- ============================================== -->
-  <!-- HEADER -->
-  <!-- ============================================== -->
   <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <!-- Logo -->
       <a href="#" class="flex items-center gap-2 group">
         <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform shadow-md">
           <i data-lucide="heart-pulse" class="w-6 h-6"></i>
@@ -192,7 +171,6 @@
         </h1>
       </a>
 
-      <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-8">
         <a href="#inicio" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
         <a href="#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
@@ -210,13 +188,11 @@
         </button>
       </nav>
 
-      <!-- Mobile Button -->
       <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300" aria-label="Menu">
         <i data-lucide="menu" class="w-6 h-6"></i>
       </button>
     </div>
 
-    <!-- Mobile Menu -->
     <div id="mobile-menu"
       class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[64px] z-40 shadow-lg">
       <div class="flex flex-col p-4 space-y-3">
@@ -233,11 +209,7 @@
     </div>
   </header>
 
-  <!-- ============================================== -->
-  <!-- HERO SECTION -->
-  <!-- ============================================== -->
   <section id="inicio" class="pt-36 pb-24 animated-gradient relative overflow-hidden">
-    <!-- Background Pattern -->
     <div
       class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-30">
     </div>
@@ -245,7 +217,6 @@
     <div class="container mx-auto px-4 relative z-10">
       <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
-        <!-- Texto Hero -->
         <div class="lg:w-1/2 text-white text-center lg:text-left">
           <div
             class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold mb-6 animate-float">
@@ -278,7 +249,6 @@
             </a>
           </div>
 
-          <!-- Trust Badges -->
           <div
             class="mt-10 flex items-center justify-center lg:justify-start gap-6 text-sm font-medium text-blue-100/80">
             <div class="flex items-center gap-2">
@@ -290,7 +260,6 @@
           </div>
         </div>
 
-        <!-- Widget IMC Rápido -->
         <div class="lg:w-1/2 w-full max-w-md">
           <div
             class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 transform hover:rotate-1 transition-transform duration-500 border border-gray-100 dark:border-gray-700">
@@ -344,20 +313,15 @@
     </div>
   </section>
 
-  <!-- ============================================== -->
-  <!-- PERSONAL TRAINER SECTION -->
-  <!-- ============================================== -->
   <section class="py-20 bg-white dark:bg-gray-900 border-b dark:border-gray-800">
     <div class="container mx-auto px-4">
       <div
         class="bg-gradient-to-br from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 rounded-[2.5rem] p-8 md:p-14 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-center gap-12 group">
 
-        <!-- Efeito de Fundo -->
         <div
           class="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3">
         </div>
 
-        <!-- Imagem (Com lazy loading) -->
         <div class="relative shrink-0 z-10">
           <div
             class="w-56 h-56 md:w-72 md:h-72 rounded-full p-1 bg-gradient-to-tr from-orange-500 to-red-600 shadow-[0_0_40px_rgba(249,115,22,0.4)]">
@@ -371,7 +335,6 @@
           </div>
         </div>
 
-        <!-- Texto -->
         <div class="text-center lg:text-left flex-1 z-10">
           <div
             class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-4">
@@ -402,9 +365,6 @@
     </div>
   </section>
 
-  <!-- ============================================== -->
-  <!-- DESAFIO DIÁRIO -->
-  <!-- ============================================== -->
   <section class="py-12 bg-gray-50 dark:bg-gray-900/50">
     <div class="container mx-auto px-4">
       <div
@@ -430,13 +390,9 @@
     </div>
   </section>
 
-  <!-- ============================================== -->
-  <!-- JOGOS / GAMIFICATION -->
-  <!-- ============================================== -->
   <section class="py-12 bg-white dark:bg-gray-900">
     <div class="container mx-auto px-4">
       <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-indigo-500 to-purple-600 shadow-xl">
-        <!-- Background decorative shapes -->
         <div class="absolute top-0 right-0 -mt-10 -mr-10 h-40 w-40 rounded-full bg-white/20 blur-3xl"></div>
         <div class="absolute bottom-0 left-0 -mb-10 -ml-10 h-40 w-40 rounded-full bg-white/20 blur-3xl"></div>
 
@@ -464,9 +420,6 @@
     </div>
   </section>
 
-  <!-- ============================================== -->
-  <!-- GRID DE FERRAMENTAS -->
-  <!-- ============================================== -->
   <section id="ferramentas" class="py-24 container mx-auto px-4">
     <div class="text-center mb-16">
       <span
@@ -480,7 +433,6 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Card IMC -->
       <a href="ferramentas/imc.html"
         class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
         <div
@@ -495,7 +447,6 @@
         </div>
       </a>
 
-      <!-- Card TMB -->
       <a href="ferramentas/tmb.html"
         class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
         <div
@@ -510,7 +461,6 @@
         </div>
       </a>
 
-      <!-- Card Água -->
       <a href="ferramentas/agua.html"
         class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
         <div
@@ -525,7 +475,6 @@
         </div>
       </a>
 
-      <!-- Card Gordura -->
       <a href="ferramentas/gordura.html"
         class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
         <div
@@ -540,7 +489,6 @@
         </div>
       </a>
 
-      <!-- Card Macros -->
       <a href="ferramentas/macros.html"
         class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
         <div
@@ -555,7 +503,6 @@
         </div>
       </a>
 
-      <!-- Card Glicemia -->
       <a href="ferramentas/glicemia.html"
         class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
         <div
@@ -570,7 +517,6 @@
         </div>
       </a>
 
-      <!-- Card Calorias -->
       <a href="ferramentas/calorias.html"
         class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
         <div
@@ -585,7 +531,6 @@
         </div>
       </a>
 
-      <!-- Card IMC Infantil -->
       <a href="ferramentas/imc_infantil.html"
         class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
         <div
@@ -602,9 +547,6 @@
     </div>
   </section>
 
-  <!-- ============================================== -->
-  <!-- QUIZZES -->
-  <!-- ============================================== -->
   <section class="py-24 bg-gray-100 dark:bg-gray-800/50 border-y dark:border-gray-800">
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-between items-end mb-16">
@@ -621,7 +563,6 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Quiz 1 -->
         <div
           class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-100 dark:border-gray-700">
           <div class="h-3 bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
@@ -641,7 +582,6 @@
           </div>
         </div>
 
-        <!-- Quiz 2 -->
         <div
           class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-100 dark:border-gray-700">
           <div class="h-3 bg-gradient-to-r from-blue-500 to-cyan-500"></div>
@@ -661,7 +601,6 @@
           </div>
         </div>
 
-        <!-- Quiz 3 -->
         <div
           class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-100 dark:border-gray-700">
           <div class="h-3 bg-gradient-to-r from-green-500 to-emerald-500"></div>
@@ -691,9 +630,6 @@
     </div>
   </section>
 
-  <!-- ============================================== -->
-  <!-- ARTIGOS -->
-  <!-- ============================================== -->
   <section id="artigos" class="py-24 container mx-auto px-4">
     <div class="flex flex-col md:flex-row justify-between items-end mb-12">
       <div>
@@ -708,7 +644,6 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Artigo 1 -->
       <article
         class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
         <a href="artigos/metabolismo-como-acelerar.html" class="h-56 overflow-hidden relative">
@@ -733,7 +668,6 @@
         </div>
       </article>
 
-      <!-- Artigo 2 -->
       <article
         class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
         <a href="artigos/hidratacao-importancia-saude.html" class="h-56 overflow-hidden relative">
@@ -758,7 +692,6 @@
         </div>
       </article>
 
-      <!-- Artigo 3 -->
       <article
         class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
         <a href="artigos/ia-saude-chatgpt-gemini.html" class="h-56 overflow-hidden relative">
@@ -783,6 +716,79 @@
           </a>
         </div>
       </article>
+
+      <article
+        class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
+        <a href="artigos/ganho-massa-muscular.html" class="h-56 overflow-hidden relative">
+          <img src="img/artigos/ganho_massa_muscular.jpg" loading="lazy"
+            onerror="this.src='https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+            alt="Ganho de Massa Muscular" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div
+            class="absolute top-4 left-4 bg-white/90 backdrop-blur text-blue-700 px-3 py-1 rounded-full text-xs font-bold uppercase shadow-sm">
+            Exercícios
+          </div>
+        </a>
+        <div class="p-8 flex-1 flex flex-col">
+          <h3
+            class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 transition-colors">
+            <a href="artigos/ganho-massa-muscular.html">Ganho de Massa Muscular</a>
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 flex-1">Treino, dieta e descanso: os pilares fundamentais para alcançar a hipertrofia de forma eficiente.</p>
+          <a href="artigos/ganho-massa-muscular.html"
+            class="text-blue-600 font-bold hover:text-blue-800 inline-flex items-center gap-2">
+            Ler artigo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </article>
+
+      <article
+        class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
+        <a href="artigos/ansiedade-depressao.html" class="h-56 overflow-hidden relative">
+          <img src="img/artigos/saude-mental.png" loading="lazy"
+            onerror="this.src='https://images.unsplash.com/photo-1499209974431-9dddcece7f88?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+            alt="Ansiedade e Depressão" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div
+            class="absolute top-4 left-4 bg-white/90 backdrop-blur text-purple-700 px-3 py-1 rounded-full text-xs font-bold uppercase shadow-sm">
+            Saúde Mental
+          </div>
+        </a>
+        <div class="p-8 flex-1 flex flex-col">
+          <h3
+            class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-purple-600 transition-colors">
+            <a href="artigos/ansiedade-depressao.html">Ansiedade e Depressão</a>
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 flex-1">Compreenda os sintomas, as diferenças e os tratamentos para recuperar seu equilíbrio emocional.</p>
+          <a href="artigos/ansiedade-depressao.html"
+            class="text-purple-600 font-bold hover:text-purple-800 inline-flex items-center gap-2">
+            Ler artigo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </article>
+
+      <article
+        class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
+        <a href="artigos/diabetes-prevencao-tratamento.html" class="h-56 overflow-hidden relative">
+          <img src="img/artigos/diabetes.jpg" loading="lazy"
+            onerror="this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+            alt="Diabetes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div
+            class="absolute top-4 left-4 bg-white/90 backdrop-blur text-red-700 px-3 py-1 rounded-full text-xs font-bold uppercase shadow-sm">
+            Prevenção
+          </div>
+        </a>
+        <div class="p-8 flex-1 flex flex-col">
+          <h3
+            class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-red-600 transition-colors">
+            <a href="artigos/diabetes-prevencao-tratamento.html">Diabetes: Prevenção</a>
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 flex-1">Guia completo para prevenir e controlar o diabetes através de mudanças simples de hábitos.</p>
+          <a href="artigos/diabetes-prevencao-tratamento.html"
+            class="text-red-600 font-bold hover:text-red-800 inline-flex items-center gap-2">
+            Ler artigo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </article>
+
     </div>
 
     <div class="text-center mt-12 md:hidden">
@@ -793,9 +799,6 @@
     </div>
   </section>
 
-  <!-- ============================================== -->
-  <!-- FAQ -->
-  <!-- ============================================== -->
   <section id="faq" class="py-24 bg-gray-50 dark:bg-gray-800/50 border-t dark:border-gray-800">
     <div class="container mx-auto px-4 max-w-4xl">
       <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">Dúvidas Frequentes</h2>
@@ -803,7 +806,6 @@
         Entenda como nossas ferramentas funcionam.</p>
 
       <div class="space-y-4">
-        <!-- Pergunta 1 -->
         <details
           class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
           <summary
@@ -820,7 +822,6 @@
           </div>
         </details>
 
-        <!-- Pergunta 2 -->
         <details
           class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
           <summary
@@ -837,7 +838,6 @@
           </div>
         </details>
 
-        <!-- Pergunta 3 -->
         <details
           class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
           <summary
@@ -854,7 +854,6 @@
           </div>
         </details>
 
-        <!-- Pergunta 4 -->
         <details
           class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
           <summary
@@ -874,9 +873,6 @@
     </div>
   </section>
 
-  <!-- ============================================== -->
-  <!-- SOBRE / TRUST -->
-  <!-- ============================================== -->
   <section class="py-20 bg-white dark:bg-gray-900 border-t dark:border-gray-800">
     <div class="container mx-auto px-4 text-center max-w-3xl">
       <div class="bg-brand-50 dark:bg-brand-900/10 p-10 rounded-[3rem] border border-brand-100 dark:border-brand-800">
@@ -891,9 +887,6 @@
     </div>
   </section>
 
-  <!-- ============================================== -->
-  <!-- FOOTER -->
-  <!-- ============================================== -->
   <footer class="bg-gray-900 text-gray-300 pt-20 pb-10 border-t border-gray-800">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
@@ -958,33 +951,26 @@
     </div>
   </footer>
 
-  <!-- ============================================== -->
-  <!-- MODAL DE PROPAGANDA (APP) -->
-  <!-- ============================================== -->
   <div id="ad-modal-backdrop"
     class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm transition-opacity duration-300">
     <div id="ad-modal-content"
       class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-sm w-full relative overflow-hidden animate-pop-up border border-gray-200 dark:border-gray-700">
 
-      <!-- Botão Fechar -->
       <button onclick="closeAd()"
         class="absolute top-3 right-3 z-10 p-2 bg-black/20 hover:bg-black/40 rounded-full text-white transition-colors">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
 
-      <!-- Imagem / Banner do App -->
       <div
         class="h-40 bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center relative overflow-hidden">
         <div
           class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20">
         </div>
-        <!-- Icone do App -->
         <img src="finsafe.png" loading="lazy" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2382/2382461.png'"
           alt="Ícone FinSafe"
           class="w-20 h-20 rounded-2xl shadow-lg transform rotate-6 hover:rotate-0 transition-transform duration-300 z-10">
       </div>
 
-      <!-- Conteúdo do Modal -->
       <div class="p-6 text-center">
         <div class="mb-3">
           <span
@@ -1001,7 +987,6 @@
           Saúde.
         </p>
 
-        <!-- Botão de Download -->
         <a href="https://play.google.com/store/apps/details?id=com.thiagoevanio.finsafe&hl=pt_BR" target="_blank"
           class="flex items-center justify-center gap-2 w-full py-3.5 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 mb-3">
           <i data-lucide="download" class="w-5 h-5"></i>
@@ -1020,15 +1005,11 @@
     </div>
   </div>
 
-  <!-- Botão Back to Top -->
   <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
     class="fixed bottom-6 right-6 bg-brand-600 hover:bg-brand-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 translate-y-20 opacity-0 z-40">
     <i data-lucide="arrow-up" class="w-6 h-6"></i>
   </button>
 
-  <!-- ============================================== -->
-  <!-- JAVASCRIPT LOGIC -->
-  <!-- ============================================== -->
   <script>
     // Inicializa ícones Lucide
     lucide.createIcons();
