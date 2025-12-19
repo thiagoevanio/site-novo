@@ -1349,7 +1349,11 @@
             const data = await response.json();
              
             if (data.items && data.items.length > 0) {
-                const article = data.items[0];
+                // MUDANÇA: Em vez de pegar sempre a primeira (índice 0), 
+                // pegamos uma aleatória entre as 4 primeiras para dar variedade.
+                const maxIndex = Math.min(data.items.length, 4); 
+                const randomIndex = Math.floor(Math.random() * maxIndex);
+                const article = data.items[randomIndex];
                  
                 // Limpeza básica do título
                 const cleanTitle = article.title.split(' - ')[0];
