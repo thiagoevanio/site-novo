@@ -76,7 +76,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
-   
+    
   <!-- Lucide Icons (CORREÇÃO: Link específico para versão UMD) -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
@@ -676,7 +676,7 @@
       </a>
     </div>
   </section>
-   
+    
   <!-- ============================================== -->
   <!-- JOGOS / GAMIFICATION -->
   <!-- ============================================== -->
@@ -1156,7 +1156,7 @@
           <ul class="space-y-3 text-sm">
             <li><a href="politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
             <li><a href="termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
-            <li><a href="#" class="hover:text-brand-400 transition-colors">Isenção de Responsabilidade</a></li>
+            <li><a href="isencao-de-responsabilidade.html" class="hover:text-brand-400 transition-colors">Isenção de Responsabilidade</a></li>
           </ul>
         </div>
 
@@ -1308,10 +1308,10 @@
     // ==============================================
     // NEWS FETCHING LOGIC (RSS TO JSON - GRATUITO)
     // ==============================================
-     
+      
     // URL do Feed RSS do Google Notícias (Tópico Saúde - Brasil)
     const RSS_URL = 'https://news.google.com/rss/search?q=saude+bem+estar+brasil&hl=pt-BR&gl=BR&ceid=BR:pt-419';
-     
+      
     // Conversor RSS para JSON (Permite ler o feed no navegador sem bloqueio)
     const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
 
@@ -1343,23 +1343,23 @@
             }
 
             const response = await fetch(API_URL);
-             
+              
             if (!response.ok) throw new Error('Erro na API RSS');
-             
+              
             const data = await response.json();
-             
+              
             if (data.items && data.items.length > 0) {
                 // MUDANÇA: Em vez de pegar sempre a primeira (índice 0), 
                 // pegamos uma aleatória entre as 4 primeiras para dar variedade.
                 const maxIndex = Math.min(data.items.length, 4); 
                 const randomIndex = Math.floor(Math.random() * maxIndex);
                 const article = data.items[randomIndex];
-                 
+                  
                 // Limpeza básica do título
                 const cleanTitle = article.title.split(' - ')[0];
 
                 let cleanDesc = "Confira os detalhes completos desta matéria sobre saúde e bem-estar clicando no botão abaixo.";
-                 
+                  
                 if(article.contentSnippet && article.contentSnippet.length > 10) {
                    cleanDesc = article.contentSnippet.substring(0, 120) + "...";
                 }
@@ -1377,11 +1377,11 @@
                     url: article.link,
                     image: newsImg
                 };
-                 
+                  
                 // Salva no cache
                 localStorage.setItem('cached_health_news_rss', JSON.stringify(newsItem));
                 localStorage.setItem('cached_news_time_rss', now);
-                 
+                  
                 updateNewsUI(newsItem);
             } else {
                 updateNewsUI(fallbackNews);
@@ -1407,7 +1407,7 @@
         // Animação suave na troca de texto
         titleEl.style.opacity = 0;
         descEl.style.opacity = 0;
-         
+          
         setTimeout(() => {
             titleEl.textContent = news.title;
             // Remove tags HTML se vierem na descrição
@@ -1423,7 +1423,7 @@
                 imgEl.classList.add('hidden');
                 iconEl.classList.remove('hidden');
             }
-             
+              
             titleEl.style.opacity = 1;
             descEl.style.opacity = 1;
         }, 200);
