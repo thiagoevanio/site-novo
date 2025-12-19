@@ -469,12 +469,14 @@
           </div>
 
           <div class="w-full relative z-10">
-            <!-- Ícone/Header -->
-            <div class="mb-6 flex justify-center">
-              <div
-                class="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_30px_rgba(34,211,238,0.3)] border border-white/10">
-                <i data-lucide="newspaper" class="w-10 h-10 text-cyan-300"></i>
-              </div>
+            <!-- Imagem da Notícia (Nova) ou Ícone (Fallback) -->
+            <div id="news-image-container" class="mb-6 flex justify-center w-full h-40 overflow-hidden rounded-2xl bg-white/10 backdrop-blur-md shadow-[0_0_30px_rgba(34,211,238,0.3)] border border-white/10">
+                <!-- Ícone padrão (visível se não houver imagem) -->
+                <div id="news-icon" class="flex items-center justify-center w-full h-full">
+                    <i data-lucide="newspaper" class="w-10 h-10 text-cyan-300"></i>
+                </div>
+                <!-- Imagem dinâmica (oculta por padrão) -->
+                <img id="news-image" src="" alt="Notícia" class="w-full h-full object-cover hidden">
             </div>
 
             <!-- Texto -->
@@ -1317,12 +1319,15 @@
         const titleEl = document.getElementById('news-title');
         const descEl = document.getElementById('news-desc');
         const linkEl = document.getElementById('news-link');
+        const imgEl = document.getElementById('news-image');
+        const iconEl = document.getElementById('news-icon');
 
         // Notícia de Fallback (Caso falhe ou demore)
         const fallbackNews = {
             title: "Longevidade: 5 hábitos simples para viver mais e melhor",
             description: "Estudos recentes apontam que sono de qualidade, hidratação e redução de estresse são mais eficazes que dietas restritivas.",
-            url: "artigos.html"
+            url: "artigos.html",
+            image: null // Sem imagem no fallback, usa ícone
         };
 
         try {
@@ -1344,26 +1349,29 @@
             const data = await response.json();
              
             if (data.items && data.items.length > 0) {
-                // Pega a primeira notícia que tenha imagem ou descrição decente, ou apenas a primeira
-                // O Google RSS as vezes não manda descrição limpa, então filtramos
                 const article = data.items[0];
                  
-                // Limpeza básica do título (remove o nome do jornal no final, ex: " - Globo.com")
+                // Limpeza básica do título
                 const cleanTitle = article.title.split(' - ')[0];
 
-                // Como RSS do Google as vezes não tem descrição curta, usamos o título ou criamos um resumo
-                // Tenta pegar a descrição limpa ou usa uma genérica convidativa
                 let cleanDesc = "Confira os detalhes completos desta matéria sobre saúde e bem-estar clicando no botão abaixo.";
                  
-                // Se o RSS trouxer content snippet, usamos (limitado)
                 if(article.contentSnippet && article.contentSnippet.length > 10) {
                    cleanDesc = article.contentSnippet.substring(0, 120) + "...";
+                }
+
+                // Tenta extrair a imagem da descrição HTML (formato comum do Google RSS)
+                let newsImg = null;
+                const imgMatch = article.description.match(/src="([^"]+)"/);
+                if (imgMatch) {
+                    newsImg = imgMatch[1];
                 }
 
                 const newsItem = {
                     title: cleanTitle,
                     description: cleanDesc,
-                    url: article.link
+                    url: article.link,
+                    image: newsImg
                 };
                  
                 // Salva no cache
@@ -1376,7 +1384,6 @@
             }
         } catch (error) {
             console.error("Erro ao buscar notícias RSS:", error);
-            // Se falhar, tenta usar o cache antigo mesmo vencido
             const cachedNews = localStorage.getItem('cached_health_news_rss');
             if (cachedNews) {
                  updateNewsUI(JSON.parse(cachedNews));
@@ -1390,6 +1397,8 @@
         const titleEl = document.getElementById('news-title');
         const descEl = document.getElementById('news-desc');
         const linkEl = document.getElementById('news-link');
+        const imgEl = document.getElementById('news-image');
+        const iconEl = document.getElementById('news-icon');
 
         // Animação suave na troca de texto
         titleEl.style.opacity = 0;
@@ -1400,6 +1409,16 @@
             // Remove tags HTML se vierem na descrição
             descEl.innerHTML = news.description; 
             linkEl.href = news.url;
+            
+            // Lógica de Imagem vs Ícone
+            if (news.image) {
+                imgEl.src = news.image;
+                imgEl.classList.remove('hidden');
+                iconEl.classList.add('hidden');
+            } else {
+                imgEl.classList.add('hidden');
+                iconEl.classList.remove('hidden');
+            }
              
             titleEl.style.opacity = 1;
             descEl.style.opacity = 1;
