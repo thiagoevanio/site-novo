@@ -76,9 +76,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
-  
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+   
+  <!-- Lucide Icons (CORREÇÃO: Link específico para versão UMD) -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -179,6 +179,11 @@
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 
   <!-- ============================================== -->
+  <!-- SCRIPT MONETAG (VINHETA) -->
+  <!-- ============================================== -->
+  <script>(function(s){s.dataset.zone='10349431',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
+  <!-- ============================================== -->
   <!-- HEADER -->
   <!-- ============================================== -->
   <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
@@ -202,6 +207,7 @@
           class="text-sm font-bold text-orange-600 hover:text-orange-700 bg-orange-50 dark:bg-orange-900/20 px-3 py-1.5 rounded-full transition-colors flex items-center gap-1">
           <i data-lucide="star" class="w-3 h-3"></i> Personal Trainer
         </a>
+        <a href="#parceiros" class="text-sm font-medium hover:text-brand-600 transition-colors">Apps</a>
         <a href="#faq" class="text-sm font-medium hover:text-brand-600 transition-colors">Dúvidas</a>
 
         <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
@@ -225,6 +231,7 @@
         <a href="personal.html"
           class="block py-2 px-4 font-bold text-orange-600 bg-orange-50 dark:bg-orange-900/20 rounded-lg">Personal
           Trainer</a>
+        <a href="#parceiros" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Apps</a>
         <a href="#ferramentas"
           class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Calculadoras</a>
         <a href="artigos.html" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Artigos</a>
@@ -667,7 +674,7 @@
       </a>
     </div>
   </section>
-  
+   
   <!-- ============================================== -->
   <!-- JOGOS / GAMIFICATION -->
   <!-- ============================================== -->
@@ -970,6 +977,47 @@
   </section>
 
   <!-- ============================================== -->
+  <!-- NOVA SEÇÃO: APPS PARCEIROS (MINIMALISTA) -->
+  <!-- ============================================== -->
+  <section id="parceiros" class="py-10 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+        <!-- App Card Compacto -->
+        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-700 shadow-lg max-w-3xl mx-auto border border-emerald-500/30">
+            <div class="relative z-10 flex flex-col sm:flex-row items-center p-6 gap-5 sm:gap-8">
+                <!-- Icon/Image -->
+                <div class="shrink-0">
+                    <img src="finsafe.png" loading="lazy" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2382/2382461.png'"
+                        alt="Ícone FinSafe" class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl shadow-md border-2 border-white/20">
+                </div>
+
+                <!-- Text Content -->
+                <div class="text-center sm:text-left flex-1 text-white">
+                    <div class="flex items-center justify-center sm:justify-start gap-2 mb-1">
+                        <span class="bg-emerald-800/50 px-2 py-0.5 rounded text-[10px] font-bold text-emerald-100 uppercase tracking-wider border border-white/10">Recomendado</span>
+                        <span class="flex items-center text-[10px] text-emerald-100 font-medium">
+                            <i data-lucide="star" class="w-3 h-3 mr-1 text-yellow-400 fill-yellow-400"></i> 5.0
+                        </span>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-1">FinSafe: Controle Financeiro</h3>
+                    <p class="text-emerald-50 text-xs sm:text-sm leading-relaxed max-w-md">
+                        Organize suas finanças e gastos de forma simples, offline e sem anúncios. O parceiro ideal para sua saúde financeira.
+                    </p>
+                </div>
+
+                <!-- Action Button -->
+                <div class="shrink-0">
+                    <a href="https://play.google.com/store/apps/details?id=com.thiagoevanio.finsafe&hl=pt_BR" target="_blank"
+                        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-emerald-700 rounded-full text-sm font-bold shadow-md hover:bg-emerald-50 transition-all transform hover:-translate-y-0.5 whitespace-nowrap">
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                        Baixar App
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
   <!-- FAQ -->
   <!-- ============================================== -->
   <section id="faq" class="py-24 bg-gray-50 dark:bg-gray-800/50 border-t dark:border-gray-800">
@@ -1134,68 +1182,6 @@
     </div>
   </footer>
 
-  <!-- ============================================== -->
-  <!-- MODAL DE PROPAGANDA (APP) -->
-  <!-- ============================================== -->
-  <div id="ad-modal-backdrop"
-    class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm transition-opacity duration-300">
-    <div id="ad-modal-content"
-      class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-sm w-full relative overflow-hidden animate-pop-up border border-gray-200 dark:border-gray-700">
-
-      <!-- Botão Fechar -->
-      <button onclick="closeAd()"
-        class="absolute top-3 right-3 z-10 p-2 bg-black/20 hover:bg-black/40 rounded-full text-white transition-colors">
-        <i data-lucide="x" class="w-5 h-5"></i>
-      </button>
-
-      <!-- Imagem / Banner do App -->
-      <div
-        class="h-40 bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center relative overflow-hidden">
-        <div
-          class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20">
-        </div>
-        <!-- Icone do App -->
-        <img src="finsafe.png" loading="lazy" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2382/2382461.png'"
-          alt="Ícone FinSafe"
-          class="w-20 h-20 rounded-2xl shadow-lg transform rotate-6 hover:rotate-0 transition-transform duration-300 z-10">
-      </div>
-
-      <!-- Conteúdo do Modal -->
-      <div class="p-6 text-center">
-        <div class="mb-3">
-          <span
-            class="bg-green-100 text-green-700 text-[10px] font-extrabold px-2 py-1 rounded uppercase tracking-wider">Gratuito
-            & Offline</span>
-        </div>
-
-        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-          FinSafe: Controle Financeiro
-        </h3>
-
-        <p class="text-gray-600 dark:text-gray-300 text-sm mb-5 leading-relaxed">
-          Organize suas finanças, controle gastos e economize de forma simples e prática. O app parceiro do Calcule Sua
-          Saúde.
-        </p>
-
-        <!-- Botão de Download -->
-        <a href="https://play.google.com/store/apps/details?id=com.thiagoevanio.finsafe&hl=pt_BR" target="_blank"
-          class="flex items-center justify-center gap-2 w-full py-3.5 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 mb-3">
-          <i data-lucide="download" class="w-5 h-5"></i>
-          Baixar na Play Store
-        </a>
-
-        <p class="text-[10px] text-gray-400 dark:text-gray-500 leading-tight mb-4">
-          *Sem anúncios intrusivos. Focado em privacidade.
-        </p>
-
-        <button onclick="closeAd()"
-          class="text-sm text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 underline">
-          Agora não, obrigado
-        </button>
-      </div>
-    </div>
-  </div>
-
   <!-- Botão Back to Top -->
   <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
     class="fixed bottom-6 right-6 bg-brand-600 hover:bg-brand-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 translate-y-20 opacity-0 z-40">
@@ -1207,7 +1193,9 @@
   <!-- ============================================== -->
   <script>
     // Inicializa ícones Lucide
-    lucide.createIcons();
+    if (window.lucide) {
+      lucide.createIcons();
+    }
 
     // Lógica do Dark Mode
     const themeToggleBtn = document.getElementById('theme-toggle');
@@ -1313,38 +1301,15 @@
       });
     }
 
-    // LÓGICA DO MODAL DE PROPAGANDA
-    function showAd() {
-      // Verifica se já foi fechado
-      if (!localStorage.getItem('appAdClosed')) {
-        const modal = document.getElementById('ad-modal-backdrop');
-        modal.classList.remove('hidden');
-        modal.classList.add('flex'); // Garante que use flex para centralizar
-      }
-    }
-
-    function closeAd() {
-      const modal = document.getElementById('ad-modal-backdrop');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      // Salva no navegador que o usuário fechou
-      localStorage.setItem('appAdClosed', 'true');
-    }
-
-    // Ativa o modal após 3.5 segundos (menos intrusivo)
-    window.addEventListener('load', () => {
-      setTimeout(showAd, 3500);
-    });
-
     // ==============================================
     // NEWS FETCHING LOGIC (GNEWS)
     // ==============================================
     // NEWS FETCHING LOGIC (RSS TO JSON - GRATUITO)
     // ==============================================
-    
+     
     // URL do Feed RSS do Google Notícias (Tópico Saúde - Brasil)
     const RSS_URL = 'https://news.google.com/rss/search?q=saude+bem+estar+brasil&hl=pt-BR&gl=BR&ceid=BR:pt-419';
-    
+     
     // Conversor RSS para JSON (Permite ler o feed no navegador sem bloqueio)
     const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
 
@@ -1373,23 +1338,23 @@
             }
 
             const response = await fetch(API_URL);
-            
+             
             if (!response.ok) throw new Error('Erro na API RSS');
-            
+             
             const data = await response.json();
-            
+             
             if (data.items && data.items.length > 0) {
                 // Pega a primeira notícia que tenha imagem ou descrição decente, ou apenas a primeira
                 // O Google RSS as vezes não manda descrição limpa, então filtramos
                 const article = data.items[0];
-                
+                 
                 // Limpeza básica do título (remove o nome do jornal no final, ex: " - Globo.com")
                 const cleanTitle = article.title.split(' - ')[0];
 
                 // Como RSS do Google as vezes não tem descrição curta, usamos o título ou criamos um resumo
                 // Tenta pegar a descrição limpa ou usa uma genérica convidativa
                 let cleanDesc = "Confira os detalhes completos desta matéria sobre saúde e bem-estar clicando no botão abaixo.";
-                
+                 
                 // Se o RSS trouxer content snippet, usamos (limitado)
                 if(article.contentSnippet && article.contentSnippet.length > 10) {
                    cleanDesc = article.contentSnippet.substring(0, 120) + "...";
@@ -1400,11 +1365,11 @@
                     description: cleanDesc,
                     url: article.link
                 };
-                
+                 
                 // Salva no cache
                 localStorage.setItem('cached_health_news_rss', JSON.stringify(newsItem));
                 localStorage.setItem('cached_news_time_rss', now);
-                
+                 
                 updateNewsUI(newsItem);
             } else {
                 updateNewsUI(fallbackNews);
@@ -1429,13 +1394,13 @@
         // Animação suave na troca de texto
         titleEl.style.opacity = 0;
         descEl.style.opacity = 0;
-        
+         
         setTimeout(() => {
             titleEl.textContent = news.title;
             // Remove tags HTML se vierem na descrição
             descEl.innerHTML = news.description; 
             linkEl.href = news.url;
-            
+             
             titleEl.style.opacity = 1;
             descEl.style.opacity = 1;
         }, 200);
