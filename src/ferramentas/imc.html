@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#059669">
+    
+    <!-- === SEO PRIMÁRIO === -->
+    <title>Calculadora de IMC: Índice de Massa Corporal e Tabela Oficial | Calcule Sua Saúde</title>
+    <meta name="description" content="Calcule seu IMC gratuitamente. Entenda a fórmula matemática, veja a tabela oficial da OMS e descubra seu peso ideal com precisão científica.">
+    <meta name="keywords" content="calculadora imc, índice de massa corporal, fórmula imc, como calcular imc, tabela oms, obesidade, peso ideal">
+    <meta name="author" content="Calcule Sua Saúde">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://seusite.com.br/calculadoras/imc.html">
+
+    <!-- === OPEN GRAPH / SOCIAL === -->
+    <meta property="og:title" content="Calculadora de IMC - Cálculo e Tabela Oficial">
+    <meta property="og:description" content="Aprenda como o cálculo é feito e verifique seu status de peso na tabela oficial da OMS.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://seusite.com.br/calculadoras/imc.html">
+    <meta property="og:image" content="https://seusite.com.br/assets/og-imc.jpg">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- === DADOS ESTRUTURADOS (SCHEMA.ORG) === -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Índice de Massa Corporal (IMC)",
+      "url": "https://seusite.com.br/calculadoras/imc.html",
+      "description": "Ferramenta completa para cálculo do IMC, explicação da fórmula de Quetelet e classificação nutricional.",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde"
+      }
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        portal: { red: '#c4170c', dark: '#1e1e1e', gray: '#f5f5f5' },
+                        brand: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a' },
+                        health: { 50: '#ecfdf5', 100: '#d1fae5', 500: '#10b981', 600: '#059669', 700: '#047857', 900: '#064e3b' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.3s ease-out',
+                        'bounce-slight': 'bounceSlight 2s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+                        bounceSlight: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-5px)' } }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .dark .glass-effect { background: rgba(17, 24, 39, 0.95); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Estilos Rich Content */
+        .rich-content h2 { margin-top: 2.5rem; color: #059669; }
+        .dark .rich-content h2 { color: #6ee7b7; }
+        .rich-content h3 { color: #047857; margin-top: 1.5rem; }
+        .dark .rich-content h3 { color: #34d399; }
+        .rich-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+        .rich-content th { background-color: #ecfdf5; text-align: left; padding: 12px; border-bottom: 2px solid #a7f3d0; color: #065f46; }
+        .dark .rich-content th { background-color: #064e3b; border-bottom: 2px solid #047857; color: #d1fae5; }
+        .rich-content td { padding: 12px; border-bottom: 1px solid #d1fae5; }
+        .dark .rich-content td { border-bottom: 1px solid #065f46; }
+        .formula-box { background: #f0fdf4; border-left: 4px solid #10b981; padding: 1rem; font-family: monospace; font-size: 1.1em; color: #064e3b; }
+        .dark .formula-box { background: #064e3b; border-left: 4px solid #34d399; color: #ecfdf5; }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-40 glass-effect shadow-sm transition-all duration-300 border-b dark:border-gray-800">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group" title="Voltar para a página inicial">
+                <div class="bg-health-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform shadow-lg shadow-health-500/30">
+                    <i data-lucide="activity" class="w-6 h-6"></i>
+                </div>
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-health-600">Saúde</span>
+                </h1>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="../index.html" class="text-sm font-medium hover:text-health-600 transition-colors">Início</a>
+                <a href="../calculadoras.html" class="text-sm font-bold text-health-600">Calculadoras</a>
+                <a href="../artigos.html" class="text-sm font-medium hover:text-health-600 transition-colors">Artigos</a>
+                <a href="../sobre.html" class="text-sm font-medium hover:text-health-600 transition-colors">Sobre</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="../calculadoras.html" class="block py-2 text-center font-bold text-health-600 bg-health-50 dark:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../artigos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            
+            <!-- Breadcrumbs -->
+            <nav class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="../index.html" class="hover:text-health-600">Início</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <a href="../calculadoras.html" class="hover:text-health-600">Ferramentas</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <span class="text-gray-900 dark:text-white font-medium">Calculadora de IMC</span>
+            </nav>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Coluna Esquerda: Calculadora e Artigo -->
+                <div class="lg:col-span-8 space-y-12">
+                    
+                    <!-- Intro -->
+                    <div class="text-center md:text-left">
+                        <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4 leading-tight">
+                            Calculadora de <span class="text-transparent bg-clip-text bg-gradient-to-r from-health-600 to-green-500">Índice de Massa Corporal</span>
+                        </h1>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
+                            O IMC é o padrão internacional para avaliar se você está no seu peso ideal. Descubra sua classificação oficial, entenda a matemática por trás e o que ela significa para sua saúde.
+                        </p>
+                    </div>
+
+                    <!-- Ferramenta / Calculadora -->
+                    <section class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden p-8 relative ring-1 ring-black/5" id="ferramenta-calculo">
+                        <div class="absolute top-0 right-0 p-4 opacity-5">
+                            <i data-lucide="scale" class="w-48 h-48 text-health-600"></i>
+                        </div>
+
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-3 mb-6 border-b border-gray-100 dark:border-gray-700 pb-4">
+                                <div class="bg-health-100 dark:bg-health-900/30 p-3 rounded-xl text-health-600 dark:text-health-400">
+                                    <i data-lucide="calculator" class="w-6 h-6"></i>
+                                </div>
+                                <h2 class="text-2xl font-bold text-gray-900 dark:text-white m-0">Calcule seu IMC</h2>
+                            </div>
+
+                            <form id="imc-form" class="space-y-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <!-- Peso -->
+                                    <div>
+                                        <label for="peso" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Peso (kg)</label>
+                                        <div class="relative">
+                                            <input type="number" id="peso" step="0.1" placeholder="Ex: 70.5" required
+                                                class="block w-full pl-4 pr-12 py-3.5 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-health-500 focus:border-health-500 outline-none transition-all">
+                                            <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                                                <span class="text-gray-500 dark:text-gray-400 font-bold text-sm">kg</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Altura -->
+                                    <div>
+                                        <label for="altura" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Altura (m ou cm)</label>
+                                        <div class="relative">
+                                            <input type="number" id="altura" step="0.01" placeholder="Ex: 1.75 ou 175" required
+                                                class="block w-full pl-4 pr-12 py-3.5 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-health-500 focus:border-health-500 outline-none transition-all">
+                                            <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                                                <i data-lucide="ruler" class="w-5 h-5 text-gray-400"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="w-full bg-gradient-to-r from-health-600 to-green-500 hover:from-health-700 hover:to-green-600 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-health-500/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-2 text-lg">
+                                    <i data-lucide="check-circle" class="w-5 h-5"></i> Calcular Agora
+                                </button>
+                            </form>
+
+                            <!-- Resultado -->
+                            <div id="resultado-container" class="hidden mt-8 pt-8 border-t border-dashed border-gray-300 dark:border-gray-700 animate-fade-in">
+                                <div class="text-center">
+                                    <span class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">Seu Índice é</span>
+                                    
+                                    <div class="flex items-center justify-center gap-2 my-2">
+                                        <div id="resultado-valor" class="text-6xl font-black text-health-700 dark:text-health-400 tracking-tighter">--</div>
+                                    </div>
+                                    
+                                    <div id="resultado-badge" class="inline-flex items-center gap-2 px-6 py-2 rounded-full text-sm font-bold shadow-sm mb-6 transition-all duration-300">
+                                        <span id="badge-icon"></span>
+                                        <span id="badge-text">--</span>
+                                    </div>
+
+                                    <div class="bg-gray-50 dark:bg-gray-900/50 p-5 rounded-xl border border-gray-200 dark:border-gray-700 text-left">
+                                        <h4 class="font-bold text-gray-900 dark:text-white flex items-center gap-2 mb-2">
+                                            <i data-lucide="info" class="w-4 h-4 text-health-500"></i> Análise
+                                        </h4>
+                                        <p id="resultado-texto" class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                                            --
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ARTIGO EDUCATIVO RICO (SEO CONTENT) -->
+                    <article class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 rich-content">
+                        
+                        <p class="lead text-xl border-l-4 border-health-500 pl-4 italic bg-gray-50 dark:bg-gray-800/50 p-4 rounded-r-lg">
+                            O IMC (Índice de Massa Corporal) é a métrica mais utilizada pela Organização Mundial da Saúde (OMS) para triagem de peso. Criado no século 19, ele continua sendo a ferramenta principal para identificar riscos associados ao peso em populações.
+                        </p>
+
+                        <h2>Qual cálculo é usado? (Fórmula de Quetelet)</h2>
+                        <p>
+                            A base matemática desta calculadora é a famosa <strong>Fórmula de Quetelet</strong>, desenvolvida pelo estatístico belga Adolphe Quetelet. A lógica é simples: ela busca uma relação proporcional entre a massa corporal e a superfície corporal (representada pela altura ao quadrado).
+                        </p>
+                        
+                        <div class="formula-box my-6 rounded-lg text-center">
+                            IMC = Peso (kg) ÷ [Altura (m)]²
+                        </div>
+
+                        <h3>Exemplo Prático:</h3>
+                        <p>
+                            Imagine uma pessoa que pesa <strong>80 kg</strong> e mede <strong>1,80 m</strong>. O cálculo seria:
+                        </p>
+                        <ol>
+                            <li>Primeiro, multiplique a altura por ela mesma: <code>1,80 x 1,80 = 3,24</code></li>
+                            <li>Depois, divida o peso pelo resultado: <code>80 ÷ 3,24 = 24,69</code></li>
+                        </ol>
+                        <p>
+                            Neste caso, o IMC seria <strong>24,69 kg/m²</strong>, o que classifica a pessoa dentro do peso normal.
+                        </p>
+
+                        <h2>Tabela Oficial de Classificação (OMS)</h2>
+                        <p>
+                            Confira abaixo as faixas de referência padronizadas mundialmente para adultos (acima de 20 anos).
+                        </p>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr>
+                                        <th>IMC (kg/m²)</th>
+                                        <th>Classificação</th>
+                                        <th>Grau de Obesidade</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-yellow-50 dark:bg-yellow-900/10">
+                                        <td>Menor que 18,5</td>
+                                        <td><strong>Abaixo do peso</strong></td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr class="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500">
+                                        <td>18,5 a 24,9</td>
+                                        <td><strong>Peso Normal</strong></td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr class="bg-yellow-50 dark:bg-yellow-900/10">
+                                        <td>25,0 a 29,9</td>
+                                        <td><strong>Sobrepeso</strong></td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr class="bg-red-50 dark:bg-red-900/10">
+                                        <td>30,0 a 34,9</td>
+                                        <td><strong>Obesidade Grau I</strong></td>
+                                        <td>I</td>
+                                    </tr>
+                                    <tr class="bg-red-50 dark:bg-red-900/10">
+                                        <td>35,0 a 39,9</td>
+                                        <td><strong>Obesidade Grau II</strong> (Severa)</td>
+                                        <td>II</td>
+                                    </tr>
+                                    <tr class="bg-purple-50 dark:bg-purple-900/10">
+                                        <td>Maior que 40,0</td>
+                                        <td><strong>Obesidade Grau III</strong> (Mórbida)</td>
+                                        <td>III</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h2>Riscos à Saúde por Faixa</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8 not-prose">
+                            <div class="p-5 rounded-xl border border-red-200 dark:border-red-900 bg-red-50 dark:bg-red-900/10">
+                                <h4 class="font-bold text-red-800 dark:text-red-300 mb-2">IMC Elevado (Obesidade)</h4>
+                                <ul class="list-disc list-inside text-sm space-y-1 text-gray-700 dark:text-gray-300">
+                                    <li>Diabetes Tipo 2</li>
+                                    <li>Hipertensão Arterial</li>
+                                    <li>Doenças Cardiovasculares</li>
+                                    <li>Apneia do Sono</li>
+                                    <li>Problemas Articulares</li>
+                                </ul>
+                            </div>
+                            <div class="p-5 rounded-xl border border-yellow-200 dark:border-yellow-900 bg-yellow-50 dark:bg-yellow-900/10">
+                                <h4 class="font-bold text-yellow-800 dark:text-yellow-300 mb-2">IMC Baixo (Desnutrição)</h4>
+                                <ul class="list-disc list-inside text-sm space-y-1 text-gray-700 dark:text-gray-300">
+                                    <li>Deficiência de Vitaminas</li>
+                                    <li>Anemia e Fraqueza</li>
+                                    <li>Osteoporose</li>
+                                    <li>Baixa Imunidade</li>
+                                    <li>Problemas de Fertilidade</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h2>Limitações Importantes do IMC</h2>
+                        <p>
+                            Embora seja uma excelente ferramenta populacional, o IMC tem uma falha crítica ao analisar indivíduos isoladamente: <strong>ele não distingue massa muscular de gordura corporal</strong>.
+                        </p>
+                        <ul class="space-y-2">
+                            <li><strong>Atletas e Fisiculturistas:</strong> Podem apresentar um IMC alto (classificado como "sobrepeso" ou "obesidade") devido ao peso dos músculos, mesmo tendo pouca gordura e excelente saúde metabólica.</li>
+                            <li><strong>Falsos Magros:</strong> Pessoas com pouco músculo e muita gordura visceral podem ter um IMC "normal", mas apresentar riscos metabólicos semelhantes aos de obesos.</li>
+                            <li><strong>Idosos:</strong> A perda natural de massa muscular (sarcopenia) pode mascarar o acúmulo de gordura no cálculo do IMC.</li>
+                        </ul>
+                        <p class="bg-blue-50 dark:bg-gray-800 p-4 rounded-lg border border-blue-100 dark:border-gray-700 text-sm">
+                            <strong>Dica Profissional:</strong> Não olhe apenas para o número na balança. Combine o IMC com a <a href="gordura.html" class="text-health-600 font-bold hover:underline">Calculadora de Gordura Corporal</a> e a medida da circunferência abdominal para uma avaliação mais precisa.
+                        </p>
+
+                        <hr class="my-8 border-gray-200 dark:border-gray-700">
+                        
+                        <p class="text-sm text-gray-500 italic text-center">
+                            <strong>Nota:</strong> Esta calculadora é destinada exclusivamente a adultos (20 a 65 anos). Crianças e adolescentes utilizam curvas de crescimento (percentis) que variam conforme a idade e o sexo.
+                        </p>
+                    </article>
+                </div>
+
+                <!-- Coluna Direita: Sidebar -->
+                <aside class="lg:col-span-4 space-y-8 sticky top-28">
+                    
+                    <!-- Link para outras ferramentas -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+                        <h3 class="font-bold text-lg mb-4 text-gray-900 dark:text-white border-l-4 border-health-600 pl-3">Ferramentas Relacionadas</h3>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="gordura.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors group">
+                                    <div class="bg-yellow-100 text-yellow-600 p-2 rounded group-hover:bg-yellow-600 group-hover:text-white transition-colors"><i data-lucide="scale" class="w-4 h-4"></i></div>
+                                    <span class="font-medium text-sm text-gray-700 dark:text-gray-300">Percentual de Gordura</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="calorias.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors group">
+                                    <div class="bg-orange-100 text-orange-600 p-2 rounded group-hover:bg-orange-600 group-hover:text-white transition-colors"><i data-lucide="flame" class="w-4 h-4"></i></div>
+                                    <span class="font-medium text-sm text-gray-700 dark:text-gray-300">Gasto Calórico</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tmb.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors group">
+                                    <div class="bg-purple-100 text-purple-600 p-2 rounded group-hover:bg-purple-600 group-hover:text-white transition-colors"><i data-lucide="zap" class="w-4 h-4"></i></div>
+                                    <span class="font-medium text-sm text-gray-700 dark:text-gray-300">Taxa Metabólica</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Banner Nutri -->
+                    <div class="relative rounded-xl overflow-hidden bg-gray-900 text-white p-6 text-center group shadow-xl">
+                        <img src="../personal.jpg" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-30 group-hover:scale-110 transition-all duration-700" onerror="this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=500&q=60'" alt="Alimentação Saudável">
+                        <div class="relative z-10">
+                            <span class="text-health-400 font-bold text-xs uppercase tracking-widest bg-black/50 px-2 py-1 rounded">Controle de Peso</span>
+                            <h3 class="text-xl font-bold mb-4 mt-3 leading-tight">Precisa ajustar seu IMC?</h3>
+                            <a href="../nutricionista.html" class="inline-block bg-health-600 hover:bg-health-700 text-white px-6 py-3 rounded-full font-bold text-sm transition-all shadow-lg hover:shadow-health-500/50 transform hover:-translate-y-1">Falar com Nutricionista</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-health-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas e tecnologia avançada.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html" class="hover:text-health-400 transition-colors">Início</a></li>
+                        <li><a href="../sobre.html" class="hover:text-health-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="../contato.html" class="hover:text-health-400 transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../politica.html" class="hover:text-health-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="../termos.html" class="hover:text-health-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Redes Sociais</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="hover:text-white transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="hover:text-white transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Logic -->
+    <script>
+        lucide.createIcons();
+
+        // 1. Dark Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            localStorage.theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+        });
+
+        // Mobile Menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // 2. Lógica da Calculadora de IMC
+        document.getElementById('imc-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const pesoInput = document.getElementById('peso');
+            const alturaInput = document.getElementById('altura');
+            const container = document.getElementById('resultado-container');
+            const resValor = document.getElementById('resultado-valor');
+            const resBadge = document.getElementById('resultado-badge');
+            const resTexto = document.getElementById('resultado-texto');
+            const resIcon = document.getElementById('badge-icon');
+            const resTextBadge = document.getElementById('badge-text');
+
+            const peso = parseFloat(pesoInput.value);
+            let altura = parseFloat(alturaInput.value);
+
+            if (isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
+                alert("Por favor, insira valores válidos.");
+                return;
+            }
+
+            // Correção automática de altura (cm -> m)
+            if (altura > 3) {
+                altura = altura / 100;
+                alturaInput.value = altura; // Feedback visual
+            }
+
+            // Cálculo
+            const imc = peso / (altura * altura);
+            const imcFormatado = imc.toFixed(2);
+
+            // Classificação
+            let classificacao = "";
+            let colorClass = ""; // bg-color text-color
+            let texto = "";
+            let iconHtml = "";
+
+            if (imc < 18.5) {
+                classificacao = "Abaixo do peso";
+                colorClass = "bg-yellow-100 text-yellow-800 border border-yellow-200";
+                texto = "Seu IMC indica que você está abaixo do peso ideal. É importante verificar se sua ingestão de nutrientes está adequada para evitar fadiga e baixa imunidade.";
+                iconHtml = "⚠️";
+            } else if (imc < 24.9) {
+                classificacao = "Peso Normal";
+                colorClass = "bg-green-100 text-green-800 border border-green-200";
+                texto = "Parabéns! Você está dentro da faixa de peso considerada saudável pela Organização Mundial da Saúde. Continue com seus bons hábitos!";
+                iconHtml = "✅";
+            } else if (imc < 29.9) {
+                classificacao = "Sobrepeso";
+                colorClass = "bg-yellow-100 text-yellow-800 border border-yellow-200";
+                texto = "Você está um pouco acima do peso ideal. Pequenos ajustes na alimentação e aumento da atividade física podem ajudar a retornar à faixa normal.";
+                iconHtml = "⚠️";
+            } else if (imc < 34.9) {
+                classificacao = "Obesidade Grau I";
+                colorClass = "bg-orange-100 text-orange-800 border border-orange-200";
+                texto = "Atenção: Este nível indica obesidade inicial. O risco de doenças como diabetes e hipertensão começa a aumentar significativamente.";
+                iconHtml = "🚨";
+            } else if (imc < 39.9) {
+                classificacao = "Obesidade Grau II";
+                colorClass = "bg-red-100 text-red-800 border border-red-200";
+                texto = "Cuidado: Obesidade severa. O risco de complicações cardiovasculares é alto. Recomendamos buscar orientação médica especializada.";
+                iconHtml = "🚨";
+            } else {
+                classificacao = "Obesidade Grau III";
+                colorClass = "bg-purple-100 text-purple-800 border border-purple-200";
+                texto = "Alerta Vermelho: Obesidade mórbida. É crucial buscar ajuda médica imediata para um plano de tratamento seguro e eficaz.";
+                iconHtml = "🆘";
+            }
+
+            // Update UI
+            resValor.textContent = imcFormatado;
+            resBadge.className = `inline-flex items-center gap-2 px-6 py-2 rounded-full text-sm font-bold shadow-sm mb-6 transition-all duration-300 ${colorClass}`;
+            resIcon.innerHTML = iconHtml;
+            resTextBadge.textContent = classificacao;
+            resTexto.textContent = texto;
+            
+            container.classList.remove('hidden');
+            container.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    </script>
+</body>
+</html>
