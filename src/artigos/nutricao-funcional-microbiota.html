@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Nutrição Funcional e Microbiota: A Ciência da Saúde Intestinal | Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags SEO Avançadas -->
+    <meta name="description" content="Artigo científico sobre nutrição funcional. Entenda como a dieta modula a microbiota intestinal, fortalece a imunidade e previne doenças através de prebióticos e probióticos.">
+    <meta name="keywords" content="nutrição funcional, microbiota, intestino, disbiose, probióticos, prebióticos, imunidade, saúde intestinal, fibras">
+    <meta name="author" content="Equipe Calcule Sua Saúde">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Nutrição Funcional e Microbiota: A Ciência da Saúde Intestinal">
+    <meta property="og:description" content="Descubra como a alimentação inteligente pode transformar sua saúde através do intestino.">
+    <meta property="og:url" content="https://calculesuasaude.com.br/artigos/nutricao-funcional-microbiota.html">
+    <meta property="og:image" content="../img/artigos/nutricao_funcional.jpg">
+    <meta property="article:published_time" content="2024-02-20">
+    <meta property="article:section" content="Nutrição Clínica">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Estilo focado em leitura */
+        .prose p { margin-bottom: 1.5em; line-height: 1.8; text-align: justify; }
+        .prose h2 { margin-top: 2.5em; margin-bottom: 1em; font-weight: 800; color: #1f2937; }
+        .dark .prose h2 { color: #f3f4f6; }
+        .prose h3 { margin-top: 2em; margin-bottom: 0.75em; font-weight: 700; color: #374151; }
+        .dark .prose h3 { color: #e5e7eb; }
+        .prose ul { margin-bottom: 1.5em; list-style-type: disc; padding-left: 1.5em; }
+        .prose li { margin-bottom: 0.5em; }
+        .highlight-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+        }
+        .dark .highlight-box {
+            background-color: #14532d;
+            border-left-color: #4ade80;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                </div>
+                <span class="font-bold text-gray-800 dark:text-white text-lg hidden sm:block">Calcule Sua Saúde</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="../index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="../index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="../artigos.html" class="text-sm font-bold text-brand-600">Artigos</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../artigos.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Artigos</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra de Progresso -->
+    <div class="fixed top-[60px] left-0 h-1 bg-lime-500 z-40 w-0 transition-all duration-100" id="reading-progress"></div>
+
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            
+            <!-- Breadcrumbs -->
+            <nav class="flex text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="../index.html" class="hover:text-brand-600 transition-colors">Início</a>
+                <span class="mx-2">/</span>
+                <a href="../artigos.html" class="hover:text-brand-600 transition-colors">Artigos</a>
+                <span class="mx-2">/</span>
+                <span class="font-medium text-gray-900 dark:text-white truncate">Nutrição Funcional</span>
+            </nav>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Sidebar (Índice) -->
+                <aside class="hidden lg:block lg:col-span-3 relative">
+                    <div class="sticky top-32 p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <h4 class="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="list" class="w-4 h-4"></i> Neste artigo
+                        </h4>
+                        <nav class="space-y-2 text-sm border-l-2 border-gray-100 dark:border-gray-700 ml-1">
+                            <a href="#conceito" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-lime-600 hover:border-l-2 hover:border-lime-600 -ml-[2px] transition-all">O que é Nutrição Inteligente?</a>
+                            <a href="#microbiota" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-lime-600 hover:border-l-2 hover:border-lime-600 -ml-[2px] transition-all">O Elo Intestinal</a>
+                            <a href="#probioticos" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-lime-600 hover:border-l-2 hover:border-lime-600 -ml-[2px] transition-all">Probióticos e Prebióticos</a>
+                            <a href="#proteinas" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-lime-600 hover:border-l-2 hover:border-lime-600 -ml-[2px] transition-all">Proteínas e Microbiota</a>
+                            <a href="#imunidade" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-lime-600 hover:border-l-2 hover:border-lime-600 -ml-[2px] transition-all">Conexão com Imunidade</a>
+                            <a href="#conclusao" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-lime-600 hover:border-l-2 hover:border-lime-600 -ml-[2px] transition-all">Conclusão</a>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Conteúdo do Artigo -->
+                <article class="lg:col-span-9 prose dark:prose-invert max-w-none text-lg leading-relaxed">
+                    
+                    <!-- Header -->
+                    <header class="not-prose mb-10 text-center lg:text-left">
+                        <span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-lime-700 uppercase bg-lime-100 rounded-full dark:bg-lime-900/30 dark:text-lime-400">
+                            Ciência da Nutrição
+                        </span>
+                        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
+                            Nutrição Funcional e Microbiota: Uma Abordagem Científica para a Nutrição Inteligente
+                        </h1>
+                        
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-800 pb-8">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                                    <i data-lucide="microscope" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <span class="block font-bold text-gray-900 dark:text-white">Revisão Científica</span>
+                                    <span class="text-xs">Baseado em evidências atuais</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                20 de Fevereiro, 2024
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                                15 min de leitura
+                            </div>
+                        </div>
+                    </header>
+
+                    <!-- Introdução -->
+                    <p class="lead text-xl font-medium text-gray-700 dark:text-gray-300 mb-8">
+                        A nutrição funcional considera os alimentos como mais do que fontes de calorias. Ela investiga como cada nutriente interage com o organismo e com os microrganismos que habitam nosso intestino. A microbiota intestinal — um conjunto de trilhões de bactérias, vírus e fungos — participa de funções digestivas, metabólicas e imunológicas fundamentais.
+                    </p>
+
+                    <p>
+                        A dieta modula esse ecossistema e, ao mesmo tempo, a microbiota influencia como metabolizamos gorduras, carboidratos e proteínas. Este artigo apresenta, de forma detalhada e embasada em evidências científicas, como a nutrição inteligente e os alimentos funcionais (especialmente proteínas, probióticos e prebióticos) impactam a saúde intestinal e a imunidade.
+                    </p>
+
+                    <section id="conceito">
+                        <h2>O que é nutrição inteligente?</h2>
+                        <p>
+                            A nutrição inteligente vai além de contar calorias; trata-se de escolher alimentos estrategicamente para promover saúde e longevidade. Segundo especialistas como o médico Henrique Mattos, essa abordagem baseia-se em densidade nutricional, baixo índice inflamatório, suporte ao eixo intestino-cérebro e equilíbrio entre proteínas, gorduras saudáveis e carboidratos de qualidade.
+                        </p>
+                        <p>O conceito defende princípios claros:</p>
+                        <ul>
+                            <li>Preferir alimentos naturais e minimamente processados, ricos em fibras e fitoquímicos.</li>
+                            <li>Evitar açúcares adicionados, gorduras trans e ultraprocessados.</li>
+                            <li>Apoiar a saúde mitocondrial com antioxidantes e gorduras insaturadas (azeite, abacate, oleaginosas).</li>
+                            <li>Incorporar fibras, prebióticos e probióticos naturais para fortalecer a microbiota intestinal.</li>
+                        </ul>
+                        <p>
+                            Esse padrão está alinhado com dietas como a mediterrânea, rica em vegetais, leguminosas e oleaginosas. A nutrição inteligente ajusta a ingestão de macronutrientes conforme a individualidade metabólica, enfatizando que não existe dieta perfeita, mas princípios que favorecem a longevidade.
+                        </p>
+                    </section>
+
+                    <section id="microbiota">
+                        <h2>Microbiota intestinal: o elo entre alimento e saúde</h2>
+                        <p>
+                            O intestino é a principal porta de entrada de nutrientes, mas também de agentes patogênicos. Ele abriga 70-80% das células imunes e uma microbiota complexa que atua na digestão, síntese de vitaminas e modulação da imunidade. A mucosa intestinal funciona como barreira física e imunológica; células caliciformes produzem mucinas, os enterócitos absorvem nutrientes e as células de Paneth secretam substâncias antimicrobianas. Essa barreira depende de "tight junctions" (junções de oclusão), secreção de muco e imunoglobulinas.
+                        </p>
+                        <p>
+                            A microbiota influencia a digestão de proteínas, carboidratos e gorduras, produzindo metabólitos (como ácidos graxos de cadeia curta e aminoácidos) que modulam o sistema imunológico e até a expressão genética.
+                        </p>
+                        
+                        <div class="highlight-box bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 p-6 rounded-r-lg my-8">
+                            <h4 class="font-bold text-red-800 dark:text-red-300 mb-2">⚠️ Alerta sobre Dietas Ocidentais</h4>
+                            <p class="text-sm text-gray-700 dark:text-gray-300 m-0">
+                                Dietas ocidentais ricas em proteína e pobres em fibra aumentam a produção de metabólitos nocivos (como amoníaco, p-cresol e sulfeto de hidrogênio) durante a fermentação proteica. Por outro lado, dietas ricas em fibras e variadas promovem a produção de butirato e outros ácidos graxos benéficos, essenciais para a saúde do cólon.
+                            </p>
+                        </div>
+
+                        <h3>Alimentos que modulam a microbiota</h3>
+                        <p>
+                            Estudos indicam relações diretas entre alimentos e microrganismos benéficos:
+                        </p>
+                        <ul>
+                            <li><strong>Alho, cebola, alcachofra e raiz de chicória:</strong> Favorecem <em>Bifidobacterium</em> e <em>Lactobacillus</em>.</li>
+                            <li><strong>Aveia e banana:</strong> Aumentam <em>Bifidobacterium</em> e <em>Faecalibacterium prausnitzii</em> (um importante produtor de butirato).</li>
+                            <li><strong>Maçã e cenoura:</strong> Favorecem <em>F. prausnitzii</em> e <em>Bacteroides spp</em>.</li>
+                            <li><strong>Grão-de-bico, feijão e lentilha:</strong> Estimulam <em>Bifidobacterium</em>, <em>Roseburia</em> e <em>Lactobacillus</em>.</li>
+                        </ul>
+                        <p>
+                            Em contrapartida, o consumo excessivo de açúcar refinado, fast food, frituras, carnes processadas e álcool favorece bactérias patogênicas como <em>Clostridium spp.</em> e <em>Escherichia coli</em>, levando à disbiose (desequilíbrio da flora intestinal).
+                        </p>
+                    </section>
+
+                    <section id="alimentos-funcionais">
+                        <h2>Alimentos Funcionais: Probióticos, Prebióticos e Simbióticos</h2>
+                        
+                        <h3>Probióticos: microrganismos vivos que beneficiam o hospedeiro</h3>
+                        <p>
+                            A FAO/OMS define probióticos como microrganismos vivos que, quando ingeridos em quantidades adequadas, conferem benefícios à saúde do hospedeiro. Eles devem sobreviver ao ácido gástrico, alcançar o sítio de ação e permanecer estáveis nos alimentos. <em>Lactobacillus</em> e <em>Bifidobacterium</em> são as principais bactérias probióticas. No Brasil, a ANVISA aprova linhagens específicas, como <em>Lactobacillus acidophilus</em> e <em>Bifidobacterium lactis</em>.
+                        </p>
+                        <p><strong>Mecanismos de ação:</strong> Os probióticos modulam a microbiota intestinal competindo por sítios de adesão e nutrientes, limitando a colonização de bactérias patogênicas. Eles produzem ácidos láctico e acético, acidificando o lúmen intestinal e inibindo patógenos; reforçam a barreira mucosa e atuam como imunomoduladores.</p>
+                        <p><strong>Fontes alimentares:</strong> Iogurtes, leites fermentados, queijos, kefir, kimchi, kombucha e tempeh.</p>
+
+                        <h3>Prebióticos: substratos que alimentam as bactérias benéficas</h3>
+                        <p>
+                            Prebióticos são componentes alimentares não digeríveis que estimulam seletivamente o crescimento ou a atividade de determinadas bactérias no cólon. Para ser considerado prebiótico, um composto deve resistir à digestão, ser fermentado pela microbiota e estimular bactérias benéficas.
+                        </p>
+                        <p>
+                            No intestino grosso, prebióticos são fermentados gerando gases e ácidos graxos de cadeia curta (butirato, propionato, acetato). Esses ácidos reduzem o pH intestinal, fortalecem a barreira mucosa e modulam a resposta imunológica. O consumo de prebióticos está associado à melhora de distúrbios metabólicos, aumento da absorção de micronutrientes e regulação da saciedade.
+                        </p>
+                        <p><strong>Fontes principais:</strong> Chicória, alcachofra, alho, cebola, soja, grão-de-bico, banana e tomate.</p>
+
+                        <h3>Simbióticos: combinação sinérgica</h3>
+                        <p>
+                            Produtos simbióticos combinam probióticos e prebióticos. Essa combinação potencializa o crescimento de bactérias benéficas e melhora o funcionamento intestinal, podendo auxiliar na redução de glicemia e colesterol.
+                        </p>
+                    </section>
+
+                    <section id="proteinas">
+                        <h2>Proteínas, microbiota e saúde intestinal</h2>
+                        <p>
+                            A ingestão de proteínas é essencial para a manutenção e reparo de tecidos, mas a origem e o contexto em que são consumidas influenciam a microbiota. As diretrizes dietéticas atuais recomendam priorizar proteínas de origem vegetal, peixe e aves, em vez de carnes vermelhas.
+                        </p>
+
+                        <h3>Proteína animal e metabólitos tóxicos</h3>
+                        <p>
+                            A fermentação proteica de carne no cólon produz amoníaco, p-cresol e sulfeto de hidrogênio, metabólitos que podem prejudicar a saúde colônica. Carnes processadas, ricas em gorduras saturadas, aumentam a secreção de ácidos biliares e levam à formação de compostos potencialmente carcinogênicos. Dietas com baixo teor de carboidratos (low-carb extrema), ricas em proteínas e gorduras e pobres em fibras, podem reduzir a produção de butirato e aumentar esse perfil inflamatório.
+                        </p>
+
+                        <h3>O papel protetor das fibras</h3>
+                        <p>
+                            Estudos indicam que uma ingestão elevada de fibras protege contra os efeitos negativos de dietas ricas em proteína. A microbiota fermenta fibras produzindo ácidos graxos que reduzem a inflamação. A presença de fibras reduz a geração de compostos nocivos e promove metabólitos benéficos, como o indol. Portanto, a combinação de fontes de proteína de qualidade com fibras prebióticas (como leguminosas e oleaginosas) é a estratégia mais segura para a microbiota.
+                        </p>
+                    </section>
+
+                    <section id="imunidade">
+                        <h2>Saúde intestinal, imunidade e nutrição funcional</h2>
+                        <p>
+                            A integridade da barreira intestinal é essencial para a imunidade. A mucosa contém a maior parte das células imunes do corpo. Quando exposta a antígenos alimentares e bacterianos, ela depende da microbiota e da barreira física para proteção.
+                        </p>
+                        <p>
+                            Probióticos fortalecem essa barreira estimulando a produção de muco e defensinas. Prebióticos, ao serem fermentados, geram ácidos que reduzem o pH e favorecem bactérias benéficas. Uma dieta variada rica em fibras e alimentos fermentados fortalece esse sistema, enquanto dietas ocidentais típicas (ricas em calorias e processados) o enfraquecem, aumentando a suscetibilidade a infecções e doenças inflamatórias.
+                        </p>
+                    </section>
+
+                    <section id="conclusao">
+                        <h2>Conclusão: Integrando nutrição e microbiota</h2>
+                        <p>
+                            A nutrição funcional reconhece que saúde e doença estão intimamente ligadas ao ecossistema intestinal. Evidências mostram que alimentos ricos em fibras, probióticos e prebióticos modulam a microbiota, fortalecem a barreira intestinal e reduzem inflamação.
+                        </p>
+                        <p>
+                            Adotar uma nutrição inteligente significa valorizar a individualidade bioquímica, escolher alimentos funcionais e priorizar variedade e qualidade. Incorporar alimentos prebióticos (como chicória, alho, banana e aveia) e probióticos (iogurte, kefir, kimchi) na rotina diária, junto com fontes de proteína vegetal, fortalece a microbiota e a imunidade. Essas práticas, embasadas em ciência, ajudam a promover um envelhecimento saudável e a prevenir distúrbios digestivos e metabólicos.
+                        </p>
+                    </section>
+
+                    <div class="not-prose mt-12 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Referências Bibliográficas</h3>
+                        <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                            <li>1. Mattos, H. <em>Nutrição Inteligente e Longevidade</em>.</li>
+                            <li>2. IPGS. <em>Alimentos que modulam a microbiota intestinal</em>.</li>
+                            <li>3. Biocodex Microbiota Institute. <em>O microbioma intestinal como fator determinante de uma alimentação saudável</em>.</li>
+                            <li>4. ANVISA. <em>Diretrizes sobre Probióticos e Prebióticos</em>.</li>
+                            <li>5. FAO/OMS. <em>Guidelines for the Evaluation of Probiotics in Food</em>.</li>
+                        </ul>
+                    </div>
+
+                    <div class="cta-final mt-8 text-center">
+                        <h3>🍎 Cuide da sua alimentação</h3>
+                        <p class="mb-4">Descubra como equilibrar seus macronutrientes para uma microbiota saudável.</p>
+                        <a href="../ferramentas/macros.html" class="inline-flex items-center gap-2 bg-lime-600 hover:bg-lime-700 text-white font-bold px-6 py-3 rounded-lg transition-all shadow-lg">
+                            <i data-lucide="calculator" class="w-5 h-5"></i> Calcular Meus Macros
+                        </a>
+                    </div>
+
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Inicializa ícones
+        lucide.createIcons();
+
+        // Dark Mode Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        // Mobile Menu
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
+
