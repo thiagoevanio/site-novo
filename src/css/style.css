@@ -58,3 +58,70 @@ details>summary::-webkit-details-marker {
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+
+/* ==========================================================================
+   ESTILOS RESPONSIVOS E MOBILE
+   ========================================================================== */
+
+/*
+ * Usamos a diretiva `@layer components` para agrupar nossas customizações.
+ * Isso ajuda o Tailwind a entender e otimizar essas regras junto com as dele,
+ * evitando a necessidade do `!important`.
+ */
+@layer components {
+
+  /* --------------------------------------------------------------------------
+   * Estilos para Telas Médias e Pequenas (Tablets e Celulares)
+   * max-width: 768px
+   * -------------------------------------------------------------------------- */
+  @media screen and (max-width: 768px) {
+
+    /*
+     * Força a exibição do botão do menu (hambúrguer) e oculta a navegação de desktop.
+     * As classes do Tailwind como `md:hidden` já cuidam de esconder o botão no desktop,
+     * então aqui garantimos que ele seja visível no mobile.
+     */
+    .menu-toggle-mobile {
+      display: flex;
+    }
+
+    .navbar-desktop {
+      display: none;
+    }
+
+    /*
+     * Estilização do painel do menu mobile quando ele está ativo.
+     * A classe `.active` será adicionada/removida via JavaScript.
+     */
+    .menu-mobile-panel.active {
+      transform: translateX(0);
+      box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  /* --------------------------------------------------------------------------
+   * Estilos para Telas Muito Pequenas (Celulares em modo retrato)
+   * max-width: 480px
+   * -------------------------------------------------------------------------- */
+  @media screen and (max-width: 480px) {
+
+    /*
+     * Ajustes finos de espaçamento e tamanho de fonte para garantir
+     * uma boa legibilidade e toque em telas menores.
+     */
+    .hero-section {
+      padding-top: 5rem; /* 80px */
+      padding-bottom: 5rem; /* 80px */
+    }
+
+    .hero-section h2 {
+      font-size: 2.25rem; /* 36px */
+      line-height: 2.5rem; /* 40px */
+    }
+
+    .main-container {
+      padding-left: 1rem; /* 16px */
+      padding-right: 1rem; /* 16px */
+    }
+  }
+}
