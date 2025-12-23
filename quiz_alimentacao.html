@@ -11,6 +11,8 @@
     <meta property="og:title" content="Quiz: Alimentação Balanceada - Calcule Sua Saúde">
     <meta property="og:description" content="Teste seus conhecimentos sobre nutrição e descubra se sua alimentação é realmente saudável.">
     <meta property="og:type" content="website">
+    <!-- Imagem adicionada para consistência -->
+    <meta property="og:image" content="img/icon192.webp">
 
     <meta name="google-adsense-account" content="ca-pub-5825554897787593">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
@@ -25,103 +27,19 @@
       gtag('config', 'G-EVCQQZV60N');
     </script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            900: '#1e3a8a',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-out',
-                        'slide-up': 'slideUp 0.5s ease-out',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        slideUp: {
-                            '0%': { transform: 'translateY(20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
     <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons (Defer para performance) -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-        }
-        .dark .glass-effect {
-            background: rgba(17, 24, 39, 0.95);
-        }
-        
-        /* Estilo para as opções do quiz */
-        .quiz-option {
-            transition: all 0.2s ease;
-        }
-        .quiz-option:hover {
-            transform: translateY(-2px);
-        }
-        .quiz-option.selected {
-            border-color: #3b82f6;
-            background-color: #eff6ff;
-        }
-        .dark .quiz-option.selected {
-            background-color: rgba(59, 130, 246, 0.2);
-            border-color: #3b82f6;
-        }
-        
-        /* Feedback visual (Correto/Incorreto) */
-        .quiz-option.correct {
-            border-color: #10b981 !important;
-            background-color: #ecfdf5 !important;
-            color: #065f46 !important;
-        }
-        .dark .quiz-option.correct {
-            background-color: rgba(16, 185, 129, 0.2) !important;
-            color: #d1fae5 !important;
-        }
-        
-        .quiz-option.incorrect {
-            border-color: #ef4444 !important;
-            background-color: #fef2f2 !important;
-            color: #991b1b !important;
-        }
-        .dark .quiz-option.incorrect {
-            background-color: rgba(239, 68, 68, 0.2) !important;
-            color: #fee2e2 !important;
-        }
-    </style>
+    <!-- CSS Mestre -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 
     <!-- Header Fixo -->
     <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <!-- Logo -->
             <a href="index.html" class="flex items-center gap-2 group">
                 <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
                     <i data-lucide="heart-pulse" class="w-6 h-6"></i>
@@ -131,29 +49,28 @@
                 </h1>
             </a>
 
-            <!-- Menu Desktop -->
-            <nav class="hidden md:flex items-center gap-8">
+            <!-- Menu Desktop (Classe adicionada) -->
+            <nav class="navbar-desktop hidden md:flex items-center gap-8">
                 <a href="index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
                 <a href="todos_quizzes.html" class="text-sm font-bold text-brand-600">Quizzes</a>
                 <a href="index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
                 <a href="artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
                 <a href="sobre.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Sobre</a>
                 
-                <!-- Botão Dark Mode -->
                 <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
                     <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
                     <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
                 </button>
             </nav>
 
-            <!-- Menu Mobile Button -->
-            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+            <!-- Mobile Button (Classe adicionada) -->
+            <button id="mobile-menu-btn" class="menu-toggle-mobile md:hidden p-2 text-gray-600 dark:text-gray-300">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+        <!-- Mobile Menu Dropdown (Classe adicionada) -->
+        <div id="mobile-menu" class="menu-mobile-panel hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
             <div class="flex flex-col p-4 space-y-4">
                 <a href="index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
                 <a href="todos_quizzes.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Quizzes</a>
@@ -203,9 +120,6 @@
                 <div id="quiz-question-screen" class="hidden p-8 md:p-12">
                     <div class="flex justify-between items-center mb-6">
                         <span class="text-sm font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wide">Pergunta <span id="current-question-num">1</span> de <span id="total-questions">10</span></span>
-                        <div class="flex gap-1">
-                            <!-- Vidas ou indicadores visuais opcionais podem ir aqui -->
-                        </div>
                     </div>
 
                     <h2 id="question-text" class="text-2xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
@@ -311,9 +225,11 @@
     <!-- Scripts Logic -->
     <script>
         // Inicializa ícones Lucide
-        lucide.createIcons();
+        if (window.lucide) {
+            lucide.createIcons();
+        }
 
-        // 1. Dark Mode e Mobile Menu
+        // Lógica do Dark Mode
         const themeToggleBtn = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
 
@@ -332,11 +248,13 @@
             }
         });
 
+        // Menu Mobile (Agora com classes do CSS Mestre)
         const btnMobile = document.getElementById('mobile-menu-btn');
         const menuMobile = document.getElementById('mobile-menu');
 
         btnMobile.addEventListener('click', () => {
             menuMobile.classList.toggle('hidden');
+            menuMobile.classList.toggle('active');
         });
 
         // 2. Lógica do Quiz (Alimentação)
@@ -457,8 +375,7 @@
         let score = 0;
         let isAnswered = false;
 
-        // Elementos do DOM
-        const quizContainer = document.getElementById('quiz-container');
+        // Elementos DOM
         const startScreen = document.getElementById('quiz-start');
         const questionScreen = document.getElementById('quiz-question-screen');
         const resultScreen = document.getElementById('quiz-result-screen');
@@ -488,18 +405,15 @@
             isAnswered = false;
             const q = questions[currentQuestionIndex];
             
-            // UI Reset
             questionText.textContent = q.question;
             currentQuestionNum.textContent = currentQuestionIndex + 1;
             optionsContainer.innerHTML = '';
             feedbackContainer.classList.add('hidden');
             nextBtn.classList.add('hidden');
             
-            // Progress Bar
             const progress = ((currentQuestionIndex) / questions.length) * 100;
             progressBar.style.width = `${progress}%`;
 
-            // Create Options
             q.options.forEach((option, index) => {
                 const btn = document.createElement('button');
                 btn.className = "quiz-option w-full text-left p-4 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-medium transition-all flex items-center justify-between group";
@@ -511,6 +425,16 @@
             lucide.createIcons();
         }
 
+        function updateIcon(btn, iconName) {
+            const existingIcon = btn.querySelector('svg') || btn.querySelector('i');
+            if (existingIcon) {
+                const newIcon = document.createElement('i');
+                newIcon.setAttribute('data-lucide', iconName);
+                newIcon.className = "w-5 h-5";
+                existingIcon.replaceWith(newIcon);
+            }
+        }
+
         function selectOption(selectedIndex, btnElement) {
             if (isAnswered) return;
             isAnswered = true;
@@ -519,18 +443,6 @@
             const correctIndex = q.correct;
             const options = optionsContainer.children;
 
-            // Helper to update icon since Lucide replaces <i> with <svg>
-            const updateIcon = (btn, iconName) => {
-                const existingIcon = btn.querySelector('svg') || btn.querySelector('i');
-                if (existingIcon) {
-                    const newIcon = document.createElement('i');
-                    newIcon.setAttribute('data-lucide', iconName);
-                    newIcon.className = "w-5 h-5";
-                    existingIcon.replaceWith(newIcon);
-                }
-            };
-
-            // Update UI based on correctness
             if (selectedIndex === correctIndex) {
                 score++;
                 btnElement.classList.add('correct');
@@ -540,7 +452,6 @@
                 btnElement.classList.add('incorrect');
                 updateIcon(btnElement, 'x-circle');
                 
-                // Highlight correct answer
                 const correctBtn = options[correctIndex];
                 correctBtn.classList.add('correct');
                 updateIcon(correctBtn, 'check-circle');
@@ -548,14 +459,13 @@
                 showFeedback(false, q.explanation);
             }
 
-            // Disable all buttons
             for (let btn of options) {
                 btn.disabled = true;
                 btn.classList.add('cursor-default');
             }
 
             nextBtn.classList.remove('hidden');
-            lucide.createIcons(); // Refresh icons
+            lucide.createIcons();
         }
 
         function showFeedback(isCorrect, text) {
@@ -605,18 +515,18 @@
             if (percentage === 100) {
                 iconContainer.innerHTML = "🏆";
                 iconContainer.className = "w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 text-5xl bg-yellow-100 dark:bg-yellow-900/30";
-                resultTitle.textContent = "Excelente! Você é um mestre da nutrição!";
-                resultMessage.textContent = "Parabéns! Você demonstrou um conhecimento perfeito sobre alimentação saudável. Continue assim!";
+                resultTitle.textContent = "Incrível! Você sabe tudo!";
+                resultMessage.textContent = "Seus conhecimentos sobre saúde estão afiadíssimos. Continue mantendo esses hábitos!";
             } else if (percentage >= 70) {
-                iconContainer.innerHTML = "🌟";
+                iconContainer.innerHTML = "👏";
                 iconContainer.className = "w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 text-5xl bg-blue-100 dark:bg-blue-900/30";
-                resultTitle.textContent = "Muito bem! Você tem ótimos conhecimentos.";
-                resultMessage.textContent = "Você sabe o essencial para manter uma boa saúde. Com alguns ajustes, sua alimentação será perfeita!";
+                resultTitle.textContent = "Muito bom!";
+                resultMessage.textContent = "Você tem uma ótima base sobre saúde e bem-estar. Com alguns ajustes, fica perfeito!";
             } else {
-                iconContainer.innerHTML = "📚";
+                iconContainer.innerHTML = "📖";
                 iconContainer.className = "w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 text-5xl bg-gray-100 dark:bg-gray-700";
-                resultTitle.textContent = "Que tal estudar um pouco mais?";
-                resultMessage.textContent = "Você acertou algumas, mas ainda há muito o que aprender sobre nutrição. Confira nossos artigos para melhorar seus hábitos!";
+                resultTitle.textContent = "Sempre é tempo de aprender!";
+                resultMessage.textContent = "Que tal ler alguns de nossos artigos para aprender mais sobre como cuidar do seu corpo?";
             }
         }
 
