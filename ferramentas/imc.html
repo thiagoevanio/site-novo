@@ -11,14 +11,15 @@
     <meta name="keywords" content="calculadora imc, índice de massa corporal, fórmula imc, como calcular imc, tabela oms, obesidade, peso ideal">
     <meta name="author" content="Calcule Sua Saúde">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://seusite.com.br/calculadoras/imc.html">
+    <link rel="canonical" href="https://calculesuasaude.com.br/ferramentas/imc.html">
 
     <!-- === OPEN GRAPH / SOCIAL === -->
     <meta property="og:title" content="Calculadora de IMC - Cálculo e Tabela Oficial">
     <meta property="og:description" content="Aprenda como o cálculo é feito e verifique seu status de peso na tabela oficial da OMS.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://seusite.com.br/calculadoras/imc.html">
-    <meta property="og:image" content="https://seusite.com.br/assets/og-imc.jpg">
+    <meta property="og:url" content="https://calculesuasaude.com.br/ferramentas/imc.html">
+    <!-- CORREÇÃO: Caminho e extensão da imagem -->
+    <meta property="og:image" content="../img/icon192.webp">
     <meta property="og:locale" content="pt_BR">
 
     <!-- === DADOS ESTRUTURADOS (SCHEMA.ORG) === -->
@@ -27,7 +28,7 @@
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Calculadora de Índice de Massa Corporal (IMC)",
-      "url": "https://seusite.com.br/calculadoras/imc.html",
+      "url": "https://calculesuasaude.com.br/ferramentas/imc.html",
       "description": "Ferramenta completa para cálculo do IMC, explicação da fórmula de Quetelet e classificação nutricional.",
       "applicationCategory": "HealthApplication",
       "operatingSystem": "All",
@@ -52,61 +53,12 @@
       gtag('config', 'G-EVCQQZV60N');
     </script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        portal: { red: '#c4170c', dark: '#1e1e1e', gray: '#f5f5f5' },
-                        brand: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a' },
-                        health: { 50: '#ecfdf5', 100: '#d1fae5', 500: '#10b981', 600: '#059669', 700: '#047857', 900: '#064e3b' }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Merriweather', 'serif'],
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-in-out',
-                        'slide-up': 'slideUp 0.3s ease-out',
-                        'bounce-slight': 'bounceSlight 2s infinite',
-                    },
-                    keyframes: {
-                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
-                        slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
-                        bounceSlight: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-5px)' } }
-                    }
-                }
-            }
-        }
-    </script>
-
     <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass-effect { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
-        .dark .glass-effect { background: rgba(17, 24, 39, 0.95); }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        /* Estilos Rich Content */
-        .rich-content h2 { margin-top: 2.5rem; color: #059669; }
-        .dark .rich-content h2 { color: #6ee7b7; }
-        .rich-content h3 { color: #047857; margin-top: 1.5rem; }
-        .dark .rich-content h3 { color: #34d399; }
-        .rich-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
-        .rich-content th { background-color: #ecfdf5; text-align: left; padding: 12px; border-bottom: 2px solid #a7f3d0; color: #065f46; }
-        .dark .rich-content th { background-color: #064e3b; border-bottom: 2px solid #047857; color: #d1fae5; }
-        .rich-content td { padding: 12px; border-bottom: 1px solid #d1fae5; }
-        .dark .rich-content td { border-bottom: 1px solid #065f46; }
-        .formula-box { background: #f0fdf4; border-left: 4px solid #10b981; padding: 1rem; font-family: monospace; font-size: 1.1em; color: #064e3b; }
-        .dark .formula-box { background: #064e3b; border-left: 4px solid #34d399; color: #ecfdf5; }
-    </style>
+    <!-- CSS Mestre -->
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
@@ -116,35 +68,39 @@
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="../index.html" class="flex items-center gap-2 group" title="Voltar para a página inicial">
                 <div class="bg-health-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform shadow-lg shadow-health-500/30">
-                    <i data-lucide="activity" class="w-6 h-6"></i>
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
                 </div>
                 <h1 class="text-xl font-bold text-gray-800 dark:text-white tracking-tight">
                     Calcule Sua <span class="text-health-600">Saúde</span>
                 </h1>
             </a>
 
-            <nav class="hidden md:flex items-center gap-8">
+            <!-- Menu Desktop -->
+            <nav class="navbar-desktop hidden md:flex items-center gap-8" aria-label="Menu Principal">
                 <a href="../index.html" class="text-sm font-medium hover:text-health-600 transition-colors">Início</a>
-                <a href="../calculadoras.html" class="text-sm font-bold text-health-600">Calculadoras</a>
+                <a href="../index.html#ferramentas" class="text-sm font-bold text-health-600">Calculadoras</a>
+                <a href="../jogos.html" class="text-sm font-medium hover:text-health-600 transition-colors">Jogos</a>
                 <a href="../artigos.html" class="text-sm font-medium hover:text-health-600 transition-colors">Artigos</a>
                 <a href="../sobre.html" class="text-sm font-medium hover:text-health-600 transition-colors">Sobre</a>
                 
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Alternar tema">
                     <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
                     <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
                 </button>
             </nav>
 
-            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+            <!-- Menu Mobile Button -->
+            <button id="mobile-menu-btn" class="menu-toggle-mobile md:hidden p-2 text-gray-600 dark:text-gray-300" aria-label="Abrir menu">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+        <div id="mobile-menu" class="menu-mobile-panel hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
             <div class="flex flex-col p-4 space-y-4">
                 <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
-                <a href="../calculadoras.html" class="block py-2 text-center font-bold text-health-600 bg-health-50 dark:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center font-bold text-health-600 bg-health-50 dark:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../jogos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Jogos</a>
                 <a href="../artigos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
             </div>
         </div>
@@ -155,17 +111,17 @@
         <div class="container mx-auto px-4">
             
             <!-- Breadcrumbs -->
-            <nav class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
-                <a href="../index.html" class="hover:text-health-600">Início</a>
+            <nav class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8" aria-label="Breadcrumb">
+                <a href="../index.html" class="hover:text-health-600 transition-colors">Início</a>
                 <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <a href="../calculadoras.html" class="hover:text-health-600">Ferramentas</a>
+                <a href="../index.html#ferramentas" class="hover:text-health-600 transition-colors">Ferramentas</a>
                 <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <span class="text-gray-900 dark:text-white font-medium">Calculadora de IMC</span>
+                <span class="text-gray-900 dark:text-white font-medium" aria-current="page">Calculadora de IMC</span>
             </nav>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                 
-                <!-- Coluna Esquerda: Calculadora e Artigo -->
+                <!-- Coluna Esquerda: Calculadora e Artigo Rico -->
                 <div class="lg:col-span-8 space-y-12">
                     
                     <!-- Intro -->
@@ -246,6 +202,10 @@
                                             --
                                         </p>
                                     </div>
+                                    
+                                    <p class="text-xs text-gray-400 mt-4 italic">
+                                        *Este resultado é informativo e não substitui um diagnóstico médico oficial.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -393,21 +353,21 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="tmb.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors group">
-                                    <div class="bg-purple-100 text-purple-600 p-2 rounded group-hover:bg-purple-600 group-hover:text-white transition-colors"><i data-lucide="zap" class="w-4 h-4"></i></div>
-                                    <span class="font-medium text-sm text-gray-700 dark:text-gray-300">Taxa Metabólica</span>
+                                <a href="macros.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors group">
+                                    <div class="bg-green-100 text-green-600 p-2 rounded group-hover:bg-green-600 group-hover:text-white transition-colors"><i data-lucide="utensils" class="w-4 h-4"></i></div>
+                                    <span class="font-medium text-sm text-gray-700 dark:text-gray-300">Calculadora de Macros</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
 
-                    <!-- Banner Nutri -->
+                    <!-- Banner Personal -->
                     <div class="relative rounded-xl overflow-hidden bg-gray-900 text-white p-6 text-center group shadow-xl">
-                        <img src="../personal.jpg" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-30 group-hover:scale-110 transition-all duration-700" onerror="this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=500&q=60'" alt="Alimentação Saudável">
+                        <img src="../img/personal.webp" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-30 group-hover:scale-110 transition-all duration-700" onerror="this.src='https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=500&q=60'" alt="Treino Personalizado">
                         <div class="relative z-10">
-                            <span class="text-health-400 font-bold text-xs uppercase tracking-widest bg-black/50 px-2 py-1 rounded">Controle de Peso</span>
-                            <h3 class="text-xl font-bold mb-4 mt-3 leading-tight">Precisa ajustar seu IMC?</h3>
-                            <a href="../nutricionista.html" class="inline-block bg-health-600 hover:bg-health-700 text-white px-6 py-3 rounded-full font-bold text-sm transition-all shadow-lg hover:shadow-health-500/50 transform hover:-translate-y-1">Falar com Nutricionista</a>
+                            <span class="text-health-400 font-bold text-xs uppercase tracking-widest bg-black/50 px-2 py-1 rounded">Resultados Reais</span>
+                            <h3 class="text-xl font-bold mb-4 mt-3 leading-tight">Quer baixar esse número?</h3>
+                            <a href="../personal.html" class="inline-block bg-health-600 hover:bg-health-700 text-white px-6 py-3 rounded-full font-bold text-sm transition-all shadow-lg hover:shadow-health-500/50 transform hover:-translate-y-1">Consultoria de Treino</a>
                         </div>
                     </div>
                 </aside>
@@ -442,13 +402,14 @@
                         <li><a href="../termos.html" class="hover:text-health-400 transition-colors">Termos de Uso</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Redes Sociais</h4>
-                    <div class="flex gap-4">
-                        <a href="#" class="hover:text-white transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                        <a href="#" class="hover:text-white transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-                    </div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="ferramentas/imc.html" class="hover:text-health-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="ferramentas/tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
+                        <li><a href="ferramentas/agua.html" class="hover:text-brand-400 transition-colors">Água Diária</a></li>
+                    </ul>
                 </div>
             </div>
             
@@ -460,24 +421,37 @@
 
     <!-- Scripts Logic -->
     <script>
-        lucide.createIcons();
+        // Inicializa ícones Lucide
+        if (window.lucide) {
+            lucide.createIcons();
+        }
 
-        // 1. Dark Mode
+        // Lógica do Dark Mode
         const themeToggleBtn = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
+
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             htmlElement.classList.add('dark');
         } else {
             htmlElement.classList.remove('dark');
         }
+
         themeToggleBtn.addEventListener('click', () => {
             htmlElement.classList.toggle('dark');
-            localStorage.theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
         });
 
-        // Mobile Menu
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        // Menu Mobile
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+            menuMobile.classList.toggle('active');
         });
 
         // 2. Lógica da Calculadora de IMC
