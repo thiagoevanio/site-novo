@@ -18,13 +18,14 @@
   <meta property="og:description" content="Monitore sua saúde com precisão. Ferramentas gratuitas e artigos científicos.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://calculesuasaude.com.br">
-  <meta property="og:image" content="https://calculesuasaude.com.br/icon192.png">
+  <!-- CORREÇÃO: Apontando para img e webp -->
+  <meta property="og:image" content="https://calculesuasaude.com.br/img/icon192.webp">
   <meta name="p:domain_verify" content="87045e0f762d5e077c77f1a95e94d2dd" />
 
   <!-- PWA / Mobile -->
-  <!-- Ajustado para caminho relativo para compatibilidade com GitHub Pages -->
   <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="/icon192.png">
+  <!-- CORREÇÃO: Apontando para img e webp -->
+  <link rel="apple-touch-icon" href="img/icon192.webp">
   <link rel="canonical" href="https://calculesuasaude.com.br">
 
   <!-- ============================================== -->
@@ -62,7 +63,7 @@
         "name": "Calcule Sua Saúde",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://calculesuasaude.com.br/icon192.png"
+          "url": "https://calculesuasaude.com.br/img/icon192.webp"
         }
       }
     }
@@ -77,103 +78,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
     
-  <!-- Lucide Icons (CORREÇÃO: Link específico para versão UMD) -->
+  <!-- Lucide Icons (CORREÇÃO: Adicionado 'defer') -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-          },
-          animation: {
-            'pop-up': 'popUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-            'float': 'float 6s ease-in-out infinite',
-            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-          },
-          keyframes: {
-            popUp: {
-              '0%': { opacity: 0, transform: 'scale(0.9) translateY(20px)' },
-              '100%': { opacity: 1, transform: 'scale(1) translateY(0)' },
-            },
-            float: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-10px)' },
-            },
-            fadeInUp: {
-              '0%': { opacity: 0, transform: 'translateY(20px)' },
-              '100%': { opacity: 1, transform: 'translateY(0)' },
-            }
-          }
-        }
-      }
-    }
-  </script>
+  <!-- CSS Mestre (Substitui o Tailwind CDN e <style>) -->
+  <link href="css/style.css" rel="stylesheet">
 
-  <!-- Custom CSS -->
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-
-    .glass-effect {
-      background: rgba(255, 255, 255, 0.90);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .dark .glass-effect {
-      background: rgba(17, 24, 39, 0.90);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .animated-gradient {
-      background: linear-gradient(-45deg, #2563eb, #0ea5e9, #3b82f6, #4f46e5);
-      background-size: 400% 400%;
-      animation: gradient 15s ease infinite;
-    }
-
-    @keyframes gradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    details>summary {
-      list-style: none;
-    }
-
-    details>summary::-webkit-details-marker {
-      display: none;
-    }
-
-    /* Scrollbar Customizada */
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #f1f1f1; 
-    }
-    .dark ::-webkit-scrollbar-track {
-      background: #1f2937; 
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #888; 
-      border-radius: 5px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #555; 
-    }
-  </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
@@ -424,7 +334,8 @@
             <div class="relative shrink-0 z-10 mb-6 flex justify-center">
               <div
                 class="w-40 h-40 rounded-full p-1 bg-gradient-to-tr from-orange-500 to-red-600 shadow-[0_0_30px_rgba(249,115,22,0.4)]">
-                <img src="personal.jpg" loading="lazy"
+                <!-- CORREÇÃO: Caminho da Imagem e Extensão -->
+                <img src="img/personal.webp" loading="lazy"
                   onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
                   alt="Raphael Aquino Personal" class="w-full h-full object-cover rounded-full border-4 border-gray-900">
               </div>
@@ -823,7 +734,8 @@
       <article
         class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
         <a href="artigos/metabolismo-como-acelerar.html" class="h-56 overflow-hidden relative">
-          <img src="img/artigos/metabolismo.jpg" loading="lazy"
+          <!-- CORREÇÃO: Caminho e Extensão -->
+          <img src="img/artigos/metabolismo-como-acelerar.webp" loading="lazy"
             onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
             alt="Metabolismo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
           <div
@@ -848,7 +760,8 @@
       <article
         class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
         <a href="artigos/hidratacao-importancia-saude.html" class="h-56 overflow-hidden relative">
-          <img src="img/artigos/hidratacao.jpg" loading="lazy"
+          <!-- CORREÇÃO: Caminho e Extensão -->
+          <img src="img/artigos/hidratacao-importancia.webp" loading="lazy"
             onerror="this.src='https://images.unsplash.com/photo-1548839140-29a749e1cf4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
             alt="Hidratação" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
           <div
@@ -873,7 +786,8 @@
       <article
         class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
         <a href="artigos/ia-saude-chatgpt-gemini.html" class="h-56 overflow-hidden relative">
-          <img src="img/artigos/iasaude.png" loading="lazy"
+          <!-- CORREÇÃO: Caminho e Extensão -->
+          <img src="img/artigos/ia-saude-chatgpt-gemini.webp" loading="lazy"
             onerror="this.src='https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
             alt="IA na Saúde" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
           <div
@@ -899,7 +813,8 @@
       <article
         class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
         <a href="artigos/ganho-massa-muscular.html" class="h-56 overflow-hidden relative">
-          <img src="img/artigos/ganho_massa_muscular.jpg" loading="lazy"
+          <!-- CORREÇÃO: Caminho e Extensão -->
+          <img src="img/artigos/ganho-de-massa.webp" loading="lazy"
             onerror="this.src='https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
             alt="Ganho de Massa Muscular" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
           <div
@@ -924,7 +839,8 @@
       <article
         class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
         <a href="artigos/ansiedade-depressao.html" class="h-56 overflow-hidden relative">
-          <img src="img/artigos/saude-mental.png" loading="lazy"
+          <!-- CORREÇÃO: Caminho e Extensão -->
+          <img src="img/artigos/ansiedade-depressao.webp" loading="lazy"
             onerror="this.src='https://images.unsplash.com/photo-1499209974431-9dddcece7f88?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
             alt="Ansiedade e Depressão" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
           <div
@@ -949,7 +865,8 @@
       <article
         class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
         <a href="artigos/diabetes-prevencao-tratamento.html" class="h-56 overflow-hidden relative">
-          <img src="img/artigos/diabetes.jpg" loading="lazy"
+          <!-- CORREÇÃO: Caminho e Extensão -->
+          <img src="img/artigos/diabetes-prevencao-tratamento.webp" loading="lazy"
             onerror="this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
             alt="Diabetes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
           <div
@@ -990,7 +907,8 @@
             <div class="relative z-10 flex flex-col sm:flex-row items-center p-6 gap-5 sm:gap-8">
                 <!-- Icon/Image -->
                 <div class="shrink-0">
-                    <img src="finsafe.png" loading="lazy" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2382/2382461.png'"
+                    <!-- CORREÇÃO: Caminho e Extensão -->
+                    <img src="img/finsafe.webp" loading="lazy" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2382/2382461.png'"
                         alt="Ícone FinSafe" class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl shadow-md border-2 border-white/20">
                 </div>
 
