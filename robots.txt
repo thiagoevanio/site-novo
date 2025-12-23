@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-# Indica onde está o sitemap para o Google
-Sitemap: https://www.calculesuasaude.com.br/sitemap.xml
