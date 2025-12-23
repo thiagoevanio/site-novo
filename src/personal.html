@@ -9,37 +9,16 @@
     <!-- Meta Tags -->
     <meta name="description" content="Consultoria esportiva com Rafael Aquino. Personal Trainer especialista em Hipertrofia, Emagrecimento e Alta Performance.">
     <meta property="og:title" content="Raphael Aquino - Personal Trainer">
-    <meta property="og:image" content="personal2.jpg">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 900: '#1e3a8a' },
-                        ra: { 50: '#fff7ed', 100: '#ffedd5', 500: '#f97316', 600: '#ea580c', 900: '#7c2d12' } /* Laranja Personalizado */
-                    },
-                    fontFamily: { sans: ['Inter', 'sans-serif'] }
-                }
-            }
-        }
-    </script>
+    <!-- CORREÇÃO: Caminho e extensão da imagem -->
+    <meta property="og:image" content="img/personal2.webp">
 
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons (Defer para performance) -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass-effect { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
-        .dark .glass-effect { background: rgba(17, 24, 39, 0.95); }
-        .bg-pattern {
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-    </style>
+    <!-- CSS Mestre -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 
@@ -66,8 +45,8 @@
                         
                         <!-- Coluna da Imagem -->
                         <div class="relative h-96 lg:h-auto min-h-[500px] bg-gray-200 group">
-                            <!-- IMAGEM DO PERSONAL (Sem efeito de zoom para corrigir bordas) -->
-                            <img src="personal2.jpg" 
+                            <!-- IMAGEM DO PERSONAL (Correção de caminho e extensão) -->
+                            <img src="img/personal2.webp" 
                                  onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" 
                                  alt="Rafael Aquino Personal Trainer" 
                                  class="absolute inset-0 w-full h-full object-cover object-top">
@@ -283,7 +262,10 @@
     </main>
 
     <script>
-        lucide.createIcons();
+        // Inicializa ícones Lucide
+        if (window.lucide) {
+            lucide.createIcons();
+        }
         
         // Dark Mode Logic
         const themeToggleBtn = document.getElementById('theme-toggle');
