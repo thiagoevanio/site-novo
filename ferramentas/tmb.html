@@ -11,14 +11,14 @@
     <meta name="keywords" content="calculadora tmb, taxa metabólica basal, calcular metabolismo basal, gasto calórico diário, mifflin-st jeor, quantas calorias queimo parado">
     <meta name="author" content="Calcule Sua Saúde">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://seusite.com.br/calculadoras/tmb.html">
+    <link rel="canonical" href="https://calculesuasaude.com.br/ferramentas/tmb.html">
 
     <!-- === OPEN GRAPH / SOCIAL === -->
     <meta property="og:title" content="Calculadora de Metabolismo Basal (TMB)">
     <meta property="og:description" content="Descubra quantas calorias seu corpo precisa apenas para sobreviver e planeje sua dieta com precisão.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://seusite.com.br/calculadoras/tmb.html">
-    <meta property="og:image" content="https://seusite.com.br/assets/og-tmb.jpg">
+    <meta property="og:url" content="https://calculesuasaude.com.br/ferramentas/tmb.html">
+    <meta property="og:image" content="../img/icon192.webp">
     <meta property="og:locale" content="pt_BR">
 
     <!-- === DADOS ESTRUTURADOS (SCHEMA.ORG) === -->
@@ -27,7 +27,7 @@
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Calculadora de Taxa Metabólica Basal (TMB)",
-      "url": "https://seusite.com.br/calculadoras/tmb.html",
+      "url": "https://calculesuasaude.com.br/ferramentas/tmb.html",
       "description": "Ferramenta para estimar o gasto energético basal e total utilizando a equação de Mifflin-St Jeor.",
       "applicationCategory": "HealthApplication",
       "operatingSystem": "All",
@@ -52,61 +52,15 @@
       gtag('config', 'G-EVCQQZV60N');
     </script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        portal: { red: '#c4170c', dark: '#1e1e1e', gray: '#f5f5f5' },
-                        brand: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a' },
-                        meta: { 50: '#f5f3ff', 100: '#ede9fe', 500: '#8b5cf6', 600: '#7c3aed', 700: '#6d28d9', 900: '#4c1d95' }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Merriweather', 'serif'],
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-in-out',
-                        'slide-up': 'slideUp 0.3s ease-out',
-                        'pulse-glow': 'pulseGlow 2s infinite',
-                    },
-                    keyframes: {
-                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
-                        slideUp: { '0%': { transform: 'translateY(10px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
-                        pulseGlow: { '0%, 100%': { opacity: '1', transform: 'scale(1)' }, '50%': { opacity: '0.8', transform: 'scale(1.05)' } }
-                    }
-                }
-            }
-        }
-    </script>
-
     <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass-effect { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
-        .dark .glass-effect { background: rgba(17, 24, 39, 0.95); }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        
-        /* Estilos Rich Content */
-        .rich-content h2 { margin-top: 2rem; color: #7c3aed; font-size: 1.5rem; line-height: 1.3; }
-        .dark .rich-content h2 { color: #a78bfa; }
-        .rich-content h3 { color: #6d28d9; margin-top: 1.5rem; font-size: 1.25rem; }
-        .dark .rich-content h3 { color: #c4b5fd; }
-        .rich-content p { margin-bottom: 1rem; line-height: 1.7; }
-        .rich-content ul { margin-bottom: 1rem; padding-left: 1.5rem; list-style-type: disc; }
-        
-        .formula-box { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 1rem; margin: 1.5rem 0; font-family: monospace; color: #4c1d95; }
-        .dark .formula-box { background: #2e1065; border-left: 4px solid #a78bfa; color: #ddd6fe; }
-    </style>
+    <!-- CSS Mestre -->
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 
-<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+<body class="theme-meta bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 
     <!-- Header Fixo -->
     <header class="fixed w-full top-0 z-40 glass-effect shadow-sm transition-all duration-300 border-b dark:border-gray-800">
@@ -120,28 +74,32 @@
                 </h1>
             </a>
 
-            <nav class="hidden md:flex items-center gap-8">
+            <!-- Menu Desktop -->
+            <nav class="navbar-desktop hidden md:flex items-center gap-8" aria-label="Menu Principal">
                 <a href="../index.html" class="text-sm font-medium hover:text-meta-600 transition-colors">Início</a>
-                <a href="../calculadoras.html" class="text-sm font-bold text-meta-600">Calculadoras</a>
+                <a href="../index.html#ferramentas" class="text-sm font-bold text-meta-600">Calculadoras</a>
+                <a href="../jogos.html" class="text-sm font-medium hover:text-meta-600 transition-colors">Jogos</a>
                 <a href="../artigos.html" class="text-sm font-medium hover:text-meta-600 transition-colors">Artigos</a>
                 <a href="../sobre.html" class="text-sm font-medium hover:text-meta-600 transition-colors">Sobre</a>
                 
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Alternar tema">
                     <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
                     <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
                 </button>
             </nav>
 
-            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+            <!-- Menu Mobile Button -->
+            <button id="mobile-menu-btn" class="menu-toggle-mobile md:hidden p-2 text-gray-600 dark:text-gray-300" aria-label="Abrir menu">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+        <div id="mobile-menu" class="menu-mobile-panel hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
             <div class="flex flex-col p-4 space-y-4">
                 <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
-                <a href="../calculadoras.html" class="block py-2 text-center font-bold text-meta-600 bg-meta-50 dark:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center font-bold text-meta-600 bg-meta-50 dark:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../jogos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Jogos</a>
                 <a href="../artigos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
             </div>
         </div>
@@ -155,9 +113,9 @@
             <nav class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-6">
                 <a href="../index.html" class="hover:text-meta-600">Início</a>
                 <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <a href="../calculadoras.html" class="hover:text-meta-600">Ferramentas</a>
+                <a href="../index.html#ferramentas" class="hover:text-meta-600">Ferramentas</a>
                 <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <span class="text-gray-900 dark:text-white font-medium">Taxa Metabólica Basal</span>
+                <span class="text-gray-900 dark:text-white font-medium" aria-current="page">Taxa Metabólica Basal</span>
             </nav>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -218,7 +176,7 @@
 
                             <!-- Nível de Atividade -->
                             <div>
-                                <label for="atividade" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Nível de Atividade Física</label>
+                                <label for="atividade" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Nível de Atividade</label>
                                 <div class="relative">
                                     <select id="atividade" required
                                         class="block w-full pl-4 pr-10 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-meta-500 outline-none transition-all appearance-none cursor-pointer">
@@ -344,49 +302,88 @@
                         </p>
                     </article>
                 </div>
+
+                <!-- Coluna Direita: Sidebar -->
+                <aside class="lg:col-span-4 space-y-8 sticky top-28">
+                    
+                    <!-- Link para outras ferramentas -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+                        <h3 class="font-bold text-lg mb-4 text-gray-900 dark:text-white border-l-4 border-meta-500 pl-3">Ferramentas Relacionadas</h3>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="imc.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors group">
+                                    <div class="bg-green-100 text-green-600 p-2 rounded group-hover:bg-green-600 group-hover:text-white transition-colors"><i data-lucide="activity" class="w-4 h-4"></i></div>
+                                    <span class="font-medium text-sm text-gray-700 dark:text-gray-300">Calculadora IMC</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="gordura.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors group">
+                                    <div class="bg-yellow-100 text-yellow-600 p-2 rounded group-hover:bg-yellow-600 group-hover:text-white transition-colors"><i data-lucide="scale" class="w-4 h-4"></i></div>
+                                    <span class="font-medium text-sm text-gray-700 dark:text-gray-300">Percentual de Gordura</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="macros.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors group">
+                                    <div class="bg-blue-100 text-blue-600 p-2 rounded group-hover:bg-blue-600 group-hover:text-white transition-colors"><i data-lucide="utensils" class="w-4 h-4"></i></div>
+                                    <span class="font-medium text-sm text-gray-700 dark:text-gray-300">Calculadora de Macros</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Banner Personal -->
+                    <div class="relative rounded-xl overflow-hidden bg-gray-900 text-white p-6 text-center group shadow-xl">
+                        <img src="../img/personal.webp" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-30 group-hover:scale-110 transition-all duration-700" onerror="this.src='https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=500&q=60'" alt="Treino Personalizado">
+                        <div class="relative z-10">
+                            <span class="text-meta-400 font-bold text-xs uppercase tracking-widest bg-black/50 px-2 py-1 rounded">Alta Performance</span>
+                            <h3 class="text-xl font-bold mb-4 mt-3 leading-tight">Estagnou nos resultados?</h3>
+                            <a href="../personal.html" class="inline-block bg-meta-600 hover:bg-meta-700 text-white px-6 py-3 rounded-full font-bold text-sm transition-all shadow-lg hover:shadow-meta-500/50 transform hover:-translate-y-1">Montar Treino Personalizado</a>
+                        </div>
+                    </div>
+                </aside>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-10 border-t border-gray-800 mt-12">
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div class="col-span-1 md:col-span-1">
                     <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
                         <i data-lucide="heart-pulse" class="w-5 h-5 text-meta-500"></i> Calcule Sua Saúde
                     </h3>
-                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas e tecnologia avançada.</p>
                 </div>
                 
                 <div>
-                    <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wide">Ferramentas</h4>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="imc.html" class="hover:text-meta-400 transition-colors">IMC Adulto</a></li>
-                        <li><a href="agua.html" class="hover:text-meta-400 transition-colors">Hidratação</a></li>
-                        <li><a href="macros.html" class="hover:text-meta-400 transition-colors">Macronutrientes</a></li>
+                        <li><a href="../index.html" class="hover:text-meta-400 transition-colors">Início</a></li>
+                        <li><a href="../sobre.html" class="hover:text-meta-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="../contato.html" class="hover:text-meta-400 transition-colors">Contato</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wide">Institucional</h4>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="../sobre.html" class="hover:text-meta-400 transition-colors">Sobre Nós</a></li>
-                        <li><a href="../politica.html" class="hover:text-meta-400 transition-colors">Privacidade</a></li>
-                        <li><a href="../contato.html" class="hover:text-meta-400 transition-colors">Contato</a></li>
+                        <li><a href="../politica.html" class="hover:text-meta-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="../termos.html" class="hover:text-meta-400 transition-colors">Termos de Uso</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
-                    <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wide">Redes Sociais</h4>
-                    <div class="flex gap-3">
-                        <a href="#" class="bg-gray-800 p-2 rounded-lg hover:bg-meta-600 transition-colors text-white"><i data-lucide="instagram" class="w-4 h-4"></i></a>
-                        <a href="#" class="bg-gray-800 p-2 rounded-lg hover:bg-meta-600 transition-colors text-white"><i data-lucide="facebook" class="w-4 h-4"></i></a>
-                    </div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="ferramentas/imc.html" class="hover:text-meta-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="ferramentas/tmb.html" class="hover:text-meta-400 transition-colors">Taxa Metabólica</a></li>
+                        <li><a href="ferramentas/agua.html" class="hover:text-meta-400 transition-colors">Água Diária</a></li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 pt-8 text-center text-xs text-gray-500">
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
                 <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
             </div>
         </div>
@@ -394,7 +391,10 @@
 
     <!-- Scripts Logic -->
     <script>
-        lucide.createIcons();
+        // Inicializa ícones Lucide
+        if(window.lucide) {
+           lucide.createIcons();
+        }
 
         // 1. Dark Mode e Mobile Menu
         const themeToggleBtn = document.getElementById('theme-toggle');
@@ -406,21 +406,25 @@
             htmlElement.classList.remove('dark');
         }
 
-        themeToggleBtn.addEventListener('click', () => {
-            htmlElement.classList.toggle('dark');
-            if (htmlElement.classList.contains('dark')) {
-                localStorage.theme = 'dark';
-            } else {
-                localStorage.theme = 'light';
-            }
-        });
+        if (themeToggleBtn) {
+             themeToggleBtn.addEventListener('click', () => {
+                htmlElement.classList.toggle('dark');
+                if (htmlElement.classList.contains('dark')) {
+                    localStorage.theme = 'dark';
+                } else {
+                    localStorage.theme = 'light';
+                }
+            });
+        }
 
         const btnMobile = document.getElementById('mobile-menu-btn');
         const menuMobile = document.getElementById('mobile-menu');
 
-        btnMobile.addEventListener('click', () => {
-            menuMobile.classList.toggle('hidden');
-        });
+        if (btnMobile) {
+            btnMobile.addEventListener('click', () => {
+                menuMobile.classList.toggle('hidden');
+            });
+        }
 
         // 2. Lógica da Calculadora TMB (Mifflin-St Jeor)
         document.getElementById('tmb-form').addEventListener('submit', function(e) {
