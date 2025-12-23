@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#10b981">
+    <title>Jogo da Alimentação Saudável - Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Aprenda a montar um prato saudável! Separe os alimentos nutritivos dos ultraprocessados neste jogo divertido.">
+    <link rel="canonical" href="https://calculesuasaude.com.br/jogos/alimentacao_saudavel.html">
+
+        <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-green': 'pulseGreen 0.5s ease-in-out',
+                        'shake-red': 'shakeRed 0.5s ease-in-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        pulseGreen: {
+                            '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(16, 185, 129, 0.7)' },
+                            '50%': { transform: 'scale(1.05)', boxShadow: '0 0 0 10px rgba(16, 185, 129, 0)' },
+                        },
+                        shakeRed: {
+                            '0%, 100%': { transform: 'translateX(0)' },
+                            '25%': { transform: 'translateX(-5px)' },
+                            '75%': { transform: 'translateX(5px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; overscroll-behavior: none; touch-action: none; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glass-panel {
+            background: rgba(31, 41, 55, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Estilos para o Drag and Drop */
+        .draggable-item {
+            touch-action: none; /* Crucial para mobile */
+            cursor: grab;
+            transition: transform 0.1s;
+            position: absolute;
+            z-index: 50;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .draggable-item:active {
+            cursor: grabbing;
+            z-index: 9999 !important; /* Garante que fique acima de tudo */
+        }
+        .drop-zone {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-emerald-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 min-h-screen flex flex-col overflow-hidden fixed w-full h-full">
+
+    <!-- Header Simples -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-emerald-100 dark:border-gray-800 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-emerald-500 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="utensils" class="w-5 h-5"></i>
+                </div>
+                <h1 class="text-lg font-bold text-gray-900 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-emerald-500">Saúde</span>
+                </h1>
+            </a>
+            <a href="../jogos.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-emerald-500 transition-colors flex items-center gap-1">
+                <i data-lucide="gamepad-2" class="w-4 h-4"></i> Voltar
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Game Area -->
+    <main class="flex-1 pt-20 pb-4 flex flex-col items-center justify-between px-4 h-full relative">
+        
+        <!-- Background Elements -->
+        <div class="absolute top-20 left-10 w-32 h-32 bg-emerald-200 rounded-full blur-3xl opacity-30 animate-pulse pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-40 h-40 bg-blue-200 rounded-full blur-3xl opacity-30 animate-pulse pointer-events-none"></div>
+
+        <!-- TELA INICIAL -->
+        <div id="start-screen" class="absolute inset-0 z-[100] flex items-center justify-center bg-emerald-50/95 dark:bg-gray-900/95 backdrop-blur-sm p-4">
+            <div class="glass-panel rounded-3xl p-8 max-w-md w-full text-center shadow-2xl animate-float">
+                <div class="w-20 h-20 bg-green-100 rounded-full mx-auto flex items-center justify-center mb-6 text-4xl shadow-md">
+                    🥗
+                </div>
+                <h1 class="text-3xl font-black text-gray-900 dark:text-white mb-4">Master Chef Saudável</h1>
+                <p class="text-gray-600 dark:text-gray-300 mb-8">
+                    Você é o chef! Arraste os <strong class="text-green-600">Alimentos Saudáveis</strong> para o prato e jogue os <strong class="text-red-500">Não Saudáveis</strong> no lixo.
+                </p>
+                <div class="grid grid-cols-2 gap-4 mb-6 text-sm text-left bg-white dark:bg-gray-800 p-4 rounded-xl shadow-inner">
+                    <div class="flex items-center gap-2">
+                        <span class="text-2xl">🍎</span> <span>Vai para o <strong>Prato</strong></span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-2xl">🍟</span> <span>Vai para o <strong>Lixo</strong></span>
+                    </div>
+                </div>
+                <button onclick="game.start()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+                    <i data-lucide="play" class="w-5 h-5"></i> Começar Desafio
+                </button>
+            </div>
+        </div>
+
+        <!-- TELA DO JOGO -->
+        <div id="game-ui" class="w-full max-w-4xl h-full flex flex-col justify-between py-4 relative opacity-0 pointer-events-none transition-opacity duration-500">
+            
+            <!-- HUD -->
+            <div class="flex justify-between items-center bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-md z-10 mx-2 border border-gray-100 dark:border-gray-700">
+                <div class="flex flex-col">
+                    <span class="text-xs uppercase text-gray-500 font-bold">Pontos</span>
+                    <span class="text-2xl font-black text-emerald-600" id="score">0</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-xs uppercase text-gray-500 font-bold">Tempo</span>
+                    <span class="text-2xl font-black text-gray-800 dark:text-white" id="timer">60</span>
+                </div>
+                <div class="flex gap-1" id="lives">
+                    <!-- Lives injected via JS -->
+                </div>
+            </div>
+
+            <!-- Área Central (Spawn) - REMOVIDO OVERFLOW HIDDEN AQUI -->
+            <div id="game-board" class="flex-1 relative my-4 w-full">
+                <!-- Zona de Spawn onde os alimentos aparecem -->
+                <div id="spawn-zone" class="w-full h-full relative">
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
+                        <div class="w-64 h-64 border-2 border-dashed border-gray-400 dark:border-gray-600 rounded-full"></div>
+                    </div>
+                    <!-- Alimentos serão injetados aqui -->
+                </div>
+            </div>
+
+            <!-- Zonas de Drop (Prato e Lixo) -->
+            <div class="flex justify-between gap-4 h-40 md:h-56 px-2 z-10 pb-4">
+                
+                <!-- Prato (Saudável) -->
+                <div id="zone-healthy" class="drop-zone flex-1 bg-white dark:bg-gray-800 rounded-3xl border-4 border-green-200 dark:border-green-900 flex flex-col items-center justify-center relative overflow-hidden shadow-lg group">
+                    <div class="absolute inset-0 bg-green-50 dark:bg-green-900/10 opacity-50"></div>
+                    <div class="z-10 text-center pointer-events-none">
+                        <span class="text-4xl md:text-6xl mb-2 block transform group-hover:scale-110 transition-transform">🍽️</span>
+                        <h3 class="font-bold text-green-700 dark:text-green-400 uppercase tracking-wider text-xs md:text-sm">Prato Saudável</h3>
+                    </div>
+                </div>
+
+                <!-- Lixo (Não Saudável) -->
+                <div id="zone-unhealthy" class="drop-zone flex-1 bg-white dark:bg-gray-800 rounded-3xl border-4 border-red-200 dark:border-red-900 flex flex-col items-center justify-center relative overflow-hidden shadow-lg group">
+                    <div class="absolute inset-0 bg-red-50 dark:bg-red-900/10 opacity-50"></div>
+                    <div class="z-10 text-center pointer-events-none">
+                        <span class="text-4xl md:text-6xl mb-2 block transform group-hover:scale-110 transition-transform">🗑️</span>
+                        <h3 class="font-bold text-red-700 dark:text-red-400 uppercase tracking-wider text-xs md:text-sm">Lixo / Evitar</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- TELA DE RESULTADO -->
+        <div id="result-screen" class="hidden absolute inset-0 z-[100] flex items-center justify-center bg-white/95 dark:bg-gray-900/95 backdrop-blur-md p-4">
+            <div class="text-center max-w-md w-full">
+                <div id="result-icon" class="text-6xl mb-6 animate-bounce">🏆</div>
+                <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-2">Fim de Jogo!</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8" id="result-msg">Você é um mestre da nutrição!</p>
+                
+                <div class="bg-gray-100 dark:bg-gray-800 rounded-2xl p-6 mb-8 flex justify-around shadow-inner">
+                    <div>
+                        <span class="block text-xs uppercase font-bold text-gray-500">Pontuação</span>
+                        <span class="block text-4xl font-black text-emerald-600" id="final-score">0</span>
+                    </div>
+                    <div>
+                        <span class="block text-xs uppercase font-bold text-gray-500">Acertos</span>
+                        <span class="block text-4xl font-black text-blue-600" id="final-accuracy">0</span>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <button onclick="game.reset()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-lg transition-transform hover:scale-105 flex items-center justify-center gap-2">
+                        <i data-lucide="rotate-ccw" class="w-5 h-5"></i> Jogar Novamente
+                    </button>
+                    <button onclick="game.share()" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 rounded-xl shadow-lg transition-transform hover:scale-105 flex items-center justify-center gap-2">
+                        <i data-lucide="share-2" class="w-5 h-5"></i> Compartilhar Resultado
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feedback Toast (Flutuante) -->
+        <div id="toast" class="fixed top-24 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 px-6 py-3 rounded-full shadow-2xl z-[150] flex items-center gap-3 transition-all duration-300 opacity-0 translate-y-[-20px] pointer-events-none border border-gray-100 dark:border-gray-700">
+            <span id="toast-icon" class="text-2xl">💡</span>
+            <p id="toast-msg" class="text-sm font-bold text-gray-700 dark:text-white">Dica nutricional aqui</p>
+        </div>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        // Banco de Dados de Alimentos (100 Itens)
+        const foods = [
+            // Saudáveis (Frutas, Vegetais, Proteínas, Grãos)
+            { id: 1, name: 'Abacate', emoji: '🥑', type: 'healthy', tip: 'Rico em gorduras boas e antioxidantes.' },
+            { id: 2, name: 'Abacaxi', emoji: '🍍', type: 'healthy', tip: 'Ajuda na digestão e contém vitamina C.' },
+            { id: 3, name: 'Abobrinha', emoji: '🥒', type: 'healthy', tip: 'Baixa caloria e rica em água.' },
+            { id: 4, name: 'Acelga', emoji: '🥬', type: 'healthy', tip: 'Fonte de vitaminas K, A e C.' },
+            { id: 5, name: 'Água', emoji: '💧', type: 'healthy', tip: 'Essencial para todas as funções do corpo.' },
+            { id: 6, name: 'Alface', emoji: '🥬', type: 'healthy', tip: 'Base leve para saladas, rica em fibras.' },
+            { id: 7, name: 'Alho', emoji: '🧄', type: 'healthy', tip: 'Fortalece o sistema imunológico.' },
+            { id: 8, name: 'Amêndoas', emoji: '🌰', type: 'healthy', tip: 'Fonte de vitamina E e gorduras saudáveis.' },
+            { id: 9, name: 'Arroz Integral', emoji: '🍚', type: 'healthy', tip: 'Mais fibras que o arroz branco.' },
+            { id: 10, name: 'Aveia', emoji: '🥣', type: 'healthy', tip: 'Ajuda a controlar o colesterol.' },
+            { id: 11, name: 'Banana', emoji: '🍌', type: 'healthy', tip: 'Fonte rápida de energia e potássio.' },
+            { id: 12, name: 'Batata Doce', emoji: '🍠', type: 'healthy', tip: 'Carboidrato complexo de baixo índice glicêmico.' },
+            { id: 13, name: 'Berinjela', emoji: '🍆', type: 'healthy', tip: 'Rica em antioxidantes e fibras.' },
+            { id: 14, name: 'Beterraba', emoji: '🍠', type: 'healthy', tip: 'Pode melhorar o desempenho físico.' },
+            { id: 15, name: 'Brócolis', emoji: '🥦', type: 'healthy', tip: 'Superalimento cheio de nutrientes.' },
+            { id: 16, name: 'Camarão', emoji: '🦐', type: 'healthy', tip: 'Proteína magra, cuidado com o preparo.' },
+            { id: 17, name: 'Castanhas', emoji: '🌰', type: 'healthy', tip: 'Boas para o coração em pequenas porções.' },
+            { id: 18, name: 'Cebola', emoji: '🧅', type: 'healthy', tip: 'Anti-inflamatório natural.' },
+            { id: 19, name: 'Cenoura', emoji: '🥕', type: 'healthy', tip: 'Excelente para a visão e pele.' },
+            { id: 20, name: 'Cereja', emoji: '🍒', type: 'healthy', tip: 'Ajuda na recuperação muscular.' },
+            { id: 21, name: 'Chá Verde', emoji: '🍵', type: 'healthy', tip: 'Acelera o metabolismo e tem antioxidantes.' },
+            { id: 22, name: 'Chia', emoji: '🌾', type: 'healthy', tip: 'Rica em ômega-3 e fibras.' },
+            { id: 23, name: 'Cogumelos', emoji: '🍄', type: 'healthy', tip: 'Fonte de proteína vegetal e vitaminas.' },
+            { id: 24, name: 'Couve', emoji: '🥬', type: 'healthy', tip: 'Rica em cálcio e ferro.' },
+            { id: 25, name: 'Couve-flor', emoji: '🥦', type: 'healthy', tip: 'Versátil e com poucas calorias.' },
+            { id: 26, name: 'Ervilha', emoji: '🟢', type: 'healthy', tip: 'Fonte de proteína vegetal.' },
+            { id: 27, name: 'Espinafre', emoji: '🍃', type: 'healthy', tip: 'O alimento do Popeye, rico em ferro.' },
+            { id: 28, name: 'Feijão', emoji: '🫘', type: 'healthy', tip: 'Combinação perfeita com arroz, rico em ferro.' },
+            { id: 29, name: 'Frango Grelhado', emoji: '🍗', type: 'healthy', tip: 'Proteína magra para construção muscular.' },
+            { id: 30, name: 'Gengibre', emoji: '🫚', type: 'healthy', tip: 'Ótimo para digestão e imunidade.' },
+            { id: 31, name: 'Grão de Bico', emoji: '🧆', type: 'healthy', tip: 'Rico em proteínas e fibras.' },
+            { id: 32, name: 'Iogurte Natural', emoji: '🥛', type: 'healthy', tip: 'Probióticos para a saúde intestinal.' },
+            { id: 33, name: 'Kiwi', emoji: '🥝', type: 'healthy', tip: 'Mais vitamina C que a laranja.' },
+            { id: 34, name: 'Laranja', emoji: '🍊', type: 'healthy', tip: 'Clássica fonte de Vitamina C.' },
+            { id: 35, name: 'Leite', emoji: '🥛', type: 'healthy', tip: 'Fonte importante de cálcio.' },
+            { id: 36, name: 'Lentilha', emoji: '🥘', type: 'healthy', tip: 'Excelente fonte de ferro vegetal.' },
+            { id: 37, name: 'Limão', emoji: '🍋', type: 'healthy', tip: 'Ajuda na absorção de ferro.' },
+            { id: 38, name: 'Maçã', emoji: '🍎', type: 'healthy', tip: 'Um lanche prático e fibroso.' },
+            { id: 39, name: 'Mamão', emoji: '🍈', type: 'healthy', tip: 'Ótimo para o funcionamento do intestino.' },
+            { id: 40, name: 'Manga', emoji: '🥭', type: 'healthy', tip: 'Doce natural e rica em vitamina A.' },
+            { id: 41, name: 'Melancia', emoji: '🍉', type: 'healthy', tip: 'Hidratante e diurética.' },
+            { id: 42, name: 'Melão', emoji: '🍈', type: 'healthy', tip: 'Refrescante e pouco calórico.' },
+            { id: 43, name: 'Milho', emoji: '🌽', type: 'healthy', tip: 'Cereal energético rico em fibras.' },
+            { id: 44, name: 'Morango', emoji: '🍓', type: 'healthy', tip: 'Baixa caloria e muita vitamina C.' },
+            { id: 45, name: 'Nozes', emoji: '🌰', type: 'healthy', tip: 'Boas para o cérebro.' },
+            { id: 46, name: 'Ovo', emoji: '🥚', type: 'healthy', tip: 'Proteína completa e versátil.' },
+            { id: 47, name: 'Pepino', emoji: '🥒', type: 'healthy', tip: 'Quase zero calorias, pura água.' },
+            { id: 48, name: 'Pera', emoji: '🍐', type: 'healthy', tip: 'Rica em fibras e potássio.' },
+            { id: 49, name: 'Pêssego', emoji: '🍑', type: 'healthy', tip: 'Pele aveludada e polpa nutritiva.' },
+            { id: 50, name: 'Peixe', emoji: '🐟', type: 'healthy', tip: 'Rico em ômega-3 anti-inflamatório.' },
+            { id: 51, name: 'Pimentão', emoji: '🫑', type: 'healthy', tip: 'Colorido e cheio de antioxidantes.' },
+            { id: 52, name: 'Queijo Branco', emoji: '🧀', type: 'healthy', tip: 'Opção mais leve de cálcio.' },
+            { id: 53, name: 'Quinoa', emoji: '🌾', type: 'healthy', tip: 'Supergrão rico em proteínas.' },
+            { id: 54, name: 'Rabanete', emoji: '🔴', type: 'healthy', tip: 'Picante e detox.' },
+            { id: 55, name: 'Repolho', emoji: '🥬', type: 'healthy', tip: 'Econômico e muito nutritivo.' },
+            { id: 56, name: 'Salmão', emoji: '🍣', type: 'healthy', tip: 'Gorduras excelentes para o coração.' },
+            { id: 57, name: 'Sardinha', emoji: '🐟', type: 'healthy', tip: 'Muita nutrição por um preço baixo.' },
+            { id: 58, name: 'Tangerina', emoji: '🍊', type: 'healthy', tip: 'Fácil de descascar e nutritiva.' },
+            { id: 59, name: 'Tomate', emoji: '🍅', type: 'healthy', tip: 'Rico em licopeno (bom para o coração).' },
+            { id: 60, name: 'Uva', emoji: '🍇', type: 'healthy', tip: 'Energia rápida e resveratrol.' },
+
+            // Não Saudáveis (Ultraprocessados, Excesso de Açúcar/Gordura)
+            { id: 61, name: 'Bacon', emoji: '🥓', type: 'unhealthy', tip: 'Alto teor de gordura saturada e sódio.' },
+            { id: 62, name: 'Batata Frita', emoji: '🍟', type: 'unhealthy', tip: 'Fritura em imersão e muito sal.' },
+            { id: 63, name: 'Biscoito Recheado', emoji: '🍪', type: 'unhealthy', tip: 'Muito açúcar e gordura trans.' },
+            { id: 64, name: 'Bolo de Festa', emoji: '🍰', type: 'unhealthy', tip: 'Excesso de farinha refinada e açúcar.' },
+            { id: 65, name: 'Balas', emoji: '🍬', type: 'unhealthy', tip: 'Açúcar puro sem nutrientes.' },
+            { id: 66, name: 'Cachorro Quente', emoji: '🌭', type: 'unhealthy', tip: 'Salsicha é carne processada (evitar).' },
+            { id: 67, name: 'Bombom', emoji: '🍫', type: 'unhealthy', tip: 'Calorias vazias e muito açúcar.' },
+            { id: 68, name: 'Coxinha', emoji: '🍗', type: 'unhealthy', tip: 'Massa frita em óleo quente.' },
+            { id: 69, name: 'Croissant', emoji: '🥐', type: 'unhealthy', tip: 'Muita manteiga e farinha branca.' },
+            { id: 70, name: 'Cupcake', emoji: '🧁', type: 'unhealthy', tip: 'Cobertura cheia de gordura e açúcar.' },
+            { id: 71, name: 'Donut', emoji: '🍩', type: 'unhealthy', tip: 'Massa frita com cobertura doce.' },
+            { id: 72, name: 'Energético', emoji: '⚡', type: 'unhealthy', tip: 'Excesso de cafeína e açúcar.' },
+            { id: 73, name: 'Hambúrguer Fast Food', emoji: '🍔', type: 'unhealthy', tip: 'Carne processada e molhos gordurosos.' },
+            { id: 74, name: 'Lasanha Congelada', emoji: '🍝', type: 'unhealthy', tip: 'Altíssimo teor de sódio e conservantes.' },
+            { id: 75, name: 'Leite Condensado', emoji: '🥫', type: 'unhealthy', tip: 'Açúcar extremamente concentrado.' },
+            { id: 76, name: 'Linguiça', emoji: '🌭', type: 'unhealthy', tip: 'Embutido rico em sódio e gordura.' },
+            { id: 77, name: 'Macarrão Instantâneo', emoji: '🍜', type: 'unhealthy', tip: 'Frito antes de secar e muito sódio.' },
+            { id: 78, name: 'Margarina', emoji: '🧈', type: 'unhealthy', tip: 'Gordura vegetal hidrogenada.' },
+            { id: 79, name: 'Milkshake', emoji: '🥤', type: 'unhealthy', tip: 'Bomba calórica de sorvete e açúcar.' },
+            { id: 80, name: 'Nachos', emoji: '🌮', type: 'unhealthy', tip: 'Salgadinho de milho frito e salgado.' },
+            { id: 81, name: 'Nuggets', emoji: '🍗', type: 'unhealthy', tip: 'Carne processada mecanicamente e frita.' },
+            { id: 82, name: 'Pastel', emoji: '🥟', type: 'unhealthy', tip: 'Massa frita que absorve muito óleo.' },
+            { id: 83, name: 'Pipoca de Microondas', emoji: '🍿', type: 'unhealthy', tip: 'Gordura vegetal e excesso de sal.' },
+            { id: 84, name: 'Pizza Congelada', emoji: '🍕', type: 'unhealthy', tip: 'Massa refinada e queijos gordurosos.' },
+            { id: 85, name: 'Presunto', emoji: '🥩', type: 'unhealthy', tip: 'Carne processada com muito sódio.' },
+            { id: 86, name: 'Refrigerante', emoji: '🥤', type: 'unhealthy', tip: 'Bebida açucarada sem valor nutricional.' },
+            { id: 87, name: 'Salame', emoji: '🥓', type: 'unhealthy', tip: 'Embutido com muita gordura saturada.' },
+            { id: 88, name: 'Salgadinho de Pacote', emoji: '🥨', type: 'unhealthy', tip: 'Ultraprocessado cheio de aditivos.' },
+            { id: 89, name: 'Salsicha', emoji: '🌭', type: 'unhealthy', tip: 'Carne processada de baixa qualidade.' },
+            { id: 90, name: 'Sorvete', emoji: '🍦', type: 'unhealthy', tip: 'Alto teor de gordura e açúcar.' },
+            { id: 91, name: 'Suco de Caixinha', emoji: '🧃', type: 'unhealthy', tip: 'Pouca fruta e muito açúcar adicionado.' },
+            { id: 92, name: 'Torta Doce', emoji: '🥧', type: 'unhealthy', tip: 'Massa gordurosa e recheio doce.' },
+            { id: 93, name: 'Waffle', emoji: '🧇', type: 'unhealthy', tip: 'Farinha branca geralmente com xarope.' },
+            { id: 94, name: 'Bebida Alcoólica', emoji: '🍺', type: 'unhealthy', tip: 'Tóxico para o fígado e calórico.' },
+            { id: 95, name: 'Churros', emoji: '🥨', type: 'unhealthy', tip: 'Frito e passado no açúcar.' },
+            { id: 96, name: 'Pão de Queijo Industrial', emoji: '🧀', type: 'unhealthy', tip: 'Muitas vezes contém gordura vegetal.' },
+            { id: 97, name: 'Ketchup', emoji: '🍅', type: 'unhealthy', tip: 'Muitas vezes tem xarope de milho (açúcar).' },
+            { id: 98, name: 'Maionese Industrial', emoji: '🥚', type: 'unhealthy', tip: 'Óleo vegetal e aditivos.' },
+            { id: 99, name: 'Cereal Açucarado', emoji: '🥣', type: 'unhealthy', tip: 'Marketing infantil, mas puro açúcar.' },
+            { id: 100, name: 'Goiabada', emoji: '🟥', type: 'unhealthy', tip: 'Doce concentrado com muito açúcar.' }
+        ];
+
+        class HealthyGame {
+            constructor() {
+                this.score = 0;
+                this.time = 60;
+                this.lives = 3;
+                this.isPlaying = false;
+                this.spawnInterval = null;
+                this.timerInterval = null;
+                this.correctCount = 0;
+                this.activeItems = []; // Rastrear itens ativos
+                
+                this.dom = {
+                    ui: document.getElementById('game-ui'),
+                    startScreen: document.getElementById('start-screen'),
+                    resultScreen: document.getElementById('result-screen'),
+                    board: document.getElementById('spawn-zone'),
+                    score: document.getElementById('score'),
+                    timer: document.getElementById('timer'),
+                    lives: document.getElementById('lives'),
+                    healthyZone: document.getElementById('zone-healthy'),
+                    unhealthyZone: document.getElementById('zone-unhealthy'),
+                    toast: document.getElementById('toast'),
+                    toastMsg: document.getElementById('toast-msg'),
+                    finalScore: document.getElementById('final-score'),
+                    finalAccuracy: document.getElementById('final-accuracy')
+                };
+            }
+
+            start() {
+                this.score = 0;
+                this.time = 60;
+                this.lives = 3;
+                this.correctCount = 0;
+                this.isPlaying = true;
+                this.activeItems = [];
+
+                // Limpar board
+                this.dom.board.innerHTML = '<div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20"><div class="w-64 h-64 border-2 border-dashed border-gray-400 dark:border-gray-600 rounded-full"></div></div>';
+
+                this.dom.startScreen.classList.add('hidden');
+                this.dom.resultScreen.classList.add('hidden');
+                this.dom.ui.classList.remove('opacity-0', 'pointer-events-none');
+                
+                this.updateHUD();
+                
+                // Loops do jogo
+                clearInterval(this.timerInterval);
+                clearInterval(this.spawnInterval);
+                
+                this.timerInterval = setInterval(() => this.tick(), 1000);
+                this.spawnFood(); 
+                this.spawnInterval = setInterval(() => this.spawnFood(), 1800); 
+            }
+
+            tick() {
+                this.time--;
+                this.dom.timer.textContent = this.time;
+                if (this.time <= 10) this.dom.timer.classList.add('text-red-500');
+                else this.dom.timer.classList.remove('text-red-500');
+
+                if (this.time <= 0) this.gameOver();
+            }
+
+            updateHUD() {
+                this.dom.score.textContent = this.score;
+                this.dom.lives.innerHTML = '';
+                for(let i=0; i<3; i++) {
+                    const heart = document.createElement('i');
+                    heart.setAttribute('data-lucide', 'heart');
+                    heart.className = i < this.lives ? 'w-5 h-5 text-red-500 fill-current' : 'w-5 h-5 text-gray-300';
+                    this.dom.lives.appendChild(heart);
+                }
+                lucide.createIcons();
+            }
+
+            spawnFood() {
+                if (!this.isPlaying) return;
+                
+                // Limite de itens na tela para não travar
+                if (this.dom.board.children.length > 8) return;
+
+                const food = foods[Math.floor(Math.random() * foods.length)];
+                
+                const el = document.createElement('div');
+                el.className = 'draggable-item w-20 h-20 bg-white dark:bg-gray-800 rounded-full shadow-2xl flex items-center justify-center text-4xl border-2 border-gray-100 dark:border-gray-600 select-none animate-pop-in cursor-grab touch-none';
+                el.style.touchAction = "none"; // IMPORTANTE PARA MOBILE
+                el.textContent = food.emoji;
+                el.dataset.type = food.type;
+                el.dataset.name = food.name;
+                el.dataset.tip = food.tip;
+
+                // Posição Aleatória no Centro
+                const boardRect = this.dom.board.getBoundingClientRect();
+                const maxOffset = 60; 
+                const randomX = (Math.random() - 0.5) * maxOffset * 2;
+                const randomY = (Math.random() - 0.5) * maxOffset * 2;
+                
+                el.style.left = `calc(50% - 40px + ${randomX}px)`;
+                el.style.top = `calc(50% - 40px + ${randomY}px)`;
+
+                this.dom.board.appendChild(el);
+                this.makeDraggable(el);
+            }
+
+            makeDraggable(el) {
+                let isDragging = false;
+                let startX, startY, initialLeft, initialTop;
+
+                const startDrag = (e) => {
+                    if (!this.isPlaying) return;
+                    // Prevenir scroll apenas se for no item
+                    if (e.type === 'touchstart') e.preventDefault();
+                    
+                    isDragging = true;
+                    
+                    const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+                    const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
+
+                    startX = clientX;
+                    startY = clientY;
+                    
+                    initialLeft = el.offsetLeft;
+                    initialTop = el.offsetTop;
+
+                    el.style.zIndex = 100;
+                    el.style.cursor = 'grabbing';
+                    el.style.transform = 'scale(1.2)';
+                    
+                    // Adicionar listeners globais
+                    document.addEventListener('mousemove', moveDrag);
+                    document.addEventListener('mouseup', stopDrag);
+                    document.addEventListener('touchmove', moveDrag, { passive: false });
+                    document.addEventListener('touchend', stopDrag);
+                };
+
+                const moveDrag = (e) => {
+                    if (!isDragging) return;
+                    if (e.type === 'touchmove') e.preventDefault();
+
+                    const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+                    const clientY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
+
+                    const dx = clientX - startX;
+                    const dy = clientY - startY;
+
+                    el.style.left = `${initialLeft + dx}px`;
+                    el.style.top = `${initialTop + dy}px`;
+
+                    this.checkHover(el);
+                };
+
+                const stopDrag = () => {
+                    if (!isDragging) return;
+                    isDragging = false;
+                    el.style.cursor = 'grab';
+                    el.style.transform = 'scale(1)';
+                    el.style.zIndex = 50;
+
+                    document.removeEventListener('mousemove', moveDrag);
+                    document.removeEventListener('mouseup', stopDrag);
+                    document.removeEventListener('touchmove', moveDrag);
+                    document.removeEventListener('touchend', stopDrag);
+
+                    this.checkDrop(el);
+                };
+
+                el.addEventListener('mousedown', startDrag);
+                el.addEventListener('touchstart', startDrag, { passive: false });
+            }
+
+            checkHover(el) {
+                const elRect = el.getBoundingClientRect();
+                const healthyRect = this.dom.healthyZone.getBoundingClientRect();
+                const unhealthyRect = this.dom.unhealthyZone.getBoundingClientRect();
+
+                this.dom.healthyZone.classList.remove('border-emerald-500', 'bg-emerald-50', 'scale-105');
+                this.dom.unhealthyZone.classList.remove('border-red-500', 'bg-red-50', 'scale-105');
+
+                if (this.isOverlapping(elRect, healthyRect)) {
+                    this.dom.healthyZone.classList.add('border-emerald-500', 'bg-emerald-50', 'scale-105');
+                } else if (this.isOverlapping(elRect, unhealthyRect)) {
+                    this.dom.unhealthyZone.classList.add('border-red-500', 'bg-red-50', 'scale-105');
+                }
+            }
+
+            checkDrop(el) {
+                const elRect = el.getBoundingClientRect();
+                const healthyRect = this.dom.healthyZone.getBoundingClientRect();
+                const unhealthyRect = this.dom.unhealthyZone.getBoundingClientRect();
+                
+                const type = el.dataset.type;
+                let dropped = false;
+
+                // Reset styles
+                this.dom.healthyZone.classList.remove('border-emerald-500', 'bg-emerald-50', 'scale-105');
+                this.dom.unhealthyZone.classList.remove('border-red-500', 'bg-red-50', 'scale-105');
+
+                if (this.isOverlapping(elRect, healthyRect)) {
+                    this.processChoice(el, type === 'healthy', this.dom.healthyZone);
+                    dropped = true;
+                } else if (this.isOverlapping(elRect, unhealthyRect)) {
+                    this.processChoice(el, type === 'unhealthy', this.dom.unhealthyZone);
+                    dropped = true;
+                }
+
+                if (!dropped) {
+                    // Voltar para o centro com animação suave
+                    el.style.transition = "all 0.3s ease";
+                    el.style.left = 'calc(50% - 40px)';
+                    el.style.top = 'calc(50% - 40px)';
+                    // Remover transition após a animação para não atrapalhar o próximo drag
+                    setTimeout(() => el.style.transition = "", 300);
+                }
+            }
+
+            isOverlapping(rect1, rect2) {
+                // Margem de tolerância para facilitar o drop
+                const tolerance = 20;
+                return !(rect1.right < rect2.left + tolerance || 
+                         rect1.left > rect2.right - tolerance || 
+                         rect1.bottom < rect2.top + tolerance || 
+                         rect1.top > rect2.bottom - tolerance);
+            }
+
+            processChoice(el, isCorrect, zoneElement) {
+                el.remove(); 
+
+                if (isCorrect) {
+                    this.score += 10;
+                    this.correctCount++;
+                    this.showToast(`Correto! ${el.dataset.name}: ${el.dataset.tip}`, true);
+                    
+                    zoneElement.classList.add('animate-pulse-green', 'border-green-500');
+                    setTimeout(() => zoneElement.classList.remove('animate-pulse-green', 'border-green-500'), 500);
+
+                    confetti({
+                        particleCount: 30,
+                        spread: 50,
+                        origin: { y: 0.8, x: zoneElement.id === 'zone-healthy' ? 0.25 : 0.75 },
+                        colors: ['#10b981', '#ffffff']
+                    });
+
+                } else {
+                    this.lives--;
+                    this.showToast(`Ops! ${el.dataset.name} foi pro lugar errado.`, false);
+                    
+                    zoneElement.classList.add('animate-shake-red', 'border-red-500');
+                    setTimeout(() => zoneElement.classList.remove('animate-shake-red', 'border-red-500'), 500);
+
+                    if (this.lives <= 0) this.gameOver();
+                }
+                
+                this.updateHUD();
+            }
+
+            showToast(msg, isSuccess) {
+                const toast = this.dom.toast;
+                const icon = document.getElementById('toast-icon');
+                const text = document.getElementById('toast-msg');
+
+                icon.textContent = isSuccess ? '✅' : '❌';
+                text.textContent = msg;
+                
+                toast.classList.remove('opacity-0', 'translate-y-[-20px]');
+                
+                setTimeout(() => {
+                    toast.classList.add('opacity-0', 'translate-y-[-20px]');
+                }, 2000);
+            }
+
+            gameOver() {
+                this.isPlaying = false;
+                clearInterval(this.spawnInterval);
+                clearInterval(this.timerInterval);
+
+                this.dom.ui.classList.add('opacity-50', 'pointer-events-none');
+                this.dom.resultScreen.classList.remove('hidden');
+                
+                document.getElementById('final-score').textContent = this.score;
+                document.getElementById('final-accuracy').textContent = this.correctCount;
+
+                const msg = document.getElementById('result-msg');
+                if (this.score > 200) msg.textContent = "Chef 3 Estrelas! Você sabe tudo de nutrição! 🌟🌟🌟";
+                else if (this.score > 100) msg.textContent = "Muito bem! Você tem uma ótima base. 👏👏";
+                else msg.textContent = "Continue praticando para melhorar sua dieta! 📚";
+            }
+
+            reset() {
+                this.start();
+            }
+
+            share() {
+                const text = `Fiz ${this.score} pontos no Master Chef Saudável! 🥗🗑️ Jogue agora:`;
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Master Chef Saudável',
+                        text: text,
+                        url: window.location.href
+                    });
+                } else {
+                    navigator.clipboard.writeText(`${text} ${window.location.href}`);
+                    alert('Link copiado!');
+                }
+            }
+        }
+
+        // Prevenir comportamento padrão de touch para evitar refresh da página ao arrastar pra baixo
+        document.body.addEventListener('touchmove', function(e) {
+            if (e.target.closest('.draggable-item')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        const game = new HealthyGame();
+    </script>
+</body>
+</html>
