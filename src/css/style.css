@@ -150,7 +150,7 @@ details>summary::-webkit-details-marker {
   color: #a5b4fc;
 }
 
-/* --- Estilos Específicos: Jogo Adivinhe a Caloria --- */
+/* --- Estilos Específicos: Jogo Adivinhe a Caloria & Rotina Saudável --- */
 .glass-panel {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
@@ -187,7 +187,7 @@ details>summary::-webkit-details-marker {
   transition: all 0.3s ease;
 }
 
-/* --- Estilos Específicos: Jogo Rotina Saudável & Jornada --- */
+/* --- Estilos Específicos: Jogo Rotina Saudável --- */
 .option-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -269,6 +269,63 @@ details>summary::-webkit-details-marker {
   border-color: #059669;
 }
 
+/* --- Estilos de Artigos e Conteúdo Rico --- */
+.rich-content h2 { margin-top: 2.5rem; color: #1e3a8a; }
+.dark .rich-content h2 { color: #93c5fd; }
+.highlight-box { border-left: 4px solid #3b82f6; padding-left: 1rem; font-style: italic; }
+
+/* Temas de Artigos - Kids (IMC Infantil) */
+.theme-kids .rich-content h2 { color: #4f46e5; }
+.theme-kids.dark .rich-content h2 { color: #818cf8; }
+.theme-kids .rich-content h3 { color: #4338ca; }
+.theme-kids.dark .rich-content h3 { color: #a5b4fc; }
+.theme-kids .highlight-box { background: #f5f3ff; border-left: 4px solid #8b5cf6; }
+.theme-kids.dark .highlight-box { background: #2e1065; border-left: 4px solid #a78bfa; color: #ddd6fe; }
+.theme-kids .rich-content th { background-color: #eef2ff; border-bottom: 2px solid #c7d2fe; color: #3730a3; }
+.theme-kids.dark .rich-content th { background-color: #312e81; border-bottom: 2px solid #4f46e5; color: #e0e7ff; }
+.theme-kids .rich-content td { border-bottom: 1px solid #e0e7ff; }
+.theme-kids.dark .rich-content td { border-bottom: 1px solid #4338ca; }
+
+/* Temas de Artigos - Nutri (Macros) */
+.theme-nutri .rich-content h2 { color: #65a30d; }
+.theme-nutri.dark .rich-content h2 { color: #bef264; }
+.theme-nutri .rich-content h3 { color: #4d7c0f; }
+.theme-nutri.dark .rich-content h3 { color: #d9f99d; }
+.theme-nutri .highlight-box { background: #f7fee7; border-left: 4px solid #84cc16; }
+.theme-nutri.dark .highlight-box { background: #365314; border-left: 4px solid #a3e635; color: #ecfccb; }
+.theme-nutri .rich-content th { background-color: #ecfdf5; border-bottom: 2px solid #a7f3d0; color: #065f46; }
+.theme-nutri.dark .rich-content th { background-color: #064e3b; border-bottom: 2px solid #047857; color: #d1fae5; }
+.theme-nutri .rich-content td { border-bottom: 1px solid #d1fae5; }
+.theme-nutri.dark .rich-content td { border-bottom: 1px solid #065f46; }
+
+/* Temas de Artigos - Meta (TMB) */
+.theme-meta .rich-content h2 { color: #7c3aed; }
+.theme-meta.dark .rich-content h2 { color: #a78bfa; }
+.theme-meta .rich-content h3 { color: #6d28d9; }
+.theme-meta.dark .rich-content h3 { color: #c4b5fd; }
+.theme-meta .highlight-box { background: #f5f3ff; border-left: 4px solid #8b5cf6; }
+.theme-meta.dark .highlight-box { background: #2e1065; border-left: 4px solid #a78bfa; color: #ddd6fe; }
+
+.rich-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+.rich-content th { background-color: #f0f9ff; text-align: left; padding: 12px; border-bottom: 2px solid #bae6fd; }
+.dark .rich-content th { background-color: #0c4a6e; border-bottom: 2px solid #075985; color: white; }
+.rich-content td { padding: 12px; border-bottom: 1px solid #e0f2fe; }
+.dark .rich-content td { border-bottom: 1px solid #1e293b; }
+
+.status-badge { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 0.5rem; 
+  padding: 0.5rem 1rem; 
+  border-radius: 9999px; 
+  font-weight: 700; 
+  font-size: 0.875rem; 
+  text-transform: uppercase; 
+  letter-spacing: 0.05em; 
+}
+
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
 /* Animações Gerais */
 @keyframes fadeIn {
@@ -325,7 +382,26 @@ details>summary::-webkit-details-marker {
     0% { opacity: 1; transform: translateY(0); }
     100% { opacity: 0; transform: translateY(-30px); }
 }
+/* Animação Calculadora Calorias */
+@keyframes pulseFast {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+/* Animação Calculadora Frequência */
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+@keyframes bounceSlight {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+@keyframes pulseGlow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+}
 
+.animate-bounce-slight { animation: bounceSlight 2s infinite; }
 .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
 .animate-slide-up { animation: slideUp 0.5s ease-out; }
 .animate-fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
@@ -338,6 +414,9 @@ details>summary::-webkit-details-marker {
 .animate-bounce-slow { animation: bounce 2s infinite; }
 .animate-pulse-slow { animation: pulseSlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
 .animate-float-stat { animation: floatStat 1s ease-out forwards; }
+.animate-pulse-fast { animation: pulseFast 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+.animate-beat { animation: beat 1s infinite; }
+.animate-pulse-glow { animation: pulseGlow 2s infinite; }
 
 /* ==========================================================================
    CAMADA DE UTILITÁRIOS (CORES PERSONALIZADAS)
@@ -364,6 +443,157 @@ details>summary::-webkit-details-marker {
   .dark .dark\:border-ra-900\/50 { border-color: rgb(124 45 18 / 0.5); }
   .dark .dark\:text-ra-400 { color: #fb923c; }
   .dark .dark\:hover\:bg-ra-900\/20:hover { background-color: rgb(124 45 18 / 0.2); }
+
+  /* Portal Cores */
+  .border-portal-red { border-color: #c4170c; }
+
+  /* Heart Colors (Rose) */
+  .bg-heart-50 { background-color: #fff1f2; }
+  .bg-heart-100 { background-color: #ffe4e6; }
+  .bg-heart-500 { background-color: #f43f5e; }
+  .bg-heart-600 { background-color: #e11d48; }
+  .bg-heart-700 { background-color: #be123c; }
+  
+  .text-heart-400 { color: #fb7185; }
+  .text-heart-500 { color: #f43f5e; }
+  .text-heart-600 { color: #e11d48; }
+
+  .border-heart-500 { border-color: #f43f5e; }
+  
+  .ring-heart-500 { --tw-ring-color: #f43f5e; }
+
+  .dark .dark\:bg-heart-900\/30 { background-color: rgb(136 19 55 / 0.3); }
+  .dark .dark\:text-heart-400 { color: #fb7185; }
+
+  /* Blood Colors (Red) */
+  .bg-blood-50 { background-color: #fef2f2; }
+  .bg-blood-100 { background-color: #fee2e2; }
+  .bg-blood-500 { background-color: #ef4444; }
+  .bg-blood-600 { background-color: #dc2626; }
+  .bg-blood-700 { background-color: #b91c1c; }
+  
+  .text-blood-400 { color: #f87171; }
+  .text-blood-600 { color: #dc2626; }
+
+  .border-blood-500 { border-color: #ef4444; }
+  .border-blood-600 { border-color: #dc2626; }
+
+  .ring-blood-500 { --tw-ring-color: #ef4444; }
+
+  .dark .dark\:bg-blood-900\/30 { background-color: rgb(127 29 29 / 0.3); }
+  .dark .dark\:text-blood-400 { color: #f87171; }
+
+  /* Gold Colors (Amber) */
+  .bg-gold-50 { background-color: #fffbeb; }
+  .bg-gold-100 { background-color: #fef3c7; }
+  .bg-gold-500 { background-color: #f59e0b; }
+  .bg-gold-600 { background-color: #d97706; }
+  .bg-gold-700 { background-color: #b45309; }
+  .bg-gold-900 { background-color: #78350f; }
+
+  .text-gold-400 { color: #fbbf24; }
+  .text-gold-500 { color: #f59e0b; }
+  .text-gold-600 { color: #d97706; }
+  .text-gold-700 { color: #b45309; }
+
+  .border-gold-100 { border-color: #fef3c7; }
+  .border-gold-200 { border-color: #fde68a; }
+  .border-gold-500 { border-color: #f59e0b; }
+  .border-gold-600 { border-color: #d97706; }
+  .border-gold-800 { border-color: #92400e; }
+  .border-gold-900 { border-color: #78350f; }
+
+  .ring-gold-500 { --tw-ring-color: #f59e0b; }
+
+  .dark .dark\:bg-gold-900\/30 { background-color: rgb(120 53 15 / 0.3); }
+  .dark .dark\:bg-gold-900\/10 { background-color: rgb(120 53 15 / 0.1); }
+  .dark .dark\:bg-gold-900\/20 { background-color: rgb(120 53 15 / 0.2); }
+  .dark .dark\:text-gold-300 { color: #fcd34d; }
+  .dark .dark\:text-gold-400 { color: #fbbf24; }
+  .dark .dark\:peer-checked\:bg-gold-900\/20:checked { background-color: rgb(120 53 15 / 0.2); }
+
+  /* Health Colors (Emerald) */
+  .bg-health-50 { background-color: #ecfdf5; }
+  .bg-health-100 { background-color: #d1fae5; }
+  .bg-health-500 { background-color: #10b981; }
+  .bg-health-600 { background-color: #059669; }
+  .bg-health-700 { background-color: #047857; }
+  .bg-health-900 { background-color: #064e3b; }
+  
+  .text-health-500 { color: #10b981; }
+  .text-health-600 { color: #059669; }
+  .text-health-700 { color: #047857; }
+
+  .border-health-500 { border-color: #10b981; }
+
+  .ring-health-500 { --tw-ring-color: #10b981; }
+
+  .dark .dark\:bg-health-900\/30 { background-color: rgb(6 78 59 / 0.3); }
+  .dark .dark\:text-health-400 { color: #34d399; }
+
+  /* Kids Colors (Indigo) */
+  .bg-kids-50 { background-color: #eef2ff; }
+  .bg-kids-100 { background-color: #e0e7ff; }
+  .bg-kids-500 { background-color: #6366f1; }
+  .bg-kids-600 { background-color: #4f46e5; }
+  .bg-kids-700 { background-color: #4338ca; }
+  .bg-kids-900 { background-color: #312e81; }
+
+  .text-kids-400 { color: #818cf8; }
+  .text-kids-500 { color: #6366f1; }
+  .text-kids-600 { color: #4f46e5; }
+  .text-kids-700 { color: #4338ca; }
+
+  .border-kids-100 { border-color: #e0e7ff; }
+  .border-kids-500 { border-color: #6366f1; }
+  .border-kids-800 { border-color: #3730a3; }
+
+  .ring-kids-400 { --tw-ring-color: #818cf8; }
+  .ring-kids-500 { --tw-ring-color: #6366f1; }
+
+  .dark .dark\:bg-kids-900\/30 { background-color: rgb(49 46 129 / 0.3); }
+  .dark .dark\:bg-kids-900\/20 { background-color: rgb(49 46 129 / 0.2); }
+  .dark .dark\:text-kids-300 { color: #a5b4fc; }
+  .dark .dark\:text-kids-400 { color: #818cf8; }
+
+  /* Nutri Colors (Lime) */
+  .bg-nutri-50 { background-color: #f7fee7; }
+  .bg-nutri-100 { background-color: #ecfccb; }
+  .bg-nutri-500 { background-color: #84cc16; }
+  .bg-nutri-600 { background-color: #65a30d; }
+  .bg-nutri-700 { background-color: #4d7c0f; }
+  .bg-nutri-900 { background-color: #365314; }
+
+  .text-nutri-400 { color: #a3e635; }
+  .text-nutri-500 { color: #84cc16; }
+  .text-nutri-600 { color: #65a30d; }
+
+  .border-nutri-500 { border-color: #84cc16; }
+
+  .ring-nutri-500 { --tw-ring-color: #84cc16; }
+
+  .dark .dark\:bg-nutri-900\/30 { background-color: rgb(54 83 20 / 0.3); }
+  .dark .dark\:text-nutri-400 { color: #a3e635; }
+
+  /* Meta Colors (Violet) */
+  .bg-meta-50 { background-color: #f5f3ff; }
+  .bg-meta-100 { background-color: #ede9fe; }
+  .bg-meta-500 { background-color: #8b5cf6; }
+  .bg-meta-600 { background-color: #7c3aed; }
+  .bg-meta-700 { background-color: #6d28d9; }
+  .bg-meta-900 { background-color: #4c1d95; }
+
+  .text-meta-400 { color: #a78bfa; }
+  .text-meta-600 { color: #7c3aed; }
+  .text-meta-700 { color: #6d28d9; }
+
+  .border-meta-200 { border-color: #ddd6fe; }
+  .border-meta-500 { border-color: #8b5cf6; }
+
+  .ring-meta-500 { --tw-ring-color: #8b5cf6; }
+
+  .dark .dark\:bg-meta-900\/30 { background-color: rgb(76 29 149 / 0.3); }
+  .dark .dark\:bg-meta-900\/20 { background-color: rgb(76 29 149 / 0.2); }
 }
 
 /* ==========================================================================
