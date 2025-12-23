@@ -11,14 +11,14 @@
     <meta name="keywords" content="imc infantil, tabela peso idade, curvas de crescimento, percentil imc, obesidade infantil, baixo peso criança, desenvolvimento infantil">
     <meta name="author" content="Calcule Sua Saúde">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://seusite.com.br/calculadoras/imc_infantil.html">
+    <link rel="canonical" href="https://calculesuasaude.com.br/ferramentas/imc_infantil.html">
 
     <!-- === OPEN GRAPH / SOCIAL === -->
     <meta property="og:title" content="Calculadora de IMC Infantil - Acompanhe o Crescimento">
     <meta property="og:description" content="Seu filho está crescendo bem? Use nossa calculadora de percentis para verificar o peso ideal por idade e sexo.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://seusite.com.br/calculadoras/imc_infantil.html">
-    <meta property="og:image" content="https://seusite.com.br/assets/og-imc-infantil.jpg">
+    <meta property="og:url" content="https://calculesuasaude.com.br/ferramentas/imc_infantil.html">
+    <meta property="og:image" content="../img/icon192.webp">
     <meta property="og:locale" content="pt_BR">
 
     <!-- === DADOS ESTRUTURADOS (SCHEMA.ORG) === -->
@@ -27,7 +27,7 @@
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Calculadora de IMC Infantil e Adolescente",
-      "url": "https://seusite.com.br/calculadoras/imc_infantil.html",
+      "url": "https://calculesuasaude.com.br/ferramentas/imc_infantil.html",
       "description": "Ferramenta de avaliação nutricional pediátrica baseada em percentis de IMC por idade.",
       "audience": {
         "@type": "ParentAudience",
@@ -49,69 +49,15 @@
       gtag('config', 'G-EVCQQZV60N');
     </script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        portal: { red: '#c4170c', dark: '#1e1e1e', gray: '#f5f5f5' },
-                        brand: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a' },
-                        kids: { 50: '#eef2ff', 100: '#e0e7ff', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', 900: '#312e81' }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Merriweather', 'serif'],
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-in-out',
-                        'slide-up': 'slideUp 0.3s ease-out',
-                        'bounce-slight': 'bounceSlight 2s infinite',
-                    },
-                    keyframes: {
-                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
-                        slideUp: { '0%': { transform: 'translateY(10px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
-                        bounceSlight: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-3px)' } }
-                    }
-                }
-            }
-        }
-    </script>
-
     <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass-effect { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
-        .dark .glass-effect { background: rgba(17, 24, 39, 0.95); }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        
-        /* Estilos Rich Content */
-        .rich-content h2 { margin-top: 2rem; color: #4f46e5; font-size: 1.5rem; line-height: 1.3; }
-        .dark .rich-content h2 { color: #818cf8; }
-        .rich-content h3 { color: #4338ca; margin-top: 1.5rem; font-size: 1.25rem; }
-        .dark .rich-content h3 { color: #a5b4fc; }
-        .rich-content p { margin-bottom: 1rem; line-height: 1.7; }
-        .rich-content ul { margin-bottom: 1rem; padding-left: 1.5rem; list-style-type: disc; }
-        .rich-content li { margin-bottom: 0.5rem; }
-        
-        /* Tabela Compacta */
-        .rich-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
-        .rich-content th { background-color: #eef2ff; text-align: left; padding: 10px; border-bottom: 2px solid #c7d2fe; color: #3730a3; font-weight: 600; }
-        .dark .rich-content th { background-color: #312e81; border-bottom: 2px solid #4f46e5; color: #e0e7ff; }
-        .rich-content td { padding: 10px; border-bottom: 1px solid #e0e7ff; }
-        .dark .rich-content td { border-bottom: 1px solid #4338ca; }
-        
-        .highlight-box { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 1rem; margin: 1.5rem 0; border-radius: 0 0.5rem 0.5rem 0; }
-        .dark .highlight-box { background: #2e1065; border-left: 4px solid #a78bfa; color: #ddd6fe; }
-    </style>
+    <!-- CSS Mestre -->
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 
-<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+<body class="theme-kids bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 
     <!-- Header Fixo -->
     <header class="fixed w-full top-0 z-40 glass-effect shadow-sm transition-all duration-300 border-b dark:border-gray-800">
@@ -125,28 +71,32 @@
                 </h1>
             </a>
 
-            <nav class="hidden md:flex items-center gap-8">
+            <!-- Menu Desktop -->
+            <nav class="navbar-desktop hidden md:flex items-center gap-8" aria-label="Menu Principal">
                 <a href="../index.html" class="text-sm font-medium hover:text-kids-600 transition-colors">Início</a>
-                <a href="../calculadoras.html" class="text-sm font-bold text-kids-600">Calculadoras</a>
+                <a href="../index.html#ferramentas" class="text-sm font-bold text-kids-600">Calculadoras</a>
+                <a href="../jogos.html" class="text-sm font-medium hover:text-kids-600 transition-colors">Jogos</a>
                 <a href="../artigos.html" class="text-sm font-medium hover:text-kids-600 transition-colors">Artigos</a>
                 <a href="../sobre.html" class="text-sm font-medium hover:text-kids-600 transition-colors">Sobre</a>
                 
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Alternar tema">
                     <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
                     <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
                 </button>
             </nav>
 
-            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+            <!-- Menu Mobile Button -->
+            <button id="mobile-menu-btn" class="menu-toggle-mobile md:hidden p-2 text-gray-600 dark:text-gray-300" aria-label="Abrir menu">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+        <div id="mobile-menu" class="menu-mobile-panel hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
             <div class="flex flex-col p-4 space-y-4">
                 <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
-                <a href="../calculadoras.html" class="block py-2 text-center font-bold text-kids-600 bg-kids-50 dark:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center font-bold text-kids-600 bg-kids-50 dark:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../jogos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Jogos</a>
                 <a href="../artigos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
             </div>
         </div>
@@ -157,12 +107,12 @@
         <div class="container mx-auto px-4">
             
             <!-- Breadcrumbs -->
-            <nav class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-6">
-                <a href="../index.html" class="hover:text-kids-600">Início</a>
+            <nav class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-6" aria-label="Breadcrumb">
+                <a href="../index.html" class="hover:text-kids-600 transition-colors">Início</a>
                 <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <a href="../calculadoras.html" class="hover:text-kids-600">Ferramentas</a>
+                <a href="../index.html#ferramentas" class="hover:text-kids-600 transition-colors">Ferramentas</a>
                 <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <span class="text-gray-900 dark:text-white font-medium">IMC Infantil</span>
+                <span class="text-gray-900 dark:text-white font-medium" aria-current="page">IMC Infantil</span>
             </nav>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -423,6 +373,7 @@
 
     <!-- Scripts Logic -->
     <script>
+        // Inicializa ícones Lucide
         lucide.createIcons();
 
         // 1. Dark Mode e Mobile Menu
@@ -437,18 +388,12 @@
 
         themeToggleBtn.addEventListener('click', () => {
             htmlElement.classList.toggle('dark');
-            if (htmlElement.classList.contains('dark')) {
-                localStorage.theme = 'dark';
-            } else {
-                localStorage.theme = 'light';
-            }
+            localStorage.theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
         });
 
-        const btnMobile = document.getElementById('mobile-menu-btn');
-        const menuMobile = document.getElementById('mobile-menu');
-
-        btnMobile.addEventListener('click', () => {
-            menuMobile.classList.toggle('hidden');
+        // Mobile Menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
         // 2. Lógica da Calculadora IMC Infantil
