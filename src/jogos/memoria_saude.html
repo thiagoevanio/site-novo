@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#db2777">
+    <title>Memória da Saúde - Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Exercite seu cérebro! Combine alimentos saudáveis com seus benefícios neste jogo da memória educativo e divertido.">
+    <link rel="canonical" href="https://calculesuasaude.com.br/jogos/memoria_saude.html">
+
+        <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+                        },
+                        memory: {
+                            primary: '#db2777', // Pink
+                            secondary: '#be185d',
+                            accent: '#f472b6',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pop-in': 'popIn 0.3s ease-out forwards',
+                        'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
+                        'pulse-green': 'pulseGreen 0.5s ease-in-out',
+                    },
+                    keyframes: {
+                        popIn: {
+                            '0%': { transform: 'scale(0.5)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                        shake: {
+                            '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+                            '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+                            '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+                            '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
+                        },
+                        pulseGreen: {
+                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(34, 197, 94, 0.7)' },
+                            '50%': { boxShadow: '0 0 0 10px rgba(34, 197, 94, 0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glass-panel {
+            background: rgba(31, 41, 55, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* 3D Card Flip Styles */
+        .card-container {
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .card-container.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .card-front {
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white;
+        }
+        .card-back {
+            background-color: white;
+            color: #1f2937;
+            transform: rotateY(180deg);
+            border: 2px solid #fbcfe8;
+        }
+        .dark .card-back {
+            background-color: #374151;
+            color: white;
+            border-color: #db2777;
+        }
+        .matched .card-back {
+            background-color: #dcfce7;
+            border-color: #22c55e;
+        }
+        .dark .matched .card-back {
+            background-color: #064e3b;
+            border-color: #059669;
+        }
+    </style>
+</head>
+<body class="bg-pink-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- Header Simples -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-pink-100 dark:border-gray-800 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-pink-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="brain-circuit" class="w-5 h-5"></i>
+                </div>
+                <h1 class="text-lg font-bold text-gray-900 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-pink-600">Saúde</span>
+                </h1>
+            </a>
+            <a href="../jogos.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-pink-600 transition-colors flex items-center gap-1">
+                <i data-lucide="gamepad-2" class="w-4 h-4"></i> Voltar
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Game Area -->
+    <main class="flex-1 pt-24 pb-12 flex items-center justify-center px-4 relative overflow-hidden">
+        
+        <!-- Background Elements -->
+        <div class="absolute top-20 -left-10 w-64 h-64 bg-pink-200 rounded-full blur-3xl opacity-30 animate-pulse pointer-events-none"></div>
+        <div class="absolute bottom-10 -right-10 w-72 h-72 bg-purple-200 rounded-full blur-3xl opacity-30 animate-pulse pointer-events-none"></div>
+
+        <div class="w-full max-w-4xl relative z-10">
+
+            <!-- TELA INICIAL -->
+            <div id="start-screen" class="glass-panel rounded-3xl p-8 md:p-12 shadow-2xl text-center animate-pop-in">
+                <div class="w-24 h-24 bg-gradient-to-tr from-pink-500 to-purple-600 rounded-full mx-auto flex items-center justify-center mb-6 shadow-lg">
+                    <span class="text-5xl">🧠</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-4">Memória da Saúde</h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-lg mx-auto">
+                    Exercite seu cérebro! Combine os alimentos com seus benefícios nutricionais. Quanto mais rápido, maior sua pontuação.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
+                    <button onclick="game.start('easy')" class="group p-6 bg-white dark:bg-gray-800 border-2 border-green-200 dark:border-green-800 rounded-2xl hover:border-green-500 transition-all hover:-translate-y-1 shadow-sm hover:shadow-md">
+                        <div class="text-3xl mb-2 group-hover:scale-110 transition-transform">🥬</div>
+                        <h3 class="font-bold text-lg text-green-700 dark:text-green-400">Fácil</h3>
+                        <p class="text-xs text-gray-500">6 Pares • Grade 3x4</p>
+                    </button>
+                    <button onclick="game.start('medium')" class="group p-6 bg-white dark:bg-gray-800 border-2 border-blue-200 dark:border-blue-800 rounded-2xl hover:border-blue-500 transition-all hover:-translate-y-1 shadow-sm hover:shadow-md">
+                        <div class="text-3xl mb-2 group-hover:scale-110 transition-transform">🍎</div>
+                        <h3 class="font-bold text-lg text-blue-700 dark:text-blue-400">Médio</h3>
+                        <p class="text-xs text-gray-500">8 Pares • Grade 4x4</p>
+                    </button>
+                    <button onclick="game.start('hard')" class="group p-6 bg-white dark:bg-gray-800 border-2 border-purple-200 dark:border-purple-800 rounded-2xl hover:border-purple-500 transition-all hover:-translate-y-1 shadow-sm hover:shadow-md">
+                        <div class="text-3xl mb-2 group-hover:scale-110 transition-transform">🥑</div>
+                        <h3 class="font-bold text-lg text-purple-700 dark:text-purple-400">Difícil</h3>
+                        <p class="text-xs text-gray-500">12 Pares • Grade 4x6</p>
+                    </button>
+                </div>
+            </div>
+
+            <!-- TELA DO JOGO -->
+            <div id="game-screen" class="hidden flex flex-col h-full">
+                
+                <!-- HUD -->
+                <div class="glass-panel rounded-2xl p-4 mb-6 flex justify-between items-center shadow-lg">
+                    <div class="flex items-center gap-6">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-gray-500 dark:text-gray-400 tracking-wider">Tempo</span>
+                            <div class="text-2xl font-black text-gray-800 dark:text-white font-mono" id="timer">00:00</div>
+                        </div>
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-gray-500 dark:text-gray-400 tracking-wider">Movimentos</span>
+                            <div class="text-2xl font-black text-gray-800 dark:text-white" id="moves">0</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-right">
+                        <span class="text-[10px] uppercase font-bold text-gray-500 dark:text-gray-400 tracking-wider">Pontos</span>
+                        <div class="text-3xl font-black text-pink-600 dark:text-pink-400" id="score">0</div>
+                    </div>
+                </div>
+
+                <!-- Grid de Cartas -->
+                <div id="memory-grid" class="grid gap-3 mx-auto w-full max-w-3xl perspective-1000">
+                    <!-- Cartas inseridas via JS -->
+                </div>
+
+                <div class="mt-6 text-center">
+                    <button onclick="game.restart()" class="text-sm font-semibold text-gray-500 hover:text-pink-600 transition-colors flex items-center justify-center gap-1 mx-auto">
+                        <i data-lucide="refresh-cw" class="w-4 h-4"></i> Reiniciar
+                    </button>
+                </div>
+            </div>
+
+            <!-- TELA DE RESULTADO -->
+            <div id="result-screen" class="hidden glass-panel rounded-3xl p-8 md:p-12 shadow-2xl text-center animate-pop-in max-w-md mx-auto relative z-20">
+                <div class="relative inline-block mb-6">
+                    <div class="w-24 h-24 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center shadow-lg mx-auto">
+                        <i data-lucide="check-circle" class="w-12 h-12 text-green-600 dark:text-green-400"></i>
+                    </div>
+                </div>
+                
+                <h2 class="text-3xl font-black text-gray-900 dark:text-white mb-2">Memória Afiada!</h2>
+                <p class="text-gray-500 dark:text-gray-400 mb-8" id="result-msg">Você completou o desafio.</p>
+
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700">
+                        <span class="block text-[10px] uppercase font-bold text-gray-400">Pontuação Final</span>
+                        <span class="block text-3xl font-black text-pink-600" id="final-score">0</span>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700">
+                        <span class="block text-[10px] uppercase font-bold text-gray-400">Tempo Total</span>
+                        <span class="block text-3xl font-black text-blue-600" id="final-time">0s</span>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <button onclick="game.restart()" class="w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="rotate-ccw" class="w-5 h-5"></i> Jogar Novamente
+                    </button>
+                    <button onclick="game.share()" class="w-full bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-white font-bold py-3.5 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-600 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="share-2" class="w-5 h-5"></i> Compartilhar
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        // Banco de Dados de Pares (Alimento + Benefício/Categoria)
+        const memoryData = [
+            { id: 1, content: '🍎<br><span class="text-xs font-bold">Maçã</span>', match: 'Fibras', type: 'food' },
+            { id: 1, content: '💩<br><span class="text-xs font-bold">Digestão</span>', match: 'Fibras', type: 'benefit' },
+            
+            { id: 2, content: '🥕<br><span class="text-xs font-bold">Cenoura</span>', match: 'Olhos', type: 'food' },
+            { id: 2, content: '👀<br><span class="text-xs font-bold">Visão</span>', match: 'Olhos', type: 'benefit' },
+            
+            { id: 3, content: '🍌<br><span class="text-xs font-bold">Banana</span>', match: 'Potássio', type: 'food' },
+            { id: 3, content: '⚡<br><span class="text-xs font-bold">Energia</span>', match: 'Potássio', type: 'benefit' },
+            
+            { id: 4, content: '🥦<br><span class="text-xs font-bold">Brócolis</span>', match: 'Imunidade', type: 'food' },
+            { id: 4, content: '🛡️<br><span class="text-xs font-bold">Defesa</span>', match: 'Imunidade', type: 'benefit' },
+            
+            { id: 5, content: '🐟<br><span class="text-xs font-bold">Peixe</span>', match: 'Omega3', type: 'food' },
+            { id: 5, content: '🧠<br><span class="text-xs font-bold">Cérebro</span>', match: 'Omega3', type: 'benefit' },
+            
+            { id: 6, content: '🥛<br><span class="text-xs font-bold">Leite</span>', match: 'Calcio', type: 'food' },
+            { id: 6, content: '🦴<br><span class="text-xs font-bold">Ossos</span>', match: 'Calcio', type: 'benefit' },
+            
+            { id: 7, content: '🥑<br><span class="text-xs font-bold">Abacate</span>', match: 'Gordura Boa', type: 'food' },
+            { id: 7, content: '❤️<br><span class="text-xs font-bold">Coração</span>', match: 'Gordura Boa', type: 'benefit' },
+            
+            { id: 8, content: '🥚<br><span class="text-xs font-bold">Ovo</span>', match: 'Proteína', type: 'food' },
+            { id: 8, content: '💪<br><span class="text-xs font-bold">Músculos</span>', match: 'Proteína', type: 'benefit' },
+            
+            { id: 9, content: '🍊<br><span class="text-xs font-bold">Laranja</span>', match: 'Vit C', type: 'food' },
+            { id: 9, content: '🦠<br><span class="text-xs font-bold">Gripe</span>', match: 'Vit C', type: 'benefit' },
+            
+            { id: 10, content: '💧<br><span class="text-xs font-bold">Água</span>', match: 'Hidratação', type: 'food' },
+            { id: 10, content: '🧴<br><span class="text-xs font-bold">Pele</span>', match: 'Hidratação', type: 'benefit' },
+            
+            { id: 11, content: '🌰<br><span class="text-xs font-bold">Nozes</span>', match: 'Memoria', type: 'food' },
+            { id: 11, content: '💡<br><span class="text-xs font-bold">Foco</span>', match: 'Memoria', type: 'benefit' },
+            
+            { id: 12, content: '😴<br><span class="text-xs font-bold">Sono</span>', match: 'Descanso', type: 'food' },
+            { id: 12, content: '🔋<br><span class="text-xs font-bold">Recarga</span>', match: 'Descanso', type: 'benefit' }
+        ];
+
+        class MemoryGame {
+            constructor() {
+                this.state = {
+                    difficulty: 'easy',
+                    cards: [],
+                    flippedCards: [],
+                    matchedPairs: 0,
+                    score: 0,
+                    moves: 0,
+                    timer: 0,
+                    isLocked: false,
+                    gameInterval: null,
+                    combo: 0
+                };
+
+                this.dom = {
+                    startScreen: document.getElementById('start-screen'),
+                    gameScreen: document.getElementById('game-screen'),
+                    resultScreen: document.getElementById('result-screen'),
+                    grid: document.getElementById('memory-grid'),
+                    score: document.getElementById('score'),
+                    moves: document.getElementById('moves'),
+                    timer: document.getElementById('timer'),
+                    finalScore: document.getElementById('final-score'),
+                    finalTime: document.getElementById('final-time')
+                };
+            }
+
+            start(difficulty) {
+                this.state.difficulty = difficulty;
+                this.resetState();
+                
+                // Configuração da Grade
+                let pairsCount;
+                let gridCols;
+                
+                if (difficulty === 'easy') {
+                    pairsCount = 6;
+                    gridCols = 'grid-cols-3 sm:grid-cols-4'; // 12 cartas
+                } else if (difficulty === 'medium') {
+                    pairsCount = 8;
+                    gridCols = 'grid-cols-4'; // 16 cartas
+                } else {
+                    pairsCount = 12;
+                    gridCols = 'grid-cols-4 sm:grid-cols-6'; // 24 cartas
+                }
+
+                // Selecionar e embaralhar cartas
+                const selectedPairs = memoryData.slice(0, pairsCount * 2);
+                this.state.cards = selectedPairs.sort(() => Math.random() - 0.5);
+
+                // Renderizar Grid
+                this.dom.grid.className = `grid gap-3 mx-auto w-full max-w-3xl perspective-1000 ${gridCols}`;
+                this.dom.grid.innerHTML = '';
+
+                this.state.cards.forEach((card, index) => {
+                    const cardEl = document.createElement('div');
+                    cardEl.className = 'card-container h-24 sm:h-28';
+                    cardEl.innerHTML = `
+                        <div class="card-inner" id="card-${index}">
+                            <div class="card-face card-front">
+                                <i data-lucide="brain-circuit" class="w-8 h-8 opacity-50"></i>
+                            </div>
+                            <div class="card-face card-back flex flex-col justify-center items-center p-2 leading-tight">
+                                <div class="text-3xl mb-1">${card.content.split('<br>')[0]}</div>
+                                <div class="text-xs font-bold text-gray-600 dark:text-gray-300">${card.content.split('<br>')[1]}</div>
+                            </div>
+                        </div>
+                    `;
+                    cardEl.onclick = () => this.flipCard(index);
+                    this.dom.grid.appendChild(cardEl);
+                });
+                lucide.createIcons();
+
+                // UI Transitions
+                this.dom.startScreen.classList.add('hidden');
+                this.dom.resultScreen.classList.add('hidden');
+                this.dom.gameScreen.classList.remove('hidden');
+
+                // Iniciar Timer
+                this.state.gameInterval = setInterval(() => {
+                    this.state.timer++;
+                    this.updateHUD();
+                }, 1000);
+
+                // Mecânica de "Espiada" Inicial (Só no fácil)
+                if (difficulty === 'easy') {
+                    this.peekCards();
+                }
+            }
+
+            peekCards() {
+                this.state.isLocked = true;
+                setTimeout(() => {
+                    const allCards = document.querySelectorAll('.card-container');
+                    allCards.forEach(c => c.classList.add('flipped'));
+                    
+                    setTimeout(() => {
+                        allCards.forEach(c => c.classList.remove('flipped'));
+                        this.state.isLocked = false;
+                    }, 2000);
+                }, 500);
+            }
+
+            flipCard(index) {
+                if (this.state.isLocked) return;
+                const cardEl = document.getElementById(`card-${index}`).parentElement;
+                
+                // Impede virar a mesma carta ou carta já combinada
+                if (cardEl.classList.contains('flipped') || cardEl.classList.contains('matched')) return;
+
+                cardEl.classList.add('flipped');
+                this.state.flippedCards.push({ index, ...this.state.cards[index] });
+
+                if (this.state.flippedCards.length === 2) {
+                    this.checkMatch();
+                }
+            }
+
+            checkMatch() {
+                this.state.isLocked = true;
+                this.state.moves++;
+                
+                const [card1, card2] = this.state.flippedCards;
+                const el1 = document.getElementById(`card-${card1.index}`).parentElement;
+                const el2 = document.getElementById(`card-${card2.index}`).parentElement;
+
+                if (card1.id === card2.id && card1.type !== card2.type) {
+                    // Match!
+                    this.state.matchedPairs++;
+                    this.state.combo++;
+                    this.state.score += 100 * this.state.combo; // Pontos com multiplicador
+                    
+                    setTimeout(() => {
+                        el1.classList.add('matched', 'animate-pulse-green');
+                        el2.classList.add('matched', 'animate-pulse-green');
+                        this.state.flippedCards = [];
+                        this.state.isLocked = false;
+                        
+                        // Verificar fim de jogo
+                        if (this.state.matchedPairs === this.state.cards.length / 2) {
+                            this.endGame();
+                        }
+                    }, 500);
+                    
+                    confetti({
+                        particleCount: 20 * this.state.combo,
+                        spread: 40,
+                        origin: { y: 0.7 }
+                    });
+
+                } else {
+                    // No Match
+                    this.state.combo = 0; // Reset combo
+                    setTimeout(() => {
+                        el1.classList.add('animate-shake');
+                        el2.classList.add('animate-shake');
+                    }, 400);
+
+                    setTimeout(() => {
+                        el1.classList.remove('flipped', 'animate-shake');
+                        el2.classList.remove('flipped', 'animate-shake');
+                        this.state.flippedCards = [];
+                        this.state.isLocked = false;
+                    }, 1000);
+                }
+                
+                this.updateHUD();
+            }
+
+            resetState() {
+                this.state.score = 0;
+                this.state.moves = 0;
+                this.state.timer = 0;
+                this.state.matchedPairs = 0;
+                this.state.flippedCards = [];
+                this.state.combo = 0;
+                this.state.isLocked = false;
+                if (this.state.gameInterval) clearInterval(this.state.gameInterval);
+                this.updateHUD();
+            }
+
+            updateHUD() {
+                const mins = Math.floor(this.state.timer / 60).toString().padStart(2, '0');
+                const secs = (this.state.timer % 60).toString().padStart(2, '0');
+                this.dom.timer.textContent = `${mins}:${secs}`;
+                this.dom.moves.textContent = this.state.moves;
+                this.dom.score.textContent = this.state.score;
+            }
+
+            endGame() {
+                clearInterval(this.state.gameInterval);
+                
+                setTimeout(() => {
+                    this.dom.gameScreen.classList.add('hidden');
+                    this.dom.resultScreen.classList.remove('hidden');
+                    
+                    this.dom.finalScore.textContent = this.state.score;
+                    const mins = Math.floor(this.state.timer / 60);
+                    const secs = this.state.timer % 60;
+                    this.dom.finalTime.textContent = `${mins}m ${secs}s`;
+
+                    confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
+                }, 800);
+            }
+
+            restart() {
+                this.dom.gameScreen.classList.add('hidden');
+                this.dom.resultScreen.classList.add('hidden');
+                this.dom.startScreen.classList.remove('hidden');
+                this.resetState();
+            }
+
+            share() {
+                const text = `Fiz ${this.state.score} pontos no Memória da Saúde em ${this.dom.finalTime.textContent}! 🧠💪 Tente superar:`;
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Memória da Saúde',
+                        text: text,
+                        url: window.location.href
+                    });
+                } else {
+                    navigator.clipboard.writeText(`${text} ${window.location.href}`);
+                    alert('Copiado para a área de transferência!');
+                }
+            }
+        }
+
+        const game = new MemoryGame();
+    </script>
+</body>
+</html>
