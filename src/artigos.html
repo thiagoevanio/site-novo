@@ -12,7 +12,8 @@
     <meta property="og:description" content="Explore nossos guias completos sobre saúde e qualidade de vida.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://calculesuasaude.com.br/artigos.html">
-    <meta property="og:image" content="https://calculesuasaude.com.br/icon192.png">
+    <!-- CORREÇÃO: Caminho e extensão da imagem -->
+    <meta property="og:image" content="https://calculesuasaude.com.br/img/icon192.webp">
 
     <meta name="google-adsense-account" content="ca-pub-5825554897787593">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
@@ -26,40 +27,16 @@
       gtag('config', 'G-EVCQQZV60N');
     </script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
     <!-- Google Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Lucide Icons (Defer para performance) -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-        }
-        .dark .glass-effect {
-            background: rgba(17, 24, 39, 0.95);
-        }
-    </style>
+    <!-- CSS Mestre -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 
@@ -75,7 +52,8 @@
                 </h1>
             </a>
 
-            <nav class="hidden md:flex items-center gap-8">
+            <!-- Nav Desktop (Classe adicionada) -->
+            <nav class="navbar-desktop hidden md:flex items-center gap-8">
                 <a href="index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
                 <a href="index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
                 <a href="artigos.html" class="text-sm font-bold text-brand-600">Artigos</a>
@@ -86,12 +64,14 @@
                 </button>
             </nav>
 
-            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+            <!-- Mobile Button (Classe adicionada) -->
+            <button id="mobile-menu-btn" class="menu-toggle-mobile md:hidden p-2 text-gray-600 dark:text-gray-300">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+        <!-- Mobile Menu (Classe adicionada) -->
+        <div id="mobile-menu" class="menu-mobile-panel hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
             <div class="flex flex-col p-4 space-y-4">
                 <a href="index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
                 <a href="index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
@@ -159,235 +139,236 @@
     </footer>
 
     <script>
-        lucide.createIcons();
+        // Inicializa ícones Lucide
+        if (window.lucide) {
+            lucide.createIcons();
+        }
 
-        // Dados dos Artigos
+        // Dados dos Artigos (Atualizado com nomes .webp corretos)
         const artigos = [
-            // --- NOVO ARTIGO ADICIONADO ---
             {
                 titulo: "Inteligência Artificial na Saúde",
                 descricao: "Como usar ChatGPT e Gemini para construir uma vida mais saudável com segurança e ética.",
                 categoria: "inovacao",
                 arquivo: "artigos/ia-saude-chatgpt-gemini.html",
-                imagem: "img/artigos/iasaude.png" 
+                imagem: "img/artigos/ia-saude-chatgpt-gemini.webp" 
             },
-            // -----------------------------
             {
                 titulo: "Ansiedade e Depressão",
                 descricao: "Compreenda os sintomas, as diferenças e os tratamentos para recuperar seu equilíbrio emocional.",
                 categoria: "saude-mental",
                 arquivo: "artigos/ansiedade-depressao.html",
-                imagem: "img/artigos/saude-mental.png" 
+                imagem: "img/artigos/saude-mental.webp" 
             },
             {
                 titulo: "Nutrição Funcional e Microbiota",
                 descricao: "Aprenda como a alimentação inteligente fortalece seu intestino e sua imunidade.",
                 categoria: "nutricao",
                 arquivo: "artigos/nutricao-funcional-microbiota.html",
-                imagem: "img/artigos/nutriçãodigestiva.png" 
+                imagem: "img/artigos/nutricao-funcional-microbiota.webp" 
             },
             {
                 titulo: "Guia de Macronutrientes",
                 descricao: "Carboidratos, proteínas e gorduras: como equilibrar para atingir seus objetivos.",
                 categoria: "nutricao",
                 arquivo: "artigos/macronutrientes-guia-completo.html",
-                imagem: "img/artigos/macronutrientes.jpg"
+                imagem: "img/artigos/macronutrientes-guia-completo.webp"
             },
             {
                 titulo: "Alimentação Saudável",
                 descricao: "Fundamentos da nutrição para uma vida longa e sem doenças.",
                 categoria: "nutricao",
                 arquivo: "artigos/alimentacao-saudavel-guia.html",
-                imagem: "img/artigos/alimentacao_saudavel.jpg"
+                imagem: "img/artigos/alimentacao-saudavel.webp"
             },
             {
                 titulo: "Como Acelerar o Metabolismo",
                 descricao: "Estratégias científicas para aumentar seu gasto calórico diário.",
                 categoria: "nutricao",
                 arquivo: "artigos/metabolismo-como-acelerar.html",
-                imagem: "img/artigos/metabolismo.jpg"
+                imagem: "img/artigos/metabolismo-como-acelerar.webp"
             },
             {
                 titulo: "Estratégias para Perda de Peso",
                 descricao: "Métodos sustentáveis para emagrecer sem efeito sanfona.",
                 categoria: "nutricao",
                 arquivo: "artigos/perda-peso-estrategias.html",
-                imagem: "img/artigos/perda_peso.jpg"
+                imagem: "img/artigos/perda-peso-estrategias.webp"
             },
              {
                 titulo: "Vitaminas e Minerais",
                 descricao: "O guia definitivo sobre micronutrientes essenciais.",
                 categoria: "nutricao",
                 arquivo: "artigos/vitaminas-minerais-essenciais.html",
-                imagem: "img/artigos/vitaminas_minerais.jpg"
+                imagem: "img/artigos/vitaminas-minerais-essenciais.webp"
             },
             {
                 titulo: "Guia de Suplementos",
                 descricao: "O que funciona, o que é mito e como usar com segurança.",
                 categoria: "nutricao",
                 arquivo: "artigos/suplementos-quando-usar.html",
-                imagem: "img/artigos/suplementos.jpg"
+                imagem: "img/artigos/suplementos-quando-usar.webp"
             },
             {
                 titulo: "Nutrição Esportiva",
                 descricao: "O que comer para maximizar performance e recuperação.",
                 categoria: "nutricao",
                 arquivo: "artigos/nutricao-esportiva.html",
-                imagem: "img/artigos/nutricao_esportiva.jpg"
+                imagem: "img/artigos/nutricao-esportiva.webp"
             },
             {
                 titulo: "Ganho de Massa Muscular",
                 descricao: "Treino, dieta e descanso: os pilares da hipertrofia.",
                 categoria: "exercicios",
                 arquivo: "artigos/ganho-massa-muscular.html",
-                imagem: "img/artigos/ganho_massa_muscular.jpg"
+                imagem: "img/artigos/ganho-de-massa.webp"
             },
             {
                 titulo: "Exercícios para Queimar Calorias",
                 descricao: "HIIT, cardio ou musculação? Qual o melhor para emagrecer?",
                 categoria: "exercicios",
                 arquivo: "artigos/exercicios-queimar-calorias.html",
-                imagem: "img/artigos/exercicios_queimar_calorias.jpg"
+                imagem: "img/artigos/exercicio-queima-caloria.webp"
             },
             {
                 titulo: "Benefícios da Atividade Física",
                 descricao: "Como o movimento transforma seu corpo e sua mente.",
                 categoria: "exercicios",
                 arquivo: "artigos/atividade-fisica-beneficios.html",
-                imagem: "img/artigos/atividade_fisica.jpg"
+                imagem: "img/artigos/atividade-fisica.webp"
             },
             {
                 titulo: "Lesões Esportivas",
                 descricao: "Prevenção e tratamento: como treinar com segurança.",
                 categoria: "exercicios",
                 arquivo: "artigos/lesoes-esportivas-prevencao.html",
-                imagem: "img/artigos/lesoes_esportivas.jpg"
+                imagem: "img/artigos/lesoes-esportivas-prevencao.webp"
             },
             {
                 titulo: "Obesidade: Causas e Tratamento",
                 descricao: "Entenda a obesidade como doença crônica e suas soluções.",
                 categoria: "prevencao",
                 arquivo: "artigos/obesidade-causas-tratamento.html",
-                imagem: "img/artigos/obesidade.jpg"
+                imagem: "img/artigos/obesidade-causas-tratamento.webp"
             },
             {
                 titulo: "Diabetes: Prevenção e Controle",
                 descricao: "Guia completo para prevenir e controlar o diabetes.",
                 categoria: "prevencao",
                 arquivo: "artigos/diabetes-prevencao-tratamento.html",
-                imagem: "img/artigos/diabetes.jpg"
+                imagem: "img/artigos/diabetes-prevencao-tratamento.webp"
             },
             {
                 titulo: "Controle da Hipertensão",
                 descricao: "Como manter sua pressão arterial sob controle.",
                 categoria: "prevencao",
                 arquivo: "artigos/hipertensao-controle-prevencao.html",
-                imagem: "img/artigos/hipertensao.jpg" 
+                imagem: "img/artigos/hipertensao-controle-prevencao.webp" 
             },
             {
                 titulo: "Tudo Sobre Colesterol",
                 descricao: "HDL, LDL e como proteger seu coração.",
                 categoria: "prevencao",
                 arquivo: "artigos/colesterol-controle-prevencao.html",
-                imagem: "img/artigos/colesterol.jpg"
+                imagem: "img/artigos/prevencao-colasterol.webp"
             },
             {
                 titulo: "Doenças Cardiovasculares",
                 descricao: "Prevenção e cuidados para um coração forte.",
                 categoria: "prevencao",
                 arquivo: "artigos/doencas-cardiovasculares-prevencao.html",
-                imagem: "img/artigos/doencas_cardiovasculares.jpg"
+                imagem: "img/artigos/doencas-cardiovasculares.webp"
             },
              {
                 titulo: "Prevenção do Câncer",
                 descricao: "Estilo de vida e detecção precoce: seus maiores aliados.",
                 categoria: "prevencao",
                 arquivo: "artigos/cancer-prevencao-deteccao.html",
-                imagem: "img/artigos/cancer.jpg"
+                imagem: "img/artigos/prevencao-do-cancer.webp"
             },
             {
                 titulo: "Saúde da Mulher",
                 descricao: "Cuidados essenciais em todas as fases da vida feminina.",
                 categoria: "prevencao",
                 arquivo: "artigos/saude-mulher-cuidados.html",
-                imagem: "img/artigos/saude_mulher.jpg"
+                imagem: "img/artigos/saude-mulher-cuidados.webp"
             },
             {
                 titulo: "Saúde do Homem",
                 descricao: "Prevenção e cuidados específicos para a saúde masculina.",
                 categoria: "prevencao",
                 arquivo: "artigos/saude-homem-cuidados.html",
-                imagem: "img/artigos/saude_homem.jpg"
+                imagem: "img/artigos/saude-homem-cuidados.webp"
             },
             {
                 titulo: "Saúde Infantil",
                 descricao: "Guia de cuidados essenciais para o desenvolvimento saudável das crianças.",
                 categoria: "prevencao",
                 arquivo: "artigos/saude-infantil-cuidados.html",
-                imagem: "img/artigos/saude_infantil.jpg"
+                imagem: "img/artigos/saude-infantil-cuidados.webp"
             },
             {
                 titulo: "Saúde Mental e Bem-Estar",
                 descricao: "Estratégias para uma mente equilibrada e feliz.",
                 categoria: "saude-mental",
                 arquivo: "artigos/saude-mental-bem-estar.html",
-                imagem: "img/artigos/saude_mental.jpg"
+                imagem: "img/artigos/saude-mental-bem-estar.webp"
             },
             {
                 titulo: "Ansiedade e Depressão",
                 descricao: "Identificação, manejo e quando buscar ajuda.",
                 categoria: "saude-mental",
                 arquivo: "artigos/ansiedade-depressao-saude-mental.html",
-                imagem: "img/artigos/ansiedade_depressao.jpg"
+                imagem: "img/artigos/ansiedade-depressao.webp"
             },
             {
                 titulo: "Gerenciando o Estresse",
                 descricao: "Técnicas práticas para reduzir o estresse no dia a dia.",
                 categoria: "saude-mental",
                 arquivo: "artigos/estresse-gerenciamento-saude.html",
-                imagem: "img/artigos/estresse.jpg"
+                imagem: "img/artigos/gerenciamento-estresse.webp"
             },
             {
                 titulo: "Sono e Saúde",
                 descricao: "A importância do descanso para a recuperação e bem-estar.",
                 categoria: "bem-estar",
                 arquivo: "artigos/sono-qualidade-saude.html",
-                imagem: "img/artigos/sono.jpg"
+                imagem: "img/artigos/sono-qualidade.webp"
             },
             {
                 titulo: "O Poder da Hidratação",
                 descricao: "Como a água impacta sua saúde e performance.",
                 categoria: "bem-estar",
                 arquivo: "artigos/hidratacao-importancia-saude.html",
-                imagem: "img/artigos/hidratacao.jpg"
+                imagem: "img/artigos/hidratacao-importancia.webp"
             },
             {
                 titulo: "Envelhecimento Saudável",
                 descricao: "Dicas para manter a vitalidade na terceira idade.",
                 categoria: "bem-estar",
                 arquivo: "artigos/envelhecimento-saudavel.html",
-                imagem: "img/artigos/envelhecimento_saudavel.jpg"
+                imagem: "img/artigos/envelhecimento-saudavel.webp"
             },
             {
                 titulo: "Imunidade Fortalecida",
                 descricao: "Estratégias naturais para blindar seu sistema imune.",
                 categoria: "bem-estar",
                 arquivo: "artigos/imunidade-fortalecimento.html",
-                imagem: "img/artigos/imunidade.jpg"
+                imagem: "img/artigos/imunidade-fortalecimento.webp"
             },
             {
                 titulo: "Saúde Digestiva",
                 descricao: "Cuidando do intestino, o nosso segundo cérebro.",
                 categoria: "bem-estar",
                 arquivo: "artigos/saude-digestiva-intestino.html",
-                imagem: "img/artigos/saude_digestiva.jpg"
+                imagem: "img/artigos/saude-digestiva-intestino.webp"
             },
             {
                 titulo: "IMC: Como Calcular e Interpretar",
                 descricao: "Aprenda como calcular e interpretar o IMC. Entenda as faixas de peso e limitações.",
                 categoria: "nutricao",
                 arquivo: "artigos/imc-calculo-interpretacao.html",
-                imagem: "img/artigos/imc.jpg"
+                imagem: "img/artigos/imc-calculo-interpretacao.webp"
             }
         ];
 
@@ -456,7 +437,8 @@
                     </div>
                 </article>
             `).join('');
-            lucide.createIcons();
+            
+            if (window.lucide) lucide.createIcons();
         }
 
         function filtrarArtigos() {
@@ -514,6 +496,7 @@
             const menuMobile = document.getElementById('mobile-menu');
             btnMobile.addEventListener('click', () => {
                 menuMobile.classList.toggle('hidden');
+                menuMobile.classList.toggle('active'); // Para ativar a animação CSS
             });
 
             // Filtros
