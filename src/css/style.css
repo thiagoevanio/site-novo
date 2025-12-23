@@ -59,15 +59,317 @@ details>summary::-webkit-details-marker {
   background: #555; 
 }
 
+/* --- Estilos Específicos: Checkbox (Vindo de desafios.html) --- */
+.checkbox-wrapper input:checked + div {
+  background-color: #10b981;
+  border-color: #10b981;
+}
+.checkbox-wrapper input:checked + div svg {
+  display: block;
+}
+
+/* --- Estilos Específicos: Jogos (Vindo de jogos.html) --- */
+.game-gradient {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+}
+
+/* --- Estilos Específicos: Personal (Vindo de personal.html) --- */
+.bg-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* --- Estilos Específicos: Quiz (Base) --- */
+.quiz-option {
+  transition: all 0.2s ease;
+}
+.quiz-option:hover {
+  transform: translateY(-2px);
+  border-color: #3b82f6; /* Azul Padrão */
+}
+
+/* Estado Selecionado Padrão */
+.quiz-option.selected {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+  color: #1d4ed8;
+}
+.dark .quiz-option.selected {
+  background-color: rgba(59, 130, 246, 0.2);
+  border-color: #3b82f6;
+  color: #93c5fd;
+}
+
+/* Feedback visual (Global) */
+.quiz-option.correct {
+  border-color: #10b981 !important;
+  background-color: #ecfdf5 !important;
+  color: #065f46 !important;
+}
+.dark .quiz-option.correct {
+  background-color: rgba(16, 185, 129, 0.2) !important;
+  color: #d1fae5 !important;
+}
+
+.quiz-option.incorrect {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+  color: #991b1b !important;
+}
+.dark .quiz-option.incorrect {
+  background-color: rgba(239, 68, 68, 0.2) !important;
+  color: #fee2e2 !important;
+}
+
+/* --- Variante Quiz: Red (Metabolismo) --- */
+.quiz-theme-red .quiz-option:hover {
+  border-color: #ef4444;
+}
+.quiz-theme-red .quiz-option.selected {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+  color: #b91c1c;
+}
+.dark .quiz-theme-red .quiz-option.selected {
+  background-color: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+  color: #fca5a5;
+}
+
+/* --- Variante Quiz: Indigo (Sono) --- */
+.quiz-theme-indigo .quiz-option:hover {
+  border-color: #6366f1;
+}
+.quiz-theme-indigo .quiz-option.selected {
+  border-color: #6366f1;
+  background-color: #e0e7ff;
+  color: #3730a3;
+}
+.dark .quiz-theme-indigo .quiz-option.selected {
+  background-color: rgba(99, 102, 241, 0.2);
+  border-color: #6366f1;
+  color: #a5b4fc;
+}
+
+/* --- Estilos Específicos: Jogo Adivinhe a Caloria --- */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.dark .glass-panel {
+  background: rgba(31, 41, 55, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.food-emoji {
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+  transition: transform 0.3s ease;
+}
+.food-emoji:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* --- Estilos Específicos: Jogo Alimentação (Drag & Drop) --- */
+.draggable-item {
+  touch-action: none;
+  cursor: grab;
+  transition: transform 0.1s;
+  position: absolute;
+  z-index: 50;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.draggable-item:active {
+  cursor: grabbing;
+  z-index: 9999 !important;
+}
+.drop-zone {
+  transition: all 0.3s ease;
+}
+
+/* --- Estilos Específicos: Jogo Rotina Saudável & Jornada --- */
+.option-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.option-card.selected-correct {
+  background-color: #dcfce7;
+  border-color: #22c55e;
+  color: #166534;
+}
+.option-card.selected-wrong {
+  background-color: #fee2e2;
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+/* Fundos Dinâmicos do Jogo Rotina */
+#game-bg { transition: background 1.5s ease-in-out; }
+.bg-morning { background: linear-gradient(to bottom, #fff7ed, #ffedd5); }
+.bg-day { background: linear-gradient(to bottom, #e0f2fe, #bae6fd); }
+.bg-afternoon { background: linear-gradient(to bottom, #fff7ed, #fdba74); }
+.bg-night { background: linear-gradient(to bottom, #1e1b4b, #312e81); }
+
+.dark .bg-morning { background: linear-gradient(to bottom, #431407, #7c2d12); }
+.dark .bg-day { background: linear-gradient(to bottom, #0c4a6e, #0284c7); }
+.dark .bg-afternoon { background: linear-gradient(to bottom, #431407, #ea580c); }
+.dark .bg-night { background: linear-gradient(to bottom, #020617, #1e1b4b); }
+
+/* --- Estilos Específicos: Jogo Memória --- */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.card-container {
+  cursor: pointer;
+}
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.card-container.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.card-front {
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+  color: white;
+}
+.card-back {
+  background-color: white;
+  color: #1f2937;
+  transform: rotateY(180deg);
+  border: 2px solid #fbcfe8;
+}
+.dark .card-back {
+  background-color: #374151;
+  color: white;
+  border-color: #db2777;
+}
+.matched .card-back {
+  background-color: #dcfce7;
+  border-color: #22c55e;
+}
+.dark .matched .card-back {
+  background-color: #064e3b;
+  border-color: #059669;
+}
+
+
+/* Animações Gerais */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes slideUp {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+/* Animações do Jogo */
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+@keyframes pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes popIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+/* Animações Alimentação */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes pulseGreen {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+}
+@keyframes shakeRed {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(-25%); animation-timing-function: cubic-bezier(0.8,0,1,1); }
+    50% { transform: none; animation-timing-function: cubic-bezier(0,0,0.2,1); }
+}
+/* Animações Desafio Rotina */
+@keyframes pulseSlow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+@keyframes floatStat {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-30px); }
+}
+
+.animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+.animate-slide-up { animation: slideUp 0.5s ease-out; }
+.animate-fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
+.animate-shake { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+.animate-pop { animation: pop 0.3s ease-out forwards; }
+.animate-pop-in { animation: popIn 0.3s ease-out forwards; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-pulse-green { animation: pulseGreen 0.5s ease-in-out; }
+.animate-shake-red { animation: shakeRed 0.5s ease-in-out; }
+.animate-bounce-slow { animation: bounce 2s infinite; }
+.animate-pulse-slow { animation: pulseSlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+.animate-float-stat { animation: floatStat 1s ease-out forwards; }
+
+/* ==========================================================================
+   CAMADA DE UTILITÁRIOS (CORES PERSONALIZADAS)
+   ========================================================================== */
+@layer utilities {
+  /* Cores 'ra' (Raphael Aquino) - Laranja Personalizado */
+  .bg-ra-50 { background-color: #fff7ed; }
+  .bg-ra-100 { background-color: #ffedd5; }
+  .bg-ra-500 { background-color: #f97316; }
+  .bg-ra-600 { background-color: #ea580c; }
+  
+  .text-ra-400 { color: #fb923c; }
+  .text-ra-500 { color: #f97316; }
+  .text-ra-600 { color: #ea580c; }
+  
+  .border-ra-100 { border-color: #ffedd5; }
+  .border-ra-200 { border-color: #fed7aa; }
+  .border-ra-500 { border-color: #f97316; }
+  .border-ra-600 { border-color: #ea580c; }
+
+  /* Variantes Dark Mode manuais para cores customizadas */
+  .dark .dark\:bg-ra-900\/30 { background-color: rgb(124 45 18 / 0.3); }
+  .dark .dark\:bg-ra-900\/20 { background-color: rgb(124 45 18 / 0.2); }
+  .dark .dark\:border-ra-900\/50 { border-color: rgb(124 45 18 / 0.5); }
+  .dark .dark\:text-ra-400 { color: #fb923c; }
+  .dark .dark\:hover\:bg-ra-900\/20:hover { background-color: rgb(124 45 18 / 0.2); }
+}
+
 /* ==========================================================================
    ESTILOS RESPONSIVOS E MOBILE
    ========================================================================== */
 
-/*
- * Usamos a diretiva `@layer components` para agrupar nossas customizações.
- * Isso ajuda o Tailwind a entender e otimizar essas regras junto com as dele,
- * evitando a necessidade do `!important`.
- */
 @layer components {
 
   /* --------------------------------------------------------------------------
@@ -76,23 +378,16 @@ details>summary::-webkit-details-marker {
    * -------------------------------------------------------------------------- */
   @media screen and (max-width: 768px) {
 
-    /*
-     * Força a exibição do botão do menu (hambúrguer) e oculta a navegação de desktop.
-     * As classes do Tailwind como `md:hidden` já cuidam de esconder o botão no desktop,
-     * então aqui garantimos que ele seja visível no mobile.
-     */
     .menu-toggle-mobile {
       display: flex;
     }
 
+    /* Ajuste para garantir que esconda o menu desktop também em lg se necessário, 
+       mas respeitando as classes do tailwind no HTML */
     .navbar-desktop {
       display: none;
     }
 
-    /*
-     * Estilização do painel do menu mobile quando ele está ativo.
-     * A classe `.active` será adicionada/removida via JavaScript.
-     */
     .menu-mobile-panel.active {
       transform: translateX(0);
       box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
@@ -105,10 +400,6 @@ details>summary::-webkit-details-marker {
    * -------------------------------------------------------------------------- */
   @media screen and (max-width: 480px) {
 
-    /*
-     * Ajustes finos de espaçamento e tamanho de fonte para garantir
-     * uma boa legibilidade e toque em telas menores.
-     */
     .hero-section {
       padding-top: 5rem; /* 80px */
       padding-bottom: 5rem; /* 80px */
