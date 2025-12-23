@@ -1,0 +1,109 @@
+/* Correções específicas para mobile */
+
+/* Forçar exibição do menu hambúrguer em telas pequenas */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 40px !important;
+        height: 40px !important;
+        cursor: pointer !important;
+        padding: 8px !important;
+        border: none !important;
+        background: transparent !important;
+        z-index: 1001 !important;
+        position: relative !important;
+    }
+    
+    .menu-toggle span {
+        display: block !important;
+        width: 25px !important;
+        height: 3px !important;
+        background-color: var(--text-primary) !important;
+        margin: 3px 0 !important;
+        transition: all 0.3s ease !important;
+        border-radius: 2px !important;
+    }
+    
+    /* Ocultar menu principal em mobile */
+    .menu {
+        display: none !important;
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        width: 280px !important;
+        height: 100vh !important;
+        background-color: var(--bg-primary) !important;
+        border-left: 1px solid var(--border-color) !important;
+        box-shadow: -5px 0 20px var(--shadow) !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 80px 20px 20px !important;
+        gap: 20px !important;
+        transition: right 0.3s ease !important;
+        z-index: 1000 !important;
+        overflow-y: auto !important;
+    }
+    
+    .menu.active {
+        display: flex !important;
+        right: 0 !important;
+    }
+    
+    /* Ajustar itens do menu para mobile */
+    .menu li {
+        width: 100% !important;
+    }
+    
+    .menu a {
+        width: 100% !important;
+        padding: 15px !important;
+        border-radius: 8px !important;
+        justify-content: flex-start !important;
+        display: flex !important;
+    }
+    
+    /* Ajustar navbar para mobile */
+    .navbar .container {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+    
+    /* Garantir que o logo não ocupe todo o espaço */
+    .logo {
+        flex: 1 !important;
+    }
+    
+    /* Posicionar o botão hambúrguer à direita */
+    .menu-toggle {
+        margin-left: auto !important;
+    }
+}
+
+/* Correções para telas muito pequenas */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 0 15px !important;
+    }
+    
+    .hero {
+        padding: 30px 0 !important;
+    }
+    
+    .hero-content h2 {
+        font-size: 2rem !important;
+    }
+    
+    .cards-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    .card {
+        padding: 20px !important;
+    }
+}
+

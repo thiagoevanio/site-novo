@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Jogos Educativos de Saúde - Aprenda Brincando | Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Divirta-se e aprenda com nossos jogos interativos gratuitos sobre saúde, nutrição e bem-estar. Educação alimentar de forma lúdica para todas as idades.">
+    <meta name="keywords" content="jogos de saúde, jogos de nutrição, educação alimentar, quiz saúde, jogos educativos, memória, calorias">
+    <link rel="canonical" href="https://calculesuasaude.com.br/jogos.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Jogos Educativos de Saúde - Calcule Sua Saúde">
+    <meta property="og:description" content="Aprenda sobre nutrição e saúde enquanto se diverte. Jogue agora gratuitamente!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculesuasaude.com.br/jogos.html">
+    <meta property="og:image" content="https://calculesuasaude.com.br/icon192.png">
+
+    <!-- Schema.org - SEO para Lista de Jogos -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "headline": "Jogos Educativos de Saúde",
+      "description": "Coleção de jogos interativos para educação em saúde e nutrição.",
+      "url": "https://calculesuasaude.com.br/jogos.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://calculesuasaude.com.br/icon192.png"
+        }
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Jogo da Alimentação Saudável",
+            "url": "https://calculesuasaude.com.br/jogos/alimentacao_saudavel.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Adivinhe a Caloria",
+            "url": "https://calculesuasaude.com.br/jogos/adivinhe_caloria.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Memória da Saúde",
+            "url": "https://calculesuasaude.com.br/jogos/memoria_saude.html"
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+                        },
+                        game: {
+                            primary: '#8b5cf6', // Violeta
+                            secondary: '#ec4899', // Rosa
+                            accent: '#10b981', // Esmeralda
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .dark .glass-effect {
+            background: rgba(17, 24, 39, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .game-gradient {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 antialiased">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform shadow-md">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                </div>
+                <h1 class="text-xl font-bold text-gray-900 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-brand-600">Saúde</span>
+                </h1>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
+                <a href="jogos.html" class="text-sm font-bold text-brand-600 bg-brand-50 dark:bg-brand-900/20 px-3 py-1 rounded-full">Jogos</a>
+                <a href="sobre.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Sobre</a>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Mudar Tema">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300" aria-label="Menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[64px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-3">
+                <a href="index.html" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Início</a>
+                <a href="index.html#ferramentas" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Calculadoras</a>
+                <a href="artigos.html" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Artigos</a>
+                <a href="jogos.html" class="block py-2 px-4 font-bold text-brand-600 bg-brand-50 dark:bg-brand-900/20 rounded-lg">Jogos</a>
+                <a href="sobre.html" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Sobre</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-24">
+        
+        <!-- Hero Section -->
+        <section class="relative py-20 overflow-hidden">
+            <div class="absolute inset-0 game-gradient opacity-10 dark:opacity-20"></div>
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-pink-500/20 rounded-full blur-3xl"></div>
+            
+            <div class="container mx-auto px-4 relative z-10 text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/50 dark:bg-white/10 backdrop-blur-md border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 mb-6 text-sm font-bold shadow-sm">
+                    <i data-lucide="gamepad-2" class="w-4 h-4"></i> Área de Diversão
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 leading-tight">
+                    Aprenda <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Brincando</span>
+                </h1>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                    Nossos jogos interativos foram criados para ensinar conceitos de saúde, nutrição e bem-estar de forma leve e divertida. Escolha um desafio e comece agora!
+                </p>
+            </div>
+        </section>
+
+        <!-- Games Grid -->
+        <section class="container mx-auto px-4 -mt-10 relative z-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Game 1 -->
+                <div class="group bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:-translate-y-2 flex flex-col">
+                    <div class="w-16 h-16 rounded-2xl bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                        🍎
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-green-600 transition-colors">
+                        Alimentação Saudável
+                    </h3>
+                    <p class="text-gray-500 dark:text-gray-400 mb-8 flex-1 leading-relaxed">
+                        Arraste e solte alimentos para o prato certo. Aprenda a diferenciar alimentos nutritivos de ultraprocessados.
+                    </p>
+                    <a href="jogos/alimentacao_saudavel.html" class="w-full inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-md hover:shadow-green-500/30">
+                        <i data-lucide="play" class="w-5 h-5 fill-current"></i> Jogar Agora
+                    </a>
+                </div>
+
+                <!-- Game 2 -->
+                <div class="group bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:-translate-y-2 flex flex-col">
+                    <div class="w-16 h-16 rounded-2xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                        🔥
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-orange-600 transition-colors">
+                        Adivinhe a Caloria
+                    </h3>
+                    <p class="text-gray-500 dark:text-gray-400 mb-8 flex-1 leading-relaxed">
+                        Teste seus conhecimentos calóricos. Será que você sabe quanto vale aquele lanche ou aquela fruta?
+                    </p>
+                    <a href="jogos/adivinhe_caloria.html" class="w-full inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl transition-all shadow-md hover:shadow-orange-500/30">
+                        <i data-lucide="play" class="w-5 h-5 fill-current"></i> Jogar Agora
+                    </a>
+                </div>
+
+                <!-- Game 3 -->
+                <div class="group bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:-translate-y-2 flex flex-col">
+                    <div class="w-16 h-16 rounded-2xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                        ⏰
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 transition-colors">
+                        Monte sua Rotina
+                    </h3>
+                    <p class="text-gray-500 dark:text-gray-400 mb-8 flex-1 leading-relaxed">
+                        O desafio é criar um dia equilibrado. Combine sono, trabalho, exercícios e alimentação na medida certa.
+                    </p>
+                    <a href="jogos/rotina_saudavel.html" class="w-full inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-md hover:shadow-blue-500/30">
+                        <i data-lucide="play" class="w-5 h-5 fill-current"></i> Jogar Agora
+                    </a>
+                </div>
+
+                <!-- Game 4 -->
+                <div class="group bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:-translate-y-2 flex flex-col">
+                    <div class="w-16 h-16 rounded-2xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                        🧠
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-purple-600 transition-colors">
+                        Memória da Saúde
+                    </h3>
+                    <p class="text-gray-500 dark:text-gray-400 mb-8 flex-1 leading-relaxed">
+                        Exercite seu cérebro! Combine os alimentos com seus principais benefícios para a saúde neste jogo clássico.
+                    </p>
+                    <a href="jogos/memoria_saude.html" class="w-full inline-flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-md hover:shadow-purple-500/30">
+                        <i data-lucide="play" class="w-5 h-5 fill-current"></i> Jogar Agora
+                    </a>
+                </div>
+
+                <!-- Game 5 -->
+                <div class="group bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:-translate-y-2 flex flex-col">
+                    <div class="w-16 h-16 rounded-2xl bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                        🧘
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-teal-600 transition-colors">
+                        Desafio da Rotina
+                    </h3>
+                    <p class="text-gray-500 dark:text-gray-400 mb-8 flex-1 leading-relaxed">
+                        Uma versão avançada para testar suas habilidades de gerenciamento de tempo e hábitos saudáveis.
+                    </p>
+                    <a href="jogos/desafio_rotina.html" class="w-full inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-md hover:shadow-teal-500/30">
+                        <i data-lucide="play" class="w-5 h-5 fill-current"></i> Jogar Agora
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CTA Quizzes -->
+        <section class="container mx-auto px-4 mt-20">
+            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3"></div>
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-bold mb-4">Quer testar seu conhecimento teórico?</h2>
+                    <p class="text-indigo-100 mb-8 text-lg max-w-2xl mx-auto">Temos uma seção exclusiva de quizzes para você descobrir o quanto sabe sobre o seu corpo.</p>
+                    <a href="todos_quizzes.html" class="inline-flex items-center gap-2 bg-white text-indigo-600 font-bold py-3 px-8 rounded-full hover:bg-indigo-50 transition-all shadow-lg hover:scale-105">
+                        Ir para Quizzes <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-16 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Sua fonte confiável de ferramentas de saúde e informação baseada em ciência. Nosso objetivo é democratizar o bem-estar.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="index.html#ferramentas" class="hover:text-white transition-colors">Calculadoras</a></li>
+                        <li><a href="artigos.html" class="hover:text-white transition-colors">Artigos</a></li>
+                        <li><a href="politica.html" class="hover:text-white transition-colors">Privacidade</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Conteúdo Interativo</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="jogos.html" class="hover:text-white transition-colors">Todos os Jogos</a></li>
+                        <li><a href="todos_quizzes.html" class="hover:text-white transition-colors">Quizzes</a></li>
+                        <li><a href="desafios.html" class="hover:text-white transition-colors">Desafios Diários</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Dark Mode Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            localStorage.theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+        });
+
+        // Mobile Menu Logic
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

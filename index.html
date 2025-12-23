@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3b82f6">
+  <title>Calcule Sua Saúde - Ferramentas de Nutrição e Bem-Estar</title>
+
+  <!-- ============================================== -->
+  <!-- META TAGS SEO & SOCIAL -->
+  <!-- ============================================== -->
+  <meta name="description"
+    content="Portal completo de saúde: Calculadoras de IMC, TMB, Gordura Corporal e Água. Acesse artigos baseados em ciência e melhore sua qualidade de vida gratuitamente.">
+  <meta name="keywords"
+    content="saúde, calculadora IMC, dieta, nutrição, personal trainer, bem-estar, emagrecimento, massa muscular, jogos de saude">
+  <meta property="og:title" content="Calcule Sua Saúde - Ferramentas Gratuitas">
+  <meta property="og:description" content="Monitore sua saúde com precisão. Ferramentas gratuitas e artigos científicos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calculesuasaude.com.br">
+  <meta property="og:image" content="https://calculesuasaude.com.br/icon192.png">
+  <meta name="p:domain_verify" content="87045e0f762d5e077c77f1a95e94d2dd" />
+
+  <!-- PWA / Mobile -->
+  <!-- Ajustado para caminho relativo para compatibilidade com GitHub Pages -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="/icon192.png">
+  <link rel="canonical" href="https://calculesuasaude.com.br">
+
+  <!-- ============================================== -->
+  <!-- ANALYTICS & ADS -->
+  <!-- ============================================== -->
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
+    crossorigin="anonymous"></script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+  </script>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Calcule Sua Saúde",
+      "url": "https://calculesuasaude.com.br",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://calculesuasaude.com.br/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "description": "Ferramentas gratuitas de saúde e bem-estar baseadas em evidências.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://calculesuasaude.com.br/icon192.png"
+        }
+      }
+    }
+  </script>
+
+  <!-- ============================================== -->
+  <!-- ESTILOS E SCRIPTS VISUAIS -->
+  <!-- ============================================== -->
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+    
+  <!-- Lucide Icons (CORREÇÃO: Link específico para versão UMD) -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          animation: {
+            'pop-up': 'popUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            'float': 'float 6s ease-in-out infinite',
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+          },
+          keyframes: {
+            popUp: {
+              '0%': { opacity: 0, transform: 'scale(0.9) translateY(20px)' },
+              '100%': { opacity: 1, transform: 'scale(1) translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            fadeInUp: {
+              '0%': { opacity: 0, transform: 'translateY(20px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.90);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .dark .glass-effect {
+      background: rgba(17, 24, 39, 0.90);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .animated-gradient {
+      background: linear-gradient(-45deg, #2563eb, #0ea5e9, #3b82f6, #4f46e5);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    details>summary {
+      list-style: none;
+    }
+
+    details>summary::-webkit-details-marker {
+      display: none;
+    }
+
+    /* Scrollbar Customizada */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1; 
+    }
+    .dark ::-webkit-scrollbar-track {
+      background: #1f2937; 
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #888; 
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555; 
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+  <!-- ============================================== -->
+  <!-- SCRIPT MONETAG (VINHETA) -->
+  <!-- ============================================== -->
+  <script>(function(s){s.dataset.zone='10349431',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
+  <script>(function(s){s.dataset.zone='10359128',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
+  <!-- ============================================== -->
+  <!-- HEADER -->
+  <!-- ============================================== -->
+  <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2 group">
+        <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform shadow-md">
+          <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+        </div>
+        <h1 class="text-xl font-bold text-gray-900 dark:text-white tracking-tight">
+          Calcule Sua <span class="text-brand-600">Saúde</span>
+        </h1>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#inicio" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+        <a href="#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+        <a href="artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Biblioteca</a>
+        <a href="personal.html"
+          class="text-sm font-bold text-orange-600 hover:text-orange-700 bg-orange-50 dark:bg-orange-900/20 px-3 py-1.5 rounded-full transition-colors flex items-center gap-1">
+          <i data-lucide="star" class="w-3 h-3"></i> Personal Trainer
+        </a>
+        <a href="#parceiros" class="text-sm font-medium hover:text-brand-600 transition-colors">Apps</a>
+        <a href="#faq" class="text-sm font-medium hover:text-brand-600 transition-colors">Dúvidas</a>
+
+        <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+          aria-label="Alternar Tema">
+          <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+          <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+        </button>
+      </nav>
+
+      <!-- Mobile Button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300" aria-label="Menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+      class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[64px] z-40 shadow-lg">
+      <div class="flex flex-col p-4 space-y-3">
+        <a href="#inicio" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Início</a>
+        <a href="personal.html"
+          class="block py-2 px-4 font-bold text-orange-600 bg-orange-50 dark:bg-orange-900/20 rounded-lg">Personal
+          Trainer</a>
+        <a href="#parceiros" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Apps</a>
+        <a href="#ferramentas"
+          class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Calculadoras</a>
+        <a href="artigos.html" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Artigos</a>
+        <a href="todos_quizzes.html"
+          class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Quizzes</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================== -->
+  <!-- HERO SECTION -->
+  <!-- ============================================== -->
+  <section id="inicio" class="pt-36 pb-24 animated-gradient relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div
+      class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-30">
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+
+        <!-- Texto Hero -->
+        <div class="lg:w-1/2 text-white text-center lg:text-left">
+          <div
+            class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold mb-6 animate-float">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            Ferramentas 100% Gratuitas
+          </div>
+
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight">
+            Cuide da sua saúde com <br class="hidden lg:block"><span class="text-blue-100">precisão e ciência.</span>
+          </h2>
+
+          <p class="text-lg text-blue-50/90 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            Monitorar seus indicadores é o primeiro passo para uma vida longeva. Nossas calculadoras utilizam protocolos médicos padronizados para te dar o controle total do seu bem-estar, sem taxas e com privacidade total.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a href="#ferramentas"
+              class="bg-white text-brand-700 px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-2">
+              <i data-lucide="calculator" class="w-5 h-5"></i>
+              Acessar Ferramentas
+            </a>
+            <a href="artigos.html"
+              class="bg-brand-800/40 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-bold hover:bg-brand-800/60 transition-all flex items-center justify-center gap-2">
+              <i data-lucide="book-open" class="w-5 h-5"></i>
+              Ler Artigos
+            </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div
+            class="mt-10 flex items-center justify-center lg:justify-start gap-6 text-sm font-medium text-blue-100/80">
+            <div class="flex items-center gap-2">
+              <i data-lucide="shield-check" class="w-5 h-5"></i> Privacidade Garantida
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="microscope" class="w-5 h-5"></i> Base Científica
+            </div>
+          </div>
+        </div>
+
+        <!-- Widget IMC Rápido -->
+        <div class="lg:w-1/2 w-full max-w-md">
+          <div
+            class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 transform hover:rotate-1 transition-transform duration-500 border border-gray-100 dark:border-gray-700">
+            <div class="flex items-center gap-4 mb-6 border-b border-gray-100 dark:border-gray-700 pb-4">
+              <div class="bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 p-3 rounded-xl">
+                <i data-lucide="activity" class="w-7 h-7"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-xl text-gray-800 dark:text-white">Teste Rápido de IMC</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Verifique seu índice agora mesmo</p>
+              </div>
+            </div>
+
+            <form id="quick-imc-form" class="space-y-5">
+              <div class="grid grid-cols-2 gap-5">
+                <div>
+                  <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Peso (kg)</label>
+                  <div class="relative">
+                    <input type="number" id="quick-weight" placeholder="Ex: 70"
+                      class="w-full pl-3 pr-4 py-3 rounded-xl border border-gray-200 dark:bg-gray-700 dark:border-gray-600 focus:ring-2 focus:ring-brand-500 outline-none transition-all text-lg">
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Altura (m)</label>
+                  <div class="relative">
+                    <input type="number" step="0.01" id="quick-height" placeholder="Ex: 1.75"
+                      class="w-full pl-3 pr-4 py-3 rounded-xl border border-gray-200 dark:bg-gray-700 dark:border-gray-600 focus:ring-2 focus:ring-brand-500 outline-none transition-all text-lg">
+                  </div>
+                </div>
+              </div>
+              <button type="submit"
+                class="w-full bg-gray-900 dark:bg-brand-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-gray-800 dark:hover:bg-brand-700 transition-colors shadow-lg">
+                Calcular Agora
+              </button>
+            </form>
+
+            <div id="quick-result"
+              class="hidden mt-6 p-5 rounded-xl bg-gray-50 dark:bg-gray-700/50 text-center animate-pulse border border-gray-200 dark:border-gray-600">
+              <span class="block text-sm text-gray-500 dark:text-gray-300 uppercase tracking-wide font-semibold">Seu
+                IMC é</span>
+              <span class="block text-4xl font-black text-brand-600 dark:text-brand-400 my-1" id="imc-value">00.0</span>
+              <span class="inline-block px-3 py-1 rounded-full text-sm font-bold mt-1" id="imc-status">Normal</span>
+              <a href="ferramentas/imc.html"
+                class="block mt-4 text-sm text-brand-600 hover:text-brand-800 font-semibold underline">
+                Ver análise detalhada e tabela →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- NOVA SEÇÃO: 3 PILARES DA SAÚDE (TEXTO RICO) -->
+  <!-- ============================================== -->
+  <section class="py-20 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-brand-600 font-bold tracking-wider uppercase text-xs mb-2 block">Metodologia</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">A Saúde Vai Além dos Números</h2>
+            <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+                Calcular seu IMC ou TMB é apenas o começo. Para uma vida verdadeiramente saudável e longeva, acreditamos no equilíbrio entre três pilares fundamentais. Nossas ferramentas são desenhadas para apoiar você em cada um deles.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- Pilar 1 -->
+            <div class="text-center group">
+                <div class="w-20 h-20 mx-auto bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i data-lucide="leaf" class="w-10 h-10 text-green-600 dark:text-green-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Nutrição Inteligente</h3>
+                <p class="text-gray-500 dark:text-gray-400 leading-relaxed">
+                    Não se trata de comer pouco, mas comer melhor. Entender seus macronutrientes e necessidades calóricas permite que você se alimente de forma que nutra suas células, não apenas mate a fome.
+                </p>
+            </div>
+
+            <!-- Pilar 2 -->
+            <div class="text-center group">
+                <div class="w-20 h-20 mx-auto bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i data-lucide="activity" class="w-10 h-10 text-blue-600 dark:text-blue-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Movimento Constante</h3>
+                <p class="text-gray-500 dark:text-gray-400 leading-relaxed">
+                    O corpo humano foi projetado para se mover. Seja musculação, caminhada ou yoga, a atividade física regular é o melhor remédio preventivo contra doenças crônicas e envelhecimento precoce.
+                </p>
+            </div>
+
+            <!-- Pilar 3 -->
+            <div class="text-center group">
+                <div class="w-20 h-20 mx-auto bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i data-lucide="brain" class="w-10 h-10 text-purple-600 dark:text-purple-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Mente Equilibrada</h3>
+                <p class="text-gray-500 dark:text-gray-400 leading-relaxed">
+                    O estresse e a ansiedade sabotam seus resultados físicos. Cuidar do sono, da hidratação e do bem-estar mental é tão crucial quanto a dieta. Mente sã, corpo são.
+                </p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- PERSONAL TRAINER & NOTÍCIAS SECTION -->
+  <!-- ============================================== -->
+  <section class="py-20 bg-gray-50 dark:bg-gray-800/30 border-y dark:border-gray-800">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- Card Personal (Metade) -->
+        <div
+          class="bg-gradient-to-br from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 rounded-[2.5rem] p-8 shadow-2xl relative overflow-hidden flex flex-col items-center text-center group transition-transform hover:-translate-y-1 h-full justify-between min-h-[400px]">
+          
+          <!-- Efeito de Fundo -->
+          <div
+            class="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3">
+          </div>
+
+          <div class="w-full">
+            <!-- Imagem -->
+            <div class="relative shrink-0 z-10 mb-6 flex justify-center">
+              <div
+                class="w-40 h-40 rounded-full p-1 bg-gradient-to-tr from-orange-500 to-red-600 shadow-[0_0_30px_rgba(249,115,22,0.4)]">
+                <img src="personal.jpg" loading="lazy"
+                  onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+                  alt="Raphael Aquino Personal" class="w-full h-full object-cover rounded-full border-4 border-gray-900">
+              </div>
+              <div
+                class="absolute -bottom-3 bg-orange-600 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg whitespace-nowrap border-2 border-gray-900">
+                CREF: 42.897-G/MG
+              </div>
+            </div>
+
+            <!-- Texto -->
+            <div class="flex-1 z-10 w-full">
+              <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-4">
+                <i data-lucide="award" class="w-4 h-4"></i> Destaque Profissional
+              </div>
+              <h2 class="text-2xl md:text-3xl font-black text-white mb-4 leading-tight">
+                Treine com <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">Raphael Aquino</span>
+              </h2>
+              <p class="text-gray-300 text-sm mb-6 leading-relaxed max-w-md mx-auto">
+                Consultoria especializada em Hipertrofia e Emagrecimento. Planos personalizados adaptados à sua rotina.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 justify-center w-full z-10">
+            <a href="personal.html"
+              class="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-white bg-orange-600 rounded-full hover:bg-orange-700 shadow-lg hover:shadow-orange-500/30 transition-all w-full sm:w-auto">
+              Conhecer Planos
+            </a>
+            <a href="https://wa.me/message/X5XSBKPUOUJDM1" target="_blank"
+              class="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-white bg-transparent border-2 border-gray-600 rounded-full hover:bg-white hover:text-gray-900 hover:border-white transition-all w-full sm:w-auto">
+              WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Card: Notícias de Saúde (GNews) -->
+        <div id="news-card-container"
+          class="bg-gradient-to-br from-cyan-900 to-blue-900 dark:from-cyan-900 dark:to-slate-900 rounded-[2.5rem] p-8 shadow-2xl relative overflow-hidden flex flex-col items-center text-center group transition-transform hover:-translate-y-1 h-full min-h-[400px] justify-between">
+          
+          <!-- Efeito de Fundo -->
+          <div
+            class="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500/20 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3">
+          </div>
+
+          <div class="w-full relative z-10">
+            <!-- Imagem da Notícia (Nova) ou Ícone (Fallback) -->
+            <div id="news-image-container" class="mb-6 flex justify-center w-full h-40 overflow-hidden rounded-2xl bg-white/10 backdrop-blur-md shadow-[0_0_30px_rgba(34,211,238,0.3)] border border-white/10">
+                <!-- Ícone padrão (visível se não houver imagem) -->
+                <div id="news-icon" class="flex items-center justify-center w-full h-full">
+                    <i data-lucide="newspaper" class="w-10 h-10 text-cyan-300"></i>
+                </div>
+                <!-- Imagem dinâmica (oculta por padrão) -->
+                <img id="news-image" src="" alt="Notícia" class="w-full h-full object-cover hidden">
+            </div>
+
+            <!-- Texto -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-500/20 text-cyan-300 text-xs font-bold uppercase tracking-widest mb-4">
+              <i data-lucide="globe" class="w-4 h-4"></i> Últimas da Saúde
+            </div>
+            
+            <h2 id="news-title" class="text-xl md:text-2xl font-black text-white mb-4 leading-tight min-h-[64px] flex items-center justify-center">
+              Carregando novidades...
+            </h2>
+            
+            <p id="news-desc" class="text-gray-300 text-sm mb-6 leading-relaxed max-w-md mx-auto line-clamp-3 min-h-[60px]">
+              Trazendo as informações mais recentes para você se manter atualizado sobre o mundo da saúde e bem-estar.
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 justify-center w-full z-10">
+            <a id="news-link" href="#" target="_blank"
+              class="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-cyan-900 bg-cyan-400 rounded-full hover:bg-cyan-300 shadow-lg hover:shadow-cyan-500/30 transition-all w-full sm:w-auto">
+              Ler Matéria Completa <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+            </a>
+          </div>
+          
+          <div class="absolute top-4 right-4 animate-pulse">
+            <span class="flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-cyan-500"></span>
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- DESAFIO DIÁRIO -->
+  <!-- ============================================== -->
+  <section class="py-12 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <div
+        class="bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg border-l-8 border-emerald-500">
+        <div class="flex items-start gap-5">
+          <div
+            class="bg-emerald-100 dark:bg-emerald-900/40 p-4 rounded-full text-emerald-600 dark:text-emerald-400 shrink-0">
+            <i data-lucide="calendar-check" class="w-8 h-8"></i>
+          </div>
+          <div>
+            <h3 class="text-emerald-800 dark:text-emerald-300 font-bold text-lg mb-1 uppercase tracking-wide">Desafio
+              Saudável de Hoje</h3>
+            <p class="text-2xl font-bold text-gray-900 dark:text-white" id="desafio-hoje">Carregando desafio...</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Pequenas atitudes diárias constroem uma vida
+              longa.</p>
+          </div>
+        </div>
+        <a href="desafios.html"
+          class="w-full md:w-auto text-center bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-md">
+          Ver Calendário Completo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- GRID DE FERRAMENTAS -->
+  <!-- ============================================== -->
+  <section id="ferramentas" class="py-24 container mx-auto px-4 bg-gray-50 dark:bg-gray-900/50">
+    <div class="text-center mb-16">
+      <span
+        class="text-brand-600 font-bold tracking-wider uppercase text-xs bg-brand-50 dark:bg-brand-900/20 px-3 py-1 rounded-full">Calculadoras
+        Online</span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mt-4 mb-4">Ferramentas de Precisão</h2>
+      <p class="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+        Não adivinhe, calcule. Utilize nossas ferramentas gratuitas para obter dados exatos sobre seu corpo e tomar decisões baseadas em fatos, não em suposições.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Card IMC -->
+      <a href="ferramentas/imc.html"
+        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div
+          class="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="bar-chart-2" class="w-7 h-7"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">IMC</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Índice de Massa Corporal. A
+          ferramenta padrão para verificar se você está no peso ideal.</p>
+        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+          Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </a>
+
+      <!-- Card TMB -->
+      <a href="ferramentas/tmb.html"
+        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div
+          class="w-14 h-14 bg-orange-100 dark:bg-orange-900/30 rounded-2xl flex items-center justify-center text-orange-600 dark:text-orange-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="flame" class="w-7 h-7"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Metabolismo Basal</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Descubra quantas calorias seu corpo
+          queima em repouso. Essencial para dietas.</p>
+        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+          Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </a>
+
+      <!-- Card Água -->
+      <a href="ferramentas/agua.html"
+        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div
+          class="w-14 h-14 bg-cyan-100 dark:bg-cyan-900/30 rounded-2xl flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="droplets" class="w-7 h-7"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Água Diária</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Hidratação personalizada baseada no
+          seu peso corporal. Mantenha seu corpo fluindo.</p>
+        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+          Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </a>
+
+      <!-- Card Gordura -->
+      <a href="ferramentas/gordura.html"
+        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div
+          class="w-14 h-14 bg-yellow-100 dark:bg-yellow-900/30 rounded-2xl flex items-center justify-center text-yellow-600 dark:text-yellow-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="scale" class="w-7 h-7"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Gordura Corporal</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Estimativa avançada do seu percentual
+          de gordura e massa magra.</p>
+        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+          Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </a>
+
+      <!-- Card Macros -->
+      <a href="ferramentas/macros.html"
+        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div
+          class="w-14 h-14 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center text-green-600 dark:text-green-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="utensils" class="w-7 h-7"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Macronutrientes</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Calcule a divisão ideal de
+          Carboidratos, Proteínas e Gorduras para seu objetivo.</p>
+        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+          Calcular Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </a>
+
+      <!-- Card Glicemia -->
+      <a href="ferramentas/glicemia.html"
+        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div
+          class="w-14 h-14 bg-red-100 dark:bg-red-900/30 rounded-2xl flex items-center justify-center text-red-600 dark:text-red-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="activity" class="w-7 h-7"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Glicemia</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Interprete seus níveis de glicose no
+          sangue e entenda os valores de referência.</p>
+        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+          Verificar <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </a>
+
+      <!-- Card Calorias -->
+      <a href="ferramentas/calorias.html"
+        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div
+          class="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center text-purple-600 dark:text-purple-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="zap" class="w-7 h-7"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Gasto Calórico Total</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Quantas calorias você gasta por dia
+          considerando seus exercícios e rotina.</p>
+        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+          Calcular <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </a>
+
+      <!-- Card IMC Infantil -->
+      <a href="ferramentas/imc_infantil.html"
+        class="group bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div
+          class="w-14 h-14 bg-pink-100 dark:bg-pink-900/30 rounded-2xl flex items-center justify-center text-pink-600 dark:text-pink-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="baby" class="w-7 h-7"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">IMC Infantil</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Cálculo especializado para acompanhar
+          o crescimento de crianças e adolescentes.</p>
+        <div class="text-brand-600 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+          Calcular <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </a>
+    </div>
+  </section>
+    
+  <!-- ============================================== -->
+  <!-- JOGOS / GAMIFICATION -->
+  <!-- ============================================== -->
+  <section class="py-12 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-indigo-500 to-purple-600 shadow-xl">
+        <!-- Background decorative shapes -->
+        <div class="absolute top-0 right-0 -mt-10 -mr-10 h-40 w-40 rounded-full bg-white/20 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -mb-10 -ml-10 h-40 w-40 rounded-full bg-white/20 blur-3xl"></div>
+
+        <div class="relative z-10 flex flex-col items-center justify-between gap-6 p-8 md:flex-row">
+          <div class="flex items-center gap-6">
+            <div
+              class="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white/20 text-white backdrop-blur-sm">
+              <i data-lucide="gamepad-2" class="h-8 w-8"></i>
+            </div>
+            <div class="text-white">
+              <h3 class="mb-2 text-2xl font-bold">Aprenda Brincando!</h3>
+              <p class="text-blue-100">
+                Teste seus conhecimentos com nossos jogos interativos de nutrição e memória.
+              </p>
+            </div>
+          </div>
+
+          <a href="jogos.html"
+            class="group flex items-center gap-2 rounded-full bg-white px-8 py-3.5 font-bold text-indigo-600 transition-all hover:bg-indigo-50 hover:shadow-lg">
+            Jogar Agora
+            <i data-lucide="arrow-right" class="h-5 w-5 transition-transform group-hover:translate-x-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- QUIZZES -->
+  <!-- ============================================== -->
+  <section class="py-24 bg-gray-100 dark:bg-gray-800/50 border-y dark:border-gray-800">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+        <div class="max-w-2xl">
+          <span class="text-violet-600 font-bold tracking-wider uppercase text-xs mb-2 block">Interativo</span>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Teste seus Conhecimentos</h2>
+          <p class="text-gray-600 dark:text-gray-300 text-lg">Aprender sobre saúde não precisa ser chato. Divirta-se com
+            nossos quizzes e descubra curiosidades sobre seu corpo.</p>
+        </div>
+        <a href="todos_quizzes.html"
+          class="hidden md:inline-flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-800 dark:text-white px-6 py-3 rounded-full font-semibold shadow-sm hover:shadow-md transition-all border border-gray-200 dark:border-gray-700">
+          Ver todos os quizzes <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Quiz 1 -->
+        <div
+          class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-100 dark:border-gray-700">
+          <div class="h-3 bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
+          <div class="p-8 flex-1">
+            <div class="bg-violet-100 dark:bg-violet-900/30 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="brain-circuit" class="w-6 h-6 text-violet-600 dark:text-violet-400"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Geral de Saúde</h3>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed">Você sabe o básico sobre nutrição, sono e
+              exercícios? Faça o teste e descubra seu nível.</p>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="quiz.html"
+              class="block w-full text-center bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-bold py-3.5 rounded-xl hover:bg-violet-600 hover:text-white transition-all">
+              Começar Quiz
+            </a>
+          </div>
+        </div>
+
+        <!-- Quiz 2 -->
+        <div
+          class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-100 dark:border-gray-700">
+          <div class="h-3 bg-gradient-to-r from-blue-500 to-cyan-500"></div>
+          <div class="p-8 flex-1">
+            <div class="bg-blue-100 dark:bg-blue-900/30 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="dumbbell" class="w-6 h-6 text-blue-600 dark:text-blue-400"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Perfil de Treino</h3>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed">Musculação, CrossFit ou Yoga? Descubra qual
+              modalidade combina mais com sua personalidade.</p>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="quiz_treino.html"
+              class="block w-full text-center bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-bold py-3.5 rounded-xl hover:bg-blue-600 hover:text-white transition-all">
+              Descobrir Agora
+            </a>
+          </div>
+        </div>
+
+        <!-- Quiz 3 -->
+        <div
+          class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-100 dark:border-gray-700">
+          <div class="h-3 bg-gradient-to-r from-green-500 to-emerald-500"></div>
+          <div class="p-8 flex-1">
+            <div class="bg-green-100 dark:bg-green-900/30 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="apple" class="w-6 h-6 text-green-600 dark:text-green-400"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Nutrição Real</h3>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed">Mitos e verdades sobre alimentação. Você sabe
+              montar um prato verdadeiramente equilibrado?</p>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="quiz_alimentacao.html"
+              class="block w-full text-center bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-bold py-3.5 rounded-xl hover:bg-green-600 hover:text-white transition-all">
+              Testar Agora
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center md:hidden">
+        <a href="todos_quizzes.html"
+          class="inline-flex items-center gap-2 text-brand-600 font-bold hover:text-brand-800 underline">
+          Ver todos os quizzes <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- ARTIGOS -->
+  <!-- ============================================== -->
+  <section id="artigos" class="py-24 container mx-auto px-4">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Conteúdo em Destaque</h2>
+        <p class="text-gray-500 dark:text-gray-400 max-w-xl">Artigos aprofundados para você entender a ciência por trás
+          da sua saúde.</p>
+      </div>
+      <a href="artigos.html"
+        class="hidden md:inline-flex items-center gap-2 text-brand-600 font-bold hover:text-brand-800 hover:underline transition-all">
+        Acessar Biblioteca Completa <i data-lucide="arrow-right" class="w-5 h-5"></i>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Artigo 1 -->
+      <article
+        class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
+        <a href="artigos/metabolismo-como-acelerar.html" class="h-56 overflow-hidden relative">
+          <img src="img/artigos/metabolismo.jpg" loading="lazy"
+            onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+            alt="Metabolismo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div
+            class="absolute top-4 left-4 bg-white/90 backdrop-blur text-brand-700 px-3 py-1 rounded-full text-xs font-bold uppercase shadow-sm">
+            Nutrição
+          </div>
+        </a>
+        <div class="p-8 flex-1 flex flex-col">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-brand-600 transition-colors">
+            <a href="artigos/metabolismo-como-acelerar.html">Acelere seu Metabolismo</a>
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 flex-1">Estratégias naturais, baseadas em
+            ciência, para aumentar seu gasto calórico diário sem dietas malucas.</p>
+          <a href="artigos/metabolismo-como-acelerar.html"
+            class="text-brand-600 font-bold hover:text-brand-800 inline-flex items-center gap-2">
+            Ler artigo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Artigo 2 -->
+      <article
+        class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
+        <a href="artigos/hidratacao-importancia-saude.html" class="h-56 overflow-hidden relative">
+          <img src="img/artigos/hidratacao.jpg" loading="lazy"
+            onerror="this.src='https://images.unsplash.com/photo-1548839140-29a749e1cf4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+            alt="Hidratação" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div
+            class="absolute top-4 left-4 bg-white/90 backdrop-blur text-cyan-700 px-3 py-1 rounded-full text-xs font-bold uppercase shadow-sm">
+            Bem-estar
+          </div>
+        </a>
+        <div class="p-8 flex-1 flex flex-col">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-cyan-600 transition-colors">
+            <a href="artigos/hidratacao-importancia-saude.html">O Poder da Água</a>
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 flex-1">Descubra como a hidratação correta
+            impacta sua cognição, pele e performance física imediata.</p>
+          <a href="artigos/hidratacao-importancia-saude.html"
+            class="text-cyan-600 font-bold hover:text-cyan-800 inline-flex items-center gap-2">
+            Ler artigo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Artigo 3 -->
+      <article
+        class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
+        <a href="artigos/ia-saude-chatgpt-gemini.html" class="h-56 overflow-hidden relative">
+          <img src="img/artigos/iasaude.png" loading="lazy"
+            onerror="this.src='https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+            alt="IA na Saúde" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div
+            class="absolute top-4 left-4 bg-white/90 backdrop-blur text-indigo-700 px-3 py-1 rounded-full text-xs font-bold uppercase shadow-sm">
+            Tecnologia
+          </div>
+        </a>
+        <div class="p-8 flex-1 flex flex-col">
+          <h3
+            class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-indigo-600 transition-colors">
+            <a href="artigos/ia-saude-chatgpt-gemini.html">IA na Saúde</a>
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 flex-1">Como usar ChatGPT e Gemini para
+            melhorar sua saúde com segurança, ética e sem riscos.</p>
+          <a href="artigos/ia-saude-chatgpt-gemini.html"
+            class="text-indigo-600 font-bold hover:text-indigo-800 inline-flex items-center gap-2">
+            Ler artigo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Artigo 4 (Novo) -->
+      <article
+        class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
+        <a href="artigos/ganho-massa-muscular.html" class="h-56 overflow-hidden relative">
+          <img src="img/artigos/ganho_massa_muscular.jpg" loading="lazy"
+            onerror="this.src='https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+            alt="Ganho de Massa Muscular" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div
+            class="absolute top-4 left-4 bg-white/90 backdrop-blur text-blue-700 px-3 py-1 rounded-full text-xs font-bold uppercase shadow-sm">
+            Exercícios
+          </div>
+        </a>
+        <div class="p-8 flex-1 flex flex-col">
+          <h3
+            class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 transition-colors">
+            <a href="artigos/ganho-massa-muscular.html">Ganho de Massa Muscular</a>
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 flex-1">Treino, dieta e descanso: os pilares fundamentais para alcançar a hipertrofia de forma eficiente.</p>
+          <a href="artigos/ganho-massa-muscular.html"
+            class="text-blue-600 font-bold hover:text-blue-800 inline-flex items-center gap-2">
+            Ler artigo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Artigo 5 (Novo) -->
+      <article
+        class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
+        <a href="artigos/ansiedade-depressao.html" class="h-56 overflow-hidden relative">
+          <img src="img/artigos/saude-mental.png" loading="lazy"
+            onerror="this.src='https://images.unsplash.com/photo-1499209974431-9dddcece7f88?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+            alt="Ansiedade e Depressão" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div
+            class="absolute top-4 left-4 bg-white/90 backdrop-blur text-purple-700 px-3 py-1 rounded-full text-xs font-bold uppercase shadow-sm">
+            Saúde Mental
+          </div>
+        </a>
+        <div class="p-8 flex-1 flex flex-col">
+          <h3
+            class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-purple-600 transition-colors">
+            <a href="artigos/ansiedade-depressao.html">Ansiedade e Depressão</a>
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 flex-1">Compreenda os sintomas, as diferenças e os tratamentos para recuperar seu equilíbrio emocional.</p>
+          <a href="artigos/ansiedade-depressao.html"
+            class="text-purple-600 font-bold hover:text-purple-800 inline-flex items-center gap-2">
+            Ler artigo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Artigo 6 (Novo) -->
+      <article
+        class="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col group hover:-translate-y-1 transition-all duration-300">
+        <a href="artigos/diabetes-prevencao-tratamento.html" class="h-56 overflow-hidden relative">
+          <img src="img/artigos/diabetes.jpg" loading="lazy"
+            onerror="this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+            alt="Diabetes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div
+            class="absolute top-4 left-4 bg-white/90 backdrop-blur text-red-700 px-3 py-1 rounded-full text-xs font-bold uppercase shadow-sm">
+            Prevenção
+          </div>
+        </a>
+        <div class="p-8 flex-1 flex flex-col">
+          <h3
+            class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-red-600 transition-colors">
+            <a href="artigos/diabetes-prevencao-tratamento.html">Diabetes: Prevenção</a>
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 flex-1">Guia completo para prevenir e controlar o diabetes através de mudanças simples de hábitos.</p>
+          <a href="artigos/diabetes-prevencao-tratamento.html"
+            class="text-red-600 font-bold hover:text-red-800 inline-flex items-center gap-2">
+            Ler artigo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="text-center mt-12 md:hidden">
+      <a href="artigos.html"
+        class="inline-block border-2 border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white px-8 py-3 rounded-full font-bold transition-all duration-300">
+        Ver Todos os Artigos
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- NOVA SEÇÃO: APPS PARCEIROS (MINIMALISTA) -->
+  <!-- ============================================== -->
+  <section id="parceiros" class="py-10 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+        <!-- App Card Compacto -->
+        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-700 shadow-lg max-w-3xl mx-auto border border-emerald-500/30">
+            <div class="relative z-10 flex flex-col sm:flex-row items-center p-6 gap-5 sm:gap-8">
+                <!-- Icon/Image -->
+                <div class="shrink-0">
+                    <img src="finsafe.png" loading="lazy" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2382/2382461.png'"
+                        alt="Ícone FinSafe" class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl shadow-md border-2 border-white/20">
+                </div>
+
+                <!-- Text Content -->
+                <div class="text-center sm:text-left flex-1 text-white">
+                    <div class="flex items-center justify-center sm:justify-start gap-2 mb-1">
+                        <span class="bg-emerald-800/50 px-2 py-0.5 rounded text-[10px] font-bold text-emerald-100 uppercase tracking-wider border border-white/10">Recomendado</span>
+                        <span class="flex items-center text-[10px] text-emerald-100 font-medium">
+                            <i data-lucide="star" class="w-3 h-3 mr-1 text-yellow-400 fill-yellow-400"></i> 5.0
+                        </span>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-1">FinSafe: Controle Financeiro</h3>
+                    <p class="text-emerald-50 text-xs sm:text-sm leading-relaxed max-w-md">
+                        Organize suas finanças e gastos de forma simples, offline e sem anúncios. O parceiro ideal para sua saúde financeira.
+                    </p>
+                </div>
+
+                <!-- Action Button -->
+                <div class="shrink-0">
+                    <a href="https://play.google.com/store/apps/details?id=com.thiagoevanio.finsafe&hl=pt_BR" target="_blank"
+                        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-emerald-700 rounded-full text-sm font-bold shadow-md hover:bg-emerald-50 transition-all transform hover:-translate-y-0.5 whitespace-nowrap">
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                        Baixar App
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- FAQ -->
+  <!-- ============================================== -->
+  <section id="faq" class="py-24 bg-gray-50 dark:bg-gray-800/50 border-t dark:border-gray-800">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">Dúvidas Frequentes</h2>
+      <p class="text-center text-gray-500 dark:text-gray-400 mb-12 max-w-2xl mx-auto">Informação clara e direta.
+        Entenda como nossas ferramentas funcionam.</p>
+
+      <div class="space-y-4">
+        <!-- Pergunta 1 -->
+        <details
+          class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
+          <summary
+            class="flex items-center justify-between cursor-pointer p-6 font-bold text-lg text-gray-800 dark:text-gray-200">
+            O uso das ferramentas é gratuito?
+            <span class="bg-gray-100 dark:bg-gray-700 p-2 rounded-full transition-transform group-open:rotate-180">
+              <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+            </span>
+          </summary>
+          <div
+            class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-700 pt-4 leading-relaxed">
+            Sim! Todas as calculadoras e artigos do Calcule Sua Saúde são 100% gratuitos e de acesso livre para todos os
+            usuários.
+          </div>
+        </details>
+
+        <!-- Pergunta 2 -->
+        <details
+          class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
+          <summary
+            class="flex items-center justify-between cursor-pointer p-6 font-bold text-lg text-gray-800 dark:text-gray-200">
+            Preciso fazer cadastro?
+            <span class="bg-gray-100 dark:bg-gray-700 p-2 rounded-full transition-transform group-open:rotate-180">
+              <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+            </span>
+          </summary>
+          <div
+            class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-700 pt-4 leading-relaxed">
+            Não. Acreditamos no acesso rápido à informação. Você pode usar qualquer ferramenta sem necessidade de login,
+            cadastro ou fornecer e-mail.
+          </div>
+        </details>
+
+        <!-- Pergunta 3 -->
+        <details
+          class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
+          <summary
+            class="flex items-center justify-between cursor-pointer p-6 font-bold text-lg text-gray-800 dark:text-gray-200">
+            As calculadoras substituem o médico?
+            <span class="bg-gray-100 dark:bg-gray-700 p-2 rounded-full transition-transform group-open:rotate-180">
+              <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+            </span>
+          </summary>
+          <div
+            class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-700 pt-4 leading-relaxed">
+            Jamais. Nossas ferramentas são informativas e educativas, baseadas em fórmulas matemáticas gerais. Para
+            diagnósticos clínicos e tratamentos, consulte sempre um médico ou nutricionista.
+          </div>
+        </details>
+
+        <!-- Pergunta 4 -->
+        <details
+          class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
+          <summary
+            class="flex items-center justify-between cursor-pointer p-6 font-bold text-lg text-gray-800 dark:text-gray-200">
+            Meus dados ficam salvos?
+            <span class="bg-gray-100 dark:bg-gray-700 p-2 rounded-full transition-transform group-open:rotate-180">
+              <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600"></i>
+            </span>
+          </summary>
+          <div
+            class="px-6 pb-6 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-700 pt-4 leading-relaxed">
+            Não. Respeitamos rigorosamente sua privacidade. Os cálculos são processados no seu próprio navegador e
+            nenhum dado pessoal de saúde é enviado ou armazenado em nossos servidores.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- SOBRE / TRUST -->
+  <!-- ============================================== -->
+  <section class="py-20 bg-white dark:bg-gray-900 border-t dark:border-gray-800">
+    <div class="container mx-auto px-4 text-center max-w-3xl">
+      <div class="bg-brand-50 dark:bg-brand-900/10 p-10 rounded-[3rem] border border-brand-100 dark:border-brand-800">
+        <i data-lucide="shield-check" class="w-16 h-16 text-brand-600 mx-auto mb-6"></i>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Compromisso com a Ciência</h2>
+        <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+          O <strong>Calcule Sua Saúde</strong> é um projeto educativo dedicado a democratizar o acesso a ferramentas de
+          saúde. Utilizamos apenas metodologias e fórmulas reconhecidas internacionalmente pela comunidade médica e
+          científica (como OMS e Harris-Benedict).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- FOOTER -->
+  <!-- ============================================== -->
+  <footer class="bg-gray-900 text-gray-300 pt-20 pb-10 border-t border-gray-800">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div class="col-span-1 md:col-span-1">
+          <h3 class="text-white text-xl font-bold mb-6 flex items-center gap-2">
+            <i data-lucide="heart-pulse" class="w-6 h-6 text-brand-500"></i> Calcule Sua Saúde
+          </h3>
+          <p class="text-sm text-gray-400 leading-relaxed mb-6">
+            Sua plataforma completa para monitoramento de saúde e bem-estar. Simples, rápido e cientificamente embasado.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="instagram"
+                class="w-5 h-5"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="facebook"
+                class="w-5 h-5"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="twitter"
+                class="w-5 h-5"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-6 text-lg">Navegação</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#inicio" class="hover:text-brand-400 transition-colors">Início</a></li>
+            <li><a href="personal.html"
+                class="hover:text-brand-400 transition-colors text-orange-400 font-semibold">Personal Trainer</a></li>
+            <li><a href="sobre.html" class="hover:text-brand-400 transition-colors">Quem Somos</a></li>
+            <li><a href="contato.html" class="hover:text-brand-400 transition-colors">Fale Conosco</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-6 text-lg">Legal</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+            <li><a href="termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+            <li><a href="responsabilidade.html" class="hover:text-brand-400 transition-colors">Isenção de Responsabilidade</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-6 text-lg">Ferramentas</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+            <li><a href="ferramentas/tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
+            <li><a href="ferramentas/agua.html" class="hover:text-brand-400 transition-colors">Hidratação Diária</a>
+            </li>
+            <li><a href="todos_quizzes.html" class="hover:text-brand-400 transition-colors">Quizzes de Saúde</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 pt-8 text-center">
+        <p class="text-sm text-gray-500 mb-4">
+          <strong>Aviso Legal:</strong> O conteúdo deste site é apenas para fins informativos e educacionais. Não
+          substitui o conselho médico profissional, diagnóstico ou tratamento.
+        </p>
+        <p class="text-sm text-gray-600">
+          &copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão Back to Top -->
+  <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    class="fixed bottom-6 right-6 bg-brand-600 hover:bg-brand-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 translate-y-20 opacity-0 z-40">
+    <i data-lucide="arrow-up" class="w-6 h-6"></i>
+  </button>
+
+  <!-- ============================================== -->
+  <!-- JAVASCRIPT LOGIC -->
+  <!-- ============================================== -->
+  <script>
+    // Inicializa ícones Lucide
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+
+    // Lógica do Dark Mode
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      htmlElement.classList.add('dark');
+    } else {
+      htmlElement.classList.remove('dark');
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      htmlElement.classList.toggle('dark');
+      if (htmlElement.classList.contains('dark')) {
+        localStorage.theme = 'dark';
+      } else {
+        localStorage.theme = 'light';
+      }
+    });
+
+    // Menu Mobile
+    const btnMobile = document.getElementById('mobile-menu-btn');
+    const menuMobile = document.getElementById('mobile-menu');
+
+    btnMobile.addEventListener('click', () => {
+      menuMobile.classList.toggle('hidden');
+    });
+
+    // Lógica do Desafio Diário
+    const desafiosSaudaveis = [
+      "Beba 2L de água hoje", "Caminhe por 20 minutos", "Coma 5 porções de frutas/vegetais",
+      "Durma 8 horas", "Faça 10 minutos de alongamento", "Evite açúcar refinado hoje",
+      "Pratique 5 minutos de meditação", "Suba escadas ao invés do elevador",
+      "Coma um café da manhã nutritivo", "Faça uma pausa de 5 min a cada hora",
+      "Beba um copo de água ao acordar", "Caminhe durante o almoço", "Coma uma salada no almoço",
+      "Pratique respiração profunda", "Evite bebidas açucaradas", "Faça 20 polichinelos",
+      "Leia por 15 minutos", "Coma uma fruta como lanche", "Desconecte-se das telas 1h antes de dormir",
+      "Faça uma atividade ao ar livre", "Beba chá verde", "Pratique gratidão - liste 3 coisas boas",
+      "Coma peixe ou proteína magra", "Faça 15 minutos de exercício", "Evite comida processada",
+      "Tome sol por 15 minutos", "Faça uma refeição sem pressa", "Pratique uma nova receita saudável",
+      "Durma e acorde no mesmo horário", "Celebre suas conquistas do mês", "Planeje metas saudáveis"
+    ];
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const hoje = new Date();
+      const diaDoMes = hoje.getDate();
+      const challengeIndex = (diaDoMes - 1) % desafiosSaudaveis.length;
+      const desafioElement = document.getElementById('desafio-hoje');
+      if (desafioElement) desafioElement.textContent = desafiosSaudaveis[challengeIndex];
+    });
+
+    // Widget de Calculadora Rápida IMC
+    document.getElementById('quick-imc-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const peso = parseFloat(document.getElementById('quick-weight').value);
+      let altura = parseFloat(document.getElementById('quick-height').value);
+      const resultBox = document.getElementById('quick-result');
+      const imcValue = document.getElementById('imc-value');
+      const imcStatus = document.getElementById('imc-status');
+
+      if (peso > 0 && altura > 0) {
+        // Correção automática: se digitou em cm (ex: 175), converte para metros (1.75)
+        if (altura > 3) {
+          altura = altura / 100;
+        }
+
+        const imc = peso / (altura * altura);
+        imcValue.textContent = imc.toFixed(1);
+        resultBox.classList.remove('hidden');
+
+        let status = '';
+        let colorClass = '';
+
+        if (imc < 18.5) { status = 'Abaixo do Peso'; colorClass = 'bg-yellow-100 text-yellow-800'; }
+        else if (imc < 24.9) { status = 'Peso Normal'; colorClass = 'bg-green-100 text-green-800'; }
+        else if (imc < 29.9) { status = 'Sobrepeso'; colorClass = 'bg-orange-100 text-orange-800'; }
+        else { status = 'Obesidade'; colorClass = 'bg-red-100 text-red-800'; }
+
+        imcStatus.textContent = status;
+        imcStatus.className = `inline-block px-3 py-1 rounded-full text-sm font-bold mt-1 ${colorClass}`;
+      } else {
+        alert('Por favor, insira valores válidos.');
+      }
+    });
+
+    // ==============================================
+    // BACK TO TOP BUTTON LOGIC
+    // ==============================================
+    const backToTopBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.remove('translate-y-20', 'opacity-0');
+      } else {
+        backToTopBtn.classList.add('translate-y-20', 'opacity-0');
+      }
+    });
+
+    // Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        // Ajustado para caminho relativo para compatibilidade com GitHub Pages
+        navigator.serviceWorker.register('sw.js').catch(error => console.log('SW falhou: ', error));
+      });
+    }
+
+    // ==============================================
+    // NEWS FETCHING LOGIC (GNEWS)
+    // ==============================================
+    // NEWS FETCHING LOGIC (RSS TO JSON - GRATUITO)
+    // ==============================================
+      
+    // URL do Feed RSS do Google Notícias (Tópico Saúde - Brasil)
+    const RSS_URL = 'https://news.google.com/rss/search?q=saude+bem+estar+brasil&hl=pt-BR&gl=BR&ceid=BR:pt-419';
+      
+    // Conversor RSS para JSON (Permite ler o feed no navegador sem bloqueio)
+    const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
+
+    async function fetchHealthNews() {
+        const titleEl = document.getElementById('news-title');
+        const descEl = document.getElementById('news-desc');
+        const linkEl = document.getElementById('news-link');
+        const imgEl = document.getElementById('news-image');
+        const iconEl = document.getElementById('news-icon');
+
+        // Notícia de Fallback (Caso falhe ou demore)
+        const fallbackNews = {
+            title: "Longevidade: 5 hábitos simples para viver mais e melhor",
+            description: "Estudos recentes apontam que sono de qualidade, hidratação e redução de estresse são mais eficazes que dietas restritivas.",
+            url: "artigos.html",
+            image: null // Sem imagem no fallback, usa ícone
+        };
+
+        try {
+            // Verifica cache (para economizar requisições e carregar rápido)
+            const cachedNews = localStorage.getItem('cached_health_news_rss');
+            const cachedTime = localStorage.getItem('cached_news_time_rss');
+            const now = new Date().getTime();
+
+            // Usa cache se tiver menos de 1 hora (3600000 ms)
+            if (cachedNews && cachedTime && (now - cachedTime < 3600000)) {
+                updateNewsUI(JSON.parse(cachedNews));
+                return;
+            }
+
+            const response = await fetch(API_URL);
+              
+            if (!response.ok) throw new Error('Erro na API RSS');
+              
+            const data = await response.json();
+              
+            if (data.items && data.items.length > 0) {
+                // MUDANÇA: Em vez de pegar sempre a primeira (índice 0), 
+                // pegamos uma aleatória entre as 4 primeiras para dar variedade.
+                const maxIndex = Math.min(data.items.length, 4); 
+                const randomIndex = Math.floor(Math.random() * maxIndex);
+                const article = data.items[randomIndex];
+                  
+                // Limpeza básica do título
+                const cleanTitle = article.title.split(' - ')[0];
+
+                let cleanDesc = "Confira os detalhes completos desta matéria sobre saúde e bem-estar clicando no botão abaixo.";
+                  
+                if(article.contentSnippet && article.contentSnippet.length > 10) {
+                   cleanDesc = article.contentSnippet.substring(0, 120) + "...";
+                }
+
+                // Tenta extrair a imagem da descrição HTML (formato comum do Google RSS)
+                let newsImg = null;
+                const imgMatch = article.description.match(/src="([^"]+)"/);
+                if (imgMatch) {
+                    newsImg = imgMatch[1];
+                }
+
+                const newsItem = {
+                    title: cleanTitle,
+                    description: cleanDesc,
+                    url: article.link,
+                    image: newsImg
+                };
+                  
+                // Salva no cache
+                localStorage.setItem('cached_health_news_rss', JSON.stringify(newsItem));
+                localStorage.setItem('cached_news_time_rss', now);
+                  
+                updateNewsUI(newsItem);
+            } else {
+                updateNewsUI(fallbackNews);
+            }
+        } catch (error) {
+            console.error("Erro ao buscar notícias RSS:", error);
+            const cachedNews = localStorage.getItem('cached_health_news_rss');
+            if (cachedNews) {
+                 updateNewsUI(JSON.parse(cachedNews));
+            } else {
+                 updateNewsUI(fallbackNews);
+            }
+        }
+    }
+
+    function updateNewsUI(news) {
+        const titleEl = document.getElementById('news-title');
+        const descEl = document.getElementById('news-desc');
+        const linkEl = document.getElementById('news-link');
+        const imgEl = document.getElementById('news-image');
+        const iconEl = document.getElementById('news-icon');
+
+        // Animação suave na troca de texto
+        titleEl.style.opacity = 0;
+        descEl.style.opacity = 0;
+          
+        setTimeout(() => {
+            titleEl.textContent = news.title;
+            // Remove tags HTML se vierem na descrição
+            descEl.innerHTML = news.description; 
+            linkEl.href = news.url;
+            
+            // Lógica de Imagem vs Ícone
+            if (news.image) {
+                imgEl.src = news.image;
+                imgEl.classList.remove('hidden');
+                iconEl.classList.add('hidden');
+            } else {
+                imgEl.classList.add('hidden');
+                iconEl.classList.remove('hidden');
+            }
+              
+            titleEl.style.opacity = 1;
+            descEl.style.opacity = 1;
+        }, 200);
+    }
+
+    // Inicia a busca
+    fetchHealthNews();
+
+  </script>
+</body>
+
+</html>

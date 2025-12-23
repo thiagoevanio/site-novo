@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Política de Privacidade - Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Política de Privacidade do Calcule Sua Saúde. Saiba como protegemos seus dados e respeitamos sua privacidade ao utilizar nossas ferramentas.">
+    <meta property="og:title" content="Política de Privacidade - Calcule Sua Saúde">
+    <meta property="og:description" content="Saiba como protegemos seus dados e respeitamos sua privacidade.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculesuasaude.com.br/politica.html">
+    <meta property="og:image" content="https://calculesuasaude.com.br/icon192.png">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .dark .glass-effect {
+            background: rgba(17, 24, 39, 0.95);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                </div>
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-brand-600">Saúde</span>
+                </h1>
+            </a>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
+                <a href="sobre.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Sobre</a>
+                <a href="contato.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Contato</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="artigos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
+                <a href="sobre.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Sobre</a>
+                <a href="contato.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+        
+        <!-- Breadcrumbs -->
+        <div class="container mx-auto px-4 mb-8">
+            <nav class="flex text-sm text-gray-500 dark:text-gray-400">
+                <a href="index.html" class="hover:text-brand-600 transition-colors">Início</a>
+                <span class="mx-2">/</span>
+                <span class="font-medium text-gray-900 dark:text-white">Política de Privacidade</span>
+            </nav>
+        </div>
+
+        <div class="container mx-auto px-4 max-w-4xl">
+            
+            <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+                
+                <!-- Cabeçalho do Documento -->
+                <div class="bg-gray-50 dark:bg-gray-700/50 p-8 border-b border-gray-100 dark:border-gray-700 text-center">
+                    <div class="inline-block p-3 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 mb-4">
+                        <i data-lucide="shield-check" class="w-8 h-8"></i>
+                    </div>
+                    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Política de Privacidade</h1>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 flex items-center justify-center gap-2">
+                        <i data-lucide="calendar" class="w-4 h-4"></i> Última atualização: Janeiro de 2024
+                    </p>
+                </div>
+
+                <!-- Conteúdo -->
+                <div class="p-8 space-y-8 text-gray-700 dark:text-gray-300 leading-relaxed">
+                    
+                    <section>
+                        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <span class="bg-brand-100 dark:bg-brand-900 text-brand-600 dark:text-brand-400 w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span>
+                            Informações Gerais
+                        </h2>
+                        <p>
+                            O <strong>Calcule Sua Saúde</strong> ("nós", "nosso" ou "site") está comprometido em proteger e respeitar sua privacidade. Esta Política de Privacidade explica de forma transparente como coletamos, usamos e protegemos suas informações quando você visita nosso site e utiliza nossas ferramentas.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <span class="bg-brand-100 dark:bg-brand-900 text-brand-600 dark:text-brand-400 w-8 h-8 rounded-full flex items-center justify-center text-sm">2</span>
+                            Informações que Coletamos
+                        </h2>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl">
+                                <h3 class="font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+                                    <i data-lucide="database" class="w-4 h-4 text-brand-500"></i> 2.1 Dados Não Identificáveis
+                                </h3>
+                                <p class="mb-3 text-sm">Coletamos dados técnicos para melhorar a experiência do usuário:</p>
+                                <ul class="list-disc pl-5 space-y-1 text-sm marker:text-brand-500">
+                                    <li>Informações de navegação (páginas visitadas, tempo de permanência);</li>
+                                    <li>Dados técnicos (tipo de navegador, sistema operacional, IP anonimizado);</li>
+                                    <li>Preferências locais (como a escolha do tema Escuro/Claro).</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-green-50 dark:bg-green-900/20 p-5 rounded-xl border border-green-100 dark:border-green-800">
+                                <h3 class="font-bold text-green-800 dark:text-green-400 mb-2 flex items-center gap-2">
+                                    <i data-lucide="lock" class="w-4 h-4"></i> 2.2 Dados das Calculadoras
+                                </h3>
+                                <p class="text-sm text-green-700 dark:text-green-300">
+                                    <strong>Importante:</strong> Os dados que você insere em nossas calculadoras (como peso, altura, idade) são processados <strong>localmente no seu dispositivo</strong>. Nenhuma informação de saúde pessoal é enviada para nossos servidores ou armazenada em banco de dados.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <span class="bg-brand-100 dark:bg-brand-900 text-brand-600 dark:text-brand-400 w-8 h-8 rounded-full flex items-center justify-center text-sm">3</span>
+                            Cookies e Tecnologias
+                        </h2>
+                        <p class="mb-3">Utilizamos cookies para melhorar sua experiência:</p>
+                        <ul class="list-disc pl-6 space-y-2 marker:text-brand-500">
+                            <li><strong>Essenciais:</strong> Necessários para o funcionamento básico do site.</li>
+                            <li><strong>Preferência:</strong> Salvam configurações como o modo noturno.</li>
+                            <li><strong>Análise:</strong> (Google Analytics) Ajudam a entender quais conteúdos são mais acessados.</li>
+                            <li><strong>Publicidade:</strong> (Google AdSense) Permitem exibir anúncios relevantes para manter o site gratuito.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <span class="bg-brand-100 dark:bg-brand-900 text-brand-600 dark:text-brand-400 w-8 h-8 rounded-full flex items-center justify-center text-sm">4</span>
+                            Google AdSense
+                        </h2>
+                        <p>
+                            Este site utiliza o Google AdSense para exibir anúncios. O Google pode usar cookies (como o cookie DoubleClick) para exibir anúncios com base em suas visitas a este e outros sites. Você pode personalizar suas preferências de anúncios visitando as <a href="https://www.google.com/settings/ads" target="_blank" class="text-brand-600 hover:underline">Configurações de Anúncios do Google</a>.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <span class="bg-brand-100 dark:bg-brand-900 text-brand-600 dark:text-brand-400 w-8 h-8 rounded-full flex items-center justify-center text-sm">5</span>
+                            Compartilhamento e Segurança
+                        </h2>
+                        <p class="mb-4">
+                            <strong>Não vendemos, trocamos ou transferimos</strong> suas informações pessoais identificáveis para terceiros. Compartilhamos apenas dados anônimos agregados para fins de análise e publicidade (como descrito acima com Google Analytics e AdSense).
+                        </p>
+                        <p>
+                            Implementamos medidas de segurança adequadas (como HTTPS) para proteger sua navegação. No entanto, lembre-se que nenhum método de transmissão pela internet é 100% seguro.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <span class="bg-brand-100 dark:bg-brand-900 text-brand-600 dark:text-brand-400 w-8 h-8 rounded-full flex items-center justify-center text-sm">6</span>
+                            Seus Direitos (LGPD)
+                        </h2>
+                        <p class="mb-3">Você tem o direito de:</p>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Acessar informações que temos sobre você</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Solicitar exclusão de dados</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Retirar consentimento a qualquer momento</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Desativar cookies no navegador</li>
+                        </ul>
+                    </section>
+
+                    <div class="border-t border-gray-100 dark:border-gray-700 pt-8 mt-8">
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+                            <i data-lucide="mail" class="w-5 h-5 text-brand-500"></i> Contato sobre Privacidade
+                        </h3>
+                        <p class="text-sm">
+                            Se tiver dúvidas sobre esta Política de Privacidade, entre em contato através do e-mail: 
+                            <a href="mailto:contatocalculesuasaude@gmail.com" class="text-brand-600 hover:underline font-medium">contatocalculesuasaude@gmail.com</a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="ferramentas/tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
+                        <li><a href="ferramentas/agua.html" class="hover:text-brand-400 transition-colors">Água Diária</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones Lucide
+        lucide.createIcons();
+
+        // Lógica do Dark Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        // Menu Mobile
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

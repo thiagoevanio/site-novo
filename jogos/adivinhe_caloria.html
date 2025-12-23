@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f97316">
+    <title>Adivinhe a Caloria - Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Jogo educativo: Você sabe quantas calorias tem sua comida favorita? Teste seus conhecimentos agora!">
+    <link rel="canonical" href="https://calculesuasaude.com.br/jogos/adivinhe_caloria.html">
+
+        <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+                        },
+                        calories: {
+                            primary: '#f97316', // Laranja
+                            secondary: '#fbbf24', // Amarelo
+                            accent: '#ea580c', // Laranja Escuro
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
+                        'pop': 'pop 0.3s ease-out forwards',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        shake: {
+                            '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+                            '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+                            '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+                            '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
+                        },
+                        pop: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glass-panel {
+            background: rgba(31, 41, 55, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .food-emoji {
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+            transition: transform 0.3s ease;
+        }
+        .food-emoji:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+    </style>
+</head>
+<body class="bg-orange-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- Header Simples -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-orange-100 dark:border-gray-800 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-orange-500 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="flame" class="w-5 h-5"></i>
+                </div>
+                <h1 class="text-lg font-bold text-gray-900 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-orange-500">Saúde</span>
+                </h1>
+            </a>
+            <a href="../jogos.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-orange-500 transition-colors flex items-center gap-1">
+                <i data-lucide="gamepad-2" class="w-4 h-4"></i> Voltar aos Jogos
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Game Area -->
+    <main class="flex-1 pt-24 pb-12 flex items-center justify-center px-4">
+        
+        <div class="w-full max-w-2xl relative">
+            
+            <!-- Elementos Decorativos de Fundo -->
+            <div class="absolute -top-10 -left-10 w-32 h-32 bg-orange-300 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+            <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-yellow-300 rounded-full blur-3xl opacity-30 animate-pulse" style="animation-delay: 1s;"></div>
+
+            <!-- TELA INICIAL -->
+            <div id="start-screen" class="glass-panel rounded-3xl p-8 md:p-12 shadow-2xl text-center relative z-10 animate-fade-in">
+                <div class="w-24 h-24 bg-gradient-to-br from-orange-400 to-red-500 rounded-full mx-auto flex items-center justify-center mb-6 shadow-lg transform hover:scale-105 transition-transform">
+                    <span class="text-5xl">🔥</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-4">Adivinhe a Caloria</h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                    Você sabe o quanto está comendo? Teste seus conhecimentos nutricionais e veja se consegue bater o recorde!
+                </p>
+
+                <!-- High Score Badge -->
+                <div class="inline-flex items-center gap-2 bg-yellow-100 dark:bg-yellow-900/30 px-4 py-2 rounded-full mb-8 border border-yellow-200 dark:border-yellow-700">
+                    <i data-lucide="trophy" class="w-4 h-4 text-yellow-600 dark:text-yellow-400"></i>
+                    <span class="text-sm font-bold text-yellow-800 dark:text-yellow-200">
+                        Recorde Atual: <span id="display-highscore">0</span> pts
+                    </span>
+                </div>
+
+                <div class="space-y-4">
+                    <button onclick="game.start('easy')" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-green-500/30 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                        <span>🥬</span> Modo Fácil (Margem de erro maior)
+                    </button>
+                    <button onclick="game.start('hard')" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-orange-500/30 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                        <span>🌶️</span> Modo Difícil (Exato)
+                    </button>
+                </div>
+            </div>
+
+            <!-- TELA DO JOGO -->
+            <div id="game-screen" class="hidden glass-panel rounded-3xl overflow-hidden shadow-2xl relative z-10">
+                
+                <!-- HUD (Heads Up Display) -->
+                <div class="bg-gray-50 dark:bg-gray-800/50 p-4 flex justify-between items-center border-b border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center gap-4">
+                        <div class="flex flex-col">
+                            <span class="text-xs text-gray-500 dark:text-gray-400 uppercase font-bold tracking-wider">Pontos</span>
+                            <span class="text-2xl font-black text-orange-600 dark:text-orange-400" id="score">0</span>
+                        </div>
+                        <div class="hidden sm:flex flex-col border-l border-gray-200 dark:border-gray-600 pl-4">
+                            <span class="text-xs text-gray-500 dark:text-gray-400 uppercase font-bold tracking-wider">Combo</span>
+                            <span class="text-xl font-bold text-blue-600 dark:text-blue-400">x<span id="streak">0</span> 🔥</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2">
+                        <div class="flex gap-1" id="lives-container">
+                            <!-- Corações gerados via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Barra de Progresso -->
+                <div class="w-full bg-gray-200 dark:bg-gray-700 h-1.5">
+                    <div id="progress-bar" class="bg-orange-500 h-1.5 transition-all duration-500" style="width: 0%"></div>
+                </div>
+
+                <div class="p-6 md:p-10 text-center">
+                    <!-- Pergunta -->
+                    <div class="mb-8 animate-pop">
+                        <div class="food-emoji text-8xl mb-4 select-none transform transition-transform duration-300 cursor-help" title="Dica: Clique para ver detalhes" id="food-icon">
+                            🍔
+                        </div>
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2" id="food-name">Hambúrguer</h2>
+                        <span class="inline-block bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-sm font-medium border border-orange-200 dark:border-orange-800" id="food-portion">
+                            1 unidade média (200g)
+                        </span>
+                    </div>
+
+                    <!-- Opções -->
+                    <div class="grid grid-cols-2 gap-4 mb-6" id="options-container">
+                        <!-- Botões gerados via JS -->
+                    </div>
+
+                    <!-- Feedback -->
+                    <div id="feedback-area" class="hidden rounded-xl p-4 mb-4 text-sm font-medium animate-fade-in">
+                        <!-- Feedback msg -->
+                    </div>
+                </div>
+
+                <!-- Botão Próximo (Fixo no rodapé do card) -->
+                <div id="next-button-container" class="hidden p-4 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-100 dark:border-gray-700 text-center animate-fade-in">
+                    <button onclick="game.nextQuestion()" class="w-full md:w-auto px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-md transition-transform transform hover:scale-105 flex items-center justify-center gap-2 mx-auto">
+                        Próxima Pergunta <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- TELA DE RESULTADO -->
+            <div id="result-screen" class="hidden glass-panel rounded-3xl p-8 md:p-12 shadow-2xl text-center relative z-10 animate-pop">
+                <div class="w-24 h-24 bg-green-100 dark:bg-green-900/30 rounded-full mx-auto flex items-center justify-center mb-6">
+                    <i data-lucide="award" class="w-12 h-12 text-green-600 dark:text-green-400"></i>
+                </div>
+                
+                <h2 class="text-3xl font-black text-gray-900 dark:text-white mb-2">Fim de Jogo!</h2>
+                <p class="text-gray-500 dark:text-gray-400 mb-8" id="result-message">Mandou bem!</p>
+
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700">
+                        <span class="block text-xs text-gray-500 uppercase font-bold">Sua Pontuação</span>
+                        <span class="block text-3xl font-black text-orange-600" id="final-score">0</span>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700">
+                        <span class="block text-xs text-gray-500 uppercase font-bold">Acertos</span>
+                        <span class="block text-3xl font-black text-blue-600" id="final-accuracy">0/10</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <button onclick="game.reset()" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="rotate-ccw" class="w-5 h-5"></i> Jogar Novamente
+                    </button>
+                    <button onclick="game.shareResult()" class="w-full bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-white font-bold py-3.5 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="share-2" class="w-5 h-5"></i> Compartilhar
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        // Banco de Dados de Alimentos (Expandido e Categorizado)
+        const foodDatabase = [
+            { name: 'Maçã', emoji: '🍎', portion: '1 unidade média (150g)', calories: 78, tip: 'Rica em fibras e vitamina C.' },
+            { name: 'Banana', emoji: '🍌', portion: '1 unidade média (120g)', calories: 105, tip: 'Ótima fonte de potássio e energia rápida.' },
+            { name: 'Ovo Cozido', emoji: '🥚', portion: '1 unidade grande (50g)', calories: 78, tip: 'Proteína de alto valor biológico.' },
+            { name: 'Pão Francês', emoji: '🥖', portion: '1 unidade (50g)', calories: 135, tip: 'Carboidrato simples. Prefira versões integrais.' },
+            { name: 'Brigadeiro', emoji: '🍫', portion: '1 unidade (30g)', calories: 100, tip: 'Alta densidade calórica e açúcar.' },
+            { name: 'Arroz Branco', emoji: '🍚', portion: '1 escumadeira (150g)', calories: 190, tip: 'Base da alimentação brasileira.' },
+            { name: 'Feijão Carioca', emoji: '🫘', portion: '1 concha (140g)', calories: 105, tip: 'Rico em ferro e fibras.' },
+            { name: 'Pizza de Mussarela', emoji: '🍕', portion: '1 fatia média', calories: 280, tip: 'Cuidado com o excesso de queijo e gordura.' },
+            { name: 'Hambúrguer Fast Food', emoji: '🍔', portion: '1 sanduíche padrão', calories: 540, tip: 'Alto teor de sódio e gorduras saturadas.' },
+            { name: 'Batata Frita', emoji: '🍟', portion: 'Porção média (100g)', calories: 312, tip: 'Fritura aumenta drasticamente as calorias.' },
+            { name: 'Cerveja', emoji: '🍺', portion: '1 lata (350ml)', calories: 147, tip: 'Calorias vazias sem valor nutricional.' },
+            { name: 'Refrigerante Cola', emoji: '🥤', portion: '1 lata (350ml)', calories: 140, tip: 'Contém cerca de 35g de açúcar (7 sachês).' },
+            { name: 'Abacate', emoji: '🥑', portion: 'Meia unidade (100g)', calories: 160, tip: 'Gorduras boas, mas calórico.' },
+            { name: 'Salada Mista', emoji: '🥗', portion: '1 prato de sobremesa', calories: 35, tip: 'Baixíssima caloria, coma à vontade!' },
+            { name: 'Coxinha', emoji: '🍗', portion: '1 unidade média', calories: 290, tip: 'Massa frita e recheio calórico.' },
+            { name: 'Chocolate ao Leite', emoji: '🍫', portion: '1 barra (90g)', calories: 480, tip: 'Muito açúcar. Prefira o amargo 70%.' },
+            { name: 'Açaí com Granola', emoji: '🍧', portion: 'Copo pequeno (300ml)', calories: 350, tip: 'Saudável, mas energético. Cuidado com xaropes.' },
+            { name: 'Pão de Queijo', emoji: '🧀', portion: '1 unidade média', calories: 85, tip: 'Patrimônio mineiro, rico em gordura.' },
+            { name: 'Macarrão ao Sugo', emoji: '🍝', portion: '1 prato raso', calories: 320, tip: 'Fonte de energia para atividades físicas.' },
+            { name: 'Melancia', emoji: '🍉', portion: '1 fatia grande', calories: 60, tip: 'Muita água e poucas calorias.' }
+        ];
+
+        class CalorieGame {
+            constructor() {
+                this.state = {
+                    score: 0,
+                    currentQuestionIndex: 0,
+                    streak: 0,
+                    lives: 3,
+                    difficulty: 'easy',
+                    questions: [],
+                    isAnswered: false,
+                    highScore: localStorage.getItem('calorieGameHighScore') || 0
+                };
+
+                this.dom = {
+                    startScreen: document.getElementById('start-screen'),
+                    gameScreen: document.getElementById('game-screen'),
+                    resultScreen: document.getElementById('result-screen'),
+                    score: document.getElementById('score'),
+                    streak: document.getElementById('streak'),
+                    livesContainer: document.getElementById('lives-container'),
+                    progressBar: document.getElementById('progress-bar'),
+                    foodIcon: document.getElementById('food-icon'),
+                    foodName: document.getElementById('food-name'),
+                    foodPortion: document.getElementById('food-portion'),
+                    optionsContainer: document.getElementById('options-container'),
+                    feedbackArea: document.getElementById('feedback-area'),
+                    nextBtnContainer: document.getElementById('next-button-container'),
+                    highScoreDisplay: document.getElementById('display-highscore')
+                };
+
+                this.updateHighScoreDisplay();
+            }
+
+            // Inicializa o jogo
+            start(difficulty) {
+                this.state.difficulty = difficulty;
+                this.state.score = 0;
+                this.state.streak = 0;
+                this.state.lives = 3;
+                this.state.currentQuestionIndex = 0;
+                this.state.isAnswered = false;
+                
+                // Embaralha e pega 10 perguntas
+                this.state.questions = [...foodDatabase]
+                    .sort(() => Math.random() - 0.5)
+                    .slice(0, 10);
+
+                // UI Transitions
+                this.dom.startScreen.classList.add('hidden');
+                this.dom.resultScreen.classList.add('hidden');
+                this.dom.gameScreen.classList.remove('hidden');
+                
+                this.updateHUD();
+                this.renderQuestion();
+            }
+
+            updateHUD() {
+                this.dom.score.textContent = this.state.score;
+                this.dom.streak.textContent = this.state.streak;
+                
+                // Renderiza corações
+                this.dom.livesContainer.innerHTML = '';
+                for (let i = 0; i < 3; i++) {
+                    const heart = document.createElement('i');
+                    heart.setAttribute('data-lucide', 'heart');
+                    heart.className = i < this.state.lives 
+                        ? 'w-6 h-6 text-red-500 fill-current' 
+                        : 'w-6 h-6 text-gray-300 dark:text-gray-600';
+                    this.dom.livesContainer.appendChild(heart);
+                }
+                lucide.createIcons();
+
+                // Barra de progresso
+                const progress = ((this.state.currentQuestionIndex) / 10) * 100;
+                this.dom.progressBar.style.width = `${progress}%`;
+            }
+
+            // Gera as opções de resposta baseadas na dificuldade
+            generateOptions(correctCalories) {
+                let options = [correctCalories];
+                const variance = this.state.difficulty === 'easy' ? 0.4 : 0.2; // 40% vs 20% variação
+
+                while (options.length < 4) {
+                    // Gera um valor próximo (acima ou abaixo)
+                    const factor = 1 + (Math.random() * variance * 2 - variance);
+                    let wrongOption = Math.round(correctCalories * factor);
+                    
+                    // Garante que não é duplicado e arredonda para parecer real (ex: termina em 0 ou 5)
+                    if (this.state.difficulty === 'easy') {
+                        wrongOption = Math.round(wrongOption / 10) * 10; 
+                    }
+                    
+                    if (!options.includes(wrongOption) && wrongOption > 0 && wrongOption !== correctCalories) {
+                        options.push(wrongOption);
+                    }
+                }
+                return options.sort(() => Math.random() - 0.5);
+            }
+
+            renderQuestion() {
+                this.state.isAnswered = false;
+                const currentFood = this.state.questions[this.state.currentQuestionIndex];
+                const options = this.generateOptions(currentFood.calories);
+
+                // Reset UI
+                this.dom.feedbackArea.className = 'hidden';
+                this.dom.nextBtnContainer.classList.add('hidden');
+                this.dom.optionsContainer.innerHTML = '';
+                this.dom.foodIcon.textContent = currentFood.emoji;
+                this.dom.foodName.textContent = currentFood.name;
+                this.dom.foodPortion.textContent = currentFood.portion;
+
+                // Animação de entrada
+                this.dom.foodIcon.parentElement.classList.remove('animate-pop');
+                void this.dom.foodIcon.parentElement.offsetWidth; // Trigger reflow
+                this.dom.foodIcon.parentElement.classList.add('animate-pop');
+
+                // Render Buttons
+                options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = 'w-full py-4 px-6 bg-white dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl text-lg font-bold text-gray-700 dark:text-gray-200 hover:border-orange-400 hover:bg-orange-50 dark:hover:bg-gray-600 transition-all duration-200 shadow-sm active:scale-95';
+                    btn.textContent = `${opt} kcal`;
+                    btn.onclick = () => this.checkAnswer(opt, currentFood.calories, btn);
+                    this.dom.optionsContainer.appendChild(btn);
+                });
+            }
+
+            checkAnswer(selected, correct, btnElement) {
+                if (this.state.isAnswered) return;
+                this.state.isAnswered = true;
+
+                const isCorrect = selected === correct;
+                const feedbackClass = isCorrect 
+                    ? 'bg-green-100 text-green-800 border-green-200 dark:bg-green-900/30 dark:text-green-200 dark:border-green-800'
+                    : 'bg-red-100 text-red-800 border-red-200 dark:bg-red-900/30 dark:text-red-200 dark:border-red-800';
+
+                // Estiliza o botão clicado
+                if (isCorrect) {
+                    btnElement.className = 'w-full py-4 px-6 bg-green-500 border-2 border-green-600 rounded-xl text-lg font-bold text-white shadow-md transform scale-105';
+                    this.handleCorrect();
+                } else {
+                    btnElement.className = 'w-full py-4 px-6 bg-red-500 border-2 border-red-600 rounded-xl text-lg font-bold text-white shadow-md animate-shake';
+                    this.handleWrong(correct);
+                }
+
+                // Desabilita outros botões
+                Array.from(this.dom.optionsContainer.children).forEach(child => {
+                    child.disabled = true;
+                    if (child !== btnElement) child.style.opacity = '0.5';
+                    // Mostra a correta se errou
+                    if (!isCorrect && parseInt(child.textContent) === correct) {
+                        child.className = 'w-full py-4 px-6 bg-green-100 border-2 border-green-500 rounded-xl text-lg font-bold text-green-700 opacity-100';
+                    }
+                });
+
+                // Mostra feedback e dica
+                const currentFood = this.state.questions[this.state.currentQuestionIndex];
+                this.dom.feedbackArea.innerHTML = `
+                    <div class="flex items-start gap-3">
+                        <div class="p-2 rounded-full ${isCorrect ? 'bg-green-200 text-green-700' : 'bg-red-200 text-red-700'}">
+                            <i data-lucide="${isCorrect ? 'check' : 'x'}" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-lg mb-1">${isCorrect ? 'Resposta Certa!' : 'Ops, não foi dessa vez.'}</p>
+                            <p class="text-sm opacity-90">A resposta correta é <strong>${correct} kcal</strong>.</p>
+                            <div class="mt-3 pt-3 border-t border-black/10 text-sm italic">
+                                💡 <span class="font-semibold">Curiosidade:</span> ${currentFood.tip}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                this.dom.feedbackArea.className = `block rounded-xl p-4 mb-4 border ${feedbackClass} animate-fade-in`;
+                
+                // Re-inicializa ícones no HTML injetado
+                lucide.createIcons();
+
+                // Mostra botão próximo
+                this.dom.nextBtnContainer.classList.remove('hidden');
+                
+                this.updateHUD();
+            }
+
+            handleCorrect() {
+                const basePoints = 100;
+                const streakBonus = this.state.streak * 10;
+                this.state.score += basePoints + streakBonus;
+                this.state.streak++;
+                
+                // Confetti Effect
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#22c55e', '#fbbf24']
+                });
+            }
+
+            handleWrong(correct) {
+                this.state.streak = 0;
+                this.state.lives--;
+                
+                if (this.state.lives <= 0) {
+                    // Game Over imediato se acabarem as vidas
+                    setTimeout(() => this.gameOver(), 1500);
+                }
+            }
+
+            nextQuestion() {
+                this.state.currentQuestionIndex++;
+                if (this.state.currentQuestionIndex >= 10 || this.state.lives <= 0) {
+                    this.gameOver();
+                } else {
+                    this.renderQuestion();
+                }
+            }
+
+            gameOver() {
+                this.dom.gameScreen.classList.add('hidden');
+                this.dom.resultScreen.classList.remove('hidden');
+
+                const finalScore = this.state.score;
+                const correctCount = this.state.lives > 0 
+                    ? this.state.questions.length - (3 - this.state.lives) // Aproximação baseada em vidas
+                    : this.state.currentQuestionIndex; // Se perdeu antes
+
+                document.getElementById('final-score').textContent = finalScore;
+                document.getElementById('final-accuracy').textContent = `${Math.min(correctCount, 10)}/10`; // Ajuste visual
+
+                // Mensagem baseada no score
+                const msgElement = document.getElementById('result-message');
+                if (finalScore > 1000) msgElement.textContent = "🏆 Você é um Nutricionista Master!";
+                else if (finalScore > 600) msgElement.textContent = "👏 Muito bom! Você conhece bem sua comida.";
+                else msgElement.textContent = "📚 Continue praticando para melhorar!";
+
+                // Salvar High Score
+                if (finalScore > this.state.highScore) {
+                    this.state.highScore = finalScore;
+                    localStorage.setItem('calorieGameHighScore', finalScore);
+                    this.updateHighScoreDisplay();
+                    confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
+                }
+            }
+
+            reset() {
+                this.start(this.state.difficulty);
+            }
+
+            updateHighScoreDisplay() {
+                if (this.dom.highScoreDisplay) {
+                    this.dom.highScoreDisplay.textContent = this.state.highScore;
+                }
+            }
+
+            shareResult() {
+                const text = `Fiz ${this.state.score} pontos no jogo Adivinhe a Caloria do Calcule Sua Saúde! 🍎🔥 Tente superar meu recorde:`;
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Adivinhe a Caloria',
+                        text: text,
+                        url: window.location.href
+                    });
+                } else {
+                    // Fallback para clipboard
+                    navigator.clipboard.writeText(`${text} ${window.location.href}`);
+                    alert('Link copiado para a área de transferência!');
+                }
+            }
+        }
+
+        // Inicia a instância do jogo
+        const game = new CalorieGame();
+    </script>
+</body>
+</html>

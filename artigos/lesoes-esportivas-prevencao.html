@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Lesões Esportivas: Guia Definitivo de Prevenção e Tratamento | Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags SEO Avançadas -->
+    <meta name="description" content="Guia completo sobre prevenção e tratamento de lesões esportivas. Aprenda o protocolo RICE, como evitar lesões comuns e estratégias de recuperação acelerada.">
+    <meta name="keywords" content="lesões esportivas, prevenção de lesões, tratamento lesão muscular, fisioterapia esportiva, recuperação muscular, entorse, distensão">
+    <meta name="author" content="Equipe Calcule Sua Saúde">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Lesões Esportivas: Guia Definitivo de Prevenção e Tratamento">
+    <meta property="og:description" content="Não deixe uma lesão te parar. Aprenda a treinar com segurança e recuperar-se como um atleta profissional.">
+    <meta property="og:url" content="https://calculesuasaude.com.br/artigos/lesoes-esportivas-prevencao.html">
+    <meta property="og:image" content="../img/artigos/lesoes_esportivas.jpg">
+    <meta property="article:published_time" content="2024-02-28">
+    <meta property="article:section" content="Medicina Esportiva">
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
+     crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Dados Estruturados (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Lesões Esportivas: Prevenção e Tratamento",
+      "image": "https://calculesuasaude.com.br/img/artigos/lesoes_esportivas.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://calculesuasaude.com.br/icon192.png"
+        }
+      },
+      "datePublished": "2024-02-28",
+      "description": "Um guia abrangente sobre prevenção, identificação e tratamento de lesões relacionadas ao esporte."
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    typography: (theme) => ({
+                        DEFAULT: {
+                            css: {
+                                color: theme('colors.gray.700'),
+                                h2: { color: theme('colors.gray.900'), fontWeight: '800' },
+                                h3: { color: theme('colors.gray.800'), fontWeight: '700' },
+                                strong: { color: theme('colors.gray.900') },
+                            },
+                        },
+                        dark: {
+                            css: {
+                                color: theme('colors.gray.300'),
+                                h2: { color: theme('colors.white') },
+                                h3: { color: theme('colors.gray.100') },
+                                strong: { color: theme('colors.white') },
+                            },
+                        },
+                    }),
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .prose h2 { margin-top: 2em; margin-bottom: 1em; line-height: 1.3; }
+        .prose h3 { margin-top: 1.5em; margin-bottom: 0.8em; }
+        .prose p { margin-bottom: 1.25em; line-height: 1.75; }
+        .prose ul { list-style-type: disc; padding-left: 1.5em; margin-bottom: 1.25em; }
+        .prose li { margin-bottom: 0.5em; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                </div>
+                <span class="font-bold text-gray-800 dark:text-white text-lg hidden sm:block">Calcule Sua Saúde</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="../index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="../index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="../artigos.html" class="text-sm font-bold text-brand-600">Artigos</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../artigos.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Artigos</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra de Progresso de Leitura -->
+    <div class="fixed top-[60px] left-0 h-1 bg-red-500 z-40 w-0 transition-all duration-100" id="reading-progress"></div>
+
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            
+            <!-- Breadcrumbs -->
+            <nav class="flex text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="../index.html" class="hover:text-brand-600 transition-colors">Início</a>
+                <span class="mx-2">/</span>
+                <a href="../artigos.html" class="hover:text-brand-600 transition-colors">Artigos</a>
+                <span class="mx-2">/</span>
+                <span class="font-medium text-gray-900 dark:text-white truncate">Lesões Esportivas</span>
+            </nav>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Sidebar (Índice) - Desktop -->
+                <aside class="hidden lg:block lg:col-span-3 relative">
+                    <div class="sticky top-32 p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <h4 class="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="list" class="w-4 h-4"></i> Neste artigo
+                        </h4>
+                        <nav class="space-y-2 text-sm border-l-2 border-gray-100 dark:border-gray-700 ml-1">
+                            <a href="#introducao" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-red-600 hover:border-l-2 hover:border-red-600 -ml-[2px] transition-all">O que são?</a>
+                            <a href="#tipos" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-red-600 hover:border-l-2 hover:border-red-600 -ml-[2px] transition-all">Tipos Comuns</a>
+                            <a href="#prevencao" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-red-600 hover:border-l-2 hover:border-red-600 -ml-[2px] transition-all">Prevenção</a>
+                            <a href="#tratamento" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-red-600 hover:border-l-2 hover:border-red-600 -ml-[2px] transition-all">Protocolo RICE</a>
+                            <a href="#reabilitacao" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-red-600 hover:border-l-2 hover:border-red-600 -ml-[2px] transition-all">Reabilitação</a>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Conteúdo do Artigo -->
+                <article class="lg:col-span-9 prose dark:prose-invert max-w-none">
+                    
+                    <!-- Header do Artigo -->
+                    <header class="not-prose mb-10 text-center lg:text-left">
+                        <span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-red-700 uppercase bg-red-100 rounded-full dark:bg-red-900/30 dark:text-red-400">
+                            Medicina Esportiva
+                        </span>
+                        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
+                            Lesões Esportivas: O Guia Completo de Prevenção e Recuperação
+                        </h1>
+                        
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-800 pb-8">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                                    <i data-lucide="activity" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <span class="block font-bold text-gray-900 dark:text-white">Revisão Técnica</span>
+                                    <span class="text-xs">Fisioterapia Esportiva</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                28 de Fevereiro, 2024
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                                15 min de leitura
+                            </div>
+                        </div>
+                    </header>
+
+                    <!-- Destaque Inicial -->
+                    <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-2xl border-l-4 border-red-500 mb-8 not-prose">
+                        <h3 class="font-bold text-red-800 dark:text-red-300 mb-2">Prevenir é melhor que remediar</h3>
+                        <p class="text-lg text-gray-700 dark:text-gray-300">
+                            Mais de 70% das lesões esportivas poderiam ser evitadas com aquecimento adequado, técnica correta e descanso. Entender seu corpo é o primeiro passo para uma vida ativa e sem dores.
+                        </p>
+                    </div>
+
+                    <section id="introducao">
+                        <h2>O que são Lesões Esportivas?</h2>
+                        <p>São danos causados ao sistema musculoesquelético durante a prática de esportes ou exercícios físicos. Elas podem ocorrer de forma súbita (aguda) ou desenvolver-se ao longo do tempo (crônica/overuse).</p>
+                        <p>Qualquer pessoa pode se lesionar, desde atletas de elite até iniciantes de fim de semana. O segredo para a longevidade no esporte não é nunca se machucar, mas saber como prevenir e, se acontecer, como tratar corretamente.</p>
+                    </section>
+
+                    <section id="tipos">
+                        <h2>Tipos Mais Comuns de Lesões</h2>
+                        <p>As lesões variam conforme o esporte, mas algumas são universais:</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose my-8">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-blue-600"><i data-lucide="zap" class="w-5 h-5"></i></div>
+                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white m-0">Agudas (Traumáticas)</h3>
+                                </div>
+                                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                                    <li><strong>Entorse:</strong> Estiramento ou ruptura de ligamentos (ex: torcer o tornozelo).</li>
+                                    <li><strong>Distensão:</strong> Estiramento ou ruptura de músculo/tendão.</li>
+                                    <li><strong>Fratura:</strong> Quebra do osso.</li>
+                                    <li><strong>Contusão:</strong> Pancada direta que causa hematoma.</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="p-2 bg-orange-100 dark:bg-orange-900/30 rounded-lg text-orange-600"><i data-lucide="refresh-cw" class="w-5 h-5"></i></div>
+                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white m-0">Crônicas (Overuse)</h3>
+                                </div>
+                                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                                    <li><strong>Tendinite:</strong> Inflamação do tendão por esforço repetitivo.</li>
+                                    <li><strong>Canelite:</strong> Dor na tíbia (comum em corredores).</li>
+                                    <li><strong>Fascite Plantar:</strong> Inflamação na sola do pé.</li>
+                                    <li><strong>Fratura por Estresse:</strong> Microfissuras no osso por impacto contínuo.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="prevencao">
+                        <h2>Estratégias de Prevenção (O Segredo da Longevidade)</h2>
+                        <p>Prevenir é muito mais fácil (e barato) do que tratar. Siga estes pilares:</p>
+
+                        <h3>1. Aquecimento Dinâmico</h3>
+                        <p>Esqueça o alongamento estático antes do treino. O ideal é o aquecimento dinâmico, que prepara as articulações e aumenta a temperatura corporal. [Image of dynamic stretching exercises] Ex: polichinelos, rotação de braços, agachamentos sem peso.</p>
+
+                        <h3>2. Progressão Gradual</h3>
+                        <p>A regra dos 10%: nunca aumente a carga, distância ou intensidade mais do que 10% por semana. O corpo precisa de tempo para se adaptar.</p>
+
+                        <h3>3. Fortalecimento Muscular</h3>
+                        <p>Músculos fortes protegem as articulações. Mesmo se você for corredor ou ciclista, precisa fazer musculação para prevenir lesões.</p>
+                        <p><a href="../artigos/ganho-massa-muscular.html" class="text-red-600 font-bold hover:underline">Veja nosso guia de fortalecimento.</a></p>
+
+                        <h3>4. Equipamento Adequado</h3>
+                        <p>O tênis certo para o seu tipo de pisada ou o ajuste correto da bicicleta podem evitar anos de dores crônicas.</p>
+                    </section>
+
+                    <section id="tratamento">
+                        <h2>O Protocolo RICE (Primeiros Socorros)</h2>
+                        <p>Se você sofreu uma lesão aguda leve (como uma torção), o protocolo padrão inicial é o RICE (em inglês):</p>
+                        
+                        <div class="space-y-4 not-prose my-6">
+                            <div class="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+                                <div class="text-2xl font-black text-blue-600">R</div>
+                                <div>
+                                    <strong class="block text-gray-900 dark:text-white">Rest (Repouso)</strong>
+                                    <span class="text-sm text-gray-600 dark:text-gray-400">Pare a atividade imediatamente para evitar mais danos.</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+                                <div class="text-2xl font-black text-blue-600">I</div>
+                                <div>
+                                    <strong class="block text-gray-900 dark:text-white">Ice (Gelo)</strong>
+                                    <span class="text-sm text-gray-600 dark:text-gray-400">Aplique gelo por 20 minutos a cada 2-3 horas nas primeiras 48h para reduzir inflamação.</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+                                <div class="text-2xl font-black text-blue-600">C</div>
+                                <div>
+                                    <strong class="block text-gray-900 dark:text-white">Compression (Compressão)</strong>
+                                    <span class="text-sm text-gray-600 dark:text-gray-400">Faça uma bandagem compressiva (não muito apertada) para diminuir o inchaço.</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+                                <div class="text-2xl font-black text-blue-600">E</div>
+                                <div>
+                                    <strong class="block text-gray-900 dark:text-white">Elevation (Elevação)</strong>
+                                    <span class="text-sm text-gray-600 dark:text-gray-400">Mantenha a área lesionada elevada acima do nível do coração para drenar fluidos.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-500">Nota: Protocolos mais modernos como POLICE ou PEACE & LOVE também são usados, mas o RICE continua sendo uma referência básica segura para primeiros socorros.</p>
+                    </section>
+
+                    <section id="reabilitacao">
+                        <h2>Reabilitação e Retorno ao Esporte</h2>
+                        <p>A cura da lesão não termina quando a dor passa. A reabilitação é essencial para recuperar a força e a mobilidade e evitar recidivas.</p>
+                        <ul>
+                            <li><strong>Fisioterapia:</strong> Essencial para guiar a recuperação correta.</li>
+                            <li><strong>Retorno Gradual:</strong> Não tente voltar com a mesma intensidade de antes. Comece com 50% e aumente aos poucos.</li>
+                            <li><strong>Escute seu corpo:</strong> Dor é um sinal de alerta, não de fraqueza. Respeite seus limites.</li>
+                        </ul>
+                    </section>
+
+                    <div class="not-prose mt-12 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Referências Bibliográficas</h3>
+                        <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                            <li>1. American College of Sports Medicine (ACSM). <em>Prevention of Sports Injuries</em>.</li>
+                            <li>2. Mayo Clinic. <em>Sports health: Sports injuries prevention</em>.</li>
+                            <li>3. Sociedade Brasileira de Medicina do Esporte. <em>Diretrizes de Reabilitação Esportiva</em>.</li>
+                        </ul>
+                    </div>
+
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="../sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="../contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="../termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="../ferramentas/calorias.html" class="hover:text-brand-400 transition-colors">Gasto Calórico</a></li>
+                        <li><a href="../ferramentas/tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones
+        lucide.createIcons();
+
+        // Barra de Progresso de Leitura
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("reading-progress").style.width = scrolled + "%";
+        };
+
+        // Dark Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        // Mobile Menu
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1251 @@
+/* Estilos específicos para melhorar a ferramenta TMB */
+
+/* Estilos para a página de ferramentas */
+.ferramenta-content {
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+    position: relative;
+}
+
+.ferramenta-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+    z-index: 0;
+}
+
+.ferramenta-content .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Header da ferramenta */
+.ferramenta-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+    padding: var(--spacing-3xl) var(--spacing-xl);
+    background: var(--bg-card);
+    border-radius: var(--border-radius-xl);
+    box-shadow: 0 20px 60px var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.ferramenta-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-secondary) 50%, var(--accent-tertiary) 100%);
+}
+
+.ferramenta-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-lg);
+    display: inline-block;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.ferramenta-header h1 {
+    font-size: 3rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.2;
+    font-weight: var(--font-weight-extrabold);
+    letter-spacing: -0.025em;
+}
+
+.ferramenta-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-weight: var(--font-weight-normal);
+}
+
+/* Grid da ferramenta */
+.ferramenta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    margin-bottom: var(--spacing-3xl);
+}
+
+/* Seção da calculadora */
+.calculadora-section {
+    position: relative;
+}
+
+.calculadora-card {
+    background: var(--bg-card);
+    padding: var(--spacing-3xl);
+    border-radius: var(--border-radius-xl);
+    box-shadow: 0 20px 60px var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.calculadora-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+}
+
+.calculadora-card h2 {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xl);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-h3);
+    text-align: center;
+}
+
+/* Seção de informações */
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.info-card {
+    background: var(--bg-card);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-xl);
+    box-shadow: 0 10px 40px var(--shadow);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-secondary) 0%, var(--accent-tertiary) 100%);
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px var(--shadow-lg);
+}
+
+.info-card h3 {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-h3);
+}
+
+.info-card p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-weight: var(--font-weight-normal);
+    margin-bottom: var(--spacing-md);
+}
+
+.info-card ul {
+    color: var(--text-secondary);
+    margin-left: var(--spacing-lg);
+    line-height: 1.7;
+}
+
+.info-card ul li {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Fórmula */
+.formula {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-semibold);
+    margin: var(--spacing-lg) 0;
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+    line-height: 1.6;
+}
+
+/* Tabela IMC */
+.tabela-imc {
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 8px 25px var(--shadow);
+    margin-top: var(--spacing-lg);
+}
+
+.tabela-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.tabela-row:last-child {
+    border-bottom: none;
+}
+
+.tabela-row:hover {
+    background: linear-gradient(90deg, var(--border-color) 0%, rgba(59, 130, 246, 0.05) 100%);
+    transform: scale(1.01);
+}
+
+.tabela-row .categoria {
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+}
+
+.tabela-row .valor {
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+    background: var(--bg-card);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+/* Resultado TMB melhorado */
+.resultado-tmb-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.resultado-item {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-xl);
+    text-align: center;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px var(--shadow);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.resultado-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+}
+
+.resultado-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--shadow-lg);
+}
+
+.resultado-label {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.resultado-item .resultado-valor {
+    font-size: 2rem;
+    font-weight: var(--font-weight-extrabold);
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+}
+
+.resultado-unidade {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Categoria do resultado */
+.resultado-categoria {
+    background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent-tertiary) 100%);
+    color: white;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--border-radius-full);
+    font-weight: var(--font-weight-semibold);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+    font-size: 1.1rem;
+}
+
+/* Conteúdo educativo */
+.conteudo-educativo {
+    background: var(--bg-card);
+    padding: var(--spacing-3xl);
+    border-radius: var(--border-radius-xl);
+    box-shadow: 0 20px 60px var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-3xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.conteudo-educativo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent-tertiary) 0%, var(--accent-quaternary) 100%);
+}
+
+.conteudo-educativo h2 {
+    text-align: center;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-3xl);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-h2);
+}
+
+.educativo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.educativo-card {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-xl);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.educativo-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-quaternary) 0%, var(--accent-primary) 100%);
+}
+
+.educativo-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px var(--shadow-lg);
+}
+
+.educativo-card h3 {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-h3);
+}
+
+.educativo-card p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-weight: var(--font-weight-normal);
+}
+
+/* Leia também */
+.leia-tambem {
+    background: var(--bg-card);
+    padding: var(--spacing-3xl);
+    border-radius: var(--border-radius-xl);
+    box-shadow: 0 15px 50px var(--shadow);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.leia-tambem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-quaternary) 100%);
+}
+
+.leia-tambem h3 {
+    text-align: center;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xl);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-h3);
+}
+
+.artigos-relacionados {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.artigo-link {
+    display: block;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    text-decoration: none;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 25px var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.artigo-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-secondary) 0%, var(--accent-tertiary) 100%);
+}
+
+.artigo-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--shadow-lg);
+}
+
+.artigo-titulo {
+    color: var(--text-primary);
+    font-weight: var(--font-weight-bold);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.4;
+}
+
+.artigo-descricao {
+    color: var(--text-secondary);
+    font-size: var(--font-size-small);
+    line-height: 1.6;
+    font-weight: var(--font-weight-normal);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .ferramenta-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .resultado-tmb-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    .ferramenta-header {
+        padding: var(--spacing-xl);
+    }
+    
+    .ferramenta-header h1 {
+        font-size: 2rem;
+    }
+    
+    .calculadora-card,
+    .conteudo-educativo,
+    .leia-tambem {
+        padding: var(--spacing-xl);
+    }
+    
+    .educativo-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .artigos-relacionados {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .ferramenta-header h1 {
+        font-size: 2rem;
+    }
+    
+    .ferramenta-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .resultado-item .resultado-valor {
+        font-size: 2rem;
+    }
+    
+    .calculadora-card,
+    .conteudo-educativo,
+    .leia-tambem {
+        padding: var(--spacing-lg);
+    }
+}
+
+/* Modo noturno */
+[data-theme="dark"] .ferramenta-header,
+[data-theme="dark"] .calculadora-card,
+[data-theme="dark"] .info-card,
+[data-theme="dark"] .conteudo-educativo,
+[data-theme="dark"] .educativo-card,
+[data-theme="dark"] .leia-tambem,
+[data-theme="dark"] .artigo-link,
+[data-theme="dark"] .resultado-item {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .tabela-imc {
+    background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .tabela-row:hover {
+    background: linear-gradient(90deg, var(--border-color) 0%, rgba(96, 165, 250, 0.1) 100%);
+}
+
+[data-theme="dark"] .tabela-row .valor {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+}
+
+
+/* Estilos específicos para resultados das outras ferramentas */
+
+/* Resultado Água */
+.resultado-agua-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Resultado Gordura */
+.resultado-gordura-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Resultado Glicemia */
+.resultado-glicemia-principal {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.valor-exame {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-xl);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px var(--shadow);
+    position: relative;
+    overflow: hidden;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.valor-exame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+}
+
+.valor-label {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.valor-resultado {
+    font-size: 2rem;
+    font-weight: var(--font-weight-extrabold);
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+}
+
+.valor-unidade {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.classificacao-glicemia {
+    background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent-tertiary) 100%);
+    color: white;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--border-radius-full);
+    font-weight: var(--font-weight-semibold);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+    font-size: 1.1rem;
+}
+
+/* Resultado Calorias */
+.resultado-calorias-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Tabelas específicas */
+.tabela-gordura {
+    background: var(--bg-secondary
+
+
+);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 8px 25px var(--shadow);
+    margin-top: var(--spacing-lg);
+}
+
+.tabela-gordura h4 {
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    color: white;
+    padding: var(--spacing-md);
+    margin: 0;
+    font-weight: var(--font-weight-semibold);
+}
+
+.valores-referencia {
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 8px 25px var(--shadow);
+    margin-top: var(--spacing-lg);
+}
+
+.valores-referencia h4 {
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    color: white;
+    padding: var(--spacing-md);
+    margin: 0 0 var(--spacing-sm) 0;
+    font-weight: var(--font-weight-semibold);
+}
+
+.ref-item {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+    font-weight: var(--font-weight-medium);
+    transition: all 0.3s ease;
+}
+
+.ref-item:last-child {
+    border-bottom: none;
+}
+
+.ref-item:hover {
+    background: linear-gradient(90deg, var(--border-color) 0%, rgba(59, 130, 246, 0.05) 100%);
+    transform: scale(1.01);
+}
+
+.ref-item.normal {
+    color: var(--accent-secondary);
+}
+
+.ref-item.pre-diabetes {
+    color: var(--accent-quaternary);
+}
+
+.ref-item.diabetes {
+    color: #ef4444;
+}
+
+.atividades-ranking {
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 8px 25px var(--shadow);
+    margin-top: var(--spacing-lg);
+}
+
+.ranking-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.ranking-item:last-child {
+    border-bottom: none;
+}
+
+.ranking-item:hover {
+    background: linear-gradient(90deg, var(--border-color) 0%, rgba(59, 130, 246, 0.05) 100%);
+    transform: scale(1.01);
+}
+
+.ranking-item .atividade {
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+}
+
+.ranking-item .met {
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+    background: var(--bg-card);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+/* Responsividade para novos elementos */
+@media (max-width: 1024px) {
+    .resultado-agua-grid,
+    .resultado-gordura-grid,
+    .resultado-calorias-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
+
+
+/* Estilos específicos para IMC Infantil */
+.resultado-imc-infantil-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.classificacao-infantil {
+    background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent-tertiary) 100%);
+    color: white;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--border-radius-full);
+    font-weight: var(--font-weight-semibold);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+    font-size: 1.1rem;
+}
+
+.percentis-info {
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 8px 25px var(--shadow);
+    margin-top: var(--spacing-lg);
+}
+
+.percentil-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.percentil-item:last-child {
+    border-bottom: none;
+}
+
+.percentil-item:hover {
+    background: linear-gradient(90deg, var(--border-color) 0%, rgba(59, 130, 246, 0.05) 100%);
+    transform: scale(1.01);
+}
+
+.percentil-nome {
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+}
+
+.percentil-nome.baixo-peso {
+    color: #3b82f6;
+}
+
+.percentil-nome.peso-normal {
+    color: var(--accent-secondary);
+}
+
+.percentil-nome.sobrepeso {
+    color: var(--accent-quaternary);
+}
+
+.percentil-nome.obesidade {
+    color: #ef4444;
+}
+
+.percentil-valor {
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+    background: var(--bg-card);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+/* Estilos específicos para Frequência Cardíaca */
+.fc-maxima {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-xl);
+    text-align: center;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px var(--shadow);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: var(--spacing-xl);
+}
+
+.fc-maxima::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ef4444 0%, #f59e0b 100%);
+}
+
+.fc-label {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.fc-valor {
+    font-size: 2rem;
+    font-weight: var(--font-weight-extrabold);
+    background: linear-gradient(135deg, #ef4444 0%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+}
+
+.fc-unidade {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.zonas-treino {
+    display: grid;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.zona-treino-item {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 25px var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.zona-treino-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+.zona-treino-item.zona-1::before {
+    background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+}
+
+.zona-treino-item.zona-2::before {
+    background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%);
+}
+
+.zona-treino-item.zona-3::before {
+    background: linear-gradient(90deg, #f97316 0%, #fb923c 100%);
+}
+
+.zona-treino-item.zona-4::before {
+    background: linear-gradient(90deg, #ef4444 0%, #f87171 100%);
+}
+
+.zona-treino-item.zona-5::before {
+    background: linear-gradient(90deg, #8b5cf6 0%, #a78bfa 100%);
+}
+
+.zona-treino-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--shadow-lg);
+}
+
+.zonas-info {
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 8px 25px var(--shadow);
+    margin-top: var(--spacing-lg);
+}
+
+.zona-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.zona-info:last-child {
+    border-bottom: none;
+}
+
+.zona-info:hover {
+    background: linear-gradient(90deg, var(--border-color) 0%, rgba(59, 130, 246, 0.05) 100%);
+    transform: scale(1.01);
+}
+
+.zona-nome {
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+}
+
+.zona-nome.zona-1 {
+    color: #10b981;
+}
+
+.zona-nome.zona-2 {
+    color: #f59e0b;
+}
+
+.zona-nome.zona-3 {
+    color: #f97316;
+}
+
+.zona-nome.zona-4 {
+    color: #ef4444;
+}
+
+.zona-nome.zona-5 {
+    color: #8b5cf6;
+}
+
+.zona-percentual {
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+    background: var(--bg-card);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+/* Estilos específicos para Água Corporal */
+.resultado-agua-corporal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.hidratacao-status {
+    background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent-tertiary) 100%);
+    color: white;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--border-radius-full);
+    font-weight: var(--font-weight-semibold);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+    font-size: 1.1rem;
+}
+
+.faixas-agua {
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 8px 25px var(--shadow);
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-lg);
+}
+
+.faixas-agua h4 {
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    color: white;
+    padding: var(--spacing-md);
+    margin: 0 0 var(--spacing-md) 0;
+    border-radius: var(--border-radius);
+    font-weight: var(--font-weight-semibold);
+}
+
+.faixa-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.faixa-item:last-child {
+    border-bottom: none;
+}
+
+.faixa-item:hover {
+    background: linear-gradient(90deg, var(--border-color) 0%, rgba(59, 130, 246, 0.05) 100%);
+    transform: scale(1.01);
+    padding: var(--spacing-sm) var(--spacing-sm);
+    border-radius: var(--border-radius);
+}
+
+.faixa-idade {
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+}
+
+.faixa-valor {
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+    background: var(--bg-card);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+/* Responsividade para novos elementos */
+@media (max-width: 1024px) {
+    .resultado-imc-infantil-grid,
+    .resultado-agua-corporal-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
+
+
+/* Estilos específicos para Macronutrientes */
+.calorias-totais {
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    color: white;
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-xl);
+    text-align: center;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: var(--spacing-xl);
+}
+
+.calorias-totais::before {
+    content: "\2615"; /* Ícone de xícara para calorias */
+    font-family: 'Font Awesome 5 Free'; /* Assumindo Font Awesome está disponível */
+    font-weight: 900;
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.1);
+    transform: rotate(15deg);
+}
+
+.calorias-label {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-semibold);
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.calorias-valor {
+    font-size: 2.8rem;
+    font-weight: var(--font-weight-extrabold);
+    color: white;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+}
+
+.macros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.macro-item {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-xl);
+    text-align: center;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 25px var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.macro-item::before {
+    content: ">"; /* Placeholder para ícone */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 0.05);
+    transform: rotate(15deg);
+}
+
+.macro-item.proteinas::before {
+    content: "\f06e"; /* Ícone de bife */
+}
+
+.macro-item.carboidratos::before {
+    content: "\f52e"; /* Ícone de pão */
+}
+
+.macro-item.gorduras::before {
+    content: "\f72e"; /* Ícone de abacate */
+}
+
+.macro-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--shadow-lg);
+}
+
+.macro-nome {
+    font-size: 1.4rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.macro-gramas {
+    font-size: 1.8rem;
+    font-weight: var(--font-weight-extrabold);
+    color: var(--accent-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.macro-calorias {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.macro-percentual {
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--accent-tertiary);
+    background: var(--bg-highlight);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-full);
+    display: inline-block;
+}
+
+.calorias-macro {
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 8px 25px var(--shadow);
+    margin-top: var(--spacing-lg);
+}
+
+.cal-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.cal-item:last-child {
+    border-bottom: none;
+}
+
+.cal-item:hover {
+    background: linear-gradient(90deg, var(--border-color) 0%, rgba(59, 130, 246, 0.05) 100%);
+    transform: scale(1.01);
+}
+
+.cal-macro {
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+}
+
+.cal-valor {
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+    background: var(--bg-card);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+/* Responsividade para novos elementos */
+@media (max-width: 768px) {
+    .macros-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

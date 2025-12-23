@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Saúde Infantil: O Guia Completo do Nascimento à Adolescência | Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags SEO Avançadas -->
+    <meta name="description" content="Guia definitivo de saúde infantil. Acompanhe os marcos de desenvolvimento, calendário de vacinação, nutrição, sono e cuidados essenciais para cada fase da criança.">
+    <meta name="keywords" content="saúde infantil, desenvolvimento do bebê, pediatria, vacinação infantil, introdução alimentar, sono do bebê, febre em crianças, marcos de crescimento">
+    <meta name="author" content="Equipe Calcule Sua Saúde">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Saúde Infantil: O Guia Completo do Nascimento à Adolescência">
+    <meta property="og:description" content="Tudo o que você precisa saber para garantir um crescimento saudável e feliz para seu filho.">
+    <meta property="og:url" content="https://calculesuasaude.com.br/artigos/saude-infantil-cuidados.html">
+    <meta property="og:image" content="../img/artigos/saude_infantil.jpg">
+    <meta property="article:published_time" content="2024-01-30">
+    <meta property="article:section" content="Pediatria e Família">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Dados Estruturados (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Saúde Infantil: Cuidados Essenciais para o Desenvolvimento",
+      "image": "https://calculesuasaude.com.br/img/artigos/saude_infantil.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://calculesuasaude.com.br/icon192.png"
+        }
+      },
+      "datePublished": "2024-01-30",
+      "description": "Um guia abrangente sobre o desenvolvimento, nutrição e cuidados preventivos na infância."
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    typography: (theme) => ({
+                        DEFAULT: {
+                            css: {
+                                color: theme('colors.gray.700'),
+                                h2: { color: theme('colors.gray.900'), fontWeight: '800' },
+                                h3: { color: theme('colors.gray.800'), fontWeight: '700' },
+                                strong: { color: theme('colors.gray.900') },
+                            },
+                        },
+                        dark: {
+                            css: {
+                                color: theme('colors.gray.300'),
+                                h2: { color: theme('colors.white') },
+                                h3: { color: theme('colors.gray.100') },
+                                strong: { color: theme('colors.white') },
+                            },
+                        },
+                    }),
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .prose h2 { margin-top: 2em; margin-bottom: 1em; line-height: 1.3; }
+        .prose h3 { margin-top: 1.5em; margin-bottom: 0.8em; }
+        .prose p { margin-bottom: 1.25em; line-height: 1.75; }
+        .prose ul { list-style-type: disc; padding-left: 1.5em; margin-bottom: 1.25em; }
+        .prose li { margin-bottom: 0.5em; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                </div>
+                <span class="font-bold text-gray-800 dark:text-white text-lg hidden sm:block">Calcule Sua Saúde</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="../index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="../index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="../artigos.html" class="text-sm font-bold text-brand-600">Artigos</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../artigos.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Artigos</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra de Progresso de Leitura -->
+    <div class="fixed top-[60px] left-0 h-1 bg-yellow-400 z-40 w-0 transition-all duration-100" id="reading-progress"></div>
+
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            
+            <!-- Breadcrumbs -->
+            <nav class="flex text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="../index.html" class="hover:text-brand-600 transition-colors">Início</a>
+                <span class="mx-2">/</span>
+                <a href="../artigos.html" class="hover:text-brand-600 transition-colors">Artigos</a>
+                <span class="mx-2">/</span>
+                <span class="font-medium text-gray-900 dark:text-white truncate">Saúde Infantil</span>
+            </nav>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Sidebar (Índice) - Desktop -->
+                <aside class="hidden lg:block lg:col-span-3 relative">
+                    <div class="sticky top-32 p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <h4 class="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="list" class="w-4 h-4"></i> Neste artigo
+                        </h4>
+                        <nav class="space-y-2 text-sm border-l-2 border-gray-100 dark:border-gray-700 ml-1">
+                            <a href="#desenvolvimento" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-yellow-600 hover:border-l-2 hover:border-yellow-600 -ml-[2px] transition-all">Marcos do Desenvolvimento</a>
+                            <a href="#nutricao" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-yellow-600 hover:border-l-2 hover:border-yellow-600 -ml-[2px] transition-all">Nutrição e Amamentação</a>
+                            <a href="#sono" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-yellow-600 hover:border-l-2 hover:border-yellow-600 -ml-[2px] transition-all">Sono e Rotina</a>
+                            <a href="#vacinacao" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-yellow-600 hover:border-l-2 hover:border-yellow-600 -ml-[2px] transition-all">Vacinação</a>
+                            <a href="#telas" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-yellow-600 hover:border-l-2 hover:border-yellow-600 -ml-[2px] transition-all">Impacto das Telas</a>
+                            <a href="#sinais-alerta" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-yellow-600 hover:border-l-2 hover:border-yellow-600 -ml-[2px] transition-all">Sinais de Alerta</a>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Conteúdo do Artigo -->
+                <article class="lg:col-span-9 prose dark:prose-invert max-w-none">
+                    
+                    <!-- Header do Artigo -->
+                    <header class="not-prose mb-10 text-center lg:text-left">
+                        <span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-yellow-700 uppercase bg-yellow-100 rounded-full dark:bg-yellow-900/30 dark:text-yellow-400">
+                            Pediatria e Desenvolvimento
+                        </span>
+                        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
+                            Saúde Infantil: O Guia Completo para Cuidar do Futuro
+                        </h1>
+                        
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-800 pb-8">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                                    <i data-lucide="baby" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <span class="block font-bold text-gray-900 dark:text-white">Revisão Pediátrica</span>
+                                    <span class="text-xs">Sociedade Brasileira de Pediatria</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                30 de Janeiro, 2024
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                                20 min de leitura
+                            </div>
+                        </div>
+                    </header>
+
+                    <!-- Destaque Inicial -->
+                    <div class="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-2xl border-l-4 border-yellow-500 mb-8 not-prose">
+                        <h3 class="font-bold text-yellow-800 dark:text-yellow-300 mb-2">Os "Primeiros 1000 Dias"</h3>
+                        <p class="text-lg text-gray-700 dark:text-gray-300">
+                            O período que vai da gestação até os dois anos de idade é considerado a janela de oportunidade mais crítica para a saúde de uma pessoa. Investir em nutrição, afeto e estímulos nessa fase pode definir a saúde física e mental para a vida toda.
+                        </p>
+                    </div>
+
+                    <section id="desenvolvimento">
+                        <h2>Marcos do Desenvolvimento: O que Esperar?</h2>
+                        <p>Cada criança é única, mas existem janelas de desenvolvimento esperadas. Acompanhar esses marcos ajuda a identificar precocemente qualquer necessidade de intervenção.</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose my-8">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-600"><i data-lucide="smile" class="w-5 h-5"></i></div>
+                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white m-0">0 a 6 Meses</h3>
+                                </div>
+                                <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-2">
+                                    <li>• <strong>Motor:</strong> Sustenta a cabeça, rola, leva mãos à boca.</li>
+                                    <li>• <strong>Social:</strong> Sorri socialmente, faz contato visual.</li>
+                                    <li>• <strong>Linguagem:</strong> Balbucia, reage a sons.</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="p-2 bg-green-100 dark:bg-green-900/30 rounded-full text-green-600"><i data-lucide="footprints" class="w-5 h-5"></i></div>
+                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white m-0">6 a 12 Meses</h3>
+                                </div>
+                                <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-2">
+                                    <li>• <strong>Motor:</strong> Senta sem apoio, engatinha, fica em pé.</li>
+                                    <li>• <strong>Social:</strong> Estranha desconhecidos, brinca de "esconder e achar".</li>
+                                    <li>• <strong>Linguagem:</strong> "Dadá", "Mamá", aponta para objetos.</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-full text-purple-600"><i data-lucide="puzzle" class="w-5 h-5"></i></div>
+                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white m-0">1 a 2 Anos</h3>
+                                </div>
+                                <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-2">
+                                    <li>• <strong>Motor:</strong> Anda sozinho, começa a correr, sobe móveis.</li>
+                                    <li>• <strong>Social:</strong> Imita adultos, brinca perto de outras crianças.</li>
+                                    <li>• <strong>Linguagem:</strong> Fala várias palavras simples, segue instruções.</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="p-2 bg-orange-100 dark:bg-orange-900/30 rounded-full text-orange-600"><i data-lucide="bike" class="w-5 h-5"></i></div>
+                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white m-0">2 a 5 Anos (Pré-escolar)</h3>
+                                </div>
+                                <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-2">
+                                    <li>• <strong>Motor:</strong> Pula, pedala triciclo, desenha círculos.</li>
+                                    <li>• <strong>Social:</strong> Brinca COM outras crianças, mostra empatia.</li>
+                                    <li>• <strong>Linguagem:</strong> Fala frases completas, conta histórias.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="not-prose my-8 flex justify-center">
+                            <a href="../ferramentas/imc_infantil.html" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-bold px-6 py-3 rounded-lg transition-all shadow-lg">
+                                <i data-lucide="ruler" class="w-5 h-5"></i> Calcular IMC Infantil
+                            </a>
+                        </div>
+                    </section>
+
+                    <section id="nutricao">
+                        <h2>Nutrição: A Base do Crescimento</h2>
+                        <p>A alimentação é o combustível para o desenvolvimento físico e cerebral.</p>
+
+                        <h3>Aleitamento Materno (O Padrão Ouro)</h3>
+                        <ul>
+                            <li><strong>0-6 Meses:</strong> Exclusivo. Não precisa de água ou chá. Fornece todos os nutrientes e anticorpos.</li>
+                            <li><strong>Até 2 Anos ou mais:</strong> Complementar. Continua sendo fonte importante de imunidade e afeto.</li>
+                        </ul>
+
+                        <h3>Introdução Alimentar (IA)</h3>
+                        <p>A partir dos 6 meses, o bebê precisa de outros nutrientes, especialmente Ferro. </p>
+                        <ul>
+                            <li><strong>Variedade:</strong> Ofereça todas as cores e grupos alimentares.</li>
+                            <li><strong>Sem Açúcar:</strong> Evite açúcar, mel e doces até os 2 anos (recomendação da SBP).</li>
+                            <li><strong>Respeito à Fome:</strong> Nunca force a criança a comer. O apetite varia.</li>
+                        </ul>
+
+                        <h3>Seletividade Alimentar</h3>
+                        <p>É normal crianças recusarem alimentos novos (neofobia). A chave é a exposição repetida (pode levar 10-15 vezes) sem pressão.</p>
+                    </section>
+
+                    <section id="sono">
+                        <h2>Sono: Quando o Cérebro Cresce</h2>
+                        <p>O hormônio do crescimento (GH) é liberado principalmente durante o sono profundo. Dormir bem é essencial para crescer e aprender.</p>
+                        
+                        <div class="overflow-x-auto not-prose my-6">
+                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <tr>
+                                        <th class="px-6 py-3">Idade</th>
+                                        <th class="px-6 py-3">Recomendação de Sono (Total/24h)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4 font-bold">0-3 meses</td>
+                                        <td class="px-6 py-4">14 a 17 horas</td>
+                                    </tr>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4 font-bold">4-11 meses</td>
+                                        <td class="px-6 py-4">12 a 15 horas</td>
+                                    </tr>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4 font-bold">1-2 anos</td>
+                                        <td class="px-6 py-4">11 a 14 horas</td>
+                                    </tr>
+                                    <tr class="bg-white dark:bg-gray-800">
+                                        <td class="px-6 py-4 font-bold">3-5 anos</td>
+                                        <td class="px-6 py-4">10 a 13 horas</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section id="vacinacao">
+                        <h2>Vacinação: O Escudo Invisível</h2>
+                        <p>Manter a caderneta de vacinação em dia é a medida de saúde pública mais eficaz para proteger seu filho de doenças graves como sarampo, meningite e pólio.</p>
+                        <p>No Brasil, o PNI (Programa Nacional de Imunizações) oferece um calendário completo e gratuito. Consulte seu pediatra ou o posto de saúde.</p>
+                    </section>
+
+                    <section id="telas">
+                        <h2>O Desafio das Telas</h2>
+                        <p>O uso excessivo de telas está ligado a atrasos na fala, sedentarismo e problemas de sono. A Sociedade Brasileira de Pediatria recomenda:</p>
+                        <ul>
+                            <li><strong>0-2 anos:</strong> Zero telas (exceto videochamadas com parentes).</li>
+                            <li><strong>2-5 anos:</strong> Máximo 1 hora/dia, com supervisão.</li>
+                            <li><strong>6-10 anos:</strong> Máximo 2 horas/dia.</li>
+                            <li><strong>Evitar:</strong> Telas durante refeições e 1h antes de dormir.</li>
+                        </ul>
+                    </section>
+
+                    <section id="sinais-alerta">
+                        <h2>Sinais de Alerta (Quando Correr para o Médico)</h2>
+                        <p>A maioria das doenças infantis são leves (viroses), mas fique atento a sinais de gravidade:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose my-6">
+                            <div class="p-4 rounded-lg bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900">
+                                <strong class="block text-red-700 dark:text-red-400 mb-1">Febre em Recém-nascidos</strong>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Qualquer febre (≥37,8°C) em bebês menores de 3 meses é emergência.</span>
+                            </div>
+                            <div class="p-4 rounded-lg bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900">
+                                <strong class="block text-red-700 dark:text-red-400 mb-1">Dificuldade Respiratória</strong>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Respiração muito rápida, afundamento das costelas ou gemência.</span>
+                            </div>
+                            <div class="p-4 rounded-lg bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900">
+                                <strong class="block text-red-700 dark:text-red-400 mb-1">Desidratação</strong>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Boca seca, choro sem lágrimas, pouca urina (fralda seca por >6h).</span>
+                            </div>
+                            <div class="p-4 rounded-lg bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900">
+                                <strong class="block text-red-700 dark:text-red-400 mb-1">Alteração de Estado Geral</strong>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Criança muito sonolenta, que não acorda ou não reage, ou muito irritada.</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="not-prose mt-12 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Referências Bibliográficas</h3>
+                        <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                            <li>1. Sociedade Brasileira de Pediatria (SBP). <em>Manual de Orientação: Saúde de Crianças e Adolescentes na Era Digital</em>.</li>
+                            <li>2. Ministério da Saúde. <em>Caderneta da Criança</em>.</li>
+                            <li>3. American Academy of Pediatrics (AAP). <em>Bright Futures Guidelines</em>.</li>
+                        </ul>
+                    </div>
+
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="../sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="../contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="../termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../ferramentas/imc_infantil.html" class="hover:text-brand-400 transition-colors">Calculadora IMC Infantil</a></li>
+                        <li><a href="../ferramentas/agua.html" class="hover:text-brand-400 transition-colors">Calculadora de Água</a></li>
+                        <li><a href="../ferramentas/macros.html" class="hover:text-brand-400 transition-colors">Macronutrientes</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones
+        lucide.createIcons();
+
+        // Barra de Progresso de Leitura
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("reading-progress").style.width = scrolled + "%";
+        };
+
+        // Dark Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        // Mobile Menu
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

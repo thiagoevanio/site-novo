@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Quiz: Qual Esporte Combina com Você? - Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Descubra qual esporte é ideal para você com base na sua personalidade e preferências.">
+    <meta property="og:title" content="Quiz: Qual Esporte Combina com Você? - Calcule Sua Saúde">
+    <meta property="og:description" content="Descubra qual esporte é ideal para você com base na sua personalidade e preferências.">
+    <meta property="og:type" content="website">
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
+     crossorigin="anonymous"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .dark .glass-effect {
+            background: rgba(17, 24, 39, 0.95);
+        }
+        
+        .quiz-option {
+            transition: all 0.2s ease;
+        }
+        .quiz-option:hover {
+            transform: translateY(-2px);
+            border-color: #3b82f6;
+        }
+        .quiz-option.selected {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+            color: #1d4ed8;
+        }
+        .dark .quiz-option.selected {
+            background-color: rgba(59, 130, 246, 0.2);
+            border-color: #3b82f6;
+            color: #93c5fd;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                </div>
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-brand-600">Saúde</span>
+                </h1>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="todos_quizzes.html" class="text-sm font-bold text-brand-600">Quizzes</a>
+                <a href="index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
+                <a href="sobre.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Sobre</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="todos_quizzes.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Quizzes</a>
+                <a href="index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="artigos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
+                <a href="sobre.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Sobre</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20 min-h-screen">
+        <div class="container mx-auto px-4 max-w-3xl">
+            
+            <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="index.html" class="hover:text-brand-600">Início</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <a href="todos_quizzes.html" class="hover:text-brand-600">Quizzes</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <span class="text-gray-900 dark:text-white font-medium">Esporte Ideal</span>
+            </div>
+
+            <!-- Quiz Container -->
+            <div id="quiz-container" class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden animate-fade-in relative">
+                
+                <div class="w-full h-2 bg-gray-100 dark:bg-gray-700">
+                    <div id="progress-bar" class="h-full bg-orange-500 transition-all duration-500 ease-out" style="width: 0%"></div>
+                </div>
+
+                <!-- Tela Inicial -->
+                <div id="quiz-start" class="p-8 md:p-12 text-center">
+                    <div class="w-24 h-24 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="trophy" class="w-12 h-12"></i>
+                    </div>
+                    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Qual esporte combina com você?</h1>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg mb-8 leading-relaxed">
+                        Futebol, Yoga, Corrida ou Crossfit? Responda a 5 perguntas rápidas sobre sua personalidade e descubra qual atividade física vai te motivar a sair do sofá!
+                    </p>
+                    <button onclick="startQuiz()" class="bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 transform">
+                        Descobrir Meu Esporte
+                    </button>
+                </div>
+
+                <!-- Tela de Pergunta -->
+                <div id="quiz-question-screen" class="hidden p-8 md:p-12">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-sm font-bold text-orange-600 dark:text-orange-400 uppercase tracking-wide">Pergunta <span id="current-question-num">1</span> de <span id="total-questions">5</span></span>
+                    </div>
+
+                    <h2 id="question-text" class="text-2xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
+                        <!-- Texto da pergunta -->
+                    </h2>
+
+                    <div id="options-container" class="grid grid-cols-1 gap-4">
+                        <!-- Opções geradas via JS -->
+                    </div>
+                </div>
+
+                <!-- Tela de Resultado -->
+                <div id="quiz-result-screen" class="hidden p-8 md:p-12 text-center animate-fade-in">
+                    <div id="result-icon-container" class="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 text-5xl bg-gradient-to-br from-orange-400 to-red-500 text-white shadow-lg">
+                        <!-- Emoji/Icone via JS -->
+                    </div>
+                    
+                    <span class="text-sm font-bold tracking-wider text-orange-600 dark:text-orange-400 uppercase mb-2 block">Seu perfil indica</span>
+                    <h2 id="result-sport" class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
+                        <!-- Nome do Esporte -->
+                    </h2>
+                    
+                    <div class="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-2xl mb-8 border border-gray-100 dark:border-gray-700 text-left">
+                        <p id="result-description" class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4"></p>
+                        
+                        <div class="mt-4">
+                            <h4 class="font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500"></i> Por que combina com você:
+                            </h4>
+                            <ul id="result-reasons" class="text-sm text-gray-500 dark:text-gray-400 space-y-1 ml-7 list-disc">
+                                <!-- Motivos via JS -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="restartQuiz()" class="bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 px-8 rounded-xl transition-colors shadow-md">
+                            Refazer Teste
+                        </button>
+                        <a href="todos_quizzes.html" class="bg-white dark:bg-gray-700 text-gray-700 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600 border border-gray-200 dark:border-gray-600 font-bold py-3 px-8 rounded-xl transition-colors">
+                            Outros Quizzes
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Disclaimer -->
+            <div class="mt-8 text-center">
+                <p class="text-xs text-gray-400 dark:text-gray-500 max-w-lg mx-auto">
+                    * Este teste é apenas para fins de entretenimento e orientação básica. Consulte um médico antes de iniciar qualquer nova atividade física.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="ferramentas/tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
+                        <li><a href="ferramentas/agua.html" class="hover:text-brand-400 transition-colors">Água Diária</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones Lucide
+        lucide.createIcons();
+
+        // 1. Dark Mode e Mobile Menu
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+
+        // 2. Lógica do Quiz (Perfil Esportivo)
+        const questions = [
+            {
+                question: "Como você prefere passar seu tempo livre?",
+                options: [
+                    { text: "Com amigos, jogando ou conversando", type: "coletivo" },
+                    { text: "Sozinho, ouvindo música ou pensando", type: "individual" },
+                    { text: "Na natureza, aproveitando o ar livre", type: "outdoor" },
+                    { text: "Em casa ou lugares fechados e confortáveis", type: "indoor" }
+                ]
+            },
+            {
+                question: "Qual o seu principal objetivo ao treinar?",
+                options: [
+                    { text: "Ganhar músculos e ficar forte", type: "forca" },
+                    { text: "Relaxar a mente e reduzir o estresse", type: "mente" },
+                    { text: "Competir e vencer desafios", type: "coletivo" },
+                    { text: "Melhorar a resistência e suar muito", type: "individual" }
+                ]
+            },
+            {
+                question: "Como você lida com a rotina?",
+                options: [
+                    { text: "Gosto de horários fixos e repetição", type: "forca" },
+                    { text: "Prefiro variedade e coisas novas", type: "outdoor" },
+                    { text: "Gosto de depender apenas de mim", type: "individual" },
+                    { text: "Gosto de ter compromisso com outras pessoas", type: "coletivo" }
+                ]
+            },
+            {
+                question: "Qual ambiente você prefere?",
+                options: [
+                    { text: "Uma quadra barulhenta e animada", type: "coletivo" },
+                    { text: "Um parque silencioso ou trilha", type: "outdoor" },
+                    { text: "Uma sala climatizada e organizada", type: "indoor" },
+                    { text: "Um estúdio calmo e tranquilo", type: "mente" }
+                ]
+            },
+            {
+                question: "O que mais te motiva?",
+                options: [
+                    { text: "Ver mudanças no espelho", type: "forca" },
+                    { text: "A sensação de paz interior", type: "mente" },
+                    { text: "Superar meus próprios limites de tempo/distância", type: "individual" },
+                    { text: "A diversão e a interação social", type: "coletivo" }
+                ]
+            }
+        ];
+
+        // Pontuação para cada tipo
+        let scores = {
+            coletivo: 0,    // Futebol, Vôlei, Basquete
+            individual: 0,  // Corrida, Natação, Ciclismo
+            forca: 0,       // Musculação, Crossfit
+            mente: 0,       // Yoga, Pilates
+            outdoor: 0,     // Trilha, Surf, Escalada
+            indoor: 0       // Academia, Dança
+        };
+
+        let currentQuestionIndex = 0;
+
+        // Elementos DOM
+        const startScreen = document.getElementById('quiz-start');
+        const questionScreen = document.getElementById('quiz-question-screen');
+        const resultScreen = document.getElementById('quiz-result-screen');
+        
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const currentQuestionNum = document.getElementById('current-question-num');
+        const totalQuestions = document.getElementById('total-questions');
+        const progressBar = document.getElementById('progress-bar');
+
+        function startQuiz() {
+            startScreen.classList.add('hidden');
+            questionScreen.classList.remove('hidden');
+            totalQuestions.textContent = questions.length;
+            currentQuestionIndex = 0;
+            // Reset scores
+            for (let key in scores) scores[key] = 0;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const q = questions[currentQuestionIndex];
+            
+            questionText.textContent = q.question;
+            currentQuestionNum.textContent = currentQuestionIndex + 1;
+            optionsContainer.innerHTML = '';
+            
+            const progress = ((currentQuestionIndex) / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            q.options.forEach((option) => {
+                const btn = document.createElement('button');
+                btn.className = "quiz-option w-full text-left p-5 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-medium transition-all flex items-center justify-between group shadow-sm";
+                btn.innerHTML = `<span>${option.text}</span> <i data-lucide="chevron-right" class="w-5 h-5 text-gray-300 group-hover:text-brand-400"></i>`;
+                
+                btn.onclick = () => selectOption(option.type);
+                optionsContainer.appendChild(btn);
+            });
+            
+            lucide.createIcons();
+        }
+
+        function selectOption(type) {
+            // Incrementa pontuação
+            scores[type]++;
+            
+            // Lógica de correlação secundária (ex: quem gosta de outdoor, geralmente gosta de individual)
+            if (type === 'outdoor') scores['individual'] += 0.5;
+            if (type === 'forca') scores['indoor'] += 0.5;
+            if (type === 'coletivo') scores['outdoor'] += 0.2;
+
+            nextQuestion();
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                // Pequeno delay para transição suave
+                setTimeout(showQuestion, 200);
+            } else {
+                showResult();
+            }
+        }
+
+        function getResult() {
+            // Encontra a categoria com maior pontuação
+            let maxScore = -1;
+            let bestType = '';
+            
+            for (const [type, score] of Object.entries(scores)) {
+                if (score > maxScore) {
+                    maxScore = score;
+                    bestType = type;
+                }
+            }
+            return bestType;
+        }
+
+        function showResult() {
+            questionScreen.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
+            progressBar.style.width = '100%';
+
+            const resultType = getResult();
+            const resultSport = document.getElementById('result-sport');
+            const resultDesc = document.getElementById('result-description');
+            const resultReasons = document.getElementById('result-reasons');
+            const iconContainer = document.getElementById('result-icon-container');
+
+            let data = {};
+
+            switch(resultType) {
+                case 'coletivo':
+                    data = {
+                        title: "Esportes Coletivos (Futebol, Vôlei, Basquete)",
+                        desc: "Você é uma pessoa sociável que se motiva com a energia dos outros. A competição saudável e o trabalho em equipe são seus combustíveis.",
+                        reasons: ["Interação social constante", "Espírito de equipe", "Dinâmico e imprevisível"],
+                        icon: "⚽"
+                    };
+                    break;
+                case 'individual':
+                    data = {
+                        title: "Esportes de Resistência (Corrida, Natação, Ciclismo)",
+                        desc: "Você gosta de desafios pessoais e de ter tempo para si mesmo. Superar suas próprias marcas é o que te move.",
+                        reasons: ["Autoconhecimento", "Melhora do fôlego", "Prática no seu próprio ritmo"],
+                        icon: "🏃"
+                    };
+                    break;
+                case 'forca':
+                case 'indoor':
+                    data = {
+                        title: "Musculação ou Crossfit",
+                        desc: "Você é focado e gosta de ver resultados tangíveis. A disciplina da rotina e a sensação de ficar mais forte te atraem.",
+                        reasons: ["Resultados estéticos visíveis", "Aumento de força", "Ambiente controlado"],
+                        icon: "💪"
+                    };
+                    break;
+                case 'mente':
+                    data = {
+                        title: "Yoga ou Pilates",
+                        desc: "Você busca equilíbrio entre corpo e mente. Atividades que fortalecem sem impacto excessivo e reduzem o estresse são ideais.",
+                        reasons: ["Flexibilidade e postura", "Redução de ansiedade", "Conexão corpo-mente"],
+                        icon: "🧘"
+                    };
+                    break;
+                case 'outdoor':
+                    data = {
+                        title: "Esportes de Aventura (Trilha, Surf, Escalada)",
+                        desc: "A rotina te entedia. Você precisa de ar puro, natureza e uma pitada de adrenalina para se sentir vivo.",
+                        reasons: ["Contato com a natureza", "Foge da rotina", "Paisagens inspiradoras"],
+                        icon: "🏔️"
+                    };
+                    break;
+                default:
+                    data = {
+                        title: "Caminhada ou Funcional",
+                        desc: "Você busca saúde e bem-estar de forma equilibrada. Comece com atividades versáteis que trabalham o corpo todo.",
+                        reasons: ["Fácil de começar", "Adapta-se à rotina", "Benefícios globais"],
+                        icon: "👟"
+                    };
+            }
+
+            resultSport.textContent = data.title;
+            resultDesc.textContent = data.desc;
+            iconContainer.innerHTML = data.icon;
+            
+            resultReasons.innerHTML = data.reasons.map(r => `<li>${r}</li>`).join('');
+        }
+
+        function restartQuiz() {
+            resultScreen.classList.add('hidden');
+            startScreen.classList.remove('hidden');
+            progressBar.style.width = '0%';
+        }
+    </script>
+</body>
+</html>

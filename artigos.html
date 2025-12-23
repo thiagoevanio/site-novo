@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Artigos de Saúde - Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Biblioteca completa de artigos sobre saúde, nutrição, fitness e bem-estar. Informação confiável baseada em evidências.">
+    <meta property="og:title" content="Artigos de Saúde - Calcule Sua Saúde">
+    <meta property="og:description" content="Explore nossos guias completos sobre saúde e qualidade de vida.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculesuasaude.com.br/artigos.html">
+    <meta property="og:image" content="https://calculesuasaude.com.br/icon192.png">
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .dark .glass-effect {
+            background: rgba(17, 24, 39, 0.95);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                </div>
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-brand-600">Saúde</span>
+                </h1>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="artigos.html" class="text-sm font-bold text-brand-600">Artigos</a>
+                <a href="sobre.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Sobre</a>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="artigos.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Artigos</a>
+                <a href="sobre.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Sobre</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            
+            <!-- Header da Página -->
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-block p-3 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 mb-4">
+                    <i data-lucide="book-open" class="w-8 h-8"></i>
+                </span>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Biblioteca de Saúde</h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300">Explore nossa coleção de artigos baseados em evidências científicas para melhorar sua qualidade de vida.</p>
+            </div>
+
+            <!-- Controles (Busca e Filtros) -->
+            <div class="mb-12 space-y-6">
+                <div class="max-w-xl mx-auto relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <i data-lucide="search" class="h-5 w-5 text-gray-400"></i>
+                    </div>
+                    <input type="text" id="busca-input" 
+                        class="block w-full pl-10 pr-3 py-3 border border-gray-200 dark:border-gray-700 rounded-xl leading-5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 sm:text-sm transition-shadow shadow-sm" 
+                        placeholder="Buscar por tema...">
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-2" id="filtros-container">
+                    <button class="filtro-btn active px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-brand-600 text-white shadow-md" data-categoria="todos">Todos</button>
+                    <button class="filtro-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-brand-300 hover:text-brand-600" data-categoria="nutricao">🥗 Nutrição</button>
+                    <button class="filtro-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-brand-300 hover:text-brand-600" data-categoria="exercicios">💪 Exercícios</button>
+                    <button class="filtro-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-brand-300 hover:text-brand-600" data-categoria="saude-mental">🧠 Saúde Mental</button>
+                    <button class="filtro-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-brand-300 hover:text-brand-600" data-categoria="prevencao">🛡️ Prevenção</button>
+                    <button class="filtro-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-brand-300 hover:text-brand-600" data-categoria="bem-estar">✨ Bem-estar</button>
+                </div>
+            </div>
+
+            <!-- Grid de Artigos -->
+            <div id="artigos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cards inseridos via JS -->
+            </div>
+
+            <!-- Estado Vazio -->
+            <div id="sem-resultados" class="hidden text-center py-20">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 mb-4">
+                    <i data-lucide="search-x" class="w-8 h-8 text-gray-400"></i>
+                </div>
+                <h3 class="text-lg font-medium text-gray-900 dark:text-white">Nenhum artigo encontrado</h3>
+                <button onclick="limparFiltros()" class="mt-4 text-brand-600 font-medium hover:underline">Limpar filtros</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Dados dos Artigos
+        const artigos = [
+            // --- NOVO ARTIGO ADICIONADO ---
+            {
+                titulo: "Inteligência Artificial na Saúde",
+                descricao: "Como usar ChatGPT e Gemini para construir uma vida mais saudável com segurança e ética.",
+                categoria: "inovacao",
+                arquivo: "artigos/ia-saude-chatgpt-gemini.html",
+                imagem: "img/artigos/iasaude.png" 
+            },
+            // -----------------------------
+            {
+                titulo: "Ansiedade e Depressão",
+                descricao: "Compreenda os sintomas, as diferenças e os tratamentos para recuperar seu equilíbrio emocional.",
+                categoria: "saude-mental",
+                arquivo: "artigos/ansiedade-depressao.html",
+                imagem: "img/artigos/saude-mental.png" 
+            },
+            {
+                titulo: "Nutrição Funcional e Microbiota",
+                descricao: "Aprenda como a alimentação inteligente fortalece seu intestino e sua imunidade.",
+                categoria: "nutricao",
+                arquivo: "artigos/nutricao-funcional-microbiota.html",
+                imagem: "img/artigos/nutriçãodigestiva.png" 
+            },
+            {
+                titulo: "Guia de Macronutrientes",
+                descricao: "Carboidratos, proteínas e gorduras: como equilibrar para atingir seus objetivos.",
+                categoria: "nutricao",
+                arquivo: "artigos/macronutrientes-guia-completo.html",
+                imagem: "img/artigos/macronutrientes.jpg"
+            },
+            {
+                titulo: "Alimentação Saudável",
+                descricao: "Fundamentos da nutrição para uma vida longa e sem doenças.",
+                categoria: "nutricao",
+                arquivo: "artigos/alimentacao-saudavel-guia.html",
+                imagem: "img/artigos/alimentacao_saudavel.jpg"
+            },
+            {
+                titulo: "Como Acelerar o Metabolismo",
+                descricao: "Estratégias científicas para aumentar seu gasto calórico diário.",
+                categoria: "nutricao",
+                arquivo: "artigos/metabolismo-como-acelerar.html",
+                imagem: "img/artigos/metabolismo.jpg"
+            },
+            {
+                titulo: "Estratégias para Perda de Peso",
+                descricao: "Métodos sustentáveis para emagrecer sem efeito sanfona.",
+                categoria: "nutricao",
+                arquivo: "artigos/perda-peso-estrategias.html",
+                imagem: "img/artigos/perda_peso.jpg"
+            },
+             {
+                titulo: "Vitaminas e Minerais",
+                descricao: "O guia definitivo sobre micronutrientes essenciais.",
+                categoria: "nutricao",
+                arquivo: "artigos/vitaminas-minerais-essenciais.html",
+                imagem: "img/artigos/vitaminas_minerais.jpg"
+            },
+            {
+                titulo: "Guia de Suplementos",
+                descricao: "O que funciona, o que é mito e como usar com segurança.",
+                categoria: "nutricao",
+                arquivo: "artigos/suplementos-quando-usar.html",
+                imagem: "img/artigos/suplementos.jpg"
+            },
+            {
+                titulo: "Nutrição Esportiva",
+                descricao: "O que comer para maximizar performance e recuperação.",
+                categoria: "nutricao",
+                arquivo: "artigos/nutricao-esportiva.html",
+                imagem: "img/artigos/nutricao_esportiva.jpg"
+            },
+            {
+                titulo: "Ganho de Massa Muscular",
+                descricao: "Treino, dieta e descanso: os pilares da hipertrofia.",
+                categoria: "exercicios",
+                arquivo: "artigos/ganho-massa-muscular.html",
+                imagem: "img/artigos/ganho_massa_muscular.jpg"
+            },
+            {
+                titulo: "Exercícios para Queimar Calorias",
+                descricao: "HIIT, cardio ou musculação? Qual o melhor para emagrecer?",
+                categoria: "exercicios",
+                arquivo: "artigos/exercicios-queimar-calorias.html",
+                imagem: "img/artigos/exercicios_queimar_calorias.jpg"
+            },
+            {
+                titulo: "Benefícios da Atividade Física",
+                descricao: "Como o movimento transforma seu corpo e sua mente.",
+                categoria: "exercicios",
+                arquivo: "artigos/atividade-fisica-beneficios.html",
+                imagem: "img/artigos/atividade_fisica.jpg"
+            },
+            {
+                titulo: "Lesões Esportivas",
+                descricao: "Prevenção e tratamento: como treinar com segurança.",
+                categoria: "exercicios",
+                arquivo: "artigos/lesoes-esportivas-prevencao.html",
+                imagem: "img/artigos/lesoes_esportivas.jpg"
+            },
+            {
+                titulo: "Obesidade: Causas e Tratamento",
+                descricao: "Entenda a obesidade como doença crônica e suas soluções.",
+                categoria: "prevencao",
+                arquivo: "artigos/obesidade-causas-tratamento.html",
+                imagem: "img/artigos/obesidade.jpg"
+            },
+            {
+                titulo: "Diabetes: Prevenção e Controle",
+                descricao: "Guia completo para prevenir e controlar o diabetes.",
+                categoria: "prevencao",
+                arquivo: "artigos/diabetes-prevencao-tratamento.html",
+                imagem: "img/artigos/diabetes.jpg"
+            },
+            {
+                titulo: "Controle da Hipertensão",
+                descricao: "Como manter sua pressão arterial sob controle.",
+                categoria: "prevencao",
+                arquivo: "artigos/hipertensao-controle-prevencao.html",
+                imagem: "img/artigos/hipertensao.jpg" 
+            },
+            {
+                titulo: "Tudo Sobre Colesterol",
+                descricao: "HDL, LDL e como proteger seu coração.",
+                categoria: "prevencao",
+                arquivo: "artigos/colesterol-controle-prevencao.html",
+                imagem: "img/artigos/colesterol.jpg"
+            },
+            {
+                titulo: "Doenças Cardiovasculares",
+                descricao: "Prevenção e cuidados para um coração forte.",
+                categoria: "prevencao",
+                arquivo: "artigos/doencas-cardiovasculares-prevencao.html",
+                imagem: "img/artigos/doencas_cardiovasculares.jpg"
+            },
+             {
+                titulo: "Prevenção do Câncer",
+                descricao: "Estilo de vida e detecção precoce: seus maiores aliados.",
+                categoria: "prevencao",
+                arquivo: "artigos/cancer-prevencao-deteccao.html",
+                imagem: "img/artigos/cancer.jpg"
+            },
+            {
+                titulo: "Saúde da Mulher",
+                descricao: "Cuidados essenciais em todas as fases da vida feminina.",
+                categoria: "prevencao",
+                arquivo: "artigos/saude-mulher-cuidados.html",
+                imagem: "img/artigos/saude_mulher.jpg"
+            },
+            {
+                titulo: "Saúde do Homem",
+                descricao: "Prevenção e cuidados específicos para a saúde masculina.",
+                categoria: "prevencao",
+                arquivo: "artigos/saude-homem-cuidados.html",
+                imagem: "img/artigos/saude_homem.jpg"
+            },
+            {
+                titulo: "Saúde Infantil",
+                descricao: "Guia de cuidados essenciais para o desenvolvimento saudável das crianças.",
+                categoria: "prevencao",
+                arquivo: "artigos/saude-infantil-cuidados.html",
+                imagem: "img/artigos/saude_infantil.jpg"
+            },
+            {
+                titulo: "Saúde Mental e Bem-Estar",
+                descricao: "Estratégias para uma mente equilibrada e feliz.",
+                categoria: "saude-mental",
+                arquivo: "artigos/saude-mental-bem-estar.html",
+                imagem: "img/artigos/saude_mental.jpg"
+            },
+            {
+                titulo: "Ansiedade e Depressão",
+                descricao: "Identificação, manejo e quando buscar ajuda.",
+                categoria: "saude-mental",
+                arquivo: "artigos/ansiedade-depressao-saude-mental.html",
+                imagem: "img/artigos/ansiedade_depressao.jpg"
+            },
+            {
+                titulo: "Gerenciando o Estresse",
+                descricao: "Técnicas práticas para reduzir o estresse no dia a dia.",
+                categoria: "saude-mental",
+                arquivo: "artigos/estresse-gerenciamento-saude.html",
+                imagem: "img/artigos/estresse.jpg"
+            },
+            {
+                titulo: "Sono e Saúde",
+                descricao: "A importância do descanso para a recuperação e bem-estar.",
+                categoria: "bem-estar",
+                arquivo: "artigos/sono-qualidade-saude.html",
+                imagem: "img/artigos/sono.jpg"
+            },
+            {
+                titulo: "O Poder da Hidratação",
+                descricao: "Como a água impacta sua saúde e performance.",
+                categoria: "bem-estar",
+                arquivo: "artigos/hidratacao-importancia-saude.html",
+                imagem: "img/artigos/hidratacao.jpg"
+            },
+            {
+                titulo: "Envelhecimento Saudável",
+                descricao: "Dicas para manter a vitalidade na terceira idade.",
+                categoria: "bem-estar",
+                arquivo: "artigos/envelhecimento-saudavel.html",
+                imagem: "img/artigos/envelhecimento_saudavel.jpg"
+            },
+            {
+                titulo: "Imunidade Fortalecida",
+                descricao: "Estratégias naturais para blindar seu sistema imune.",
+                categoria: "bem-estar",
+                arquivo: "artigos/imunidade-fortalecimento.html",
+                imagem: "img/artigos/imunidade.jpg"
+            },
+            {
+                titulo: "Saúde Digestiva",
+                descricao: "Cuidando do intestino, o nosso segundo cérebro.",
+                categoria: "bem-estar",
+                arquivo: "artigos/saude-digestiva-intestino.html",
+                imagem: "img/artigos/saude_digestiva.jpg"
+            },
+            {
+                titulo: "IMC: Como Calcular e Interpretar",
+                descricao: "Aprenda como calcular e interpretar o IMC. Entenda as faixas de peso e limitações.",
+                categoria: "nutricao",
+                arquivo: "artigos/imc-calculo-interpretacao.html",
+                imagem: "img/artigos/imc.jpg"
+            }
+        ];
+
+        // Funções de Renderização
+        function getBadgeColor(categoria) {
+            const colors = {
+                'nutricao': 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400',
+                'exercicios': 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400',
+                'saude-mental': 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400',
+                'prevencao': 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400',
+                'bem-estar': 'bg-teal-100 text-teal-700 dark:bg-teal-900/30 dark:text-teal-400',
+                'inovacao': 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400'
+            };
+            return colors[categoria] || 'bg-gray-100 text-gray-700';
+        }
+
+        function getNomeCategoria(categoria) {
+            const nomes = {
+                'nutricao': 'Nutrição',
+                'exercicios': 'Exercícios',
+                'saude-mental': 'Saúde Mental',
+                'prevencao': 'Prevenção',
+                'bem-estar': 'Bem-estar',
+                'inovacao': 'Tecnologia'
+            };
+            return nomes[categoria] || 'Geral';
+        }
+
+        function renderizarArtigos(lista) {
+            const grid = document.getElementById('artigos-grid');
+            const semResultados = document.getElementById('sem-resultados');
+            
+            if (lista.length === 0) {
+                grid.classList.add('hidden');
+                semResultados.classList.remove('hidden');
+                return;
+            }
+            
+            grid.classList.remove('hidden');
+            semResultados.classList.add('hidden');
+            
+            grid.innerHTML = lista.map(artigo => `
+                <article class="flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden group h-full">
+                    <a href="${artigo.arquivo}" class="block h-48 overflow-hidden relative">
+                        <img src="${artigo.imagem}" 
+                             alt="${artigo.titulo}" 
+                             onerror="this.src='https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${getBadgeColor(artigo.categoria)} backdrop-blur-sm shadow-sm">
+                                ${getNomeCategoria(artigo.categoria)}
+                            </span>
+                        </div>
+                    </a>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2 group-hover:text-brand-600 transition-colors">
+                            <a href="${artigo.arquivo}">${artigo.titulo}</a>
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3 flex-1">
+                            ${artigo.descricao}
+                        </p>
+                        <a href="${artigo.arquivo}" class="inline-flex items-center text-brand-600 font-semibold hover:text-brand-700 mt-auto group/link">
+                            Ler artigo completo 
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </article>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        function filtrarArtigos() {
+            const activeBtn = document.querySelector('.filtro-btn.active');
+            const categoria = activeBtn ? activeBtn.dataset.categoria : 'todos';
+            const termo = document.getElementById('busca-input').value.toLowerCase();
+            
+            let filtrados = artigos;
+            
+            if (categoria !== 'todos') {
+                filtrados = filtrados.filter(a => a.categoria === categoria);
+            }
+            
+            if (termo) {
+                filtrados = filtrados.filter(a => 
+                    a.titulo.toLowerCase().includes(termo) || 
+                    a.descricao.toLowerCase().includes(termo)
+                );
+            }
+            renderizarArtigos(filtrados);
+        }
+
+        function limparFiltros() {
+            document.getElementById('busca-input').value = '';
+            document.querySelectorAll('.filtro-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-brand-600', 'text-white', 'shadow-md');
+                btn.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-600', 'dark:text-gray-300'); 
+                if(btn.dataset.categoria === 'todos') {
+                    btn.classList.remove('bg-white', 'dark:bg-gray-800', 'text-gray-600', 'dark:text-gray-300');
+                    btn.classList.add('active', 'bg-brand-600', 'text-white', 'shadow-md');
+                }
+            });
+            filtrarArtigos();
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            renderizarArtigos(artigos);
+            
+            // Dark Mode Toggle
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const htmlElement = document.documentElement;
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                htmlElement.classList.add('dark');
+            } else {
+                htmlElement.classList.remove('dark');
+            }
+            themeToggleBtn.addEventListener('click', () => {
+                htmlElement.classList.toggle('dark');
+                localStorage.theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+            });
+
+            // Mobile Menu
+            const btnMobile = document.getElementById('mobile-menu-btn');
+            const menuMobile = document.getElementById('mobile-menu');
+            btnMobile.addEventListener('click', () => {
+                menuMobile.classList.toggle('hidden');
+            });
+
+            // Filtros
+            document.querySelectorAll('.filtro-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filtro-btn').forEach(b => {
+                        b.classList.remove('active', 'bg-brand-600', 'text-white', 'shadow-md');
+                        b.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-600', 'dark:text-gray-300');
+                    });
+                    this.classList.remove('bg-white', 'dark:bg-gray-800', 'text-gray-600', 'dark:text-gray-300');
+                    this.classList.add('active', 'bg-brand-600', 'text-white', 'shadow-md');
+                    filtrarArtigos();
+                });
+            });
+
+            document.getElementById('busca-input').addEventListener('input', filtrarArtigos);
+        });
+    </script>
+</body>
+</html>

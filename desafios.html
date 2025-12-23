@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Calendário de Desafios - Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Participe dos desafios diários de saúde e bem-estar. Acompanhe seu progresso e construa hábitos saudáveis dia após dia.">
+    <meta property="og:title" content="Calendário de Desafios - Calcule Sua Saúde">
+    <meta property="og:description" content="Transforme sua rotina com desafios saudáveis diários.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculesuasaude.com.br/desafios.html">
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
+     crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .dark .glass-effect {
+            background: rgba(17, 24, 39, 0.95);
+        }
+        /* Checkbox Customizado */
+        .checkbox-wrapper input:checked + div {
+            background-color: #10b981;
+            border-color: #10b981;
+        }
+        .checkbox-wrapper input:checked + div svg {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                </div>
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white tracking-tight">
+                    Calcule Sua <span class="text-brand-600">Saúde</span>
+                </h1>
+            </a>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden lg:flex items-center gap-6">
+                <a href="index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="desafios.html" class="text-sm font-bold text-brand-600">Desafios</a>
+                <a href="todos_quizzes.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Quizzes</a>
+                <a href="index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
+                <a href="sobre.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Sobre</a>
+                
+                <!-- Botão Dark Mode -->
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <!-- Menu Mobile Button -->
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="desafios.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Desafios</a>
+                <a href="todos_quizzes.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Quizzes</a>
+                <a href="index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="artigos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            
+            <!-- Header da Página -->
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-block p-3 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 mb-4">
+                    <i data-lucide="calendar-check" class="w-8 h-8"></i>
+                </span>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Calendário de Hábitos</h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300">Pequenas vitórias diárias levam a grandes transformações. Complete o desafio do dia e marque seu progresso.</p>
+            </div>
+
+            <!-- Card do Calendário -->
+            <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden max-w-5xl mx-auto">
+                
+                <!-- Barra de Controle do Mês -->
+                <div class="p-6 md:p-8 border-b border-gray-100 dark:border-gray-700 flex flex-col md:flex-row justify-between items-center gap-4 bg-gray-50 dark:bg-gray-800/50">
+                    <div class="flex items-center gap-4">
+                        <button id="prevMonth" class="p-2 hover:bg-white dark:hover:bg-gray-700 rounded-xl transition-colors shadow-sm border border-transparent hover:border-gray-200 dark:hover:border-gray-600">
+                            <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                        </button>
+                        <h2 id="currentMonthDisplay" class="text-2xl font-bold text-gray-800 dark:text-white capitalize min-w-[200px] text-center">
+                            <!-- Inserido via JS -->
+                        </h2>
+                        <button id="nextMonth" class="p-2 hover:bg-white dark:hover:bg-gray-700 rounded-xl transition-colors shadow-sm border border-transparent hover:border-gray-200 dark:hover:border-gray-600">
+                            <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Progresso do Mês -->
+                    <div class="flex items-center gap-3 bg-white dark:bg-gray-700 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-600">
+                        <span class="text-sm font-medium text-gray-500 dark:text-gray-300">Progresso:</span>
+                        <div class="w-32 h-2.5 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
+                            <div id="progressBar" class="h-full bg-green-500 rounded-full transition-all duration-500" style="width: 0%"></div>
+                        </div>
+                        <span id="progressText" class="text-sm font-bold text-green-600 dark:text-green-400">0%</span>
+                    </div>
+                </div>
+
+                <!-- Grid do Calendário -->
+                <div class="p-4 md:p-8">
+                    <!-- Dias da Semana -->
+                    <div class="grid grid-cols-7 mb-4">
+                        <div class="text-center text-sm font-bold text-gray-400 uppercase tracking-wider py-2">Dom</div>
+                        <div class="text-center text-sm font-bold text-gray-400 uppercase tracking-wider py-2">Seg</div>
+                        <div class="text-center text-sm font-bold text-gray-400 uppercase tracking-wider py-2">Ter</div>
+                        <div class="text-center text-sm font-bold text-gray-400 uppercase tracking-wider py-2">Qua</div>
+                        <div class="text-center text-sm font-bold text-gray-400 uppercase tracking-wider py-2">Qui</div>
+                        <div class="text-center text-sm font-bold text-gray-400 uppercase tracking-wider py-2">Sex</div>
+                        <div class="text-center text-sm font-bold text-gray-400 uppercase tracking-wider py-2">Sáb</div>
+                    </div>
+
+                    <!-- Dias -->
+                    <div id="calendarGrid" class="grid grid-cols-7 gap-2 md:gap-4">
+                        <!-- Inserido via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dica Extra -->
+            <div class="mt-12 max-w-3xl mx-auto bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded-2xl p-6 flex items-start gap-4">
+                <i data-lucide="lightbulb" class="w-6 h-6 text-blue-600 dark:text-blue-400 shrink-0 mt-1"></i>
+                <div>
+                    <h3 class="font-bold text-blue-800 dark:text-blue-300 mb-1">Como funciona?</h3>
+                    <p class="text-blue-700 dark:text-blue-200 text-sm">
+                        Cada dia do mês tem um pequeno desafio sugerido. Clique no dia para marcar como concluído (ficará verde). Seus dados são salvos automaticamente no seu navegador, então você pode voltar amanhã para continuar!
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="ferramentas/tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
+                        <li><a href="ferramentas/agua.html" class="hover:text-brand-400 transition-colors">Água Diária</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones Lucide
+        lucide.createIcons();
+
+        // 1. Dark Mode e Mobile Menu
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+
+        // 2. Lógica do Calendário de Desafios
+        const desafiosSaudaveis = [
+            "Beba 2L de água", "Caminhada de 20 min", "5 porções de frutas/veg",
+            "Durma 8 horas", "10 min alongamento", "Zero açúcar refinado",
+            "5 min meditação", "Suba escadas", "Café da manhã nutritivo",
+            "Pausa ativa no trabalho", "Água ao acordar", "Caminhada no almoço",
+            "Salada no almoço", "Respiração profunda", "Zero refri/suco cx",
+            "20 polichinelos", "Ler 15 min", "Fruta de lanche",
+            "Sem telas 1h antes dormir", "Ar livre", "Chá verde",
+            "Gratidão (3 coisas)", "Peixe/Proteína magra", "15 min treino",
+            "Zero ultraprocessados", "15 min sol", "Comer sem pressa",
+            "Nova receita fit", "Horário de sono fixo", "Celebrar conquista",
+            "Planejar próximo mês"
+        ];
+
+        let currentDate = new Date();
+        const calendarGrid = document.getElementById('calendarGrid');
+        const currentMonthDisplay = document.getElementById('currentMonthDisplay');
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+
+        function getStorageKey(day, month, year) {
+            return `challenge_${year}_${month}_${day}`;
+        }
+
+        function updateProgress() {
+            const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+            let completedCount = 0;
+
+            for (let i = 1; i <= daysInMonth; i++) {
+                if (localStorage.getItem(getStorageKey(i, currentDate.getMonth(), currentDate.getFullYear())) === 'true') {
+                    completedCount++;
+                }
+            }
+
+            const percentage = Math.round((completedCount / daysInMonth) * 100);
+            progressBar.style.width = `${percentage}%`;
+            progressText.textContent = `${percentage}%`;
+        }
+
+        function renderCalendar() {
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+
+            // Atualiza Título
+            const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+            currentMonthDisplay.textContent = `${monthNames[month]} ${year}`;
+
+            // Limpa Grid
+            calendarGrid.innerHTML = '';
+
+            const firstDayIndex = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            // Dias vazios do início
+            for (let i = 0; i < firstDayIndex; i++) {
+                const emptyDiv = document.createElement('div');
+                emptyDiv.className = 'hidden md:block h-24 md:h-32 bg-gray-50/50 dark:bg-gray-800/30 rounded-xl';
+                calendarGrid.appendChild(emptyDiv);
+            }
+
+            // Dias do mês
+            for (let i = 1; i <= daysInMonth; i++) {
+                const dayDiv = document.createElement('div');
+                const isCompleted = localStorage.getItem(getStorageKey(i, month, year)) === 'true';
+                const challengeText = desafiosSaudaveis[(i - 1) % desafiosSaudaveis.length];
+                
+                // Estilização condicional
+                const baseClasses = "relative h-24 md:h-32 border rounded-xl p-2 md:p-3 flex flex-col justify-between cursor-pointer transition-all duration-200 hover:shadow-md group select-none";
+                const completedClasses = isCompleted 
+                    ? "bg-green-50 border-green-200 dark:bg-green-900/20 dark:border-green-800" 
+                    : "bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700 hover:border-brand-300 dark:hover:border-brand-700";
+
+                dayDiv.className = `${baseClasses} ${completedClasses}`;
+                
+                // Conteúdo do Dia
+                dayDiv.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <span class="text-lg font-bold ${isCompleted ? 'text-green-700 dark:text-green-400' : 'text-gray-700 dark:text-gray-300'}">${i}</span>
+                        ${isCompleted ? '<i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 fill-current opacity-100"></i>' : '<i data-lucide="circle" class="w-5 h-5 text-gray-300 group-hover:text-brand-400 transition-colors"></i>'}
+                    </div>
+                    <p class="text-xs md:text-sm font-medium ${isCompleted ? 'text-green-800 dark:text-green-300' : 'text-gray-500 dark:text-gray-400'} line-clamp-2 leading-tight">
+                        ${challengeText}
+                    </p>
+                `;
+
+                // Evento de Click (Toggle)
+                dayDiv.addEventListener('click', () => {
+                    const newState = !isCompleted;
+                    localStorage.setItem(getStorageKey(i, month, year), newState);
+                    
+                    // Pequena animação
+                    dayDiv.style.transform = "scale(0.95)";
+                    setTimeout(() => {
+                        renderCalendar(); // Re-renderiza para atualizar visual
+                        updateProgress();
+                    }, 100);
+                });
+
+                calendarGrid.appendChild(dayDiv);
+            }
+            
+            // Re-inicializa ícones
+            lucide.createIcons();
+            updateProgress();
+        }
+
+        // Navegação Meses
+        document.getElementById('prevMonth').addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        });
+
+        document.getElementById('nextMonth').addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        });
+
+        // Inicializa
+        renderCalendar();
+    </script>
+</body>
+</html>
