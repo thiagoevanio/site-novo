@@ -21,6 +21,28 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* ============================================== */
+/* CORREÇÃO: Estilos do Modo Escuro para Navbar  */
+/* ============================================== */
+
+/* Links do menu desktop no modo escuro */
+.dark .navbar-desktop a {
+  color: #e5e7eb; /* gray-200 */
+}
+
+.dark .navbar-desktop a:hover {
+  color: #3b82f6; /* brand-600 */
+}
+
+/* Mantém o Personal Trainer com cor laranja no modo escuro */
+.dark .navbar-desktop a.text-orange-600 {
+  color: #f97316; /* orange-500 */
+}
+
+.dark .navbar-desktop a.text-orange-600:hover {
+  color: #ea580c; /* orange-600 */
+}
+
 .animated-gradient {
   background: linear-gradient(-45deg, #2563eb, #0ea5e9, #3b82f6, #4f46e5);
   background-size: 400% 400%;
