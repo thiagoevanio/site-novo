@@ -12,6 +12,8 @@
     <meta property="og:description" content="Conheça a missão do Calcule Sua Saúde: democratizar o acesso a informações de qualidade sobre saúde e bem-estar.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://calculesuasaude.com.br/sobre.html">
+    <!-- CORREÇÃO: Caminho e extensão da imagem -->
+    <meta property="og:image" content="img/icon192.webp">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
@@ -22,45 +24,13 @@
       gtag('config', 'G-EVCQQZV60N');
     </script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            900: '#1e3a8a',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
     <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons (Defer para performance) -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-        }
-        .dark .glass-effect {
-            background: rgba(17, 24, 39, 0.95);
-        }
-    </style>
+    <!-- CSS Mestre -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 
@@ -77,11 +47,11 @@
                 </h1>
             </a>
 
-            <!-- Menu Desktop -->
-            <nav class="hidden md:flex items-center gap-8">
+            <!-- Menu Desktop (Classe adicionada) -->
+            <nav class="navbar-desktop hidden md:flex items-center gap-8">
                 <a href="index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
                 <a href="index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
-                <a href="index.html#artigos" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
+                <a href="artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
                 <a href="sobre.html" class="text-sm font-bold text-brand-600">Sobre</a>
                 
                 <!-- Botão Dark Mode -->
@@ -91,18 +61,18 @@
                 </button>
             </nav>
 
-            <!-- Menu Mobile Button -->
-            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+            <!-- Menu Mobile Button (Classe adicionada) -->
+            <button id="mobile-menu-btn" class="menu-toggle-mobile md:hidden p-2 text-gray-600 dark:text-gray-300">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+        <!-- Mobile Menu Dropdown (Classe adicionada) -->
+        <div id="mobile-menu" class="menu-mobile-panel hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
             <div class="flex flex-col p-4 space-y-4">
                 <a href="index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
                 <a href="index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
-                <a href="index.html#artigos" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
+                <a href="artigos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
                 <a href="sobre.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Sobre</a>
             </div>
         </div>
@@ -248,7 +218,7 @@
         </div>
     </main>
 
-    <!-- Footer (Igual à Home) -->
+    <!-- Footer -->
     <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
@@ -287,15 +257,17 @@
             </div>
             
             <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
-                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+                <p>&copy; 2025 Calcule Sua Saúde. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts Logic (Dark Mode + Mobile Menu) -->
+    <!-- Scripts Logic -->
     <script>
         // Inicializa ícones Lucide
-        lucide.createIcons();
+        if (window.lucide) {
+            lucide.createIcons();
+        }
 
         // Lógica do Dark Mode
         const themeToggleBtn = document.getElementById('theme-toggle');
@@ -322,6 +294,7 @@
 
         btnMobile.addEventListener('click', () => {
             menuMobile.classList.toggle('hidden');
+            menuMobile.classList.toggle('active');
         });
     </script>
 </body>
