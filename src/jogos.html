@@ -16,7 +16,8 @@
     <meta property="og:description" content="Aprenda sobre nutrição e saúde enquanto se diverte. Jogue agora gratuitamente!">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://calculesuasaude.com.br/jogos.html">
-    <meta property="og:image" content="https://calculesuasaude.com.br/icon192.png">
+    <!-- CORREÇÃO: Caminho e extensão da imagem -->
+    <meta property="og:image" content="https://calculesuasaude.com.br/img/icon192.webp">
 
     <!-- Schema.org - SEO para Lista de Jogos -->
     <script type="application/ld+json">
@@ -31,7 +32,7 @@
         "name": "Calcule Sua Saúde",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://calculesuasaude.com.br/icon192.png"
+          "url": "https://calculesuasaude.com.br/img/icon192.webp"
         }
       },
       "mainEntity": {
@@ -73,50 +74,14 @@
       gtag('config', 'G-EVCQQZV60N');
     </script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
-                        },
-                        game: {
-                            primary: '#8b5cf6', // Violeta
-                            secondary: '#ec4899', // Rosa
-                            accent: '#10b981', // Esmeralda
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
     <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Lucide Icons (Defer para performance) -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .dark .glass-effect {
-            background: rgba(17, 24, 39, 0.95);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .game-gradient {
-            background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-        }
-    </style>
+    <!-- CSS Mestre -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 antialiased">
 
@@ -132,24 +97,28 @@
                 </h1>
             </a>
 
-            <nav class="hidden md:flex items-center gap-8">
+            <!-- Menu Desktop (Classe adicionada) -->
+            <nav class="navbar-desktop hidden md:flex items-center gap-8">
                 <a href="index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
                 <a href="index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
                 <a href="artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
                 <a href="jogos.html" class="text-sm font-bold text-brand-600 bg-brand-50 dark:bg-brand-900/20 px-3 py-1 rounded-full">Jogos</a>
                 <a href="sobre.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Sobre</a>
+                
                 <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Mudar Tema">
                     <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
                     <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
                 </button>
             </nav>
 
-            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300" aria-label="Menu">
+            <!-- Menu Mobile Button (Classe adicionada) -->
+            <button id="mobile-menu-btn" class="menu-toggle-mobile md:hidden p-2 text-gray-600 dark:text-gray-300" aria-label="Menu">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[64px] z-40 shadow-lg">
+        <!-- Mobile Menu Dropdown (Classe adicionada) -->
+        <div id="mobile-menu" class="menu-mobile-panel hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[64px] z-40 shadow-lg">
             <div class="flex flex-col p-4 space-y-3">
                 <a href="index.html" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Início</a>
                 <a href="index.html#ferramentas" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Calculadoras</a>
@@ -322,7 +291,10 @@
     </footer>
 
     <script>
-        lucide.createIcons();
+        // Inicializa ícones Lucide
+        if (window.lucide) {
+            lucide.createIcons();
+        }
 
         // Dark Mode Toggle Logic
         const themeToggleBtn = document.getElementById('theme-toggle');
@@ -336,15 +308,20 @@
 
         themeToggleBtn.addEventListener('click', () => {
             htmlElement.classList.toggle('dark');
-            localStorage.theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
         });
 
-        // Mobile Menu Logic
+        // Mobile Menu Logic (Agora com classes do CSS Mestre)
         const btnMobile = document.getElementById('mobile-menu-btn');
         const menuMobile = document.getElementById('mobile-menu');
 
         btnMobile.addEventListener('click', () => {
             menuMobile.classList.toggle('hidden');
+            menuMobile.classList.toggle('active');
         });
     </script>
 </body>
