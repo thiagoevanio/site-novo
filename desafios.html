@@ -12,6 +12,8 @@
     <meta property="og:description" content="Transforme sua rotina com desafios saudáveis diários.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://calculesuasaude.com.br/desafios.html">
+    <!-- CORREÇÃO: Caminho e extensão da imagem -->
+    <meta property="og:image" content="https://calculesuasaude.com.br/img/icon192.webp">
 
     <meta name="google-adsense-account" content="ca-pub-5825554897787593">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
@@ -26,53 +28,16 @@
       gtag('config', 'G-EVCQQZV60N');
     </script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            900: '#1e3a8a',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
     <!-- Google Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Lucide Icons (Defer para performance) -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-        }
-        .dark .glass-effect {
-            background: rgba(17, 24, 39, 0.95);
-        }
-        /* Checkbox Customizado */
-        .checkbox-wrapper input:checked + div {
-            background-color: #10b981;
-            border-color: #10b981;
-        }
-        .checkbox-wrapper input:checked + div svg {
-            display: block;
-        }
-    </style>
+    <!-- CSS Mestre -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 
@@ -89,8 +54,8 @@
                 </h1>
             </a>
 
-            <!-- Menu Desktop -->
-            <nav class="hidden lg:flex items-center gap-6">
+            <!-- Menu Desktop (Adicionada classe navbar-desktop) -->
+            <nav class="navbar-desktop hidden lg:flex items-center gap-6">
                 <a href="index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
                 <a href="desafios.html" class="text-sm font-bold text-brand-600">Desafios</a>
                 <a href="todos_quizzes.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Quizzes</a>
@@ -105,14 +70,14 @@
                 </button>
             </nav>
 
-            <!-- Menu Mobile Button -->
-            <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-600 dark:text-gray-300">
+            <!-- Menu Mobile Button (Adicionada classe menu-toggle-mobile) -->
+            <button id="mobile-menu-btn" class="menu-toggle-mobile lg:hidden p-2 text-gray-600 dark:text-gray-300">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+        <!-- Mobile Menu Dropdown (Adicionada classe menu-mobile-panel) -->
+        <div id="mobile-menu" class="menu-mobile-panel hidden lg:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
             <div class="flex flex-col p-4 space-y-4">
                 <a href="index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
                 <a href="desafios.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Desafios</a>
@@ -265,11 +230,13 @@
             }
         });
 
+        // Mobile Menu Logic (Classe Mestre)
         const btnMobile = document.getElementById('mobile-menu-btn');
         const menuMobile = document.getElementById('mobile-menu');
 
         btnMobile.addEventListener('click', () => {
             menuMobile.classList.toggle('hidden');
+            menuMobile.classList.toggle('active');
         });
 
         // 2. Lógica do Calendário de Desafios
