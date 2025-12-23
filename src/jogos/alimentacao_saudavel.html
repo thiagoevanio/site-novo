@@ -9,8 +9,9 @@
     <!-- Meta Tags -->
     <meta name="description" content="Aprenda a montar um prato saudável! Separe os alimentos nutritivos dos ultraprocessados neste jogo divertido.">
     <link rel="canonical" href="https://calculesuasaude.com.br/jogos/alimentacao_saudavel.html">
+    <meta property="og:image" content="../img/icon192.webp">
 
-        <!-- Google AdSense -->
+    <!-- Google AdSense -->
     <meta name="google-adsense-account" content="ca-pub-5825554897787593">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
 
@@ -23,80 +24,17 @@
       gtag('config', 'G-EVCQQZV60N');
     </script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    animation: {
-                        'float': 'float 3s ease-in-out infinite',
-                        'pulse-green': 'pulseGreen 0.5s ease-in-out',
-                        'shake-red': 'shakeRed 0.5s ease-in-out',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        pulseGreen: {
-                            '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(16, 185, 129, 0.7)' },
-                            '50%': { transform: 'scale(1.05)', boxShadow: '0 0 0 10px rgba(16, 185, 129, 0)' },
-                        },
-                        shakeRed: {
-                            '0%, 100%': { transform: 'translateX(0)' },
-                            '25%': { transform: 'translateX(-5px)' },
-                            '75%': { transform: 'translateX(5px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
     <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
+    <!-- CSS Mestre -->
+    <link href="../css/style.css" rel="stylesheet">
+    
+    <!-- Estilo para scroll/touch específico do jogo -->
     <style>
-        body { font-family: 'Inter', sans-serif; overscroll-behavior: none; touch-action: none; }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        .dark .glass-panel {
-            background: rgba(31, 41, 55, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        /* Estilos para o Drag and Drop */
-        .draggable-item {
-            touch-action: none; /* Crucial para mobile */
-            cursor: grab;
-            transition: transform 0.1s;
-            position: absolute;
-            z-index: 50;
-            user-select: none;
-            -webkit-user-select: none;
-        }
-        .draggable-item:active {
-            cursor: grabbing;
-            z-index: 9999 !important; /* Garante que fique acima de tudo */
-        }
-        .drop-zone {
-            transition: all 0.3s ease;
-        }
+        body { overscroll-behavior: none; touch-action: none; }
     </style>
 </head>
 <body class="bg-emerald-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 min-h-screen flex flex-col overflow-hidden fixed w-full h-full">
@@ -167,7 +105,7 @@
                 </div>
             </div>
 
-            <!-- Área Central (Spawn) - REMOVIDO OVERFLOW HIDDEN AQUI -->
+            <!-- Área Central (Spawn) -->
             <div id="game-board" class="flex-1 relative my-4 w-full">
                 <!-- Zona de Spawn onde os alimentos aparecem -->
                 <div id="spawn-zone" class="w-full h-full relative">
@@ -240,7 +178,10 @@
     </main>
 
     <script>
-        lucide.createIcons();
+        // Inicializa ícones Lucide
+        if (window.lucide) {
+            lucide.createIcons();
+        }
 
         // Banco de Dados de Alimentos (100 Itens)
         const foods = [
@@ -358,7 +299,7 @@
                 this.spawnInterval = null;
                 this.timerInterval = null;
                 this.correctCount = 0;
-                this.activeItems = []; // Rastrear itens ativos
+                this.activeItems = []; 
                 
                 this.dom = {
                     ui: document.getElementById('game-ui'),
@@ -421,7 +362,7 @@
                     heart.className = i < this.lives ? 'w-5 h-5 text-red-500 fill-current' : 'w-5 h-5 text-gray-300';
                     this.dom.lives.appendChild(heart);
                 }
-                lucide.createIcons();
+                if(window.lucide) lucide.createIcons();
             }
 
             spawnFood() {
@@ -584,12 +525,14 @@
                     zoneElement.classList.add('animate-pulse-green', 'border-green-500');
                     setTimeout(() => zoneElement.classList.remove('animate-pulse-green', 'border-green-500'), 500);
 
-                    confetti({
-                        particleCount: 30,
-                        spread: 50,
-                        origin: { y: 0.8, x: zoneElement.id === 'zone-healthy' ? 0.25 : 0.75 },
-                        colors: ['#10b981', '#ffffff']
-                    });
+                    if (typeof confetti === 'function') {
+                        confetti({
+                            particleCount: 30,
+                            spread: 50,
+                            origin: { y: 0.8, x: zoneElement.id === 'zone-healthy' ? 0.25 : 0.75 },
+                            colors: ['#10b981', '#ffffff']
+                        });
+                    }
 
                 } else {
                     this.lives--;
@@ -662,6 +605,7 @@
             }
         }, { passive: false });
 
+        // Inicia
         const game = new HealthyGame();
     </script>
 </body>
