@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Diabetes: Guia Completo de Prevenção, Sintomas e Tratamento | Calcule Sua Saúde</title>
+    
+    <!-- Meta Tags SEO Avançadas -->
+    <meta name="description" content="Guia definitivo sobre Diabetes (Tipo 1, Tipo 2 e Gestacional). Entenda os sintomas, valores de referência da glicemia, tratamento e como prevenir complicações.">
+    <meta name="keywords" content="diabetes mellitus, glicemia alta, insulina, resistência à insulina, sintomas diabetes, dieta para diabéticos, hemoglobina glicada">
+    <meta name="author" content="Equipe Calcule Sua Saúde">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Diabetes: Guia Completo de Prevenção e Tratamento">
+    <meta property="og:description" content="Tudo o que você precisa saber para controlar a glicemia e viver com qualidade.">
+    <meta property="og:url" content="https://calculesuasaude.com.br/artigos/diabetes-prevencao-tratamento.html">
+    <meta property="og:image" content="../img/artigos/diabetes.jpg">
+    <meta property="article:published_time" content="2024-02-20">
+    <meta property="article:section" content="Endocrinologia">
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
+     crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Dados Estruturados (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "headline": "Diabetes: Prevenção, Tratamento e Controle da Glicemia",
+      "image": "https://calculesuasaude.com.br/img/artigos/diabetes.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://calculesuasaude.com.br/icon192.png"
+        }
+      },
+      "datePublished": "2024-02-20",
+      "about": { "@type": "MedicalCondition", "name": "Diabetes Mellitus" }
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    typography: (theme) => ({
+                        DEFAULT: {
+                            css: {
+                                color: theme('colors.gray.700'),
+                                h2: { color: theme('colors.gray.900'), fontWeight: '800' },
+                                h3: { color: theme('colors.gray.800'), fontWeight: '700' },
+                                strong: { color: theme('colors.gray.900') },
+                            },
+                        },
+                        dark: {
+                            css: {
+                                color: theme('colors.gray.300'),
+                                h2: { color: theme('colors.white') },
+                                h3: { color: theme('colors.gray.100') },
+                                strong: { color: theme('colors.white') },
+                            },
+                        },
+                    }),
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .prose h2 { margin-top: 2em; margin-bottom: 1em; line-height: 1.3; }
+        .prose h3 { margin-top: 1.5em; margin-bottom: 0.8em; }
+        .prose p { margin-bottom: 1.25em; line-height: 1.75; }
+        .prose ul { list-style-type: disc; padding-left: 1.5em; margin-bottom: 1.25em; }
+        .prose li { margin-bottom: 0.5em; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header Fixo -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                </div>
+                <span class="font-bold text-gray-800 dark:text-white text-lg hidden sm:block">Calcule Sua Saúde</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="../index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="../index.html#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
+                <a href="../artigos.html" class="text-sm font-bold text-brand-600">Artigos</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../artigos.html" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Artigos</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra de Progresso de Leitura -->
+    <div class="fixed top-[60px] left-0 h-1 bg-blue-500 z-40 w-0 transition-all duration-100" id="reading-progress"></div>
+
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            
+            <!-- Breadcrumbs -->
+            <nav class="flex text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <a href="../index.html" class="hover:text-brand-600 transition-colors">Início</a>
+                <span class="mx-2">/</span>
+                <a href="../artigos.html" class="hover:text-brand-600 transition-colors">Artigos</a>
+                <span class="mx-2">/</span>
+                <span class="font-medium text-gray-900 dark:text-white truncate">Diabetes</span>
+            </nav>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Sidebar (Índice) - Desktop -->
+                <aside class="hidden lg:block lg:col-span-3 relative">
+                    <div class="sticky top-32 p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <h4 class="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="list" class="w-4 h-4"></i> Neste artigo
+                        </h4>
+                        <nav class="space-y-2 text-sm border-l-2 border-gray-100 dark:border-gray-700 ml-1">
+                            <a href="#o-que-e" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:border-l-2 hover:border-blue-600 -ml-[2px] transition-all">O que é Diabetes?</a>
+                            <a href="#tipos" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:border-l-2 hover:border-blue-600 -ml-[2px] transition-all">Tipos (1, 2 e Gestacional)</a>
+                            <a href="#sintomas" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:border-l-2 hover:border-blue-600 -ml-[2px] transition-all">Sintomas de Alerta</a>
+                            <a href="#diagnostico" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:border-l-2 hover:border-blue-600 -ml-[2px] transition-all">Diagnóstico e Valores</a>
+                            <a href="#complicacoes" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:border-l-2 hover:border-blue-600 -ml-[2px] transition-all">Complicações</a>
+                            <a href="#tratamento" class="block pl-4 py-1 text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:border-l-2 hover:border-blue-600 -ml-[2px] transition-all">Tratamento e Dieta</a>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Conteúdo do Artigo -->
+                <article class="lg:col-span-9 prose dark:prose-invert max-w-none">
+                    
+                    <!-- Header do Artigo -->
+                    <header class="not-prose mb-10 text-center lg:text-left">
+                        <span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-blue-700 uppercase bg-blue-100 rounded-full dark:bg-blue-900/30 dark:text-blue-400">
+                            Endocrinologia
+                        </span>
+                        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
+                            Diabetes: Guia Completo de Prevenção, Sintomas e Controle
+                        </h1>
+                        
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-800 pb-8">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                                    <i data-lucide="stethoscope" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <span class="block font-bold text-gray-900 dark:text-white">Revisão Clínica</span>
+                                    <span class="text-xs">Baseado nas Diretrizes SBD 2024</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                20 de Fevereiro, 2024
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                                25 min de leitura
+                            </div>
+                        </div>
+                    </header>
+
+                    <!-- Destaque Inicial -->
+                    <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border-l-4 border-blue-500 mb-8 not-prose">
+                        <h3 class="font-bold text-blue-800 dark:text-blue-300 mb-2">Epidemia Silenciosa</h3>
+                        <p class="text-lg text-gray-700 dark:text-gray-300">
+                            O diabetes afeta mais de 460 milhões de pessoas no mundo. No Brasil, estima-se que <strong>50% dos portadores de diabetes tipo 2 não sabem que têm a doença</strong>, pois ela pode se desenvolver silenciosamente por anos.
+                        </p>
+                    </div>
+
+                    <section id="o-que-e">
+                        <h2>O que é Diabetes?</h2>
+                        <p>O Diabetes Mellitus é um grupo de doenças metabólicas caracterizadas por <strong>hiperglicemia</strong> (níveis elevados de açúcar no sangue). Isso acontece por defeitos na secreção de insulina, na sua ação, ou em ambos.</p>
+                        
+                        <div class="not-prose my-6 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                            <h4 class="font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+                                <i data-lucide="key" class="w-5 h-5 text-yellow-500"></i> O Papel da Insulina
+                            </h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                                Imagine a insulina como uma "chave". A glicose (açúcar) que vem dos alimentos precisa entrar nas células para virar energia. A insulina, produzida pelo pâncreas, é a chave que abre a porta das células. Sem ela, o açúcar fica preso no sangue, causando danos aos vasos sanguíneos e órgãos.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section id="tipos">
+                        <h2>Os Tipos de Diabetes</h2>
+                        <p>Embora o resultado final seja o mesmo (açúcar alto no sangue), as causas são muito diferentes:</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose my-8">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl border-t-4 border-blue-500 shadow-sm">
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Tipo 1 (Autoimune)</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                                    O sistema imunológico ataca por engano as células do pâncreas. O corpo para de produzir insulina.
+                                </p>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-center gap-2"><span class="text-blue-500">•</span> Geralmente em crianças/jovens</li>
+                                    <li class="flex items-center gap-2"><span class="text-blue-500">•</span> Início súbito dos sintomas</li>
+                                    <li class="flex items-center gap-2"><span class="text-blue-500">•</span> Dependência total de insulina</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl border-t-4 border-green-500 shadow-sm">
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Tipo 2 (Resistência)</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                                    O corpo ainda produz insulina, mas as células não respondem bem a ela (resistência). Com o tempo, o pâncreas se cansa.
+                                </p>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-center gap-2"><span class="text-green-500">•</span> 90% dos casos</li>
+                                    <li class="flex items-center gap-2"><span class="text-green-500">•</span> Ligado a obesidade e idade</li>
+                                    <li class="flex items-center gap-2"><span class="text-green-500">•</span> Prevenível em muitos casos</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3>Outros Tipos Importantes</h3>
+                        <ul>
+                            <li><strong>Pré-Diabetes:</strong> Um estágio de alerta onde a glicemia está alta, mas ainda não é diabetes. É a janela de oportunidade para reversão.</li>
+                            <li><strong>Diabetes Gestacional:</strong> Ocorre durante a gravidez devido a hormônios que bloqueiam a insulina. Aumenta o risco de diabetes tipo 2 no futuro para mãe e filho.</li>
+                        </ul>
+                    </section>
+
+                    <section id="sintomas">
+                        <h2>Sintomas: Os 4 Ps do Diabetes</h2>
+                        <p>No diabetes tipo 1, os sintomas aparecem rápido. No tipo 2, podem demorar anos. Fique atento aos "4 Ps":</p>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 not-prose my-6">
+                            <div class="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
+                                <div class="text-2xl mb-2">💧</div>
+                                <strong class="block text-gray-900 dark:text-white">Poliúria</strong>
+                                <span class="text-xs text-gray-500">Urina em excesso</span>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
+                                <div class="text-2xl mb-2">🥤</div>
+                                <strong class="block text-gray-900 dark:text-white">Polidipsia</strong>
+                                <span class="text-xs text-gray-500">Sede excessiva</span>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
+                                <div class="text-2xl mb-2">🍔</div>
+                                <strong class="block text-gray-900 dark:text-white">Polifagia</strong>
+                                <span class="text-xs text-gray-500">Fome exagerada</span>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
+                                <div class="text-2xl mb-2">⚖️</div>
+                                <strong class="block text-gray-900 dark:text-white">Perda de Peso</strong>
+                                <span class="text-xs text-gray-500">Inexplicável</span>
+                            </div>
+                        </div>
+                        <p>Outros sintomas incluem: visão embaçada, feridas que demoram a cicatrizar, infecções frequentes (gengiva, pele, urinária) e fadiga extrema.</p>
+                    </section>
+
+                    <section id="diagnostico">
+                        <h2>Diagnóstico e Valores de Referência</h2>
+                        <p>O diagnóstico é feito através de exames de sangue simples. Conheça os valores:</p>
+
+                        <div class="overflow-x-auto not-prose my-6">
+                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <tr>
+                                        <th class="px-6 py-3">Exame</th>
+                                        <th class="px-6 py-3">Normal</th>
+                                        <th class="px-6 py-3 text-yellow-600 dark:text-yellow-400">Pré-Diabetes</th>
+                                        <th class="px-6 py-3 text-red-600 dark:text-red-400">Diabetes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4 font-bold">Glicemia de Jejum</td>
+                                        <td class="px-6 py-4">&lt; 100 mg/dL</td>
+                                        <td class="px-6 py-4 font-medium text-yellow-600 dark:text-yellow-400">100 - 125</td>
+                                        <td class="px-6 py-4 font-bold text-red-600 dark:text-red-400">≥ 126</td>
+                                    </tr>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="px-6 py-4 font-bold">HbA1c (Glicada)</td>
+                                        <td class="px-6 py-4">&lt; 5,7%</td>
+                                        <td class="px-6 py-4 font-medium text-yellow-600 dark:text-yellow-400">5,7 - 6,4%</td>
+                                        <td class="px-6 py-4 font-bold text-red-600 dark:text-red-400">≥ 6,5%</td>
+                                    </tr>
+                                    <tr class="bg-white dark:bg-gray-800">
+                                        <td class="px-6 py-4 font-bold">TOTG (2h após)</td>
+                                        <td class="px-6 py-4">&lt; 140 mg/dL</td>
+                                        <td class="px-6 py-4 font-medium text-yellow-600 dark:text-yellow-400">140 - 199</td>
+                                        <td class="px-6 py-4 font-bold text-red-600 dark:text-red-400">≥ 200</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="my-8 not-prose">
+                            <!-- Card CTA -->
+                            <div class="bg-gradient-to-r from-red-600 to-pink-600 rounded-2xl p-8 text-white text-center relative overflow-hidden">
+                                <div class="absolute top-0 right-0 opacity-10"><i data-lucide="activity" class="w-32 h-32"></i></div>
+                                <h3 class="text-2xl font-bold mb-2 relative z-10">Tem exames recentes?</h3>
+                                <p class="mb-6 opacity-90 relative z-10">Use nossa calculadora inteligente para interpretar seus resultados de glicemia agora mesmo.</p>
+                                <a href="../ferramentas/glicemia.html" class="relative z-10 inline-flex items-center bg-white text-red-600 font-bold py-3 px-6 rounded-full hover:bg-gray-100 transition-colors shadow-lg">
+                                    <i data-lucide="calculator" class="w-5 h-5 mr-2"></i> Interpretar Meus Exames
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="complicacoes">
+                        <h2>Complicações: Por que controlar?</h2>
+                        <p>O açúcar alto no sangue age como um "corrosivo" lento para os vasos sanguíneos e nervos. Com o tempo, isso pode levar a:</p>
+                        <ul>
+                            <li><strong>Retinopatia:</strong> Danos aos olhos, podendo causar cegueira.</li>
+                            <li><strong>Nefropatia:</strong> Danos aos rins, levando à insuficiência renal.</li>
+                            <li><strong>Neuropatia:</strong> Danos aos nervos, causando dor, formigamento e perda de sensibilidade (pé diabético).</li>
+                            <li><strong>Doenças Cardiovasculares:</strong> Infarto e AVC são as principais causas de morte em diabéticos.</li>
+                        </ul>
+                    </section>
+
+                    <section id="tratamento">
+                        <h2>Tratamento e Estilo de Vida</h2>
+                        <p>O tratamento do diabetes repousa sobre três pilares: Medicação, Alimentação e Exercício.</p>
+
+                        <h3>1. Alimentação (Contagem de Carboidratos)</h3>
+                        <p>Diabéticos não precisam cortar carboidratos totalmente, mas devem controlá-los. O foco deve ser em carboidratos complexos (baixo índice glicêmico) e ricos em fibras.</p>
+                        <p>
+                            <a href="../ferramentas/macros.html" class="text-blue-600 font-bold hover:underline">Calcule seus macronutrientes ideais aqui.</a>
+                        </p>
+
+                        <h3>2. Atividade Física</h3>
+                        <p>O músculo em movimento consome glicose sem precisar de tanta insulina. O exercício regular é um dos "remédios" mais potentes para baixar a glicemia.</p>
+                        
+                        <h3>3. Monitoramento</h3>
+                        <p>Saber como seu corpo reage aos alimentos é crucial. O automonitoramento com glicosímetros ajuda a tomar decisões diárias sobre dieta e insulina.</p>
+                    </section>
+
+                    <div class="not-prose mt-12 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Referências Bibliográficas</h3>
+                        <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                            <li>1. Sociedade Brasileira de Diabetes (SBD). <em>Diretrizes da Sociedade Brasileira de Diabetes 2023-2024</em>.</li>
+                            <li>2. American Diabetes Association (ADA). <em>Standards of Medical Care in Diabetes—2023</em>.</li>
+                            <li>3. International Diabetes Federation (IDF). <em>Diabetes Atlas 10th edition</em>. 2021.</li>
+                        </ul>
+                    </div>
+
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
+                    </h3>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html" class="hover:text-brand-400 transition-colors">Início</a></li>
+                        <li><a href="../sobre.html" class="hover:text-brand-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="../contato.html" class="hover:text-brand-400 transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../politica.html" class="hover:text-brand-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="../termos.html" class="hover:text-brand-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../ferramentas/glicemia.html" class="hover:text-brand-400 transition-colors">Calculadora de Glicemia</a></li>
+                        <li><a href="../ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="../ferramentas/calorias.html" class="hover:text-brand-400 transition-colors">Gasto Calórico</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Logic -->
+    <script>
+        // Inicializa ícones
+        lucide.createIcons();
+
+        // Barra de Progresso de Leitura
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("reading-progress").style.width = scrolled + "%";
+        };
+
+        // Dark Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        // Mobile Menu
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
