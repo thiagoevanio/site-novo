@@ -110,8 +110,8 @@
         </h1>
       </a>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-8">
+      <!-- Desktop Nav (Adicionada classe navbar-desktop) -->
+      <nav class="navbar-desktop hidden md:flex items-center gap-8">
         <a href="#inicio" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
         <a href="#ferramentas" class="text-sm font-medium hover:text-brand-600 transition-colors">Calculadoras</a>
         <a href="artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Biblioteca</a>
@@ -129,15 +129,15 @@
         </button>
       </nav>
 
-      <!-- Mobile Button -->
-      <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300" aria-label="Menu">
+      <!-- Mobile Button (Adicionada classe menu-toggle-mobile) -->
+      <button id="mobile-menu-btn" class="menu-toggle-mobile md:hidden p-2 text-gray-600 dark:text-gray-300" aria-label="Menu">
         <i data-lucide="menu" class="w-6 h-6"></i>
       </button>
     </div>
 
-    <!-- Mobile Menu -->
+    <!-- Mobile Menu (Adicionada classe menu-mobile-panel) -->
     <div id="mobile-menu"
-      class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[64px] z-40 shadow-lg">
+      class="menu-mobile-panel hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[64px] z-40 shadow-lg">
       <div class="flex flex-col p-4 space-y-3">
         <a href="#inicio" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Início</a>
         <a href="personal.html"
@@ -154,15 +154,16 @@
   </header>
 
   <!-- ============================================== -->
-  <!-- HERO SECTION -->
+  <!-- HERO SECTION (Adicionada classe hero-section) -->
   <!-- ============================================== -->
-  <section id="inicio" class="pt-36 pb-24 animated-gradient relative overflow-hidden">
+  <section id="inicio" class="hero-section pt-36 pb-24 animated-gradient relative overflow-hidden">
     <!-- Background Pattern -->
     <div
       class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-30">
     </div>
 
-    <div class="container mx-auto px-4 relative z-10">
+    <!-- Main Container (Adicionada classe main-container) -->
+    <div class="main-container container mx-auto px-4 relative z-10">
       <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
         <!-- Texto Hero -->
