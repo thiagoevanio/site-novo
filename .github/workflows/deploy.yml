@@ -5,7 +5,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main # <-- NOME CORRETO
+      - main
     paths:
       - 'src/**'
 
@@ -29,11 +29,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # --- CORREÇÃO APLICADA AQUI ---
+      # Removida a linha "cache: 'npm'" para evitar o erro de lock file
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+      # --- FIM DA CORREÇÃO ---
 
       - name: Install dependencies
         run: npm install
