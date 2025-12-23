@@ -43,40 +43,6 @@ body {
   color: #ea580c; /* orange-600 */
 }
 
-/* ============================================== */
-/* CORREÇÃO: Fundo da Página no Modo Escuro       */
-/* ============================================== */
-
-/* Seção de artigos - fundo escuro */
-#artigos {
-  background-color: #f9fafb; /* gray-50 no modo claro */
-}
-
-.dark #artigos {
-  background-color: #111827; /* gray-900 no modo escuro */
-}
-
-/* Garantir que todas as seções sem classe dark tenham fundo escuro */
-.dark section:not(.animated-gradient) {
-  background-color: #111827; /* gray-900 */
-}
-
-/* Seções com bg-gray-50 no modo escuro */
-.dark .bg-gray-50 {
-  background-color: #1f2937 !important; /* gray-800 */
-}
-
-/* Seções com bg-white no modo escuro */
-.dark .bg-white {
-  background-color: #111827 !important; /* gray-900 */
-}
-
-/* Container principal - garantir fundo escuro */
-.dark main,
-.dark .container {
-  background-color: transparent;
-}
-
 .animated-gradient {
   background: linear-gradient(-45deg, #2563eb, #0ea5e9, #3b82f6, #4f46e5);
   background-size: 400% 400%;
