@@ -23,76 +23,13 @@
       gtag('config', 'G-EVCQQZV60N');
     </script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
-                        },
-                        calories: {
-                            primary: '#f97316', // Laranja
-                            secondary: '#fbbf24', // Amarelo
-                            accent: '#ea580c', // Laranja Escuro
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    animation: {
-                        'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
-                        'pop': 'pop 0.3s ease-out forwards',
-                        'fade-in': 'fadeIn 0.5s ease-out forwards',
-                    },
-                    keyframes: {
-                        shake: {
-                            '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
-                            '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
-                            '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
-                            '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
-                        },
-                        pop: {
-                            '0%': { transform: 'scale(0.8)', opacity: '0' },
-                            '100%': { transform: 'scale(1)', opacity: '1' }
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(10px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
     <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        .dark .glass-panel {
-            background: rgba(31, 41, 55, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .food-emoji {
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
-            transition: transform 0.3s ease;
-        }
-        .food-emoji:hover {
-            transform: scale(1.1) rotate(5deg);
-        }
-    </style>
+    <!-- CSS Mestre -->
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 <body class="bg-orange-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 min-h-screen flex flex-col">
 
@@ -107,8 +44,15 @@
                     Calcule Sua <span class="text-orange-500">Saúde</span>
                 </h1>
             </a>
-            <a href="../jogos.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-orange-500 transition-colors flex items-center gap-1">
+            
+            <!-- Link Desktop -->
+            <a href="../jogos.html" class="navbar-desktop text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-orange-500 transition-colors flex items-center gap-1">
                 <i data-lucide="gamepad-2" class="w-4 h-4"></i> Voltar aos Jogos
+            </a>
+            
+             <!-- Mobile Button (para consistência, embora este header seja mais simples) -->
+             <a href="../jogos.html" class="md:hidden p-2 text-gray-600 dark:text-gray-300 hover:text-orange-500">
+                <i data-lucide="corner-up-left" class="w-6 h-6"></i>
             </a>
         </div>
     </header>
@@ -243,7 +187,10 @@
     </main>
 
     <script>
-        lucide.createIcons();
+        // Inicializa ícones Lucide
+        if(window.lucide) {
+           lucide.createIcons();
+        }
 
         // Banco de Dados de Alimentos (Expandido e Categorizado)
         const foodDatabase = [
@@ -339,7 +286,7 @@
                         : 'w-6 h-6 text-gray-300 dark:text-gray-600';
                     this.dom.livesContainer.appendChild(heart);
                 }
-                lucide.createIcons();
+                if(window.lucide) lucide.createIcons();
 
                 // Barra de progresso
                 const progress = ((this.state.currentQuestionIndex) / 10) * 100;
@@ -443,7 +390,7 @@
                 this.dom.feedbackArea.className = `block rounded-xl p-4 mb-4 border ${feedbackClass} animate-fade-in`;
                 
                 // Re-inicializa ícones no HTML injetado
-                lucide.createIcons();
+                if(window.lucide) lucide.createIcons();
 
                 // Mostra botão próximo
                 this.dom.nextBtnContainer.classList.remove('hidden');
@@ -458,12 +405,14 @@
                 this.state.streak++;
                 
                 // Confetti Effect
-                confetti({
-                    particleCount: 100,
-                    spread: 70,
-                    origin: { y: 0.6 },
-                    colors: ['#22c55e', '#fbbf24']
-                });
+                if (typeof confetti === 'function') {
+                    confetti({
+                        particleCount: 100,
+                        spread: 70,
+                        origin: { y: 0.6 },
+                        colors: ['#22c55e', '#fbbf24']
+                    });
+                }
             }
 
             handleWrong(correct) {
@@ -508,7 +457,9 @@
                     this.state.highScore = finalScore;
                     localStorage.setItem('calorieGameHighScore', finalScore);
                     this.updateHighScoreDisplay();
-                    confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
+                    if (typeof confetti === 'function') {
+                        confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
+                    }
                 }
             }
 
