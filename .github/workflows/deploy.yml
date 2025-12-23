@@ -2,7 +2,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main # Ou a branch principal do seu projeto
+      - main # Ou a branch principal do seu projetoo
 
 jobs:
   build-and-deploy:
