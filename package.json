@@ -1,0 +1,11 @@
+{
+  "name": "calcule-sua-saude-site",
+  "version": "1.0.0",
+  "description": "Website do Calcule Sua Saúde",
+  "scripts": {
+    "build": "tailwindcss -i ./src/css/style.css -o ./docs/css/style.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}
