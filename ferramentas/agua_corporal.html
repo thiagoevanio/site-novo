@@ -11,14 +11,14 @@
     <meta name="keywords" content="calculadora de água corporal, percentual de água corpo humano, fórmula de watson, hidratação celular, tabela água corpo idade, composição corporal">
     <meta name="author" content="Calcule Sua Saúde">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://seusite.com.br/calculadoras/agua_corporal.html">
+    <link rel="canonical" href="https://calculesuasaude.com.br/ferramentas/agua_corporal.html">
 
     <!-- === OPEN GRAPH / SOCIAL === -->
     <meta property="og:title" content="Calculadora de Água Corporal - Você está retendo líquidos ou desidratado?">
     <meta property="og:description" content="A balança não diz tudo. Descubra quanto do seu peso é realmente água com nossa calculadora científica.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://seusite.com.br/calculadoras/agua_corporal.html">
-    <meta property="og:image" content="https://seusite.com.br/assets/og-agua-corporal.jpg">
+    <meta property="og:url" content="https://calculesuasaude.com.br/ferramentas/agua_corporal.html">
+    <meta property="og:image" content="../img/icon192.webp">
     <meta property="og:locale" content="pt_BR">
 
     <!-- === DADOS ESTRUTURADOS (SCHEMA.ORG) === -->
@@ -27,7 +27,7 @@
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Calculadora de Água Corporal Total",
-      "url": "https://seusite.com.br/calculadoras/agua_corporal.html",
+      "url": "https://calculesuasaude.com.br/ferramentas/agua_corporal.html",
       "description": "Ferramenta científica para estimar o volume e percentual de água total no corpo (TBW).",
       "applicationCategory": "HealthApplication",
       "operatingSystem": "All",
@@ -52,61 +52,12 @@
       gtag('config', 'G-EVCQQZV60N');
     </script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        portal: { red: '#c4170c', dark: '#1e1e1e', gray: '#f5f5f5' },
-                        brand: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a' },
-                        water: { 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7' }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Merriweather', 'serif'],
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-in-out',
-                        'slide-up': 'slideUp 0.3s ease-out',
-                        'fill-bar': 'fillBar 1.5s ease-out forwards',
-                    },
-                    keyframes: {
-                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
-                        slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
-                        fillBar: { '0%': { width: '0%' }, '100%': { width: 'var(--target-width)' } }
-                    }
-                }
-            }
-        }
-    </script>
-
     <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass-effect { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
-        .dark .glass-effect { background: rgba(17, 24, 39, 0.95); }
-        .typing-dot { animation: typing 1.4s infinite ease-in-out both; }
-        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
-        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
-        @keyframes typing { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        /* Estilos Rich Content */
-        .rich-content h2 { margin-top: 2.5rem; color: #0284c7; }
-        .dark .rich-content h2 { color: #7dd3fc; }
-        .rich-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
-        .rich-content th { background-color: #f0f9ff; text-align: left; padding: 12px; border-bottom: 2px solid #bae6fd; }
-        .dark .rich-content th { background-color: #0c4a6e; border-bottom: 2px solid #075985; color: white; }
-        .rich-content td { padding: 12px; border-bottom: 1px solid #e0f2fe; }
-        .dark .rich-content td { border-bottom: 1px solid #1e293b; }
-    </style>
+    <!-- CSS Mestre -->
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
@@ -115,36 +66,40 @@
     <header class="fixed w-full top-0 z-40 glass-effect shadow-sm transition-all duration-300 border-b dark:border-gray-800">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="../index.html" class="flex items-center gap-2 group" title="Voltar para a página inicial">
-                <div class="bg-water-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform shadow-lg shadow-water-500/30">
-                    <i data-lucide="droplet" class="w-6 h-6"></i>
+                <div class="bg-brand-600 text-white p-2 rounded-lg group-hover:rotate-3 transition-transform shadow-lg shadow-brand-500/30">
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
                 </div>
                 <h1 class="text-xl font-bold text-gray-800 dark:text-white tracking-tight">
-                    Calcule Sua <span class="text-water-600">Saúde</span>
+                    Calcule Sua <span class="text-brand-600">Saúde</span>
                 </h1>
             </a>
 
-            <nav class="hidden md:flex items-center gap-8">
-                <a href="../index.html" class="text-sm font-medium hover:text-water-600 transition-colors">Início</a>
-                <a href="../calculadoras.html" class="text-sm font-bold text-water-600">Calculadoras</a>
-                <a href="../artigos.html" class="text-sm font-medium hover:text-water-600 transition-colors">Artigos</a>
-                <a href="../sobre.html" class="text-sm font-medium hover:text-water-600 transition-colors">Sobre</a>
+            <!-- Menu Desktop -->
+            <nav class="navbar-desktop hidden md:flex items-center gap-8" aria-label="Menu Principal">
+                <a href="../index.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Início</a>
+                <a href="../index.html#ferramentas" class="text-sm font-bold text-brand-600">Calculadoras</a>
+                <a href="../jogos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Jogos</a>
+                <a href="../artigos.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Artigos</a>
+                <a href="../sobre.html" class="text-sm font-medium hover:text-brand-600 transition-colors">Sobre</a>
                 
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Alternar tema">
                     <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
                     <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
                 </button>
             </nav>
 
-            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+            <!-- Menu Mobile Button -->
+            <button id="mobile-menu-btn" class="menu-toggle-mobile md:hidden p-2 text-gray-600 dark:text-gray-300" aria-label="Abrir menu">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
+        <div id="mobile-menu" class="menu-mobile-panel hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700 fixed w-full top-[60px] z-40 shadow-lg">
             <div class="flex flex-col p-4 space-y-4">
                 <a href="../index.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Início</a>
-                <a href="../calculadoras.html" class="block py-2 text-center font-bold text-water-600 bg-water-50 dark:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../index.html#ferramentas" class="block py-2 text-center font-bold text-brand-600 bg-brand-50 dark:bg-gray-700 rounded">Calculadoras</a>
+                <a href="../jogos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Jogos</a>
                 <a href="../artigos.html" class="block py-2 text-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Artigos</a>
             </div>
         </div>
@@ -155,17 +110,17 @@
         <div class="container mx-auto px-4">
             
             <!-- Breadcrumbs -->
-            <nav class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
-                <a href="../index.html" class="hover:text-water-600">Início</a>
+            <nav class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8" aria-label="Breadcrumb">
+                <a href="../index.html" class="hover:text-brand-600 transition-colors">Início</a>
                 <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <a href="../calculadoras.html" class="hover:text-water-600">Ferramentas</a>
+                <a href="../index.html#ferramentas" class="hover:text-brand-600 transition-colors">Ferramentas</a>
                 <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <span class="text-gray-900 dark:text-white font-medium">Água Corporal</span>
+                <span class="text-gray-900 dark:text-white font-medium" aria-current="page">Água Corporal</span>
             </nav>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                 
-                <!-- Coluna Esquerda: Calculadora e Artigo -->
+                <!-- Coluna Esquerda: Calculadora e Artigo Rico -->
                 <div class="lg:col-span-8 space-y-12">
                     
                     <!-- Intro -->
@@ -420,12 +375,18 @@
                                     <span class="font-medium text-sm text-gray-700 dark:text-gray-300">Percentual de Gordura</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="macros.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors group">
+                                    <div class="bg-green-100 text-green-600 p-2 rounded group-hover:bg-green-600 group-hover:text-white transition-colors"><i data-lucide="utensils" class="w-4 h-4"></i></div>
+                                    <span class="font-medium text-sm text-gray-700 dark:text-gray-300">Calculadora de Macros</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
                     <!-- Banner Personal -->
                     <div class="relative rounded-xl overflow-hidden bg-gray-900 text-white p-6 text-center group shadow-xl">
-                        <img src="../personal.jpg" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-30 group-hover:scale-110 transition-all duration-700" onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=500&q=60'" alt="Treino Personalizado">
+                        <img src="../img/personal.webp" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-30 group-hover:scale-110 transition-all duration-700" onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=500&q=60'" alt="Treino Personalizado">
                         <div class="relative z-10">
                             <span class="text-orange-400 font-bold text-xs uppercase tracking-widest bg-black/50 px-2 py-1 rounded">Avaliação Física</span>
                             <h3 class="text-xl font-bold mb-4 mt-3 leading-tight">Quer medir sua bioimpedância real?</h3>
@@ -443,9 +404,9 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div class="col-span-1 md:col-span-1">
                     <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
-                        <i data-lucide="heart-pulse" class="w-5 h-5 text-water-500"></i> Calcule Sua Saúde
+                        <i data-lucide="heart-pulse" class="w-5 h-5 text-brand-500"></i> Calcule Sua Saúde
                     </h3>
-                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas e tecnologia avançada.</p>
+                    <p class="text-sm text-gray-400">Ferramentas gratuitas para cuidar da sua saúde com base em evidências científicas.</p>
                 </div>
                 
                 <div>
@@ -464,13 +425,14 @@
                         <li><a href="../termos.html" class="hover:text-water-400 transition-colors">Termos de Uso</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Redes Sociais</h4>
-                    <div class="flex gap-4">
-                        <a href="#" class="hover:text-white transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                        <a href="#" class="hover:text-white transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-                    </div>
+                    <h4 class="text-white font-semibold mb-4">Principais Ferramentas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="ferramentas/imc.html" class="hover:text-brand-400 transition-colors">Calculadora IMC</a></li>
+                        <li><a href="ferramentas/tmb.html" class="hover:text-brand-400 transition-colors">Taxa Metabólica</a></li>
+                        <li><a href="ferramentas/agua.html" class="hover:text-brand-400 transition-colors">Água Diária</a></li>
+                    </ul>
                 </div>
             </div>
             
@@ -480,60 +442,39 @@
         </div>
     </footer>
 
-    <!-- WIDGET DO DICABOT -->
-    <div id="dicabot-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
-        <!-- Janela do Chat -->
-        <div id="dicabot-window" class="hidden bg-white dark:bg-gray-800 w-[350px] max-w-[90vw] h-[500px] max-h-[80vh] rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 flex flex-col mb-4 overflow-hidden animate-slide-up ring-1 ring-black/5">
-            <div class="bg-gradient-to-r from-green-600 to-emerald-600 p-4 flex justify-between items-center text-white shadow-md">
-                <div class="flex items-center gap-3">
-                    <div class="bg-white/20 p-1.5 rounded-lg backdrop-blur-sm"><i data-lucide="leaf" class="w-5 h-5 text-white"></i></div>
-                    <div><h3 class="font-bold text-sm">DicaBot</h3><p class="text-[10px] text-green-100 opacity-90">Receitas • Saúde • Casa</p></div>
-                </div>
-                <button onclick="toggleDicaBot()" class="p-1 hover:bg-white/10 rounded-full transition-colors"><i data-lucide="x" class="w-5 h-5"></i></button>
-            </div>
-            <div id="dicabot-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 dark:bg-gray-900/50 scroll-smooth">
-                <div class="flex justify-start w-full">
-                    <div class="flex max-w-[85%] gap-2">
-                        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center border border-green-200 dark:border-green-700"><i data-lucide="sparkles" class="w-4 h-4 text-green-600 dark:text-green-400"></i></div>
-                        <div class="bg-white dark:bg-gray-800 p-3 rounded-2xl rounded-tl-none border border-gray-200 dark:border-gray-700 text-sm shadow-sm"><p>Olá! Tenho dicas sobre retenção de líquidos e chás diuréticos. Quer saber?</p></div>
-                    </div>
-                </div>
-            </div>
-            <div class="p-3 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
-                <div class="relative flex items-center">
-                    <input type="text" id="dicabot-input" placeholder="Digite sua dúvida..." class="w-full pl-4 pr-10 py-3 bg-gray-100 dark:bg-gray-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500/50 transition-all text-gray-800 dark:text-white" onkeypress="handleChatKeyPress(event)">
-                    <button onclick="sendMessage()" class="absolute right-2 p-1.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-sm"><i data-lucide="send" class="w-4 h-4"></i></button>
-                </div>
-            </div>
-        </div>
-        <!-- Botão Flutuante -->
-        <button id="dicabot-fab" onclick="toggleDicaBot()" class="w-14 h-14 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-lg hover:shadow-green-500/30 transition-all transform hover:scale-105 flex items-center justify-center relative group z-50">
-            <i data-lucide="leaf" class="w-7 h-7"></i>
-            <span class="absolute right-16 bg-gray-900 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-md">Dicas</span>
-        </button>
-    </div>
-
     <!-- Scripts Logic -->
     <script>
-        // Inicializa ícones
-        lucide.createIcons();
+        // Inicializa ícones Lucide
+        if (window.lucide) {
+            lucide.createIcons();
+        }
 
-        // 1. Dark Mode
+        // Lógica do Dark Mode e Mobile Menu
         const themeToggleBtn = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
+
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             htmlElement.classList.add('dark');
         } else {
             htmlElement.classList.remove('dark');
         }
+
         themeToggleBtn.addEventListener('click', () => {
             htmlElement.classList.toggle('dark');
-            localStorage.theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
         });
 
         // Mobile Menu
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+            menuMobile.classList.toggle('active');
         });
 
         // 2. Lógica da Calculadora de Água Corporal (Fórmula de Watson)
@@ -556,23 +497,22 @@
                 // TBW = 2.447 - (0.09156 x age) + (0.1074 x height) + (0.3362 x weight)
                 tbw = 2.447 - (0.09156 * idade) + (0.1074 * alturaCm) + (0.3362 * peso);
             } else {
-                // Watson para mulheres (Muitas vezes citado sem idade, mas algumas variações usam Hume se idade for crítica. Vamos usar Watson padrão)
+                // Watson para mulheres
                 // TBW = -2.097 + (0.1069 x height) + (0.2466 x weight)
                 tbw = -2.097 + (0.1069 * alturaCm) + (0.2466 * peso);
             }
 
-            // Ajuste fino baseado no perfil (Watson é para "normal", atletas têm mais água, obesos menos)
-            // Isso é um ajuste heurístico para tornar a ferramenta mais útil, já que a fórmula base assume composição média.
+            // Ajuste fino baseado no perfil
             if (perfil === 'atleta') {
                 tbw *= 1.05; // +5%
             } else if (perfil === 'sobrepeso') {
-                tbw *= 0.95; // -5% (Tecido adiposo tem pouca água)
+                tbw *= 0.95; // -5%
             }
 
             // Cálculo da Porcentagem
             let percentual = (tbw / peso) * 100;
             
-            // Limites de segurança (biofisicamente impossível ser <35% ou >85% vivo e saudável geralmente)
+            // Limites de segurança
             if(percentual > 80) percentual = 80;
             if(percentual < 35) percentual = 35;
 
@@ -580,7 +520,7 @@
             document.getElementById('res-litros').textContent = tbw.toFixed(1).replace('.', ',') + " Litros";
             document.getElementById('res-percentual').textContent = percentual.toFixed(1).replace('.', ',') + "%";
             
-            // Atualizar Gráfico (Stroke Dasharray 440 = 100%)
+            // Atualizar Gráfico
             const circle = document.getElementById('progress-ring');
             const radius = circle.r.baseVal.value;
             const circumference = radius * 2 * Math.PI;
@@ -594,7 +534,7 @@
             let min, max;
             if (sexo === 'masculino') {
                 min = 50; max = 65;
-                if (idade > 55) { min = 45; max = 60; } // Sarcopenia adjustment
+                if (idade > 55) { min = 45; max = 60; }
             } else {
                 min = 45; max = 60;
                 if (idade > 55) { min = 40; max = 55; }
@@ -605,7 +545,6 @@
 
             if (percentual < min) {
                 statusBox.classList.add('bg-yellow-50', 'border-yellow-500', 'dark:bg-yellow-900/20');
-                statusBox.classList.remove('bg-green-50', 'border-green-500', 'bg-blue-50', 'border-blue-500');
                 interpretacaoTxt.innerHTML = `<strong>Abaixo do ideal.</strong><br>Você pode estar com baixa hidratação ou massa muscular reduzida. Tente beber mais água.`;
             } else if (percentual > max) {
                 statusBox.classList.add('bg-blue-50', 'border-blue-500', 'dark:bg-blue-900/20');
@@ -618,67 +557,6 @@
             document.getElementById('resultado-container').classList.remove('hidden');
             document.getElementById('resultado-container').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         });
-
-        // 3. Chatbot Logic (Simplified)
-        const GEMINI_API_KEY = "AIzaSyCRLcTu7Mw5z-PxmVYtMkMktwE_QOJxZoU";
-        let chatHistory = [];
-
-        function toggleDicaBot() {
-            const w = document.getElementById('dicabot-window');
-            w.classList.toggle('hidden');
-            if(!w.classList.contains('hidden')) document.getElementById('dicabot-input').focus();
-        }
-
-        function handleChatKeyPress(e) { if(e.key === 'Enter') sendMessage(); }
-
-        async function sendMessage() {
-            const input = document.getElementById('dicabot-input');
-            const text = input.value.trim();
-            if(!text) return;
-            
-            appendMessage('user', text);
-            input.value = '';
-            
-            try {
-                // Simulação de resposta rápida para demo (Evitar chamada API complexa neste exemplo estático)
-                // Se desejar a API real, basta descomentar o fetch igual ao arquivo anterior.
-                // Para consistência com o pedido "faça a mesma coisa", vou manter a estrutura da API.
-                
-                const response = await fetch(
-                    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${GEMINI_API_KEY}`,
-                    {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            contents: [{ role: 'user', parts: [{ text: "Responda curto sobre saúde/água: " + text }] }]
-                        })
-                    }
-                );
-                const data = await response.json();
-                const botText = data.candidates?.[0]?.content?.parts?.[0]?.text || "Desculpe, tente novamente.";
-                appendMessage('model', botText);
-
-            } catch (e) {
-                appendMessage('model', "Erro ao conectar. Tente mais tarde.");
-            }
-        }
-
-        function appendMessage(role, text) {
-            const div = document.createElement('div');
-            div.className = `flex w-full ${role === 'user' ? 'justify-end' : 'justify-start'}`;
-            div.innerHTML = `
-                <div class="flex max-w-[85%] gap-2 ${role === 'user' ? 'flex-row-reverse' : 'flex-row'}">
-                    <div class="w-8 h-8 rounded-full ${role === 'user' ? 'bg-gray-700' : 'bg-green-100 dark:bg-green-900'} flex items-center justify-center">
-                        <i data-lucide="${role === 'user' ? 'user' : 'sparkles'}" class="w-4 h-4 ${role === 'user' ? 'text-white' : 'text-green-600'}"></i>
-                    </div>
-                    <div class="${role === 'user' ? 'bg-green-600 text-white' : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700'} p-3 rounded-2xl text-sm shadow-sm">
-                        ${text}
-                    </div>
-                </div>`;
-            document.getElementById('dicabot-messages').appendChild(div);
-            lucide.createIcons();
-            document.getElementById('dicabot-messages').scrollTop = 9999;
-        }
     </script>
 </body>
 </html>
