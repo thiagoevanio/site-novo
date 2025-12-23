@@ -2,7 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom CSS extraído do index.html */
+/* ============================================== */
+/* ESTILOS CUSTOMIZADOS (Extraídos do HTML)       */
+/* ============================================== */
+
 body {
   font-family: 'Inter', sans-serif;
 }
